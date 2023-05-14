@@ -53,7 +53,7 @@
 	var/gag_size = "small"
 
 // To update the sprite
-/obj/item/clothing/mask/ballgag/ComponentInitialize()
+/obj/item/clothing/mask/ballgag/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 
@@ -95,9 +95,8 @@
 			set_greyscale(new_config = /datum/greyscale_config/ballgag/choking_large)
 
 // Start processing choking on equip
-/obj/item/clothing/mask/ballgag/choking/equipped(mob/user, slot)
-	var/mob/living/carbon/human/human_user = user
-	if(!(src == human_user.wear_mask && human_user.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy)))
+/obj/item/clothing/mask/ballgag/choking/equipped(mob/living/carbon/human/user, slot)
+	if(!(src == user.wear_mask && user.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy)))
 		return ..()
 	if(!chokes_wearer)
 		return ..()
@@ -112,13 +111,15 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/clothing/mask/ballgag/choking/process(delta_time)
+/obj/item/clothing/mask/ballgag/choking/process(seconds_per_tick)
 	var/mob/living/carbon/human/wearer = loc
+	if(!istype(wearer))
+		return
 	if(!(wearer.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy)))
 		return
 	if(!chokes_wearer)
 		return
-	choke_timer += delta_time
+	choke_timer += seconds_per_tick
 	if(choke_timer < choke_interval)
 		return
 	switch(gag_size)
@@ -129,5 +130,5 @@
 		if("large")
 			wearer.adjustOxyLoss(rand(1, 4))
 	if(prob(10))
-		wearer.emote(pick("gasp","choke","moan"))
+		wearer.try_lewd_autoemote(pick("gasp", "choke", "moan"))
 	choke_timer = 0

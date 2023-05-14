@@ -9,9 +9,8 @@
 /area/ruin/syndicate_lava_base/testlab)
 "be" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/south{
-	req_access_txt = "150"
-	},
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "bs" = (
@@ -19,7 +18,7 @@
 	id = "lavalandsyndi_mistake";
 	name = "Chemistry Blast Door Control";
 	pixel_y = 26;
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/stripes/line{
@@ -28,9 +27,7 @@
 /turf/open/floor/engine,
 /area/ruin/syndicate_lava_base/testlab)
 "dO" = (
-/obj/structure/sign/warning/explosives/alt{
-	pixel_x = -32
-	},
+/obj/structure/sign/warning/explosives/alt/directional/west,
 /obj/machinery/atmospherics/components/tank/nitrogen{
 	dir = 4;
 	initialize_directions = 4
@@ -51,9 +48,9 @@
 /area/ruin/syndicate_lava_base/testlab)
 "eq" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Supermatter";
-	req_access_txt = "150"
+	name = "Supermatter"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "eZ" = (
@@ -62,10 +59,15 @@
 /obj/item/pen,
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
+"fY" = (
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ruin/syndicate_lava_base/testlab)
 "gJ" = (
 /obj/structure/table/reinforced,
 /obj/item/paper/crumpled{
-	info = "Explosive testing on site is STRICTLY forbidden, as this outpost's walls are lined with explosives intended for intentional self-destruct purposes that may be set off prematurely through careless experiments.";
+	default_raw_text = "Explosive testing on site is STRICTLY forbidden, as this outpost's walls are lined with explosives intended for intentional self-destruct purposes that may be set off prematurely through careless experiments.";
 	name = "Explosives Testing Warning";
 	pixel_x = -6;
 	pixel_y = 5
@@ -83,9 +85,6 @@
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "gX" = (
-/obj/machinery/airalarm/directional/north{
-	req_access = list(150)
-	},
 /obj/item/stock_parts/matter_bin/bluespace,
 /obj/item/stock_parts/matter_bin/bluespace,
 /obj/item/stock_parts/matter_bin/bluespace,
@@ -98,13 +97,15 @@
 /obj/item/stock_parts/micro_laser/quadultra,
 /obj/item/stock_parts/micro_laser/quadultra,
 /obj/item/stock_parts/micro_laser/quadultra,
-/obj/item/stock_parts/manipulator/femto,
-/obj/item/stock_parts/manipulator/femto,
-/obj/item/stock_parts/manipulator/femto,
-/obj/item/stock_parts/manipulator/femto,
-/obj/item/stock_parts/manipulator/femto,
-/obj/item/stock_parts/manipulator/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
 /obj/structure/rack,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "hJ" = (
@@ -119,9 +120,7 @@
 /turf/open/floor/plating,
 /area/ruin/syndicate_lava_base/testlab)
 "iQ" = (
-/obj/structure/sign/warning/explosives/alt{
-	pixel_y = -32
-	},
+/obj/structure/sign/warning/explosives/alt/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/engine,
 /area/ruin/syndicate_lava_base/testlab)
@@ -158,29 +157,34 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/door/airlock/hatch{
-	name = "Experimentation Lab";
-	req_access_txt = "150"
+	name = "Experimentation Lab"
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/modular_map_connector,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
+/area/ruin/syndicate_lava_base/testlab)
+"oo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
+/obj/structure/cable,
+/turf/open/floor/engine,
 /area/ruin/syndicate_lava_base/testlab)
 "oV" = (
 /obj/structure/window/reinforced/plasma/spawner,
-/obj/structure/window/reinforced/plasma/spawner/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
+/turf/open/floor/engine,
+/area/ruin/syndicate_lava_base/testlab)
+"qY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/ruin/syndicate_lava_base/testlab)
 "rT" = (
@@ -200,24 +204,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/syndicate_lava_base/testlab)
-"sF" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/ruin/syndicate_lava_base/testlab)
 "uG" = (
 /obj/item/storage/toolbox/syndicate,
 /obj/item/pipe_dispenser,
 /obj/item/rpd_upgrade/unwrench,
 /obj/structure/rack,
 /turf/open/floor/iron/dark,
-/area/ruin/syndicate_lava_base/testlab)
-"uP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
-/obj/structure/cable,
-/turf/open/floor/engine,
 /area/ruin/syndicate_lava_base/testlab)
 "uT" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
@@ -269,18 +261,10 @@
 /area/ruin/syndicate_lava_base/testlab)
 "Ce" = (
 /obj/structure/window/reinforced/plasma/spawner,
-/obj/structure/window/reinforced/plasma/spawner/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/open/floor/engine,
-/area/ruin/syndicate_lava_base/testlab)
-"EA" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/ruin/syndicate_lava_base/testlab)
 "EC" = (
@@ -297,9 +281,8 @@
 /area/ruin/syndicate_lava_base/testlab)
 "HC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/airalarm/directional/south{
-	req_access = list(150)
-	},
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "It" = (
@@ -325,8 +308,7 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
-"OL" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+"Rn" = (
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/ruin/syndicate_lava_base/testlab)
@@ -356,7 +338,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "XS" = (
-/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on{
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
 	dir = 1
 	},
 /turf/open/floor/engine,
@@ -445,9 +427,9 @@ aA
 em
 bs
 Yj
-EA
-EA
-EA
+qY
+qY
+qY
 Ys
 xT
 em
@@ -460,7 +442,7 @@ aA
 hK
 me
 XS
-sF
+fY
 GD
 oV
 js
@@ -475,7 +457,7 @@ aA
 EC
 me
 XS
-OL
+Rn
 js
 yO
 js
@@ -490,7 +472,7 @@ on
 em
 me
 AS
-uP
+oo
 JO
 Ce
 Rp

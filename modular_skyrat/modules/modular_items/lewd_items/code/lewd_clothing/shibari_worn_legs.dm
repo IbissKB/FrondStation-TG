@@ -7,7 +7,7 @@
 	worn_icon_digi = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes_digi.dmi'
 	body_parts_covered = NONE
 	strip_delay = 100
-	mutant_variants = STYLE_DIGITIGRADE|STYLE_TAUR_ALL
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 	slowdown = 4
 	item_flags = DROPDEL|IGNORE_DIGITIGRADE
 
@@ -22,12 +22,12 @@
 /obj/item/clothing/shoes/shibari_legs/update_overlays()
 	. = ..()
 	if(glow)
-		. += emissive_appearance(icon, icon_state, alpha = 100)
+		. += emissive_appearance(icon, icon_state, src, alpha = 100)
 
 /obj/item/clothing/shoes/shibari_legs/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(glow)
-		. += emissive_appearance(standing.icon, standing.icon_state, alpha = 100)
+		. += emissive_appearance(standing.icon, standing.icon_state, src, alpha = 100)
 
 
 /obj/item/clothing/shoes/shibari_legs/Destroy()
@@ -40,18 +40,18 @@
 		hooman.remove_status_effect(/datum/status_effect/ropebunny)
 	return..()
 
-/obj/item/clothing/shoes/shibari_legs/ComponentInitialize()
+/obj/item/clothing/shoes/shibari_legs/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 /obj/item/clothing/shoes/shibari_legs/equipped(mob/user, slot)
 	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_ATTACK_HAND, .proc/handle_take_off, user)
+	RegisterSignal(src, COMSIG_ATOM_ATTACK_HAND, PROC_REF(handle_take_off), user)
 
 
 /obj/item/clothing/shoes/shibari_legs/proc/handle_take_off(datum/source, mob/user)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/handle_take_off_async, user)
+	INVOKE_ASYNC(src, PROC_REF(handle_take_off_async), user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /obj/item/clothing/shoes/shibari_legs/proc/handle_take_off_async(mob/user)

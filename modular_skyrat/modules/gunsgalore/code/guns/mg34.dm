@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic/mg34
-	name = "\improper MG-34"
+	name = "\improper MG-4T"
 	desc = "A reproduction of the German MG-34 general purpose machine gun, this one is a revision from the 2200's and was one of several thousand distributed to SolFed expedition teams. It has been rechambered to fire 7.92mm Mauser instead of 7.62mm NATO."
 	icon = 'modular_skyrat/modules/gunsgalore/icons/guns/gunsgalore_guns40x32.dmi'
 	lefthand_file = 'modular_skyrat/modules/gunsgalore/icons/guns/gunsgalore_lefthand.dmi'
@@ -13,7 +13,6 @@
 	rack_sound = 'sound/weapons/gun/l6/l6_rack.ogg'
 	suppressed_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg'
 	fire_sound_volume = 70
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC, SELECT_FULLY_AUTOMATIC)
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
@@ -21,16 +20,20 @@
 	mag_type = /obj/item/ammo_box/magazine/mg34
 	can_suppress = FALSE
 	fire_delay = 1
-	realistic = TRUE
-	dirt_modifier = 0.1
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	tac_reloads = FALSE
 	var/cover_open = FALSE
 
-/obj/item/gun/ballistic/automatic/mg34/ComponentInitialize()
+/obj/item/gun/ballistic/automatic/mg34/Initialize(mapload)
 	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
 	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/automatic/mg34/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_OLDARMS)
 
 /obj/item/gun/ballistic/automatic/mg34/examine(mob/user)
 	. = ..()
@@ -39,7 +42,7 @@
 		. += span_notice("It seems like you could use an <b>empty hand</b> to remove the magazine.")
 
 /obj/item/gun/ballistic/automatic/mg34/attack_hand_secondary(mob/user, list/modifiers)
-	if(!user.canUseTopic(src))
+	if(!user.can_perform_action(src))
 		return
 	cover_open = !cover_open
 	to_chat(user, span_notice("You [cover_open ? "open" : "close"] [src]'s cover."))
@@ -84,8 +87,6 @@
 	fire_delay = 0.04
 	burst_size = 5
 	spread = 5
-	dirt_modifier = 0
-	durability = 500
 	mag_type = /obj/item/ammo_box/magazine/mg34/packapunch
 
 /obj/item/ammo_box/magazine/mg34/packapunch
@@ -100,11 +101,11 @@
 #define SPREAD_UNDEPLOYED 17
 #define SPREAD_DEPLOYED 6
 #define HEAT_PER_SHOT 1.5
-#define TIME_TO_COOLDOWN 20 SECONDS
+#define TIME_TO_COOLDOWN (20 SECONDS)
 #define BARREL_COOLDOWN_RATE 2
 
 /obj/item/gun/ballistic/automatic/mg34/mg42
-	name = "\improper Armadyne MG-9V GPMG"
+	name = "\improper MG-9V GPMG"
 	desc = "An updated version of the German Maschinengewehr 42 machine gun chambered in 7.92 Mauser, it has a bipod for better stability when deployed. It is a reproduction manufactured by the Oldarms division of the Armadyne Corporation."
 	icon_state = "mg42"
 	base_icon_state = "mg42"
@@ -122,14 +123,14 @@
 	/// Have we overheated?
 	var/overheated = FALSE
 
-/obj/item/gun/ballistic/automatic/mg34/mg42/Initialize()
+/obj/item/gun/ballistic/automatic/mg34/mg42/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_GUN_FIRED, .proc/process_heat)
+	RegisterSignal(src, COMSIG_GUN_FIRED, PROC_REF(process_heat))
 	START_PROCESSING(SSobj, src)
 
-/obj/item/gun/ballistic/automatic/mg34/mg42/process(delta_time)
+/obj/item/gun/ballistic/automatic/mg34/mg42/process(seconds_per_tick)
 	if(barrel_heat > 0)
-		barrel_heat -= BARREL_COOLDOWN_RATE * delta_time
+		barrel_heat -= BARREL_COOLDOWN_RATE * seconds_per_tick
 		update_appearance()
 
 /obj/item/gun/ballistic/automatic/mg34/mg42/examine(mob/user)
@@ -154,23 +155,23 @@
 
 /obj/item/gun/ballistic/automatic/mg34/mg42/pickup(mob/user)
 	. = ..()
-	RegisterSignal(user, COMSIG_LIVING_UPDATED_RESTING, .proc/deploy_bipod)
+	RegisterSignal(user, COMSIG_LIVING_UPDATED_RESTING, PROC_REF(deploy_bipod))
 
 /obj/item/gun/ballistic/automatic/mg34/mg42/dropped(mob/user)
 	. = ..()
 	UnregisterSignal(user, COMSIG_LIVING_UPDATED_RESTING)
 	bipod_deployed = FALSE
-	base_spread = SPREAD_UNDEPLOYED
+	spread = SPREAD_UNDEPLOYED
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/mg34/mg42/proc/deploy_bipod(datum/datum_source, resting)
 	SIGNAL_HANDLER
 	if(resting)
 		bipod_deployed = TRUE
-		base_spread = SPREAD_DEPLOYED
+		spread = SPREAD_DEPLOYED
 	else
 		bipod_deployed = FALSE
-		base_spread = SPREAD_UNDEPLOYED
+		spread = SPREAD_UNDEPLOYED
 	playsound(src, 'modular_skyrat/modules/gunsgalore/sound/guns/fire/mg42_bipod.ogg', 100)
 	balloon_alert_to_viewers("bipod [bipod_deployed ? "deployed" : "undeployed"]!")
 	update_appearance()
@@ -183,7 +184,7 @@
 	if(barrel_heat >= 100)
 		overheated = TRUE
 		playsound(src, 'modular_skyrat/modules/gunsgalore/sound/guns/fire/mg_overheat.ogg', 100)
-		addtimer(CALLBACK(src, .proc/reset_overheat), TIME_TO_COOLDOWN)
+		addtimer(CALLBACK(src, PROC_REF(reset_overheat)), TIME_TO_COOLDOWN)
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/mg34/mg42/proc/reset_overheat()
@@ -212,5 +213,5 @@
 	icon_state = "mg42_drum"
 	ammo_type = /obj/item/ammo_casing/realistic/a792x57
 	caliber = "a792x57"
-	max_ammo = 250 // It's a lot, but the gun overheats.
-	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+	max_ammo = 150 // It's a lot, but the gun overheats.
+	multiple_sprites = AMMO_BOX_FULL_EMPTY

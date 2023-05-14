@@ -1,13 +1,10 @@
 /datum/species/aquatic
 	name = "Aquatic"
 	id = SPECIES_AQUATIC
-	default_color = "#4B4B4B"
 	species_traits = list(
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
-		HAS_FLESH,
-		HAS_BONE,
 		HAIR,
 		FACEHAIR
 	)
@@ -15,6 +12,8 @@
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_CAN_USE_FLIGHT_POTION,
+		TRAIT_LITERATE,
+		TRAIT_WATER_BREATHING,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list()
@@ -26,20 +25,22 @@
 		"legs" = "Normal Legs",
 		"wings" = "None"
 	)
-	attack_verb = "slash"
-	attack_effect = ATTACK_EFFECT_CLAW
-	attack_sound = 'sound/weapons/slash.ogg'
-	miss_sound = 'sound/weapons/slashmiss.ogg'
 	payday_modifier = 0.75
-	liked_food = SEAFOOD | MEAT | FRUIT
+	liked_food = SEAFOOD | MEAT | FRUIT | GORE
 	disliked_food = CLOTH | GROSS
 	toxic_food = TOXIC
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
-	limbs_icon = 'modular_skyrat/master_files/icons/mob/species/akula_parts_greyscale.dmi'
-	limbs_id = SPECIES_AKULA
+	examine_limb_id = SPECIES_AKULA
+	bodypart_overrides = list(
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/akula,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant/akula,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/mutant/akula,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/mutant/akula,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/akula,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/akula,
+	)
 
-/datum/species/aquatic/get_random_features()
-	var/list/returned = MANDATORY_FEATURE_LIST
+/datum/species/aquatic/randomize_features(mob/living/carbon/human/human_mob)
 	var/main_color
 	var/second_color
 	var/random = rand(1,5)
@@ -60,10 +61,9 @@
 		if(5)
 			main_color = "#444444"
 			second_color = "#DDDDEE"
-	returned["mcolor"] = main_color
-	returned["mcolor2"] = second_color
-	returned["mcolor3"] = second_color
-	return returned
+	human_mob.dna.features["mcolor"] = main_color
+	human_mob.dna.features["mcolor2"] = second_color
+	human_mob.dna.features["mcolor3"] = second_color
 
 /datum/species/aquatic/get_random_body_markings(list/passed_features)
 	var/name = "Shark"
@@ -72,3 +72,9 @@
 	if(BMS)
 		markings = assemble_body_markings_from_set(BMS, passed_features, src)
 	return markings
+
+/datum/species/aquatic/get_species_description()
+	return placeholder_description
+
+/datum/species/aquatic/get_species_lore()
+	return list(placeholder_lore)

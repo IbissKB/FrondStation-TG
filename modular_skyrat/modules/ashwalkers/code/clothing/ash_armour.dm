@@ -5,7 +5,7 @@
 	icon = 'modular_skyrat/modules/ashwalkers/icons/ashwalker_clothing.dmi'
 	worn_icon = 'modular_skyrat/modules/ashwalkers/icons/ashwalker_clothing_mob.dmi'
 	icon_state = "headdress"
-	mutant_variants = NONE
+	supports_variations_flags = NONE
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -16,8 +16,9 @@
 /datum/crafting_recipe/ash_recipe/ash_headdress
 	name = "Ash Headdress"
 	result = /obj/item/clothing/head/ash_headdress
+	category = CAT_CLOTHING
 
-/obj/item/clothing/head/ash_headdress/Initialize()
+/obj/item/clothing/head/ash_headdress/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 2, /obj/item/stack/sheet/animalhide/goliath_hide, list(MELEE = 5, BULLET = 2, LASER = 2))
 
@@ -25,7 +26,7 @@
 	name = "winged ash headdress"
 	icon_state = "wing_headdress"
 
-/datum/crafting_recipe/ash_headdress/winged
+/datum/crafting_recipe/ash_recipe/ash_headdress/winged
 	name = "Winged Ash Headdress"
 	result = /obj/item/clothing/head/ash_headdress/winged
 
@@ -45,8 +46,9 @@
 /datum/crafting_recipe/ash_recipe/ash_robes
 	name = "Ash Robes"
 	result = /obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes
+	category = CAT_CLOTHING
 
-/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes/Initialize()
+/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 2, /obj/item/stack/sheet/animalhide/goliath_hide, list(MELEE = 5, BULLET = 2, LASER = 2))
 
@@ -56,7 +58,7 @@
 	icon = 'modular_skyrat/modules/ashwalkers/icons/ashwalker_clothing.dmi'
 	worn_icon = 'modular_skyrat/modules/ashwalkers/icons/ashwalker_clothing_mob.dmi'
 	icon_state = "combat_plates"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -67,8 +69,9 @@
 /datum/crafting_recipe/ash_recipe/ash_plates
 	name = "Ash Combat Plates"
 	result = /obj/item/clothing/suit/ash_plates
+	category = CAT_CLOTHING
 
-/obj/item/clothing/suit/ash_plates/Initialize()
+/obj/item/clothing/suit/ash_plates/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 2, /obj/item/stack/sheet/animalhide/goliath_hide, list(MELEE = 5, BULLET = 2, LASER = 2))
 
@@ -79,3 +82,4 @@
 /datum/crafting_recipe/ash_recipe/ash_plates/decorated
 	name = "Decorated Ash Combat Plates"
 	result = /obj/item/clothing/suit/ash_plates/decorated
+	category = CAT_CLOTHING

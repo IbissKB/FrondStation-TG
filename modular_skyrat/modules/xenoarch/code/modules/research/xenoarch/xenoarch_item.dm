@@ -5,7 +5,7 @@
 	///Used to spawn the same relic
 	var/magnified_number
 
-/obj/item/xenoarch/useless_relic/Initialize()
+/obj/item/xenoarch/useless_relic/Initialize(mapload)
 	. = ..()
 	magnified_number = rand(1,8)
 	icon_state = "useless[magnified_number]"
@@ -141,7 +141,7 @@
 	desc = "An animal that is long past its prime. It is possible to recover it. Can be swabbed to recover its original animal's remnant DNA."
 	icon_state = "recover_animal"
 
-/obj/item/xenoarch/broken_item/animal/Initialize()
+/obj/item/xenoarch/broken_item/animal/Initialize(mapload)
 	. = ..()
 	var/pick_celltype = pick(CELL_LINE_TABLE_BEAR,
 							CELL_LINE_TABLE_BLOBBERNAUT,
@@ -183,42 +183,35 @@
 	include_subtypes = TRUE
 
 //circuit boards
-/obj/item/circuitboard/machine/xenoarch_researcher
+/obj/item/circuitboard/machine/xenoarch_machine
+	greyscale_colors = CIRCUIT_COLOR_SCIENCE
+	req_components = list(
+		/datum/stock_part/micro_laser = 1,
+		/datum/stock_part/matter_bin = 1,
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/stack/sheet/glass = 2,
+	)
+	needs_anchored = TRUE
+
+/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_researcher
 	name = "Xenoarch Researcher (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/xenoarch/researcher
-	req_components = list(
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/stack/cable_coil = 2,
-		/obj/item/stack/sheet/glass = 2)
-	needs_anchored = TRUE
 
-/obj/item/circuitboard/machine/xenoarch_scanner
+/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner
 	name = "Xenoarch Scanner (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/xenoarch/scanner
-	req_components = list(
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/stack/cable_coil = 2,
-		/obj/item/stack/sheet/glass = 2)
-	needs_anchored = TRUE
 
-/obj/item/circuitboard/machine/xenoarch_recoverer
+/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_recoverer
 	name = "Xenoarch Recoverer (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/xenoarch/recoverer
-	req_components = list(
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/stack/cable_coil = 2,
-		/obj/item/stack/sheet/glass = 2)
-	needs_anchored = TRUE
+
+/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_digger
+	name = "Xenoarch Digger (Machine Board)"
+	build_path = /obj/machinery/xenoarch/digger
 
 /obj/item/paper/fluff/xenoarch_guide
 	name = "xenoarchaeology guide - MUST READ"
-	info = {"<b><center>Xenoarchaeology Guide</center></b><br> \
+	default_raw_text = {"<b><center>Xenoarchaeology Guide</center></b><br> \
 			Let's start right from the beginning: what is Xenoarchaeology?<br> \
 			Great question! Xenoarchaeology is the study of ancient foreign bodies that are trapped within strange rocks.<br> \
 			Your goal as a xenoarchaeologist is to find these strange rocks and unearth the secrets that are held within.<br> \

@@ -1,5 +1,5 @@
 /// How often the sensor data is updated
-#define SENSORS_UPDATE_PERIOD 10 SECONDS //How often the sensor data updates.
+#define SENSORS_UPDATE_PERIOD (10 SECONDS) //How often the sensor data updates.
 /// The job sorting ID associated with otherwise unknown jobs
 #define UNKNOWN_JOB_ID 81
 
@@ -8,9 +8,6 @@
 	desc = "Used to monitor active health sensors built into most of the crew's uniforms."
 	icon_screen = "crew"
 	icon_keyboard = "med_key"
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 250
-	active_power_usage = 500
 	circuit = /obj/item/circuitboard/computer/crew
 	light_color = LIGHT_COLOR_BLUE
 
@@ -47,6 +44,7 @@
 	. += create_table_notices(list(
 		"name",
 		"job",
+		"is_robot", //SKYRAT EDIT ADDITION - Displaying robotic species Icon
 		"life_status",
 		"suffocation",
 		"toxin",
@@ -67,6 +65,7 @@
 		var/list/entry = list()
 		entry["name"] = player_record["name"]
 		entry["job"] = player_record["assignment"]
+		entry["is_robot"] = player_record["is_robot"] //SKYRAT EDIT ADDITION - Displaying robotic species Icon
 		entry["life_status"] = player_record["life_status"]
 		entry["suffocation"] = player_record["oxydam"]
 		entry["toxin"] = player_record["toxdam"]
@@ -82,6 +81,7 @@
 	icon_keyboard = "syndie_key"
 
 /obj/machinery/computer/crew/ui_interact(mob/user)
+	. = ..()
 	GLOB.crewmonitor.show(user,src)
 
 GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
@@ -117,27 +117,27 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_VIROLOGIST = 22,
 		JOB_MEDICAL_DOCTOR = 23,
 		JOB_PARAMEDIC = 24,
-		JOB_ORDERLY = 25, // SKYRAT EDIT ADDITION
-		JOB_PSYCHOLOGIST = 26, // SKYRAT EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
+		JOB_CORONER = 25,
+		JOB_ORDERLY = 26, // SKYRAT EDIT ADDITION
+		JOB_PSYCHOLOGIST = 27, // SKYRAT EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
 		// 30-39: Science
 		JOB_RESEARCH_DIRECTOR = 30,
 		JOB_SCIENTIST = 31,
 		JOB_ROBOTICIST = 32,
 		JOB_GENETICIST = 33,
-		JOB_VANGUARD_OPERATIVE = 34, // SKYRAT EDIT ADDITION
-		JOB_SCIENCE_GUARD = 35, // SKYRAT EDIT ADDITION
+		JOB_SCIENCE_GUARD = 34, // SKYRAT EDIT ADDITION
 		// 40-49: Engineering
 		JOB_CHIEF_ENGINEER = 40,
 		JOB_STATION_ENGINEER = 41,
 		JOB_ATMOSPHERIC_TECHNICIAN = 42,
 		JOB_ENGINEERING_GUARD = 43, // SKYRAT EDIT ADDITION
 		// 50-59: Cargo
-		JOB_QUARTERMASTER = 50,  // SKYRAT EDIT - ORIGINAL: JOB_QUARTERMASTER = 51,
-		JOB_SHAFT_MINER = 52,
-		JOB_CARGO_TECHNICIAN = 53,
-		JOB_CUSTOMS_AGENT = 54, // SKYRAT EDIT ADDITION
+		JOB_QUARTERMASTER = 50,
+		JOB_SHAFT_MINER = 51,
+		JOB_CARGO_TECHNICIAN = 52,
+		JOB_CUSTOMS_AGENT = 53, // SKYRAT EDIT ADDITION
 		// 60+: Civilian/other
-		JOB_HEAD_OF_PERSONNEL = 60, // SKYRAT EDIT - ORIGINAL: JOB_HEAD_OF_PERSONNEL = 50,
+		JOB_HEAD_OF_PERSONNEL = 60,
 		JOB_BARTENDER = 61,
 		JOB_COOK = 62,
 		JOB_BOTANIST = 63,
@@ -176,7 +176,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsole")
+		ui = new(user, src, "CrewConsoleSkyrat")
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)
@@ -218,7 +218,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			continue
 
 		// Machinery and the target should be on the same level or different levels of the same station
-		if(pos.z != z && (!is_station_level(pos.z) || !is_station_level(z)))
+		if(pos.z != z && (!is_station_level(pos.z) || !is_station_level(z)) && !HAS_TRAIT(tracked_living_mob, TRAIT_MULTIZ_SUIT_SENSORS))
 			continue
 
 		var/mob/living/carbon/human/tracked_human = tracked_living_mob
@@ -256,6 +256,11 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			var/trim_assignment = id_card.get_trim_assignment()
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
+
+		// SKYRAT EDIT BEGIN: Checking for robotic race
+		if (issynthetic(tracked_human))
+			entry["is_robot"] = TRUE
+		// SKYRAT EDIT END
 
 		// Binary living/dead status
 		if (sensor_mode >= SENSOR_LIVING)

@@ -25,12 +25,10 @@
 #define SCANGATE_UNATHI "unathi"
 #define SCANGATE_TAJARAN "tajaran"
 #define SCANGATE_VULPKANIN "vulpkanin"
-#define SCANGATE_IPC "ipc"
-#define SCANGATE_SYNTHLIZ "synthliz"
-#define SCANGATE_SYNTHMAMMAL "synthmammal"
-#define SCANGATE_SYNTHHUMAN "synthhuman"
+#define SCANGATE_SYNTH "synth"
 #define SCANGATE_TESHARI "teshari"
 #define SCANGATE_HEMOPHAGE "hemophage"
+#define SCANGATE_SNAIL "snail"
 
 #define SCANGATE_GENDER "Gender"
 //SKYRAT EDIT END - MORE SCANNER GATE OPTIONS
@@ -40,8 +38,6 @@
 	desc = "A gate able to perform mid-depth scans on any organisms who pass under it."
 	icon = 'icons/obj/machines/scangate.dmi'
 	icon_state = "scangate"
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 50
 	circuit = /obj/item/circuitboard/machine/scanner_gate
 
 	var/scanline_timer
@@ -73,7 +69,7 @@
 	wires = new /datum/wires/scanner_gate(src)
 	set_scanline("passive")
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -91,7 +87,7 @@
 
 /obj/machinery/scanner_gate/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/auto_scan, AM)
+	INVOKE_ASYNC(src, PROC_REF(auto_scan), AM)
 
 /obj/machinery/scanner_gate/proc/auto_scan(atom/movable/AM)
 	if(!(machine_stat & (BROKEN|NOPOWER)) && isliving(AM) & (!panel_open))
@@ -102,7 +98,7 @@
 	deltimer(scanline_timer)
 	add_overlay(type)
 	if(duration)
-		scanline_timer = addtimer(CALLBACK(src, .proc/set_scanline, "passive"), duration, TIMER_STOPPABLE)
+		scanline_timer = addtimer(CALLBACK(src, PROC_REF(set_scanline), "passive"), duration, TIMER_STOPPABLE)
 
 /obj/machinery/scanner_gate/attackby(obj/item/W, mob/user, params)
 	var/obj/item/card/id/card = W.GetID()
@@ -144,8 +140,8 @@
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
 				var/perpname = H.get_face_name(H.get_id_name())
-				var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.security)
-				if(!R || (R.fields["criminal"] == "*Arrest*"))
+				var/datum/record/crew/target = find_record(perpname)
+				if(!target || (target.wanted_status == WANTED_ARREST))
 					beep = TRUE
 		if(SCANGATE_MINDSHIELD)
 			if(HAS_TRAIT(M, TRAIT_MINDSHIELD))
@@ -195,27 +191,23 @@
 						scan_species = /datum/species/tajaran
 					if(SCANGATE_VULPKANIN)
 						scan_species = /datum/species/vulpkanin
-					if(SCANGATE_IPC)
-						scan_species = /datum/species/robotic/ipc
-					if(SCANGATE_SYNTHLIZ)
-						scan_species = /datum/species/robotic/synthliz
-					if(SCANGATE_SYNTHMAMMAL)
-						scan_species = /datum/species/robotic/synthetic_mammal
-					if(SCANGATE_SYNTHHUMAN)
-						scan_species = /datum/species/robotic/synthetic_human
+					if(SCANGATE_SYNTH)
+						scan_species = /datum/species/synthetic
 					if(SCANGATE_TESHARI)
 						scan_species = /datum/species/teshari
 					if(SCANGATE_HEMOPHAGE)
 						scan_species = /datum/species/hemophage
+					if(SCANGATE_SNAIL)
+						scan_species = /datum/species/snail
 					//SKYRAT EDIT END - MORE SCANNER GATE OPTIONS
 				if(is_species(H, scan_species))
 					beep = TRUE
 				if(detect_species == SCANGATE_ZOMBIE) //Can detect dormant zombies
-					if(H.getorganslot(ORGAN_SLOT_ZOMBIE))
+					if(H.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 						beep = TRUE
 		if(SCANGATE_GUNS)
 			for(var/I in M.get_contents())
-				if(istype(I, /obj/item/gun))
+				if(isgun(I))
 					beep = TRUE
 					break
 		if(SCANGATE_NUTRITION)
@@ -251,13 +243,15 @@
 			assembly?.activate()
 		set_scanline("scanning", 10)
 
+	use_power(active_power_usage)
+
 /obj/machinery/scanner_gate/proc/alarm_beep()
 	if(next_beep <= world.time)
-		next_beep = world.time + 20
+		next_beep = world.time + (2 SECONDS)
 		playsound(src, 'sound/machines/scanbuzz.ogg', 100, FALSE)
-	var/image/I = image(icon, src, "alarm_light", layer+1)
-	flick_overlay_view(I, src, 20)
-	set_scanline("alarm", 20)
+	var/image/alarm_image = image(icon, src, "alarm_light", layer+1)
+	flick_overlay_view(alarm_image, 2 SECONDS)
+	set_scanline("alarm", 2 SECONDS)
 
 /obj/machinery/scanner_gate/can_interact(mob/user)
 	if(locked)
@@ -363,12 +357,10 @@
 #undef SCANGATE_UNATHI
 #undef SCANGATE_TAJARAN
 #undef SCANGATE_VULPKANIN
-#undef SCANGATE_IPC
-#undef SCANGATE_SYNTHLIZ
-#undef SCANGATE_SYNTHMAMMAL
-#undef SCANGATE_SYNTHHUMAN
+#undef SCANGATE_SYNTH
 #undef SCANGATE_TESHARI
 #undef SCANGATE_HEMOPHAGE
+#undef SCANGATE_SNAIL
 
 #undef SCANGATE_GENDER
 //SKYRAT EDIT END - MORE SCANNER GATE OPTIONS

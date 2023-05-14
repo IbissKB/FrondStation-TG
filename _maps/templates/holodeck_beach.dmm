@@ -1,10 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/holofloor/beach/water,
+/turf/open/floor/holofloor/beach/coast,
 /area/template_noop)
 "f" = (
 /obj/item/shovel/spade,
-/turf/open/floor/holofloor/beach/coast_t,
+/turf/open/floor/holofloor/beach,
 /area/template_noop)
 "g" = (
 /obj/item/toy/beach_ball,
@@ -15,12 +15,9 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
-"k" = (
-/turf/open/floor/holofloor/beach/coast_b,
-/area/template_noop)
 "q" = (
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/holofloor/beach/coast_t,
+/obj/item/reagent_containers/cup/bucket,
+/turf/open/floor/holofloor/beach,
 /area/template_noop)
 "t" = (
 /turf/open/floor/holofloor/carpet,
@@ -29,18 +26,13 @@
 /obj/effect/holodeck_effect/mobspawner/monkey,
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
-"J" = (
-/turf/open/floor/holofloor/beach/coast_t,
-/area/template_noop)
 "M" = (
 /obj/item/toy/seashell,
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
 "Q" = (
-/mob/living/simple_animal/crab{
-	name = "Jon"
-	},
-/turf/open/floor/holofloor/beach/coast_t,
+/obj/effect/holodeck_effect/mobspawner/crab/jon,
+/turf/open/floor/holofloor/beach,
 /area/template_noop)
 "R" = (
 /turf/open/floor/holofloor/beach,
@@ -55,7 +47,7 @@
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
 "W" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
 "X" = (
@@ -71,8 +63,8 @@ R
 R
 R
 R
-J
-k
+R
+R
 a
 "}
 (2,1,1) = {"
@@ -84,7 +76,7 @@ R
 S
 R
 Q
-k
+R
 a
 "}
 (3,1,1) = {"
@@ -95,8 +87,8 @@ R
 R
 t
 t
-J
-k
+R
+R
 a
 "}
 (4,1,1) = {"
@@ -107,8 +99,8 @@ R
 h
 R
 R
-J
-k
+R
+R
 a
 "}
 (5,1,1) = {"
@@ -119,8 +111,8 @@ R
 R
 t
 t
-J
-k
+R
+R
 a
 "}
 (6,1,1) = {"
@@ -132,7 +124,7 @@ X
 g
 R
 q
-k
+R
 a
 "}
 (7,1,1) = {"
@@ -144,7 +136,7 @@ R
 R
 R
 f
-k
+R
 a
 "}
 (8,1,1) = {"
@@ -155,8 +147,8 @@ R
 H
 R
 M
-J
-k
+R
+R
 a
 "}
 (9,1,1) = {"
@@ -167,7 +159,7 @@ R
 R
 R
 R
-J
-k
+R
+R
 a
 "}

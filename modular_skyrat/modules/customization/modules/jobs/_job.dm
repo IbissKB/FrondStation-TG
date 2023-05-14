@@ -24,7 +24,9 @@
 	if(banned_quirks)
 		for(var/Q in pref.all_quirks)
 			if(banned_quirks[Q])
-				return TRUE
+				var/exception = RESTRICTED_QUIRKS_EXCEPTIONS[Q]
+				if (!exception || !pref.all_quirks.Find(exception))
+					return TRUE
 	return FALSE
 
 /datum/job/proc/has_banned_species(datum/preferences/pref)
@@ -64,11 +66,14 @@
 /datum/job/blueshield
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
 
-/datum/job/nanotrasen_consultant
-	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+/datum/job/corrections_officer
+	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
 
 // Command
 /datum/job/captain
+	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+
+/datum/job/nanotrasen_consultant
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 
 /datum/job/head_of_security
@@ -117,6 +122,21 @@
 
 /datum/job/atmospheric_technician
 	banned_quirks = list(TECH_RESTRICTED_QUIRKS)
+
+/datum/job/orderly
+	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+
+/datum/job/science_guard
+	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+
+/datum/job/customs_agent
+	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+
+/datum/job/bouncer
+	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+
+/datum/job/engineering_guard
+	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
 
 /datum/job/proc/has_required_languages(datum/preferences/pref)
 	if(!required_languages)

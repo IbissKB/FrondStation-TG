@@ -2,12 +2,14 @@
 	desc = "A trash bin, place your trash here for the janitor to collect."
 	name = "trash bin"
 	icon_state = "largebins"
+	base_icon_state = "largebins"
 	open_sound = 'sound/effects/bin_open.ogg'
 	close_sound = 'sound/effects/bin_close.ogg'
 	anchored = TRUE
 	horizontal = FALSE
 	delivery_icon = null
 	can_install_electronics = FALSE
+	paint_jobs = null
 
 /obj/structure/closet/crate/bin/Initialize(mapload)
 	. = ..()
@@ -28,7 +30,7 @@
 		var/obj/item/storage/bag/trash/T = W
 		to_chat(user, span_notice("You fill the bag."))
 		for(var/obj/item/O in src)
-			SEND_SIGNAL(T, COMSIG_TRY_STORAGE_INSERT, O, user, TRUE)
+			T.atom_storage?.attempt_insert(O, user, TRUE)
 		T.update_appearance()
 		do_animate()
 		return TRUE
@@ -38,7 +40,7 @@
 /obj/structure/closet/crate/bin/proc/do_animate()
 	playsound(loc, open_sound, 15, TRUE, -3)
 	flick("animate_largebins", src)
-	addtimer(CALLBACK(src, .proc/do_close), 13)
+	addtimer(CALLBACK(src, PROC_REF(do_close)), 13)
 
 /obj/structure/closet/crate/bin/proc/do_close()
 	playsound(loc, close_sound, 15, TRUE, -3)

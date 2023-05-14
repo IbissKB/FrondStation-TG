@@ -196,10 +196,15 @@
 		EQUIP_OUTFIT_ITEM(id, ITEM_SLOT_ID)
 	if(!visualsOnly && id_trim && H.wear_id)
 		var/obj/item/card/id/id_card = H.wear_id
-		id_card.registered_age = H.age
-		if(id_trim)
-			if(!SSid_access.apply_trim_to_card(id_card, id_trim))
-				WARNING("Unable to apply trim [id_trim] to [id_card] in outfit [name].")
+		if(!istype(id_card)) //If an ID wasn't found in their ID slot, it's probably something holding their ID like a wallet or PDA
+			id_card = locate() in H.wear_id
+
+		if(istype(id_card)) //Make sure that we actually found an ID to modify, otherwise this runtimes and cancels equipping the outfit
+			id_card.registered_age = H.age
+			if(id_trim)
+				if(!SSid_access.apply_trim_to_card(id_card, id_trim))
+					WARNING("Unable to apply trim [id_trim] to [id_card] in outfit [name].")
+				H.sec_hud_set_ID()
 
 	if(suit_store)
 		EQUIP_OUTFIT_ITEM(suit_store, ITEM_SLOT_SUITSTORE)
@@ -244,8 +249,12 @@
 	if(!visualsOnly)
 		apply_fingerprints(H)
 		if(internals_slot)
-			H.internal = H.get_item_by_slot(internals_slot)
-			H.update_action_buttons_icon()
+			if(internals_slot & ITEM_SLOT_HANDS)
+				var/obj/item/tank/internals/internals = H.is_holding_item_of_type(/obj/item/tank/internals)
+				if(internals)
+					H.open_internals(internals)
+			else
+				H.open_internals(H.get_item_by_slot(internals_slot))
 		if(implants)
 			for(var/implant_type in implants)
 				var/obj/item/implant/I = SSwardrobe.provide_type(implant_type, H)

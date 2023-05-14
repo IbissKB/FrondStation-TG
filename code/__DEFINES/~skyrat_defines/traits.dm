@@ -5,7 +5,7 @@
 #define TRAIT_OXYIMMUNE	"oxyimmune"		// Immune to oxygen damage, ideally give this to all non-breathing species or bad stuff will happen
 #define TRAIT_PERSONALSPACE "personalspace" // Block/counter-attack ass-slaps
 #define TRAIT_MOOD_NOEXAMINE "mood_noexamine" // Can't assess your own mood
-#define TRAIT_DNR "cant_revive" //You just can't be revived without supernatural means
+#define TRAIT_DNR "do_not_revive" // Can't be revived without supernatural means or admin intervention
 #define TRAIT_HARD_SOLES "hard_soles" // No step on glass
 #define TRAIT_SENSITIVESNOUT "sensitive_snout" // Snout hurts when booped
 #define TRAIT_DETECTIVE "detective_ability" //Given to the detective, if they have this, they can see syndicate special descriptions.
@@ -45,18 +45,6 @@
 //Makes sure that people cant be cult sacrificed twice.
 #define TRAIT_SACRIFICED "sacrificed"
 
-//Adds 2 seconds to the Goliath tentacle stun timer.
-#define TRAIT_GOLIATH_STUN "goliath_stun"
-
-//to determine if someone is a fishing master, or not
-#define TRAIT_FISHING_MASTER "fishing_master"
-
-//to determine if someone is a ceramics master, or not
-#define TRAIT_CERAMIC_MASTER "ceramic_master"
-
-//to determine if someone is a glassblowing master, or not
-#define TRAIT_GLASSBLOWING_MASTER "glassblowing_master"
-
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
@@ -65,3 +53,22 @@
 
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
+
+/// Trait source for xeno innate abilities
+#define TRAIT_XENO_INNATE "xeno_innate"
+/// Trait source for something added BY a xeno ability
+#define TRAIT_XENO_ABILITY_GIVEN "xeno_ability_given"
+/// Determines if something can receive healing from a xeno
+#define TRAIT_XENO_HEAL_AURA "trait_xeno_heal_aura"
+
+/// Trait that was granted by a reagent.
+#define REAGENT_TRAIT "reagent"
+
+/// trait that lets you do flips with a style meter
+#define TRAIT_STYLISH "stylish"
+
+/// Traits granted by glassblowing
+#define GLASSBLOWING_TRAIT "glassblowing"
+
+/// Trait that is applied whenever someone or something is glassblowing
+#define TRAIT_CURRENTLY_GLASSBLOWING "currently_glassblowing"

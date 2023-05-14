@@ -22,14 +22,14 @@
 	///Used by the tgui interface, themed for NT or Syndicate colors.
 	var/pointercolor = "green"
 
-/datum/computer_file/program/radar/run_program(mob/living/user)
+/datum/computer_file/program/radar/on_start(mob/living/user)
 	. = ..()
 	if(.)
 		START_PROCESSING(SSfastprocess, src)
 		return
 	return FALSE
 
-/datum/computer_file/program/radar/kill_program(forced = FALSE)
+/datum/computer_file/program/radar/kill_program()
 	objects = list()
 	selected = null
 	STOP_PROCESSING(SSfastprocess, src)
@@ -45,7 +45,7 @@
 	)
 
 /datum/computer_file/program/radar/ui_data(mob/user)
-	var/list/data = get_header_data()
+	var/list/data = list()
 	data["selected"] = selected
 	data["objects"] = list()
 	data["scanning"] = (world.time < next_scan)
@@ -62,11 +62,7 @@
 		data["target"] = trackinfo
 	return data
 
-/datum/computer_file/program/radar/ui_act(action, params)
-	. = ..()
-	if(.)
-		return
-
+/datum/computer_file/program/radar/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	switch(action)
 		if("selecttarget")
 			selected = params["ref"]
@@ -197,7 +193,7 @@
 	computer.setDir(get_dir(here_turf, target_turf))
 
 //We can use process_tick to restart fast processing, since the computer will be running this constantly either way.
-/datum/computer_file/program/radar/process_tick()
+/datum/computer_file/program/radar/process_tick(seconds_per_tick)
 	if(computer.active_program == src)
 		START_PROCESSING(SSfastprocess, src)
 
@@ -248,6 +244,49 @@
 				return TRUE
 	return FALSE
 
+///Tracks all janitor equipment
+/datum/computer_file/program/radar/custodial_locator
+	filename = "custodiallocator"
+	filedesc = "Custodial Locator"
+	extended_desc = "This program allows for tracking of custodial equipment."
+	requires_ntnet = TRUE
+	transfer_access = list(ACCESS_JANITOR)
+	available_on_ntnet = TRUE
+	program_icon = "broom"
+	size = 2
+	detomatix_resistance = DETOMATIX_RESIST_MINOR
+
+/datum/computer_file/program/radar/custodial_locator/find_atom()
+	return locate(selected) in GLOB.janitor_devices
+
+/datum/computer_file/program/radar/custodial_locator/scan()
+	if(world.time < next_scan)
+		return
+	next_scan = world.time + (2 SECONDS)
+	objects = list()
+	for(var/obj/custodial_tools as anything in GLOB.janitor_devices)
+		if(!trackable(custodial_tools))
+			continue
+		var/tool_name = custodial_tools.name
+
+		if(istype(custodial_tools, /obj/item/mop))
+			var/obj/item/mop/wet_mop = custodial_tools
+			tool_name = "[wet_mop.reagents.total_volume ? "Wet" : "Dry"] [wet_mop.name]"
+
+		if(istype(custodial_tools, /obj/structure/mop_bucket/janitorialcart))
+			var/obj/structure/mop_bucket/janitorialcart/janicart = custodial_tools
+			tool_name = "[janicart.name] - Water level: [janicart.reagents.total_volume] / [janicart.reagents.maximum_volume]"
+
+		if(istype(custodial_tools, /mob/living/simple_animal/bot/cleanbot))
+			var/mob/living/simple_animal/bot/cleanbot/cleanbots = custodial_tools
+			tool_name = "[cleanbots.name] - [cleanbots.bot_mode_flags & BOT_MODE_ON ? "Online" : "Offline"]"
+
+		var/list/tool_information = list(
+			ref = REF(custodial_tools),
+			name = tool_name,
+		)
+		objects += list(tool_information)
+
 ////////////////////////
 //Nuke Disk Finder App//
 ////////////////////////
@@ -267,25 +306,19 @@
 	arrowstyle = "ntosradarpointerS.png"
 	pointercolor = "red"
 
-/datum/computer_file/program/radar/fission360/run_program(mob/living/user)
+/datum/computer_file/program/radar/fission360/on_start(mob/living/user)
 	. = ..()
 	if(!.)
 		return
 
-	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEVICE_ARMED, .proc/on_nuke_armed)
-	if(computer)
-		RegisterSignal(computer, COMSIG_PARENT_EXAMINE, .proc/on_examine)
+	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEVICE_ARMED, PROC_REF(on_nuke_armed))
 
-/datum/computer_file/program/radar/fission360/kill_program(forced)
+/datum/computer_file/program/radar/fission360/kill_program()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEVICE_ARMED)
-	if(computer)
-		UnregisterSignal(computer, COMSIG_PARENT_EXAMINE)
 	return ..()
 
 /datum/computer_file/program/radar/fission360/Destroy()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEVICE_ARMED)
-	if(computer)
-		UnregisterSignal(computer, COMSIG_PARENT_EXAMINE)
 	return ..()
 
 /datum/computer_file/program/radar/fission360/find_atom()
@@ -321,16 +354,14 @@
 		)
 	objects += list(ship_info)
 
-/*
- * Signal proc for [COMSIG_PARENT_EXAMINE], registered on the computer.
- * Shows how long any armed nukes are to detonating.
- */
-/datum/computer_file/program/radar/fission360/proc/on_examine(datum/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
+///Shows how long until the nuke detonates, if one is active.
+/datum/computer_file/program/radar/fission360/on_examine(obj/item/modular_computer/source, mob/user)
+	var/list/examine_list = list()
 
 	for(var/obj/machinery/nuclearbomb/bomb as anything in GLOB.nuke_list)
 		if(bomb.timing)
 			examine_list += span_danger("Extreme danger. Arming signal detected. Time remaining: [bomb.get_time_left()].")
+	return examine_list
 
 /*
  * Signal proc for [COMSIG_GLOB_NUKE_DEVICE_ARMED].
@@ -349,4 +380,4 @@
 		computer.audible_message(
 			span_danger("[computer] vibrates and lets out an ominous alarm. Uh oh."),
 			span_notice("[computer] begins to vibrate rapidly. Wonder what that means..."),
-			)
+		)

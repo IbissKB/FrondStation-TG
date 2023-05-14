@@ -41,7 +41,7 @@
 
 /obj/item/borg/upgrade/rename/attack_self(mob/user)
 	heldname = sanitize_name(tgui_input_text(user, "Enter new robot name", "Cyborg Reclassification", heldname, MAX_NAME_LEN), allow_numbers = TRUE)
-	log_game("[key_name(user)] have set \"[heldname]\" as a name in a cyborg reclassification board at [loc_name(user)]")
+	user.log_message("set \"[heldname]\" as a name in a cyborg reclassification board at [loc_name(user)]", LOG_GAME)
 
 /obj/item/borg/upgrade/rename/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
@@ -52,7 +52,7 @@
 		R.updatename()
 		if(oldname == R.real_name)
 			R.notify_ai(AI_NOTIFICATION_CYBORG_RENAMED, oldname, R.real_name)
-		log_game("[key_name(user)] have used a cyborg reclassification board to rename [oldkeyname] to [key_name(R)] at [loc_name(user)]")
+		usr.log_message("used a cyborg reclassification board to rename [oldkeyname] to [key_name(R)]", LOG_GAME)
 
 /obj/item/borg/upgrade/disablercooler
 	name = "cyborg rapid disabler cooling module"
@@ -399,26 +399,19 @@
 /obj/item/borg/upgrade/hypospray/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
 	if(.)
-		for(var/obj/item/reagent_containers/borghypo/H in R.model.modules)
-			if(H.accepts_reagent_upgrades)
-				for(var/re in additional_reagents)
-					H.add_reagent(re)
+		for(var/obj/item/reagent_containers/borghypo/medical/H in R.model.modules)
+			H.upgrade_hypo()
 
 /obj/item/borg/upgrade/hypospray/deactivate(mob/living/silicon/robot/R, user = usr)
 	. = ..()
 	if (.)
-		for(var/obj/item/reagent_containers/borghypo/H in R.model.modules)
-			if(H.accepts_reagent_upgrades)
-				for(var/re in additional_reagents)
-					H.del_reagent(re)
+		for(var/obj/item/reagent_containers/borghypo/medical/H in R.model.modules)
+			H.remove_hypo_upgrade()
 
 /obj/item/borg/upgrade/hypospray/expanded
 	name = "medical cyborg expanded hypospray"
 	desc = "An upgrade to the Medical model's hypospray, allowing it \
 		to treat a wider range of conditions and problems."
-	additional_reagents = list(/datum/reagent/medicine/mannitol, /datum/reagent/medicine/oculine, /datum/reagent/medicine/inacusiate,
-		/datum/reagent/medicine/mutadone, /datum/reagent/medicine/haloperidol, /datum/reagent/medicine/oxandrolone, /datum/reagent/medicine/sal_acid,
-		/datum/reagent/medicine/rezadone, /datum/reagent/medicine/pen_acid)
 
 /obj/item/borg/upgrade/piercing_hypospray
 	name = "cyborg piercing hypospray"
@@ -480,7 +473,7 @@
 	defib_instance = D
 	name = defib_instance.name
 	defib_instance.moveToNullspace()
-	RegisterSignal(defib_instance, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED), .proc/on_defib_instance_qdel_or_moved)
+	RegisterSignals(defib_instance, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED), PROC_REF(on_defib_instance_qdel_or_moved))
 
 /obj/item/borg/upgrade/defib/backpack/proc/on_defib_instance_qdel_or_moved(obj/item/defibrillator/D)
 	SIGNAL_HANDLER
@@ -550,38 +543,40 @@
 	desc = "A cyborg resizer, it makes a cyborg huge."
 	icon_state = "cyborg_upgrade3"
 
-/obj/item/borg/upgrade/expand/action(mob/living/silicon/robot/R, user = usr)
+/obj/item/borg/upgrade/expand/action(mob/living/silicon/robot/robot, user = usr)
 	. = ..()
 	if(.)
 
-		if(R.hasExpanded)
+		if(robot.hasExpanded)
 			to_chat(usr, span_warning("This unit already has an expand module installed!"))
 			return FALSE
 		// SKYRAT EDIT BEGIN
-		if((R_TRAIT_WIDE in R.model.model_features) || (R_TRAIT_TALL in R.model.model_features))
+		if(robot.model.model_select_icon == "nomod")
+			to_chat(usr, span_warning("Default models cannot take expand or shrink upgrades."))
+			return FALSE
+		if((R_TRAIT_WIDE in robot.model.model_features) || (R_TRAIT_TALL in robot.model.model_features))
 			to_chat(usr, span_warning("This unit's chassis cannot be enlarged any further."))
 			return FALSE
 		// SKYRAT EDIT END
 
-		R.notransform = TRUE
-		var/prev_lockcharge = R.lockcharge
-		R.SetLockdown(TRUE)
-		R.set_anchored(TRUE)
-		var/datum/effect_system/smoke_spread/smoke = new
-		smoke.set_up(1, R.loc)
+		robot.notransform = TRUE
+		var/prev_lockcharge = robot.lockcharge
+		robot.SetLockdown(TRUE)
+		robot.set_anchored(TRUE)
+		var/datum/effect_system/fluid_spread/smoke/smoke = new
+		smoke.set_up(1, holder = robot, location = robot.loc)
 		smoke.start()
-		sleep(2)
+		sleep(0.2 SECONDS)
 		for(var/i in 1 to 4)
-			playsound(R, pick('sound/items/drill_use.ogg', 'sound/items/jaws_cut.ogg', 'sound/items/jaws_pry.ogg', 'sound/items/welder.ogg', 'sound/items/ratchet.ogg'), 80, TRUE, -1)
-			sleep(12)
+			playsound(robot, pick('sound/items/drill_use.ogg', 'sound/items/jaws_cut.ogg', 'sound/items/jaws_pry.ogg', 'sound/items/welder.ogg', 'sound/items/ratchet.ogg'), 80, TRUE, -1)
+			sleep(1.2 SECONDS)
 		if(!prev_lockcharge)
-			R.SetLockdown(FALSE)
-		R.set_anchored(FALSE)
-		R.notransform = FALSE
-		//R.resize = 2 //ORIGINAL
-		R.resize = 1.25 //SKYRAT EDIT CHANGE - CYBORG
-		R.hasExpanded = TRUE
-		R.update_transform()
+			robot.SetLockdown(FALSE)
+		robot.set_anchored(FALSE)
+		robot.notransform = FALSE
+		robot.resize = 1.25 //SKYRAT EDIT CHANGE - CYBORG
+		robot.hasExpanded = TRUE
+		robot.update_transform()
 
 /obj/item/borg/upgrade/expand/deactivate(mob/living/silicon/robot/R, user = usr)
 	. = ..()
@@ -595,7 +590,7 @@
 /obj/item/borg/upgrade/rped//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "engineering cyborg RPED"
 	desc = "A rapid part exchange device for the engineering cyborg."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/storage.dmi'
 	icon_state = "borgrped"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/engineering, /obj/item/robot_model/saboteur)
@@ -663,6 +658,8 @@
 	var/mob/living/silicon/robot/Cyborg = usr
 	GLOB.crewmonitor.show(Cyborg,Cyborg)
 
+/datum/action/item_action/crew_monitor
+	name = "Interface With Crew Monitor"
 
 /obj/item/borg/upgrade/transform
 	name = "borg model picker (Standard)"
@@ -762,6 +759,118 @@
 	var/obj/item/pushbroom/cyborg/BR = locate() in R.model.modules
 	if (BR)
 		R.model.remove_module(BR, TRUE)
+		
+/obj/item/borg/upgrade/condiment_synthesizer
+	name = "Service Cyborg Condiment Synthesiser"
+	desc = "An upgrade to the service model cyborg, allowing it to produce solid condiments."
+	icon_state = "cyborg_upgrade3"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/service)
+	model_flags = BORG_MODEL_SERVICE
+
+/obj/item/borg/upgrade/condiment_synthesizer/action(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/reagent_containers/borghypo/condiment_synthesizer/cynthesizer = locate() in install.model.modules
+	if(cynthesizer)
+		install.balloon_alert_to_viewers("already installed!")
+		return FALSE
+	cynthesizer = new(install.model)
+	install.model.basic_modules += cynthesizer
+	install.model.add_module(cynthesizer, FALSE, TRUE)
+
+/obj/item/borg/upgrade/condiment_synthesizer/deactivate(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if (!.)
+		return FALSE
+	var/obj/item/reagent_containers/borghypo/condiment_synthesizer/cynthesizer = locate() in install.model.modules
+	if (cynthesizer)
+		install.model.remove_module(cynthesizer, TRUE)
+			
+/obj/item/borg/upgrade/silicon_knife
+	name = "Service Cyborg Kitchen Toolset"
+	desc = "An upgrade to the service model cyborg, to help process foods."
+	icon_state = "cyborg_upgrade3"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/service)
+	model_flags = BORG_MODEL_SERVICE
+			
+/obj/item/borg/upgrade/silicon_knife/action(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/knife/kitchen/silicon/snife = locate() in install.model.modules
+	if(snife)
+		install.balloon_alert_to_viewers("already installed!")
+		return FALSE
+	snife = new(install.model)
+	install.model.basic_modules += snife
+	install.model.add_module(snife, FALSE, TRUE)
+
+/obj/item/borg/upgrade/silicon_knife/deactivate(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if (!.)
+		return FALSE
+	var/obj/item/knife/kitchen/silicon/snife = locate() in install.model.modules
+	if (snife)
+		install.model.remove_module(snife, TRUE)
+			
+/obj/item/borg/upgrade/service_apparatus
+	name = "Service Cyborg Service Apparatus"
+	desc = "An upgrade to the service model cyborg, to help handle foods and paper."
+	icon_state = "cyborg_upgrade3"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/service)
+	model_flags = BORG_MODEL_SERVICE			
+			
+/obj/item/borg/upgrade/service_apparatus/action(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/borg/apparatus/service/saparatus = locate() in install.model.modules
+	if(saparatus)
+		install.balloon_alert_to_viewers("already installed!")
+		return FALSE
+	saparatus = new(install.model)
+	install.model.basic_modules += saparatus
+	install.model.add_module(saparatus, FALSE, TRUE)
+
+/obj/item/borg/upgrade/service_apparatus/deactivate(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if (!.)
+		return FALSE
+	var/obj/item/borg/apparatus/service/saparatus = locate() in install.model.modules
+	if (saparatus)
+		install.model.remove_module(saparatus, TRUE)
+			
+/obj/item/borg/upgrade/rolling_table
+	name = "Service Cyborg Rolling Table Dock"
+	desc = "An upgrade to the service model cyborg, to help provide mobile service."
+	icon_state = "cyborg_upgrade3"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/service)
+	model_flags = BORG_MODEL_SERVICE			
+			
+/obj/item/borg/upgrade/rolling_table/action(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/rolling_table_dock/rtable = locate() in install.model.modules
+	if(rtable)
+		install.balloon_alert_to_viewers("already installed!")
+		return FALSE
+	rtable = new(install.model)
+	install.model.basic_modules += rtable
+	install.model.add_module(rtable, FALSE, TRUE)
+
+/obj/item/borg/upgrade/rolling_table/deactivate(mob/living/silicon/robot/install, user = usr)
+	. = ..()
+	if (!.)
+		return FALSE
+	var/obj/item/rolling_table_dock/rtable = locate() in install.model.modules
+	if (rtable)
+		install.model.remove_module(rtable, TRUE)			
 
 ///This isn't an upgrade or part of the same path, but I'm gonna just stick it here because it's a tool used on cyborgs.
 //A reusable tool that can bring borgs back to life. They gotta be repaired first, though.
@@ -791,7 +900,7 @@
 	else
 		playsound(loc, 'sound/machines/ping.ogg', 75, TRUE)
 
-	borgo.revive(full_heal = FALSE, admin_revive = FALSE)
+	borgo.revive()
 	borgo.logevent("WARN -- System recovered from unexpected shutdown.")
 	borgo.logevent("System brought online.")
 	return ..()

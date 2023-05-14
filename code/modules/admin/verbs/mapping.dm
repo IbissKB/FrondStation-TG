@@ -35,10 +35,10 @@ GLOBAL_LIST_INIT(admin_verbs_debug_mapping, list(
 	/client/proc/cmd_admin_grantfullaccess,
 	/client/proc/cmd_admin_areatest_all,
 	/client/proc/cmd_admin_areatest_station,
+	/client/proc/cmd_admin_areatest_station_no_maintenance,
 	#ifdef TESTING
 	/client/proc/see_dirty_varedits,
 	#endif
-	/client/proc/cmd_admin_test_atmos_controllers,
 	/client/proc/cmd_admin_rejuvenate,
 	/datum/admins/proc/show_traitor_panel,
 	/client/proc/disable_communication,
@@ -54,6 +54,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug_mapping, list(
 	/client/proc/place_ruin,
 	/client/proc/station_food_debug,
 	/client/proc/station_stack_debug,
+	/client/proc/check_for_obstructed_atmospherics,
 ))
 GLOBAL_PROTECT(admin_verbs_debug_mapping)
 
@@ -69,13 +70,12 @@ GLOBAL_PROTECT(admin_verbs_debug_mapping)
 
 	if(!on)
 		var/list/seen = list()
-		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+		for(var/obj/machinery/camera/C as anything in GLOB.cameranet.cameras)
 			for(var/turf/T in C.can_see())
 				seen[T]++
 		for(var/turf/T in seen)
 			T.maptext = MAPTEXT(seen[T])
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Range") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Range")
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Range") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 #ifdef TESTING
 GLOBAL_LIST_EMPTY(dirty_vars)
@@ -104,7 +104,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 
 	var/list/obj/machinery/camera/CL = list()
 
-	for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for(var/obj/machinery/camera/C as anything in GLOB.cameranet.cameras)
 		CL += C
 
 	var/output = {"<B>Camera Abnormalities Report</B><HR>
@@ -132,7 +132,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 
 	output += "</ul>"
 	usr << browse(output,"window=airreport;size=1000x500")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Report") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Report") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 /client/proc/intercom_view()
 	set category = "Mapping"
@@ -149,7 +149,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 			for(var/obj/item/radio/intercom/intercom in GLOB.all_radios[frequency])
 				for(var/turf/turf in view(7,intercom.loc))
 					new /obj/effect/abstract/marker/intercom(turf)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Intercom Range") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Intercom Range") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 /client/proc/show_map_reports()
 	set category = "Mapping"
@@ -178,7 +178,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 
 	usr << browse(dat, "window=at_list")
 
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Roundstart Active Turfs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Roundstart Active Turfs") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 /client/proc/cmd_show_at_markers()
 	set category = "Mapping"
@@ -207,14 +207,14 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 		return
 	remove_verb(src, /client/proc/enable_mapping_verbs)
 	add_verb(src, list(/client/proc/disable_mapping_verbs, GLOB.admin_verbs_debug_mapping))
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Enable Debug Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Enable Debug Verbs") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 /client/proc/disable_mapping_verbs()
 	set category = "Debug"
 	set name = "Mapping verbs - Disable"
 	remove_verb(src, list(/client/proc/disable_mapping_verbs, GLOB.admin_verbs_debug_mapping))
 	add_verb(src, /client/proc/enable_mapping_verbs)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Disable Debug Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Disable Debug Verbs") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 /client/proc/count_objects_on_z_level()
 	set category = "Mapping"
@@ -253,7 +253,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 					atom_list += A
 
 	to_chat(world, "There are [count] objects of type [type_path] on z-level [num_level]", confidential = TRUE)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Count Objects Zlevel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Count Objects Zlevel") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 /client/proc/count_objects_all()
 	set category = "Mapping"
@@ -273,7 +273,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 			count++
 
 	to_chat(world, "There are [count] objects of type [type_path] in the game world", confidential = TRUE)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Count Objects All") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Count Objects All") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 
 //This proc is intended to detect lag problems relating to communication procs
@@ -299,15 +299,14 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 		var/datum/job/JB = new job
 		switch(JB.title)
 			if(JOB_AI)
-				final.Insert(icon('icons/mob/ai.dmi', "ai", SOUTH, 1), "AI")
+				final.Insert(icon('icons/mob/silicon/ai.dmi', "ai", SOUTH, 1), "AI")
 			if(JOB_CYBORG)
-				final.Insert(icon('icons/mob/robots.dmi', "robot", SOUTH, 1), "Cyborg")
+				final.Insert(icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1), "Cyborg")
 			else
 				for(var/obj/item/I in D)
 					qdel(I)
 				randomize_human(D)
 				D.dress_up_as_job(JB, TRUE)
-				COMPILE_OVERLAYS(D)
 				var/icon/I = icon(getFlatIcon(D), frame = 1)
 				final.Insert(I, JB.title)
 	qdel(D)
@@ -329,14 +328,13 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 		to_chat(world, "Generating icon for job [JB.title]")
 		switch(JB.title)
 			if("AI")
-				job_key_to_icon["AI"] = icon('icons/mob/ai.dmi', "ai", SOUTH, 1)
+				job_key_to_icon["AI"] = icon('icons/mob/silicon/ai.dmi', "ai", SOUTH, 1)
 			if("Cyborg")
-				job_key_to_icon["Cyborg"] = icon('icons/mob/robots.dmi', "robot", SOUTH, 1)
+				job_key_to_icon["Cyborg"] = icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1)
 			else
 				randomize_human(D)
 				if(JB.outfit)
 					D.equipOutfit(JB.outfit, TRUE)
-				COMPILE_OVERLAYS(D)
 				var/icon/I = icon(getFlatIcon(D), frame = 1)
 				job_key_to_icon[JB.title] = I
 		qdel(D)
@@ -356,7 +354,7 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 
 	var/list/z_list = SSmapping.z_list
 	var/list/messages = list()
-	messages += "<b>World</b>: [world.maxx] x [world.maxy] x [world.maxz]<br>"
+	messages += "<b>World</b>: [world.maxx] x [world.maxy] x [world.maxz]<br><br>"
 
 	var/list/linked_levels = list()
 	var/min_x = INFINITY
@@ -400,7 +398,7 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 	for(var/datum/space_level/S in linked_levels)
 		grid[S.xi - min_x + 1][S.yi - min_y + 1] = S.z_value
 
-	messages += "<table border='1'>"
+	messages += "<br><table border='1'>"
 	for(var/y in max_y to min_y step -1)
 		var/list/part = list()
 		for(var/x in min_x to max_x)
@@ -408,7 +406,7 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 		messages += "<tr><td>[part.Join("</td><td>")]</td></tr>"
 	messages += "</table>"
 
-	to_chat(src, messages.Join(""), confidential = TRUE)
+	to_chat(src, examine_block(messages.Join("")), confidential = TRUE)
 
 /client/proc/station_food_debug()
 	set name = "Count Station Food"
@@ -456,3 +454,64 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 	popup.set_content(page_contents)
 	popup.open()
 
+/// Check all tiles with a vent or scrubber on it and ensure that nothing is covering it up.
+/client/proc/check_for_obstructed_atmospherics()
+	set name = "Check For Obstructed Atmospherics"
+	set category = "Mapping"
+	if(!holder)
+		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		return
+	message_admins(span_adminnotice("[key_name_admin(usr)] is checking for obstructed atmospherics through the debug command."))
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check For Obstructed Atmospherics") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+
+	var/list/results = list()
+
+	results += "<h2><b>Anything that is considered to aesthetically obstruct an atmospherics machine (vent, scrubber, port) is listed below.</b> Please re-arrange to accomodate for this.</h2><br>"
+
+	// Ignore out stuff we see in normal and standard mapping that we don't care about (false alarms). Typically stuff that goes directionally off turfs or other undertile objects that we don't want to care about.
+	var/list/ignore_list = list(
+		/obj/effect,
+		/obj/item/shard, // it's benign enough to where we don't need to error, yet common enough to filter. fuck.
+		/obj/machinery/airalarm,
+		/obj/machinery/atmospherics/components/unary, //don't wanna flag on the vent or scrubber itself.
+		/obj/machinery/atmospherics/pipe,
+		/obj/machinery/button,
+		/obj/machinery/camera,
+		/obj/machinery/door_buttons,
+		/obj/machinery/door/window, // i kind of wish we didn't have to do it but we have some particularly compact areas that we need to be wary of
+		/obj/machinery/duct,
+		/obj/machinery/firealarm,
+		/obj/machinery/flasher,
+		/obj/machinery/light_switch,
+		/obj/machinery/light,
+		/obj/machinery/navbeacon,
+		/obj/machinery/newscaster,
+		/obj/machinery/portable_atmospherics,
+		/obj/machinery/power/apc,
+		/obj/machinery/power/terminal,
+		/obj/machinery/sparker,
+		/obj/machinery/status_display,
+		/obj/machinery/turretid,
+		/obj/structure/cable,
+		/obj/structure/disposalpipe,
+		/obj/structure/extinguisher_cabinet,
+		/obj/structure/lattice,
+		/obj/structure/sign,
+		/obj/structure/urinal, // the reason why this one gets to live and not the shower/sink is because it's pretty firmly on a wall.
+		/obj/structure/window/reinforced,
+	)
+
+	for(var/turf/iterated_turf in world)
+		var/obj/machinery/atmospherics/components/unary/device = locate() in iterated_turf.contents
+		if(!device)
+			continue
+		var/list/obj/obstruction = locate(/obj) in iterated_turf.contents
+		if(!is_type_in_list(obstruction, ignore_list))
+			results += "There is an obstruction on top of an atmospherics machine at: [ADMIN_VERBOSEJMP(iterated_turf)].<br>"
+
+	if(results.len == 1) // only the header is in the list, we're good
+		to_chat(src, "No obstructions detected.", confidential = TRUE)
+	else
+		var/datum/browser/popup = new(usr, "atmospherics_obstructions", "Atmospherics Obstructions", 900, 750)
+		popup.set_content(results.Join())
+		popup.open()

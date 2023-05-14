@@ -13,6 +13,9 @@
 /datum/movespeed_modifier/hunger
 	variable = TRUE
 
+/datum/movespeed_modifier/golem_hunger
+	variable = TRUE
+
 /datum/movespeed_modifier/slaughter
 	multiplicative_slowdown = -1
 
@@ -72,6 +75,7 @@
 
 /datum/movespeed_modifier/bulky_drag
 	variable = TRUE
+	blacklisted_movetypes = FLOATING
 
 /datum/movespeed_modifier/cold
 	blacklisted_movetypes = FLOATING
@@ -82,6 +86,7 @@
 
 /datum/movespeed_modifier/human_carry
 	multiplicative_slowdown = HUMAN_CARRY_SLOWDOWN
+	blacklisted_movetypes = FLOATING
 
 /datum/movespeed_modifier/limbless
 	variable = TRUE
@@ -94,6 +99,9 @@
 
 /datum/movespeed_modifier/tarantula_web
 	multiplicative_slowdown = 5
+
+/datum/movespeed_modifier/duct_spider_web
+	multiplicative_slowdown = 1
 
 /datum/movespeed_modifier/gravity
 	blacklisted_movetypes = FLOATING
@@ -125,7 +133,13 @@
 	multiplicative_slowdown = 5
 
 /datum/movespeed_modifier/morph_disguised
-	multiplicative_slowdown = 1
+	multiplicative_slowdown = -1
 
 /datum/movespeed_modifier/auto_wash
 	multiplicative_slowdown = 3
+
+/datum/movespeed_modifier/player_spider_modifier
+	variable = TRUE
+
+/datum/movespeed_modifier/health_scaling_speed_buff
+	variable = TRUE

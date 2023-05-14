@@ -19,6 +19,18 @@
 	. = ..()
 	recharging_turf = get_step(loc, dir)
 
+	if(!mapload)
+		return
+
+	var/area/my_area = get_area(src)
+	if(!(my_area.type in GLOB.the_station_areas))
+		return
+
+	var/area_name = get_area_name(src, format_text = TRUE)
+	if(area_name in GLOB.roundstart_station_mechcharger_areas)
+		return
+	GLOB.roundstart_station_mechcharger_areas += area_name
+
 /obj/machinery/mech_bay_recharge_port/Destroy()
 	if (recharge_console?.recharge_port == src)
 		recharge_console.recharge_port = null
@@ -29,9 +41,10 @@
 	recharging_turf = get_step(loc, dir)
 
 /obj/machinery/mech_bay_recharge_port/RefreshParts()
+	. = ..()
 	var/total_rating = 0
-	for(var/obj/item/stock_parts/capacitor/cap in component_parts)
-		total_rating += cap.rating
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		total_rating += capacitor.tier
 	recharge_power = total_rating * 12.5
 
 /obj/machinery/mech_bay_recharge_port/examine(mob/user)
@@ -39,7 +52,7 @@
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Recharge power <b>[siunit(recharge_power, "W", 1)]</b>.")
 
-/obj/machinery/mech_bay_recharge_port/process(delta_time)
+/obj/machinery/mech_bay_recharge_port/process(seconds_per_tick)
 	if(machine_stat & NOPOWER || !recharge_console)
 		return
 	var/obj/vehicle/sealed/mecha/recharging_mech = recharging_mech_ref?.resolve()
@@ -51,9 +64,9 @@
 	if(!recharging_mech?.cell)
 		return
 	if(recharging_mech.cell.charge < recharging_mech.cell.maxcharge)
-		var/delta = min(recharge_power * delta_time, recharging_mech.cell.maxcharge - recharging_mech.cell.charge)
+		var/delta = min(recharge_power * seconds_per_tick, recharging_mech.cell.maxcharge - recharging_mech.cell.charge)
 		recharging_mech.give_power(delta)
-		use_power(delta*150)
+		use_power(delta + active_power_usage)
 	else
 		recharge_console.update_appearance()
 	if(recharging_mech.loc != recharging_turf)
@@ -93,6 +106,7 @@
 	return ..()
 
 /obj/machinery/computer/mech_bay_power_console/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MechBayPowerConsole", name)
@@ -132,7 +146,7 @@
 /obj/machinery/computer/mech_bay_power_console/proc/reconnect()
 	if(recharge_port)
 		return
-	recharge_port = locate(/obj/machinery/mech_bay_recharge_port) in range(1)
+	recharge_port = locate(/obj/machinery/mech_bay_recharge_port) in range(1, src)
 	if(!recharge_port)
 		for(var/direction in GLOB.cardinals)
 			var/turf/target = get_step(src, direction)

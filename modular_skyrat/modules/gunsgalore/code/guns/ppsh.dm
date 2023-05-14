@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic/ppsh
-	name = "\improper PPSh-41"
+	name = "\improper Asha 76"
 	desc = "A reproduction of a simple Soviet SMG chambered in 7.62x25 Tokarev rounds. Its heavy wooden stock and leather breech buffer help absorb the bolt’s heavy recoil, making it great for spraying and praying. Uraaaa!"
 	icon = 'modular_skyrat/modules/gunsgalore/icons/guns/gunsgalore_guns40x32.dmi'
 	icon_state = "ppsh"
@@ -13,20 +13,25 @@
 	mag_type = /obj/item/ammo_box/magazine/ppsh
 	can_suppress = FALSE
 	spread = 20
-	burst_size = 6
 	fire_delay = 0.5
 	fire_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/fire/ppsh_fire.ogg'
 	fire_sound_volume = 80
 	alt_icons = TRUE
-	realistic = TRUE
-	dirt_modifier = 0.3
 	rack_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/smg_cock.ogg'
 	load_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/smg_magin.ogg'
 	load_empty_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/smg_magin.ogg'
 	eject_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/smg_magout.ogg'
 
+/obj/item/gun/ballistic/automatic/ppsh/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+/obj/item/gun/ballistic/automatic/ppsh/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_OLDARMS)
+
 /obj/item/ammo_box/magazine/ppsh
-	name = "ppsh-41 magazine (7.62x25mm)"
+	name = "Asha 76 magazine (7.62x25mm)"
 	icon = 'modular_skyrat/modules/gunsgalore/icons/guns/gunsgalore_items.dmi'
 	icon_state = "ppsh"
 	ammo_type = /obj/item/ammo_casing/realistic/a762x25

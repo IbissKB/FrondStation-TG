@@ -6,25 +6,7 @@
 	icon_state = "wornshirt"
 	inhand_icon_state = "labcoat"
 	body_parts_covered = CHEST|GROIN
-	mutant_variants = NONE
-
-/obj/item/clothing/suit/toggle/labcoat/hospitalgown
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	name = "hospital gown"
-	desc = "A complicated drapery with an assortment of velcros and strings, designed to keep a patient modest during medical stay and surgeries."
-	icon_state = "hgown"
-	toggle_noun = "drapes"
-	body_parts_covered = NONE
-	armor = NONE
-	equip_delay_other = 8
-
-/obj/item/clothing/suit/toggle/labcoat/medical
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	name = "medical labcoat"
-	desc = "A modest labcoat with medical coloring, meant to distinguish personnel in the line of duty."
-	icon_state = "labcoat_gen"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/dutchjacketsr
 	name = "western jacket"
@@ -32,44 +14,8 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "dutchjacket"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/hawaiian_blue
-	name = "blue hawaiian shirt"
-	desc = "Strangely en vouge with aviator wearing shibas."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	icon_state = "hawaiian_blue"
-	body_parts_covered = CHEST|GROIN
-	mutant_variants = NONE
-
-
-/obj/item/clothing/suit/hawaiian_orange
-	name = "orange hawaiian shirt"
-	desc = "Strangely en vouge with aviator wearing shibas."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	icon_state = "hawaiian_orange"
-	body_parts_covered = CHEST|GROIN
-	mutant_variants = NONE
-
-/obj/item/clothing/suit/hawaiian_purple
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	name = "purple hawaiian shirt"
-	icon_state = "hawaiian_purple"
-	desc = "Strangely en vouge with aviator wearing shibas."
-	body_parts_covered = CHEST|GROIN
-	mutant_variants = NONE
-
-
-/obj/item/clothing/suit/hawaiian_green
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	name = "green hawaiian shirt"
-	icon_state = "hawaiian_green"
-	desc = "Strangely en vouge with aviator wearing shibas."
-	body_parts_covered = CHEST|GROIN
-	mutant_variants = NONE
 
 /obj/item/clothing/suit/toggle/trackjacket
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -86,7 +32,7 @@
 	name = "blue trenchcoat"
 	icon_state = "frenchtrench"
 	desc = "There's a certain timeless feeling to this coat, like it was once worn by a romantic, broken through his travels, from a schemer who hunted injustice to a traveller, however it arrived in your hands? Who knows?"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/victoriantailcoatbutler
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -94,15 +40,15 @@
 	name = "caretaker tailcoat"
 	desc = "You've ALWAYS been the Caretaker. I ought to know, I've ALWAYS been here."
 	icon_state = "victorian_tailcoat"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/koreacoat
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	name = "eastern winter coat"
-	desc = "War crimes make people cold, not just on the inside, but on the outside as well, just ask Germany, France, Sweden, Germany again, Russia themselves and Poland, this coat's a touch more eastern, however."
+	desc = "War makes people cold, not just on the inside, but on the outside as well... luckily this coat's not seen any hardships like that, and is actually quite warm!"
 	icon_state = "chi_korea_coat"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -113,7 +59,7 @@
 	name = "modern winter coat"
 	desc = "Warm and comfy, the inner fur seems to be removable, not this one though, someone's sewn it in and left the buttons!"
 	icon_state = "modern_winter"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -126,9 +72,9 @@
 	greyscale_config_worn = /datum/greyscale_config/cardigan/worn
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/jacket/cardigan/ComponentInitialize()
+/obj/item/clothing/suit/toggle/jacket/cardigan/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_clothes, "cardigan_t")
 
@@ -138,7 +84,7 @@
 	name = "disco ass blazer"
 	desc = "Looks like someone skinned this blazer off some long extinct disco-animal. It has an enigmatic white rectangle on the back and the right sleeve."
 	icon_state = "jamrock_blazer"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/kimjacket
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -146,7 +92,7 @@
 	name = "aerostatic bomber jacket"
 	desc = "A jacket once worn by the Air Force during the Antecentennial Revolution, there are quite a few pockets on the inside, mostly for storing notebooks and compasses."
 	icon_state = "aerostatic_bomber_jacket"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/blackfurrich
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -154,7 +100,7 @@
 	name = "expensive black fur coat"
 	desc = "Ever thought to yourself 'I'm a rich bitch, but I haven't GOT the Mafia Princess look?' Well thanks to the tireless work of underpaid slave labour in Space China, your dreams of looking like a bitch have been fulfilled, like a Genie with a sweatshop."
 	icon_state = "expensivecoat"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -165,7 +111,7 @@
 	name = "expensive brown fur coat"
 	desc = "There is nothing more valuable, nothing more sacred, look at the fur lining, it's beautiful, when you cruse through Necropolis in this thing, you're gonna be balls deep in Ash Walker snatch."
 	icon_state = "battlecoat"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -176,11 +122,15 @@
 	name = "quartermaster fur coat"
 	desc = "Cargonia, or if you're a dork, Cargoslavia has shipped out a coat for loyal quartermasters, despite accusations it's just a dyed black fur coat, it's...not, promise!"
 	icon_state = "winter_coat"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	armor = list(MELEE = 10, BULLET = 10, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	armor_type = /datum/armor/suit_brownfurrich
+
+/datum/armor/suit_brownfurrich
+	melee = 10
+	bullet = 10
 
 /obj/item/clothing/suit/brownfurrich/public
 	name = "fur coat"
@@ -202,7 +152,7 @@
 	name = "falls parka"
 	desc = "A light brown coat with light fur lighting around the collar."
 	icon_state = "fallsparka"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -213,11 +163,15 @@
 	name = "british officers coat"
 	desc = "Whether you're commanding a colonial crusade or commanding a battalion for the British Empire, this coat will suit you."
 	icon_state = "british_officer"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	armor = list(MELEE = 10, BULLET = 10, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	armor_type = /datum/armor/suit_british_officer
+
+/datum/armor/suit_british_officer
+	melee = 10
+	bullet = 10
 
 /obj/item/clothing/suit/modern_winter
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -225,7 +179,7 @@
 	name = "modern winter coat"
 	desc = "A comfy modern winter coat."
 	icon_state = "modern_winter"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -236,7 +190,7 @@
 	name = "wool coat"
 	desc = "A fine coat made from the richest of wool."
 	icon_state = "woolcoat"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 
 
@@ -246,11 +200,17 @@
 	name = "neo american general's coat"
 	desc = "In stark contrast to the undersuit, this large and armored coat is as white as snow, perfect for the bloodstains."
 	icon_state = "soldier"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	armor = list(MELEE = 10, BULLET = 10, LASER = 20,ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	armor_type = /datum/armor/suit_gautumn
+
+/datum/armor/suit_gautumn
+	melee = 10
+	bullet = 10
+	laser = 20
+	energy = 20
 
 /obj/item/clothing/suit/autumn
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -258,11 +218,15 @@
 	name = "neo american officer's coat"
 	desc = "In stark contrast to the undersuit, this coat is a greeny white colour, layered with slight protection against bullets and melee weapons."
 	icon_state = "autumn"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	armor = list(MELEE = 10, BULLET = 10, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	armor_type = /datum/armor/suit_autumn
+
+/datum/armor/suit_autumn
+	melee = 10
+	bullet = 10
 
 /obj/item/clothing/suit/texas
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -270,7 +234,7 @@
 	name = "white suit coat"
 	desc = "A white suit coat, perfect for fat oil barons."
 	icon_state = "texas"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|ARMS
 
 /obj/item/clothing/suit/cossack
@@ -279,7 +243,7 @@
 	name = "ukrainian coat"
 	desc = "Hop on your horse, dawn your really fluffy hat, and strap this coat to your back."
 	icon_state = "kuban_cossak"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/armor/cossack/sec
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -287,14 +251,14 @@
 	name = "security ukrainian coat"
 	desc = "Hop on your horse, dawn your really fluffy hat, and strap this coat to your back."
 	icon_state = "don_cossak"
-	mutant_variants = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/corgisuit/en
 	name = "\improper super-hero E-N suit"
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "ensuit"
-	mutant_variants = NONE
+	supports_variations_flags = NONE
 
 /obj/item/clothing/suit/corgisuit/en/New()
 	..()
@@ -312,7 +276,7 @@
 		for(var/mob/living/silicon/S in orange(2,src))
 			if(istype(S, /mob/living/silicon/ai)) continue
 			step_towards(S,src)
-		for(var/datum/species/robotic/R in orange(2,src))
+		for(var/datum/species/synthetic/R in orange(2,src))
 			step_towards(R,src)
 
 /obj/item/clothing/suit/trenchbrown
@@ -321,7 +285,6 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "brtrenchcoat"
-	mutant_variants = STYLE_VOX
 	body_parts_covered = CHEST|ARMS
 
 /obj/item/clothing/suit/trenchblack
@@ -330,5 +293,87 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "bltrenchcoat"
-	mutant_variants = STYLE_VOX
 	body_parts_covered = CHEST|ARMS
+
+/obj/item/clothing/suit/apron/chef/colorable_apron
+	name = "apron"
+	desc = "A basic apron."
+	icon = 'modular_skyrat/modules/GAGS/icons/suit/suit.dmi'
+	worn_icon = 'modular_skyrat/modules/GAGS/icons/suit/suit.dmi'
+	worn_icon_teshari = 'modular_skyrat/modules/GAGS/icons/suit/suit_teshari.dmi'
+	icon_state = "apron"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	greyscale_colors = "#ffffff"
+	greyscale_config = /datum/greyscale_config/apron
+	greyscale_config_worn = /datum/greyscale_config/apron/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/apron/worn/teshari
+	greyscale_config_worn_better_vox = /datum/greyscale_config/apron/worn/newvox
+	greyscale_config_worn_vox = /datum/greyscale_config/apron/worn/oldvox
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/hawaiian_shirt
+	name = "hawaiian shirt"
+	desc = "Strangely en vogue with aviator wearing shibas."
+	icon_state = "hawaiianshirt"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	greyscale_config = /datum/greyscale_config/hawaiian_shirt
+	greyscale_config_worn = /datum/greyscale_config/hawaiian_shirt/worn
+	greyscale_colors = "#313B82#CCCFF0"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/apron/overalls/greyscale
+	desc = "A set of overalls."
+	icon_state = "overalls"
+	greyscale_config = /datum/greyscale_config/overalls
+	greyscale_config_worn = /datum/greyscale_config/overalls/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/overalls/worn/digi
+	greyscale_colors = "#594032"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/apron/overalls/greyscale/Initialize(mapload)
+	. = ..()
+	allowed += list(
+		/obj/item/flashlight,
+		/obj/item/lighter,
+		/obj/item/modular_computer/pda,
+		/obj/item/radio,
+		/obj/item/storage/bag/books,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/tank/internals/plasmaman,
+		/obj/item/toy,
+		/obj/item/analyzer,
+		/obj/item/construction/rcd,
+		/obj/item/fireaxe/metal_h2_axe,
+		/obj/item/pipe_dispenser,
+		/obj/item/storage/bag/construction,
+		/obj/item/t_scanner,
+	)
+
+/obj/item/clothing/suit/apron/overalls/greyscale/examine(mob/user)
+	. = ..()
+
+	. += span_notice("With <b>Alt + Click</b> you can switch this between making it overclothes or jumpsuit slot wearable.")
+
+	return .
+
+/obj/item/clothing/suit/apron/overalls/greyscale/AltClick(mob/user)
+	. = ..()
+	if(!iscarbon(user))
+		return
+	var/mob/living/carbon/carbon_user = user
+	if(carbon_user.get_item_by_slot(slot_flags) == src)
+		to_chat(user, span_warning("You must take [src] off before adjusting it!"))
+		return
+	if(!user.is_holding(src))
+		to_chat(user, span_warning("You must be holding [src] in order to adjust it!"))
+		return
+	switch(slot_flags)
+		if(ITEM_SLOT_ICLOTHING)
+			slot_flags = ITEM_SLOT_OCLOTHING
+			to_chat(user, span_warning("You adjust [src] to let you wear it over jumpsuits."))
+			return
+		if(ITEM_SLOT_OCLOTHING)
+			slot_flags = ITEM_SLOT_ICLOTHING
+			to_chat(user, span_warning("You adjust [src] to let you wear it as a jumpsuit."))
+			return

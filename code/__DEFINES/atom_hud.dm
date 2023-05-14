@@ -2,6 +2,7 @@
 // note: if you add more HUDs, even for non-human atoms, make sure to use unique numbers for the defines!
 // /datum/atom_hud expects these to be unique
 // these need to be strings in order to make them associative lists
+
 /// dead, alive, sick, health status
 #define HEALTH_HUD "1"
 /// a simple line rounding the mob's number health
@@ -26,27 +27,31 @@
 #define DIAG_MECH_HUD "11"
 /// Bot HUDs
 #define DIAG_BOT_HUD "12"
-/// Circuit assembly health bar
-#define DIAG_CIRCUIT_HUD "13"
 /// Mech/Silicon tracking beacon, Circutry long range icon
-#define DIAG_TRACK_HUD "14"
+#define DIAG_TRACK_HUD "13"
 /// Airlock shock overlay
-#define DIAG_AIRLOCK_HUD "15"
+#define DIAG_AIRLOCK_HUD "14"
 /// Bot path indicators
-#define DIAG_PATH_HUD "16"
+#define DIAG_PATH_HUD "15"
 /// Gland indicators for abductors
-#define GLAND_HUD "17"
-#define SENTIENT_DISEASE_HUD "18"
-#define AI_DETECT_HUD "19"
+#define GLAND_HUD "16"
+#define SENTIENT_DISEASE_HUD "17"
+#define AI_DETECT_HUD "18"
 /// Displays launchpads' targeting reticle
-#define DIAG_LAUNCHPAD_HUD "22"
+#define DIAG_LAUNCHPAD_HUD "19"
 //for antag huds. these are used at the /mob level
-#define ANTAG_HUD "23"
+#define ANTAG_HUD "20"
 // for fans to identify pins
-#define FAN_HUD "24"
-//SKYRAT EDIT ADDITION - GUNHUD
-// ammo of guns
-#define AMMO_HUD	"25"
+#define FAN_HUD "21"
+/// Mech camera HUD
+#define DIAG_CAMERA_HUD "22"
+
+// SKYRAT EDIT ADDITION BEGIN - gun permits
+/// ammo of guns
+#define AMMO_HUD "25"
+/// if they have a gun permit
+#define PERMIT_HUD "26"
+// SKYRAT EDIT ADDITION END
 
 //by default everything in the hud_list of an atom is an image
 //a value in hud_list with one of these will change that behavior
@@ -64,6 +69,7 @@
 #define DATA_HUD_SENTIENT_DISEASE 8
 #define DATA_HUD_AI_DETECT 9
 #define DATA_HUD_FAN 10
+#define DATA_HUD_PERMIT 11 //SKYRAT EDIT
 
 // Notification action types
 #define NOTIFY_JUMP "jump"
@@ -93,6 +99,7 @@
 #define SECHUD_CHIEF_MEDICAL_OFFICER "hudchiefmedicalofficer"
 #define SECHUD_CLOWN "hudclown"
 #define SECHUD_COOK "hudcook"
+#define SECHUD_CORONER "hudcoroner"
 #define SECHUD_CURATOR "hudcurator"
 #define SECHUD_DETECTIVE "huddetective"
 #define SECHUD_GENETICIST "hudgeneticist"
@@ -116,29 +123,6 @@
 #define SECHUD_WARDEN "hudwarden"
 
 #define SECHUD_CHEF "hudchef"
-
-///SKYRAT EDIT ADDITION - (Semi)MODULAR JOBS
-//SR Security
-#define SECHUD_CORRECTIONS_OFFICER "hudcorrectionsofficer"
-#define SECHUD_SECURITY_MEDIC "hudsecuritymedic"
-//SR Departmental Guards
-#define SECHUD_ENGINEERING_GUARD "hudengineeringguard"
-#define SECHUD_ORDERLY "hudorderly"
-#define SECHUD_CUSTOMS_AGENT "hudcustomsagent"
-#define SECHUD_BOUNCER "hudbouncer"
-#define SECHUD_SCIENCE_GUARD "hudscienceguard"
-//SR Nanotrasen
-#define SECHUD_BLUESHIELD "hudblueshield"
-#define SECHUD_NT_CONSULTANT "hudnanotrasenconsultant"
-//SR SolFed
-#define SECHUD_SPACE_POLICE "hudspacepolice"
-#define SECHUD_SOLFED "hudsolfed"
-#define SECHUD_SOLFED_LIASON "hudsolfedliasion"
-//SR Misc
-#define SECHUD_BARBER "hudbarber"
-#define SECHUD_VANGUARD_OPERATIVE "hudexpeditionarytrooper"
-#define SECHUD_SCRAMBLED "hudscrambled"
-///SKYRAT EDIT ADDITION END
 
 #define SECHUD_DEATH_COMMANDO "huddeathcommando"
 

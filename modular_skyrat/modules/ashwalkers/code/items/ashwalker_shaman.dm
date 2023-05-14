@@ -3,7 +3,7 @@
 	name = "staff of the ashlands"
 	desc = "A gnarly and twisted branch that is imbued with some ancient power."
 
-	icon = 'icons/obj/guns/magic.dmi'
+	icon = 'icons/obj/weapons/guns/magic.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	icon_state = "staffofanimation"
@@ -11,12 +11,6 @@
 
 	///If the world.time is above this, it wont work. Charging requires whacking the necropolis nest
 	var/staff_time = 0
-
-/datum/crafting_recipe/ash_staff
-	name = "Staff of the Ashlands"
-	result = /obj/item/ash_staff
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 25)
-	category = CAT_PRIMAL
 
 /obj/item/ash_staff/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)
@@ -27,7 +21,7 @@
 		return
 	if(isopenturf(target))
 		var/turf/target_turf = target
-		if(istype(target, /turf/open/floor/plating/asteroid/basalt/lava_land_surface))
+		if(istype(target, /turf/open/misc/asteroid/basalt/lava_land_surface))
 			to_chat(user, span_warning("You begin to corrupt the land even further..."))
 			if(!do_after(user, 4 SECONDS, target = target_turf))
 				to_chat(user, span_warning("[src] had their casting cut short!"))
@@ -41,7 +35,7 @@
 		if(!do_after(user, 2 SECONDS, target = target_turf))
 			to_chat(user, span_warning("[src] had their casting cut short!"))
 			return
-		target_turf.ChangeTurf(/turf/open/floor/plating/asteroid/basalt/lava_land_surface)
+		target_turf.ChangeTurf(/turf/open/misc/asteroid/basalt/lava_land_surface)
 		return
 	return ..()
 
@@ -61,4 +55,4 @@
 		/obj/item/stack/sheet/sinew = 1,
 	)
 	time = 4 SECONDS
-	category = CAT_PRIMAL
+	category = CAT_TOOLS

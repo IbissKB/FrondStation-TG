@@ -27,13 +27,14 @@
 
 /datum/heretic_knowledge/reroll_targets/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
-	LAZYCLEARLIST(heretic_datum.sac_targets)
+	for(var/mob/living/carbon/human/target as anything in heretic_datum.sac_targets)
+		heretic_datum.remove_sacrifice_target(target)
 
 	var/datum/heretic_knowledge/hunt_and_sacrifice/target_finder = heretic_datum.get_knowledge(/datum/heretic_knowledge/hunt_and_sacrifice)
 	if(!target_finder)
 		CRASH("Heretic datum didn't have a hunt_and_sacrifice knowledge learned, what?")
 
-	if(!target_finder.obtain_targets(user))
+	if(!target_finder.obtain_targets(user, heretic_datum = heretic_datum))
 		loc.balloon_alert(user, "ritual failed, no targets found!")
 		return FALSE
 

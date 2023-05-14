@@ -1,4 +1,5 @@
 /mob/living/carbon/examine_more(mob/user)
+	. = ..()
 	var/msg = list(span_notice("<i>You examine [src] closer, and note the following...</i>"))
 	var/t_His = p_their(TRUE)
 	var/t_He = p_they(TRUE)
@@ -7,7 +8,7 @@
 	var/any_bodypart_damage = FALSE
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/LB = X
-		if(LB.is_pseudopart)
+		if(LB.bodypart_flags & BODYPART_PSEUDOPART)
 			continue
 		var/limb_max_damage = LB.max_damage
 		var/status = ""
@@ -72,5 +73,16 @@
 			var/scar_text = S.get_examine_description(user)
 			if(scar_text)
 				msg += "[scar_text]"
+
+
+	if(dna) //not all carbons have it. eg - xenos
+		//On closer inspection, this man isnt a man at all!
+		var/list/covered_zones = get_covered_body_zones()
+		for(var/obj/item/bodypart/part as anything in bodyparts)
+			if(part.body_zone in covered_zones)
+				continue
+			if(part.limb_id != (dna.species.examine_limb_id ? dna.species.examine_limb_id : dna.species.id))
+				. += "[span_info("[p_they(TRUE)] [p_have()] \an [part.name].")]"
+
 
 	return msg

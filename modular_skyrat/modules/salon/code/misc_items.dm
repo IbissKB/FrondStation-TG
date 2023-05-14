@@ -20,6 +20,9 @@
 		to_chat(user, span_warning("Where are the lips on that?"))
 		return
 
+	INVOKE_ASYNC(src, PROC_REF(async_set_color), attacked_mob, user)
+
+/obj/item/lipstick/quantum/proc/async_set_color(mob/attacked_mob, mob/user)
 	var/new_color = input(
 			user,
 			"Select lipstick color",
@@ -90,7 +93,7 @@
 	else
 		target_human.hairstyle = "Bald"
 
-	target_human.update_hair()
+	target_human.update_body_parts()
 	playsound(loc, 'sound/items/unsheath.ogg', 20, TRUE)
 
 
@@ -111,6 +114,9 @@
 				return
 			if(!get_location_accessible(target_human, location))
 				to_chat(user, span_warning("The mask is in the way!"))
+				return
+			if(HAS_TRAIT(target_human, TRAIT_SHAVED))
+				to_chat(user, span_warning("[target_human] is just way too shaved. Like, really really shaved."))
 				return
 			if(target_human.facial_hairstyle == "Shaved")
 				to_chat(user, span_warning("Already clean-shaven!"))
@@ -133,6 +139,9 @@
 				return
 			if(target_human.hairstyle == "Bald" || target_human.hairstyle == "Balding Hair" || target_human.hairstyle == "Skinhead")
 				to_chat(user, span_warning("There is not enough hair left to shave!"))
+				return
+			if(HAS_TRAIT(target_human, TRAIT_SHAVED))
+				to_chat(user, span_warning("[target_human] is just way too shaved. Like, really really shaved."))
 				return
 
 			var/self_shaving = target_human == user // Shaving yourself?

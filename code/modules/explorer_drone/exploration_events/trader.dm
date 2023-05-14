@@ -70,7 +70,7 @@
 	deep_scan_description = "You detect a spot with unusal concentraction of edibles on the site."
 	required_site_traits = list(EXPLORATION_SITE_HABITABLE,EXPLORATION_SITE_SURFACE)
 	band_values = list(EXOSCANNER_BAND_LIFE=2)
-	required_path = /obj/item/stock_parts/manipulator/nano
+	required_path = /obj/item/stock_parts/servo/nano
 	traded_path = list(/obj/item/seeds/tomato/killer,/obj/item/seeds/orange_3d,/obj/item/seeds/firelemon,/obj/item/seeds/gatfruit)
 	amount = 1
 
@@ -89,7 +89,7 @@
 	requires_translator = FALSE
 	required_site_traits = list(EXPLORATION_SITE_HABITABLE,EXPLORATION_SITE_CIVILIZED)
 	band_values = list(EXOSCANNER_BAND_LIFE=1)
-	required_path = list(/obj/item/organ/heart,/obj/item/organ/liver,/obj/item/organ/stomach,/obj/item/organ/eyes)
+	required_path = list(/obj/item/organ/internal/heart,/obj/item/organ/internal/liver,/obj/item/organ/internal/stomach,/obj/item/organ/internal/eyes)
 	traded_path = list(/obj/item/implanter/explosive)
 	amount = 1
 

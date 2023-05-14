@@ -3,7 +3,7 @@
 	scrambledcodes = TRUE // Roleplay borgs aren't real
 	set_model = /obj/item/robot_model/roleplay
 
-/mob/living/silicon/robot/model/roleplay/Initialize()
+/mob/living/silicon/robot/model/roleplay/Initialize(mapload)
 	. = ..()
 	cell = new /obj/item/stock_parts/cell/infinite(src, 30000)
 	laws = new /datum/ai_laws/roleplay()
@@ -33,7 +33,7 @@
 		/obj/item/multitool/cyborg,
 		/obj/item/stack/sheet/iron,
 		/obj/item/stack/sheet/glass,
-		/obj/item/stack/sheet/rglass/cyborg,
+		/obj/item/borg/apparatus/sheet_manipulator,
 		/obj/item/stack/rods/cyborg,
 		/obj/item/stack/tile/iron,
 		/obj/item/stack/cable_coil,
@@ -43,7 +43,7 @@
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/soda,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/alcohol,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/misc,
-		/obj/item/reagent_containers/food/drinks/drinkingglass,
+		/obj/item/reagent_containers/cup/glass/drinkingglass,
 		/obj/item/soap/nanotrasen,
 		/obj/item/mop/cyborg, // Soap's good and all, but a mop is good, too
 		/obj/item/lightreplacer, // Lights go out sometimes, or get broken, let the Borg help fix them

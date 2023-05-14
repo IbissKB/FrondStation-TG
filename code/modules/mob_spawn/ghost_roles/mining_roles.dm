@@ -15,6 +15,7 @@
 	the fresh air of Earth. These thoughts are dispelled by yet another recollection of how you got here... "
 	spawner_job_path = /datum/job/hermit
 	quirks_enabled = TRUE // SKYRAT EDIT ADDITION - ghost role loadouts
+	random_appearance = FALSE // SKYRAT EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/hermit/Initialize(mapload)
 	. = ..()
@@ -48,11 +49,11 @@
 	return ..()
 
 /datum/outfit/hermit
-	name = "Lavaland hermit"
+	name = "Lavaland Hermit"
 	uniform = /obj/item/clothing/under/color/grey/ancient
-	shoes = /obj/item/clothing/shoes/sneakers/black
 	back = /obj/item/storage/backpack
 	mask = /obj/item/clothing/mask/breath
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	l_pocket = /obj/item/tank/internals/emergency_oxygen
 	r_pocket = /obj/item/flashlight/glowstick
 
@@ -81,6 +82,7 @@
 	spawner_job_path = /datum/job/beach_bum
 	outfit = /datum/outfit/beachbum
 	quirks_enabled = TRUE // SKYRAT EDIT ADDITION - ghost role loadouts
+	random_appearance = FALSE // SKYRAT EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/beach/lifeguard
 	you_are_text = "You're a spunky lifeguard!"
@@ -95,11 +97,11 @@
 
 /datum/outfit/beachbum
 	name = "Beach Bum"
-	glasses = /obj/item/clothing/glasses/sunglasses
-	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/food/pizzaslice/dank
-	uniform = /obj/item/clothing/under/pants/youngfolksjeans
 	id = /obj/item/card/id/advanced
+	uniform = /obj/item/clothing/under/pants/jeans
+	glasses = /obj/item/clothing/glasses/sunglasses
+	l_pocket = /obj/item/food/pizzaslice/dank
+	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/beachbum/post_equip(mob/living/carbon/human/bum, visualsOnly = FALSE)
 	. = ..()
@@ -109,8 +111,8 @@
 
 /datum/outfit/beachbum/lifeguard
 	name = "Beach Lifeguard"
-	uniform = /obj/item/clothing/under/shorts/red
 	id_trim = /datum/id_trim/lifeguard
+	uniform = /obj/item/clothing/under/shorts/red
 
 /obj/effect/mob_spawn/ghost_role/human/bartender
 	name = "bartender sleeper"
@@ -121,16 +123,17 @@
 	flavour_text = "Time to mix drinks and change lives. Smoking space drugs makes it easier to understand your patrons' odd dialect."
 	spawner_job_path = /datum/job/space_bartender
 	outfit = /datum/outfit/spacebartender
+	random_appearance = FALSE // SKYRAT EDIT ADDITION
 
 /datum/outfit/spacebartender
 	name = "Space Bartender"
-	uniform = /obj/item/clothing/under/rank/civilian/bartender
-	back = /obj/item/storage/backpack
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	suit = /obj/item/clothing/suit/armor/vest
-	glasses = /obj/item/clothing/glasses/sunglasses/reagent
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/space_bartender
+	uniform = /obj/item/clothing/under/rank/civilian/bartender
+	suit = /obj/item/clothing/suit/armor/vest
+	back = /obj/item/storage/backpack
+	glasses = /obj/item/clothing/glasses/sunglasses/reagent
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 /datum/outfit/spacebartender/post_equip(mob/living/carbon/human/bartender, visualsOnly = FALSE)
 	. = ..()
@@ -155,6 +158,8 @@
 	and eventually bring life to this desolate planet while waiting for contact from your creators. \
 	Estimated time of last contact: Deployment, 5000 millennia ago."
 	spawner_job_path = /datum/job/lifebringer
+	restricted_species = list(/datum/species/pod) //SKYRAT EDIT ADDITION
+	random_appearance = FALSE // SKYRAT EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/seed_vault/Initialize(mapload)
 	. = ..()
@@ -170,7 +175,7 @@
 /obj/structure/ash_walker_eggshell
 	name = "ash walker egg"
 	desc = "A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within. The egg shell looks resistant to temperature but otherwise rather brittle."
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "large_egg"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | FREEZE_PROOF
 	max_integrity = 80
@@ -209,7 +214,7 @@
 	name = "ash walker egg"
 	desc = "A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within."
 	prompt_name = "necropolis ash walker"
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "large_egg"
 	mob_species = /datum/species/lizard/ashwalker
 	outfit = /datum/outfit/ashwalker
@@ -222,6 +227,8 @@
 	spawner_job_path = /datum/job/ash_walker
 	var/datum/team/ashwalkers/team
 	var/obj/structure/ash_walker_eggshell/eggshell
+	restricted_species = list(/datum/species/lizard/ashwalker) //SKYRAT EDIT ADDITION
+	random_appearance = FALSE // SKYRAT EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/Destroy()
 	eggshell = null
@@ -230,20 +237,21 @@
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/allow_spawn(mob/user, silent = FALSE)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
-	to_chat(user, span_warning("<b>You have exhausted your usefulness to the Necropolis</b>."))
+	if(!silent)
+		to_chat(user, span_warning("You have exhausted your usefulness to the Necropolis."))
 	return FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
 	// SKYRAT EDIT MOVE
 	// Moved lizard name randomizer before parent call (so character names are preserved)
 	spawned_human.fully_replace_character_name(null,random_unique_lizard_name(gender))
+	quirks_enabled = TRUE //SKYRAT EDIT ADDITION
 	. = ..()
 	// SKYRAT EDIT END
 	to_chat(spawned_human, "<b>Drag the corpses of men and beasts to your nest. It will absorb them to create more of your kind. Invade the strange structure of the outsiders if you must. Do not cause unnecessary destruction, as littering the wastes with ugly wreckage is certain to not gain you favor. Glory to the Necropolis!</b>")
 
 	spawned_human.mind.add_antag_datum(/datum/antagonist/ashwalker, team)
 
-	ADD_TRAIT(spawned_human, TRAIT_PRIMITIVE, ROUNDSTART_TRAIT)
 	spawned_human.remove_language(/datum/language/common)
 	team.players_spawned += (spawned_human.key)
 	eggshell.egg = null
@@ -260,9 +268,13 @@
 		notify_ghosts("An ash walker egg is ready to hatch in \the [spawner_area.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_ASHWALKER)
 
 /datum/outfit/ashwalker
-	name ="Ashwalker"
+	name = "Ash Walker"
 	head = /obj/item/clothing/head/helmet/gladiator
 	uniform = /obj/item/clothing/under/costume/gladiator/ash_walker
+
+/datum/outfit/ashwalker/spear
+	name = "Ash Walker - Spear"
+	back = /obj/item/spear/bonespear
 
 ///Syndicate Listening Post
 
@@ -278,10 +290,11 @@
 	spawner_job_path = /datum/job/lavaland_syndicate
 	loadout_enabled = TRUE // SKYRAT EDIT ADDITION - ghost role loadouts
 	quirks_enabled = TRUE // SKYRAT EDIT ADDITION - ghost role loadouts
+	random_appearance = FALSE // SKYRAT EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/special(mob/living/new_spawn)
 	. = ..()
-	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
+	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_SPAWNER) // SKYRAT EDIT CHANGE - ORIGINAL: new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_mind)
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms
 	name = "Syndicate Comms Agent"
@@ -293,17 +306,19 @@
 
 /datum/outfit/lavaland_syndicate
 	name = "Lavaland Syndicate Agent"
-	r_hand = /obj/item/gun/ballistic/automatic/sniper_rifle
+	id = /obj/item/card/id/advanced/chameleon
+	id_trim = /datum/id_trim/chameleon/operative
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/combat
+	back = /obj/item/storage/backpack
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/syndicate/alt
-	back = /obj/item/storage/backpack
+	shoes = /obj/item/clothing/shoes/combat
 	r_pocket = /obj/item/gun/ballistic/automatic/pistol
-	id = /obj/item/card/id/advanced/chameleon
+	r_hand = /obj/item/gun/ballistic/rifle/sniper_rifle
+
 	implants = list(/obj/item/implant/weapons_auth)
-	id_trim = /datum/id_trim/chameleon/operative
+	id_trim = /datum/id_trim/syndicom/skyrat/interdyne //SKYRAT EDIT
 
 // SKYRAT EDIT REMOVAL BEGIN -- mapping
 /*
@@ -314,9 +329,9 @@
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Lavaland Syndicate Comms Agent"
-	r_hand = /obj/item/melee/energy/sword/saber
-	mask = /obj/item/clothing/mask/chameleon/gps
 	suit = /obj/item/clothing/suit/armor/vest
+	mask = /obj/item/clothing/mask/chameleon/gps
+	r_hand = /obj/item/melee/energy/sword/saber
 
 /obj/item/clothing/mask/chameleon/gps/Initialize(mapload)
 	. = ..()
