@@ -82,7 +82,11 @@
 	)
 
 /datum/computer_file/program/arcade/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["Hitpoints"] = boss_hp
 	data["PlayerHitpoints"] = player_hp
 	data["PlayerMP"] = player_mp
@@ -94,12 +98,16 @@
 	return data
 
 /datum/computer_file/program/arcade/ui_act(action, list/params)
+<<<<<<< HEAD
 	. = ..()
 	if(.)
 		return
 
 	usr.played_game()
 
+=======
+	usr.played_game()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/gamerSkillLevel = 0
 	var/gamerSkill = 0
 	if(usr?.mind)

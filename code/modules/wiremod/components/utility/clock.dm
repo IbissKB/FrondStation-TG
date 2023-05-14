@@ -34,7 +34,11 @@
 	stop_process()
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/circuit_component/clock/process(delta_time)
+=======
+/obj/item/circuit_component/clock/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	signal.set_output(COMPONENT_SIGNAL)
 
 /**

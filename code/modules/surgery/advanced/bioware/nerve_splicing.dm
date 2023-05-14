@@ -39,6 +39,11 @@
 	)
 	display_pain(target, "You regain feeling in your body; It feels like everything's happening around you in slow motion!")
 	new /datum/bioware/spliced_nerves(target)
+<<<<<<< HEAD
+=======
+	if(target.ckey)
+		SSblackbox.record_feedback("nested tally", "nerve_splicing", 1, list("[target.ckey]", "got")) 
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/bioware/spliced_nerves
@@ -49,7 +54,15 @@
 /datum/bioware/spliced_nerves/on_gain()
 	..()
 	owner.physiology.stun_mod *= 0.5
+<<<<<<< HEAD
+=======
+	owner.physiology.stamina_mod *= 0.8
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/bioware/spliced_nerves/on_lose()
 	..()
 	owner.physiology.stun_mod *= 2
+<<<<<<< HEAD
+=======
+	owner.physiology.stamina_mod *= 1.25
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

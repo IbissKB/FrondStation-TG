@@ -4,6 +4,7 @@
 	default_color = DEFAULT_SECONDARY
 	relevent_layers = list(BODY_ADJ_LAYER)
 	genetic = TRUE
+<<<<<<< HEAD
 
 /datum/sprite_accessory/frills/is_hidden(mob/living/carbon/human/human, obj/item/bodypart/bodypart)
 	if(
@@ -12,6 +13,14 @@
 		|| !bodypart \
 	)
 		return TRUE
+=======
+	organ_type = /obj/item/organ/external/frills
+
+/datum/sprite_accessory/frills/is_hidden(mob/living/carbon/human/human)
+	if((human.head?.flags_inv & HIDEEARS) || (key in human.try_hide_mutant_parts))
+		return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /datum/sprite_accessory/frills/divinity

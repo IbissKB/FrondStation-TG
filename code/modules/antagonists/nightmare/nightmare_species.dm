@@ -8,7 +8,11 @@
 	burnmod = 1.5
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE
 	no_equip_flags = ITEM_SLOT_MASK | ITEM_SLOT_OCLOTHING | ITEM_SLOT_GLOVES | ITEM_SLOT_FEET | ITEM_SLOT_ICLOTHING | ITEM_SLOT_SUITSTORE
+<<<<<<< HEAD
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NO_DNA_COPY,NOTRANSSTING,NOEYESPRITES)
+=======
+	species_traits = list(NO_UNDERWEAR,NO_DNA_COPY,NOTRANSSTING,NOEYESPRITES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -21,6 +25,10 @@
 		TRAIT_PIERCEIMMUNE,
 		TRAIT_NODISMEMBER,
 		TRAIT_NOHUNGER,
+<<<<<<< HEAD
+=======
+		TRAIT_NOBLOOD,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	mutantheart = /obj/item/organ/internal/heart/nightmare

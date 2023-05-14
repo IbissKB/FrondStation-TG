@@ -34,7 +34,11 @@
 		))
 
 /obj/item/storage/belt/bowie_sheath/AltClick(mob/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(!user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(length(contents))
 		var/obj/item/knife = contents[1]

@@ -9,6 +9,10 @@
 /datum/symptom/confusion
 	name = "Confusion"
 	desc = "The virus interferes with the proper function of the neural system, leading to bouts of confusion and erratic movement."
+<<<<<<< HEAD
+=======
+	illness = "Shattered Reality"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = 1
 	resistance = -1
 	stage_speed = -3

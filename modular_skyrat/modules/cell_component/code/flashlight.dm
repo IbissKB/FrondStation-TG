@@ -26,12 +26,15 @@
 	if(uses_battery)
 		AddComponent(/datum/component/cell, cell_override, CALLBACK(src, PROC_REF(turn_off)))
 
+<<<<<<< HEAD
 /obj/item/flashlight/proc/update_brightness()
 	set_light_on(on)
 	if(light_system == STATIC_LIGHT)
 		update_light()
 	update_appearance()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/flashlight/examine(mob/user)
 	. = ..()
 	if(has_modes)
@@ -61,6 +64,7 @@
 				set_light_power(initial(light_power))
 				to_chat(user, span_notice("You set [src] to low."))
 
+<<<<<<< HEAD
 /obj/item/flashlight/attack_self(mob/user)
 	. = ..()
 	if(on)
@@ -72,6 +76,22 @@
 	playsound(user, on ? sound_on : sound_off, 40, TRUE)
 	return TRUE
 
+=======
+/obj/item/flashlight/proc/toggle_light()
+	if(on)
+		turn_off()
+	else
+		if(uses_battery && !(item_use_power(power_use_amount, TRUE) & COMPONENT_POWER_SUCCESS))
+			return
+		turn_on(makes_noise_when_lit)
+	playsound(src, on ? sound_on : sound_off, 40, TRUE)
+	return TRUE
+
+/obj/item/flashlight/attack_self(mob/user)
+	. = ..()
+	toggle_light()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Handles turning on the flashlight.
  * Parameters:
@@ -92,7 +112,11 @@
 	update_brightness()
 	update_item_action_buttons()
 
+<<<<<<< HEAD
 /obj/item/flashlight/process(delta_time)
+=======
+/obj/item/flashlight/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!on)
 		STOP_PROCESSING(SSobj, src)
 		return

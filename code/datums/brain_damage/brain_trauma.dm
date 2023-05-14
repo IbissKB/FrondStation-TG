@@ -9,8 +9,13 @@
 	var/scan_desc = "generic brain trauma" //description when detected by a health scanner
 	var/mob/living/carbon/owner //the poor bastard
 	var/obj/item/organ/internal/brain/brain //the poor bastard's brain
+<<<<<<< HEAD
 	var/gain_text = "<span class='notice'>You feel traumatized.</span>"
 	var/lose_text = "<span class='notice'>You no longer feel traumatized.</span>"
+=======
+	var/gain_text = span_notice("You feel traumatized.")
+	var/lose_text = span_notice("You no longer feel traumatized.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/can_gain = TRUE
 	var/random_gain = TRUE //can this be gained through random traumas?
 	var/resilience = TRAUMA_RESILIENCE_BASIC //how hard is this to cure?
@@ -24,7 +29,11 @@
 	return ..()
 
 //Called on life ticks
+<<<<<<< HEAD
 /datum/brain_trauma/proc/on_life(delta_time, times_fired)
+=======
+/datum/brain_trauma/proc/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 //Called on death

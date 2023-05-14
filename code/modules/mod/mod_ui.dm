@@ -28,7 +28,11 @@
 			"description" = module.desc,
 			"module_type" = module.module_type,
 			"module_active" = module.active,
+<<<<<<< HEAD
 			"pinned" = module.pinned_to[user],
+=======
+			"pinned" = module.pinned_to[REF(user)],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			"idle_power" = module.idle_power_cost,
 			"active_power" = module.active_power_cost,
 			"use_power" = module.use_power_cost,
@@ -54,7 +58,11 @@
 	data["boots"] = boots?.name
 	return data
 
+<<<<<<< HEAD
 /obj/item/mod/control/ui_act(action, params)
+=======
+/obj/item/mod/control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(.)
 		return

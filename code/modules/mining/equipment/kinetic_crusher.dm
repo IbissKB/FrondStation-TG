@@ -14,7 +14,11 @@
 	throwforce = 5
 	throw_speed = 4
 	armour_penetration = 10
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=1150, /datum/material/glass=2075)
+=======
+	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2.075)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("smashes", "crushes", "cleaves", "chops", "pulps")
 	attack_verb_simple = list("smash", "crush", "cleave", "chop", "pulp")
@@ -101,6 +105,7 @@
 			if(!QDELETED(C))
 				C.total_damage += target_health - L.health //we did some damage, but let's not assume how much we did
 			new /obj/effect/temp_visual/kinetic_blast(get_turf(L))
+<<<<<<< HEAD
 			var/backstab_dir = get_dir(user, L)
 			var/def_check = L.getarmor(type = BOMB)
 			if((user.dir & backstab_dir) && (L.dir & backstab_dir))
@@ -112,6 +117,23 @@
 				if(!QDELETED(C))
 					C.total_damage += detonation_damage
 				L.apply_damage(detonation_damage, BRUTE, blocked = def_check)
+=======
+			var/backstabbed = FALSE
+			var/combined_damage = detonation_damage
+			var/backstab_dir = get_dir(user, L)
+			var/def_check = L.getarmor(type = BOMB)
+			if((user.dir & backstab_dir) && (L.dir & backstab_dir))
+				backstabbed = TRUE
+				combined_damage += backstab_bonus
+				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE) //Seriously who spelled it wrong
+
+			if(!QDELETED(C))
+				C.total_damage += combined_damage
+
+
+			SEND_SIGNAL(user, COMSIG_LIVING_CRUSHER_DETONATE, L, src, backstabbed)
+			L.apply_damage(combined_damage, BRUTE, blocked = def_check)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/kinetic_crusher/attack_secondary(atom/target, mob/living/user, clickparams)
 	return SECONDARY_ATTACK_CONTINUE_CHAIN
@@ -177,7 +199,10 @@
 /obj/projectile/destabilizer
 	name = "destabilizing force"
 	icon_state = "pulse1"
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 0 //We're just here to mark people. This is still a melee weapon.
 	damage_type = BRUTE
 	armor_flag = BOMB
@@ -304,7 +329,10 @@
 		marker.name = "heated [marker.name]"
 		marker.icon_state = "lava"
 		marker.damage = bonus_value
+<<<<<<< HEAD
 		marker.nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		deadly_shot = FALSE
 
 //icewing watcher
@@ -421,7 +449,10 @@
 		marker.name = "deadly [marker.name]"
 		marker.icon_state = "chronobolt"
 		marker.damage = bonus_value
+<<<<<<< HEAD
 		marker.nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		marker.speed = 2
 		deadly_shot = FALSE
 

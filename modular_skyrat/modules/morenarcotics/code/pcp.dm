@@ -41,11 +41,16 @@
 		C.gain_trauma(pcp_rage, TRAUMA_RESILIENCE_ABSOLUTE)
 		C.gain_trauma(pcp_tenacity, TRAUMA_RESILIENCE_ABSOLUTE)
 
+<<<<<<< HEAD
 /datum/reagent/drug/pcp/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+=======
+/datum/reagent/drug/pcp/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/high_message = pick("You feel like KILLING!", "Someone's about to fucking die!", "Rip and tear!")
 	if(M.hud_used!=null)
 		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.add_filter("pcp_blur", 10, angular_blur_filter(0, 0, 0.7))
+<<<<<<< HEAD
 	if(DT_PROB(2.5, delta_time))
 		to_chat(M, span_warning("[high_message]"))
 	M.AdjustKnockdown(-20 * REM * delta_time)
@@ -57,6 +62,19 @@
 	if(DT_PROB(3.5, delta_time))
 		M.emote(pick("scream","twitch"))
 	pcp_lifetime+= 3 * REM * delta_time
+=======
+	if(SPT_PROB(2.5, seconds_per_tick))
+		to_chat(M, span_warning("[high_message]"))
+	M.AdjustKnockdown(-20 * REM * seconds_per_tick)
+	M.AdjustImmobilized(-20 * REM * seconds_per_tick)
+	M.adjustStaminaLoss(-10 * REM * seconds_per_tick, 0)
+	M.AdjustStun(-10 * REM * seconds_per_tick) //this is absolutely rediculous
+	M.overlay_fullscreen("pcp_rage", /atom/movable/screen/fullscreen/color_vision/rage_color)
+	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
+	if(SPT_PROB(3.5, seconds_per_tick))
+		M.emote(pick("scream","twitch"))
+	pcp_lifetime+= 3 * REM * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 /datum/reagent/drug/pcp/on_mob_end_metabolize(mob/living/L)
@@ -76,6 +94,7 @@
 	L.drop_all_held_items()
 	..()
 
+<<<<<<< HEAD
 /datum/reagent/drug/pcp/overdose_process(mob/living/M, delta_time, times_fired)
 	M.adjustToxLoss(2 * REM * delta_time, 0)
 	M.adjustOrganLoss(ORGAN_SLOT_HEART, (2 * REM * delta_time))
@@ -85,6 +104,17 @@
 	if(DT_PROB(2.5, delta_time))
 		M.emote(pick("twitch","drool"))
 	if(DT_PROB(1.5, delta_time))
+=======
+/datum/reagent/drug/pcp/overdose_process(mob/living/M, seconds_per_tick, times_fired)
+	M.adjustToxLoss(2 * REM * seconds_per_tick, 0)
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, (2 * REM * seconds_per_tick))
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, (2 * REM * seconds_per_tick))
+	M.adjustStaminaLoss(15 * REM * seconds_per_tick, 0) //reverses stamina loss
+	M.set_jitter_if_lower(5 SECONDS)
+	if(SPT_PROB(2.5, seconds_per_tick))
+		M.emote(pick("twitch","drool"))
+	if(SPT_PROB(1.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		M.visible_message(span_danger("[M] flails their arms around everywhere!"))
 		M.drop_all_held_items()
 	..()

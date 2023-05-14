@@ -4,10 +4,14 @@
 	icon = 'modular_skyrat/modules/black_mesa/icons/nihilanth.dmi'
 	icon_state = "nihilanth"
 	icon_living = "nihilanth"
+<<<<<<< HEAD
 	pixel_x = -32
 	pixel_y = -32
 	base_pixel_x = -32
 	base_pixel_y = -32
+=======
+	SET_BASE_PIXEL(-32, -32)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	speed = 3
 	bound_height = 64
 	bound_width = 64
@@ -44,7 +48,11 @@
 	damage_type = BURN
 	light_range = 2
 	armor_flag = ENERGY
+<<<<<<< HEAD
 	light_color = LIGHT_COLOR_YELLOW
+=======
+	light_color = LIGHT_COLOR_BRIGHT_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hitsound = 'sound/weapons/sear.ogg'
 	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
 	nondirectional_sprite = TRUE

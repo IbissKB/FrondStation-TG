@@ -6,9 +6,15 @@
 	gain_text = span_notice("You hear two other voices inside of your head(s).")
 	lose_text = span_danger("All of your minds become singular.")
 	medical_record_text = "There are multiple heads and personalities affixed to one body."
+<<<<<<< HEAD
 	icon = "horse-head"
 
 /datum/quirk/hydra/add()
+=======
+	icon = FA_ICON_HORSE_HEAD
+
+/datum/quirk/hydra/add(client/client_source)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/human/hydra = quirk_holder
 	var/datum/action/innate/hydra/spell = new
 	var/datum/action/innate/hydrareset/resetspell = new

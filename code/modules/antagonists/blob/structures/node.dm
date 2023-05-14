@@ -5,7 +5,11 @@
 	desc = "A large, pulsating yellow mass."
 	max_integrity = BLOB_NODE_MAX_HP
 	health_regen = BLOB_NODE_HP_REGEN
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 65, ACID = 90)
+=======
+	armor_type = /datum/armor/special_node
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	point_return = BLOB_REFUND_NODE_COST
 	claim_range = BLOB_NODE_CLAIM_RANGE
 	pulse_range = BLOB_NODE_PULSE_RANGE
@@ -15,6 +19,13 @@
 	ignore_syncmesh_share = TRUE
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/special_node
+	fire = 65
+	acid = 90
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/blob/special/node/Initialize(mapload)
 	GLOB.blob_nodes += src
 	START_PROCESSING(SSobj, src)
@@ -49,8 +60,15 @@
 		overmind.node_blobs -= src
 	return ..()
 
+<<<<<<< HEAD
 /obj/structure/blob/special/node/process(delta_time)
 	if(overmind)
 		pulse_area(overmind, claim_range, pulse_range, expand_range)
 		reinforce_area(delta_time)
+=======
+/obj/structure/blob/special/node/process(seconds_per_tick)
+	if(overmind)
+		pulse_area(overmind, claim_range, pulse_range, expand_range)
+		reinforce_area(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		produce_spores()

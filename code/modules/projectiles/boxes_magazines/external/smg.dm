@@ -56,7 +56,11 @@
 
 /obj/item/ammo_box/magazine/smgm9mm
 	name = "SMG magazine (9mm)"
+<<<<<<< HEAD
 	icon_state = "smg9mm-42"
+=======
+	icon_state = "smg9mm"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	base_icon_state = "smg9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = CALIBER_9MM
@@ -64,7 +68,11 @@
 
 /obj/item/ammo_box/magazine/smgm9mm/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[base_icon_state]-[ammo_count() ? 42 : 0]"
+=======
+	icon_state = "[base_icon_state]-[LAZYLEN(stored_ammo) ? "full" : "empty"]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/magazine/smgm9mm/ap
 	name = "SMG magazine (Armour Piercing 9mm)"

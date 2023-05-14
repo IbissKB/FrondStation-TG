@@ -4,9 +4,24 @@
 	locked = TRUE
 	icon_state = "secure"
 	max_integrity = 250
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 80, ACID = 80)
 	secure = TRUE
 	damage_deflection = 20
+=======
+	armor_type = /datum/armor/closet_secure_closet
+	secure = TRUE
+	damage_deflection = 20
+	material_drop_amount = 5
+
+/datum/armor/closet_secure_closet
+	melee = 30
+	bullet = 50
+	laser = 50
+	energy = 100
+	fire = 80
+	acid = 80
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/Initialize(mapload)
 	. = ..()

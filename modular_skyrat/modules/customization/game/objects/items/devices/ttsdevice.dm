@@ -12,7 +12,11 @@
 	user.balloon_alert_to_viewers("typing...", "started typing...")
 	playsound(src, 'modular_skyrat/master_files/sound/items/tts/started_type.ogg', 50, TRUE)
 	var/str = tgui_input_text(user, "What would you like the device to say?", "Say Text", "", MAX_MESSAGE_LEN, encode = FALSE)
+<<<<<<< HEAD
 	if(QDELETED(src) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(QDELETED(src) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!str)
 		user.balloon_alert_to_viewers("stops typing", "stopped typing")

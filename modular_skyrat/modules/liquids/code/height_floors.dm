@@ -45,12 +45,15 @@
 	liquid_height = -30
 	turf_height = -30
 
+<<<<<<< HEAD
 /turf/open/floor/iron/pool/setup_broken_states()
 	return list(base_icon_state)
 
 /turf/open/floor/iron/pool/setup_burnt_states()
 	return list(base_icon_state)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/pool/rust_heretic_act()
 	return
 
@@ -79,6 +82,7 @@
 	icon_state = "elevated_plasteel-0"
 	base_icon_state = "elevated_plasteel"
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_ELEVATED_PLASTEEL, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_CLOSED_TURFS)
 	canSmoothWith = list(SMOOTH_GROUP_ELEVATED_PLASTEEL, SMOOTH_GROUP_WALLS)
 	liquid_height = 30
@@ -90,6 +94,13 @@
 /turf/open/floor/iron/elevated/setup_burnt_states()
 	return list("elevated_plasteel")
 
+=======
+	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_ELEVATED_PLASTEEL
+	canSmoothWith = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_ELEVATED_PLASTEEL
+	liquid_height = 30
+	turf_height = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/elevated/rust_heretic_act()
 	return
 
@@ -100,6 +111,7 @@
 	icon_state = "lowered_plasteel-0"
 	base_icon_state = "lowered_plasteel"
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_LOWERED_PLASTEEL, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_CLOSED_TURFS)
 	canSmoothWith = list(SMOOTH_GROUP_LOWERED_PLASTEEL, SMOOTH_GROUP_WALLS)
 	liquid_height = -30
@@ -111,5 +123,12 @@
 /turf/open/floor/iron/lowered/setup_burnt_states()
 	return list("lowered_plasteel")
 
+=======
+	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_ELEVATED_PLASTEEL
+	canSmoothWith = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_ELEVATED_PLASTEEL
+	liquid_height = -30
+	turf_height = -30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/lowered/rust_heretic_act()
 	return

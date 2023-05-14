@@ -105,9 +105,15 @@
 	icon_state = "[bitfield]_[piping_layer]"
 
 /obj/machinery/atmospherics/pipe/update_icon()
+<<<<<<< HEAD
 	. = ..()
 	update_pipe_icon()
 	update_layer()
+=======
+	update_pipe_icon()
+	update_layer()
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/atmospherics/proc/update_node_icon()
 	for(var/i in 1 to device_type)

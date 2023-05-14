@@ -17,6 +17,16 @@
 	var/list/access_list = ..()
 	access_list += ACCESS_CENT_GENERAL
 	return access_list
+<<<<<<< HEAD
+=======
+	
+// Centcom or the captain
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_CENT_GENERAL 
+	access_list += ACCESS_CAPTAIN
+	return access_list
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Dept guards
 

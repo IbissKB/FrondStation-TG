@@ -36,6 +36,11 @@
 	var/clumsy_check
 	/// If we get sharpened with a whetstone, save the bonus here for later use if we un/redeploy
 	var/sharpened_bonus = 0
+<<<<<<< HEAD
+=======
+	/// Dictate whether we change inhands or not
+	var/inhand_icon_change
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Cooldown in between transforms
 	COOLDOWN_DECLARE(transform_cooldown)
 
@@ -51,6 +56,10 @@
 		clumsy_check = TRUE,
 		list/attack_verb_continuous_on,
 		list/attack_verb_simple_on,
+<<<<<<< HEAD
+=======
+		inhand_icon_change = TRUE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 
 	if(!isitem(parent))
@@ -66,6 +75,10 @@
 	src.hitsound_on = hitsound_on
 	src.w_class_on = w_class_on
 	src.clumsy_check = clumsy_check
+<<<<<<< HEAD
+=======
+	src.inhand_icon_change = inhand_icon_change
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(attack_verb_continuous_on)
 		src.attack_verb_continuous_on = attack_verb_continuous_on
@@ -188,10 +201,16 @@
 	source.hitsound = hitsound_on
 	source.w_class = w_class_on
 	source.icon_state = "[source.icon_state]_on"
+<<<<<<< HEAD
 	source.inhand_icon_state = "[source.inhand_icon_state]_on"
 	if(ismob(source.loc))
 		var/mob/loc_mob = source.loc
 		loc_mob.update_held_items()
+=======
+	if(inhand_icon_change && source.inhand_icon_state)
+		source.inhand_icon_state = "[source.inhand_icon_state]_on"
+	source.update_inhand_icon()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
  * Set our transformed item into its inactive state.

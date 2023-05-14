@@ -138,6 +138,22 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/effect/gateway_portal_bumper/Bumped(atom/movable/AM)
+<<<<<<< HEAD
+=======
+	//SKYRAT EDIT ADDITION
+	var/list/type_blacklist = list(
+		/obj/item/mmi,
+		/mob/living/silicon,
+	)
+	if(is_type_in_list(AM, type_blacklist))
+		return
+	for(var/atom/movable/content_item as anything in AM.get_all_contents())
+		if(!is_type_in_list(content_item, type_blacklist))
+			continue
+		to_chat(AM, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
+		return
+	//SKYRAT EDIT END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(get_dir(src,AM) == SOUTH)
 		gateway.Transfer(AM)
 
@@ -323,7 +339,21 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/gateway/away/interact(mob/user, special_state)
 	. = ..()
 	//SKYRAT EDIT ADDITION
+<<<<<<< HEAD
 	if(!ishuman(user))
+=======
+	var/list/type_blacklist = list(
+		/obj/item/mmi,
+		/mob/living/silicon,
+		/obj/item/borg/upgrade/ai,
+	)
+	if(is_type_in_list(user, type_blacklist))
+		return
+	for(var/atom/movable/content_item as anything in user.get_contents())
+		if(!is_type_in_list(content_item, type_blacklist))
+			continue
+		to_chat(user, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	//SKYRAT EDIT END
 	if(!target)
@@ -465,7 +495,11 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 	cam_background.add_filter("portal_blur", 1, list("type" = "blur", "size" = 0.5))
 
+<<<<<<< HEAD
 	vis_contents += block(locate(center_turf.x - 1, center_turf.y - 1, center_turf.z), locate(center_turf.x + 1, center_turf.y + 1, center_turf.z))
+=======
+	vis_contents += TURF_NEIGHBORS(center_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cam_background.icon_state = "scanline4"
 	cam_background.color = "#adadff"
 	cam_background.alpha = 128

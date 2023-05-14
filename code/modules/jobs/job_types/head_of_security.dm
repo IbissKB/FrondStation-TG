@@ -9,7 +9,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_CAPTAIN
+<<<<<<< HEAD
 	selection_color = "#ffdddd"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 300
@@ -61,7 +64,11 @@
 	ears = /obj/item/radio/headset/heads/hos/alt
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	gloves = /obj/item/clothing/gloves/color/black/security //SKYRAT EDIT CHANGE - Original: /obj/item/clothing/gloves/color/black
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/hos/beret
+=======
+	head = /obj/item/clothing/head/hats/hos/beret
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
@@ -73,7 +80,11 @@
 	box = /obj/item/storage/box/survival/security
 	chameleon_extras = list(
 		/obj/item/gun/energy/e_gun/hos,
+<<<<<<< HEAD
 		/obj/item/stamp/hos,
+=======
+		/obj/item/stamp/head/hos,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 	implants = list(/obj/item/implant/mindshield)
 

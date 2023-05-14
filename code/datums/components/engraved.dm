@@ -27,6 +27,11 @@
 
 	var/beauty_value
 	switch(story_value)
+<<<<<<< HEAD
+=======
+		if(STORY_VALUE_KEY)
+			beauty_value = 0 // what is this
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(STORY_VALUE_SHIT)
 			beauty_value = rand(-50, 50) //Ugly or mediocre at best
 		if(STORY_VALUE_NONE)
@@ -91,4 +96,7 @@
 	saved_data["story_value"] = story_value
 
 	return list(saved_data)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

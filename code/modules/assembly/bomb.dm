@@ -148,6 +148,7 @@
 	to_chat(user, span_notice("You attach [assembly] to [src]."))
 	return
 
+<<<<<<< HEAD
 /obj/item/tank/proc/ignite() //This happens when a bomb is told to explode
 	START_PROCESSING(SSobj, src)
 	var/datum/gas_mixture/our_mix = return_air()
@@ -211,6 +212,8 @@
 		return
 	T.assume_air(removed)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/onetankbomb/return_analyzable_air()
 	if(bombtank)
 		return bombtank.return_analyzable_air()

@@ -4,7 +4,11 @@
 /datum/unit_test/barsigns_icon
 
 /datum/unit_test/barsigns_icon/Run()
+<<<<<<< HEAD
 	var/obj/structure/sign/barsign_type = /obj/structure/sign/barsign
+=======
+	var/obj/machinery/barsign_type = /obj/machinery/barsign
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/icon/barsign_icon = initial(barsign_type.icon)
 	var/list/barsign_icon_states = icon_states(barsign_icon)
 

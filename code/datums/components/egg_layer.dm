@@ -71,14 +71,22 @@
 	eggs_left += min(eggs_left + eggs_added_from_eating, max_eggs_held)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
+<<<<<<< HEAD
 /datum/component/egg_layer/process(delta_time = SSOBJ_DT)
+=======
+/datum/component/egg_layer/process(seconds_per_tick = SSOBJ_DT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/atom/at_least_atom = parent
 	if(isliving(at_least_atom))
 		var/mob/living/potentially_dead_horse = at_least_atom
 		if(potentially_dead_horse.stat != CONSCIOUS)
 			return
+<<<<<<< HEAD
 	if(!eggs_left || !DT_PROB(1.5, delta_time))
+=======
+	if(!eggs_left || !SPT_PROB(1.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	at_least_atom.visible_message(span_alertalien("[at_least_atom] [pick(lay_messages)]"))

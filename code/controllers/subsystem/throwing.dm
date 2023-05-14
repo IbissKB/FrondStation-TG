@@ -57,7 +57,11 @@ SUBSYSTEM_DEF(throwing)
 	var/maxrange
 	///The speed of the projectile thrownthing being thrown.
 	var/speed
+<<<<<<< HEAD
 	///If a mob is the one who has thrown the object, then it's moved here.
+=======
+	///If a mob is the one who has thrown the object, then it's moved here. This can be null and must be null checked before trying to use it.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/thrower
 	///A variable that helps in describing objects thrown at an angle, if it should be moved diagonally first or last.
 	var/diagonals_first
@@ -90,7 +94,10 @@ SUBSYSTEM_DEF(throwing)
 	///The last world.time value stored when the thrownthing was moving.
 	var/last_move = 0
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/thrownthing/New(thrownthing, target, init_dir, maxrange, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
 	. = ..()
 	src.thrownthing = thrownthing
@@ -109,7 +116,10 @@ SUBSYSTEM_DEF(throwing)
 	src.callback = callback
 	src.target_zone = target_zone
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/thrownthing/Destroy()
 	SSthrowing.processing -= thrownthing
 	SSthrowing.currentrun -= thrownthing
@@ -121,14 +131,20 @@ SUBSYSTEM_DEF(throwing)
 		QDEL_NULL(callback) //It stores a reference to the thrownthing, its source. Let's clean that.
 	return ..()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Defines the datum behavior on the thrownthing's qdeletion event.
 /datum/thrownthing/proc/on_thrownthing_qdel(atom/movable/source, force)
 	SIGNAL_HANDLER
 
 	qdel(src)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/thrownthing/proc/tick()
 	var/atom/movable/AM = thrownthing
 	if (!isturf(AM.loc) || !AM.throwing)
@@ -145,6 +161,11 @@ SUBSYSTEM_DEF(throwing)
 		for(var/atom/movable/obstacle as anything in get_turf(thrownthing))
 			if (obstacle == thrownthing || (obstacle == thrower && !ismob(thrownthing)))
 				continue
+<<<<<<< HEAD
+=======
+			if(ismob(obstacle) && thrownthing.pass_flags & PASSMOB && (obstacle != actual_target))
+				continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(obstacle.pass_flags_self & LETPASSTHROW)
 				continue
 			if (obstacle == actual_target || (obstacle.density && !(obstacle.flags_1 & ON_BORDER_1) && !(obstacle in AM.buckled_mobs)))
@@ -229,3 +250,9 @@ SUBSYSTEM_DEF(throwing)
 		SEND_SIGNAL(thrownthing, COMSIG_MOVABLE_THROW_LANDED, src)
 
 	qdel(src)
+<<<<<<< HEAD
+=======
+
+#undef MAX_THROWING_DIST
+#undef MAX_TICKS_TO_MAKE_UP
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -30,7 +30,11 @@
 	/// Overlay we add to each grabbed atom.
 	var/mutable_appearance/kinesis_icon
 	/// Our mouse movement catcher.
+<<<<<<< HEAD
 	var/atom/movable/screen/fullscreen/kinesis/kinesis_catcher
+=======
+	var/atom/movable/screen/fullscreen/cursor_catcher/kinesis/kinesis_catcher
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// The sounds playing while we grabbed an object.
 	var/datum/looping_sound/gravgen/kinesis/soundloop
 	/// The cooldown between us hitting objects with kinesis.
@@ -71,12 +75,17 @@
 	kinesis_icon.overlays += emissive_appearance(icon = 'icons/effects/effects.dmi', icon_state = "kinesis", offset_spokesman = grabbed_atom)
 	grabbed_atom.add_overlay(kinesis_icon)
 	kinesis_beam = mod.wearer.Beam(grabbed_atom, "kinesis")
+<<<<<<< HEAD
 	kinesis_catcher = mod.wearer.overlay_fullscreen("kinesis", /atom/movable/screen/fullscreen/kinesis, 0)
 	kinesis_catcher.kinesis_user = mod.wearer
 	kinesis_catcher.view_list = getviewsize(mod.wearer.client.view)
 	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/atom/movable/screen/fullscreen/kinesis, on_move))
 	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_VIEWDATA_UPDATE, TYPE_PROC_REF(/atom/movable/screen/fullscreen/kinesis, on_viewdata_update))
 	kinesis_catcher.calculate_params()
+=======
+	kinesis_catcher = mod.wearer.overlay_fullscreen("kinesis", /atom/movable/screen/fullscreen/cursor_catcher/kinesis, 0)
+	kinesis_catcher.assign_to_mob(mod.wearer)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	soundloop.start()
 	START_PROCESSING(SSfastprocess, src)
 
@@ -86,7 +95,11 @@
 		return
 	clear_grab(playsound = !deleting)
 
+<<<<<<< HEAD
 /obj/item/mod/module/anomaly_locked/kinesis/process(delta_time)
+=======
+/obj/item/mod/module/anomaly_locked/kinesis/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!mod.wearer.client || mod.wearer.incapacitated(IGNORE_GRAB))
 		clear_grab()
 		return
@@ -226,6 +239,7 @@
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 5
 	removable = FALSE
 
+<<<<<<< HEAD
 /atom/movable/screen/fullscreen/kinesis
 	icon_state = "kinesis"
 	plane = HUD_PLANE
@@ -270,6 +284,10 @@
 	given_turf = locate(kinesis_user.x+our_x-round(view_list[1]/2),kinesis_user.y+our_y-round(view_list[2]/2),kinesis_user.z)
 	given_x = round(icon_x - world.icon_size * our_x, 1)
 	given_y = round(icon_y - world.icon_size * our_y, 1)
+=======
+/atom/movable/screen/fullscreen/cursor_catcher/kinesis
+	icon_state = "kinesis"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/mod/module/anomaly_locked/kinesis/plus
 	name = "MOD kinesis+ module"

@@ -8,10 +8,15 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/ammunitionlocker/useful,
 /obj/item/storage/box/lethalshot,
@@ -29,12 +34,17 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/microfusion,
 /turf/open/floor/iron/showroomfloor,
@@ -77,12 +87,17 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/cmg,
 /turf/open/floor/iron/showroomfloor,
@@ -96,10 +111,15 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/iron/showroomfloor,

@@ -5,8 +5,11 @@
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		NO_SLIP_WHEN_WALKING
 	)
 	inherent_traits = list(
@@ -79,8 +82,13 @@
 	skrell.dna.features["mcolor"] = skrell_color
 	skrell.dna.features["mcolor2"] = skrell_color
 	skrell.dna.features["mcolor3"] = skrell_color
+<<<<<<< HEAD
 	skrell.dna.species.mutant_bodyparts["skrell_hair"] = list(MUTANT_INDEX_NAME = "Female", MUTANT_INDEX_COLOR_LIST = list(skrell_color, skrell_color, skrell_color))
 	skrell.update_mutant_bodyparts(TRUE)
+=======
+	skrell.dna.mutant_bodyparts["skrell_hair"] = list(MUTANT_INDEX_NAME = "Female", MUTANT_INDEX_COLOR_LIST = list(skrell_color, skrell_color, skrell_color))
+	regenerate_organs(skrell, src, visual_only = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	skrell.update_body(TRUE)
 
 

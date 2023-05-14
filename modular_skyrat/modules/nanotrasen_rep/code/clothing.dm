@@ -25,11 +25,28 @@
 	icon_state = "nt_consultant_cap"
 	inhand_icon_state = "that"
 	flags_inv = 0
+<<<<<<< HEAD
 	armor = list(MELEE = 15, BULLET = 5, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, FIRE = 30, ACID = 5, WOUND = 4)
+=======
+	armor_type = /datum/armor/head_nanotrasen_consultant
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
+=======
+/datum/armor/head_nanotrasen_consultant
+	melee = 15
+	bullet = 5
+	laser = 15
+	energy = 25
+	bomb = 10
+	fire = 30
+	acid = 5
+	wound = 4
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/nanotrasen_consultant/beret
 	name = "nanotrasen consultant's beret"
 	desc = "A beret made from durathread, it has an insignia on the front denoting the rank of \"Nanotrasen Consultant\"."
@@ -39,6 +56,7 @@
 	icon_state = "beret_badge"
 
 /obj/item/clothing/head/beret/centcom_formal/nt_consultant
+<<<<<<< HEAD
 	armor = list(MELEE = 15, BULLET = 5, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, FIRE = 30, ACID = 5, WOUND = 4)
 
 /obj/item/clothing/suit/armor/centcom_formal/nt_consultant
@@ -46,3 +64,46 @@
 
 /obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
+=======
+	armor_type = /datum/armor/beret_centcom_formal_nt_consultant
+
+/datum/armor/beret_centcom_formal_nt_consultant
+	melee = 15
+	bullet = 5
+	laser = 15
+	energy = 25
+	bomb = 10
+	fire = 30
+	acid = 5
+	wound = 4
+
+/obj/item/clothing/suit/armor/centcom_formal/nt_consultant
+	armor_type = /datum/armor/armor_centcom_formal_nt_consultant
+
+/datum/armor/armor_centcom_formal_nt_consultant
+	melee = 35
+	bullet = 30
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+	wound = 10
+
+/obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant
+	armor_type = /datum/armor/centcom_nt_consultant
+
+/datum/armor/centcom_nt_consultant
+	melee = 35
+	bullet = 30
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+	wound = 10
+
+/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant
+	name = "\improper CentCom gloves"
+	desc = "A high quality pair of thick gloves covered in gold stitching."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

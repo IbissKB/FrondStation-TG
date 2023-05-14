@@ -20,7 +20,13 @@
 	if(!(anchored || can_play_unanchored) || !ismob(music_player))
 		return STOP_PLAYING
 	var/mob/user = music_player
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, FALSE, TRUE, FALSE, FALSE)) //can play with TK and while resting because fun.
+=======
+
+	if(!ISADVANCEDTOOLUSER(user))
+		to_chat(src, span_warning("You don't have the dexterity to do this!"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return STOP_PLAYING
 
 /obj/structure/musician/ui_interact(mob/user)

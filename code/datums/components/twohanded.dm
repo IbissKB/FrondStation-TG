@@ -173,7 +173,11 @@
 		return // blocked wield from item
 	wielded = TRUE
 	ADD_TRAIT(parent, TRAIT_WIELDED, REF(src))
+<<<<<<< HEAD
 	RegisterSignal(user, COMSIG_MOB_SWAP_HANDS, PROC_REF(on_swap_hands))
+=======
+	RegisterSignal(user, COMSIG_MOB_SWAPPING_HANDS, PROC_REF(on_swapping_hands))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	wield_callback?.Invoke(parent, user)
 
 	// update item stats and name
@@ -219,7 +223,11 @@
 
 	// wield update status
 	wielded = FALSE
+<<<<<<< HEAD
 	UnregisterSignal(user, COMSIG_MOB_SWAP_HANDS)
+=======
+	UnregisterSignal(user, COMSIG_MOB_SWAPPING_HANDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SEND_SIGNAL(parent, COMSIG_TWOHANDED_UNWIELD, user)
 	REMOVE_TRAIT(parent, TRAIT_WIELDED, REF(src))
 	unwield_callback?.Invoke(parent, user)
@@ -307,7 +315,11 @@
 /**
  * on_swap_hands Triggers on swapping hands, blocks swap if the other hand is busy
  */
+<<<<<<< HEAD
 /datum/component/two_handed/proc/on_swap_hands(mob/user, obj/item/held_item)
+=======
+/datum/component/two_handed/proc/on_swapping_hands(mob/user, obj/item/held_item)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 
 	if(!held_item)
@@ -345,6 +357,10 @@
  */
 /obj/item/offhand
 	name = "offhand"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/hand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "offhand"
 	w_class = WEIGHT_CLASS_HUGE
 	item_flags = ABSTRACT

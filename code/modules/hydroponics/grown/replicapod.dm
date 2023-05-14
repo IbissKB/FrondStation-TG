@@ -136,12 +136,20 @@
 						make_podman = TRUE
 						break
 				else
+<<<<<<< HEAD
 					if(M.ckey == ckey && M.stat == DEAD && !M.suiciding)
+=======
+					if(M.ckey == ckey && M.stat == DEAD && !HAS_TRAIT(M, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						make_podman = TRUE
 						break
 		else //If the player has ghosted from his corpse before blood was drawn, his ckey is no longer attached to the mob, so we need to match up the cloned player through the mind key
 			for(var/mob/M in GLOB.player_list)
+<<<<<<< HEAD
 				if(mind && M.mind && ckey(M.mind.key) == ckey(mind.key) && M.ckey && M.client && M.stat == DEAD && !M.suiciding)
+=======
+				if(mind && M.mind && ckey(M.mind.key) == ckey(mind.key) && M.ckey && M.client && M.stat == DEAD && !HAS_TRAIT(M, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					if(isobserver(M))
 						var/mob/dead/observer/O = M
 						if(!O.can_reenter_corpse)
@@ -165,7 +173,11 @@
 			return result
 
 		// Make sure they can still interact with the parent hydroponics tray.
+<<<<<<< HEAD
 		if(!user.canUseTopic(parent, be_close = TRUE))
+=======
+		if(!user.can_perform_action(parent))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, text = "You are no longer able to harvest the seeds from [parent]!", type = MESSAGE_TYPE_INFO)
 			return result
 

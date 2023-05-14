@@ -13,5 +13,13 @@
 
 #include "v5\_defines.dm"
 #include "v5\api.dm"
+<<<<<<< HEAD
 #include "v5\commands.dm"
+=======
+#include "v5\bridge.dm"
+#include "v5\chunking.dm"
+#include "v5\commands.dm"
+#include "v5\serializers.dm"
+#include "v5\topic.dm"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #include "v5\undefs.dm"

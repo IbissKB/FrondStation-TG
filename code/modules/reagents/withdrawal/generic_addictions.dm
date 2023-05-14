@@ -3,19 +3,32 @@
 	name = "opioid"
 	withdrawal_stage_messages = list("I feel aches in my bodies..", "I need some pain relief...", "It aches all over...I need some opioids!")
 
+<<<<<<< HEAD
 /datum/addiction/opioids/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	if(DT_PROB(10, delta_time))
+=======
+/datum/addiction/opioids/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	if(SPT_PROB(10, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_carbon.emote("yawn")
 
 /datum/addiction/opioids/withdrawal_enters_stage_2(mob/living/carbon/affected_carbon)
 	. = ..()
 	affected_carbon.apply_status_effect(/datum/status_effect/high_blood_pressure)
 
+<<<<<<< HEAD
 /datum/addiction/opioids/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	if(affected_carbon.disgust < DISGUST_LEVEL_DISGUSTED && DT_PROB(7.5, delta_time))
 		affected_carbon.adjust_disgust(12.5 * delta_time)
+=======
+/datum/addiction/opioids/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	if(affected_carbon.disgust < DISGUST_LEVEL_DISGUSTED && SPT_PROB(7.5, seconds_per_tick))
+		affected_carbon.adjust_disgust(12.5 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/addiction/opioids/end_withdrawal(mob/living/carbon/affected_carbon)
 	. = ..()
@@ -51,6 +64,7 @@
 	name = "alcohol"
 	withdrawal_stage_messages = list("I could use a drink...", "Maybe the bar is still open?..", "God I need a drink!")
 
+<<<<<<< HEAD
 /datum/addiction/alcohol/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	affected_carbon.set_jitter_if_lower(10 SECONDS * delta_time)
@@ -65,6 +79,22 @@
 	affected_carbon.set_jitter_if_lower(30 SECONDS * delta_time)
 	affected_carbon.set_hallucinations_if_lower(10 SECONDS)
 	if(DT_PROB(4, delta_time) && !HAS_TRAIT(affected_carbon, TRAIT_ANTICONVULSANT))
+=======
+/datum/addiction/alcohol/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	affected_carbon.set_jitter_if_lower(10 SECONDS * seconds_per_tick)
+
+/datum/addiction/alcohol/withdrawal_stage_2_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	affected_carbon.set_jitter_if_lower(20 SECONDS * seconds_per_tick)
+	affected_carbon.set_hallucinations_if_lower(10 SECONDS)
+
+/datum/addiction/alcohol/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	affected_carbon.set_jitter_if_lower(30 SECONDS * seconds_per_tick)
+	affected_carbon.set_hallucinations_if_lower(10 SECONDS)
+	if(SPT_PROB(4, seconds_per_tick) && !HAS_TRAIT(affected_carbon, TRAIT_ANTICONVULSANT))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_carbon.apply_status_effect(/datum/status_effect/seizure)
 
 /datum/addiction/hallucinogens
@@ -97,9 +127,15 @@
 	. = ..()
 	affected_carbon.apply_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, type)
 
+<<<<<<< HEAD
 /datum/addiction/maintenance_drugs/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	if(DT_PROB(7.5, delta_time))
+=======
+/datum/addiction/maintenance_drugs/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	if(SPT_PROB(7.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_carbon.emote("growls")
 
 /datum/addiction/maintenance_drugs/withdrawal_enters_stage_2(mob/living/carbon/affected_carbon)
@@ -122,12 +158,20 @@
 		return
 	to_chat(affected_carbon, span_warning("You feel yourself adapt to the darkness."))
 	var/mob/living/carbon/human/affected_human = affected_carbon
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/empowered_eyes = affected_human.getorgan(/obj/item/organ/internal/eyes)
+=======
+	var/obj/item/organ/internal/eyes/empowered_eyes = affected_human.get_organ_by_type(/obj/item/organ/internal/eyes)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(empowered_eyes)
 		ADD_TRAIT(affected_human, TRAIT_NIGHT_VISION, "maint_drug_addiction")
 		empowered_eyes?.refresh()
 
+<<<<<<< HEAD
 /datum/addiction/maintenance_drugs/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, delta_time)
+=======
+/datum/addiction/maintenance_drugs/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!ishuman(affected_carbon))
 		return
 	var/mob/living/carbon/human/affected_human = affected_carbon
@@ -136,7 +180,11 @@
 	if(lums > 0.5)
 		affected_human.add_mood_event("too_bright", /datum/mood_event/bright_light)
 		affected_human.adjust_dizzy_up_to(6 SECONDS, 80 SECONDS)
+<<<<<<< HEAD
 		affected_human.adjust_confusion_up_to(0.5 SECONDS * delta_time, 20 SECONDS)
+=======
+		affected_human.adjust_confusion_up_to(0.5 SECONDS * seconds_per_tick, 20 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		affected_carbon.clear_mood_event("too_bright")
 
@@ -150,7 +198,11 @@
 	affected_human.dna?.species.disliked_food = initial(affected_human.dna?.species.disliked_food)
 	affected_human.dna?.species.toxic_food = initial(affected_human.dna?.species.toxic_food)
 	REMOVE_TRAIT(affected_human, TRAIT_NIGHT_VISION, "maint_drug_addiction")
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/eyes = affected_human.getorgan(/obj/item/organ/internal/eyes)
+=======
+	var/obj/item/organ/internal/eyes/eyes = affected_human.get_organ_by_type(/obj/item/organ/internal/eyes)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	eyes.refresh()
 
 ///Makes you a hypochondriac - I'd like to call it hypochondria, but "I could use some hypochondria" doesn't work
@@ -176,9 +228,15 @@
 		return
 	health_doll_ref = WEAKREF(health_doll)
 
+<<<<<<< HEAD
 /datum/addiction/medicine/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	if(DT_PROB(10, delta_time))
+=======
+/datum/addiction/medicine/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	if(SPT_PROB(10, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_carbon.emote("cough")
 
 /datum/addiction/medicine/withdrawal_enters_stage_2(mob/living/carbon/affected_carbon)
@@ -190,7 +248,11 @@
 	if(!HAS_TRAIT(affected_carbon, TRAIT_RESISTCOLD))
 		possibilities += /datum/hallucination/fake_alert/cold
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/lungs/lungs = affected_carbon.getorganslot(ORGAN_SLOT_LUNGS)
+=======
+	var/obj/item/organ/internal/lungs/lungs = affected_carbon.get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(lungs)
 		if(lungs.safe_oxygen_min)
 			possibilities += /datum/hallucination/fake_alert/need_oxygen
@@ -209,18 +271,30 @@
 		return
 	fake_alert_ref = WEAKREF(fake_alert)
 
+<<<<<<< HEAD
 /datum/addiction/medicine/withdrawal_stage_2_process(mob/living/carbon/affected_carbon, delta_time)
+=======
+/datum/addiction/medicine/withdrawal_stage_2_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/datum/hallucination/fake_health_doll/hallucination = health_doll_ref?.resolve()
 	if(QDELETED(hallucination))
 		health_doll_ref = null
 		return
 
+<<<<<<< HEAD
 	if(DT_PROB(10, delta_time))
 		hallucination.add_fake_limb(severity = 1)
 		return
 
 	if(DT_PROB(5, delta_time))
+=======
+	if(SPT_PROB(10, seconds_per_tick))
+		hallucination.add_fake_limb(severity = 1)
+		return
+
+	if(SPT_PROB(5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		hallucination.increment_fake_damage()
 		return
 
@@ -228,6 +302,7 @@
 	. = ..()
 	affected_carbon.apply_status_effect(/datum/status_effect/grouped/screwy_hud/fake_crit, type)
 
+<<<<<<< HEAD
 /datum/addiction/medicine/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	var/datum/hallucination/fake_health_doll/hallucination = health_doll_ref?.resolve()
@@ -240,12 +315,30 @@
 		return
 
 	if(DT_PROB(65, delta_time))
+=======
+/datum/addiction/medicine/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	var/datum/hallucination/fake_health_doll/hallucination = health_doll_ref?.resolve()
+	if(!QDELETED(hallucination) && SPT_PROB(5, seconds_per_tick))
+		hallucination.increment_fake_damage()
+		return
+
+	if(SPT_PROB(15, seconds_per_tick))
+		affected_carbon.emote("cough")
+		return
+
+	if(SPT_PROB(65, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(affected_carbon.stat >= SOFT_CRIT)
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/organ = pick(affected_carbon.internal_organs)
+=======
+	var/obj/item/organ/organ = pick(affected_carbon.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(organ.low_threshold)
 		to_chat(affected_carbon, organ.low_threshold_passed)
 		return
@@ -272,6 +365,7 @@
 	medium_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_moderate
 	severe_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_severe
 
+<<<<<<< HEAD
 /datum/addiction/nicotine/withdrawal_enters_stage_1(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	affected_carbon.set_jitter_if_lower(10 SECONDS * delta_time)
@@ -286,5 +380,21 @@
 	. = ..()
 	affected_carbon.set_jitter_if_lower(30 SECONDS * delta_time)
 	if(DT_PROB(15, delta_time))
+=======
+/datum/addiction/nicotine/withdrawal_enters_stage_1(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	affected_carbon.set_jitter_if_lower(10 SECONDS * seconds_per_tick)
+
+/datum/addiction/nicotine/withdrawal_stage_2_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	affected_carbon.set_jitter_if_lower(20 SECONDS * seconds_per_tick)
+	if(SPT_PROB(10, seconds_per_tick))
+		affected_carbon.emote("cough")
+
+/datum/addiction/nicotine/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, seconds_per_tick)
+	. = ..()
+	affected_carbon.set_jitter_if_lower(30 SECONDS * seconds_per_tick)
+	if(SPT_PROB(15, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_carbon.emote("cough")
 */

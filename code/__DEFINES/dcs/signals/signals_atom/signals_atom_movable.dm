@@ -78,6 +78,11 @@
 #define COMSIG_MOVABLE_UPDATE_GLIDE_SIZE "movable_glide_size"
 ///Called when a movable is hit by a plunger in layer mode, from /obj/item/plunger/attack_atom()
 #define COMSIG_MOVABLE_CHANGE_DUCT_LAYER "movable_change_duct_layer"
+<<<<<<< HEAD
+=======
+///Called before a movable is being teleported from `check_teleport_valid()`: (destination, channel)
+#define COMSIG_MOVABLE_TELEPORTING "movable_teleporting"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Called when a movable is being teleported from `do_teleport()`: (destination, channel)
 #define COMSIG_MOVABLE_TELEPORTED "movable_teleported"
 ///Called after a movable is teleported from `do_teleport()`: ()

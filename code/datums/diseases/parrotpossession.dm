@@ -16,7 +16,11 @@
 	var/mob/living/simple_animal/parrot/poly/ghost/parrot
 
 
+<<<<<<< HEAD
 /datum/disease/parrot_possession/stage_act(delta_time, times_fired)
+=======
+/datum/disease/parrot_possession/stage_act(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
@@ -25,7 +29,11 @@
 		cure()
 		return FALSE
 
+<<<<<<< HEAD
 	if(length(parrot.speech_buffer) && DT_PROB(parrot.speak_chance, delta_time)) // I'm not going to dive into polycode trying to adjust that probability. Enjoy doubled ghost parrot speach
+=======
+	if(length(parrot.speech_buffer) && SPT_PROB(parrot.speak_chance, seconds_per_tick)) // I'm not going to dive into polycode trying to adjust that probability. Enjoy doubled ghost parrot speach
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_mob.say(pick(parrot.speech_buffer), forced = "parrot possession")
 
 

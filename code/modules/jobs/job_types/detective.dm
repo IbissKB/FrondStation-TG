@@ -8,7 +8,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_HOS
+<<<<<<< HEAD
 	selection_color = "#ffeeee"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	minimal_player_age = 7
 	exp_requirements = 300
 	exp_required_type = EXP_TYPE_CREW
@@ -74,6 +77,15 @@
 		)
 	implants = list(/obj/item/implant/mindshield)
 
+<<<<<<< HEAD
+=======
+/datum/outfit/job/detective/pre_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
+	. = ..()
+	if (human.age < AGE_MINOR)
+		mask = /obj/item/clothing/mask/cigarette/candy
+		head = /obj/item/clothing/head/fedora/det_hat/minor
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	var/obj/item/clothing/mask/cigarette/cig = H.wear_mask

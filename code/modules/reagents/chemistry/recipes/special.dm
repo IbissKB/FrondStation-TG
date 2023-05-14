@@ -36,10 +36,13 @@ GLOBAL_LIST_INIT(medicine_reagents, build_medicine_reagents())
 		if(VALID_RANDOM_RECIPE_REAGENT(chem_flags))
 			. += reagent
 
+<<<<<<< HEAD
 #define RNGCHEM_INPUT "input"
 #define RNGCHEM_CATALYSTS "catalysts"
 #define RNGCHEM_OUTPUT "output"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/chemical_reaction/randomized
 
 	//Increase default leniency because these are already hard enough
@@ -281,7 +284,15 @@ GLOBAL_LIST_INIT(medicine_reagents, build_medicine_reagents())
 /datum/chemical_reaction/randomized/metalgen/GetPossibleReagents(kind)
 	switch(kind)
 		if(RNGCHEM_INPUT)
+<<<<<<< HEAD
 			return GLOB.medicine_reagents
+=======
+			var/list/possible_ingredients = list()
+			for(var/datum/reagent/chemical in GLOB.medicine_reagents)
+				if(initial(chemical.chemical_flags) & REAGENT_CAN_BE_SYNTHESIZED)
+					possible_ingredients += chemical
+			return possible_ingredients
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/paper/secretrecipe

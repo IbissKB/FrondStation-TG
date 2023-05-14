@@ -73,7 +73,11 @@
 			A.flags_1 |= ADMIN_SPAWNED_1
 
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/admins/proc/podspawn_atom(object as text)
 	set category = "Debug"
@@ -100,7 +104,11 @@
 		A.flags_1 |= ADMIN_SPAWNED_1
 
 	log_admin("[key_name(usr)] pod-spawned [chosen] at [AREACOORD(usr)]")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Podspawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Podspawn Atom") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/admins/proc/spawn_cargo(object as text)
 	set category = "Debug"
@@ -118,6 +126,7 @@
 	S.generate(get_turf(usr))
 
 	log_admin("[key_name(usr)] spawned cargo pack [chosen] at [AREACOORD(usr)]")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Cargo") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggletintedweldhelmets()
@@ -132,6 +141,9 @@
 	log_admin("[key_name(usr)] toggled tinted_weldhelh.")
 	message_admins("[key_name_admin(usr)] toggled tinted_weldhelh.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Tinted Welding Helmets", "[GLOB.tinted_weldhelh ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Cargo") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/admins/proc/dynamic_mode_options(mob/user)
 	var/dat = {"

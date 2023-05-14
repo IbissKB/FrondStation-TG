@@ -18,6 +18,7 @@
 
 	var/mob/dead/selected = pick_n_take(candidates)
 
+<<<<<<< HEAD
 	var/list/spawn_locs = list()
 	for(var/obj/effect/landmark/carpspawn/L in GLOB.landmarks_list)
 		spawn_locs += L.loc
@@ -25,6 +26,13 @@
 		return MAP_ERROR
 
 	var/mob/living/carbon/human/operative = new(pick(spawn_locs))
+=======
+	var/spawn_location = find_space_spawn()
+	if(isnull(spawn_location))
+		return MAP_ERROR
+
+	var/mob/living/carbon/human/operative = new(spawn_location)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	operative.randomize_human_appearance(~RANDOMIZE_SPECIES)
 	operative.dna.update_dna_identity()
 	var/datum/mind/Mind = new /datum/mind(selected.key)

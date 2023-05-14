@@ -107,13 +107,21 @@
 
 						var id = span.getAttribute("id");
 
+<<<<<<< HEAD
 						if(!id || !(id.indexOf("item")==0))
+=======
+						if(!id || !(id.indexOf("item") == 0))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 							continue;
 
 						var pass = 1;
 
 						for(var j = 0; j < locked_tabs.length; j++){
+<<<<<<< HEAD
 							if(locked_tabs\[j\]==id){
+=======
+							if(locked_tabs\[j\] == id){
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 								pass = 0;
 								break;
 							}
@@ -142,7 +150,11 @@
 
 					var pass = 1;
 					for(var j = 0; j < locked_tabs.length; j++){
+<<<<<<< HEAD
 						if(locked_tabs\[j\]==id){
+=======
+						if(locked_tabs\[j\] == id){
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 							pass = 0;
 							break;
 						}
@@ -163,7 +175,11 @@
 					var index = 0;
 					var pass = 0;
 					for(var j = 0; j < locked_tabs.length; j++){
+<<<<<<< HEAD
 						if(locked_tabs\[j\]==id){
+=======
+						if(locked_tabs\[j\] == id){
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 							pass = 1;
 							index = j;
 							break;
@@ -253,7 +269,11 @@
 					else
 						M_job = "Silicon-based"
 
+<<<<<<< HEAD
 				else if(isanimal(M)) //simple animals
+=======
+				else if(isanimal_or_basicmob(M)) //simple animals
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					if(iscorgi(M))
 						M_job = "Corgi"
 					else if(isslime(M))

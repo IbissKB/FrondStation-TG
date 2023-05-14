@@ -16,20 +16,34 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 	//Can this plating have reinforced floors placed ontop of it
+<<<<<<< HEAD
 	var/attachment_holes = TRUE 
 
 	//Used for upgrading this into R-Plating
 	var/upgradable = TRUE 
+=======
+	var/attachment_holes = TRUE
+
+	//Used for upgrading this into R-Plating
+	var/upgradable = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// If true, will allow tiles to replace us if the tile [wants to] [/obj/item/stack/tile/var/replace_plating].
 	/// And if our baseturfs are compatible.
 	/// See [/obj/item/stack/tile/proc/place_tile].
 	var/allow_replacement = TRUE
 
+<<<<<<< HEAD
 /turf/open/floor/plating/setup_broken_states()
 	return list("damaged1", "damaged2", "damaged4")
 
 /turf/open/floor/plating/setup_burnt_states()
+=======
+/turf/open/floor/plating/broken_states()
+	return list("damaged1", "damaged2", "damaged4")
+
+/turf/open/floor/plating/burnt_states()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return list("floorscorched1", "floorscorched2")
 
 /turf/open/floor/plating/examine(mob/user)
@@ -176,6 +190,10 @@
 /turf/open/floor/plating/foam/ex_act()
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+<<<<<<< HEAD
+=======
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/floor/plating/foam/tool_act(mob/living/user, obj/item/I, tool_type)
 	return

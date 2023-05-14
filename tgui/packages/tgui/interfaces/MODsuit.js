@@ -747,6 +747,34 @@ const ModuleSection = (props, context) => {
   );
 };
 
+<<<<<<< HEAD
+=======
+export const MODsuitContent = (props, context) => {
+  const { act, data } = useBackend(context);
+  const { ui_theme, interface_break } = data;
+  return (
+    <Section>
+      {(!!interface_break && <LockedInterface />) || (
+        <Stack vertical fill>
+          <Stack.Item>
+            <ParametersSection />
+          </Stack.Item>
+          <Stack.Item>
+            <HardwareSection />
+          </Stack.Item>
+          <Stack.Item>
+            <InfoSection />
+          </Stack.Item>
+          <Stack.Item grow>
+            <ModuleSection />
+          </Stack.Item>
+        </Stack>
+      )}
+    </Section>
+  );
+};
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 export const MODsuit = (props, context) => {
   const { act, data } = useBackend(context);
   const { ui_theme, interface_break } = data;
@@ -758,6 +786,7 @@ export const MODsuit = (props, context) => {
       title="MOD Interface Panel"
       resizable>
       <Window.Content scrollable={!interface_break}>
+<<<<<<< HEAD
         {(!!interface_break && <LockedInterface />) || (
           <Stack vertical fill>
             <Stack.Item>
@@ -774,6 +803,9 @@ export const MODsuit = (props, context) => {
             </Stack.Item>
           </Stack>
         )}
+=======
+        <MODsuitContent />
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       </Window.Content>
     </Window>
   );

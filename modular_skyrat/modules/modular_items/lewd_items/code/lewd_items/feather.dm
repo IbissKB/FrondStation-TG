@@ -29,7 +29,11 @@
 
 		if(BODY_ZONE_CHEST)
 			targetedsomewhere = TRUE
+<<<<<<< HEAD
 			var/obj/item/organ/external/genital/badonkers = target.getorganslot(ORGAN_SLOT_BREASTS)
+=======
+			var/obj/item/organ/external/genital/badonkers = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(!(target.is_topless() || badonkers.visibility_preference == GENITAL_ALWAYS_SHOW))
 				to_chat(user, span_danger("[target]'s chest is covered!"))
 				return

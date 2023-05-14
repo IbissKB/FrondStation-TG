@@ -94,7 +94,11 @@
 	name = "Officer Genesky"
 	desc = "A beefy variant of the standard securitron model."
 	health = 50
+<<<<<<< HEAD
 	faction = list("nanotrasenprivate")
+=======
+	faction = list(FACTION_NANOTRASEN_PRIVATE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	bot_mode_flags = BOT_MODE_ON
 	bot_cover_flags = BOT_COVER_LOCKED | BOT_COVER_EMAGGED
 
@@ -254,7 +258,11 @@
 /mob/living/simple_animal/bot/secbot/bullet_act(obj/projectile/Proj)
 	if(istype(Proj, /obj/projectile/beam) || istype(Proj, /obj/projectile/bullet))
 		if((Proj.damage_type == BURN) || (Proj.damage_type == BRUTE))
+<<<<<<< HEAD
 			if(!Proj.nodamage && Proj.damage < src.health && ishuman(Proj.firer))
+=======
+			if(Proj.is_hostile_projectile() && Proj.damage < src.health && ishuman(Proj.firer))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				retaliate(Proj.firer)
 	return ..()
 

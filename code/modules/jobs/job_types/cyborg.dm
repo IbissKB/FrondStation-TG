@@ -6,7 +6,10 @@
 	total_positions = 3	// SKYRAT EDIT: Original value (0)
 	spawn_positions = 3	// SKYRAT EDIT: Original value (1)
 	supervisors = "your laws and the AI" //Nodrak
+<<<<<<< HEAD
 	selection_color = "#ddffdd"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	spawn_type = /mob/living/silicon/robot
 	minimal_player_age = 21
 	exp_requirements = 120

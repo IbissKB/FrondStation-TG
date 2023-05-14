@@ -121,6 +121,13 @@
 	M.Move(loc)
 	M.setDir(dir)
 
+<<<<<<< HEAD
+=======
+	//Something has unbuckled us in reaction to the above movement
+	if(!M.buckled)
+		return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	post_buckle_mob(M)
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUCKLE, M, force)
@@ -152,7 +159,11 @@
 	buckled_mob.set_buckled(null)
 	buckled_mob.set_anchored(initial(buckled_mob.anchored))
 	buckled_mob.clear_alert(ALERT_BUCKLED)
+<<<<<<< HEAD
 	buckled_mob.set_glide_size(DELAY_TO_GLIDE_SIZE(buckled_mob.total_multiplicative_slowdown()))
+=======
+	buckled_mob.set_glide_size(DELAY_TO_GLIDE_SIZE(buckled_mob.cached_multiplicative_slowdown))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	buckled_mobs -= buckled_mob
 	if(anchored)
 		REMOVE_TRAIT(buckled_mob, TRAIT_NO_FLOATING_ANIM, BUCKLED_TRAIT)

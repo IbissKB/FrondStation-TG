@@ -37,8 +37,13 @@
 
 
 /turf/closed/mineral/Initialize(mapload)
+<<<<<<< HEAD
 	var/static/list/smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_MINERAL_WALLS)
 	var/static/list/canSmoothWith = list(SMOOTH_GROUP_MINERAL_WALLS)
+=======
+	var/static/list/smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
+	var/static/list/canSmoothWith = SMOOTH_GROUP_MINERAL_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// The cost of the list() being in the type def is very large for something as common as minerals
 	src.smoothing_groups = smoothing_groups
@@ -94,6 +99,7 @@
 		to_chat(usr, span_warning("You don't have the dexterity to do this!"))
 		return
 
+<<<<<<< HEAD
 	if(I.tool_behaviour == TOOL_MINING)
 		var/turf/T = user.loc
 		if (!isturf(T))
@@ -115,16 +121,49 @@
 
 /turf/closed/mineral/attack_hand(mob/user)
 	if(!weak_turf)
+=======
+	if(I.tool_behaviour != TOOL_MINING)
+		return
+	var/turf/T = user.loc
+	if (!isturf(T))
+		return
+
+	if(TIMER_COOLDOWN_CHECK(src, REF(user))) //prevents mining turfs in progress
+		return
+
+	TIMER_COOLDOWN_START(src, REF(user), tool_mine_speed)
+
+	balloon_alert(user, "picking...")
+
+	if(!I.use_tool(src, user, tool_mine_speed, volume=50))
+		TIMER_COOLDOWN_END(src, REF(user)) //if we fail we can start again immediately
+		return
+	if(ismineralturf(src))
+		gets_drilled(user, TRUE)
+		SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
+
+/turf/closed/mineral/attack_hand(mob/user)
+	var/mining_arms = HAS_TRAIT(user, TRAIT_FIST_MINING)
+	if(!weak_turf && !mining_arms)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return ..()
 	var/turf/user_turf = user.loc
 	if (!isturf(user_turf))
 		return
 	if(TIMER_COOLDOWN_CHECK(src, REF(user))) //prevents mining turfs in progress
 		return
+<<<<<<< HEAD
 	TIMER_COOLDOWN_START(src, REF(user), hand_mine_speed)
 	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/mining, SKILL_SPEED_MODIFIER) || 1
 	balloon_alert(user, "pulling out pieces...")
 	if(!do_after(user, hand_mine_speed * skill_modifier, target = src))
+=======
+	var/mining_speed = mining_arms ? tool_mine_speed : hand_mine_speed
+	TIMER_COOLDOWN_START(src, REF(user), mining_speed)
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/mining, SKILL_SPEED_MODIFIER) || 1
+	balloon_alert(user, "pulling out pieces...")
+	if(!do_after(user, mining_speed * skill_modifier, target = src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		TIMER_COOLDOWN_END(src, REF(user)) //if we fail we can start again immediately
 		return
 	if(ismineralturf(src))
@@ -134,7 +173,13 @@
 	if(user.Adjacent(src))
 		attack_hand(user)
 
+<<<<<<< HEAD
 /turf/closed/mineral/proc/gets_drilled(user, give_exp = FALSE)
+=======
+/turf/closed/mineral/proc/gets_drilled(mob/user, give_exp = FALSE)
+	if(istype(user))
+		SEND_SIGNAL(user, COMSIG_MOB_MINED, src, give_exp)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (mineralType && (mineralAmt > 0))
 		new mineralType(src, mineralAmt)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
@@ -178,7 +223,11 @@
 	. = ..()
 	if(target == src)
 		gets_drilled(null, FALSE)
+<<<<<<< HEAD
 		return
+=======
+		return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			gets_drilled(null, FALSE)
@@ -189,6 +238,11 @@
 			if(prob(75))
 				gets_drilled(null, FALSE)
 
+<<<<<<< HEAD
+=======
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/closed/mineral/blob_act(obj/structure/blob/B)
 	if(prob(50))
 		gets_drilled(give_exp = FALSE)
@@ -230,7 +284,10 @@
 			var/turf/T = ChangeTurf(path,null,CHANGETURF_IGNORE_AIR)
 			T.flags_1 |= stored_flags
 
+<<<<<<< HEAD
 			T.baseturfs = src.baseturfs
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			T.color = stored_color //SKYRAT EDIT ADDITION
 			if(ismineralturf(T))
 				var/turf/closed/mineral/M = T
@@ -332,13 +389,26 @@
 		/turf/closed/mineral/gibtonite/volcanic = 4,
 	)
 
+<<<<<<< HEAD
+=======
+/// A turf that can't we can't build openspace chasms on or spawn ruins in.
+/turf/closed/mineral/random/volcanic/do_not_chasm
+	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface/no_ruins
+	baseturfs = /turf/open/misc/asteroid/basalt/lava_land_surface/no_ruins
+	turf_flags = NO_RUINS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/closed/mineral/random/snow
 	name = "snowy mountainside"
 	icon = MAP_SWITCH('icons/turf/walls/mountain_wall.dmi', 'icons/turf/mining.dmi')
 	icon_state = "mountainrock"
 	base_icon_state = "mountain_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+<<<<<<< HEAD
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
+=======
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	defer_change = TRUE
 	turf_type = /turf/open/misc/asteroid/snow/icemoon
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
@@ -366,6 +436,15 @@
 		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
 	)
 
+<<<<<<< HEAD
+=======
+/// Near exact same subtype as parent, just used in ruins to prevent other ruins/chasms from spawning on top of it.
+/turf/closed/mineral/random/snow/do_not_chasm
+	turf_type = /turf/open/misc/asteroid/snow/icemoon/do_not_chasm
+	baseturfs = /turf/open/misc/asteroid/snow/icemoon/do_not_chasm
+	turf_flags = NO_RUINS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/closed/mineral/random/snow/underground
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 	// abundant ore
@@ -439,7 +518,11 @@
 	icon_state = "mountainrock"
 	base_icon_state = "mountain_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+<<<<<<< HEAD
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
+=======
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	defer_change = TRUE
 	turf_type = /turf/open/misc/asteroid/snow/icemoon
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
@@ -569,7 +652,11 @@
 	icon_state = "rock2"
 	base_icon_state = "rock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+<<<<<<< HEAD
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
+=======
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	baseturfs = /turf/open/misc/ashplanet/wateryrock
 	initial_gas_mix = OPENTURF_LOW_PRESSURE
 	turf_type = /turf/open/misc/ashplanet/rocky
@@ -581,7 +668,11 @@
 	icon_state = "mountainrock"
 	base_icon_state = "mountain_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+<<<<<<< HEAD
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
+=======
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	baseturfs = /turf/open/misc/asteroid/snow
 	initial_gas_mix = FROZEN_ATMOS
 	turf_type = /turf/open/misc/asteroid/snow
@@ -592,6 +683,15 @@
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
+<<<<<<< HEAD
+=======
+/// This snowy mountain will never be scraped away for any reason what so ever.
+/turf/closed/mineral/snowmountain/icemoon/unscrapeable
+	turf_flags = IS_SOLID | NO_CLEARING
+	turf_type = /turf/open/misc/asteroid/snow/icemoon/do_not_scrape
+	baseturfs = /turf/open/misc/asteroid/snow/icemoon/do_not_scrape
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/closed/mineral/snowmountain/cavern
 	name = "ice cavern rock"
 	icon = MAP_SWITCH('icons/turf/walls/icerock_wall.dmi', 'icons/turf/mining.dmi')
@@ -619,14 +719,20 @@
 
 /turf/closed/mineral/asteroid
 	name = "iron rock"
+<<<<<<< HEAD
 	icon = 'icons/turf/mining.dmi'
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "redrock"
 	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'icons/turf/mining.dmi')
 	base_icon_state = "red_wall"
 
 /turf/closed/mineral/random/stationside/asteroid
 	name = "iron rock"
+<<<<<<< HEAD
 	icon = 'icons/turf/mining.dmi'
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'icons/turf/mining.dmi')
 	base_icon_state = "red_wall"
 
@@ -659,7 +765,11 @@
 	var/previous_stage = stage
 	if(istype(attacking_item, /obj/item/mining_scanner) || istype(attacking_item, /obj/item/t_scanner/adv_mining_scanner) && stage == GIBTONITE_ACTIVE)
 		user.visible_message(span_notice("[user] holds [attacking_item] to [src]..."), span_notice("You use [attacking_item] to locate where to cut off the chain reaction and attempt to stop it..."))
+<<<<<<< HEAD
 		defuse()
+=======
+		defuse(user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	if(istype(attacking_item, /obj/item/clothing/gloves/gauntlets) && previous_stage == GIBTONITE_UNSTRUCK && stage == GIBTONITE_ACTIVE && istype(user))
 		user.Immobilize(0.5 SECONDS)
@@ -698,7 +808,11 @@
 			stage = GIBTONITE_DETONATE
 			explosion(bombturf, devastation_range = 1, heavy_impact_range = 3, light_impact_range = 5, adminlog = notify_admins, explosion_cause = src)
 
+<<<<<<< HEAD
 /turf/closed/mineral/gibtonite/proc/defuse()
+=======
+/turf/closed/mineral/gibtonite/proc/defuse(mob/living/defuser)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(stage == GIBTONITE_ACTIVE)
 		cut_overlay(activated_overlay)
 		activated_overlay.icon_state = "rock_Gibtonite_inactive"
@@ -708,8 +822,18 @@
 		if(det_time < 0)
 			det_time = 0
 		visible_message(span_notice("The chain reaction stopped! The gibtonite had [det_time] reactions left till the explosion!"))
+<<<<<<< HEAD
 
 /turf/closed/mineral/gibtonite/gets_drilled(mob/user, give_exp = FALSE, triggered_by_explosion = FALSE)
+=======
+		if(defuser)
+			SEND_SIGNAL(defuser, COMSIG_LIVING_DEFUSED_GIBTONITE, det_time)
+
+/turf/closed/mineral/gibtonite/gets_drilled(mob/user, give_exp = FALSE, triggered_by_explosion = FALSE)
+	if(istype(user))
+		SEND_SIGNAL(user, COMSIG_MOB_MINED, src, give_exp)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(stage == GIBTONITE_UNSTRUCK && mineralAmt >= 1) //Gibtonite deposit is activated
 		playsound(src,'sound/effects/hit_on_shattered_glass.ogg',50,TRUE)
 		explosive_reaction(user)
@@ -779,6 +903,12 @@
 
 
 /turf/closed/mineral/strong/gets_drilled(mob/user, give_exp = FALSE)
+<<<<<<< HEAD
+=======
+	if(istype(user))
+		SEND_SIGNAL(user, COMSIG_MOB_MINED, src, give_exp)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!ishuman(user))
 		return // see attackby
 	var/mob/living/carbon/human/H = user

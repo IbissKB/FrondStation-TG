@@ -63,6 +63,10 @@
 	icon = 'icons/effects/alphacolors.dmi'
 	icon_state = "white"
 	plane = LIGHTING_PLANE
+<<<<<<< HEAD
+=======
+	layer = LIGHTING_ABOVE_ALL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	blend_mode = BLEND_ADD
 	luminosity = 1
 
@@ -97,7 +101,11 @@
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 	light_color = COLOR_WHITE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+<<<<<<< HEAD
 	blocks_emissive = NONE
+=======
+	blocks_emissive = EMISSIVE_BLOCK_NONE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/dummy/lighting_obj/Initialize(mapload, _range, _power, _color, _duration)
 	. = ..()

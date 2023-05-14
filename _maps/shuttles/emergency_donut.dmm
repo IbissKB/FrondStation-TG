@@ -126,7 +126,11 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "az" = (
 /obj/machinery/button/flasher{
@@ -134,45 +138,76 @@
 	pixel_x = 8;
 	pixel_y = 24
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "aA" = (
 /obj/structure/chair,
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"aA" = (
+/obj/structure/chair,
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aB" = (
 /obj/structure/chair,
 /obj/machinery/flasher/directional/north{
 	id = "shuttle_flasher"
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "aC" = (
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"aC" = (
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aD" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Containment Cell"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "aE" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"aE" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aF" = (
 /obj/structure/chair{
 	dir = 1
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aG" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aH" = (
 /obj/machinery/status_display/evac,
@@ -183,7 +218,11 @@
 /obj/item/storage/fancy/donut_box,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/storage/box/handcuffs,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aJ" = (
 /obj/machinery/light/directional/south,
@@ -196,7 +235,11 @@
 /obj/structure/table,
 /obj/machinery/recharger,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aL" = (
 /obj/machinery/door/airlock/public/glass{
@@ -228,7 +271,11 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aR" = (
 /obj/machinery/door/airlock/titanium{
@@ -263,14 +310,22 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "aX" = (
 /obj/structure/chair/comfy/shuttle,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "aY" = (
@@ -445,9 +500,13 @@
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "bs" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)

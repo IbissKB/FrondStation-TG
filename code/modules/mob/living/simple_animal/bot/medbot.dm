@@ -137,7 +137,11 @@
 
 	skin = new_skin
 	update_appearance()
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !linked_techweb)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		linked_techweb = SSresearch.science_tech
 
 	AddComponent(/datum/component/tippable, \
@@ -374,7 +378,18 @@
 				)
 				playsound(src, pick(i_need_scissors), 70)
 			else
+<<<<<<< HEAD
 				var/list/messagevoice = list("Radar, put a mask on!" = 'sound/voice/medbot/radar.ogg',"There's always a catch, and I'm the best there is." = 'sound/voice/medbot/catch.ogg',"I knew it, I should've been a plastic surgeon." = 'sound/voice/medbot/surgeon.ogg',"What kind of medbay is this? Everyone's dropping like flies." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Why are we still here? Just to suffer?" = 'sound/voice/medbot/why.ogg')
+=======
+				var/static/list/messagevoice = list(
+					"Delicious!" = 'sound/voice/medbot/delicious.ogg',
+					"I knew it, I should've been a plastic surgeon." = 'sound/voice/medbot/surgeon.ogg',
+					"Radar, put a mask on!" = 'sound/voice/medbot/radar.ogg',
+					"There's always a catch, and I'm the best there is." = 'sound/voice/medbot/catch.ogg',
+					"What kind of medbay is this? Everyone's dropping like flies." = 'sound/voice/medbot/flies.ogg',
+					"Why are we still here? Just to suffer?" = 'sound/voice/medbot/why.ogg',
+				)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				var/message = pick(messagevoice)
 				speak(message)
 				playsound(src, messagevoice[message], 50)
@@ -436,7 +451,11 @@
 	if(!(loc == C.loc) && !(isturf(C.loc) && isturf(loc)))
 		return FALSE
 
+<<<<<<< HEAD
 	if(C.suiciding)
+=======
+	if(HAS_TRAIT_FROM_ONLY(C, TRAIT_SUICIDED, REF(C)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE //Kevorkian school of robotic medical assistants.
 
 	if(bot_cover_flags & BOT_COVER_EMAGGED) //Everyone needs our medicine. (Our medicine is toxins)
@@ -554,7 +573,11 @@
 			C.visible_message(span_danger("[src] is trying to tend the wounds of [patient]!"), \
 				span_userdanger("[src] is trying to tend your wounds!"))
 
+<<<<<<< HEAD
 			if(do_mob(src, patient, 10 SECONDS)) //SKYRAT EDIT: Increased time as tradeoff for automated healing. ORIGINAL: if(do_mob(src, patient, 20))
+=======
+			if(do_after(src, 10 SECONDS, patient)) //SKYRAT EDIT: Increased time as tradeoff for automated healing. ORIGINAL: if(do_after(src, 2 SECONDS, patient))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if((get_dist(src, patient) <= 1) && (bot_mode_flags & BOT_MODE_ON) && assess_patient(patient))
 					var/healies = heal_amount
 					var/obj/item/storage/medkit/medkit = medkit_type

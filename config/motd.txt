@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!-- Most valid html will work in here, excluding images. -->
+=======
+<!-- Most valid html will work in here, but you have to use URL links for images. -->
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 <h1>Welcome to Space Station 13!</h1>
 

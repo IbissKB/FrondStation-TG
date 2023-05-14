@@ -173,8 +173,15 @@
 	cooldown_time = 6 SECONDS
 	charge_delay = 1.5 SECONDS
 	charge_distance = 4
+<<<<<<< HEAD
 	var/shake_duration = 1 SECONDS
 	var/shake_pixel_shift = 15
+=======
+	/// How long to shake for before charging
+	var/shake_duration = 1 SECONDS
+	/// Intensity of shaking animation
+	var/shake_pixel_shift = 2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/action/cooldown/mob_cooldown/charge/basic_charge/do_charge_indicator(atom/charger, atom/charge_target)
 	charger.Shake(shake_pixel_shift, shake_pixel_shift, shake_duration)
@@ -227,7 +234,11 @@
 	var/spawn_blood = FALSE
 
 /datum/action/cooldown/mob_cooldown/charge/hallucination_charge/charge_sequence(atom/movable/charger, atom/target_atom, delay, past)
+<<<<<<< HEAD
 	if(!enraged)
+=======
+	if(!enraged || prob(33))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		hallucination_charge(target_atom, 6, 8, 0, 6, TRUE)
 		return
 	for(var/i in 0 to 2)

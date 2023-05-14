@@ -15,7 +15,11 @@
 	inhand_icon_state = "pizzabox"
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/cardboard = 2000)
+=======
+	custom_materials = list(/datum/material/cardboard =SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/open = FALSE
 	var/can_open_on_fall = TRUE //if FALSE, this pizza box will never open if it falls from a stack
@@ -156,7 +160,11 @@
 				return
 			else
 				bomb_timer = tgui_input_number(user, "Set the bomb timer", "Pizza Bomb", bomb_timer, bomb_timer_max, bomb_timer_min)
+<<<<<<< HEAD
 				if(!bomb_timer || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+				if(!bomb_timer || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				bomb_defused = FALSE
 				log_bomber(user, "has trapped a", src, "with [bomb] set to [bomb_timer] seconds")
@@ -221,7 +229,11 @@
 				return
 			var/obj/item/pizzabox/box = length(boxes) ? boxes[length(boxes)] : src
 			box.boxtag += tgui_input_text(user, "Write on [box]'s tag:", box, max_length = 30)
+<<<<<<< HEAD
 			if(!user.canUseTopic(src, be_close = TRUE))
+=======
+			if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			balloon_alert(user, "writing box tag...")
 			boxtag_set = TRUE
@@ -232,10 +244,17 @@
 			wires.interact(user)
 	..()
 
+<<<<<<< HEAD
 /obj/item/pizzabox/process(delta_time)
 	if(bomb_active && !bomb_defused && (bomb_timer > 0))
 		playsound(loc, 'sound/items/timer.ogg', 50, FALSE)
 		bomb_timer -= delta_time
+=======
+/obj/item/pizzabox/process(seconds_per_tick)
+	if(bomb_active && !bomb_defused && (bomb_timer > 0))
+		playsound(loc, 'sound/items/timer.ogg', 50, FALSE)
+		bomb_timer -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(bomb_active && !bomb_defused && (bomb_timer <= 0))
 		if(bomb in src)
 			bomb.detonate()

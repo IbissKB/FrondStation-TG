@@ -144,7 +144,11 @@
 	last_camera_turf = new_cam_turf
 
 	//Here we gather what's visible from the camera's POV based on its view_range and xray modifier if present
+<<<<<<< HEAD
 	var/list/visible_things = active_camera.isXRay() ? range(active_camera.view_range, new_cam_turf) : view(active_camera.view_range, new_cam_turf)
+=======
+	var/list/visible_things = active_camera.isXRay(ignore_malf_upgrades = TRUE) ? range(active_camera.view_range, new_cam_turf) : view(active_camera.view_range, new_cam_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	for(var/turf/visible_turf in visible_things)
 		visible_turfs += visible_turf
@@ -169,6 +173,10 @@
 	// Turn off the console
 	if(length(concurrent_users) == 0 && is_living)
 		active_camera = null
+<<<<<<< HEAD
+=======
+		last_camera_turf = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(src, 'sound/machines/terminal_off.ogg', 25, FALSE)
 		use_power(0)
 
@@ -241,6 +249,7 @@
 	network = list("mine", "auxbase", "vault")
 	circuit = null
 
+<<<<<<< HEAD
 // TELESCREENS
 
 /obj/machinery/computer/security/telescreen
@@ -421,4 +430,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/entertai
 	desc = "A telescreen that connects to the bar's camera network. Perfect for checking on customers."
 	network = list("bar")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef DEFAULT_MAP_SIZE

@@ -42,6 +42,14 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 	if(combat_indicator)
 		. += GLOB.combat_indicator_overlay
 
+<<<<<<< HEAD
+=======
+/mob/living/silicon/robot/update_icons()
+	. = ..()
+	if(combat_indicator)
+		add_overlay(GLOB.combat_indicator_overlay)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/update_overlays()
 	. = ..()
 	if(combat_indicator_vehicle)

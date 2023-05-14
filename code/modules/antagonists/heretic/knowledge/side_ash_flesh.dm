@@ -11,7 +11,11 @@
 	required_atoms = list(
 		/obj/item/organ/internal/eyes = 1,
 		/obj/item/shard = 1,
+<<<<<<< HEAD
 		/obj/item/candle = 1,
+=======
+		/obj/item/flashlight/flare/candle = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	result_atoms = list(/obj/item/clothing/neck/eldritch_amulet)
 	cost = 1
@@ -44,16 +48,24 @@
 		return
 
 	to_chat(chosen_mob, span_danger("You suddenly lose feeling in your leg[chosen_mob.usable_legs == 1 ? "":"s"]!"))
+<<<<<<< HEAD
 	ADD_TRAIT(chosen_mob, TRAIT_PARALYSIS_L_LEG, type)
 	ADD_TRAIT(chosen_mob, TRAIT_PARALYSIS_R_LEG, type)
+=======
+	chosen_mob.add_traits(list(TRAIT_PARALYSIS_L_LEG, TRAIT_PARALYSIS_R_LEG), type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/heretic_knowledge/curse/paralysis/uncurse(mob/living/carbon/human/chosen_mob, boosted = FALSE)
 	if(QDELETED(chosen_mob))
 		return
 
+<<<<<<< HEAD
 	REMOVE_TRAIT(chosen_mob, TRAIT_PARALYSIS_L_LEG, type)
 	REMOVE_TRAIT(chosen_mob, TRAIT_PARALYSIS_R_LEG, type)
+=======
+	chosen_mob.remove_traits(list(TRAIT_PARALYSIS_L_LEG, TRAIT_PARALYSIS_R_LEG), type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(chosen_mob.usable_legs > 1)
 		to_chat(chosen_mob, span_green("You regain feeling in your leg[chosen_mob.usable_legs == 1 ? "":"s"]!"))
 	return ..()

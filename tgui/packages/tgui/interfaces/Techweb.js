@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import { filter, map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { useBackend, useLocalState } from '../backend';
 import { Button, Section, Modal, Dropdown, Tabs, Box, Input, Flex, ProgressBar, Collapsible, Icon, Divider } from '../components';
+=======
+import { map, sortBy } from 'common/collections';
+import { useBackend, useLocalState } from '../backend';
+import { Button, Section, Modal, Tabs, Box, Input, Flex, ProgressBar, Collapsible, Icon, Divider } from '../components';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { Window, NtosWindow } from '../layouts';
 import { Experiment } from './ExperimentConfigure';
 
@@ -353,11 +359,14 @@ const TechwebDiskMenu = (props, context) => {
               Disk &rarr; Web
             </Button>
             <Button
+<<<<<<< HEAD
               icon="trash"
               onClick={() => act('eraseDisk', { type: diskType })}>
               Erase
             </Button>
             <Button
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               icon="eject"
               onClick={() => {
                 act('ejectDisk', { type: diskType });
@@ -380,6 +389,7 @@ const TechwebDiskMenu = (props, context) => {
 
 const TechwebDesignDisk = (props, context) => {
   const { act, data } = useRemappedBackend(context);
+<<<<<<< HEAD
   const { design_cache, researched_designs, d_disk } = data;
   const { blueprints } = d_disk;
   const [selectedDesign, setSelectedDesign] = useLocalState(
@@ -465,6 +475,15 @@ const TechwebDesignDisk = (props, context) => {
               )}
             </>
           }>
+=======
+  const { design_cache, d_disk } = data;
+  const { blueprints } = d_disk;
+
+  return (
+    <>
+      {blueprints.map((x, i) => (
+        <Section key={i} title={`Slot ${i + 1}`}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           {(x === null && 'Empty') || (
             <>
               Contains the design for <b>{design_cache[x].name}</b>:<br />
@@ -618,7 +637,11 @@ const TechNode = (props, context) => {
     </ProgressBar>
   );
 
+<<<<<<< HEAD
   // Notice this logic will have te be changed if we make the discounts
+=======
+  // Notice that this logic will have to be changed if we make the discounts
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   // pool-specific
   const nodeDiscount = Object.keys(discount_experiments)
     .filter((x) => experiments[x]?.completed)

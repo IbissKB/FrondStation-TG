@@ -22,7 +22,11 @@
 		return
 	set_anchored(!anchored)
 	tool.play_tool_sound(src)
+<<<<<<< HEAD
 	balloon_alert(user, "You [anchored?"secure":"unsecure"] [src].")
+=======
+	balloon_alert(user, anchored ? "secured" : "unsecured")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/structure/scanner_gate_shell/proc/on_entered(datum/source, atom/movable/AM)

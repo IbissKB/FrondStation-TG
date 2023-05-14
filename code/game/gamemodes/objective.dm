@@ -61,6 +61,7 @@ GLOBAL_LIST_EMPTY(objectives) //SKYRAT EDIT ADDITION
 
 	update_explanation_text()
 
+<<<<<<< HEAD
 /datum/objective/proc/considered_escaped(datum/mind/M)
 	if(!considered_alive(M))
 		return FALSE
@@ -76,6 +77,39 @@ GLOBAL_LIST_EMPTY(objectives) //SKYRAT EDIT ADDITION
 	if(!current_area || istype(current_area, /area/shuttle/escape/brig)) // Fails if they are in the shuttle brig
 		return FALSE
 	var/turf/current_turf = get_turf(M.current)
+=======
+/**
+ * Checks if the passed mind is considered "escaped".
+ *
+ * Escaped mobs are used to check certain antag objectives / results.
+ *
+ * Escaped includes minds with alive, non-exiled mobs generally.
+ *
+ * Returns TRUE if they're a free person, or FALSE if they failed
+ */
+/proc/considered_escaped(datum/mind/escapee)
+	if(!considered_alive(escapee))
+		return FALSE
+	if(considered_exiled(escapee))
+		return FALSE
+	// "Into the sunset" force escaping for forced escape success
+	if(escapee.force_escaped)
+		return TRUE
+	// Station destroying events (blob, cult, nukies)? Just let them win, even if there was no hope of escape
+	if(SSticker.force_ending || GLOB.station_was_nuked)
+		return TRUE
+	// Escape hasn't happened yet
+	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
+		return FALSE
+	var/area/current_area = get_area(escapee.current)
+	// In custody (shuttle brig) does not count as escaping
+	if(!current_area || istype(current_area, /area/shuttle/escape/brig))
+		return FALSE
+	var/turf/current_turf = get_turf(escapee.current)
+	if(!current_turf)
+		return FALSE
+	// Finally, if we made it to centcom (or the syndie base - got hijacked), we're home free
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return current_turf.onCentCom() || current_turf.onSyndieBase()
 
 /datum/objective/proc/check_completion()
@@ -298,6 +332,7 @@ GLOBAL_LIST_EMPTY(objectives) //SKYRAT EDIT ADDITION
 	var/target_role_type = FALSE
 	var/human_check = TRUE
 
+<<<<<<< HEAD
 
 /datum/objective/protect/check_completion()
 	var/obj/item/organ/internal/brain/brain_target
@@ -305,6 +340,14 @@ GLOBAL_LIST_EMPTY(objectives) //SKYRAT EDIT ADDITION
 		brain_target = target.current?.getorganslot(ORGAN_SLOT_BRAIN)
 	//Protect will always suceed when someone suicides
 	return !target || target.current?.suiciding || considered_alive(target, enforce_human = human_check) || brain_target?.suicided
+=======
+/datum/objective/protect/check_completion()
+	var/obj/item/organ/internal/brain/brain_target
+	if(human_check)
+		brain_target = target.current?.get_organ_slot(ORGAN_SLOT_BRAIN)
+	//Protect will always suceed when someone suicides
+	return !target || (target.current && HAS_TRAIT(target.current, TRAIT_SUICIDED)) || considered_alive(target, enforce_human = human_check) || (brain_target && HAS_TRAIT(brain_target, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/objective/protect/update_explanation_text()
 	..()
@@ -547,7 +590,11 @@ GLOBAL_LIST_EMPTY(objectives) //SKYRAT EDIT ADDITION
 	for(var/datum/mind/M in owners)
 		if(considered_alive(M))
 			return FALSE
+<<<<<<< HEAD
 		if(M.current?.suiciding) //killing yourself ISN'T glorious.
+=======
+		if(M.current && HAS_TRAIT(M.current, TRAIT_SUICIDED)) //killing yourself ISN'T glorious.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 	return TRUE
 
@@ -584,6 +631,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 	if(!dupe_search_range)
 		dupe_search_range = get_owners()
 	var/approved_targets = list()
+<<<<<<< HEAD
 	check_items:
 		for(var/datum/objective_item/possible_item in GLOB.possible_items)
 			if(possible_item.objective_type != OBJECTIVE_ITEM_TYPE_NORMAL)
@@ -594,6 +642,16 @@ GLOBAL_LIST_EMPTY(possible_items)
 				if(M.current.mind.assigned_role.title in possible_item.excludefromjob)
 					continue check_items
 			approved_targets += possible_item
+=======
+	for(var/datum/objective_item/possible_item in GLOB.possible_items)
+		if(!possible_item.valid_objective_for(owners, require_owner = FALSE))
+			continue
+		if(possible_item.objective_type != OBJECTIVE_ITEM_TYPE_NORMAL)
+			continue
+		if(!is_unique_objective(possible_item.targetitem,dupe_search_range))
+			continue
+		approved_targets += possible_item
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (length(approved_targets))
 		return set_target(pick(approved_targets))
 	return set_target(null)
@@ -644,7 +702,11 @@ GLOBAL_LIST_EMPTY(possible_items)
 			if(istype(I, steal_target))
 				if(!targetinfo) //If there's no targetinfo, then that means it was a custom objective. At this point, we know you have the item, so return 1.
 					return TRUE
+<<<<<<< HEAD
 				else if(targetinfo.check_special_completion(I))//Returns 1 by default. Items with special checks will return 1 if the conditions are fulfilled.
+=======
+				else if(targetinfo.check_special_completion(I))//Returns true by default. Items with special checks will return true if the conditions are fulfilled.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return TRUE
 
 			if(targetinfo && (I.type in targetinfo.altitems)) //Ok, so you don't have the item. Do you have an alternative, at least?
@@ -652,6 +714,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 					return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/steal/special //ninjas are so special they get their own subtype good for them
 	name = "steal special"
@@ -665,6 +728,8 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/steal/special/find_target(dupe_search_range, list/blacklist)
 	return set_target(pick(GLOB.possible_items_special))
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/objective/capture
 	name = "capture"
 	admin_grantable = TRUE

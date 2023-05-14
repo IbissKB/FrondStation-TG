@@ -28,5 +28,9 @@
 /obj/item/melee/touch_attack/flesh_to_stone
 	name = "\improper petrifying touch"
 	desc = "That's the bottom line, because flesh to stone said so!"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/hand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"

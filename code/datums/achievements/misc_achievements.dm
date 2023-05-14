@@ -158,6 +158,15 @@
 	database_id = MEDAL_BLADE_ASCENSION
 	icon = "bladeascend"
 
+<<<<<<< HEAD
+=======
+/datum/award/achievement/misc/cosmic_ascension
+	name = "It arrived"
+	desc = "You managed to teleport an entity on the station that really shouldn't be there."
+	database_id = MEDAL_COSMOS_ASCENSION
+	icon = "cosmicascend"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/award/achievement/misc/toolbox_soul
 	name = "SOUL'd Out"
 	desc = "My eternal soul was destroyed to make a toolbox look funny and all I got was this achievement..."

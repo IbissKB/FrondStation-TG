@@ -8,7 +8,11 @@
 	color = list(0.2,0.5,0.7,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_colors = "#264d61"
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL = TRUE)
+<<<<<<< HEAD
 	sheet_type = /obj/item/stack/sheet/mineral/silver
+=======
+	sheet_type = /obj/item/stack/sheet/cobolterium
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/material/cobolterium/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
 	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
@@ -21,7 +25,11 @@
 	icon = 'modular_skyrat/modules/company_imports/icons/special_metals_stack.dmi'
 	icon_state = "dracula-rapping"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
+<<<<<<< HEAD
 	mats_per_unit = list(/datum/material/cobolterium = MINERAL_MATERIAL_AMOUNT)
+=======
+	mats_per_unit = list(/datum/material/cobolterium = SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	merge_type = /obj/item/stack/sheet/cobolterium
 	material_type = /datum/material/cobolterium
 	material_modifier = 1
@@ -37,7 +45,11 @@
 	color = list(0.8,0.35,0.1,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_colors = "#c55a1d"
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL = TRUE)
+<<<<<<< HEAD
 	sheet_type = /obj/item/stack/sheet/mineral/silver
+=======
+	sheet_type = /obj/item/stack/sheet/copporcitite
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/material/copporcitite/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
 	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
@@ -50,7 +62,11 @@
 	icon = 'modular_skyrat/modules/company_imports/icons/special_metals_stack.dmi'
 	icon_state = "dracula-rapping"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
+<<<<<<< HEAD
 	mats_per_unit = list(/datum/material/copporcitite = MINERAL_MATERIAL_AMOUNT)
+=======
+	mats_per_unit = list(/datum/material/copporcitite = SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	merge_type = /obj/item/stack/sheet/copporcitite
 	material_type = /datum/material/copporcitite
 	material_modifier = 1
@@ -66,7 +82,11 @@
 	color = list(0.45,0.5,0.6,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_colors = "#717e97"
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL = TRUE)
+<<<<<<< HEAD
 	sheet_type = /obj/item/stack/sheet/mineral/silver
+=======
+	sheet_type = /obj/item/stack/sheet/tinumium
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/material/tinumium/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
 	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
@@ -79,7 +99,11 @@
 	icon = 'modular_skyrat/modules/company_imports/icons/special_metals_stack.dmi'
 	icon_state = "dracula-rapping"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
+<<<<<<< HEAD
 	mats_per_unit = list(/datum/material/tinumium = MINERAL_MATERIAL_AMOUNT)
+=======
+	mats_per_unit = list(/datum/material/tinumium = SHEET_MATERIAL_AMOUNT )
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	merge_type = /obj/item/stack/sheet/tinumium
 	material_type = /datum/material/tinumium
 	material_modifier = 1
@@ -95,7 +119,11 @@
 	color = list(0.9,0.75,0.4,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_colors = "#E1C16E"
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL = TRUE)
+<<<<<<< HEAD
 	sheet_type = /obj/item/stack/sheet/mineral/silver
+=======
+	sheet_type = /obj/item/stack/sheet/brussite
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/material/brussite/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
 	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
@@ -108,7 +136,11 @@
 	icon = 'modular_skyrat/modules/company_imports/icons/special_metals_stack.dmi'
 	icon_state = "dracula-rapping"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
+<<<<<<< HEAD
 	mats_per_unit = list(/datum/material/brussite = MINERAL_MATERIAL_AMOUNT)
+=======
+	mats_per_unit = list(/datum/material/brussite = SHEET_MATERIAL_AMOUNT )
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	merge_type = /obj/item/stack/sheet/brussite
 	material_type = /datum/material/brussite
 	material_modifier = 1

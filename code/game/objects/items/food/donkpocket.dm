@@ -4,7 +4,14 @@
 	name = "\improper Donk-pocket"
 	desc = "The food of choice for the seasoned traitor."
 	icon_state = "donkpocket"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2, "laziness" = 1)
 	foodtypes = GRAIN
 	food_flags = FOOD_FINGER_FOOD
@@ -17,16 +24,31 @@
 	/// The upper end for how long it takes to bake
 	var/baking_time_long = 30 SECONDS
 
+<<<<<<< HEAD
 /obj/item/food/donkpocket/MakeBakeable()
 	AddComponent(/datum/component/bakeable, warm_type, rand(baking_time_short, baking_time_long), TRUE, TRUE)
 
 /obj/item/food/donkpocket/make_microwavable()
+=======
+/obj/item/food/donkpocket/make_bakeable()
+	AddComponent(/datum/component/bakeable, warm_type, rand(baking_time_short, baking_time_long), TRUE, TRUE)
+
+/obj/item/food/donkpocket/make_microwaveable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/microwavable, warm_type)
 
 /obj/item/food/donkpocket/warm
 	name = "warm Donk-pocket"
 	desc = "The heated food of choice for the seasoned traitor."
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 6)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/medicine/omnizine = 6,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2, "laziness" = 1)
 	foodtypes = GRAIN
 
@@ -39,7 +61,15 @@
 	name = "\improper Dank-pocket"
 	desc = "The food of choice for the seasoned botanist."
 	icon_state = "dankpocket"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/toxin/lipolicide = 3, /datum/reagent/drug/space_drugs = 3, /datum/reagent/consumable/nutriment = 4)
+=======
+	food_reagents = list(
+		/datum/reagent/toxin/lipolicide = 3,
+		/datum/reagent/drug/space_drugs = 3,
+		/datum/reagent/consumable/nutriment = 4,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2)
 	foodtypes = GRAIN | VEGETABLES
 
@@ -47,17 +77,36 @@
 	name = "\improper Spicy-pocket"
 	desc = "The classic snack food, now with a heat-activated spicy flair."
 	icon_state = "donkpocketspicy"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/capsaicin = 2)
 	tastes = list("meat" = 2, "dough" = 2, "spice" = 1)
 	foodtypes = GRAIN
 
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/consumable/capsaicin = 2,
+	)
+	tastes = list("meat" = 2, "dough" = 2, "spice" = 1)
+	foodtypes = GRAIN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	warm_type = /obj/item/food/donkpocket/warm/spicy
 
 /obj/item/food/donkpocket/warm/spicy
 	name = "warm Spicy-pocket"
 	desc = "The classic snack food, now maybe a bit too spicy."
 	icon_state = "donkpocketspicy"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/capsaicin = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/medicine/omnizine = 2,
+		/datum/reagent/consumable/capsaicin = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2, "weird spices" = 2)
 	foodtypes = GRAIN
 
@@ -65,17 +114,36 @@
 	name = "\improper Teriyaki-pocket"
 	desc = "An east-asian take on the classic stationside snack."
 	icon_state = "donkpocketteriyaki"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/soysauce = 2)
 	tastes = list("meat" = 2, "dough" = 2, "soy sauce" = 2)
 	foodtypes = GRAIN
 
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/consumable/soysauce = 2,
+	)
+	tastes = list("meat" = 2, "dough" = 2, "soy sauce" = 2)
+	foodtypes = GRAIN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	warm_type = /obj/item/food/donkpocket/warm/teriyaki
 
 /obj/item/food/donkpocket/warm/teriyaki
 	name = "warm Teriyaki-pocket"
 	desc = "An east-asian take on the classic stationside snack, now steamy and warm."
 	icon_state = "donkpocketteriyaki"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/soysauce = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 3,
+		/datum/reagent/medicine/omnizine = 2,
+		/datum/reagent/consumable/soysauce = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2, "soy sauce" = 2)
 	foodtypes = GRAIN
 
@@ -83,17 +151,36 @@
 	name = "\improper Pizza-pocket"
 	desc = "Delicious, cheesy and surprisingly filling."
 	icon_state = "donkpocketpizza"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/tomatojuice = 2)
 	tastes = list("meat" = 2, "dough" = 2, "cheese"= 2)
 	foodtypes = GRAIN
 
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/consumable/tomatojuice = 2,
+	)
+	tastes = list("meat" = 2, "dough" = 2, "cheese"= 2)
+	foodtypes = GRAIN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	warm_type = /obj/item/food/donkpocket/warm/pizza
 
 /obj/item/food/donkpocket/warm/pizza
 	name = "warm Pizza-pocket"
 	desc = "Delicious, cheesy, and even better when hot."
 	icon_state = "donkpocketpizza"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/tomatojuice = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/medicine/omnizine = 2,
+		/datum/reagent/consumable/tomatojuice = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2, "melty cheese"= 2)
 	foodtypes = GRAIN
 
@@ -101,7 +188,14 @@
 	name = "\improper Honk-pocket"
 	desc = "The award-winning donk-pocket that won the hearts of clowns and humans alike."
 	icon_state = "donkpocketbanana"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/banana = 4)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/banana = 4,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("banana" = 2, "dough" = 2, "children's antibiotics" = 1)
 	foodtypes = GRAIN
 
@@ -111,7 +205,16 @@
 	name = "warm Honk-pocket"
 	desc = "The award-winning donk-pocket, now warm and toasty."
 	icon_state = "donkpocketbanana"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/banana = 4, /datum/reagent/consumable/laughter = 6)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/medicine/omnizine = 2,
+		/datum/reagent/consumable/banana = 4,
+		/datum/reagent/consumable/laughter = 6,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("banana" = 2, "dough" = 2, "children's antibiotics" = 1)
 	foodtypes = GRAIN
 
@@ -119,7 +222,14 @@
 	name = "\improper Berry-pocket"
 	desc = "A relentlessly sweet donk-pocket first created for use in Operation Dessert Storm."
 	icon_state = "donkpocketberry"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/berryjuice = 3)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/berryjuice = 3,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("dough" = 2, "jam" = 2)
 	foodtypes = GRAIN
 
@@ -129,7 +239,15 @@
 	name = "warm Berry-pocket"
 	desc = "A relentlessly sweet donk-pocket, now warm and delicious."
 	icon_state = "donkpocketberry"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/berryjuice = 3)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/medicine/omnizine = 2,
+		/datum/reagent/consumable/berryjuice = 3,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("dough" = 2, "warm jam" = 2)
 	foodtypes = GRAIN
 
@@ -137,7 +255,15 @@
 	name = "\improper Gondola-pocket"
 	desc = "The choice to use real gondola meat in the recipe is controversial, to say the least." //Only a monster would craft this.
 	icon_state = "donkpocketgondola"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/gondola_mutation_toxin = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/gondola_mutation_toxin = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2, "inner peace" = 1)
 	foodtypes = GRAIN
 
@@ -147,6 +273,15 @@
 	name = "warm Gondola-pocket"
 	desc = "The choice to use real gondola meat in the recipe is controversial, to say the least."
 	icon_state = "donkpocketgondola"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 2, /datum/reagent/gondola_mutation_toxin = 10)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/protein = 2,
+		/datum/reagent/medicine/omnizine = 2,
+		/datum/reagent/gondola_mutation_toxin = 10,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meat" = 2, "dough" = 2, "inner peace" = 1)
 	foodtypes = GRAIN

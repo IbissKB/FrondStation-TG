@@ -26,7 +26,11 @@
 	ammo_type = /obj/item/ammo_casing/b460
 	caliber = CALIBER_460
 	max_ammo = 8 //Previously 15, then previously 10. Locked to 8, as you can now restock .460 Magnum which was unintended due to its strong nature.
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/b460
 	name = ".460 Rowland Magnum bullet casing"

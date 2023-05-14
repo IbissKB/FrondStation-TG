@@ -112,7 +112,13 @@
         "mr terry",
         "mrs sybil",
         "sybl",
+<<<<<<< HEAD
         "vent hell"
+=======
+        "vent hell",
+        "manual",
+        "camel"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     ],
 
     "create_verbs": [

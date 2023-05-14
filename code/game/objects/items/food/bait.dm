@@ -28,6 +28,21 @@
 	desc = "This worm looks very sophisticated."
 	bait_quality = GOOD_QUALITY_BAIT_TRAIT
 
+<<<<<<< HEAD
+=======
+/obj/item/food/bait/natural
+	name = "natural bait"
+	desc = "Fish can't seem to get enough of this!"
+	icon = 'icons/obj/medical/chemical.dmi'
+	icon_state = "pill9"
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "pen"
+	food_reagents = list(/datum/reagent/drug/kronkaine = 1)
+	tastes = list("hypocrisy" = 1)
+	bait_quality = GREAT_QUALITY_BAIT_TRAIT
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/food/bait/doughball
 	name = "doughball"
 	desc = "Small piece of dough. Simple but effective fishing bait."

@@ -102,7 +102,11 @@
 	COOLDOWN_START(src, spin_cooldown, spin_cooldown_time)
 	spinning = FALSE
 
+<<<<<<< HEAD
 /datum/component/spin2win/process(delta_time)
+=======
+/datum/component/spin2win/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/spinning_item = parent
 	if(!isliving(spinning_item.loc))
 		stop_spinning()

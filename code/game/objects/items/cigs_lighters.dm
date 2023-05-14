@@ -20,7 +20,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A simple match stick, used for lighting fine smokables."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
+<<<<<<< HEAD
 	var/smoketime = 10 SECONDS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_TINY
 	heat = 1000
 	grind_results = list(/datum/reagent/phosphorus = 2)
@@ -29,9 +32,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	/// Whether this match has burnt out.
 	var/burnt = FALSE
 	/// How long the match lasts in seconds
+<<<<<<< HEAD
 
 /obj/item/match/process(delta_time)
 	smoketime -= delta_time * (1 SECONDS)
+=======
+	var/smoketime = 10 SECONDS
+
+/obj/item/match/process(seconds_per_tick)
+	smoketime -= seconds_per_tick * (1 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(smoketime <= 0)
 		matchburnout()
 	else
@@ -78,6 +88,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/match/extinguish()
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	matchburnout()
 
 /obj/item/match/dropped(mob/user)
@@ -117,7 +131,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "firebrand"
 	desc = "An unlit firebrand. It makes you wonder why it's not just called a stick."
 	smoketime = 40 SECONDS
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT)
+=======
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	grind_results = list(/datum/reagent/carbon = 2)
 
 /obj/item/match/firebrand/Initialize(mapload)
@@ -182,7 +200,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(starts_lit)
 		light()
 	AddComponent(/datum/component/knockoff, 90, list(BODY_ZONE_PRECISE_MOUTH), slot_flags) //90% to knock off when wearing a mask
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_MASK|ITEM_SLOT_HANDS)
+=======
+	AddElement(/datum/element/update_icon_updates_onmob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = icon_off
 	inhand_icon_state = inhand_icon_off
 
@@ -243,6 +265,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		to_chat(user, span_warning("[src] is full!"))
 
+<<<<<<< HEAD
+=======
+	return AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/mask/cigarette/update_icon_state()
 	. = ..()
 	if(lit)
@@ -302,6 +329,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		M.update_held_items()
 
 /obj/item/clothing/mask/cigarette/extinguish()
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!lit)
 		return
 	attack_verb_continuous = null
@@ -334,14 +365,22 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 	reagents.expose(smoker, INGEST, min(to_smoke / reagents.total_volume, 1))
+<<<<<<< HEAD
 	var/obj/item/organ/internal/lungs/lungs = smoker.getorganslot(ORGAN_SLOT_LUNGS)
+=======
+	var/obj/item/organ/internal/lungs/lungs = smoker.get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(lungs && !(lungs.organ_flags & ORGAN_SYNTHETIC))
 		var/smoker_resistance = HAS_TRAIT(smoker, TRAIT_SMOKER) ? 0.5 : 1
 		smoker.adjustOrganLoss(ORGAN_SLOT_LUNGS, lung_harm*smoker_resistance)
 	if(!reagents.trans_to(smoker, to_smoke, methods = INGEST, ignore_stomach = TRUE))
 		reagents.remove_any(to_smoke)
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/cigarette/process(delta_time)
+=======
+/obj/item/clothing/mask/cigarette/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/user = isliving(loc) ? loc : null
 	user?.ignite_mob()
 	if(!reagents.has_reagent(/datum/reagent/oxygen)) //cigarettes need oxygen
@@ -355,7 +394,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	location.pollute_turf(pollution_type, 5, POLLUTION_PASSIVE_EMITTER_CAP)
 	// SKYRAT EDIT END
 
+<<<<<<< HEAD
 	smoketime -= delta_time * (1 SECONDS)
+=======
+	smoketime -= seconds_per_tick * (1 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(smoketime <= 0)
 		put_out(user)
 		return
@@ -790,6 +833,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	update_appearance()
 
 /obj/item/lighter/extinguish()
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_lit(FALSE)
 
 /obj/item/lighter/attack_self(mob/living/user)
@@ -931,6 +978,61 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	overlay_state = "slime"
 	grind_results = list(/datum/reagent/iron = 1, /datum/reagent/fuel = 5, /datum/reagent/medicine/pyroxadone = 5)
 
+<<<<<<< HEAD
+=======
+/obj/item/lighter/skull
+	name = "badass zippo"
+	desc = "An absolutely badass zippo lighter. Just look at that skull!"
+	overlay_state = "skull"
+
+/obj/item/lighter/mime
+	name = "pale zippo"
+	desc = "In lieu of fuel, performative spirit can be used to light cigarettes."
+	icon_state = "mlighter" //These ones don't show a flame.
+	light_color = LIGHT_COLOR_HALOGEN
+	heat = 0 //I swear it's a real lighter dude you just can't see the flame dude I promise
+	overlay_state = "mime"
+	grind_results = list(/datum/reagent/iron = 1, /datum/reagent/toxin/mutetoxin = 5, /datum/reagent/consumable/nothing = 10)
+	light_range = 0
+	light_power = 0
+	fancy = FALSE
+
+/obj/item/lighter/mime/ignition_effect(atom/A, mob/user)
+	. = span_infoplain("[user] lifts the [name] to the [A], which miraculously lights!")
+
+/obj/item/lighter/bright
+	name = "illuminative zippo"
+	desc = "Sustains an incredibly bright chemical reaction when you spark it. Avoid looking directly at the igniter when lit."
+	icon_state = "slighter"
+	light_color = LIGHT_COLOR_ELECTRIC_CYAN
+	overlay_state = "bright"
+	grind_results = list(/datum/reagent/iron = 1, /datum/reagent/flash_powder = 10)
+	light_range = 8
+	light_power = 3 //Irritatingly bright and large enough to cover a small room.
+	fancy = FALSE
+
+/obj/item/lighter/bright/examine(mob/user)
+	. = ..()
+
+	if(lit && isliving(user))
+		var/mob/living/current_viewer = user
+		current_viewer.flash_act(4)
+
+/obj/item/lighter/bright/ignition_effect(atom/A, mob/user)
+	if(get_temperature())
+		. = span_infoplain(span_rose("[user] lifts the [src] to the [A], igniting it with a brilliant flash of light!"))
+		var/mob/living/current_viewer = user
+		current_viewer.flash_act(4)
+
+/obj/effect/spawner/random/special_lighter
+	name = "special lighter spawner"
+	icon_state = "lighter"
+	loot = list(
+		/obj/item/lighter/skull,
+		/obj/item/lighter/mime,
+		/obj/item/lighter/bright,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///////////
 //ROLLING//
@@ -1086,7 +1188,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!reagents.trans_to(vaper, REAGENTS_METABOLISM, methods = INGEST, ignore_stomach = TRUE))
 		reagents.remove_any(REAGENTS_METABOLISM)
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/vape/process(delta_time)
+=======
+/obj/item/clothing/mask/vape/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/M = loc
 
 	if(isliving(loc))

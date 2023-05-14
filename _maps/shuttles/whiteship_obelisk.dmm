@@ -189,14 +189,23 @@
 /area/shuttle/abandoned/crew)
 "kE" = (
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_blue/half,
 /obj/machinery/airalarm/all_access{
 	pixel_y = -24
 	},
+=======
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/broken/directional/east,
 /obj/structure/table,
 /obj/effect/spawner/random/entertainment/money_medium,
 /obj/effect/spawner/random/entertainment/cigar,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/dark_blue/half,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/abandoned/bridge)
 "lP" = (
@@ -259,9 +268,12 @@
 "nG" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/light/directional/east,
 /obj/structure/table,
@@ -275,15 +287,25 @@
 	name = "Exterior Window Blastdoor Control";
 	pixel_y = 8
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/abandoned/bridge)
 "nQ" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "oU" = (
@@ -335,10 +357,17 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 8
 	},
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 8
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/abandoned/bridge)
 "sm" = (
@@ -362,10 +391,15 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/spawner/random/trash/garbage,
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	dir = 4;
 	pixel_x = 24
 	},
+=======
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
@@ -458,18 +492,29 @@
 /area/shuttle/abandoned/bridge)
 "Br" = (
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
+=======
+/obj/machinery/atmospherics/components/unary/vent_pump/on,
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/abandoned/bridge)
 "Bw" = (
 /obj/machinery/light/small/directional/west,
 /obj/structure/tank_dispenser/oxygen,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/shuttle/abandoned)
 "BH" = (
@@ -502,10 +547,15 @@
 /area/shuttle/abandoned/medbay)
 "EB" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	dir = 1;
 	pixel_y = 24
 	},
+=======
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
@@ -585,10 +635,15 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/abandoned/engine)
 "Iu" = (
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	dir = 4;
 	pixel_x = 24
 	},
+=======
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/bookcase/random,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/abandoned)
@@ -623,7 +678,11 @@
 /turf/open/floor/iron/large,
 /area/shuttle/abandoned/bar)
 "Kv" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/small/broken/directional/west,
 /obj/machinery/button/door/directional/west{
 	name = "Bolt Control";
@@ -652,11 +711,18 @@
 /area/shuttle/abandoned/bar)
 "Lt" = (
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_blue/half,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "rune4";
 	paint_colour = "#DC143C"
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/dark_blue/half,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/abandoned/bridge)
 "Mt" = (
@@ -742,9 +808,13 @@
 "Qo" = (
 /obj/structure/table,
 /obj/machinery/door/window,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/storage/medkit/brute,
 /obj/item/storage/medkit/fire{
 	pixel_y = 3
@@ -774,14 +844,23 @@
 /area/shuttle/abandoned/bar)
 "RU" = (
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/monitor{
 	dir = 4
 	},
 /obj/structure/cable,
 /obj/machinery/light_switch/directional/north,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/abandoned/bridge)
 "Sb" = (
@@ -806,10 +885,15 @@
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/abandoned/bar)
 "SW" = (
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	dir = 8;
 	pixel_x = -24
 	},
+=======
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/suit_storage_unit/spaceruin{
 	desc = "An industrial suit storage device carrying retro space suits. Neat!"
 	},
@@ -904,9 +988,14 @@
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	pixel_y = -24
 	},
+=======
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},

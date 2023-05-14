@@ -27,7 +27,11 @@
 
 /// Checks if this mob can use the beacon, returns TRUE if so or FALSE otherwise.
 /obj/item/choice_beacon/proc/can_use_beacon(mob/living/user)
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 
 	playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)

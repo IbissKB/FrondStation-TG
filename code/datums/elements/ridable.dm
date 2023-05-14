@@ -163,7 +163,11 @@
 
 /obj/item/riding_offhand
 	name = "offhand"
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/weapons/hand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "offhand"
 	w_class = WEIGHT_CLASS_HUGE
 	item_flags = ABSTRACT | DROPDEL | NOBLUDGEON

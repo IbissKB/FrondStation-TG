@@ -17,7 +17,11 @@
 	throw_speed = 1
 	throw_range = 7
 	w_class = WEIGHT_CLASS_BULKY
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 70, ACID = 30)
+=======
+	armor_type = /datum/armor/item_vending_refill
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// Built automatically from the corresponding vending machine.
 	// If null, considered to be full. Otherwise, is list(/typepath = amount).
@@ -26,6 +30,13 @@
 	var/list/contraband
 	var/list/premium
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_vending_refill
+	fire = 70
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/vending_refill/Initialize(mapload)
 	. = ..()
 	name = "\improper [machine_name] restocking unit"

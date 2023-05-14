@@ -7,7 +7,11 @@
 	icon = 'icons/obj/clothing/under/plasmaman.dmi'
 	worn_icon = 'icons/mob/clothing/under/plasmaman.dmi'
 	clothing_flags = PLASMAMAN_PREVENT_IGNITION
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 95, ACID = 95)
+=======
+	armor_type = /datum/armor/under_plasmaman
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	can_adjust = FALSE
 	strip_delay = 80
@@ -15,6 +19,14 @@
 	var/extinguish_cooldown = 100
 	var/extinguishes_left = 5
 
+<<<<<<< HEAD
+=======
+/datum/armor/under_plasmaman
+	bio = 100
+	fire = 95
+	acid = 95
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/plasmaman/examine(mob/user)
 	. = ..()
 	. += span_notice("There are [extinguishes_left] extinguisher charges left in this suit.")
@@ -134,5 +146,9 @@
 			var/datum/effect_system/fluid_spread/foam/foam = new
 			var/datum/reagents/foamreagent = new /datum/reagents(15)
 			foamreagent.add_reagent(/datum/reagent/lube, 15)
+<<<<<<< HEAD
 			foam.set_up(4, holder = src, location = loc, carry = foamreagent)
+=======
+			foam.set_up(4, holder = src, location = H.loc, carry = foamreagent)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			foam.start() //Truly terrifying.

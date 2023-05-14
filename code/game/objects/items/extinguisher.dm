@@ -1,7 +1,11 @@
 /obj/item/extinguisher
 	name = "fire extinguisher"
 	desc = "A traditional red fire extinguisher."
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+=======
+	icon = 'icons/obj/weapons/extinguisher.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "fire_extinguisher0"
 	worn_icon_state = "fire_extinguisher"
 	inhand_icon_state = "fire_extinguisher"
@@ -13,7 +17,11 @@
 	throw_range = 7
 	force = 10
 	demolition_mod = 1.25
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 90)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.9)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attack_verb_continuous = list("slams", "whacks", "bashes", "thunks", "batters", "bludgeons", "thrashes")
 	attack_verb_simple = list("slam", "whack", "bash", "thunk", "batter", "bludgeon", "thrash")
 	dog_fashion = /datum/dog_fashion/back
@@ -57,7 +65,11 @@
 	throwforce = 2
 	w_class = WEIGHT_CLASS_SMALL
 	force = 3
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 50, /datum/material/glass = 40)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT* 0.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_water = 30
 	sprite_name = "miniFE"
 	dog_fashion = null
@@ -76,7 +88,11 @@
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL
 	force = 3
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 50, /datum/material/glass = 40)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_water = 30
 	sprite_name = "coolant"
 	dog_fashion = null
@@ -116,6 +132,12 @@
 	sprite_name = "foam_extinguisher"
 	precision = TRUE
 
+<<<<<<< HEAD
+=======
+/obj/item/extinguisher/advanced/empty
+	starting_water = FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/extinguisher/suicide_act(mob/living/carbon/user)
 	if (!safety && (reagents.total_volume >= 1))
 		user.visible_message(span_suicide("[user] puts the nozzle to [user.p_their()] mouth. It looks like [user.p_theyre()] trying to extinguish the spark of life!"))
@@ -178,20 +200,36 @@
 	// Make it so the extinguisher doesn't spray yourself when you click your inventory items
 	if (target.loc == user)
 		return
+<<<<<<< HEAD
 	//TODO; Add support for reagents in water.
 
 	if(refilling)
 		refilling = FALSE
 		return
+=======
+
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+	if(refilling)
+		refilling = FALSE
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (!safety)
 
 
 		if (src.reagents.total_volume < 1)
 			balloon_alert(user, "it's empty!")
+<<<<<<< HEAD
 			return
 
 		if (world.time < src.last_use + 12)
 			return
+=======
+			return .
+
+		if (world.time < src.last_use + 12)
+			return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		src.last_use = world.time
 
@@ -232,6 +270,11 @@
 		//Make em move dat ass, hun
 		move_particles(water_particles)
 
+<<<<<<< HEAD
+=======
+	return .
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Particle movement loop
 /obj/item/extinguisher/proc/move_particles(list/particles)
 	var/delay = 2
@@ -249,6 +292,7 @@
 /obj/item/extinguisher/proc/manage_chair_speed(datum/move_loop/move/source)
 	SIGNAL_HANDLER
 	switch(source.lifetime)
+<<<<<<< HEAD
 		if(5 to 4)
 			source.delay = 2
 		if(3 to 1)
@@ -256,6 +300,15 @@
 
 /obj/item/extinguisher/AltClick(mob/user)
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = TRUE))
+=======
+		if(4 to 5)
+			source.delay = 2
+		if(1 to 3)
+			source.delay = 3
+
+/obj/item/extinguisher/AltClick(mob/user)
+	if(!user.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!user.is_holding(src))
 		to_chat(user, span_notice("You must be holding the [src] in your hands do this!"))

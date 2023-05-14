@@ -3,7 +3,11 @@
  */
 /obj/item/photo
 	name = "photo"
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/art/camera.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "photo"
 	inhand_icon_state = "paper"
 	w_class = WEIGHT_CLASS_TINY
@@ -42,7 +46,11 @@
 			continue
 		if(!isobserver(seen))
 			continue
+<<<<<<< HEAD
 		set_custom_materials(list(/datum/material/hauntium = 2000))
+=======
+		set_custom_materials(list(/datum/material/hauntium =SHEET_MATERIAL_AMOUNT))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		break
 
 /obj/item/photo/update_icon_state()
@@ -71,7 +79,11 @@
 		if(!user.can_write(P))
 			return
 		var/txt = tgui_input_text(user, "What would you like to write on the back?", "Photo Writing", max_length = 128)
+<<<<<<< HEAD
 		if(txt && user.canUseTopic(src, be_close = TRUE))
+=======
+		if(txt && user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			scribble = txt
 	else
 		return ..()

@@ -123,7 +123,11 @@
 /datum/component/embedded/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_MOVABLE_MOVED, COMSIG_CARBON_EMBED_RIP, COMSIG_CARBON_EMBED_REMOVAL, COMSIG_PARENT_ATTACKBY, COMSIG_MAGIC_RECALL))
 
+<<<<<<< HEAD
 /datum/component/embedded/process(delta_time)
+=======
+/datum/component/embedded/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/victim = parent
 
 	if(!victim || !limb) // in case the victim and/or their limbs exploded (say, due to a sticky bomb)
@@ -135,7 +139,11 @@
 		return
 
 	var/damage = weapon.w_class * pain_mult
+<<<<<<< HEAD
 	var/pain_chance_current = DT_PROB_RATE(pain_chance / 100, delta_time) * 100
+=======
+	var/pain_chance_current = SPT_PROB_RATE(pain_chance / 100, seconds_per_tick) * 100
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(pain_stam_pct && HAS_TRAIT_FROM(victim, TRAIT_INCAPACITATED, STAMINA)) //if it's a less-lethal embed, give them a break if they're already stamcritted
 		pain_chance_current *= 0.2
 		damage *= 0.5
@@ -147,7 +155,11 @@
 		victim.adjustStaminaLoss(pain_stam_pct * damage)
 		to_chat(victim, span_userdanger("[weapon] embedded in your [limb.plaintext_zone] hurts!"))
 
+<<<<<<< HEAD
 	var/fall_chance_current = DT_PROB_RATE(fall_chance / 100, delta_time) * 100
+=======
+	var/fall_chance_current = SPT_PROB_RATE(fall_chance / 100, seconds_per_tick) * 100
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(victim.body_position == LYING_DOWN)
 		fall_chance_current *= 0.2
 

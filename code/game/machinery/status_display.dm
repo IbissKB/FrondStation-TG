@@ -6,12 +6,15 @@
 #define SCROLL_RATE (0.04 SECONDS) // time per pixel
 #define LINE1_Y -7 // SKYRAT EDIT CHANGE - AESTHETICS - originally -8
 #define LINE2_Y -14 // SKYRAT EDIT CHANGE - AESTHETICS - originally -15
+<<<<<<< HEAD
 
 #define SD_BLANK 0  // 0 = Blank
 #define SD_EMERGENCY 1  // 1 = Emergency Shuttle timer
 #define SD_MESSAGE 2  // 2 = Arbitrary message(s)
 #define SD_PICTURE 3  // 3 = alert picture
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Status display which can show images and scrolling text.
 /obj/machinery/status_display
 	name = "status display"
@@ -40,7 +43,11 @@
 	name = "status display frame"
 	desc = "Used to build status displays, just secure to the wall."
 	icon_state = "unanchoredstatusdisplay"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=14000, /datum/material/glass=8000)
+=======
+	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT * 7, /datum/material/glass= SHEET_MATERIAL_AMOUNT * 4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	result_path = /obj/machinery/status_display/evac
 	pixel_shift = 32
 
@@ -97,6 +104,7 @@
 	line1 = uppertext(line1)
 	line2 = uppertext(line2)
 
+<<<<<<< HEAD
 	if(line1 != message1)
 		message1 = line1
 
@@ -104,6 +112,19 @@
 		message2 = line2
 
 	update_appearance()
+=======
+	var/message_changed = FALSE
+	if(line1 != message1)
+		message1 = line1
+		message_changed = TRUE
+
+	if(line2 != message2)
+		message2 = line2
+		message_changed = TRUE
+
+	if(message_changed)
+		update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Remove both message objs and null the fields.
@@ -122,17 +143,29 @@
  * Arguments:
  * * overlay - the current /obj/effect/overlay/status_display_text instance
  * * line_y - The Y offset to render the text.
+<<<<<<< HEAD
  * * message - the new message text.
  * Returns new /obj/effect/overlay/status_display_text or null if unchanged.
  */
 /obj/machinery/status_display/proc/update_message(obj/effect/overlay/status_display_text/overlay, line_y, message)
+=======
+ * * x_offset - Used to offset the text on the X coordinates, not usually needed.
+ * * message - the new message text.
+ * Returns new /obj/effect/overlay/status_display_text or null if unchanged.
+ */
+/obj/machinery/status_display/proc/update_message(obj/effect/overlay/status_display_text/overlay, line_y, message, x_offset)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(overlay && message == overlay.message)
 		return null
 
 	if(overlay)
 		qdel(overlay)
 
+<<<<<<< HEAD
 	var/obj/effect/overlay/status_display_text/new_status_display_text = new(src, line_y, message, text_color, header_text_color)
+=======
+	var/obj/effect/overlay/status_display_text/new_status_display_text = new(src, line_y, message, text_color, header_text_color, x_offset)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Draw our object visually "in front" of this display, taking advantage of sidemap
 	new_status_display_text.pixel_y = -32
 	new_status_display_text.pixel_z = 32
@@ -148,7 +181,11 @@
 	)
 		set_light(0)
 		return
+<<<<<<< HEAD
 	set_light(1.4, 0.7, LIGHT_COLOR_BLUE) // blue light
+=======
+	set_light(1.5, 0.7, LIGHT_COLOR_BLUE) // blue light
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/status_display/update_overlays()
 	. = ..()
@@ -165,6 +202,11 @@
 		if(SD_PICTURE)
 			remove_messages()
 			. += mutable_appearance(icon, current_picture)
+<<<<<<< HEAD
+=======
+			if(current_picture == AI_DISPLAY_DONT_GLOW) // If the thing's off, don't display the emissive yeah?
+				return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			var/overlay = update_message(message1_overlay, LINE1_Y, message1)
 			if(overlay)
@@ -261,7 +303,11 @@
 		5, 5, 5, 5, 4, 5, 4, 6, 4, 4, 4, 3, 2, 3, 4,
 	)
 
+<<<<<<< HEAD
 /obj/effect/overlay/status_display_text/Initialize(mapload, yoffset, line, text_color, header_text_color)
+=======
+/obj/effect/overlay/status_display_text/Initialize(mapload, yoffset, line, text_color, header_text_color, xoffset = 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	maptext_y = yoffset
@@ -293,7 +339,11 @@
 		// Centered text
 		var/color = header_regex.Find(line) ? header_text_color : text_color
 		maptext = generate_text(line, center = TRUE, text_color = color)
+<<<<<<< HEAD
 		maptext_x = 0
+=======
+		maptext_x = xoffset //Defaults to 0, this would be centered unless overided
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * A hyper-streamlined version of MeasureText that doesn't support different fonts, rich formatting, or multiline.
@@ -467,7 +517,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 
 	/// A mapping between AI_EMOTION_* string constants, which also double as user readable descriptions, and the name of the iconfile.
 	var/static/list/emotion_map = list(
+<<<<<<< HEAD
 		AI_EMOTION_BLANK = "ai_off",
+=======
+		AI_EMOTION_BLANK = AI_DISPLAY_DONT_GLOW,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		AI_EMOTION_VERY_HAPPY = "ai_veryhappy",
 		AI_EMOTION_HAPPY = "ai_happy",
 		AI_EMOTION_NEUTRAL = "ai_neutral",

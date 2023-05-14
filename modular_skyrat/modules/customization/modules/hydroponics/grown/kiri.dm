@@ -26,5 +26,9 @@
 	distill_reagent = /datum/reagent/consumable/ethanol/shakiri
 	tastes = list("ultra-sweet jelly" = 1)
 
+<<<<<<< HEAD
 /obj/item/food/grown/kiri/MakeBakeable()
+=======
+/obj/item/food/grown/kiri/make_bakeable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/bakeable, /obj/item/food/baked_kiri, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)

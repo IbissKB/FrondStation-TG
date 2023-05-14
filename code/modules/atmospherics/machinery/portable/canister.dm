@@ -38,7 +38,11 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	greyscale_colors = "#ffff00#000000"
 	density = TRUE
 	volume = 2000
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 10, BIO = 0, FIRE = 80, ACID = 50)
+=======
+	armor_type = /datum/armor/portable_atmospherics_canister
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 300
 	integrity_failure = 0.4
 	pressure_resistance = 7 * ONE_ATMOSPHERE
@@ -89,6 +93,21 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 
 	var/protected_contents = FALSE
 
+<<<<<<< HEAD
+=======
+	///used while processing to update appearance only when its pressure state changes
+	var/current_pressure_state
+
+/datum/armor/portable_atmospherics_canister
+	melee = 50
+	bullet = 50
+	laser = 50
+	energy = 100
+	bomb = 10
+	fire = 80
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/portable_atmospherics/canister/Initialize(mapload, datum/gas_mixture/existing_mixture)
 	. = ..()
 
@@ -379,6 +398,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	if(connected_port)
 		. += mutable_appearance(canister_overlay_file, "can-connector")
 
+<<<<<<< HEAD
 	var/air_pressure = air_contents.return_pressure()
 
 	switch(air_pressure)
@@ -394,6 +414,12 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 		if((10) to (5 * ONE_ATMOSPHERE))
 			. += mutable_appearance(canister_overlay_file, "can-0")
 			. += emissive_appearance(canister_overlay_file, "can-0-light", src, alpha = src.alpha)
+=======
+	var/light_state = get_pressure_state(air_contents.return_pressure())
+	if(light_state) //happens when pressure is below 10kpa which means no light
+		. += mutable_appearance(canister_overlay_file, light_state)
+		. += emissive_appearance(canister_overlay_file, "[light_state]-light", src, alpha = src.alpha)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	update_window()
 
@@ -427,6 +453,10 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 
 /obj/machinery/portable_atmospherics/canister/deconstruct(disassembled = TRUE)
 	if((flags_1 & NODECONSTRUCT_1))
+<<<<<<< HEAD
+=======
+		qdel(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!(machine_stat & BROKEN))
 		canister_break()
@@ -555,7 +585,11 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	else if(valve_open && holding)
 		user.investigate_log("started a transfer into [holding].", INVESTIGATE_ATMOS)
 
+<<<<<<< HEAD
 /obj/machinery/portable_atmospherics/canister/process(delta_time)
+=======
+/obj/machinery/portable_atmospherics/canister/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/our_pressure = air_contents.return_pressure()
 	var/our_temperature = air_contents.return_temperature()
@@ -563,7 +597,11 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	protected_contents = FALSE
 	if(shielding_powered)
 		var/power_factor = round(log(10, max(our_pressure - pressure_limit, 1)) + log(10, max(our_temperature - temp_limit, 1)))
+<<<<<<< HEAD
 		var/power_consumed = power_factor * 250 * delta_time
+=======
+		var/power_consumed = power_factor * 250 * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(powered(AREA_USAGE_EQUIP, ignore_use_power = TRUE))
 			use_power(power_consumed, AREA_USAGE_EQUIP)
 			protected_contents = TRUE
@@ -571,6 +609,25 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 			protected_contents = TRUE
 		else
 			shielding_powered = FALSE
+<<<<<<< HEAD
+=======
+			SSair.start_processing_machine(src)
+			investigate_log("shielding turned off due to power loss")
+
+///return the icon_state component for the canister's indicator light based on its current pressure reading
+/obj/machinery/portable_atmospherics/canister/proc/get_pressure_state(air_pressure)
+	switch(air_pressure)
+		if((40 * ONE_ATMOSPHERE) to INFINITY)
+			return "can-3"
+		if((10 * ONE_ATMOSPHERE) to (40 * ONE_ATMOSPHERE))
+			return "can-2"
+		if((5 * ONE_ATMOSPHERE) to (10 * ONE_ATMOSPHERE))
+			return "can-1"
+		if((10) to (5 * ONE_ATMOSPHERE))
+			return "can-0"
+		else
+			return null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/portable_atmospherics/canister/process_atmos()
 	if(machine_stat & BROKEN)
@@ -585,6 +642,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 		var/datum/gas_mixture/target_air = holding?.return_air() || location.return_air()
 		excited = TRUE
 
+<<<<<<< HEAD
 		if(air_contents.release_gas_to(target_air, release_pressure) && !holding)
 			air_update_turf(FALSE, FALSE)
 
@@ -592,6 +650,23 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	if(take_atmos_damage())
 		excited = TRUE
 	update_appearance()
+=======
+		if(air_contents.release_gas_to(target_air, release_pressure))
+			if(!holding)
+				air_update_turf(FALSE, FALSE)
+
+	// A bit different than other atmos devices. Wont stop if currently taking damage.
+	if(take_atmos_damage())
+		update_appearance()
+		excited = TRUE
+		return ..() //we have already updated appearance so dont need to update again below
+
+	var/new_pressure_state = get_pressure_state(air_contents.return_pressure())
+	if(current_pressure_state != new_pressure_state) //update apperance only when its pressure changes significantly from its current value
+		update_appearance()
+		current_pressure_state = new_pressure_state
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/machinery/portable_atmospherics/canister/ui_state(mob/user)
@@ -742,7 +817,11 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 					timer_set = min(maximum_timer_set, timer_set + 10)
 				if("input")
 					var/user_input = tgui_input_number(usr, "Set time to valve toggle", "Canister Timer", timer_set, maximum_timer_set, minimum_timer_set)
+<<<<<<< HEAD
 					if(isnull(user_input) || QDELETED(usr) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+					if(isnull(user_input) || QDELETED(usr) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						return
 					timer_set = user_input
 					log_admin("[key_name(usr)] has activated a prototype valve timer")
@@ -783,3 +862,8 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	if(shielding_powered)
 		return FALSE
 	return ..()
+<<<<<<< HEAD
+=======
+
+#undef CAN_DEFAULT_RELEASE_PRESSURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

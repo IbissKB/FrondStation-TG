@@ -3,7 +3,11 @@
 	desc = "How someone could even fit in there is byond me."
 	icon_state = "clowncar"
 	max_integrity = 150
+<<<<<<< HEAD
 	armor = list(MELEE = 70, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 80, ACID = 80)
+=======
+	armor_type = /datum/armor/car_clowncar
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	enter_delay = 20
 	max_occupants = 50
 	movedelay = 0.6
@@ -22,6 +26,17 @@
 	///Current status of the cannon, alternates between CLOWN_CANNON_INACTIVE, CLOWN_CANNON_BUSY and CLOWN_CANNON_READY
 	var/cannonmode = CLOWN_CANNON_INACTIVE
 
+<<<<<<< HEAD
+=======
+/datum/armor/car_clowncar
+	melee = 70
+	bullet = 40
+	laser = 40
+	bomb = 30
+	fire = 80
+	acid = 80
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/car/clowncar/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj,src)
@@ -100,7 +115,11 @@
 
 /obj/vehicle/sealed/car/clowncar/Bump(atom/bumped)
 	. = ..()
+<<<<<<< HEAD
 	if(isliving(bumped) && !istype(bumped, /mob/living/simple_animal/deer))
+=======
+	if(isliving(bumped) && !istype(bumped, /mob/living/basic/deer))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(ismegafauna(bumped))
 			return
 		var/mob/living/hittarget_living = bumped

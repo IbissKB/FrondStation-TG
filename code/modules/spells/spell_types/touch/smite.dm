@@ -54,5 +54,9 @@
 /obj/item/melee/touch_attack/smite
 	name = "\improper smiting touch"
 	desc = "This hand of mine glows with an awesome power!"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/hand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "disintegrate"
 	inhand_icon_state = "disintegrate"

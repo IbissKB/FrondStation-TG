@@ -69,6 +69,17 @@
 	name = "\improper AI Satellite Hallway"
 	icon_state = "ai"
 
+<<<<<<< HEAD
+=======
+/area/station/ai_monitored/turret_protected/aisat/teleporter
+	name ="\improper AI Satellite Teleporter"
+	icon_state = "ai"
+
+/area/station/ai_monitored/turret_protected/aisat/equipment
+	name ="\improper AI Satellite Equipment"
+	icon_state = "ai"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/station/ai_monitored/turret_protected/aisat/maint
 	name = "\improper AI Satellite Maintenance"
 	icon_state = "ai_maint"

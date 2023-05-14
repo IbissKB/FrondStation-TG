@@ -18,10 +18,13 @@
 	var/wanted_token
 
 /datum/computer_file/program/nt_pay/ui_act(action, list/params, datum/tgui/ui)
+<<<<<<< HEAD
 	. = ..()
 	if(.)
 		return
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("Transaction")
 			token = params["token"]
@@ -62,7 +65,11 @@
 
 
 /datum/computer_file/program/nt_pay/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	current_user = computer.computer_id_slot?.registered_account || null
 	if(!current_user)

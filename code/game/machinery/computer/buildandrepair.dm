@@ -161,7 +161,11 @@
 						new_computer.component_parts += movable_part
 
 					new_computer.RefreshParts()
+<<<<<<< HEAD
 					new_computer.on_construction()
+=======
+					new_computer.on_construction(user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 				qdel(src)
 				return

@@ -53,6 +53,14 @@
 	burst_size = 3
 	fire_delay = 1.90
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/automatic/m16/modern/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/automatic/m16/modern/v2
 	name = "\improper XM-2537 'Amans Patriae' rifle"
 	desc = "An expertly modified, super-compact XM-2537 rifle designed for operating in tight corridors and fields full of Bethlehem flowers. You're a soldier, finish your mission!"

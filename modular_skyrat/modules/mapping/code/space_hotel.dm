@@ -12,7 +12,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 5
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/item_permanent_portal_creator
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	/// The weakref to the linked entanglement anchor.
 	var/datum/weakref/linked_anchor = null
@@ -22,6 +26,14 @@
 	var/anchor_portal_name = "exit from somewhere"
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_permanent_portal_creator
+	bomb = 30
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/permanent_portal_creator/attack_self(mob/user, modifiers)
 	if(!linked_anchor)
 		balloon_alert(user, "not linked!")
@@ -95,6 +107,10 @@
 
 	if(!do_after(user, 5 SECONDS))
 		balloon_alert(user, "deployment failed!")
+<<<<<<< HEAD
+=======
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	deploy(user)
 
@@ -168,6 +184,18 @@
 	access_id = null
 	master_access = TRUE
 
+<<<<<<< HEAD
+=======
+/obj/effect/mapping_helpers/airlock/access/all/twin_nexus_staff/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_TWIN_NEXUS_STAFF
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/all/twin_nexus_staff/manager/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_TWIN_NEXUS_MANAGER
+	return access_list
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/door/airlock/keyed/hotel_room
 	name = "Guest Room"

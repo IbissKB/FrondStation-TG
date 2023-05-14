@@ -102,19 +102,40 @@
 	resistance_flags = NONE
 
 /obj/item/trash/candle
+<<<<<<< HEAD
 	name = "candle"
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle4"
 
+=======
+	name = "melted candle"
+	icon = 'icons/obj/candle.dmi'
+	icon_state = "candle4"
+
+/obj/item/trash/flare
+	name = "burnt flare"
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "flare-empty"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/trash/can
 	name = "crushed can"
 	icon_state = "cola"
 	resistance_flags = NONE
 	grind_results = list(/datum/reagent/aluminium = 10)
 
+<<<<<<< HEAD
 /obj/item/trash/can/food/peaches
 	name = "canned peaches"
 	icon = 'icons/obj/food/canned.dmi'
+=======
+/obj/item/trash/can/food
+	icon = 'icons/obj/food/canned.dmi'
+	icon_state = "peachcan_empty"
+
+/obj/item/trash/can/food/peaches
+	name = "canned peaches"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "peachcan_empty"
 
 /obj/item/trash/can/food/peaches/maint
@@ -123,7 +144,10 @@
 
 /obj/item/trash/can/food/beans
 	name = "tin of beans"
+<<<<<<< HEAD
 	icon = 'icons/obj/food/canned.dmi'
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "beans_empty"
 
 /obj/item/trash/can/Initialize(mapload)
@@ -142,19 +166,42 @@
 
 /obj/item/trash/can/food/envirochow
 	name = "dog eat dog envirochow"
+<<<<<<< HEAD
 	icon = 'icons/obj/food/canned.dmi'
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "envirochow_empty"
 
 /obj/item/trash/can/food/tomatoes
 	name = "canned San Marzano tomatoes"
+<<<<<<< HEAD
 	icon = 'icons/obj/food/canned.dmi'
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "tomatoescan_empty"
 
 /obj/item/trash/can/food/pine_nuts
 	name = "canned pine nuts"
+<<<<<<< HEAD
 	icon = 'icons/obj/food/canned.dmi'
 	icon_state = "pinenutscan_empty"
 
+=======
+	icon_state = "pinenutscan_empty"
+
+/obj/item/trash/can/food/jellyfish
+	name = "canned gunner jellyfish"
+	icon_state = "jellyfish_empty"
+
+/obj/item/trash/can/food/desert_snails
+	name = "canned desert snails"
+	icon_state = "snails_empty"
+
+/obj/item/trash/can/food/larvae
+	name = "canned bee larva"
+	icon_state = "larvae_empty"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/trash/spacers_sidekick
 	name = "\improper Spacer's Sidekick packet"
 	icon_state = "spacers_sidekick"

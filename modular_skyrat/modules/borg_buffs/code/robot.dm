@@ -211,7 +211,11 @@
 
 // Wirebrush for janiborg
 /datum/design/borg_wirebrush
+<<<<<<< HEAD
 	name = "Cyborg Upgrade (Wire-brush)"
+=======
+	name = "Wire-brush Module"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	id = "borg_upgrade_brush"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/wirebrush

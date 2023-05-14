@@ -41,7 +41,11 @@
 
 /obj/item/implant/chem/proc/on_death(mob/living/source)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	activate(reagents.total_volume)
+=======
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item/implant/chem, activate), reagents.total_volume)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/implant/chem/activate(cause)
 	. = ..()

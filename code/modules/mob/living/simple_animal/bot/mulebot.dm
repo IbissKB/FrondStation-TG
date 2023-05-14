@@ -31,7 +31,10 @@
 	bot_type = MULE_BOT
 	path_image_color = "#7F5200"
 
+<<<<<<< HEAD
 	var/network_id = NETWORK_BOTS_CARGO
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// unique identifier in case there are multiple mulebots.
 	var/id
 
@@ -85,10 +88,13 @@
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/mulebot)
 	diag_hud_set_mulebotcell()
 
+<<<<<<< HEAD
 	if(network_id)
 		AddComponent(/datum/component/ntnet_interface, network_id)
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/bot/mulebot/handle_atom_del(atom/A)
 	if(A == load)
 		unload(0)
@@ -227,6 +233,11 @@
 		if(EXPLODE_LIGHT)
 			wires.cut_random()
 
+<<<<<<< HEAD
+=======
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/bot/mulebot/bullet_act(obj/projectile/Proj)
 	. = ..()
@@ -528,7 +539,11 @@
 						return
 					var/oldloc = loc
 					var/moved = step_towards(src, next) // attempt to move
+<<<<<<< HEAD
 					if(moved && oldloc!=loc) // successful move
+=======
+					if(moved && oldloc != loc) // successful move
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						SEND_SIGNAL(src, COMSIG_MOB_BOT_STEP)
 						blockcount = 0
 						path -= loc
@@ -719,7 +734,13 @@
 									// the we will navigate there
 			destination = new_destination
 			target = NB.loc
+<<<<<<< HEAD
 			var/direction = NB.dir // this will be the load/unload dir
+=======
+			var/direction = NB.codes[NAVBEACON_DELIVERY_DIRECTION] // this will be the load/unload dir
+			if(!direction)
+				direction = NB.dir // fallback
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(direction)
 				loaddir = text2num(direction)
 			else

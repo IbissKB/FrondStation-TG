@@ -24,14 +24,20 @@
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/records/medical,
+<<<<<<< HEAD
 		/datum/computer_file/program/phys_scanner/all,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /obj/item/computer_disk/command/cmo
 	name = "chief medical officer data disk"
 	desc = "Removable disk used to download essential CMO tablet apps."
 	starting_programs = list(
+<<<<<<< HEAD
 		/datum/computer_file/program/phys_scanner/all,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/datum/computer_file/program/records/medical,
 	)
 
@@ -39,7 +45,10 @@
 	name = "research director data disk"
 	desc = "Removable disk used to download essential RD tablet apps."
 	starting_programs = list(
+<<<<<<< HEAD
 		/datum/computer_file/program/phys_scanner/chemistry,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/datum/computer_file/program/signal_commander,
 	)
 
@@ -88,6 +97,7 @@
 	desc = "Removable disk used to download medical-related tablet apps."
 	icon_state = "datadisk7"
 	starting_programs = list(
+<<<<<<< HEAD
 		/datum/computer_file/program/phys_scanner/medical,
 		/datum/computer_file/program/records/medical,
 	)
@@ -100,6 +110,11 @@
 		/datum/computer_file/program/phys_scanner/chemistry,
 	)
 
+=======
+		/datum/computer_file/program/records/medical,
+	)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Supply
  */

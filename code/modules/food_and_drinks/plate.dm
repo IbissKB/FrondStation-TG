@@ -75,6 +75,10 @@
 #define PLATE_SHARD_PIECES 5
 
 /obj/item/plate/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(.)
 		return
 	var/generator/scatter_gen = generator(GEN_CIRCLE, 0, 48, NORMAL_RAND)
@@ -124,3 +128,8 @@
 /obj/item/plate_shard/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/caltrop, min_damage = force)
+<<<<<<< HEAD
+=======
+
+#undef PLATE_SHARD_PIECES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

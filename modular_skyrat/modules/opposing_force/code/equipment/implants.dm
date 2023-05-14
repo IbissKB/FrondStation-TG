@@ -45,7 +45,11 @@
 	name = "Macrobomb Implant"
 	item_type = /obj/item/implanter/explosive_macro
 	description = "An implanter that will make you explode on death in a massive explosion, fun!"
+<<<<<<< HEAD
 	admin_note = "Warning: Equivalent to 10 microbombs."
+=======
+	admin_note = "Warning: Equivalent to 10 microbombs. Use your very best judgement when approving."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/implant/emp
 	name = "EMP Implant"

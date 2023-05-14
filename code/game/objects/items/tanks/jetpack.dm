@@ -19,7 +19,11 @@
 	. = ..()
 	get_mover = CALLBACK(src, PROC_REF(get_user))
 	check_on_move = CALLBACK(src, PROC_REF(allow_thrust), 0.01)
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE)
+=======
+	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_SUITSTORE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	refresh_jetpack()
 
 /obj/item/tank/jetpack/Destroy()

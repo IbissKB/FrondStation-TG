@@ -43,7 +43,11 @@
 		decal.Detach(source)
 
 	for(var/result in resulting_decals_params)
+<<<<<<< HEAD
 		source.AddElement(/datum/element/decal, result["icon"], result["icon_state"], result["dir"], result["plane"], result["layer"], result["alpha"], result["color"], result["smoothing"], result["cleanable"], result["desc"])
+=======
+		source.AddElement(/datum/element/decal, result["icon"], result["icon_state"], result["dir"], PLANE_TO_TRUE(result["plane"]), result["layer"], result["alpha"], result["color"], result["smoothing"], result["cleanable"], result["desc"])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /datum/element/decal/proc/get_rotated_parameters(old_dir,new_dir)
@@ -111,7 +115,12 @@
 		return FALSE
 	var/temp_image = image(_icon, null, isnull(_smoothing) ? _icon_state : "[_icon_state]-[_smoothing]", _layer, _dir)
 	pic = new(temp_image)
+<<<<<<< HEAD
 	pic.plane = _plane
+=======
+	var/atom/atom_source = source
+	SET_PLANE_EXPLICIT(pic, _plane, atom_source)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pic.color = _color
 	pic.alpha = _alpha
 	return TRUE
@@ -128,11 +137,19 @@
 /datum/element/decal/proc/late_update_icon(atom/source)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(source && istype(source))
 		source.update_appearance(UPDATE_OVERLAYS)
 		UnregisterSignal(source, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE)
 
 
+=======
+	if(istype(source) && !(source.flags_1 & DECAL_INIT_UPDATE_EXPERIENCED_1))
+		source.flags_1 |= DECAL_INIT_UPDATE_EXPERIENCED_1 // I am so sorry, but it saves like 80ms I gotta
+		source.update_appearance(UPDATE_OVERLAYS)
+		UnregisterSignal(source, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/element/decal/proc/apply_overlay(atom/source, list/overlay_list)
 	SIGNAL_HANDLER
 
@@ -172,5 +189,9 @@
 		return NONE
 
 	Detach(source)
+<<<<<<< HEAD
 	source.AddElement(type, pic.icon, base_icon_state, directional, pic.plane, pic.layer, pic.alpha, pic.color, smoothing_junction, cleanable, description)
+=======
+	source.AddElement(type, pic.icon, base_icon_state, directional, PLANE_TO_TRUE(pic.plane), pic.layer, pic.alpha, pic.color, smoothing_junction, cleanable, description)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return NONE

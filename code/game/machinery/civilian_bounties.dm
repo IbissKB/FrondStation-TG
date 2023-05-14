@@ -175,7 +175,11 @@
 		return
 	if(!pad_ref?.resolve())
 		return
+<<<<<<< HEAD
 	if(!usr.canUseTopic(src, be_close = TRUE) || (machine_stat & (NOPOWER|BROKEN)))
+=======
+	if(!usr.can_perform_action(src) || (machine_stat & (NOPOWER|BROKEN)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	switch(action)
 		if("recalc")
@@ -303,7 +307,11 @@
 	QDEL_NULL(radio)
 	return COMPONENT_STOP_EXPORT // stops the radio from exporting, not the cube
 
+<<<<<<< HEAD
 /obj/item/bounty_cube/process(delta_time)
+=======
+/obj/item/bounty_cube/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//if our nag cooldown has finished and we aren't on Centcom or in transit, then nag
 	if(COOLDOWN_FINISHED(src, next_nag_time) && !is_centcom_level(z) && !is_reserved_level(z))
 		//set up our nag message
@@ -381,3 +389,8 @@
 			new /obj/machinery/computer/piratepad_control/civilian(drop_location())
 			qdel(src)
 	uses--
+<<<<<<< HEAD
+=======
+
+#undef CIV_BOUNTY_SPLIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

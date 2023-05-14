@@ -6,10 +6,26 @@
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	max_integrity = 1
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 0, BIO = 0, FIRE = 20, ACID = 20)
 	var/obj/item/holosign_creator/projector
 	var/use_vis_overlay = TRUE
 
+=======
+	armor_type = /datum/armor/structure_holosign
+	// How can you freeze a trick of the light?
+	resistance_flags = FREEZE_PROOF
+	var/obj/item/holosign_creator/projector
+	var/use_vis_overlay = TRUE
+
+/datum/armor/structure_holosign
+	bullet = 50
+	laser = 50
+	energy = 50
+	fire = 20
+	acid = 20
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/holosign/Initialize(mapload, source_projector)
 	. = ..()
 	var/turf/our_turf = get_turf(src)
@@ -98,7 +114,11 @@
 	can_atmos_pass = ATMOS_PASS_NO
 	alpha = 150
 	rad_insulation = RAD_LIGHT_INSULATION
+<<<<<<< HEAD
 	resistance_flags = FIRE_PROOF
+=======
+	resistance_flags = FIRE_PROOF | FREEZE_PROOF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/holosign/barrier/atmos/sturdy
 	name = "sturdy holofirelock"

@@ -61,7 +61,11 @@
 	//SKYRAT EDIT END
 
 	var/list/new_quirks = preferences.all_quirks | quirk_name
+<<<<<<< HEAD
 	if (SSquirks.filter_invalid_quirks(new_quirks) != new_quirks)
+=======
+	if (SSquirks.filter_invalid_quirks(new_quirks, preferences.augments) != new_quirks)// SKYRAT EDIT - AUGMENTS+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		// If the client is sending an invalid give_quirk, that means that
 		// something went wrong with the client prediction, so we should
 		// catch it back up to speed.
@@ -77,10 +81,14 @@
 	var/quirk_name = params["quirk"]
 
 	var/list/new_quirks = preferences.all_quirks - quirk_name
+<<<<<<< HEAD
 	if ( \
 		!(quirk_name in preferences.all_quirks) \
 		|| SSquirks.filter_invalid_quirks(new_quirks) != new_quirks \
 	)
+=======
+	if (!(quirk_name in preferences.all_quirks) || SSquirks.filter_invalid_quirks(new_quirks, preferences.augments) != new_quirks)// SKYRAT EDIT - AUGMENTS+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		// If the client is sending an invalid remove_quirk, that means that
 		// something went wrong with the client prediction, so we should
 		// catch it back up to speed.

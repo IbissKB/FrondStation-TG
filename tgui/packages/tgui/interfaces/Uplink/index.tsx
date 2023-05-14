@@ -5,7 +5,11 @@ import { Component, Fragment } from 'inferno';
 import { fetchRetry } from '../../http';
 import { resolveAsset } from '../../assets';
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { Box, Tabs, Button, Stack, Section, Tooltip } from '../../components';
+=======
+import { Box, Tabs, Button, Stack, Section, Tooltip, Dimmer } from '../../components';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { PrimaryObjectiveMenu } from './PrimaryObjectiveMenu';
 import { Objective, ObjectiveMenu } from './ObjectiveMenu';
 import { calculateProgression, calculateReputationLevel, reputationDefault, reputationLevelsTooltip } from './calculateReputationLevel';
@@ -19,10 +23,18 @@ type UplinkItem = {
   purchasable_from: number;
   restricted: BooleanLike;
   limited_stock: number;
+<<<<<<< HEAD
+=======
+  stock_key: string;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   restricted_roles: string;
   restricted_species: string;
   progression_minimum: number;
   cost_override_string: string;
+<<<<<<< HEAD
+=======
+  lock_other_purchases: BooleanLike;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   ref?: string;
 };
 
@@ -55,6 +67,11 @@ type UplinkData = {
   active_objectives: Objective[];
   maximum_active_objectives: number;
   maximum_potential_objectives: number;
+<<<<<<< HEAD
+=======
+  purchased_items: number;
+  shop_locked: BooleanLike;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 type UplinkState = {
@@ -170,6 +187,11 @@ export class Uplink extends Component<{}, UplinkState> {
       extra_purchasable_stock,
       current_stock,
       lockable,
+<<<<<<< HEAD
+=======
+      purchased_items,
+      shop_locked,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     } = data;
     const { allItems, allCategories, currentTab } = this.state as UplinkState;
 
@@ -187,7 +209,11 @@ export class Uplink extends Component<{}, UplinkState> {
       const hasEnoughProgression =
         progression_points >= item.progression_minimum;
 
+<<<<<<< HEAD
       let stock: number | null = current_stock[item.id];
+=======
+      let stock: number | null = current_stock[item.stock_key];
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       if (item.ref) {
         stock = extra_purchasable_stock[item.ref];
       }
@@ -199,7 +225,23 @@ export class Uplink extends Component<{}, UplinkState> {
         id: item.id,
         name: item.name,
         category: item.category,
+<<<<<<< HEAD
         desc: <Box>{item.desc}</Box>,
+=======
+        desc: (
+          <Box>
+            {item.desc}
+            {(item.lock_other_purchases && (
+              <Box color="orange" bold>
+                Taking this item will lock you from further purchasing from the
+                marketplace. Additionally, if you have already purchased an
+                item, you will not be able to purchase this.
+              </Box>
+            )) ||
+              null}
+          </Box>
+        ),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         cost: (
           <Box>
             {item.cost_override_string || `${item.cost} TC`}
@@ -215,7 +257,14 @@ export class Uplink extends Component<{}, UplinkState> {
             )}
           </Box>
         ),
+<<<<<<< HEAD
         disabled: !canBuy || (has_progression && !hasEnoughProgression),
+=======
+        disabled:
+          !canBuy ||
+          (has_progression && !hasEnoughProgression) ||
+          (item.lock_other_purchases && purchased_items > 0),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         extraData: {
           ref: item.ref,
         },
@@ -394,6 +443,7 @@ export class Uplink extends Component<{}, UplinkState> {
                     handleRequestObjectives={() => act('regenerate_objectives')}
                   />
                 )) || (
+<<<<<<< HEAD
                   <GenericUplink
                     currency=""
                     categories={allCategories}
@@ -407,6 +457,36 @@ export class Uplink extends Component<{}, UplinkState> {
                       }
                     }}
                   />
+=======
+                  <Section>
+                    <GenericUplink
+                      currency=""
+                      categories={allCategories}
+                      items={items}
+                      handleBuy={(item) => {
+                        const extraDataItem = item as Item<ItemExtraData>;
+                        if (!extraDataItem.extraData?.ref) {
+                          act('buy', { path: item.id });
+                        } else {
+                          act('buy', { ref: extraDataItem.extraData.ref });
+                        }
+                      }}
+                    />
+                    {(shop_locked && (
+                      <Dimmer>
+                        <Box
+                          color="red"
+                          fontFamily={'Bahnschrift'}
+                          fontSize={3}
+                          align={'top'}
+                          as="span">
+                          SHOP LOCKED
+                        </Box>
+                      </Dimmer>
+                    )) ||
+                      null}
+                  </Section>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                 )}
             </Stack.Item>
           </Stack>

@@ -2,6 +2,36 @@
 "a" = (
 /turf/template_noop,
 /area/template_noop)
+<<<<<<< HEAD
+=======
+"e" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
+"i" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
+"j" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/public/glass{
+	name = "Cryopods"
+	},
+/turf/open/floor/iron,
+/area/station/common/cryopods)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "p" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -12,6 +42,7 @@
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "q" = (
+<<<<<<< HEAD
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -26,6 +57,16 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
+=======
+/obj/effect/landmark/navigate_destination,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
+"v" = (
+/obj/structure/cable,
+/obj/machinery/computer/cryopod/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
@@ -35,6 +76,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/common/cryopods)
+<<<<<<< HEAD
+=======
+"x" = (
+/obj/structure/chair/stool/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "A" = (
 /obj/machinery/cryopod{
 	dir = 8
@@ -69,6 +119,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
+<<<<<<< HEAD
+=======
+"I" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "L" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -89,6 +147,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
+<<<<<<< HEAD
+=======
+"P" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "U" = (
 /obj/machinery/cryopod{
 	dir = 8
@@ -101,6 +171,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
+<<<<<<< HEAD
+=======
+"V" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/machinery/time_clock/directional/south,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 (1,1,1) = {"
 N
@@ -109,13 +189,39 @@ C
 C
 N
 a
+<<<<<<< HEAD
+=======
+a
+a
+a
+a
+a
+a
+a
+a
+a
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (2,1,1) = {"
 N
 F
 p
+<<<<<<< HEAD
 p
 C
+=======
+V
+N
+a
+a
+a
+a
+a
+a
+a
+a
+a
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (3,1,1) = {"
@@ -123,8 +229,22 @@ N
 v
 w
 L
+<<<<<<< HEAD
 q
 B
+=======
+j
+B
+i
+I
+I
+I
+x
+I
+I
+q
+P
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (4,1,1) = {"
 N
@@ -133,6 +253,18 @@ A
 U
 C
 a
+<<<<<<< HEAD
+=======
+a
+a
+a
+a
+a
+a
+a
+e
+a
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (5,1,1) = {"
 N
@@ -141,4 +273,16 @@ C
 C
 N
 a
+<<<<<<< HEAD
+=======
+a
+a
+a
+a
+a
+a
+a
+a
+a
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}

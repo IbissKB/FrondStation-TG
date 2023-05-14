@@ -1,4 +1,8 @@
 #define PROB_MOUSE_SPAWN 98
+<<<<<<< HEAD
+=======
+#define PROB_SPIDER_REPLACEMENT 50
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 SUBSYSTEM_DEF(minor_mapping)
 	name = "Minor Mapping"
@@ -13,6 +17,7 @@ SUBSYSTEM_DEF(minor_mapping)
 	place_satchels()
 	return SS_INIT_SUCCESS
 
+<<<<<<< HEAD
 /datum/controller/subsystem/minor_mapping/proc/trigger_migration(num_mice=10)
 	var/list/exposed_wires = find_exposed_wires()
 
@@ -45,6 +50,47 @@ SUBSYSTEM_DEF(minor_mapping)
 		var/obj/item/storage/backpack/satchel/flat/F = new(T)
 
 		SEND_SIGNAL(F, COMSIG_OBJ_HIDE, T.underfloor_accessibility)
+=======
+/// Spawns some critters on exposed wires, usually but not always mice
+/datum/controller/subsystem/minor_mapping/proc/trigger_migration(to_spawn=10)
+	var/list/exposed_wires = find_exposed_wires()
+	var/turf/open/proposed_turf
+	while((to_spawn > 0) && exposed_wires.len)
+		proposed_turf = pick_n_take(exposed_wires)
+		if (!valid_mouse_turf(proposed_turf))
+			continue
+
+		to_spawn--
+		if(HAS_TRAIT(SSstation, STATION_TRAIT_SPIDER_INFESTATION) && prob(PROB_SPIDER_REPLACEMENT))
+			new /mob/living/basic/giant_spider/maintenance(proposed_turf)
+			return
+
+		if (prob(PROB_MOUSE_SPAWN))
+			new /mob/living/basic/mouse(proposed_turf)
+		else
+			new /mob/living/simple_animal/hostile/regalrat/controlled(proposed_turf)
+
+/// Returns true if a mouse won't die if spawned on this turf
+/datum/controller/subsystem/minor_mapping/proc/valid_mouse_turf(turf/open/proposed_turf)
+	if(!istype(proposed_turf))
+		return FALSE
+	var/datum/gas_mixture/turf/turf_gasmix = proposed_turf.air
+	var/turf_temperature = proposed_turf.temperature
+	return turf_gasmix.has_gas(/datum/gas/oxygen, 5) && turf_temperature < NPC_DEFAULT_MAX_TEMP && turf_temperature > NPC_DEFAULT_MIN_TEMP
+
+/datum/controller/subsystem/minor_mapping/proc/place_satchels(amount=10)
+	var/list/turfs = find_satchel_suitable_turfs()
+	///List of areas where satchels should not be placed.
+	var/list/blacklisted_area_types = list(/area/station/holodeck)
+
+	while(turfs.len && amount > 0)
+		var/turf/turf = pick_n_take(turfs)
+		if(is_type_in_list(get_area(turf), blacklisted_area_types))
+			continue
+		var/obj/item/storage/backpack/satchel/flat/flat_satchel = new(turf)
+
+		SEND_SIGNAL(flat_satchel, COMSIG_OBJ_HIDE, turf.underfloor_accessibility)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		amount--
 
 /proc/find_exposed_wires()
@@ -52,7 +98,11 @@ SUBSYSTEM_DEF(minor_mapping)
 
 	var/list/all_turfs
 	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+<<<<<<< HEAD
 		all_turfs += block(locate(1,1,z), locate(world.maxx,world.maxy,z))
+=======
+		all_turfs += Z_TURFS(z)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/turf/open/floor/plating/T in all_turfs)
 		if(T.is_blocked_turf())
 			continue
@@ -65,10 +115,18 @@ SUBSYSTEM_DEF(minor_mapping)
 	var/list/suitable = list()
 
 	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+<<<<<<< HEAD
 		for(var/turf/detected_turf as anything in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
+=======
+		for(var/turf/detected_turf as anything in Z_TURFS(z))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(isfloorturf(detected_turf) && detected_turf.underfloor_accessibility == UNDERFLOOR_HIDDEN)
 				suitable += detected_turf
 
 	return shuffle(suitable)
 
 #undef PROB_MOUSE_SPAWN
+<<<<<<< HEAD
+=======
+#undef PROB_SPIDER_REPLACEMENT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

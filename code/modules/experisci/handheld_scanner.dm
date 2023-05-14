@@ -41,11 +41,19 @@
 
 /obj/item/experi_scanner/proc/make_meat_toilet(mob/living/carbon/user)
 	///The suicide victim's brain that will be placed inside the toilet's cistern
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/toilet_brain = user.getorganslot(ORGAN_SLOT_BRAIN)
 	///The toilet we're about to unleash unto this cursed plane of existence
 	var/obj/structure/toilet/greyscale/result_toilet = new (drop_location())
 
 	result_toilet.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, user) = MINERAL_MATERIAL_AMOUNT))
+=======
+	var/obj/item/organ/internal/brain/toilet_brain = user.get_organ_slot(ORGAN_SLOT_BRAIN)
+	///The toilet we're about to unleash unto this cursed plane of existence
+	var/obj/structure/toilet/greyscale/result_toilet = new (drop_location())
+
+	result_toilet.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, user) = SHEET_MATERIAL_AMOUNT))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	result_toilet.desc = "A horrendous mass of fused flesh resembling a standard-issue HT-451 model toilet. How it manages to function as one is beyond you. \
 	This one seems to be made out of the flesh of a devoted employee of the RnD department."
 	result_toilet.buildstacktype = /obj/effect/decal/remains/human //this also prevents the toilet from dropping meat sheets. if you want to cheese the meat exepriments, sacrifice more people

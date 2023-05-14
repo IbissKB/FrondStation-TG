@@ -9,7 +9,10 @@
 	rechargeTime = 15 SECONDS
 
 	movement_force = list("KNOCKDOWN" = 3, "THROW" = 0)
+<<<<<<< HEAD
 	can_be_called_in_transit = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/computer/shuttle/arrivals
 	name = "arrivals shuttle control"
@@ -23,6 +26,10 @@
 	light_color = COLOR_ORANGE_BROWN
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	connectable = FALSE //connecting_computer change: since icon_state is not a typical console, it cannot be connectable.
+<<<<<<< HEAD
+=======
+	no_destination_swap = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/computer/shuttle/arrivals/recall
 	name = "arrivals shuttle recall terminal"
@@ -56,12 +63,15 @@
 	suffix = "skyrat"
 	who_can_purchase = null
 
+<<<<<<< HEAD
 /datum/map_template/shuttle/escape_pod/default
 	name = "escape pod (Default)"
 	prefix = "_maps/shuttles/skyrat/"
 	port_id = "escape_pod"
 	suffix = "default_skyrat"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/emergency/default
 	prefix = "_maps/shuttles/skyrat/"
 	suffix = "skyrat"

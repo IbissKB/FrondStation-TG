@@ -9,7 +9,11 @@
 	body_parts_covered = FEET
 	slot_flags = ITEM_SLOT_FEET
 
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/clothing_shoes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	slowdown = SHOES_SLOWDOWN
 	strip_delay = 1 SECONDS
 	var/offset = 0
@@ -23,6 +27,12 @@
 	///An active alert
 	var/datum/weakref/our_alert_ref
 
+<<<<<<< HEAD
+=======
+/datum/armor/clothing_shoes
+	bio = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/shoes/suicide_act(mob/living/carbon/user)
 	if(prob(50))
 		user.visible_message(span_suicide("[user] begins tying \the [src] up waaay too tightly! It looks like [user.p_theyre()] trying to commit suicide!"))

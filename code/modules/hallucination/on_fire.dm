@@ -63,17 +63,28 @@
 
 	START_PROCESSING(SSfastprocess, src)
 
+<<<<<<< HEAD
 /datum/hallucination/fire/process(delta_time)
+=======
+/datum/hallucination/fire/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(QDELETED(src))
 		return
 
 	if(hallucinator.fire_stacks <= 0)
 		clear_fire()
 
+<<<<<<< HEAD
 	time_spent += delta_time
 
 	if(fire_clearing)
 		next_action -= delta_time
+=======
+	time_spent += seconds_per_tick
+
+	if(fire_clearing)
+		next_action -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(next_action < 0)
 			stage -= 1
 			update_temp()
@@ -89,7 +100,11 @@
 				increasing_stages = FALSE
 
 	else if(times_to_lower_stamina)
+<<<<<<< HEAD
 		next_action -= delta_time
+=======
+		next_action -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(next_action < 0)
 			hallucinator.adjustStaminaLoss(15)
 			next_action += 2

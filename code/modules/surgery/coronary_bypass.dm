@@ -13,7 +13,11 @@
 	)
 
 /datum/surgery/coronary_bypass/can_start(mob/user, mob/living/carbon/target)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/target_heart = target.getorganslot(ORGAN_SLOT_HEART)
+=======
+	var/obj/item/organ/internal/heart/target_heart = target.get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(target_heart)
 		if(target_heart.damage > 60 && !target_heart.operated)
 			return TRUE
@@ -46,7 +50,11 @@
 /datum/surgery_step/incise_heart/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
 		var/mob/living/carbon/human/target_human = target
+<<<<<<< HEAD
 		if (!(NOBLOOD in target_human.dna.species.species_traits))
+=======
+		if (!HAS_TRAIT(target_human, TRAIT_NOBLOOD))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			display_results(
 				user,
 				target,
@@ -99,7 +107,11 @@
 
 /datum/surgery_step/coronary_bypass/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	target.setOrganLoss(ORGAN_SLOT_HEART, 60)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/target_heart = target.getorganslot(ORGAN_SLOT_HEART)
+=======
+	var/obj/item/organ/internal/heart/target_heart = target.get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(target_heart) //slightly worrying if we lost our heart mid-operation, but that's life
 		target_heart.operated = TRUE
 	display_results(

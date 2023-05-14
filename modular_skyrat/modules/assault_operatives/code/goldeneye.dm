@@ -59,7 +59,11 @@ SUBSYSTEM_DEF(goldeneye)
 
 /datum/controller/subsystem/goldeneye/proc/fire_icarus()
 	var/datum/round_event_control/icarus_sunbeam/event_to_start = new()
+<<<<<<< HEAD
 	event_to_start.runEvent()
+=======
+	event_to_start.run_event()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Checks if a mind(target_mind) is a head and if they aren't in the goldeneye_extracted_minds list.
 /datum/controller/subsystem/goldeneye/proc/check_goldeneye_target(datum/mind/target_mind)

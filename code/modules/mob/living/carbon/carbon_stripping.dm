@@ -55,7 +55,11 @@
 /// A strippable item for a hand
 /datum/strippable_item/hand
 	// Putting dangerous clothing in our hand is fine.
+<<<<<<< HEAD
 	warn_dangerous_clothing = FALSE
+=======
+	show_visible_message = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// Which hand?
 	var/hand_index
@@ -93,7 +97,11 @@
 
 	var/mob/mob_source = source
 
+<<<<<<< HEAD
 	if (!do_mob(user, source, equipping.equip_delay_other))
+=======
+	if (!do_after(user, equipping.equip_delay_other, source))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	if (!mob_source.can_put_in_hand(equipping, hand_index))

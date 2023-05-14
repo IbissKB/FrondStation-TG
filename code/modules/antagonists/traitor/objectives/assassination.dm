@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /datum/traitor_objective_category/assassinate
 	name = "Assassination"
 	objectives = list(
@@ -30,20 +31,62 @@
 	/// The maximum number of objectives we can get within this period.
 	var/maximum_objectives_in_period = 3
 
+=======
+/datum/traitor_objective_category/assassinate_kidnap
+	name = "Assassination/Kidnap"
+	objectives = list(
+		list(
+			list(
+				/datum/traitor_objective/target_player/assassinate/calling_card = 1,
+				/datum/traitor_objective/target_player/assassinate/behead = 1,
+			) = 1,
+			list(
+				/datum/traitor_objective/target_player/assassinate/calling_card/heads_of_staff = 1,
+				/datum/traitor_objective/target_player/assassinate/behead/heads_of_staff = 1,
+			) = 1,
+		) = 1,
+		list(
+			list(
+				/datum/traitor_objective/target_player/kidnapping/common = 20,
+				/datum/traitor_objective/target_player/kidnapping/common/assistant = 1,
+			) = 4,
+			/datum/traitor_objective/target_player/kidnapping/uncommon = 3,
+			/datum/traitor_objective/target_player/kidnapping/rare = 2,
+			/datum/traitor_objective/target_player/kidnapping/captain = 1
+		) = 1,
+	)
+
+/datum/traitor_objective/target_player/assassinate
+	name = "Assassinate %TARGET% the %JOB TITLE%"
+	description = "Simply kill your target to accomplish this objective."
+
+	abstract_type = /datum/traitor_objective/target_player/assassinate
+
+	progression_minimum = 30 MINUTES
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/**
 	 * Makes the objective only set heads as targets when true, and block them from being targets when false.
 	 * This also blocks the objective from generating UNTIL the un-heads_of_staff version (WHICH SHOULD BE A DIRECT PARENT) is completed.
 	 * example: calling card objective, you kill someone, you unlock the chance to roll a head of staff target version of calling card.
 	 */
 	var/heads_of_staff = FALSE
+<<<<<<< HEAD
 	///target we need to kill
 	var/mob/living/kill_target
 
 /datum/traitor_objective/assassinate/supported_configuration_changes()
+=======
+
+	duplicate_type = /datum/traitor_objective/target_player
+
+/datum/traitor_objective/target_player/assassinate/supported_configuration_changes()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	. += NAMEOF(src, objective_period)
 	. += NAMEOF(src, maximum_objectives_in_period)
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/calling_card
 	name = "Assassinate %TARGET% the %JOB TITLE%, and plant a calling card"
 	description = "Kill your target and plant a calling card in the pockets of your victim. If your calling card gets destroyed before you are able to plant it, this objective will fail."
@@ -59,26 +102,61 @@
 /datum/traitor_objective/assassinate/behead
 	name = "Behead %TARGET%, the %JOB TITLE%"
 	description = "Behead and hold %TARGET%'s head to succeed this objective. If the head gets destroyed before you can do this, you will fail this objective."
+=======
+/datum/traitor_objective/target_player/assassinate/calling_card
+	name = "Assassinate %TARGET% the %JOB TITLE%, and plant a calling card"
+	description = "Kill your target and plant a calling card in the pockets of your victim. If your calling card gets destroyed before you are able to plant it, this objective will fail."
+	progression_reward = 2 MINUTES
+	telecrystal_reward = list(1, 2)
+
+	var/obj/item/paper/calling_card/card
+
+/datum/traitor_objective/target_player/assassinate/calling_card/heads_of_staff
+	progression_reward = 4 MINUTES
+	telecrystal_reward = list(2, 3)
+
+	heads_of_staff = TRUE
+
+/datum/traitor_objective/target_player/assassinate/behead
+	name = "Behead %TARGET%, the %JOB TITLE%"
+	description = "Behead and hold %TARGET%'s head to succeed this objective. If the head gets destroyed before you can do this, you will fail this objective."
+	progression_reward = 2 MINUTES
+	telecrystal_reward = list(1, 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///the body who needs to hold the head
 	var/mob/living/needs_to_hold_head
 	///the head that needs to be picked up
 	var/obj/item/bodypart/head/behead_goal
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/behead/heads_of_staff
 	progression_reward = 4 MINUTES
 	telecrystal_reward = list(3, 4)
+=======
+/datum/traitor_objective/target_player/assassinate/behead/heads_of_staff
+	progression_reward = 4 MINUTES
+	telecrystal_reward = list(2, 3)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	heads_of_staff = TRUE
 
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/calling_card/generate_ui_buttons(mob/user)
+=======
+/datum/traitor_objective/target_player/assassinate/calling_card/generate_ui_buttons(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/buttons = list()
 	if(!card)
 		buttons += add_ui_button("", "Pressing this will materialize a calling card, which you must plant to succeed.", "paper-plane", "summon_card")
 	return buttons
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/calling_card/ui_perform_action(mob/living/user, action)
+=======
+/datum/traitor_objective/target_player/assassinate/calling_card/ui_perform_action(mob/living/user, action)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	switch(action)
 		if("summon_card")
@@ -93,9 +171,15 @@
 				fail_signals = list(COMSIG_PARENT_QDELETING), \
 				penalty = TRUE)
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/calling_card/proc/on_card_planted(datum/source, mob/living/equipper, slot)
 	SIGNAL_HANDLER
 	if(equipper != kill_target)
+=======
+/datum/traitor_objective/target_player/assassinate/calling_card/proc/on_card_planted(datum/source, mob/living/equipper, slot)
+	SIGNAL_HANDLER
+	if(equipper != target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return //your target please
 	if(equipper.stat != DEAD)
 		return //kill them please
@@ -103,6 +187,7 @@
 		return //in their pockets please
 	succeed_objective()
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/calling_card/generate_objective(datum/mind/generating_for, list/possible_duplicates)
 	. = ..()
 	if(!.) //didn't generate
@@ -111,37 +196,71 @@
 
 /datum/traitor_objective/assassinate/calling_card/ungenerate_objective()
 	UnregisterSignal(kill_target, COMSIG_PARENT_QDELETING)
+=======
+/datum/traitor_objective/target_player/assassinate/calling_card/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+	. = ..()
+	if(!.) //didn't generate
+		return FALSE
+	RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(on_target_qdeleted))
+
+/datum/traitor_objective/target_player/assassinate/calling_card/ungenerate_objective()
+	UnregisterSignal(target, COMSIG_PARENT_QDELETING)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..() //unsets kill target
 	if(card)
 		UnregisterSignal(card, COMSIG_ITEM_EQUIPPED)
 	card = null
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/calling_card/on_target_qdeleted()
 	//you cannot plant anything on someone who is gone gone, so even if this happens after you're still liable to fail
 	fail_objective(penalty_cost = telecrystal_penalty)
 
 /datum/traitor_objective/assassinate/behead/special_target_filter(list/possible_targets)
+=======
+/datum/traitor_objective/target_player/assassinate/calling_card/on_target_qdeleted()
+	//you cannot plant anything on someone who is gone gone, so even if this happens after you're still liable to fail
+	fail_objective(penalty_cost = telecrystal_penalty)
+
+/datum/traitor_objective/target_player/assassinate/behead/special_target_filter(list/possible_targets)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/datum/mind/possible_target as anything in possible_targets)
 		var/mob/living/carbon/possible_current = possible_target.current
 		var/obj/item/bodypart/head/behead_goal = possible_current.get_bodypart(BODY_ZONE_HEAD)
 		if(!behead_goal)
 			possible_targets -= possible_target //cannot be beheaded without a head
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/behead/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+=======
+/datum/traitor_objective/target_player/assassinate/behead/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.) //didn't generate
 		return FALSE
 	AddComponent(/datum/component/traitor_objective_register, behead_goal, fail_signals = list(COMSIG_PARENT_QDELETING))
+<<<<<<< HEAD
 	RegisterSignal(kill_target, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(on_target_dismembered))
 
 /datum/traitor_objective/assassinate/behead/ungenerate_objective()
 	UnregisterSignal(kill_target, COMSIG_CARBON_REMOVE_LIMB)
 	. = ..() //this unsets kill_target
+=======
+	RegisterSignal(target, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(on_target_dismembered))
+
+/datum/traitor_objective/target_player/assassinate/behead/ungenerate_objective()
+	UnregisterSignal(target, COMSIG_CARBON_REMOVE_LIMB)
+	. = ..() //this unsets target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(behead_goal)
 		UnregisterSignal(behead_goal, COMSIG_ITEM_PICKUP)
 	behead_goal = null
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/behead/proc/on_head_pickup(datum/source, mob/taker)
+=======
+/datum/traitor_objective/target_player/assassinate/behead/proc/on_head_pickup(datum/source, mob/taker)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 	if(objective_state == OBJECTIVE_STATE_INACTIVE) //just in case- this shouldn't happen?
 		fail_objective()
@@ -150,7 +269,11 @@
 		taker.visible_message(span_notice("[taker] holds [behead_goal] into the air for a moment."), span_boldnotice("You lift [behead_goal] into the air for a moment."))
 		succeed_objective()
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/behead/proc/on_target_dismembered(datum/source, obj/item/bodypart/head/lost_head, special)
+=======
+/datum/traitor_objective/target_player/assassinate/behead/proc/on_target_dismembered(datum/source, obj/item/bodypart/head/lost_head, special)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 	if(!istype(lost_head))
 		return
@@ -161,15 +284,26 @@
 		behead_goal = lost_head
 		RegisterSignal(behead_goal, COMSIG_ITEM_PICKUP, PROC_REF(on_head_pickup))
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/New(datum/uplink_handler/handler)
 	. = ..()
 	AddComponent(/datum/component/traitor_objective_limit_per_time, \
 		/datum/traitor_objective/assassinate, \
+=======
+/datum/traitor_objective/target_player/assassinate/New(datum/uplink_handler/handler)
+	. = ..()
+	AddComponent(/datum/component/traitor_objective_limit_per_time, \
+		/datum/traitor_objective/target_player, \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		time_period = objective_period, \
 		maximum_objectives = maximum_objectives_in_period \
 	)
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+=======
+/datum/traitor_objective/target_player/assassinate/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/list/already_targeting = list() //List of minds we're already targeting. The possible_duplicates is a list of objectives, so let's not mix things
 	for(var/datum/objective/task as anything in handler.primary_objectives)
@@ -210,8 +344,13 @@
 			if((possible_target.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND))
 				continue
 		possible_targets += possible_target
+<<<<<<< HEAD
 	for(var/datum/traitor_objective/assassinate/objective as anything in possible_duplicates)
 		possible_targets -= objective.kill_target
+=======
+	for(var/datum/traitor_objective/target_player/objective as anything in possible_duplicates)
+		possible_targets -= objective.target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(try_target_late_joiners)
 		var/list/all_possible_targets = possible_targets.Copy()
 		for(var/datum/mind/possible_target as anything in all_possible_targets)
@@ -223,6 +362,7 @@
 	if(!possible_targets.len)
 		return FALSE //MISSION FAILED, WE'LL GET EM NEXT TIME
 
+<<<<<<< HEAD
 	var/datum/mind/kill_target_mind = pick(possible_targets)
 	kill_target = kill_target_mind.current
 	replace_in_name("%TARGET%", kill_target.real_name)
@@ -239,12 +379,34 @@
 	return
 
 /datum/traitor_objective/assassinate/proc/on_target_qdeleted()
+=======
+	var/datum/mind/target_mind = pick(possible_targets)
+	target = target_mind.current
+	replace_in_name("%TARGET%", target.real_name)
+	replace_in_name("%JOB TITLE%", target_mind.assigned_role.title)
+	RegisterSignal(target, COMSIG_LIVING_DEATH, PROC_REF(on_target_death))
+	return TRUE
+
+/datum/traitor_objective/target_player/assassinate/ungenerate_objective()
+	UnregisterSignal(target, COMSIG_LIVING_DEATH)
+	target = null
+
+///proc for checking for special states that invalidate a target
+/datum/traitor_objective/target_player/assassinate/proc/special_target_filter(list/possible_targets)
+	return
+
+/datum/traitor_objective/target_player/assassinate/proc/on_target_qdeleted()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 	if(objective_state == OBJECTIVE_STATE_INACTIVE)
 		//don't take an objective target of someone who is already obliterated
 		fail_objective()
 
+<<<<<<< HEAD
 /datum/traitor_objective/assassinate/proc/on_target_death()
+=======
+/datum/traitor_objective/target_player/assassinate/proc/on_target_death()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 	if(objective_state == OBJECTIVE_STATE_INACTIVE)
 		//don't take an objective target of someone who is already dead

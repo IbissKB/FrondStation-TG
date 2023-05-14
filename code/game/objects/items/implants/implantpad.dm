@@ -1,7 +1,11 @@
 /obj/item/implantpad//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "implant pad"
 	desc = "Used to modify implants."
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/device.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "implantpad-0"
 	inhand_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
@@ -34,7 +38,11 @@
 
 /obj/item/implantpad/AltClick(mob/user)
 	..()
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!case)
 		to_chat(user, span_warning("There's no implant to remove from [src]."))
@@ -60,7 +68,11 @@
 		return ..()
 
 /obj/item/implantpad/ui_interact(mob/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.unset_machine(src)
 		user << browse(null, "window=implantpad")
 		return

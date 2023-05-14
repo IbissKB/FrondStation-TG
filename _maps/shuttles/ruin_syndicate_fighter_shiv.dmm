@@ -1,5 +1,15 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+<<<<<<< HEAD
 "aA" = (
+=======
+"cZ" = (
+/obj/machinery/porta_turret/syndicate/energy{
+	dir = 4
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/ruin/caravan/syndicate1)
+"dc" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
@@ -14,11 +24,16 @@
 	req_access = list("syndicate")
 	},
 /obj/structure/cable,
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/pilot{
+=======
+/mob/living/basic/syndicate/ranged/smg/pilot{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	environment_smash = 0
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/ruin/caravan/syndicate1)
+<<<<<<< HEAD
 "fh" = (
 /obj/machinery/camera/xray/directional/west{
 	c_tag = "External View";
@@ -31,6 +46,12 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/ruin/caravan/syndicate1)
 "qx" = (
+=======
+"ie" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/ruin/caravan/syndicate1)
+"qe" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/shuttle/caravan/syndicate1{
@@ -38,6 +59,7 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/ruin/caravan/syndicate1)
+<<<<<<< HEAD
 "uM" = (
 /obj/machinery/power/apc/highcap/ten_k/directional/west{
 	name = "Syndicate Fighter Power Controller";
@@ -51,6 +73,12 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/ruin/caravan/syndicate1)
 "uW" = (
+=======
+"qu" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/ruin/caravan/syndicate1)
+"tO" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/camera_advanced/shuttle_docker/caravan/syndicate1,
 /obj/machinery/button/door/directional/west{
@@ -62,6 +90,7 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/ruin/caravan/syndicate1)
+<<<<<<< HEAD
 "vD" = (
 /obj/machinery/porta_turret/syndicate/energy{
 	dir = 4
@@ -72,6 +101,26 @@
 /turf/template_noop,
 /area/template_noop)
 "MC" = (
+=======
+"Jv" = (
+/turf/template_noop,
+/area/template_noop)
+"UZ" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/ruin/caravan/syndicate1)
+"Ve" = (
+/obj/machinery/camera/xray/directional/west{
+	c_tag = "External View";
+	network = list("caravansyndicate1");
+	pixel_x = 32
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/ruin/caravan/syndicate1)
+"Yi" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/hatch{
 	id_tag = "caravansyndicate1_bolt";
@@ -92,6 +141,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/plating,
 /area/shuttle/ruin/caravan/syndicate1)
+<<<<<<< HEAD
 "YP" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
@@ -100,21 +150,42 @@
 /area/shuttle/ruin/caravan/syndicate1)
 "YX" = (
 /turf/closed/wall/mineral/plastitanium,
+=======
+"YY" = (
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/machinery/computer/security{
+	dir = 1;
+	network = list("caravansyndicate1")
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/ruin/caravan/syndicate1)
 
 (1,1,1) = {"
 Jv
 Jv
+<<<<<<< HEAD
 YP
 fp
 MC
 fp
 YP
+=======
+UZ
+qu
+Yi
+qu
+UZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Jv
 Jv
 "}
 (2,1,1) = {"
 Jv
+<<<<<<< HEAD
 YP
 fp
 uW
@@ -148,6 +219,41 @@ fp
 "}
 (5,1,1) = {"
 vD
+=======
+UZ
+qu
+tO
+dc
+YY
+qu
+UZ
+Jv
+"}
+(3,1,1) = {"
+ie
+qu
+qu
+qu
+qe
+qu
+qu
+qu
+ie
+"}
+(4,1,1) = {"
+qu
+ie
+Jv
+cZ
+Ve
+cZ
+Jv
+ie
+qu
+"}
+(5,1,1) = {"
+cZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Jv
 Jv
 Jv
@@ -155,5 +261,9 @@ Jv
 Jv
 Jv
 Jv
+<<<<<<< HEAD
 vD
+=======
+cZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}

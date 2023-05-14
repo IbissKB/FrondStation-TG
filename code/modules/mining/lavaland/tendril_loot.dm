@@ -9,7 +9,11 @@
 
 /obj/item/disk/design_disk/modkit_disc/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	blueprints[1] = new modkit_design
+=======
+	blueprints += new modkit_design
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/disk/design_disk/modkit_disc/mob_and_turf_aoe
 	name = "Offensive Mining Explosion Mod Disk"
@@ -38,28 +42,44 @@
 	name = "Kinetic Accelerator Offensive Mining Explosion Mod"
 	desc = "A device which causes kinetic accelerators to fire AoE blasts that destroy rock and damage creatures."
 	id = "hyperaoemod"
+<<<<<<< HEAD
 	materials = list(/datum/material/iron = 7000, /datum/material/glass = 3000, /datum/material/silver = 3000, /datum/material/gold = 3000, /datum/material/diamond = 4000)
+=======
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*3.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT*1.5, /datum/material/silver =SHEET_MATERIAL_AMOUNT*1.5, /datum/material/gold =SHEET_MATERIAL_AMOUNT*1.5, /datum/material/diamond = SHEET_MATERIAL_AMOUNT*2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	build_path = /obj/item/borg/upgrade/modkit/aoe/turfs/andmobs
 
 /datum/design/unique_modkit/rapid_repeater
 	name = "Kinetic Accelerator Rapid Repeater Mod"
 	desc = "A device which greatly reduces a kinetic accelerator's cooldown on striking a living target or rock, but greatly increases its base cooldown."
 	id = "repeatermod"
+<<<<<<< HEAD
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000, /datum/material/uranium = 8000, /datum/material/bluespace = 2000)
+=======
+	materials = list(/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/uranium = SHEET_MATERIAL_AMOUNT*4, /datum/material/bluespace =SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	build_path = /obj/item/borg/upgrade/modkit/cooldown/repeater
 
 /datum/design/unique_modkit/resonator_blast
 	name = "Kinetic Accelerator Resonator Blast Mod"
 	desc = "A device which causes kinetic accelerators to fire shots that leave and detonate resonator blasts."
 	id = "resonatormod"
+<<<<<<< HEAD
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000, /datum/material/silver = 5000, /datum/material/uranium = 5000)
+=======
+	materials = list(/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT*5, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT*5, /datum/material/silver =HALF_SHEET_MATERIAL_AMOUNT*5, /datum/material/uranium =SHEET_MATERIAL_AMOUNT * 2.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	build_path = /obj/item/borg/upgrade/modkit/resonator_blasts
 
 /datum/design/unique_modkit/bounty
 	name = "Kinetic Accelerator Death Syphon Mod"
 	desc = "A device which causes kinetic accelerators to permanently gain damage against creature types killed with it."
 	id = "bountymod"
+<<<<<<< HEAD
 	materials = list(/datum/material/iron = 4000, /datum/material/silver = 4000, /datum/material/gold = 4000, /datum/material/bluespace = 4000)
+=======
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*2, /datum/material/silver = SHEET_MATERIAL_AMOUNT*2, /datum/material/gold = SHEET_MATERIAL_AMOUNT*2, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT*2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	reagents_list = list(/datum/reagent/blood = 40)
 	build_path = /obj/item/borg/upgrade/modkit/bounty
 
@@ -166,10 +186,15 @@
 	to_chat(user, span_warning("You feel your life being drained by the pendant..."))
 	if(do_after(user, 40, target = user))
 		to_chat(user, span_notice("Your lifeforce is now linked to the pendant! You feel like removing it would kill you, and yet you instinctively know that until then, you won't die."))
+<<<<<<< HEAD
 		ADD_TRAIT(user, TRAIT_NODEATH, CLOTHING_TRAIT)
 		ADD_TRAIT(user, TRAIT_NOHARDCRIT, CLOTHING_TRAIT)
 		ADD_TRAIT(user, TRAIT_NOCRITDAMAGE, CLOTHING_TRAIT)
 		RegisterSignal(user, COMSIG_CARBON_HEALTH_UPDATE, PROC_REF(check_health))
+=======
+		user.add_traits(list(TRAIT_NODEATH, TRAIT_NOHARDCRIT, TRAIT_NOCRITDAMAGE), CLOTHING_TRAIT)
+		RegisterSignal(user, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(check_health))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		icon_state = "memento_mori_active"
 		active_owner = user
 
@@ -177,7 +202,11 @@
 	icon_state = "memento_mori"
 	if(!active_owner)
 		return
+<<<<<<< HEAD
 	UnregisterSignal(active_owner, COMSIG_CARBON_HEALTH_UPDATE)
+=======
+	UnregisterSignal(active_owner, COMSIG_LIVING_HEALTH_UPDATE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/human/H = active_owner //to avoid infinite looping when dust unequips the pendant
 	active_owner = null
 	to_chat(H, span_userdanger("You feel your life rapidly slipping away from you!"))
@@ -209,7 +238,11 @@
 
 /obj/item/clothing/neck/necklace/memento_mori/proc/regurgitate_guardian(mob/living/simple_animal/hostile/guardian/guardian)
 	guardian.locked = FALSE
+<<<<<<< HEAD
 	guardian.Recall(TRUE)
+=======
+	guardian.recall(forced = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(guardian, span_notice("You have been returned back from your summoner's pendant!"))
 	guardian.playsound_local(get_turf(guardian), 'sound/magic/repulse.ogg', 50, TRUE)
 
@@ -230,8 +263,13 @@
 	name = "spooky lantern"
 	desc = "This lantern gives off no light, but is home to a friendly wisp."
 	icon = 'icons/obj/lighting.dmi'
+<<<<<<< HEAD
 	icon_state = "lantern-blue"
 	inhand_icon_state = "lantern"
+=======
+	icon_state = "lantern-blue-on"
+	inhand_icon_state = "lantern-blue-on"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	lefthand_file = 'icons/mob/inhands/equipment/mining_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/mining_righthand.dmi'
 	var/obj/effect/wisp/wisp
@@ -239,18 +277,33 @@
 /obj/item/wisp_lantern/attack_self(mob/user)
 	if(!wisp)
 		to_chat(user, span_warning("The wisp has gone missing!"))
+<<<<<<< HEAD
 		icon_state = "lantern"
+=======
+		icon_state = "lantern-blue"
+		inhand_icon_state = "lantern-blue"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(wisp.loc == src)
 		to_chat(user, span_notice("You release the wisp. It begins to bob around your head."))
+<<<<<<< HEAD
 		icon_state = "lantern"
+=======
+		icon_state = "lantern-blue"
+		inhand_icon_state = "lantern-blue"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		wisp.orbit(user, 20)
 		SSblackbox.record_feedback("tally", "wisp_lantern", 1, "Freed")
 
 	else
 		to_chat(user, span_notice("You return the wisp to the lantern."))
+<<<<<<< HEAD
 		icon_state = "lantern-blue"
+=======
+		icon_state = "lantern-blue-on"
+		inhand_icon_state = "lantern-blue-on"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		wisp.forceMove(src)
 		SSblackbox.record_feedback("tally", "wisp_lantern", 1, "Returned")
 
@@ -277,7 +330,11 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
 	var/sight_flags = SEE_MOBS
+<<<<<<< HEAD
 	var/lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+=======
+	var/list/color_cutoffs = list(10, 25, 25)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/wisp/orbit(atom/thing, radius, clockwise, rotation_speed, rotation_segments, pre_rotation, lockinorbit)
 	. = ..()
@@ -296,8 +353,13 @@
 /obj/effect/wisp/proc/update_user_sight(mob/user)
 	SIGNAL_HANDLER
 	user.add_sight(sight_flags)
+<<<<<<< HEAD
 	if(!isnull(lighting_alpha))
 		user.lighting_alpha = min(user.lighting_alpha, lighting_alpha)
+=======
+	if(!isnull(color_cutoffs))
+		user.lighting_color_cutoffs = blend_cutoff_colors(user.lighting_color_cutoffs, color_cutoffs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Red/Blue Cubes
 /obj/item/warp_cube
@@ -542,7 +604,11 @@
 		if((methods & INGEST) && show_message)
 			to_chat(exposed_human, span_notice("<i>You feel nothing but a terrible aftertaste.</i>"))
 		return
+<<<<<<< HEAD
 	if(exposed_mob.getorganslot(ORGAN_SLOT_EXTERNAL_WINGS)) //Skyrat Edit
+=======
+	if(exposed_human.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(exposed_human, span_userdanger("A terrible pain travels down your back as your wings change shape!"))
 	else
 		to_chat(exposed_human, span_userdanger("A terrible pain travels down your back as wings burst out!"))
@@ -561,8 +627,13 @@
 	var/list/radial_wings = list()
 	var/list/name2type = list()
 	for(var/obj/item/organ/external/wings/functional/possible_type as anything in wing_types)
+<<<<<<< HEAD
 		//var/datum/sprite_accessory/accessory = GLOB.wings_list[possible_type.name]	//Gets the datum for every wing this species has, then prompts user with a radial menu //ORIGINAL
 		var/datum/sprite_accessory/accessory = GLOB.sprite_accessories["wings"][possible_type.name] //SKYRAT EDIT CHANGE
+=======
+		var/datum/sprite_accessory/accessory = initial(possible_type.sprite_accessory_override) //get the type
+		accessory = GLOB.sprite_accessories[initial(accessory.key)][initial(accessory.name)] //SKYRAT EDIT CHANGE - ORIGINAL: accessory = GLOB.wings_list[initial(accessory.name)] //get the singleton instance
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/image/img = image(icon = accessory.icon, icon_state = "m_wingsopen_[accessory.icon_state]_BEHIND") //Process the HUD elements
 		img.transform *= 0.5
 		img.pixel_x = -32
@@ -615,7 +686,20 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = LAVA_PROOF | FIRE_PROOF //they are from lavaland after all
+<<<<<<< HEAD
 	armor = list(MELEE = 15, BULLET = 25, LASER = 15, ENERGY = 15, BOMB = 100, BIO = 0, FIRE = 100, ACID = 30) //mostly bone bracer armor
+=======
+	armor_type = /datum/armor/gloves_gauntlets
+
+/datum/armor/gloves_gauntlets
+	melee = 15
+	bullet = 25
+	laser = 15
+	energy = 15
+	bomb = 100
+	fire = 100
+	acid = 30
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/gloves/gauntlets/equipped(mob/user, slot)
 	. = ..()
@@ -650,7 +734,11 @@
 	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/suit_digi.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/berserker
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 30, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/hooded_berserker
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -670,6 +758,18 @@
 		/obj/item/melee/cleaving_saw,
 	)
 
+<<<<<<< HEAD
+=======
+/datum/armor/hooded_berserker
+	melee = 30
+	bullet = 30
+	laser = 10
+	energy = 20
+	bomb = 50
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/berserker/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/anti_magic, ALL, inventory_flags = ITEM_SLOT_OCLOTHING)
@@ -687,7 +787,11 @@
 	icon_state = "berserker"
 	icon = 'icons/obj/clothing/head/helmet.dmi'
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 30, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/hooded_berserker
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	actions_types = list(/datum/action/item_action/berserk_mode)
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -708,9 +812,15 @@
 	. = ..()
 	. += span_notice("Berserk mode is [berserk_charge]% charged.")
 
+<<<<<<< HEAD
 /obj/item/clothing/head/hooded/berserker/process(delta_time)
 	if(berserk_active)
 		berserk_charge = clamp(berserk_charge - CHARGE_DRAINED_PER_SECOND * delta_time, 0, MAX_BERSERK_CHARGE)
+=======
+/obj/item/clothing/head/hooded/berserker/process(seconds_per_tick)
+	if(berserk_active)
+		berserk_charge = clamp(berserk_charge - CHARGE_DRAINED_PER_SECOND * seconds_per_tick, 0, MAX_BERSERK_CHARGE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!berserk_charge)
 		if(ishuman(loc))
 			end_berserk(loc)
@@ -739,7 +849,11 @@
 	to_chat(user, span_warning("You enter berserk mode."))
 	playsound(user, 'sound/magic/staff_healing.ogg', 50)
 	user.add_movespeed_modifier(/datum/movespeed_modifier/berserk)
+<<<<<<< HEAD
 	user.physiology.armor.melee += BERSERK_MELEE_ARMOR_ADDED
+=======
+	user.physiology.armor = user.physiology.armor.generate_new_with_modifiers(list(MELEE = BERSERK_MELEE_ARMOR_ADDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	user.next_move_modifier *= BERSERK_ATTACK_SPEED_MODIFIER
 	user.add_atom_colour(COLOR_BUBBLEGUM_RED, TEMPORARY_COLOUR_PRIORITY)
 	ADD_TRAIT(user, TRAIT_NOGUNS, BERSERK_TRAIT)
@@ -757,7 +871,11 @@
 	to_chat(user, span_warning("You exit berserk mode."))
 	playsound(user, 'sound/magic/summonitems_generic.ogg', 50)
 	user.remove_movespeed_modifier(/datum/movespeed_modifier/berserk)
+<<<<<<< HEAD
 	user.physiology.armor.melee -= BERSERK_MELEE_ARMOR_ADDED
+=======
+	user.physiology.armor = user.physiology.armor.generate_new_with_modifiers(list(MELEE = -BERSERK_MELEE_ARMOR_ADDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	user.next_move_modifier /= BERSERK_ATTACK_SPEED_MODIFIER
 	user.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, COLOR_BUBBLEGUM_RED)
 	REMOVE_TRAIT(user, TRAIT_NOGUNS, BERSERK_TRAIT)
@@ -777,8 +895,13 @@
 	icon_state = "godeye"
 	inhand_icon_state = null
 	vision_flags = SEE_TURFS
+<<<<<<< HEAD
 	darkness_view = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+=======
+	// Blue, light blue
+	color_cutoffs = list(15, 30, 40)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	custom_materials = null
 	var/datum/action/cooldown/scan/scan_ability
@@ -845,7 +968,11 @@
 	living_scanned.set_jitter_if_lower(100 SECONDS)
 	to_chat(living_scanned, span_warning("You've been staggered!"))
 	living_scanned.add_filter("scan", 2, list("type" = "outline", "color" = COLOR_YELLOW, "size" = 1))
+<<<<<<< HEAD
 	addtimer(CALLBACK(living_scanned, TYPE_PROC_REF(/atom/, remove_filter), "scan"), 30 SECONDS)
+=======
+	addtimer(CALLBACK(living_scanned, TYPE_PROC_REF(/datum, remove_filter), "scan"), 30 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	owner.playsound_local(get_turf(owner), 'sound/magic/smoke.ogg', 50, TRUE)
 	owner.balloon_alert(owner, "[living_scanned] scanned")
@@ -911,10 +1038,13 @@
 	katana.wash(CLEAN_TYPE_BLOOD)
 	return ..()
 
+<<<<<<< HEAD
 #define LEFT_SLASH "Left Slash"
 #define RIGHT_SLASH "Right Slash"
 #define COMBO_STEPS "steps"
 #define COMBO_PROC "proc"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define ATTACK_STRIKE "Hilt Strike"
 #define ATTACK_SLICE "Wide Slice"
 #define ATTACK_DASH "Dash Attack"
@@ -941,6 +1071,7 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | FREEZE_PROOF
 	var/shattered = FALSE
 	var/drew_blood = FALSE
+<<<<<<< HEAD
 	var/timerid
 	var/list/input_list = list()
 	var/list/combo_strings = list()
@@ -951,18 +1082,39 @@
 		ATTACK_CUT = list(COMBO_STEPS = list(RIGHT_SLASH, RIGHT_SLASH, LEFT_SLASH), COMBO_PROC = PROC_REF(cut)),
 		ATTACK_CLOAK = list(COMBO_STEPS = list(LEFT_SLASH, RIGHT_SLASH, LEFT_SLASH, RIGHT_SLASH), COMBO_PROC = PROC_REF(cloak)),
 		ATTACK_SHATTER = list(COMBO_STEPS = list(RIGHT_SLASH, LEFT_SLASH, RIGHT_SLASH, LEFT_SLASH), COMBO_PROC = PROC_REF(shatter)),
+=======
+	var/static/list/combo_list = list(
+		ATTACK_STRIKE = list(COMBO_STEPS = list(LEFT_ATTACK, LEFT_ATTACK, RIGHT_ATTACK), COMBO_PROC = PROC_REF(strike)),
+		ATTACK_SLICE = list(COMBO_STEPS = list(RIGHT_ATTACK, LEFT_ATTACK, LEFT_ATTACK), COMBO_PROC = PROC_REF(slice)),
+		ATTACK_DASH = list(COMBO_STEPS = list(LEFT_ATTACK, RIGHT_ATTACK, RIGHT_ATTACK), COMBO_PROC = PROC_REF(dash)),
+		ATTACK_CUT = list(COMBO_STEPS = list(RIGHT_ATTACK, RIGHT_ATTACK, LEFT_ATTACK), COMBO_PROC = PROC_REF(cut)),
+		ATTACK_CLOAK = list(COMBO_STEPS = list(LEFT_ATTACK, RIGHT_ATTACK, LEFT_ATTACK, RIGHT_ATTACK), COMBO_PROC = PROC_REF(cloak)),
+		ATTACK_SHATTER = list(COMBO_STEPS = list(RIGHT_ATTACK, LEFT_ATTACK, RIGHT_ATTACK, LEFT_ATTACK), COMBO_PROC = PROC_REF(shatter)),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /obj/item/cursed_katana/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	for(var/combo in combo_list)
 		var/list/combo_specifics = combo_list[combo]
 		var/step_string = english_list(combo_specifics[COMBO_STEPS])
 		combo_strings += span_notice("<b>[combo]</b> - [step_string]")
+=======
+	AddComponent( \
+		/datum/component/combo_attacks, \
+		combos = combo_list, \
+		max_combo_length = 4, \
+		examine_message = span_notice("<i>There seem to be inscriptions on it... you could examine them closer?</i>"), \
+		reset_message = "you return to neutral stance", \
+		can_attack_callback = CALLBACK(src, PROC_REF(can_combo_attack)) \
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/cursed_katana/examine(mob/user)
 	. = ..()
 	. += drew_blood ? span_nicegreen("It's sated... for now.") : span_danger("It will not be sated until it tastes blood.")
+<<<<<<< HEAD
 	. += span_notice("<i>There seem to be inscriptions on it... you could examine them closer?</i>")
 
 /obj/item/cursed_katana/examine_more(mob/user)
@@ -1001,12 +1153,27 @@
 	else
 		timerid = addtimer(CALLBACK(src, PROC_REF(reset_inputs), user, FALSE), 5 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 		return ..()
+=======
+
+/obj/item/cursed_katana/dropped(mob/user)
+	. = ..()
+	if(isturf(loc))
+		qdel(src)
+
+/obj/item/cursed_katana/attack(mob/living/target, mob/user, click_parameters)
+	if(target.stat < DEAD && target != user)
+		drew_blood = TRUE
+		if(ismining(target))
+			user.changeNext_move(CLICK_CD_RAPID)
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/cursed_katana/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(attack_type == PROJECTILE_ATTACK)
 		final_block_chance = 0 //Don't bring a sword to a gunfight
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/cursed_katana/proc/check_input(mob/living/target, mob/user)
 	for(var/combo in combo_list)
 		var/list/combo_specifics = combo_list[combo]
@@ -1021,6 +1188,10 @@
 		balloon_alert(user, "you return to neutral stance")
 	if(deltimer && timerid)
 		deltimer(timerid)
+=======
+/obj/item/cursed_katana/proc/can_combo_attack(mob/user, mob/living/target)
+	return target.stat != DEAD && target != user
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/cursed_katana/proc/strike(mob/living/target, mob/user)
 	user.visible_message(span_warning("[user] strikes [target] with [src]'s hilt!"),
@@ -1070,6 +1241,10 @@
 	user.add_sight(SEE_SELF) // so we can see us
 	user.visible_message(span_warning("[user] vanishes into thin air!"),
 		span_notice("You enter the dark cloak."))
+<<<<<<< HEAD
+=======
+	new /obj/effect/temp_visual/mook_dust(get_turf(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	if(ishostile(target))
 		var/mob/living/simple_animal/hostile/hostile_target = target
@@ -1084,6 +1259,10 @@
 	user.visible_message(span_warning("[user] appears from thin air!"),
 		span_notice("You exit the dark cloak."))
 	playsound(src, 'sound/magic/summonitems_generic.ogg', 50, TRUE)
+<<<<<<< HEAD
+=======
+	new /obj/effect/temp_visual/mook_dust(get_turf(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/cursed_katana/proc/cut(mob/living/target, mob/user)
 	user.visible_message(span_warning("[user] cuts [target]'s tendons!"),
@@ -1133,10 +1312,13 @@
 	shattered = FALSE
 	playsound(src, 'sound/magic/demon_consume.ogg', 50, TRUE)
 
+<<<<<<< HEAD
 #undef LEFT_SLASH
 #undef RIGHT_SLASH
 #undef COMBO_STEPS
 #undef COMBO_PROC
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef ATTACK_STRIKE
 #undef ATTACK_SLICE
 #undef ATTACK_DASH

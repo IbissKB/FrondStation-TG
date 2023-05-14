@@ -26,3 +26,9 @@
 
 /// The caliber used by the Oldarms 'Mk.11.4 rifle'
 #define CALIBER_223 ".223 Stinger"
+<<<<<<< HEAD
+=======
+
+/// Caliber used by the giant anti materiel rifle in guncargo
+#define CALIBER_60STRELA ".60 Strela"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

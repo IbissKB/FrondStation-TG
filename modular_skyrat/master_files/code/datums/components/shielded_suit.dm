@@ -1,6 +1,10 @@
 /datum/component/shielded/suit
 
+<<<<<<< HEAD
 /datum/component/shielded/suit/process(delta_time)
+=======
+/datum/component/shielded/suit/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(current_charges >= max_charges)
 		STOP_PROCESSING(SSdcs, src)
 		return

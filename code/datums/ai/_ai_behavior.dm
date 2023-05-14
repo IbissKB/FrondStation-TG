@@ -13,7 +13,11 @@
 	return TRUE
 
 ///Called by the AI controller when this action is performed
+<<<<<<< HEAD
 /datum/ai_behavior/proc/perform(delta_time, datum/ai_controller/controller, ...)
+=======
+/datum/ai_behavior/proc/perform(seconds_per_tick, datum/ai_controller/controller, ...)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	controller.behavior_cooldowns[src] = world.time + action_cooldown
 	return
 
@@ -23,6 +27,22 @@
 	controller.behavior_args -= type
 	if(behavior_flags & AI_BEHAVIOR_REQUIRE_MOVEMENT) //If this was a movement task, reset our movement target if necessary
 		if(!(behavior_flags & AI_BEHAVIOR_KEEP_MOVE_TARGET_ON_FINISH))
+<<<<<<< HEAD
 			controller.set_movement_target(null)
 		if(!(behavior_flags & AI_BEHAVIOR_KEEP_MOVING_TOWARDS_TARGET_ON_FINISH))
 			controller.ai_movement.stop_moving_towards(controller)
+=======
+			clear_movement_target(controller)
+		if(!(behavior_flags & AI_BEHAVIOR_KEEP_MOVING_TOWARDS_TARGET_ON_FINISH))
+			controller.ai_movement.stop_moving_towards(controller)
+
+/// Helper proc to ensure consistency in setting the source of the movement target
+/datum/ai_behavior/proc/set_movement_target(datum/ai_controller/controller, atom/target, datum/ai_movement/new_movement)
+	controller.set_movement_target(type, target, new_movement)
+
+/// Clear the controller's movement target only if it was us who last set it
+/datum/ai_behavior/proc/clear_movement_target(datum/ai_controller/controller)
+	if (controller.movement_target_source != type)
+		return
+	controller.set_movement_target(type, null)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

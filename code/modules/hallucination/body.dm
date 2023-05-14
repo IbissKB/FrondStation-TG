@@ -151,11 +151,19 @@
 	body_floats = TRUE
 
 /datum/hallucination/body/weird/faceless
+<<<<<<< HEAD
 	body_image_file = 'icons/mob/simple/simple_human.dmi'
 	body_image_state = "faceless"
 
 /datum/hallucination/body/weird/bones
 	body_image_file = 'icons/mob/simple/simple_human.dmi'
+=======
+	body_image_file = 'icons/mob/simple/traders.dmi'
+	body_image_state = "faceless"
+
+/datum/hallucination/body/weird/bones
+	body_image_file = 'icons/mob/simple/traders.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	body_image_state = "mrbones"
 
 /datum/hallucination/body/weird/freezer

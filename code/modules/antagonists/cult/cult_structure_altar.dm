@@ -22,7 +22,11 @@
 			OUTPUT_ITEMS = list(/obj/structure/constructshell),
 			),
 		UNHOLY_WATER = list(
+<<<<<<< HEAD
 			PREVIEW_IMAGE = image(icon = 'icons/obj/drinks.dmi', icon_state = "holyflask"),
+=======
+			PREVIEW_IMAGE = image(icon = 'icons/obj/drinks/bottles.dmi', icon_state = "holyflask"),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			OUTPUT_ITEMS = list(/obj/item/reagent_containers/cup/beaker/unholywater),
 			),
 	)

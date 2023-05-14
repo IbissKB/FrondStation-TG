@@ -129,7 +129,11 @@
 	. = ..()
 	for(var/mob/living/living_mob in orange(3, get_turf(holder.my_atom)))
 		if(living_mob.flash_act(1, length = 5))
+<<<<<<< HEAD
 			living_mob.set_blurriness(10)
+=======
+			living_mob.set_eye_blur(20 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	holder.my_atom.audible_message(span_notice("[icon2html(holder.my_atom, viewers(DEFAULT_MESSAGE_RANGE, src))] The [holder.my_atom] lets out a loud bang!"))
 	playsound(holder.my_atom, 'sound/effects/explosion1.ogg', 50, 1)
 

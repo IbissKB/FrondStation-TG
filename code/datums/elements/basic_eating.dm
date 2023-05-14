@@ -6,18 +6,36 @@
 /datum/element/basic_eating
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
+<<<<<<< HEAD
 	///Path of the reagent added
 	var/heal_amt
 	/// Types the animal can eat.
 	var/list/food_types
 
 /datum/element/basic_eating/Attach(datum/target, heal_amt = 0, food_types = list())
+=======
+	/// Amount to heal
+	var/heal_amt
+	/// Amount to hurt
+	var/damage_amount
+	/// Type of hurt to apply
+	var/damage_type
+	/// Types the animal can eat.
+	var/list/food_types
+
+/datum/element/basic_eating/Attach(datum/target, heal_amt = 0, damage_amount = 0, damage_type = null, food_types = list())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	if(!isliving(target))
 		return ELEMENT_INCOMPATIBLE
 
 	src.heal_amt = heal_amt
+<<<<<<< HEAD
+=======
+	src.damage_amount = damage_amount
+	src.damage_type = damage_type
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	src.food_types = food_types
 
 	//this lets players eat
@@ -38,6 +56,7 @@
 	try_eating(eater, target)
 
 /datum/element/basic_eating/proc/try_eating(mob/living/eater, atom/target)
+<<<<<<< HEAD
 	if(eater.combat_mode)
 		return
 	if(!is_type_in_list(target, food_types))
@@ -47,5 +66,29 @@
 	if(heal_amt)
 		eater.heal_overall_damage(heal_amt)
 	eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target][healed ? ", restoring some health" : ""]."))
+=======
+	if(!is_type_in_list(target, food_types))
+		return
+	var/eat_verb = pick("bite","chew","nibble","gnaw","gobble","chomp")
+
+	if (heal_amt > 0)
+		var/healed = heal_amt && eater.health < eater.maxHealth
+		if(heal_amt)
+			eater.heal_overall_damage(heal_amt)
+		eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target][healed ? ", restoring some health" : ""]."))
+		finish_eating(eater, target)
+		return
+
+	if (damage_amount > 0 && damage_type)
+		eater.apply_damage(damage_amount, damage_type)
+		eater.visible_message(span_notice("[eater] [eat_verb]s [target], and seems to hurt itself."), span_notice("You [eat_verb] [target], hurting yourself in the process."))
+		finish_eating(eater, target)
+		return
+
+	eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target]."))
+	finish_eating(eater, target)
+
+/datum/element/basic_eating/proc/finish_eating(mob/living/eater, atom/target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	qdel(target)

@@ -11,7 +11,11 @@
 	worn_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=150)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 1.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/t_scanner/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins to emit terahertz-rays into [user.p_their()] brain with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))

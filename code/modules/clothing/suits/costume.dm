@@ -31,7 +31,11 @@
 	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/costume/pirate/armored
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, FIRE = 60, ACID = 75)
+=======
+	armor_type = /datum/armor/pirate_armored
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	strip_delay = 40
 	equip_delay_other = 20
 
@@ -42,7 +46,11 @@
 	inhand_icon_state = null
 
 /obj/item/clothing/suit/costume/pirate/armored
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, FIRE = 60, ACID = 75)
+=======
+	armor_type = /datum/armor/pirate_armored
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	strip_delay = 40
 	equip_delay_other = 20
 
@@ -63,7 +71,20 @@
 	inhand_icon_state = null
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+<<<<<<< HEAD
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
+=======
+	armor_type = /datum/armor/costume_justice
+
+/datum/armor/costume_justice
+	melee = 35
+	bullet = 30
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/costume/judgerobe
 	name = "judge's robe"
@@ -72,7 +93,10 @@
 	inhand_icon_state = "judge"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	allowed = list(/obj/item/storage/fancy/cigarettes, /obj/item/stack/spacecash)
+<<<<<<< HEAD
 	flags_inv = HIDEJUMPSUIT
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/apron/overalls
 	name = "coveralls"
@@ -117,7 +141,11 @@
 	inhand_icon_state = "imperium_monk"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
+<<<<<<< HEAD
 	allowed = list(/obj/item/storage/book/bible, /obj/item/nullrod, /obj/item/reagent_containers/cup/glass/bottle/holywater, /obj/item/storage/fancy/candle_box, /obj/item/candle, /obj/item/tank/internals/emergency_oxygen)
+=======
+	allowed = list(/obj/item/storage/book/bible, /obj/item/nullrod, /obj/item/reagent_containers/cup/glass/bottle/holywater, /obj/item/storage/fancy/candle_box, /obj/item/flashlight/flare/candle, /obj/item/tank/internals/emergency_oxygen)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/costume/chickensuit
 	name = "chicken suit"
@@ -267,7 +295,11 @@
 	desc = "A slimming piece of dubious space carp technology, you suspect it won't stand up to hand-to-hand blows."
 	icon_state = "carp_suit"
 	inhand_icon_state = "space_suit_syndicate"
+<<<<<<< HEAD
 	armor = list(MELEE = -20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 60, ACID = 75) //As whimpy whimpy whoo
+=======
+	armor_type = /datum/armor/carp_costume_spaceproof
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	allowed = list(/obj/item/tank/internals, /obj/item/gun/ballistic/rifle/boltaction/harpoon) //I'm giving you a hint here
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL // SKYRAT EDIT ADDITION - HIDETAIL
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -279,11 +311,24 @@
 	hoodtype = /obj/item/clothing/head/hooded/carp_hood/spaceproof
 	resistance_flags = NONE
 
+<<<<<<< HEAD
+=======
+/datum/armor/carp_costume_spaceproof
+	melee = -20
+	bio = 100
+	fire = 60
+	acid = 75
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hooded/carp_hood/spaceproof
 	name = "carp helmet"
 	desc = "Spaceworthy and it looks like a space carp's head, smells like one too."
 	icon_state = "carp_helm"
+<<<<<<< HEAD
 	armor = list(MELEE = -20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 60, ACID = 75) //As whimpy as a space carp
+=======
+	armor_type = /datum/armor/carp_hood_spaceproof
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACIALHAIR //facial hair will clip with the helm, this'll need a dynamic_fhair_suffix at some point.
 	min_cold_protection_temperature = SPACE_HELM_MIN_TEMP_PROTECT
 	heat_protection = HEAD
@@ -294,6 +339,15 @@
 	flash_protect = FLASH_PROTECTION_WELDER
 	flags_cover = HEADCOVERSEYES|HEADCOVERSMOUTH|PEPPERPROOF
 
+<<<<<<< HEAD
+=======
+/datum/armor/carp_hood_spaceproof
+	melee = -20
+	bio = 100
+	fire = 60
+	acid = 75
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hooded/carp_hood/spaceproof/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, LOCKED_HELMET_TRAIT)
@@ -452,7 +506,11 @@
 	name = "bronze suit"
 	desc = "A big and clanky suit made of bronze that offers no protection and looks very unfashionable. Nice."
 	icon_state = "clockwork_cuirass_old"
+<<<<<<< HEAD
 	armor = list(MELEE = 5, BULLET = 0, LASER = -5, ENERGY = -15, BOMB = 10, BIO = 0, FIRE = 20, ACID = 20)
+=======
+	armor_type = /datum/armor/costume_bronze
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/hooded/mysticrobe
 	name = "mystic's robe"
@@ -483,7 +541,20 @@
 	icon = 'icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	inhand_icon_state = null
+<<<<<<< HEAD
 	armor = list(MELEE = 25, BULLET = 15, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
+=======
+	armor_type = /datum/armor/suit_coordinator
+
+/datum/armor/suit_coordinator
+	melee = 25
+	bullet = 15
+	laser = 25
+	energy = 35
+	bomb = 25
+	fire = 50
+	acid = 50
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/costume/hawaiian
 	name = "hawaiian overshirt"

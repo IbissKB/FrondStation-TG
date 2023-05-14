@@ -13,7 +13,11 @@
 	possible_transfer_amounts = list()
 
 /obj/item/reagent_containers/chem_pack/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE) && !sealed)
+=======
+	if(user.can_perform_action(src, NEED_DEXTERITY) && !sealed)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50)))
 			to_chat(user, span_warning("Uh... whoops! You accidentally spill the content of the bag onto yourself."))
 			SplashReagents(user)

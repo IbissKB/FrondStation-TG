@@ -26,8 +26,13 @@
 /obj/machinery/launchpad/RefreshParts()
 	. = ..()
 	var/max_range_multiplier = 0
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		max_range_multiplier += M.rating
+=======
+	for(var/datum/stock_part/servo/servo in component_parts)
+		max_range_multiplier += servo.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	range = initial(range)
 	range *= max_range_multiplier
 
@@ -287,7 +292,11 @@
 /obj/machinery/launchpad/briefcase/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr)
+<<<<<<< HEAD
 		if(!briefcase || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = TRUE))
+=======
+		if(!briefcase || !usr.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 		usr.visible_message(span_notice("[usr] starts closing [src]..."), span_notice("You start closing [src]..."))
 		if(do_after(usr, 30, target = usr))
@@ -495,6 +504,14 @@
 		on_fail.set_output(COMPONENT_SIGNAL)
 		return
 
+<<<<<<< HEAD
+=======
+	if(abs(x_pos.value) > attached_launchpad.range || abs(y_pos.value) > attached_launchpad.range)
+		why_fail.set_output("Out of range!")
+		on_fail.set_output(COMPONENT_SIGNAL)
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attached_launchpad.set_offset(x_pos.value, y_pos.value)
 
 	if(COMPONENT_TRIGGERED_BY(port, x_pos))
@@ -505,6 +522,10 @@
 		y_pos.set_value(attached_launchpad.y_offset)
 		return
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/checks = attached_launchpad.teleport_checks()
 	if(!isnull(checks))
 		why_fail.set_output(checks)

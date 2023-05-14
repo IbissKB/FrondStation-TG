@@ -92,14 +92,21 @@
 	// first or not.  Its defined In Initialize yet its run first in templates
 	// BEFORE so... hummm
 	SSmapping.reg_in_areas_in_z(areas)
+<<<<<<< HEAD
 	SSnetworks.assign_areas_root_ids(areas, src)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!SSatoms.initialized)
 		return
 
 	SSatoms.InitializeAtoms(areas + turfs + movables, returns_created_atoms ? created_atoms : null)
 
 	for(var/turf/unlit as anything in turfs)
+<<<<<<< HEAD
 		if(unlit.always_lit)
+=======
+		if(unlit.space_lit)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		var/area/loc_area = unlit.loc
 		if(!loc_area.static_lighting)
@@ -152,6 +159,7 @@
 		T = locate(T.x - round(width/2) , T.y - round(height/2) , T.z)
 	if(!T)
 		return
+<<<<<<< HEAD
 	if(T.x+width > world.maxx)
 		return
 	if(T.y+height > world.maxy)
@@ -163,6 +171,20 @@
 	// iterate over turfs in the border and clear them from active atmos processing
 	for(var/turf/border_turf as anything in border)
 		SSair.remove_from_active(border_turf)
+=======
+	if((T.x+width) - 1 > world.maxx)
+		return
+	if((T.y+height) - 1 > world.maxy)
+		return
+
+	// Cache for sonic speed
+	var/list/to_rebuild = SSair.adjacent_rebuild
+
+	// iterate over turfs in the border and clear them from active atmos processing
+	for(var/turf/border_turf as anything in CORNER_BLOCK_OFFSET(T, width + 2, height + 2, -1, -1))
+		SSair.remove_from_active(border_turf)
+		to_rebuild -= border_turf
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		for(var/turf/sub_turf as anything in border_turf.atmos_adjacent_turfs)
 			sub_turf.atmos_adjacent_turfs?.Remove(border_turf)
 		border_turf.atmos_adjacent_turfs?.Cut()
@@ -179,6 +201,10 @@
 	parsed.turf_blacklist = turf_blacklist
 	if(!parsed.load(T.x, T.y, T.z, cropMap=TRUE, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=should_place_on_top))
 		return
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/bounds = parsed.bounds
 	if(!bounds)
 		return

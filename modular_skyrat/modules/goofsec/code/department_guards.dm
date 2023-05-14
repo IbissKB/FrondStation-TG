@@ -52,7 +52,11 @@
 */
 /obj/item/clothing/suit/armor/vest/blueshirt/skyrat
 	//Effectively the same as TG's blueshirt, including icon. The /skyrat path makes it easier for sorting.
+<<<<<<< HEAD
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi' //ORION TODO: deptguard vests need to be moved to a plain vest/skyrat subtype when suits.dmi gets split on our side
+=======
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi' //(Above) sci guard will get just the original blueshirt vest when that happens
 	unique_reskin = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
@@ -86,11 +90,20 @@
 */
 /obj/item/clothing/head/helmet/blueshirt/skyrat
 	//Effectively the same as TG's blueshirt, including icon. The /skyrat path makes it easier for sorting.
+<<<<<<< HEAD
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi' //ORION TODO: same as vests; needs to be moved to a plain helmet/skyrat when the hats.dmi is split
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi' //Sci guard will get the plain TG version of this item too
 	unique_reskin = null
 
 /obj/item/clothing/head/helmet/blueshirt/skyrat/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
+=======
+	//The base one is used for science guards, and the sprite is unchanged
+	unique_reskin = null
+
+/obj/item/clothing/head/helmet/blueshirt/skyrat/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "mallcop_helm"
 	worn_icon_state = "mallcop_helm"
 
@@ -144,7 +157,11 @@
 	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
 
 /obj/effect/landmark/start/bouncer
+<<<<<<< HEAD
 	name = "Bouncer"
+=======
+	name = "Service Guard"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "Bouncer"
 	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
 
@@ -159,7 +176,10 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_RD
+<<<<<<< HEAD
 	selection_color = "#ffeeee"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "SCIENCE_GUARD"
 
@@ -196,9 +216,17 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat
+<<<<<<< HEAD
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/science = 1,
 		/obj/item/assembly/flash/handheld = 1,
+=======
+	r_pocket = /obj/item/assembly/flash/handheld
+	l_pocket = /obj/item/restraints/handcuffs/cable/pink
+	backpack_contents = list(
+		/obj/item/melee/baton/security/loaded/departmental/science = 1,
+		/obj/item/storage/box/gunset/pepperball = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	backpack = /obj/item/storage/backpack/science
@@ -213,7 +241,10 @@
 	trim_state = "trim_calhoun"
 	department_color = COLOR_SCIENCE_PINK
 	subdepartment_color = COLOR_SCIENCE_PINK
+<<<<<<< HEAD
 	orbit_icon = "shield-heart"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	sechud_icon_state = SECHUD_SCIENCE_GUARD
 	extra_access = list(
 		ACCESS_AUX_BASE,
@@ -261,7 +292,10 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_CMO
+<<<<<<< HEAD
 	selection_color = "#ffeeee"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "ORDERLY"
 
@@ -299,9 +333,17 @@
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/orderly
+<<<<<<< HEAD
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/medical = 1,
 		/obj/item/assembly/flash/handheld = 1,
+=======
+	r_pocket = /obj/item/assembly/flash/handheld
+	l_pocket = /obj/item/restraints/handcuffs/cable/blue
+	backpack_contents = list(
+		/obj/item/melee/baton/security/loaded/departmental/medical = 1,
+		/obj/item/storage/box/gunset/pepperball = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	backpack = /obj/item/storage/backpack/medic
@@ -317,7 +359,10 @@
 	trim_state = "trim_orderly"
 	department_color = COLOR_MEDICAL_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
+<<<<<<< HEAD
 	orbit_icon = "shield-heart"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	sechud_icon_state = SECHUD_ORDERLY
 	extra_access = list(
 		ACCESS_BRIG_ENTRANCE,
@@ -359,7 +404,10 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_CE
+<<<<<<< HEAD
 	selection_color = "#ffeeee"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "ENGINEERING_GUARD"
 
@@ -396,9 +444,17 @@
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/engineering_guard
 	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/engineering_guard
+<<<<<<< HEAD
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/engineering = 1,
 		/obj/item/assembly/flash/handheld = 1,
+=======
+	r_pocket = /obj/item/assembly/flash/handheld
+	l_pocket = /obj/item/restraints/handcuffs/cable/yellow
+	backpack_contents = list(
+		/obj/item/melee/baton/security/loaded/departmental/engineering = 1,
+		/obj/item/storage/box/gunset/pepperball = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -414,7 +470,10 @@
 	trim_state = "trim_engiguard"
 	department_color = COLOR_ENGINEERING_ORANGE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
+<<<<<<< HEAD
 	orbit_icon = "shield-heart"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	sechud_icon_state = SECHUD_ENGINEERING_GUARD
 	extra_access = list(
 		ACCESS_ATMOSPHERICS,
@@ -462,7 +521,10 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_QM
+<<<<<<< HEAD
 	selection_color = "#ffeeee"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "CUSTOMS_AGENT"
 
@@ -500,9 +562,17 @@
 	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/customs_agent
 	glasses = /obj/item/clothing/glasses/hud/gun_permit
+<<<<<<< HEAD
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/cargo = 1,
 		/obj/item/assembly/flash/handheld = 1,
+=======
+	r_pocket = /obj/item/assembly/flash/handheld
+	l_pocket = /obj/item/restraints/handcuffs/cable/orange
+	backpack_contents = list(
+		/obj/item/melee/baton/security/loaded/departmental/cargo = 1,
+		/obj/item/storage/box/gunset/pepperball = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	backpack = /obj/item/storage/backpack
@@ -517,7 +587,10 @@
 	trim_state = "trim_customs"
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_CARGO_BROWN
+<<<<<<< HEAD
 	orbit_icon = "shield-heart"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	sechud_icon_state = SECHUD_CUSTOMS_AGENT
 	extra_access = list(
 		ACCESS_BRIG_ENTRANCE,
@@ -559,7 +632,10 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_HOP
+<<<<<<< HEAD
 	selection_color = "#ffeeee"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BOUNCER"
 
@@ -596,10 +672,18 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/guard
+<<<<<<< HEAD
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/service = 1,
+=======
+	l_pocket = /obj/item/restraints/handcuffs/cable/green
+	r_pocket = /obj/item/assembly/flash/handheld
+	backpack_contents = list(
+		/obj/item/melee/baton/security/loaded/departmental/service = 1,
+		/obj/item/storage/box/gunset/pepperball = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -613,12 +697,19 @@
 	assignment = "Bouncer"
 	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
 	trim_state = "trim_bouncer"
+<<<<<<< HEAD
 	orbit_icon = "shield-heart"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME // Personally speaking I'd have one of these with sec colors but I'm being authentic
 	sechud_icon_state = SECHUD_BOUNCER
 	extra_access = list(
 		ACCESS_BAR,
+<<<<<<< HEAD
+=======
+		ACCESS_SERVICE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_HYDROPONICS,
 		ACCESS_KITCHEN,
@@ -630,6 +721,10 @@
 	)
 	minimal_access = list(
 		ACCESS_BAR,
+<<<<<<< HEAD
+=======
+		ACCESS_SERVICE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_HYDROPONICS,
 		ACCESS_KITCHEN,
@@ -730,6 +825,57 @@
 	icon_state = "prison_baton"
 	valid_areas = list(/area/station/security/prison, /area/station/security/processing, /area/shuttle/escape)
 
+<<<<<<< HEAD
+=======
+/datum/supply_pack/security/baton_prison
+	name = "Prison Baton Crate"
+	desc = "Contains an extra baton for Corrections Officers. \
+		Just in case you hated the idea of a normal baton in their hands."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/prison)
+
+/datum/supply_pack/service/baton_service
+	name = "Service Baton Crate"
+	desc = "Contains an extra baton for Service Guards."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/service)
+
+/datum/supply_pack/medical/baton_medical
+	name = "Medical Baton Crate"
+	desc = "Contains an extra baton for Orderlies."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/medical)
+
+/datum/supply_pack/engineering/baton_engineering
+	name = "Engineering Baton Crate"
+	desc = "Contains an extra baton for Engineering Guards."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/engineering)
+
+/datum/supply_pack/science/baton_science
+	name = "Science Baton Crate"
+	desc = "Contains an extra baton for Science Guards."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/science)
+
+/datum/supply_pack/misc/baton_cargo
+	name = "Cargo Baton Crate"
+	desc = "Contains an extra baton for Customs Agents."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/cargo)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*
 * Garment Bags
 */

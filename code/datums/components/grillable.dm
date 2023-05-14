@@ -10,7 +10,11 @@
 	var/current_cook_time = 0
 	///Do we use the large steam sprite?
 	var/use_large_steam_sprite = FALSE
+<<<<<<< HEAD
 	/// REF() to the mob which placed us on the griddle
+=======
+	/// REF() to the mind which placed us on the griddle
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/who_placed_us
 
 	/// What type of pollutant we spread around as we are grilleed, can be none  // SKYRAT EDIT ADDITION
@@ -28,12 +32,28 @@
 	src.pollutant_type = pollutant_type //SKYRAT EDIT ADDITION
 
 /datum/component/grillable/RegisterWithParent()
+<<<<<<< HEAD
 	RegisterSignal(parent, COMSIG_ITEM_GRILL_PLACED_ON, PROC_REF(on_grill_start))
+=======
+	RegisterSignal(parent, COMSIG_ITEM_GRILL_PLACED, PROC_REF(on_grill_placed))
+	RegisterSignal(parent, COMSIG_ITEM_GRILL_TURNED_ON, PROC_REF(on_grill_turned_on))
+	RegisterSignal(parent, COMSIG_ITEM_GRILL_TURNED_OFF, PROC_REF(on_grill_turned_off))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(parent, COMSIG_ITEM_GRILL_PROCESS, PROC_REF(on_grill))
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 
 /datum/component/grillable/UnregisterFromParent()
+<<<<<<< HEAD
 	UnregisterSignal(parent, list(COMSIG_ITEM_GRILL_PLACED_ON, COMSIG_ITEM_GRILL_PROCESS, COMSIG_PARENT_EXAMINE))
+=======
+	UnregisterSignal(parent, list(
+		COMSIG_PARENT_EXAMINE,
+		COMSIG_ITEM_GRILL_TURNED_ON,
+		COMSIG_ITEM_GRILL_TURNED_OFF,
+		COMSIG_ITEM_GRILL_PROCESS,
+		COMSIG_ITEM_GRILL_PLACED,
+	))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Inherit the new values passed to the component
 /datum/component/grillable/InheritComponent(datum/component/grillable/new_comp, original, cook_result, required_cook_time, positive_result, use_large_steam_sprite)
@@ -48,6 +68,7 @@
 	if(use_large_steam_sprite)
 		src.use_large_steam_sprite = use_large_steam_sprite
 
+<<<<<<< HEAD
 /// Signal proc for [COMSIG_ITEM_GRILL_PLACED_ON], starts the grilling process.
 /datum/component/grillable/proc/on_grill_start(datum/source, mob/griller)
 	SIGNAL_HANDLER
@@ -56,13 +77,38 @@
 		who_placed_us = REF(griller)
 
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
+=======
+/// Signal proc for [COMSIG_ITEM_GRILL_PLACED], item is placed on the grill.
+/datum/component/grillable/proc/on_grill_placed(datum/source, mob/griller)
+	SIGNAL_HANDLER
+
+	if(griller && griller.mind)
+		who_placed_us = REF(griller.mind)
+
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
+
+/// Signal proc for [COMSIG_ITEM_GRILL_TURNED_ON], starts the grilling process.
+/datum/component/grillable/proc/on_grill_turned_on(datum/source)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(add_grilled_item_overlay))
 
 	var/atom/atom_parent = parent
 	atom_parent.update_appearance()
 
+<<<<<<< HEAD
 ///Ran every time an item is grilled by something
 /datum/component/grillable/proc/on_grill(datum/source, atom/used_grill, delta_time = 1)
+=======
+/// Signal proc for [COMSIG_ITEM_GRILL_TURNED_OFF], stops the grilling process.
+/datum/component/grillable/proc/on_grill_turned_off(datum/source)
+	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS)
+
+	var/atom/atom_parent = parent
+	atom_parent.update_appearance()
+
+///Ran every time an item is grilled by something
+/datum/component/grillable/proc/on_grill(datum/source, atom/used_grill, seconds_per_tick = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 
 	. = COMPONENT_HANDLED_GRILLING
@@ -72,7 +118,11 @@
 		parent_turf.pollute_turf(pollutant_type, 10)
 	//SKYRAT EDIT END
 
+<<<<<<< HEAD
 	current_cook_time += delta_time * 10 //turn it into ds
+=======
+	current_cook_time += seconds_per_tick * 10 //turn it into ds
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(current_cook_time >= required_cook_time)
 		finish_grilling(used_grill)
 
@@ -108,7 +158,14 @@
 
 	if(!current_cook_time) //Not grilled yet
 		if(positive_result)
+<<<<<<< HEAD
 			examine_list += span_notice("[parent] can be <b>grilled</b> into \a [initial(cook_result.name)].")
+=======
+			if(initial(cook_result.name) == PLURAL)
+				examine_list += span_notice("[parent] can be [span_bold("grilled")] into some [initial(cook_result.name)].")
+			else
+				examine_list += span_notice("[parent] can be [span_bold("grilled")] into \a [initial(cook_result.name)].")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(positive_result)

@@ -1,6 +1,13 @@
 GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 
 /datum/orbit_menu
+<<<<<<< HEAD
+=======
+	///mobs worth orbiting. Because spaghetti, all mobs have the point of interest, but only some are allowed to actually show up.
+	///this obviously should be changed in the future, so we only add mobs as POI if they actually are interesting, and we don't use
+	///a typecache.
+	var/static/list/mob_allowed_typecache
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/orbit_menu/ui_state(mob/user)
 	return GLOB.observer_state
@@ -45,6 +52,10 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 
 	var/list/alive = list()
 	var/list/antagonists = list()
+<<<<<<< HEAD
+=======
+	var/list/deadchat_controlled = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/dead = list()
 	var/list/ghosts = list()
 	var/list/misc = list()
@@ -56,6 +67,7 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 		var/mob/mob_poi = new_mob_pois[name]
 
 		var/poi_ref = REF(mob_poi)
+<<<<<<< HEAD
 		serialized["ref"] = poi_ref
 		serialized["full_name"] = name
 
@@ -63,6 +75,20 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 			var/number_of_orbiters = length(mob_poi.get_all_orbiters())
 			if (number_of_orbiters)
 				serialized["orbiters"] = number_of_orbiters
+=======
+
+		var/number_of_orbiters = length(mob_poi.get_all_orbiters())
+
+		serialized["ref"] = poi_ref
+		serialized["full_name"] = name
+		if(number_of_orbiters)
+			serialized["orbiters"] = number_of_orbiters
+
+		if(mob_poi.GetComponent(/datum/component/deadchat_control))
+			deadchat_controlled += list(serialized)
+
+		if(isobserver(mob_poi))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			ghosts += list(serialized)
 			continue
 
@@ -74,10 +100,13 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 			npcs += list(serialized)
 			continue
 
+<<<<<<< HEAD
 		var/number_of_orbiters = length(mob_poi.get_all_orbiters())
 		if(number_of_orbiters)
 			serialized["orbiters"] = number_of_orbiters
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/datum/mind/mind = mob_poi.mind
 		var/was_antagonist = FALSE
 
@@ -91,13 +120,20 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 			else
 				var/obj/item/card/id/id_card = player.get_idcard(hand_first = FALSE)
 				serialized["job"] = id_card?.get_trim_assignment()
+<<<<<<< HEAD
 				var/datum/id_trim/trim = id_card?.trim
 				serialized["job_icon"] = trim?.orbit_icon
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		for(var/datum/antagonist/antag_datum as anything in mind.antag_datums)
 			if (antag_datum.show_to_ghosts)
 				was_antagonist = TRUE
 				serialized["antag"] = antag_datum.name
+<<<<<<< HEAD
+=======
+				serialized["antag_group"] = antag_datum.antagpanel_category
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				antagonists += list(serialized)
 				break
 
@@ -107,6 +143,19 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 	for(var/name in new_other_pois)
 		var/atom/atom_poi = new_other_pois[name]
 
+<<<<<<< HEAD
+=======
+		// Deadchat Controlled objects are orbitable
+		if(atom_poi.GetComponent(/datum/component/deadchat_control))
+			var/number_of_orbiters = length(atom_poi.get_all_orbiters())
+			deadchat_controlled += list(list(
+				"ref" = REF(atom_poi),
+				"full_name" = name,
+				"orbiters" = number_of_orbiters,
+			))
+			continue
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		misc += list(list(
 			"ref" = REF(atom_poi),
 			"full_name" = name,
@@ -115,7 +164,11 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 		// Display the supermatter crystal integrity
 		if(istype(atom_poi, /obj/machinery/power/supermatter_crystal))
 			var/obj/machinery/power/supermatter_crystal/crystal = atom_poi
+<<<<<<< HEAD
 			misc[length(misc)]["extra"] = "Integrity: [crystal.get_integrity_percent()]%"
+=======
+			misc[length(misc)]["extra"] = "Integrity: [round(crystal.get_integrity_percent())]%"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		// Display the nuke timer
 		if(istype(atom_poi, /obj/machinery/nuclearbomb))
@@ -133,6 +186,10 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 	return list(
 		"alive" = alive,
 		"antagonists" = antagonists,
+<<<<<<< HEAD
+=======
+		"deadchat_controlled" = deadchat_controlled,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"dead" = dead,
 		"ghosts" = ghosts,
 		"misc" = misc,
@@ -147,15 +204,31 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
  * Helper POI validation function passed as a callback to various SSpoints_of_interest procs.
  *
  * Provides extended validation above and beyond standard, limiting mob POIs without minds or ckeys
+<<<<<<< HEAD
  * unless they're mobs, camera mobs or megafauna.
+=======
+ * unless they're mobs, camera mobs or megafauna. Also allows exceptions for mobs that are deadchat controlled.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  *
  * If they satisfy that requirement, falls back to default validation for the POI.
  */
 /datum/orbit_menu/proc/validate_mob_poi(datum/point_of_interest/mob_poi/potential_poi)
 	var/mob/potential_mob_poi = potential_poi.target
+<<<<<<< HEAD
 	// Skip mindless and ckeyless mobs except bots, cameramobs and megafauna.
 	if(!potential_mob_poi.mind && !potential_mob_poi.ckey)
 		if(!isbot(potential_mob_poi) && !iscameramob(potential_mob_poi) && !ismegafauna(potential_mob_poi))
+=======
+	if(!potential_mob_poi.mind && !potential_mob_poi.ckey)
+		if(!mob_allowed_typecache)
+			mob_allowed_typecache = typecacheof(list(
+				/mob/living/simple_animal/bot,
+				/mob/camera,
+				/mob/living/simple_animal/hostile/megafauna,
+				/mob/living/simple_animal/hostile/regalrat,
+			))
+		if(!is_type_in_typecache(potential_mob_poi, mob_allowed_typecache) && !potential_mob_poi.GetComponent(/datum/component/deadchat_control))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 
 	return potential_poi.validate()

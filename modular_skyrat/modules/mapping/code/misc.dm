@@ -19,7 +19,17 @@
 	theme = /datum/mod_theme/prototype/hauler
 	req_access = list(ACCESS_TARKON)
 	applied_cell = /obj/item/stock_parts/cell/high
+<<<<<<< HEAD
 	initial_modules = list(/obj/item/mod/module/storage/large_capacity, /obj/item/mod/module/welding, /obj/item/mod/module/clamp, /obj/item/mod/module/flashlight, /obj/item/mod/module/tether)
+=======
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/clamp,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/tether,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/suit_storage_unit/industrial/hauler
 	mod_type = /obj/item/mod/control/pre_equipped/prototype/hauler
@@ -34,4 +44,22 @@
 	removable = TRUE
 	complexity = 1
 	speed_added = 0.25
+<<<<<<< HEAD
 	armor_values = list(MELEE = 20, BULLET = 25, LASER = 15, ENERGY = 20)
+=======
+	armor_mod = /datum/armor/retractive_plates
+
+/datum/armor/retractive_plates
+	melee = 20
+	bullet = 25
+	laser = 15
+	energy = 20
+
+/obj/machinery/vending/security/noaccess
+	req_access = null
+
+/obj/structure/closet/secure_closet/medical2/unlocked/Initialize(mapload)
+	. = ..()
+	locked = FALSE
+	update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -1,9 +1,15 @@
 /datum/antagonist/space_dragon
 	name = "\improper Space Dragon"
 	roundend_category = "space dragons"
+<<<<<<< HEAD
 	antagpanel_category = "Space Dragon"
 	job_rank = ROLE_SPACE_DRAGON
 	show_in_antagpanel = TRUE
+=======
+	antagpanel_category = ANTAG_GROUP_LEVIATHANS
+	job_rank = ROLE_SPACE_DRAGON
+	show_in_antagpanel = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
 	/// All space carps created by this antagonist space dragon
@@ -21,9 +27,15 @@
 	/// Whether or not Space Dragon has completed their objective, and thus triggered the ending sequence.
 	var/objective_complete = FALSE
 	/// What mob to spawn from ghosts using this dragon's rifts
+<<<<<<< HEAD
 	var/minion_to_spawn = /mob/living/simple_animal/hostile/carp
 	/// What AI mobs to spawn from this dragon's rifts
 	var/ai_to_spawn = /mob/living/simple_animal/hostile/carp
+=======
+	var/minion_to_spawn = /mob/living/basic/carp
+	/// What AI mobs to spawn from this dragon's rifts
+	var/ai_to_spawn = /mob/living/basic/carp
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/antagonist/space_dragon/greet()
 	. = ..()
@@ -35,13 +47,19 @@
 	owner.announce_objectives()
 	SEND_SOUND(owner.current, sound('sound/magic/demon_attack1.ogg'))
 
+<<<<<<< HEAD
 /datum/antagonist/space_dragon/proc/forge_objectives()
 	var/datum/objective/summon_carp/summon = new()
+=======
+/datum/antagonist/space_dragon/forge_objectives()
+	var/datum/objective/summon_carp/summon = new
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	summon.dragon = src
 	objectives += summon
 
 /datum/antagonist/space_dragon/on_gain()
 	forge_objectives()
+<<<<<<< HEAD
 	. = ..()
 	rift_ability = new
 	rift_ability.Grant(owner.current)
@@ -59,6 +77,30 @@
 
 /datum/antagonist/space_dragon/Destroy()
 	rift_list = null
+=======
+	rift_ability = new()
+	return ..()
+
+/datum/antagonist/space_dragon/apply_innate_effects(mob/living/mob_override)
+	var/mob/living/antag = mob_override || owner.current
+	RegisterSignal(antag, COMSIG_LIVING_LIFE, PROC_REF(rift_checks))
+	RegisterSignal(antag, COMSIG_LIVING_DEATH, PROC_REF(destroy_rifts))
+	antag.faction |= FACTION_CARP
+	// Give the ability over if we have one
+	rift_ability?.Grant(antag)
+
+/datum/antagonist/space_dragon/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/antag = mob_override || owner.current
+	UnregisterSignal(antag, COMSIG_LIVING_LIFE)
+	UnregisterSignal(antag, COMSIG_LIVING_DEATH)
+	antag.faction -= FACTION_CARP
+	rift_ability?.Remove(antag)
+
+/datum/antagonist/space_dragon/Destroy()
+	rift_list = null
+	carp = null
+	QDEL_NULL(rift_ability)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/antagonist/space_dragon/get_preview_icon()

@@ -95,7 +95,11 @@
 				continue
 			if(surgery.requires_bodypart_type && !(affecting.bodytype & surgery.requires_bodypart_type))
 				continue
+<<<<<<< HEAD
 			if((surgery.surgery_flags & SURGERY_REQUIRES_REAL_LIMB) && affecting.is_pseudopart)
+=======
+			if((surgery.surgery_flags & SURGERY_REQUIRES_REAL_LIMB) && (affecting.bodypart_flags & BODYPART_PSEUDOPART))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				continue
 		else if(carbon_target && (surgery.surgery_flags & SURGERY_REQUIRE_LIMB)) //mob with no limb in surgery zone when we need a limb
 			continue
@@ -208,7 +212,11 @@
 				return TRUE
 
 			var/atom/movable/screen/zone_sel/zone_selector = user.hud_used?.zone_select
+<<<<<<< HEAD
 			zone_selector?.set_selected_zone(zone, user)
+=======
+			zone_selector?.set_selected_zone(zone, user, should_log = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			return TRUE
 		if ("start_surgery")

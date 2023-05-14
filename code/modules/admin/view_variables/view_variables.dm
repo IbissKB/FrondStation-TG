@@ -123,8 +123,13 @@
 				var ca = document.cookie.split(';');
 				for(var i=0; i<ca.length; i++) {
 					var c = ca\[i];
+<<<<<<< HEAD
 					while (c.charAt(0)==' ') c = c.substring(1,c.length);
 					if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+=======
+					while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+					if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				}
 				return "";
 			}

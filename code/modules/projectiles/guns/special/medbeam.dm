@@ -143,11 +143,19 @@
 
 /obj/item/gun/medbeam/proc/on_beam_tick(mob/living/target)
 	if(target.health != target.maxHealth)
+<<<<<<< HEAD
 		new /obj/effect/temp_visual/heal(get_turf(target), "#80F5FF")
 	target.adjustBruteLoss(-4)
 	target.adjustFireLoss(-4)
 	target.adjustToxLoss(-1)
 	target.adjustOxyLoss(-1)
+=======
+		new /obj/effect/temp_visual/heal(get_turf(target), COLOR_HEALING_CYAN)
+	target.adjustBruteLoss(-4)
+	target.adjustFireLoss(-4)
+	target.adjustToxLoss(-1, forced = TRUE)
+	target.adjustOxyLoss(-1, forced = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 /obj/item/gun/medbeam/proc/on_beam_release(mob/living/target)

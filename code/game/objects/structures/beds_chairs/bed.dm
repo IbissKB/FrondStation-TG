@@ -96,7 +96,11 @@
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+<<<<<<< HEAD
 	if(!ishuman(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!ishuman(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(has_buckled_mobs())
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

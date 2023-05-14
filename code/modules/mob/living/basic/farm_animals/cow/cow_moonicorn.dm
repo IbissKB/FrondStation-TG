@@ -7,7 +7,11 @@
 	icon_living = "moonicorn"
 	icon_dead = "moonicorn_dead"
 	icon_gib = null //otherwise does the regular cow gib animation
+<<<<<<< HEAD
 	faction = list("hostile")
+=======
+	faction = list(FACTION_HOSTILE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	speed = 1
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -34,7 +38,11 @@
 	var/static/list/food_types
 	if(!food_types)
 		food_types = src.food_types.Copy()
+<<<<<<< HEAD
 	AddElement(/datum/element/basic_eating, 10, food_types)
+=======
+	AddElement(/datum/element/basic_eating, 10, 0, null, food_types)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/tameable, food_types = food_types, tame_chance = 25, bonus_tame_chance = 15, after_tame = CALLBACK(src, PROC_REF(tamed)))
 
 /mob/living/basic/cow/moonicorn/tamed(mob/living/tamer)
@@ -56,6 +64,7 @@
 		/datum/ai_planning_subtree/simple_find_target,
 		//...or something to eat, possibly. both types of target handled by melee attack subtree
 		/datum/ai_planning_subtree/find_food,
+<<<<<<< HEAD
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/moonicorn,
 	)
 
@@ -66,6 +75,11 @@
 	//it's a fairly strong attack and it applies pax, so they do not attack often
 	action_cooldown = 2 SECONDS
 
+=======
+		/datum/ai_planning_subtree/basic_melee_attack_subtree,
+	)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///moonicorns will not attack people holding something that could tame them.
 /datum/targetting_datum/basic/allow_items/moonicorn
 

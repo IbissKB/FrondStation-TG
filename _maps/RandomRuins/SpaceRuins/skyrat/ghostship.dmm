@@ -243,7 +243,11 @@
 	},
 /obj/item/stack/cable_coil,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/item/disk/tech_disk/spaceloot,
+=======
+/obj/item/disk/design_disk/bepis,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "mW" = (
@@ -466,10 +470,15 @@
 "Cc" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
 	pixel_y = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/unlocked,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "Ct" = (
@@ -595,9 +604,16 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "LT" = (
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	pixel_x = -5
 	},
+=======
+/obj/machinery/airalarm/directional/south{
+	pixel_x = -5
+	},
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal{
 	color = "#8ab1ec"
 	},

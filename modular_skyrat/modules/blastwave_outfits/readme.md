@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 TODO
+=======
+https://github.com/Skyrat-SS13/Skyrat-tg/pull/14165 (initial)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ## Title: GWTB-like Outfit.
 
@@ -6,8 +10,13 @@ MODULE ID: N/A
 
 ### Description:
 
+<<<<<<< HEAD
 Adds "Gone with the Blastwave" webcomic-inspired outfit. Colors are pre-set via reskinning, and it is not GAGsified at the time being.
 This version do not provide armor values.
+=======
+Adds "Gone with the Blastwave" webcomic-inspired outfit. Colors are pre-set via reskinning, and it is not GAGsified.
+This version does not provide armor values.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ### TG Proc/File Changes:
 
@@ -43,6 +52,12 @@ This version do not provide armor values.
 
 ### Credits:
 
+<<<<<<< HEAD
 Older TG-Station's Detective's Greycoat (blastwave coats are modified versions of it: added colored arm-patches, cuffs and lining), normal helmets (added paint and removed in-built goggles), officer's cap (added colored pin), utility uniform (added color-collar and shoulders);
 
 [Gone with the Blastwave](http://www.blastwave-comic.com) webcomic by Kimmo Lemetti - inspiration.
+=======
+Initially used older TG-Station's Detective's Greycoat (blastwave coats are modified versions of it: added colored arm-patches, cuffs and lining), normal helmets (added paint and removed in-built goggles), officer's cap (added colored pin), utility uniform (added color-collar and shoulders);
+
+[Gone with the Blastwave](http://www.blastwave-comic.com) webcomic by Kimmo Lemetti (aka Morr) - inspiration.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

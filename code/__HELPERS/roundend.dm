@@ -57,7 +57,11 @@
 						mob_data["module"] = "pAI"
 					else if(iscyborg(L))
 						var/mob/living/silicon/robot/R = L
+<<<<<<< HEAD
 						mob_data["module"] = R.model.name
+=======
+						mob_data["module"] = (R.model ? R.model.name : "Null Model")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				else
 					category = "others"
 					mob_data["typepath"] = M.type
@@ -197,16 +201,23 @@
 		if(!didthegamerwin)
 			return FALSE
 		player_client.give_award(/datum/award/score/hardcore_random, human_mob, round(human_mob.hardcore_survival_score * 2))
+<<<<<<< HEAD
 	else if(human_mob.onCentCom())
+=======
+	else if(considered_escaped(human_mob))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		player_client.give_award(/datum/award/score/hardcore_random, human_mob, round(human_mob.hardcore_survival_score))
 
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
 
+<<<<<<< HEAD
 	to_chat(world, "<span class='infoplain'><BR><BR><BR><span class='big bold'>The round has ended.</span></span>")
 	log_game("The round has ended.")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/datum/callback/roundend_callbacks as anything in round_end_events)
 		roundend_callbacks.InvokeAsync()
 	LAZYCLEARLIST(round_end_events)
@@ -241,6 +252,12 @@
 	//Set news report and mode result
 	mode.set_round_result()
 
+<<<<<<< HEAD
+=======
+	to_chat(world, span_infoplain(span_big(span_bold("<BR><BR><BR>The round has ended."))))
+	log_game("The round has ended.")
+	send2chat(new /datum/tgs_message_content("[GLOB.round_id ? "Round [GLOB.round_id]" : "The round has"] just ended."), CONFIG_GET(string/channel_announce_end_game))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	send2adminchat("Server", "Round just ended.")
 
 	/* //SKYRAT EDIT - START (DISCORD Updates)
@@ -248,8 +265,13 @@
 	if(length(CONFIG_GET(keyed_list/cross_server)))
 		send_news_report()
 	*/
+<<<<<<< HEAD
 	send2chat("The current round has ended. Please standby for your shift interlude Nanotrasen News Network's report!", CONFIG_GET(string/chat_announce_new_game))
 	send2chat(send_news_report(), CONFIG_GET(string/chat_announce_new_game))
+=======
+	send2chat("The current round has ended. Please standby for your shift interlude Nanotrasen News Network's report!", CONFIG_GET(string/channel_announce_end_game))
+	send2chat(send_news_report(), CONFIG_GET(string/channel_announce_end_game))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//SKYRAT EDIT - END
 
 	CHECK_TICK

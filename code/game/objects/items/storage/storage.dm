@@ -7,11 +7,20 @@
 	/// BE CAREFUL, THERE'S SOME REALLY NASTY SHIT IN THIS TYPEPATH
 	/// SANTA IS EVIL
 	var/preload = FALSE
+<<<<<<< HEAD
+=======
+	/// What storage type to use for this item
+	var/datum/storage/storage_type = /datum/storage
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/Initialize(mapload)
 	. = ..()
 
+<<<<<<< HEAD
 	create_storage()
+=======
+	create_storage(storage_type = storage_type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	PopulateContents()
 

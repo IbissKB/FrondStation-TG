@@ -31,6 +31,7 @@
 	crate_name = "collectable hats crate"
 	crate_type = /obj/structure/closet/crate/wooden
 
+<<<<<<< HEAD
 /datum/supply_pack/costumes_toys/randomised/contraband
 	name = "Contraband Crate"
 	desc = "Psst.. bud... want some contraband? I can get you a poster, some nice cigs, dank, even some \
@@ -76,6 +77,8 @@
 					/obj/item/ammo_box/magazine/toy/pistol = 2)
 	crate_name = "foam force crate"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/supply_pack/costumes_toys/formalwear
 	name = "Formalwear Crate"
 	desc = "You're gonna like the way you look, I guaranteed it. Contains an asston of fancy clothing."
@@ -265,6 +268,7 @@
 	)
 	crate_type = /obj/structure/closet/crate/wooden
 
+<<<<<<< HEAD
 /datum/supply_pack/costumes_toys/mafia
 	name = "Cosa Nostra Starter Pack"
 	desc = "This crate contains everything you need to set up your own ethnicity-based racketeering operation."
@@ -281,6 +285,8 @@
 	if(prob(10)) //A little extra sugar every now and then to shake things up.
 		new /obj/item/switchblade(C)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/supply_pack/costumes_toys/randomised/tcg
 	name = "Big-Ass Booster Pack Pack"
 	desc = "A bumper load of NT TCG Booster Packs of varying series. Collect them all!"
@@ -293,3 +299,30 @@
 	for(var/i in 1 to 10)
 		cardpacktype = pick(subtypesof(/obj/item/cardpack))
 		new cardpacktype(C)
+<<<<<<< HEAD
+=======
+
+/datum/supply_pack/costumes_toys/stickers
+	name = "Sticker Pack Crate"
+	desc = "This crate contains a random assortment of stickers."
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list()
+
+/datum/supply_pack/costumes_toys/stickers/fill(obj/structure/closet/crate/crate)
+	for(var/i in 1 to rand(1,2))
+		new /obj/item/storage/box/stickers(crate)
+	if(prob(30)) // a pair of googly eyes because funny
+		new /obj/item/storage/box/stickers/googly(crate)
+
+/datum/supply_pack/costumes_toys/pinata
+	name = "Corgi Pinata Kit"
+	desc = "This crate contains a pinata full of candy, a blindfold and a bat for smashing it."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(
+		/obj/item/pinata,
+		/obj/item/melee/baseball_bat,
+		/obj/item/clothing/glasses/blindfold,
+	)
+	crate_name = "corgi pinata kit"
+	crate_type = /obj/structure/closet/crate/wooden
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

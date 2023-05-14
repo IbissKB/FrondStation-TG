@@ -23,7 +23,11 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
 "g" = (
@@ -41,9 +45,13 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
 "k" = (
@@ -74,8 +82,12 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_y = 1
 	},
 /turf/open/floor/plating/airless,

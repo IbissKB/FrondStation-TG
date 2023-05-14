@@ -3,7 +3,11 @@
 /turf/template_noop,
 /area/template_noop)
 "ad" = (
+<<<<<<< HEAD
 /obj/machinery/oven,
+=======
+/obj/machinery/oven/range,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "aj" = (
@@ -104,17 +108,26 @@
 /turf/open/floor/carpet/red,
 /area/ruin/powered/beach)
 "bG" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/megaphone,
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "bH" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mob_spawn/ghost_role/human/beach/lifeguard,
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
@@ -166,7 +179,11 @@
 /area/ruin/powered/beach)
 "cP" = (
 /obj/structure/flora/bush/stalky/style_random,
+<<<<<<< HEAD
 /turf/open/water/beach/biodome,
+=======
+/turf/open/water/beach,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/powered/beach)
 "cV" = (
 /obj/structure/closet/secure_closet/freezer/meat{
@@ -339,7 +356,11 @@
 "iH" = (
 /obj/structure/flora/bush/stalky/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
+<<<<<<< HEAD
 /turf/open/water/beach/biodome,
+=======
+/turf/open/water/beach,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/powered/beach)
 "jc" = (
 /obj/structure/table/wood,
@@ -461,7 +482,11 @@
 /turf/open/floor/pod/light,
 /area/ruin/powered/beach)
 "pz" = (
+<<<<<<< HEAD
 /turf/open/water/beach/biodome,
+=======
+/turf/open/water/beach,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/powered/beach)
 "pE" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
@@ -618,12 +643,15 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
+<<<<<<< HEAD
 "tG" = (
 /turf/open/misc/beach/coastline_t/sandwater_inner,
 /area/ruin/powered/beach)
 "tO" = (
 /turf/open/misc/beach/coastline_t,
 /area/ruin/powered/beach)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "tQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4{
 	dir = 4
@@ -684,9 +712,13 @@
 /obj/structure/railing{
 	dir = 8
 	},
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
 	dir = 9
 	},
+=======
+/turf/open/misc/beach/coast/corner,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/powered/beach)
 "xA" = (
 /obj/machinery/light/directional/east,
@@ -717,11 +749,19 @@
 /turf/open/misc/beach/sand,
 /area/ruin/powered/beach)
 "yT" = (
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b,
 /area/ruin/powered/beach)
 "yY" = (
 /obj/machinery/light/directional/east,
 /turf/open/misc/beach/coastline_b{
+=======
+/turf/open/misc/beach/coast,
+/area/ruin/powered/beach)
+"yY" = (
+/obj/machinery/light/directional/east,
+/turf/open/misc/beach/coast{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /area/ruin/powered/beach)
@@ -755,12 +795,17 @@
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "Ao" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bikehorn/airhorn,
 /obj/structure/table/wood,
 /obj/item/storage/medkit/regular,
@@ -886,7 +931,11 @@
 /area/ruin/powered/beach)
 "Eu" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
+<<<<<<< HEAD
 /turf/open/water/beach/biodome,
+=======
+/turf/open/water/beach,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/powered/beach)
 "EE" = (
 /obj/structure/dresser,
@@ -894,7 +943,11 @@
 /area/ruin/powered/beach)
 "EL" = (
 /obj/machinery/light/directional/south,
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
+=======
+/turf/open/misc/beach/coast{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /area/ruin/powered/beach)
@@ -965,11 +1018,16 @@
 /turf/open/misc/beach/sand,
 /area/ruin/powered/beach)
 "GA" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /obj/structure/chair/stool/directional/south,
@@ -985,10 +1043,17 @@
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "GR" = (
+<<<<<<< HEAD
 /obj/item/toy/beach_ball/holoball/dodgeball,
 /obj/item/toy/beach_ball/holoball/dodgeball,
 /obj/item/toy/beach_ball/holoball/dodgeball,
 /obj/item/toy/beach_ball/holoball/dodgeball,
+=======
+/obj/item/toy/dodgeball,
+/obj/item/toy/dodgeball,
+/obj/item/toy/dodgeball,
+/obj/item/toy/dodgeball,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
@@ -1064,8 +1129,13 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
 	dir = 10
+=======
+/turf/open/misc/beach/coast/corner{
+	dir = 8
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /area/ruin/powered/beach)
 "Jr" = (
@@ -1082,7 +1152,11 @@
 /obj/structure/railing{
 	dir = 8
 	},
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
+=======
+/turf/open/misc/beach/coast{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /area/ruin/powered/beach)
@@ -1107,8 +1181,13 @@
 /turf/closed/wall/mineral/sandstone,
 /area/ruin/powered/beach)
 "Ld" = (
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
 	dir = 5
+=======
+/turf/open/misc/beach/coast/corner{
+	dir = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /area/ruin/powered/beach)
 "Lm" = (
@@ -1246,12 +1325,20 @@
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "Ro" = (
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
+=======
+/turf/open/misc/beach/coast{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /area/ruin/powered/beach)
 "Rx" = (
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
+=======
+/turf/open/misc/beach/coast{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /area/ruin/powered/beach)
@@ -1358,7 +1445,11 @@
 /turf/open/floor/sepia,
 /area/ruin/powered/beach)
 "Uk" = (
+<<<<<<< HEAD
 /obj/structure/sign/barsign,
+=======
+/obj/machinery/barsign/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/ruin/powered/beach)
 "Up" = (
@@ -1439,8 +1530,13 @@
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "WV" = (
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_b{
 	dir = 6
+=======
+/turf/open/misc/beach/coast/corner{
+	dir = 4
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /area/ruin/powered/beach)
 "Xa" = (
@@ -1448,7 +1544,11 @@
 /mob/living/simple_animal/chicken{
 	name = "Chicken Joe"
 	},
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_t,
+=======
+/turf/open/misc/beach/sand,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/powered/beach)
 "Xt" = (
 /obj/machinery/door/airlock/sandstone{
@@ -1816,7 +1916,11 @@ VI
 VI
 VI
 VI
+<<<<<<< HEAD
 tG
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Iv
 lq
 lq
@@ -1848,7 +1952,11 @@ VI
 hN
 SH
 VI
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 xn
 JA
 JA
@@ -1880,7 +1988,11 @@ VI
 bC
 Ti
 VI
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yT
 cP
 pz
@@ -1912,7 +2024,11 @@ VI
 XM
 VI
 rz
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yT
 pz
 pz
@@ -1944,7 +2060,11 @@ VI
 Jr
 Jr
 VI
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yT
 pz
 pz
@@ -1976,7 +2096,11 @@ VI
 FO
 VI
 VI
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yT
 pz
 pz
@@ -2008,7 +2132,11 @@ VI
 Bn
 Zj
 VI
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yT
 cP
 pz
@@ -2040,7 +2168,11 @@ ks
 xA
 VI
 VI
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yT
 pz
 pz
@@ -2072,7 +2204,11 @@ Ao
 bG
 bL
 VI
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yT
 pz
 Eu
@@ -2136,7 +2272,11 @@ VI
 VI
 VI
 wc
+<<<<<<< HEAD
 tO
+=======
+VI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Ld
 yY
 Rx

@@ -29,6 +29,17 @@
 #define COMSIG_SPELL_AFTER_CAST "spell_after_cast"
 /// Sent from /datum/action/cooldown/spell/reset_spell_cooldown() to the spell: ()
 #define COMSIG_SPELL_CAST_RESET "spell_cast_reset"
+<<<<<<< HEAD
+=======
+/// Sent from /datum/action/cooldown/spell/proc/invocation() to the mob: (datum/source, /datum/action/cooldown/spell/spell, list/invocation)
+#define COMSIG_MOB_PRE_INVOCATION "spell_pre_invocation"
+	///index for the invocation message string
+	#define INVOCATION_MESSAGE 1
+	///index for the invocation type string
+	#define INVOCATION_TYPE 2
+	///index for the invocation garble probability number
+	#define INVOCATION_GARBLE_PROB 3
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Spell type signals
 

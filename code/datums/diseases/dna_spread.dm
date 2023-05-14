@@ -14,7 +14,11 @@
 	severity = DISEASE_SEVERITY_MEDIUM
 
 
+<<<<<<< HEAD
 /datum/disease/dnaspread/stage_act(delta_time, times_fired)
+=======
+/datum/disease/dnaspread/stage_act(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
@@ -37,6 +41,7 @@
 
 	switch(stage)
 		if(2, 3) //Pretend to be a cold and give time to spread.
+<<<<<<< HEAD
 			if(DT_PROB(4, delta_time))
 				affected_mob.emote("sneeze")
 			if(DT_PROB(4, delta_time))
@@ -46,6 +51,17 @@
 				if(prob(20))
 					affected_mob.take_bodypart_damage(1, updating_health = FALSE)
 			if(DT_PROB(0.5, delta_time))
+=======
+			if(SPT_PROB(4, seconds_per_tick))
+				affected_mob.emote("sneeze")
+			if(SPT_PROB(4, seconds_per_tick))
+				affected_mob.emote("cough")
+			if(SPT_PROB(0.5, seconds_per_tick))
+				to_chat(affected_mob, span_danger("Your muscles ache."))
+				if(prob(20))
+					affected_mob.take_bodypart_damage(1, updating_health = FALSE)
+			if(SPT_PROB(0.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(affected_mob, span_danger("Your stomach hurts."))
 				if(prob(20))
 					affected_mob.adjustToxLoss(2, FALSE)

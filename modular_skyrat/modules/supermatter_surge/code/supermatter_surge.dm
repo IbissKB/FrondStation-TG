@@ -17,9 +17,15 @@
 /datum/round_event_control/supermatter_surge
 	name = "Supermatter Surge"
 	typepath = /datum/round_event/supermatter_surge
+<<<<<<< HEAD
 	weight = 20
 	max_occurrences = 4
 	earliest_start = 20 MINUTES
+=======
+	category = EVENT_CATEGORY_ENGINEERING
+	max_occurrences = 4
+	earliest_start = 30 MINUTES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/supermatter_surge
 	announce_when = 1

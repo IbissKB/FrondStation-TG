@@ -33,10 +33,14 @@
 /turf/open/floor/iron,
 /area/station/common/cryopods)
 "j" = (
+<<<<<<< HEAD
 /obj/machinery/computer/cryopod{
 	dir = 8;
 	pixel_x = 32
 	},
+=======
+/obj/machinery/computer/cryopod/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/common/cryopods)
@@ -90,6 +94,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/common/cryopods)
+<<<<<<< HEAD
 "F" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
@@ -98,6 +103,9 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
+=======
+"J" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
@@ -105,6 +113,11 @@
 	dir = 1
 	},
 /obj/machinery/camera/directional/east,
+<<<<<<< HEAD
+=======
+/obj/machinery/time_clock/directional/east,
+/obj/item/kirbyplants/random,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "O" = (
@@ -175,7 +188,11 @@ d
 r
 W
 o
+<<<<<<< HEAD
 F
+=======
+g
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 l
 "}
 (3,1,1) = {"

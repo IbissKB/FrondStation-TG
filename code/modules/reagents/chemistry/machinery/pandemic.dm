@@ -6,6 +6,10 @@
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "pandemic0"
 	icon_keyboard = null
+<<<<<<< HEAD
+=======
+	icon_screen = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	base_icon_state = "pandemic"
 	resistance_flags = ACID_PROOF
 	circuit = /obj/item/circuitboard/computer/pandemic
@@ -61,7 +65,11 @@
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
+<<<<<<< HEAD
 	if(!can_interact(user) || !user.canUseTopic(src, !issilicon(user), FALSE, no_tk = TRUE))
+=======
+	if(!can_interact(user) || !user.can_perform_action(src, ALLOW_SILICON_REACH|FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	eject_beaker()
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -308,6 +316,7 @@
 		traits["index"] = index++
 		traits["name"] = disease.name
 		traits["spread"] = disease.spread_text || "none"
+<<<<<<< HEAD
 		if(!istype(disease, /datum/disease/advance)) // Advanced diseases get more info
 			continue
 		var/datum/disease/advance/adv_disease = disease
@@ -324,6 +333,23 @@
 			this_symptom = symptom.get_symptom_data()
 			traits["symptoms"] += list(this_symptom)
 		traits["transmission"] = adv_disease.totalTransmittable()
+=======
+		if(istype(disease, /datum/disease/advance)) // Advanced diseases get more info
+			var/datum/disease/advance/adv_disease = disease
+			var/disease_name = SSdisease.get_disease_name(adv_disease.GetDiseaseID())
+			traits["can_rename"] = ((disease_name == "Unknown") && adv_disease.mutable)
+			traits["is_adv"] = TRUE
+			traits["name"] = disease_name
+			traits["resistance"] = adv_disease.totalResistance()
+			traits["stage_speed"] = adv_disease.totalStageSpeed()
+			traits["stealth"] = adv_disease.totalStealth()
+			traits["symptoms"] = list()
+			for(var/datum/symptom/symptom as anything in adv_disease.symptoms)
+				var/list/this_symptom = list()
+				this_symptom = symptom.get_symptom_data()
+				traits["symptoms"] += list(this_symptom)
+			traits["transmission"] = adv_disease.totalTransmittable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		data += list(traits)
 	return data
 

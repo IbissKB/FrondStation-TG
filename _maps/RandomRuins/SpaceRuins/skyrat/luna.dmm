@@ -329,7 +329,11 @@
 /turf/open/misc/grass,
 /area/ruin/space/has_grav/powered/skyrat/luna)
 "IA" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/carp{
+=======
+/mob/living/basic/carp{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/misc/asteroid/airless,
@@ -433,7 +437,11 @@
 /turf/open/misc/grass,
 /area/ruin/space/has_grav/powered/skyrat/luna)
 "TH" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/carp,
+=======
+/mob/living/basic/carp,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/misc/asteroid/airless,
 /area/ruin/unpowered)
 "Vs" = (

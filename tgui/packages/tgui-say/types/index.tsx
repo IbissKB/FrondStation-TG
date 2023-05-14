@@ -44,11 +44,28 @@ export type State = {
 };
 
 type Timers = {
+<<<<<<< HEAD
   channelDebounce: ({ mode: boolean }) => void;
   forceDebounce: ({ channel: number, entry: string }) => void;
   typingThrottle: () => void;
 };
 
+=======
+  channelDebounce: (ModeDebounce) => void;
+  forceDebounce: (ForceDebounce) => void;
+  typingThrottle: () => void;
+};
+
+type ModeDebounce = {
+  mode: boolean;
+};
+
+type ForceDebounce = {
+  channel: number;
+  entry: string;
+};
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 export type DragzoneProps = {
   theme: string;
   top: boolean;

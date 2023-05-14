@@ -1,7 +1,11 @@
 /obj/item/suspiciousphone
 	name = "suspicious phone"
 	desc = "This device raises pink levels to unknown highs."
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/device_syndie.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "suspiciousphone"
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb_continuous = list("dumps")
@@ -65,6 +69,13 @@
 	return TRUE
 
 /obj/structure/checkoutmachine/attackby(obj/item/attacking_item, mob/user, params)
+<<<<<<< HEAD
+=======
+	if(!canwalk)
+		balloon_alert(user, "not ready to accept transactions!")
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(check_if_finished())
 		qdel(src)
 		return
@@ -79,6 +90,7 @@
 
 		return
 
+<<<<<<< HEAD
 	if(!canwalk)
 		to_chat(user, span_warning("Space-Coin only accepts transactions while mobile!"))
 		return
@@ -89,6 +101,14 @@
 
 	if(!card.registered_account.being_dumped)
 		to_chat(user, span_warning("It appears that your funds are safe from draining!"))
+=======
+	if(!card.registered_account)
+		balloon_alert(user, "card has no registered account!")
+		return
+
+	if(!card.registered_account.being_dumped)
+		balloon_alert(user, "funds are already safe!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	to_chat(user, span_warning("You quickly cash out your funds to a more secure banking location. Funds are safu.")) // This is a reference and not a typo

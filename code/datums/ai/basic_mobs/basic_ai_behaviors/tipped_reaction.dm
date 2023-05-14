@@ -2,7 +2,11 @@
 ///type of tipped reaction that is akin to puppy dog eyes
 /datum/ai_behavior/tipped_reaction
 
+<<<<<<< HEAD
 /datum/ai_behavior/tipped_reaction/perform(delta_time, datum/ai_controller/controller, tipper_key, reacting_key)
+=======
+/datum/ai_behavior/tipped_reaction/perform(seconds_per_tick, datum/ai_controller/controller, tipper_key, reacting_key)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	var/mob/living/carbon/tipper = controller.blackboard[tipper_key]
@@ -33,5 +37,10 @@
 /datum/ai_behavior/tipped_reaction/finish_action(datum/ai_controller/controller, succeeded, tipper_key, reacting_key)
 	. = ..()
 	//I'VE SAID MY PEACE...
+<<<<<<< HEAD
 	controller.blackboard[reacting_key] = FALSE
 	controller.blackboard[tipper_key] = null
+=======
+	controller.set_blackboard_key(reacting_key, FALSE)
+	controller.clear_blackboard_key(tipper_key)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

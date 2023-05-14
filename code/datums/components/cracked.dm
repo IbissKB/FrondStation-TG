@@ -1,6 +1,7 @@
 /// Tracks damage to add or remove crack overlays, when none are needed this components is qdeleted
 /datum/component/cracked
 	dupe_mode = COMPONENT_DUPE_UNIQUE_PASSARGS
+<<<<<<< HEAD
 	var/list/icon/crack_icons
 	var/crack_integrity
 	var/list/applied_cracks = list()
@@ -10,6 +11,17 @@
 	if(!isobj(parent))
 		return COMPONENT_INCOMPATIBLE
 	src.crack_icons = crack_icons
+=======
+	var/list/mutable_appearance/crack_appearances
+	var/crack_integrity
+	var/list/applied_cracks = list()
+
+/datum/component/cracked/Initialize(list/crack_appearances, crack_integrity)
+	. = ..()
+	if(!isobj(parent))
+		return COMPONENT_INCOMPATIBLE
+	src.crack_appearances = crack_appearances
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	src.crack_integrity = crack_integrity
 
 /datum/component/cracked/Destroy(force, silent)
@@ -55,6 +67,7 @@
 	for(var/i in 1 to count)
 		var/rand_x = rand(0, 20) - 10
 		var/rand_y = rand(0, 20) - 10
+<<<<<<< HEAD
 		var/icon/new_crack_icon = pick(crack_icons)
 		var/list/new_filter_data = alpha_mask_filter(icon=new_crack_icon, x=rand_x, y=rand_y, flags=MASK_INVERSE)
 		var/name
@@ -66,9 +79,31 @@
 			CRASH("No unique name could be found after 100 iterations.")
 		applied_cracks[name] = TRUE
 		source.add_filter(name, 1, new_filter_data)
+=======
+		var/mutable_appearance/new_crack_overlay = new(pick(crack_appearances))
+		// Now that we have our overlay, we need to give it a unique render source so we can use a filter against it
+		var/static/uuid = 0
+		uuid++
+		// * so it doesn't render on its own
+		new_crack_overlay.render_target = "*cracked_overlay_[uuid]"
+		var/render_source = new_crack_overlay.render_target
+
+		var/list/new_filter_data = alpha_mask_filter(render_source=render_source, x=rand_x, y=rand_y, flags=MASK_INVERSE)
+		applied_cracks[render_source] = new_crack_overlay
+
+		// We need to add it as an overlay so the render target from the filter knows what to point at
+		source.add_overlay(new_crack_overlay)
+		source.add_filter(render_source, 1, new_filter_data)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/cracked/proc/RemoveCracks(obj/source, count)
 	for(var/i in 1 to count)
 		var/removed_filter = pick(applied_cracks)
+<<<<<<< HEAD
 		applied_cracks -= removed_filter
 		source.remove_filter(removed_filter)
+=======
+		source.remove_filter(removed_filter)
+		source.cut_overlay(applied_cracks[removed_filter])
+		applied_cracks -= removed_filter
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

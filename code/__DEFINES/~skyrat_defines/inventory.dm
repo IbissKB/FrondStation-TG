@@ -3,7 +3,10 @@
 #define STYLE_TAUR_PAW (1<<3)
 #define STYLE_TAUR_HOOF (1<<4)
 #define STYLE_TAUR_ALL (STYLE_TAUR_SNAKE|STYLE_TAUR_PAW|STYLE_TAUR_HOOF)
+<<<<<<< HEAD
 #define STYLE_TESHARI (1<<6) //teshari clothes and shit
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // We don't use the HUD for these, they have their own menu.
 #define LEWD_SLOT_VAGINA (1<<0)

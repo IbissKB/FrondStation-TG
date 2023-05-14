@@ -59,9 +59,15 @@
 	var/stamina_recovery = 5
 
 	///Minimal body temperature without receiving damage
+<<<<<<< HEAD
 	var/minbodytemp = 250
 	///Maximal body temperature without receiving damage
 	var/maxbodytemp = 350
+=======
+	var/minbodytemp = NPC_DEFAULT_MIN_TEMP
+	///Maximal body temperature without receiving damage
+	var/maxbodytemp = NPC_DEFAULT_MAX_TEMP
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///This damage is taken when the body temp is too cold.
 	var/unsuitable_cold_damage
 	///This damage is taken when the body temp is too hot.
@@ -79,10 +85,13 @@
 	///This damage is taken when atmos doesn't fit all the requirements above.
 	var/unsuitable_atmos_damage = 1
 
+<<<<<<< HEAD
 	///Whether or not this mob is flammable
 	var/flammable = FALSE
 	///How quickly should fire stacks on this mob diminish?
 	var/fire_stack_removal_speed = -5
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///How fast the mob's temperature normalizes. The greater the value, the slower their temperature normalizes. Should always be greater than 0.
 	var/temperature_normalization_speed = 5
 
@@ -127,8 +136,11 @@
 	///If the mob can be spawned with a gold slime core. HOSTILE_SPAWN are spawned with plasma, FRIENDLY_SPAWN are spawned with blood.
 	var/gold_core_spawnable = NO_SPAWN
 
+<<<<<<< HEAD
 	var/datum/component/spawner/nest
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Sentience type, for slime potions.
 	var/sentience_type = SENTIENCE_ORGANIC
 
@@ -188,11 +200,18 @@
 	update_simplemob_varspeed()
 	if(dextrous)
 		AddComponent(/datum/component/personal_crafting)
+<<<<<<< HEAD
 		ADD_TRAIT(src, TRAIT_ADVANCEDTOOLUSER, ROUNDSTART_TRAIT)
 		ADD_TRAIT(src, TRAIT_CAN_STRIP, ROUNDSTART_TRAIT)
 	ADD_TRAIT(src, TRAIT_NOFIRE_SPREAD, ROUNDSTART_TRAIT)
 	for(var/trait in weather_immunities)
 		ADD_TRAIT(src, trait, ROUNDSTART_TRAIT)
+=======
+		add_traits(list(TRAIT_ADVANCEDTOOLUSER, TRAIT_CAN_STRIP), ROUNDSTART_TRAIT)
+	ADD_TRAIT(src, TRAIT_NOFIRE_SPREAD, ROUNDSTART_TRAIT)
+	if(length(weather_immunities))
+		add_traits(weather_immunities, ROUNDSTART_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (environment_smash >= ENVIRONMENT_SMASH_WALLS)
 		AddElement(/datum/element/wall_smasher, strength_flag = environment_smash)
 
@@ -215,6 +234,7 @@
 	if(isnull(unsuitable_heat_damage))
 		unsuitable_heat_damage = unsuitable_atmos_damage
 
+<<<<<<< HEAD
 /mob/living/simple_animal/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	if(staminaloss > 0)
@@ -228,6 +248,18 @@
 		nest.spawned_mobs -= src
 		nest = null
 
+=======
+/mob/living/simple_animal/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	. = ..()
+	if(staminaloss > 0)
+		adjustStaminaLoss(-stamina_recovery * seconds_per_tick, FALSE, TRUE)
+
+/mob/living/simple_animal/Destroy()
+	QDEL_NULL(access_card)
+	GLOB.simple_animals[AIStatus] -= src
+	SSnpcpool.currentrun -= src
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/turf/T = get_turf(src)
 	if (T && AIStatus == AI_Z_OFF)
 		SSidlenpcpool.idle_mobs_by_zlevel[T.z] -= src
@@ -367,7 +399,11 @@
 	if((areatemp < minbodytemp) || (areatemp > maxbodytemp))
 		. = FALSE
 
+<<<<<<< HEAD
 /mob/living/simple_animal/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
+=======
+/mob/living/simple_animal/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/atom/A = loc
 	if(isturf(A))
 		var/areatemp = get_temperature(environment)
@@ -375,23 +411,41 @@
 		if(abs(temp_delta) > 5)
 			if(temp_delta < 0)
 				if(!on_fire)
+<<<<<<< HEAD
 					adjust_bodytemperature(clamp(temp_delta * delta_time / temperature_normalization_speed, temp_delta, 0))
 			else
 				adjust_bodytemperature(clamp(temp_delta * delta_time / temperature_normalization_speed, 0, temp_delta))
 
 	if(!environment_air_is_safe() && unsuitable_atmos_damage)
 		adjustHealth(unsuitable_atmos_damage * delta_time)
+=======
+					adjust_bodytemperature(clamp(temp_delta * seconds_per_tick / temperature_normalization_speed, temp_delta, 0))
+			else
+				adjust_bodytemperature(clamp(temp_delta * seconds_per_tick / temperature_normalization_speed, 0, temp_delta))
+
+	if(!environment_air_is_safe() && unsuitable_atmos_damage)
+		adjustHealth(unsuitable_atmos_damage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(unsuitable_atmos_damage > 0)
 			throw_alert(ALERT_NOT_ENOUGH_OXYGEN, /atom/movable/screen/alert/not_enough_oxy)
 	else
 		clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
 
+<<<<<<< HEAD
 	handle_temperature_damage(delta_time, times_fired)
 
 /mob/living/simple_animal/proc/handle_temperature_damage(delta_time, times_fired)
 	. = FALSE
 	if((bodytemperature < minbodytemp) && unsuitable_cold_damage)
 		adjustHealth(unsuitable_cold_damage * delta_time)
+=======
+	handle_temperature_damage(seconds_per_tick, times_fired)
+
+/mob/living/simple_animal/proc/handle_temperature_damage(seconds_per_tick, times_fired)
+	. = FALSE
+	if((bodytemperature < minbodytemp) && unsuitable_cold_damage)
+		adjustHealth(unsuitable_cold_damage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		switch(unsuitable_cold_damage)
 			if(1 to 5)
 				throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 1)
@@ -402,7 +456,11 @@
 		. = TRUE
 
 	if((bodytemperature > maxbodytemp) && unsuitable_heat_damage)
+<<<<<<< HEAD
 		adjustHealth(unsuitable_heat_damage * delta_time)
+=======
+		adjustHealth(unsuitable_heat_damage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		switch(unsuitable_heat_damage)
 			if(1 to 5)
 				throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 1)
@@ -458,9 +516,12 @@
 			new i(loc)
 
 /mob/living/simple_animal/death(gibbed)
+<<<<<<< HEAD
 	if(nest)
 		nest.spawned_mobs -= src
 		nest = null
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	drop_loot()
 	if(dextrous)
 		drop_all_held_items()
@@ -495,6 +556,7 @@
 			return FALSE
 	return TRUE
 
+<<<<<<< HEAD
 /mob/living/simple_animal/ignite_mob()
 	if(!flammable)
 		return FALSE
@@ -520,6 +582,8 @@
 		return
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	. = ..()
 	if(!.)
@@ -576,12 +640,20 @@
 			set_sight(initial(sight))
 		else
 			set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+<<<<<<< HEAD
 		set_see_in_dark(NIGHTVISION_FOV_RANGE)
 		set_invis_see(SEE_INVISIBLE_OBSERVER)
 		return
 
 	set_invis_see(initial(see_invisible))
 	set_see_in_dark(initial(see_in_dark))
+=======
+		set_invis_see(SEE_INVISIBLE_OBSERVER)
+		return
+
+	lighting_color_cutoffs = list(lighting_cutoff_red, lighting_cutoff_green, lighting_cutoff_blue)
+	set_invis_see(initial(see_invisible))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(SSmapping.level_trait(z, ZTRAIT_NOXRAY))
 		set_sight(null)
 	else
@@ -615,7 +687,11 @@
 	else
 		mode()
 
+<<<<<<< HEAD
 /mob/living/simple_animal/swap_hand(hand_index)
+=======
+/mob/living/simple_animal/perform_hand_swap(hand_index)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
@@ -750,3 +826,9 @@
 		hunted = null
 		COOLDOWN_START(src, emote_cooldown, 1 MINUTES)
 		return
+<<<<<<< HEAD
+=======
+
+/mob/living/simple_animal/compare_sentience_type(compare_type)
+	return sentience_type == compare_type
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

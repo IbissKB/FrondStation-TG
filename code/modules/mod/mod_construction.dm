@@ -196,7 +196,11 @@
 					balloon_alert(user, "boots added")
 					return
 				playsound(src, 'sound/machines/click.ogg', 30, TRUE)
+<<<<<<< HEAD
 				balloon_alert(user, "You fit [part] onto [src].")
+=======
+				balloon_alert(user, "fit [part.name]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				boots = part
 				step = BOOTS_STEP
 			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
@@ -231,11 +235,18 @@
 				if(!user.transferItemToLoc(part, src))
 					return
 				playsound(src, 'sound/machines/click.ogg', 30, TRUE)
+<<<<<<< HEAD
 				balloon_alert(user, "suit finished")
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				var/obj/item/mod = new /obj/item/mod/control(drop_location(), external_plating.theme, null, core)
 				core = null
 				qdel(src)
 				user.put_in_hands(mod)
+<<<<<<< HEAD
+=======
+				mod.balloon_alert(user, "suit finished")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else if(part.tool_behaviour == TOOL_SCREWDRIVER) //Construct
 				if(part.use_tool(src, user, 0, volume=30))
 					balloon_alert(user, "assembly unscrewed")

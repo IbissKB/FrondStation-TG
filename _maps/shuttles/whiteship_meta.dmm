@@ -29,6 +29,7 @@
 "ag" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/crew)
+<<<<<<< HEAD
 "ah" = (
 /obj/machinery/door/airlock/external/ruin,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -45,6 +46,8 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/crew)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "ai" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/crew)
@@ -168,9 +171,13 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned/engine)
 "ay" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
@@ -288,7 +295,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged{
+=======
+/mob/living/basic/syndicate/ranged{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	environment_smash = 0;
 	name = "Syndicate Salvage Worker"
 	},
@@ -319,15 +330,23 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/crew)
 "bb" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -354,6 +373,12 @@
 	dir = 4
 	},
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/crew)
 "be" = (
@@ -401,6 +426,7 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
+<<<<<<< HEAD
 "bi" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -413,6 +439,8 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "bj" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -477,6 +505,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/power/apc/auto_name/directional/south,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -484,17 +513,28 @@
 	dir = 8
 	},
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/abandoned/crew)
 "bw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/washing_machine,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
+=======
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/abandoned/crew)
@@ -535,6 +575,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+<<<<<<< HEAD
 "bC" = (
 /obj/machinery/light/built/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -544,6 +585,8 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "bD" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/bar)
@@ -593,8 +636,13 @@
 	name = "Bar"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
 "bM" = (
@@ -608,10 +656,14 @@
 	pixel_y = 32
 	},
 /obj/item/storage/box/donkpockets,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "bN" = (
@@ -646,21 +698,31 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/power/apc/auto_name/directional/north,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "bO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "bQ" = (
@@ -707,19 +769,27 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/chair,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "ca" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/chair,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "cb" = (
@@ -727,6 +797,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -744,6 +815,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "cd" = (
@@ -767,6 +842,7 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
+<<<<<<< HEAD
 "ce" = (
 /obj/structure/table,
 /obj/machinery/airalarm/all_access{
@@ -781,6 +857,8 @@
 /obj/machinery/recharger,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "cf" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -804,6 +882,7 @@
 /obj/machinery/computer/shuttle/white_ship/pod/recall{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -813,6 +892,11 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "ch" = (
@@ -838,6 +922,19 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
+<<<<<<< HEAD
+=======
+"ck" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/shuttle/abandoned/bar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "cl" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -866,10 +963,14 @@
 	pixel_x = 6
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "cq" = (
@@ -886,10 +987,14 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
+=======
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -923,10 +1028,14 @@
 /obj/structure/chair{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "cA" = (
@@ -935,10 +1044,14 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "cC" = (
@@ -980,7 +1093,10 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/button/door/directional/south{
 	id = "whiteship_windows";
 	name = "Windows Blast Door Control";
@@ -991,6 +1107,10 @@
 	name = "Bridge Blast Door Control";
 	pixel_x = 6
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/blue,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "cG" = (
@@ -1001,11 +1121,15 @@
 	y_offset = -8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
+=======
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -1064,11 +1188,16 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_y = -32
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/machinery/light/small/directional/west,
+=======
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "cM" = (
@@ -1085,16 +1214,21 @@
 	pixel_x = 8;
 	pixel_y = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "cN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -1113,6 +1247,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/turf/open/floor/iron,
+/area/shuttle/abandoned/bar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "cQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/secure/weapon,
@@ -1126,6 +1266,7 @@
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+<<<<<<< HEAD
 "cU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/airalarm/all_access{
@@ -1137,6 +1278,8 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "cV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/deepfryer,
@@ -1169,6 +1312,7 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
+<<<<<<< HEAD
 "cZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -1182,6 +1326,8 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "db" = (
 /obj/effect/turf_decal/box/white/corners{
 	dir = 8
@@ -1261,11 +1407,16 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/hydroponics/constructable,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
 /obj/machinery/light/small/directional/west,
+=======
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/green/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "do" = (
@@ -1368,10 +1519,14 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron,
@@ -1448,10 +1603,13 @@
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/abandoned/bar)
+<<<<<<< HEAD
 "dS" = (
 /obj/machinery/smartfridge,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/bar)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "dT" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/sink/directional/east,
@@ -1472,10 +1630,14 @@
 /obj/item/plant_analyzer,
 /obj/item/reagent_containers/cup/watering_can,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron,
@@ -1576,12 +1738,18 @@
 /obj/machinery/light/small/built/directional/west,
 /obj/machinery/hydroponics/constructable,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "eh" = (
@@ -1641,6 +1809,7 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+<<<<<<< HEAD
 "fm" = (
 /obj/machinery/light/small/built/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1653,6 +1822,16 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
+=======
+"gs" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/processor,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/abandoned/bar)
 "gt" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1663,6 +1842,18 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
+<<<<<<< HEAD
+=======
+"he" = (
+/obj/machinery/light/built/directional/west,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/cargo)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "hv" = (
 /obj/effect/turf_decal/box/white/corners{
 	dir = 1
@@ -1679,8 +1870,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/engine)
 "iK" = (
@@ -1697,6 +1893,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -1716,6 +1913,10 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /obj/machinery/light/small/directional/north,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/crew)
 "kz" = (
@@ -1724,10 +1925,17 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/gibs/old,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /mob/living/simple_animal/hostile/syndicate/melee{
 	environment_smash = 0
 	},
+=======
+/mob/living/basic/syndicate/melee{
+	environment_smash = 0
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "ni" = (
@@ -1735,10 +1943,30 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/cargo)
+"ny" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/engine)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "nK" = (
 /obj/effect/turf_decal/arrows/white{
 	dir = 4
@@ -1754,6 +1982,7 @@
 	name = "Bar"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -1773,6 +2002,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/engine)
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/bar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "pS" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/door/airlock{
@@ -1785,10 +2020,17 @@
 "qc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /mob/living/simple_animal/hostile/syndicate/melee{
 	environment_smash = 0
 	},
+=======
+/mob/living/basic/syndicate/melee{
+	environment_smash = 0
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
 "qE" = (
@@ -1805,7 +2047,11 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee{
+=======
+/mob/living/basic/syndicate/melee{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	environment_smash = 0
 	},
 /turf/open/floor/iron/dark,
@@ -1822,6 +2068,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/firealarm/directional/east,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
@@ -1831,6 +2078,32 @@
 /obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
+=======
+/obj/effect/spawner/random/food_or_drink/seed_rare,
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/shuttle/abandoned/bar)
+"uS" = (
+/obj/machinery/light/built/directional/east,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/cargo)
+"wm" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/light/small/built/directional/south,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/plating,
+/area/shuttle/abandoned/engine)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "wn" = (
 /obj/effect/turf_decal/box/white/corners{
 	dir = 1
@@ -1841,6 +2114,21 @@
 /obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+<<<<<<< HEAD
+=======
+"wE" = (
+/obj/structure/table,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/folder/blue{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/machinery/recharger,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/bridge)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "xK" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -1856,8 +2144,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/crew)
 "Aa" = (
@@ -1881,8 +2174,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/crew)
 "AK" = (
@@ -1905,10 +2203,40 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/bridge)
+"Bg" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/crew)
+"Cp" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/hydroponics/constructable,
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/spawner/random/food_or_drink/seed_rare,
+/obj/effect/turf_decal/tile/green/half/contrasted,
+/turf/open/floor/iron,
+/area/shuttle/abandoned/bar)
+"Dv" = (
+/obj/machinery/smartfridge,
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron,
+/area/shuttle/abandoned/bar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Dw" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1927,6 +2255,25 @@
 /obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+<<<<<<< HEAD
+=======
+"EU" = (
+/obj/machinery/door/airlock/external/ruin,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/docking_port/mobile{
+	callTime = 250;
+	can_move_docking_ports = 1;
+	dir = 2;
+	shuttle_id = "whiteship";
+	launch_status = 0;
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
+	name = "Salvage Ship";
+	port_direction = 8;
+	preferred_direction = 4
+	},
+/turf/open/floor/plating,
+/area/shuttle/abandoned/crew)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Fb" = (
 /obj/effect/turf_decal/box/white/corners{
 	dir = 8
@@ -1938,15 +2285,25 @@
 "Fu" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
 "FF" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/crew)
 "FH" = (
@@ -1966,6 +2323,20 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+<<<<<<< HEAD
+=======
+"Gg" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/light/small/built/directional/north,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/abandoned/engine)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Gh" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1978,8 +2349,13 @@
 /obj/effect/turf_decal/arrows/white,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
 "GZ" = (
@@ -1989,8 +2365,13 @@
 	},
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "HJ" = (
@@ -2019,10 +2400,14 @@
 	pixel_x = 5;
 	pixel_y = -3
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
 "Ig" = (
@@ -2042,8 +2427,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
 "JE" = (
@@ -2097,8 +2487,13 @@
 /obj/effect/turf_decal/stripes/white/corner{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/engine)
 "Of" = (
@@ -2109,6 +2504,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -2121,14 +2517,22 @@
 	},
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/decal/cleanable/dirt/dust,
+=======
+/obj/structure/cable,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/crew)
 "Qd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/engine)
 "Rs" = (
@@ -2138,8 +2542,25 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/bar)
+"RV" = (
+/obj/machinery/light/small/built/directional/south,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/stripes/white/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
 "Sd" = (
@@ -2148,18 +2569,26 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
+=======
+/obj/structure/closet/crate/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
 "Sm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
+=======
+/obj/structure/closet/crate/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
@@ -2188,8 +2617,13 @@
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/light/small/directional/west,
+=======
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/crew)
 "SI" = (
@@ -2198,6 +2632,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -2216,6 +2651,12 @@
 /obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/cargo)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "TE" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2224,6 +2665,23 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+<<<<<<< HEAD
+=======
+"VG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/shuttle/abandoned/crew)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "VL" = (
 /obj/effect/turf_decal/arrows/white{
 	dir = 1
@@ -2232,10 +2690,32 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/cargo)
+"VM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/light/small/directional/north,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/crew)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "XR" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2330,7 +2810,11 @@ ab
 ac
 aB
 aO
+<<<<<<< HEAD
 bi
+=======
+wm
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ac
 bH
 ac
@@ -2338,7 +2822,11 @@ cj
 ac
 cH
 ac
+<<<<<<< HEAD
 cZ
+=======
+Gg
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 dr
 dJ
 ac
@@ -2354,7 +2842,11 @@ by
 Qd
 NG
 hW
+<<<<<<< HEAD
 pC
+=======
+ny
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Qd
 by
 bj
@@ -2413,7 +2905,11 @@ Fb
 iK
 wn
 cJ
+<<<<<<< HEAD
 cP
+=======
+he
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 db
 SI
 bV
@@ -2483,7 +2979,11 @@ as
 aF
 ni
 bo
+<<<<<<< HEAD
 bC
+=======
+uS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ap
 DL
 eD
@@ -2557,7 +3057,11 @@ aa
 ag
 ai
 ai
+<<<<<<< HEAD
 jv
+=======
+VM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 FF
 oT
 bO
@@ -2567,20 +3071,32 @@ bO
 cN
 bK
 Fu
+<<<<<<< HEAD
 fm
+=======
+RV
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 bD
 bD
 cW
 "}
 (18,1,1) = {"
+<<<<<<< HEAD
 ah
+=======
+EU
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 at
 aI
 Of
 bs
 bD
 HJ
+<<<<<<< HEAD
 cc
+=======
+ck
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 cq
 cC
 Aa
@@ -2612,7 +3128,11 @@ bD
 "}
 (20,1,1) = {"
 ai
+<<<<<<< HEAD
 PW
+=======
+Bg
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ai
 ba
 ai
@@ -2622,7 +3142,11 @@ cd
 GZ
 cD
 bQ
+<<<<<<< HEAD
 cU
+=======
+gs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 dj
 dB
 dQ
@@ -2637,7 +3161,11 @@ bb
 bt
 bG
 bQ
+<<<<<<< HEAD
 ce
+=======
+wE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 kz
 cE
 bQ
@@ -2652,7 +3180,11 @@ eb
 ai
 ai
 ai
+<<<<<<< HEAD
 bc
+=======
+VG
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 bu
 ai
 bQ
@@ -2663,7 +3195,11 @@ bQ
 bD
 dl
 dD
+<<<<<<< HEAD
 dS
+=======
+Dv
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 bD
 bD
 "}
@@ -2688,7 +3224,11 @@ eb
 "}
 (24,1,1) = {"
 ai
+<<<<<<< HEAD
 PW
+=======
+Bg
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ai
 be
 bw
@@ -2699,7 +3239,11 @@ bR
 bR
 bR
 bD
+<<<<<<< HEAD
 SW
+=======
+Cp
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 dF
 dU
 tq

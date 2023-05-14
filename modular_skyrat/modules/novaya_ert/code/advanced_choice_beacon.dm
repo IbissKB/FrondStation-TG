@@ -14,7 +14,11 @@
 		display_options(user)
 
 /obj/item/advanced_choice_beacon/proc/can_use_beacon(mob/living/user)
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	else
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
@@ -112,7 +116,11 @@
 			span_danger("You bash [src] with [I]!"), null, COMBAT_MESSAGE_RANGE)
 		playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
 		var/obj/machinery/porta_turret/syndicate/pod/toolbox/nri/turret = new(get_turf(loc))
+<<<<<<< HEAD
 		turret.faction = list("neutral", FACTION_ERT)
+=======
+		turret.faction = list(FACTION_NEUTRAL, FACTION_ERT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		qdel(src)
 
 	..()
@@ -125,18 +133,31 @@
 	lethal_projectile = /obj/projectile/bullet/a762x39
 	max_integrity = 150
 	req_access = list(ACCESS_CENT_GENERAL)
+<<<<<<< HEAD
 	faction = list("neutral", FACTION_ERT)
+=======
+	faction = list(FACTION_NEUTRAL, FACTION_ERT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	shot_delay = 0.25
 
 /obj/machinery/porta_turret/syndicate/pod/toolbox/nri/assess_perp(mob/living/carbon/human/perp)
 	return 0
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/viscerator/nri
 	faction = list("neutral", FACTION_ERT)
 
 /obj/item/grenade/spawnergrenade/manhacks/nri
 	name = "imperial viscerator delivery grenade"
 	spawner_type = /mob/living/simple_animal/hostile/viscerator/nri
+=======
+/mob/living/basic/viscerator/nri
+	faction = list(FACTION_NEUTRAL, FACTION_ERT)
+
+/obj/item/grenade/spawnergrenade/manhacks/nri
+	name = "imperial viscerator delivery grenade"
+	spawner_type = /mob/living/basic/viscerator/nri
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	deliveryamt = 10
 
 /obj/structure/closet/crate/secure/weapon/nri
@@ -231,6 +252,11 @@
 	new /obj/item/storage/toolbox/ammo/full/krinkov/fire(src)
 	new /obj/item/storage/toolbox/ammo/full/krinkov/ricochet(src)
 	new /obj/item/storage/toolbox/ammo/full/krinkov/ap(src)
+<<<<<<< HEAD
 	new /obj/item/storage/toolbox/ammo/full/bison/ert(src)
 	new /obj/item/storage/toolbox/ammo/full/bison/ert(src)
+=======
+	new /obj/item/storage/toolbox/ammo/full/nri_smg(src)
+	new /obj/item/storage/toolbox/ammo/full/nri_smg(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/storage/toolbox/ammo/full/aps(src)

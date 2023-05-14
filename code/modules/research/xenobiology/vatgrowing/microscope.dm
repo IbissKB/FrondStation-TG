@@ -88,7 +88,11 @@
 	reqs = list(
 		/obj/item/stack/sheet/glass = 1,
 		/obj/item/stack/sheet/plastic = 1,
+<<<<<<< HEAD
 		/datum/stock_part/scanning_module = 1,
+=======
+		/obj/item/stock_parts/scanning_module = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/flashlight = 1,
 	)
 	category = CAT_CHEMISTRY

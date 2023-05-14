@@ -101,7 +101,11 @@
 	use_power = IDLE_POWER_USE
 	anchored = TRUE
 	density = TRUE
+<<<<<<< HEAD
 	obj_flags = NO_BUILD // Becomes undense when the door is open
+=======
+	obj_flags = BLOCKS_CONSTRUCTION // Becomes undense when the door is open
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.5
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.3
 
@@ -173,13 +177,21 @@
 	mod_unit = null
 	open_machine()
 
+<<<<<<< HEAD
 /obj/machinery/mod_installer/open_machine()
+=======
+/obj/machinery/mod_installer/open_machine(drop = TRUE, density_to_set = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(state_open)
 		return FALSE
 	..()
 	return TRUE
 
+<<<<<<< HEAD
 /obj/machinery/mod_installer/close_machine(mob/living/carbon/user)
+=======
+/obj/machinery/mod_installer/close_machine(mob/living/carbon/user, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!state_open)
 		return FALSE
 	..()
@@ -208,6 +220,7 @@
 		return
 	open_machine()
 
+<<<<<<< HEAD
 /obj/effect/spawner/structure/window/reinforced/damaged
 	name = "damaged reinforced window spawner"
 	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/fulltile/damaged)
@@ -220,6 +233,8 @@
 	. = ..()
 	atom_integrity = rand(max_integrity * integrity_min_factor, max_integrity * integrity_max_factor)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/petri_dish/oldstation
 	name = "molly's biopsy"
 	desc = "You can see a moldy piece of sandwich inside the dish. Maybe it helped to preserve the bacteria for that long."
@@ -247,7 +262,11 @@
 		/datum/reagent/yuck = 5,
 		/datum/reagent/consumable/vitfro = 5,
 		// Supplementary for CELL_LINE_TABLE_GRAPE
+<<<<<<< HEAD
 		/datum/reagent/liquidgibs = 5
+=======
+		/datum/reagent/consumable/liquidgibs = 5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /obj/machinery/computer/old

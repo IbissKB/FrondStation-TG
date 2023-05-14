@@ -76,6 +76,14 @@
 		forensics = new(src, blood_DNA = blood_DNA_to_add)
 	return TRUE
 
+<<<<<<< HEAD
+=======
+/obj/item/add_blood_DNA(list/blood_DNA_to_add)
+	if(item_flags & NO_BLOOD_ON_ITEM)
+		return FALSE
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/gloves/add_blood_DNA(list/blood_dna, list/datum/disease/diseases)
 	transfer_blood = rand(2, 4)
 	return ..()

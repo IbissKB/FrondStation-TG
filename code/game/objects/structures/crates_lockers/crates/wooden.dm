@@ -4,10 +4,18 @@
 	material_drop = /obj/item/stack/sheet/mineral/wood
 	material_drop_amount = 6
 	icon_state = "wooden"
+<<<<<<< HEAD
+=======
+	base_icon_state = "wooden"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
 	open_sound_volume = 25
 	close_sound_volume = 50
+<<<<<<< HEAD
+=======
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/wooden/toy
 	name = "toy box"

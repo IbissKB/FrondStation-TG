@@ -67,7 +67,12 @@
 	/// If this bit of weather should also draw an overlay that's uneffected by lighting onto the area
 	/// Taken from weather_glow.dmi
 	var/use_glow = TRUE
+<<<<<<< HEAD
 	var/list/offsets_to_overlays
+=======
+	/// List of all overlays to apply to our turfs
+	var/list/overlay_cache
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// The stage of the weather, from 1-4
 	var/stage = END_STAGE
@@ -220,6 +225,7 @@
  *
  */
 /datum/weather/proc/update_areas()
+<<<<<<< HEAD
 	var/using_icon_state = ""
 	switch(stage)
 		if(STARTUP_STAGE)
@@ -279,3 +285,47 @@
 
 	offsets_to_overlays = new_offsets_to_overlays
 
+=======
+	var/list/new_overlay_cache = generate_overlay_cache()
+	for(var/area/impacted as anything in impacted_areas)
+		if(length(overlay_cache))
+			impacted.overlays -= overlay_cache
+		if(length(new_overlay_cache))
+			impacted.overlays += new_overlay_cache
+
+	overlay_cache = new_overlay_cache
+
+/// Returns a list of visual offset -> overlays to use
+/datum/weather/proc/generate_overlay_cache()
+	// We're ending, so no overlays at all
+	if(stage == END_STAGE)
+		return list()
+
+	var/weather_state = ""
+	switch(stage)
+		if(STARTUP_STAGE)
+			weather_state = telegraph_overlay
+		if(MAIN_STAGE)
+			weather_state = weather_overlay
+		if(WIND_DOWN_STAGE)
+			weather_state = end_overlay
+
+	// Use all possible offsets
+	// Yes this is a bit annoying, but it's too slow to calculate and store these from turfs, and it shouldn't (I hope) look weird
+	var/list/gen_overlay_cache = list()
+	for(var/offset in 0 to SSmapping.max_plane_offset)
+		// Note: what we do here is effectively apply two overlays to each area, for every unique multiz layer they inhabit
+		// One is the base, which will be masked by lighting. the other is "glowing", and provides a nice contrast
+		// This method of applying one overlay per z layer has some minor downsides, in that it could lead to improperly doubled effects if some have alpha
+		// I prefer it to creating 2 extra plane masters however, so it's a cost I'm willing to pay
+		// LU
+		var/mutable_appearance/glow_overlay = mutable_appearance('icons/effects/glow_weather.dmi', weather_state, overlay_layer, null, ABOVE_LIGHTING_PLANE, 100, offset_const = offset)
+		glow_overlay.color = weather_color
+		gen_overlay_cache += glow_overlay
+
+		var/mutable_appearance/weather_overlay = mutable_appearance('icons/effects/weather_effects.dmi', weather_state, overlay_layer, plane = overlay_plane, offset_const = offset)
+		weather_overlay.color = weather_color
+		gen_overlay_cache += weather_overlay
+
+	return gen_overlay_cache
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

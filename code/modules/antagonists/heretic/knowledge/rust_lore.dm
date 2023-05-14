@@ -30,7 +30,11 @@
 	name = "Blacksmith's Tale"
 	desc = "Opens up the Path of Rust to you. \
 		Allows you to transmute a knife with any trash item into a Rusty Blade. \
+<<<<<<< HEAD
 		You can only create five at a time." //SKYRAT EDIT two to five
+=======
+		You can only create two at a time."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	gain_text = "\"Let me tell you a story\", said the Blacksmith, as he gazed deep into his rusty blade."
 	next_knowledge = list(/datum/heretic_knowledge/rust_fist)
 	required_atoms = list(
@@ -67,6 +71,15 @@
 /datum/heretic_knowledge/rust_fist/proc/on_secondary_mansus_grasp(mob/living/source, atom/target)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
+=======
+	// Rusting an airlock causes it to lose power, mostly to prevent the airlock from shocking you.
+	// This is a bit of a hack, but fixing this would require the enture wire cut/pulse system to be reworked.
+	if(istype(target, /obj/machinery/door/airlock))
+		var/obj/machinery/door/airlock/airlock = target
+		airlock.loseMainPower()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.rust_heretic_act()
 	return COMPONENT_USE_HAND
 
@@ -111,7 +124,11 @@
  * Gradually heals the heretic ([source]) on rust,
  * including baton knockdown and stamina damage.
  */
+<<<<<<< HEAD
 /datum/heretic_knowledge/rust_regen/proc/on_life(mob/living/source, delta_time, times_fired)
+=======
+/datum/heretic_knowledge/rust_regen/proc/on_life(mob/living/source, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 
 	var/turf/our_turf = get_turf(source)
@@ -128,7 +145,11 @@
 	source.AdjustAllImmobility(-0.5 SECONDS)
 	// Heals blood loss
 	if(source.blood_volume < BLOOD_VOLUME_NORMAL)
+<<<<<<< HEAD
 		source.blood_volume += 2.5 * delta_time
+=======
+		source.blood_volume += 2.5 * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/heretic_knowledge/mark/rust_mark
 	name = "Mark of Rust"
@@ -200,7 +221,11 @@
 /datum/heretic_knowledge/ultimate/rust_final
 	name = "Rustbringer's Oath"
 	desc = "The ascension ritual of the Path of Rust. \
+<<<<<<< HEAD
 		Bring 3 corpses to a transumation rune on the bridge of the station to complete the ritual. \
+=======
+		Bring 3 corpses to a transmutation rune on the bridge of the station to complete the ritual. \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		When completed, the ritual site will endlessly spread rust onto any surface, stopping for nothing. \
 		Additionally, you will become extremely resilient on rust, healing at triple the rate \
 		and becoming immune to many effects and dangers."
@@ -213,6 +238,7 @@
 	var/area/ritual_location = /area/station/command/bridge
 	/// A static list of traits we give to the heretic when on rust.
 	var/static/list/conditional_immunities = list(
+<<<<<<< HEAD
 		TRAIT_STUNIMMUNE,
 		TRAIT_SLEEPIMMUNE,
 		TRAIT_PUSHIMMUNE,
@@ -227,6 +253,22 @@
 		TRAIT_BOMBIMMUNE,
 		TRAIT_NOBREATH,
 		)
+=======
+		TRAIT_BOMBIMMUNE,
+		TRAIT_NO_SLIP_ALL,
+		TRAIT_NOBREATH,
+		TRAIT_PIERCEIMMUNE,
+		TRAIT_PUSHIMMUNE,
+		TRAIT_RADIMMUNE,
+		TRAIT_RESISTCOLD,
+		TRAIT_RESISTHEAT,
+		TRAIT_RESISTHIGHPRESSURE,
+		TRAIT_RESISTLOWPRESSURE,
+		TRAIT_SHOCKIMMUNE,
+		TRAIT_SLEEPIMMUNE,
+		TRAIT_STUNIMMUNE,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/heretic_knowledge/ultimate/rust_final/on_research(mob/user, datum/antagonist/heretic/our_heretic)
 	. = ..()
@@ -264,15 +306,23 @@
 	var/turf/our_turf = get_turf(source)
 	if(HAS_TRAIT(our_turf, TRAIT_RUSTY))
 		if(!immunities_active)
+<<<<<<< HEAD
 			for(var/trait in conditional_immunities)
 				ADD_TRAIT(source, trait, type)
+=======
+			source.add_traits(conditional_immunities, type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			immunities_active = TRUE
 
 	// If we're not on a rust turf, and we have given out our traits, nerf our guy
 	else
 		if(immunities_active)
+<<<<<<< HEAD
 			for(var/trait in conditional_immunities)
 				REMOVE_TRAIT(source, trait, type)
+=======
+			source.remove_traits(conditional_immunities, type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			immunities_active = FALSE
 
 /**
@@ -280,7 +330,11 @@
  *
  * Gradually heals the heretic ([source]) on rust.
  */
+<<<<<<< HEAD
 /datum/heretic_knowledge/ultimate/rust_final/proc/on_life(mob/living/source, delta_time, times_fired)
+=======
+/datum/heretic_knowledge/ultimate/rust_final/proc/on_life(mob/living/source, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 
 	var/turf/our_turf = get_turf(source)
@@ -331,8 +385,13 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
+<<<<<<< HEAD
 /datum/rust_spread/process(delta_time)
 	var/spread_amount = round(spread_per_sec * delta_time)
+=======
+/datum/rust_spread/process(seconds_per_tick)
+	var/spread_amount = round(spread_per_sec * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(length(edge_turfs) < spread_amount)
 		compile_turfs()

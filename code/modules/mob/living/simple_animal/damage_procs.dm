@@ -30,7 +30,11 @@
 	else if(damage_coeff[BURN])
 		. = adjustHealth(amount * damage_coeff[BURN] * CONFIG_GET(number/damage_multiplier), updating_health, forced)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype)
+=======
+/mob/living/simple_animal/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype, required_respiration_type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(forced)
 		. = adjustHealth(amount * CONFIG_GET(number/damage_multiplier), updating_health, forced)
 	else if(damage_coeff[OXY])

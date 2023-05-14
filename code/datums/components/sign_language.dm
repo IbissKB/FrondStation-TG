@@ -67,7 +67,11 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/carbon_parent = parent
+<<<<<<< HEAD
 	var/obj/item/organ/internal/tongue/tongue = carbon_parent.getorganslot(ORGAN_SLOT_TONGUE)
+=======
+	var/obj/item/organ/internal/tongue/tongue = carbon_parent.get_organ_slot(ORGAN_SLOT_TONGUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(tongue)
 		tongue.temp_say_mod = "signs"
 	//this speech relies on hands, which we have our own way of garbling speech when they're occupied, so we can have this always on
@@ -93,7 +97,11 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/carbon_parent = parent
+<<<<<<< HEAD
 	var/obj/item/organ/internal/tongue/tongue = carbon_parent.getorganslot(ORGAN_SLOT_TONGUE)
+=======
+	var/obj/item/organ/internal/tongue/tongue = carbon_parent.get_organ_slot(ORGAN_SLOT_TONGUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(tongue)
 		tongue.temp_say_mod = ""
 	REMOVE_TRAIT(carbon_parent, TRAIT_SPEAKS_CLEARLY, SPEAKING_FROM_HANDS)
@@ -129,7 +137,11 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/carbon_parent = parent
+<<<<<<< HEAD
 	if(carbon_parent.mind?.miming)
+=======
+	if(HAS_TRAIT(carbon_parent, TRAIT_MIMING))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(carbon_parent, span_green("You stop yourself from signing in favor of the artform of mimery!"))
 		return COMPONENT_CANNOT_SPEAK
 

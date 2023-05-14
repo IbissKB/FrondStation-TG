@@ -74,8 +74,13 @@ export class ComponentMenu extends Component {
         if (currentSearch !== '') {
           const result = val.name
             .toLowerCase()
+<<<<<<< HEAD
             .search(currentSearch.toLowerCase());
           return result !== -1;
+=======
+            .includes(currentSearch.toLowerCase());
+          return result !== false;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         }
         return selectedTab === 'All' || selectedTab === val.category;
       }

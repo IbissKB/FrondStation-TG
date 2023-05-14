@@ -5,7 +5,11 @@
 	suicide_cry = "FOR MYSELF!!"
 	var/greet_message = ""
 
+<<<<<<< HEAD
 /datum/antagonist/survivalist/proc/forge_objectives()
+=======
+/datum/antagonist/survivalist/forge_objectives()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/objective/survive/survive = new
 	survive.owner = owner
 	objectives += survive

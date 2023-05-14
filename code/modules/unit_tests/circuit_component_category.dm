@@ -8,4 +8,8 @@
 			continue
 
 		if(initial(path.category) == COMPONENT_DEFAULT_CATEGORY)
+<<<<<<< HEAD
 			Fail("[path] has a category of '[COMPONENT_DEFAULT_CATEGORY]' when it has a research design that players can potentially access!")
+=======
+			TEST_FAIL("[path] has a category of '[COMPONENT_DEFAULT_CATEGORY]' when it has a research design that players can potentially access!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

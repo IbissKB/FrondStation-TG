@@ -24,7 +24,11 @@
 	var/charge = 0
 	///Maximum charge in cell units
 	var/maxcharge = 1000
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=700, /datum/material/glass=50)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*7, /datum/material/glass=SMALL_MATERIAL_AMOUNT*0.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	grind_results = list(/datum/reagent/lithium = 15, /datum/reagent/iron = 5, /datum/reagent/silicon = 5)
 	///If the cell has been booby-trapped by injecting it with plasma. Chance on use() to explode.
 	var/rigged = FALSE
@@ -138,6 +142,7 @@
 	return 100 * charge / maxcharge
 
 // use power from a cell
+<<<<<<< HEAD
 /obj/item/stock_parts/cell/use(amount, force)
 	if(rigged && amount > 0)
 		explode()
@@ -145,6 +150,15 @@
 	if(!force && charge < amount)
 		return FALSE
 	charge = max(charge - amount, 0)
+=======
+/obj/item/stock_parts/cell/use(used, force)
+	if(rigged && used > 0)
+		explode()
+		return FALSE
+	if(!force && charge < used)
+		return FALSE
+	charge = max(charge - used, 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!istype(loc, /obj/machinery/power/apc))
 		SSblackbox.record_feedback("tally", "cell_used", 1, type)
 	return TRUE
@@ -223,7 +237,11 @@
 /obj/item/stock_parts/cell/ex_act(severity, target)
 	. = ..()
 	if(QDELETED(src))
+<<<<<<< HEAD
 		return
+=======
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	switch(severity)
 		if(EXPLODE_HEAVY)
@@ -233,10 +251,19 @@
 			if(prob(25))
 				corrupt()
 
+<<<<<<< HEAD
 /obj/item/stock_parts/cell/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/internal/stomach/maybe_stomach = H.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	return TRUE
+
+/obj/item/stock_parts/cell/attack_self(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/internal/stomach/maybe_stomach = H.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(istype(maybe_stomach, /obj/item/organ/internal/stomach/ethereal))
 
@@ -288,7 +315,11 @@
 	name = "\improper Nanotrasen brand rechargeable AA battery"
 	desc = "You can't top the plasma top." //TOTALLY TRADEMARK INFRINGEMENT
 	maxcharge = 500
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=40)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*0.4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/stock_parts/cell/crap/empty
 	empty = TRUE
@@ -297,7 +328,11 @@
 	name = "upgraded power cell"
 	desc = "A power cell with a slightly higher capacity than normal!"
 	maxcharge = 2500
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=50)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*0.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	chargerate = 1000
 
 /obj/item/stock_parts/cell/upgraded/plus
@@ -308,7 +343,11 @@
 /obj/item/stock_parts/cell/secborg
 	name = "security borg rechargeable D battery"
 	maxcharge = 600 //600 max charge / 100 charge per shot = six shots
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=40)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*0.4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/stock_parts/cell/secborg/empty
 	empty = TRUE
@@ -338,14 +377,22 @@
 	name = "black power cell"
 	icon_state = "bscell"
 	maxcharge = 10000
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=60)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*0.6)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	chargerate = 2000
 
 /obj/item/stock_parts/cell/high
 	name = "high-capacity power cell"
 	icon_state = "hcell"
 	maxcharge = 10000
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=60)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*0.6)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	chargerate = 1500
 
 /obj/item/stock_parts/cell/high/empty
@@ -355,7 +402,11 @@
 	name = "super-capacity power cell"
 	icon_state = "scell"
 	maxcharge = 20000
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=300)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT * 3)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	chargerate = 2000
 
 /obj/item/stock_parts/cell/super/empty
@@ -365,7 +416,11 @@
 	name = "hyper-capacity power cell"
 	icon_state = "hpcell"
 	maxcharge = 30000
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=400)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT * 4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	chargerate = 3000
 
 /obj/item/stock_parts/cell/hyper/empty
@@ -376,7 +431,11 @@
 	desc = "A rechargeable transdimensional power cell."
 	icon_state = "bscell"
 	maxcharge = 40000
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=600)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*6)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	chargerate = 4000
 
 /obj/item/stock_parts/cell/bluespace/empty
@@ -386,11 +445,19 @@
 	name = "infinite-capacity power cell"
 	icon_state = "icell"
 	maxcharge = INFINITY //little disappointing if you examine it and it's not huge
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=1000)
 	chargerate = INFINITY
 	ratingdesc = FALSE
 
 /obj/item/stock_parts/cell/infinite/use()
+=======
+	custom_materials = list(/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT)
+	chargerate = INFINITY
+	ratingdesc = FALSE
+
+/obj/item/stock_parts/cell/infinite/use(used)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/item/stock_parts/cell/infinite/abductor
@@ -462,7 +529,11 @@
 	name = "miniature power cell"
 	desc = "A tiny power cell with a very low power capacity. Used in light fixtures to power them in the event of an outage."
 	maxcharge = 120 //Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass = 20)
+=======
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT*0.2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/stock_parts/cell/emergency_light/Initialize(mapload)

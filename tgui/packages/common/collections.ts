@@ -319,6 +319,12 @@ export const paginate = <T>(collection: T[], maxPerPage: number): T[][] => {
       page = [];
     }
   }
+<<<<<<< HEAD
+=======
+  if (page.length) {
+    pages.push(page);
+  }
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   return pages;
 };
 

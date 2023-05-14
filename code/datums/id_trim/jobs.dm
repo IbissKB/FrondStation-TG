@@ -79,7 +79,10 @@
 /datum/id_trim/job/assistant
 	assignment = "Assistant"
 	trim_state = "trim_assistant"
+<<<<<<< HEAD
 	orbit_icon = "toolbox"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	sechud_icon_state = SECHUD_ASSISTANT
 	minimal_access = list()
 	extra_access = list(
@@ -106,7 +109,10 @@
 /datum/id_trim/job/atmospheric_technician
 	assignment = "Atmospheric Technician"
 	trim_state = "trim_atmospherictechnician"
+<<<<<<< HEAD
 	orbit_icon = "fan"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_ENGINEERING_ORANGE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	sechud_icon_state = SECHUD_ATMOSPHERIC_TECHNICIAN
@@ -129,14 +135,21 @@
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
+<<<<<<< HEAD
 		ACCESS_HOP,
+=======
+		ACCESS_CE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 	job = /datum/job/atmospheric_technician
 
 /datum/id_trim/job/bartender
 	assignment = "Bartender"
 	trim_state = "trim_bartender"
+<<<<<<< HEAD
 	orbit_icon = "cocktail"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME
 	sechud_icon_state = SECHUD_BARTENDER
@@ -161,7 +174,10 @@
 /datum/id_trim/job/botanist
 	assignment = "Botanist"
 	trim_state = "trim_botanist"
+<<<<<<< HEAD
 	orbit_icon = "seedling"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME
 	sechud_icon_state = SECHUD_BOTANIST
@@ -186,7 +202,10 @@
 	assignment = "Captain"
 	intern_alt_name = "Captain-in-Training"
 	trim_state = "trim_captain"
+<<<<<<< HEAD
 	orbit_icon = "crown"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_COMMAND_BLUE
 	department_state = "departmenthead"
@@ -209,7 +228,10 @@
 /datum/id_trim/job/cargo_technician
 	assignment = "Cargo Technician"
 	trim_state = "trim_cargotechnician"
+<<<<<<< HEAD
 	orbit_icon = "box"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_CARGO_BROWN
 	sechud_icon_state = SECHUD_CARGO_TECHNICIAN
@@ -234,13 +256,20 @@
 /datum/id_trim/job/chaplain
 	assignment = "Chaplain"
 	trim_state = "trim_chaplain"
+<<<<<<< HEAD
 	orbit_icon = "cross"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME
 	sechud_icon_state = SECHUD_CHAPLAIN
 	minimal_access = list(
 		ACCESS_CHAPEL_OFFICE,
 		ACCESS_CREMATORIUM,
+<<<<<<< HEAD
+=======
+		ACCESS_MINERAL_STOREROOM,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_MORGUE,
 		ACCESS_SERVICE,
 		ACCESS_THEATRE,
@@ -256,7 +285,10 @@
 /datum/id_trim/job/chemist
 	assignment = "Chemist"
 	trim_state = "trim_chemist"
+<<<<<<< HEAD
 	orbit_icon = "prescription-bottle"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_MEDICAL_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_CHEMIST
@@ -283,7 +315,10 @@
 	assignment = "Chief Engineer"
 	intern_alt_name = "Chief Engineer-in-Training"
 	trim_state = "trim_stationengineer"
+<<<<<<< HEAD
 	orbit_icon = "user-astronaut"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	department_state = "departmenthead"
@@ -325,7 +360,10 @@
 	assignment = "Chief Medical Officer"
 	intern_alt_name = "Chief Medical Officer-in-Training"
 	trim_state = "trim_medicaldoctor"
+<<<<<<< HEAD
 	orbit_icon = "user-md"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
 	department_state = "departmenthead"
@@ -342,11 +380,16 @@
 		ACCESS_MEDICAL,
 		ACCESS_MINERAL_STOREROOM,
 		ACCESS_MORGUE,
+<<<<<<< HEAD
+=======
+		ACCESS_MORGUE_SECURE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_PHARMACY,
 		ACCESS_PSYCHOLOGY,
 		ACCESS_RC_ANNOUNCE,
 		ACCESS_SURGERY,
 		ACCESS_VIROLOGY,
+<<<<<<< HEAD
 		)
 	minimal_wildcard_access = list(
 		ACCESS_CMO,
@@ -358,16 +401,36 @@
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 		)
+=======
+	)
+	minimal_wildcard_access = list(
+		ACCESS_CMO,
+	)
+	extra_access = list(
+		ACCESS_TELEPORTER,
+	)
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	job = /datum/job/chief_medical_officer
 
 /datum/id_trim/job/clown
 	assignment = "Clown"
 	trim_state = "trim_clown"
+<<<<<<< HEAD
 	orbit_icon = "face-grin-tears"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_MAGENTA
 	subdepartment_color = COLOR_MAGENTA
 	sechud_icon_state = SECHUD_CLOWN
 	minimal_access = list(
+<<<<<<< HEAD
+=======
+		ACCESS_MINERAL_STOREROOM,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_SERVICE,
 		ACCESS_THEATRE,
 		)
@@ -382,7 +445,10 @@
 /datum/id_trim/job/cook
 	assignment = "Cook"
 	trim_state = "trim_cook"
+<<<<<<< HEAD
 	orbit_icon = "utensils"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME
 	sechud_icon_state = SECHUD_COOK
@@ -407,16 +473,52 @@
 	assignment = "Chef"
 	sechud_icon_state = SECHUD_CHEF
 
+<<<<<<< HEAD
 /datum/id_trim/job/curator
 	assignment = "Curator"
 	trim_state = "trim_curator"
 	orbit_icon = "book"
+=======
+/datum/id_trim/job/coroner
+	assignment = "Coroner"
+	trim_state = "trim_coroner"
+	department_color = COLOR_MEDICAL_BLUE
+	subdepartment_color = COLOR_SERVICE_LIME
+	sechud_icon_state = SECHUD_CORONER
+	minimal_access = list(
+		ACCESS_MEDICAL,
+		ACCESS_MINERAL_STOREROOM,
+		ACCESS_MORGUE,
+		ACCESS_MORGUE_SECURE,
+		ACCESS_SERVICE,
+		ACCESS_SURGERY,
+	)
+	extra_access = list(
+		ACCESS_PSYCHOLOGY,
+		ACCESS_PHARMACY,
+	)
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+		ACCESS_CMO,
+		ACCESS_HOP,
+	)
+	job = /datum/job/coroner
+
+/datum/id_trim/job/curator
+	assignment = "Curator"
+	trim_state = "trim_curator"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME
 	sechud_icon_state = SECHUD_CURATOR
 	minimal_access = list(
 		ACCESS_AUX_BASE,
 		ACCESS_LIBRARY,
+<<<<<<< HEAD
+=======
+		ACCESS_MINERAL_STOREROOM,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_MINING_STATION,
 		ACCESS_SERVICE,
 		)
@@ -431,7 +533,10 @@
 /datum/id_trim/job/detective
 	assignment = "Detective"
 	trim_state = "trim_detective"
+<<<<<<< HEAD
 	orbit_icon = "user-secret"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SECURITY_RED
 	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_DETECTIVE
@@ -443,17 +548,31 @@
 		ACCESS_MECH_SECURITY,
 		ACCESS_MINERAL_STOREROOM,
 		ACCESS_MORGUE,
+<<<<<<< HEAD
 		ACCESS_SECURITY,
 		ACCESS_WEAPONS,
 		)
 	extra_access = list(
 		ACCESS_BRIG,
 		)
+=======
+		ACCESS_MORGUE_SECURE,
+		ACCESS_SECURITY,
+		ACCESS_WEAPONS,
+	)
+	extra_access = list(
+		ACCESS_BRIG,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 		ACCESS_HOS,
+<<<<<<< HEAD
 		)
+=======
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	job = /datum/job/detective
 
 /datum/id_trim/job/detective/refresh_trim_access()
@@ -469,7 +588,10 @@
 /datum/id_trim/job/geneticist
 	assignment = "Geneticist"
 	trim_state = "trim_geneticist"
+<<<<<<< HEAD
 	orbit_icon = "dna"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SCIENCE_PINK
 	subdepartment_color = COLOR_SCIENCE_PINK
 	sechud_icon_state = SECHUD_GENETICIST
@@ -497,7 +619,10 @@
 	assignment = "Head of Personnel"
 	intern_alt_name = "Head of Personnel-in-Training"
 	trim_state = "trim_headofpersonnel"
+<<<<<<< HEAD
 	orbit_icon = "dog"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_SERVICE_LIME
 	department_state = "departmenthead"
@@ -526,6 +651,11 @@
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_MEDICAL,
 		ACCESS_MINERAL_STOREROOM,
+<<<<<<< HEAD
+=======
+		ACCESS_MORGUE,
+		ACCESS_MORGUE_SECURE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_PSYCHOLOGY,
 		ACCESS_RC_ANNOUNCE,
 		ACCESS_SCIENCE,
@@ -533,10 +663,17 @@
 		ACCESS_TELEPORTER,
 		ACCESS_THEATRE,
 		ACCESS_WEAPONS,
+<<<<<<< HEAD
 		)
 	minimal_wildcard_access = list(
 		ACCESS_HOP,
 		)
+=======
+	)
+	minimal_wildcard_access = list(
+		ACCESS_HOP,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	extra_access = list()
 	extra_wildcard_access = list()
 	template_access = list(
@@ -549,7 +686,10 @@
 	assignment = "Head of Security"
 	intern_alt_name = "Head of Security-in-Training"
 	trim_state = "trim_securityofficer"
+<<<<<<< HEAD
 	orbit_icon = "user-shield"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_SECURITY_RED
 	department_state = "departmenthead"
@@ -577,12 +717,17 @@
 		ACCESS_MINERAL_STOREROOM,
 		ACCESS_MINING,
 		ACCESS_MORGUE,
+<<<<<<< HEAD
+=======
+		ACCESS_MORGUE_SECURE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_RC_ANNOUNCE,
 		ACCESS_SCIENCE,
 		ACCESS_SECURITY,
 		ACCESS_SERVICE,
 		ACCESS_SHIPPING,
 		ACCESS_WEAPONS,
+<<<<<<< HEAD
 		)
 	minimal_wildcard_access = list(
 		ACCESS_HOS,
@@ -591,6 +736,16 @@
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 		)
+=======
+	)
+	minimal_wildcard_access = list(
+		ACCESS_HOS,
+	)
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	job = /datum/job/head_of_security
 
 /datum/id_trim/job/head_of_security/refresh_trim_access()
@@ -606,7 +761,10 @@
 /datum/id_trim/job/janitor
 	assignment = "Janitor"
 	trim_state = "trim_janitor"
+<<<<<<< HEAD
 	orbit_icon = "broom"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME
 	sechud_icon_state = SECHUD_JANITOR
@@ -627,7 +785,10 @@
 /datum/id_trim/job/lawyer
 	assignment = "Lawyer"
 	trim_state = "trim_lawyer"
+<<<<<<< HEAD
 	orbit_icon = "gavel"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_LAWYER
@@ -635,6 +796,10 @@
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_COURT,
 		ACCESS_LAWYER,
+<<<<<<< HEAD
+=======
+		ACCESS_MINERAL_STOREROOM,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_SERVICE,
 		)
 	extra_access = list()
@@ -642,14 +807,20 @@
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 		ACCESS_HOP,
+<<<<<<< HEAD
 		ACCESS_HOS,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 	job = /datum/job/lawyer
 
 /datum/id_trim/job/medical_doctor
 	assignment = "Medical Doctor"
 	trim_state = "trim_medicaldoctor"
+<<<<<<< HEAD
 	orbit_icon = "staff-snake"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_MEDICAL_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_MEDICAL_DOCTOR
@@ -675,11 +846,18 @@
 /datum/id_trim/job/mime
 	assignment = "Mime"
 	trim_state = "trim_mime"
+<<<<<<< HEAD
 	orbit_icon = "comment-slash"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SILVER
 	subdepartment_color = COLOR_WHITE
 	sechud_icon_state = SECHUD_MIME
 	minimal_access = list(
+<<<<<<< HEAD
+=======
+		ACCESS_MINERAL_STOREROOM,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ACCESS_SERVICE,
 		ACCESS_THEATRE,
 		)
@@ -694,7 +872,10 @@
 /datum/id_trim/job/paramedic
 	assignment = "Paramedic"
 	trim_state = "trim_paramedic"
+<<<<<<< HEAD
 	orbit_icon = "truck-medical"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_MEDICAL_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_PARAMEDIC
@@ -725,7 +906,10 @@
 /datum/id_trim/job/prisoner
 	assignment = "Prisoner"
 	trim_state = "trim_warden"
+<<<<<<< HEAD
 	orbit_icon = "lock"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_PRISONER_BLACK
 	subdepartment_color = COLOR_PRISONER_ORANGE
 	sechud_icon_state = SECHUD_PRISONER
@@ -768,28 +952,49 @@
 /datum/id_trim/job/psychologist
 	assignment = "Psychologist"
 	trim_state = "trim_psychologist"
+<<<<<<< HEAD
 	orbit_icon = "brain"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_PSYCHOLOGIST
 	minimal_access = list(
 		ACCESS_MEDICAL,
+<<<<<<< HEAD
 		ACCESS_PSYCHOLOGY,
 		ACCESS_SERVICE,
 		)
 	extra_access = list()
+=======
+		ACCESS_MINERAL_STOREROOM,
+		ACCESS_PSYCHOLOGY,
+		ACCESS_SERVICE,
+	)
+	extra_access = list(
+		ACCESS_MORGUE,
+		ACCESS_MORGUE_SECURE,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 		ACCESS_CMO,
 		ACCESS_HOP,
+<<<<<<< HEAD
 		)
+=======
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	job = /datum/job/psychologist
 
 /datum/id_trim/job/quartermaster
 	assignment = "Quartermaster"
 	trim_state = "trim_quartermaster"
+<<<<<<< HEAD
 	orbit_icon = "sack-dollar"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_CARGO_BROWN
 	department_state = "departmenthead"
@@ -811,7 +1016,13 @@
 		ACCESS_EVA,
 		ACCESS_BRIG_ENTRANCE,
 		)
+<<<<<<< HEAD
 	extra_access = list()
+=======
+	extra_access = list(
+		ACCESS_TELEPORTER,
+		)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	minimal_wildcard_access = list(
 		ACCESS_QM,
 	)
@@ -825,7 +1036,10 @@
 	assignment = "Research Director"
 	intern_alt_name = "Research Director-in-Training"
 	trim_state = "trim_scientist"
+<<<<<<< HEAD
 	orbit_icon = "user-graduate"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_SCIENCE_PINK
 	department_state = "departmenthead"
@@ -873,7 +1087,10 @@
 /datum/id_trim/job/roboticist
 	assignment = "Roboticist"
 	trim_state = "trim_roboticist"
+<<<<<<< HEAD
 	orbit_icon = "battery-half"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SCIENCE_PINK
 	subdepartment_color = COLOR_SCIENCE_PINK
 	sechud_icon_state = SECHUD_ROBOTICIST
@@ -901,7 +1118,10 @@
 /datum/id_trim/job/scientist
 	assignment = "Scientist"
 	trim_state = "trim_scientist"
+<<<<<<< HEAD
 	orbit_icon = "flask"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SCIENCE_PINK
 	subdepartment_color = COLOR_SCIENCE_PINK
 	sechud_icon_state = SECHUD_SCIENTIST
@@ -930,7 +1150,10 @@
 /datum/id_trim/job/security_officer
 	assignment = "Security Officer"
 	trim_state = "trim_securityofficer"
+<<<<<<< HEAD
 	orbit_icon = "shield-halved"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SECURITY_RED
 	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_SECURITY_OFFICER
@@ -1051,7 +1274,10 @@
 /datum/id_trim/job/shaft_miner
 	assignment = "Shaft Miner"
 	trim_state = "trim_shaftminer"
+<<<<<<< HEAD
 	orbit_icon = "digging"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_SCIENCE_PINK
 	sechud_icon_state = SECHUD_SHAFT_MINER
@@ -1088,7 +1314,10 @@
 /datum/id_trim/job/station_engineer
 	assignment = "Station Engineer"
 	trim_state = "trim_stationengineer"
+<<<<<<< HEAD
 	orbit_icon = "gears"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_ENGINEERING_ORANGE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	sechud_icon_state = SECHUD_STATION_ENGINEER
@@ -1118,7 +1347,10 @@
 /datum/id_trim/job/virologist
 	assignment = "Virologist"
 	trim_state = "trim_virologist"
+<<<<<<< HEAD
 	orbit_icon = "virus"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_MEDICAL_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_VIROLOGIST
@@ -1143,7 +1375,10 @@
 /datum/id_trim/job/warden
 	assignment = "Warden"
 	trim_state = "trim_warden"
+<<<<<<< HEAD
 	orbit_icon = "handcuffs"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	department_color = COLOR_SECURITY_RED
 	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_WARDEN

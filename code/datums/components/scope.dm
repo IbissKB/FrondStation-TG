@@ -2,7 +2,11 @@
 	/// How far we can extend, with modifier of 1, up to our vision edge, higher numbers multiply.
 	var/range_modifier = 1
 	/// Fullscreen object we use for tracking the shots.
+<<<<<<< HEAD
 	var/atom/movable/screen/fullscreen/scope/tracker
+=======
+	var/atom/movable/screen/fullscreen/cursor_catcher/scope/tracker
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/scope/Initialize(range_modifier)
 	if(!isgun(parent))
@@ -11,7 +15,11 @@
 
 /datum/component/scope/Destroy(force, silent)
 	if(tracker)
+<<<<<<< HEAD
 		stop_zooming(tracker.marksman)
+=======
+		stop_zooming(tracker.owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/component/scope/RegisterWithParent()
@@ -28,6 +36,7 @@
 		COMSIG_PARENT_EXAMINE,
 	))
 
+<<<<<<< HEAD
 /datum/component/scope/process(delta_time)
 	if(!tracker.marksman.client)
 		stop_zooming(tracker.marksman)
@@ -36,13 +45,29 @@
 	if(!length(tracker.marksman.client.keys_held & tracker.marksman.client.movement_keys))
 		tracker.marksman.face_atom(tracker.given_turf)
 	animate(tracker.marksman.client, world.tick_lag, pixel_x = tracker.given_x, pixel_y = tracker.given_y)
+=======
+/datum/component/scope/process(seconds_per_tick)
+	var/mob/user_mob = tracker.owner
+	var/client/user_client = user_mob.client
+	if(!user_client)
+		stop_zooming(user_mob)
+		return
+	tracker.calculate_params()
+	if(!length(user_client.keys_held & user_client.movement_keys))
+		user_mob.face_atom(tracker.given_turf)
+	animate(user_client, world.tick_lag, pixel_x = tracker.given_x, pixel_y = tracker.given_y)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/scope/proc/on_move(atom/movable/source, atom/oldloc, dir, forced)
 	SIGNAL_HANDLER
 
 	if(!tracker)
 		return
+<<<<<<< HEAD
 	stop_zooming(tracker.marksman)
+=======
+	stop_zooming(tracker.owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/scope/proc/on_secondary_afterattack(datum/source, atom/target, mob/user, proximity_flag, click_parameters)
 	SIGNAL_HANDLER
@@ -78,14 +103,22 @@
 	for(var/atom/movable/possible_target in target_turf)
 		if(possible_target.layer <= PROJECTILE_HIT_THRESHHOLD_LAYER)
 			continue
+<<<<<<< HEAD
 		if(possible_target.invisibility > tracker.marksman.see_invisible)
+=======
+		if(possible_target.invisibility > tracker.owner.see_invisible)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		if(!possible_target.mouse_opacity)
 			continue
 		if(iseffect(possible_target))
 			continue
 		if(ismob(possible_target))
+<<<<<<< HEAD
 			if(possible_target == tracker.marksman)
+=======
+			if(possible_target == tracker.owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				continue
 			return possible_target
 		if(!possible_target.density)
@@ -110,6 +143,7 @@
 	user.client.mouse_override_icon = 'icons/effects/mouse_pointers/scope_hide.dmi'
 	user.update_mouse_pointer()
 	user.playsound_local(parent, 'sound/weapons/scope.ogg', 75, TRUE)
+<<<<<<< HEAD
 	tracker = user.overlay_fullscreen("scope", /atom/movable/screen/fullscreen/scope, 0)
 	tracker.range_modifier = range_modifier
 	tracker.marksman = user
@@ -117,6 +151,10 @@
 	tracker.RegisterSignal(user, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/atom/movable/screen/fullscreen/scope, on_move))
 	tracker.RegisterSignal(user, COMSIG_VIEWDATA_UPDATE, TYPE_PROC_REF(/atom/movable/screen/fullscreen/scope, on_viewdata_update))
 	tracker.calculate_params()
+=======
+	tracker = user.overlay_fullscreen("scope", /atom/movable/screen/fullscreen/cursor_catcher/scope, 0)
+	tracker.assign_to_mob(user, range_modifier)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(user, COMSIG_MOB_SWAP_HANDS, PROC_REF(stop_zooming))
 	START_PROCESSING(SSprojectiles, src)
 
@@ -139,6 +177,7 @@
 	tracker = null
 	user.clear_fullscreen("scope")
 
+<<<<<<< HEAD
 /atom/movable/screen/fullscreen/scope
 	icon_state = "scope"
 	plane = HUD_PLANE
@@ -189,9 +228,30 @@
 	return ..()
 
 /atom/movable/screen/fullscreen/scope/proc/calculate_params()
+=======
+/atom/movable/screen/fullscreen/cursor_catcher/scope
+	icon_state = "scope"
+	/// Multiplier for given_X an given_y.
+	var/range_modifier = 1
+
+/atom/movable/screen/fullscreen/cursor_catcher/scope/assign_to_mob(mob/new_owner, range_modifier)
+	src.range_modifier = range_modifier
+	return ..()
+
+/atom/movable/screen/fullscreen/cursor_catcher/scope/Click(location, control, params)
+	if(usr == owner)
+		calculate_params()
+	return ..()
+
+/atom/movable/screen/fullscreen/cursor_catcher/scope/calculate_params()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/modifiers = params2list(mouse_params)
 	var/icon_x = text2num(LAZYACCESS(modifiers, VIS_X)) || view_list[1]*world.icon_size/2
 	var/icon_y = text2num(LAZYACCESS(modifiers, VIS_Y)) || view_list[2]*world.icon_size/2
 	given_x = round(range_modifier * (icon_x - view_list[1]*world.icon_size/2))
 	given_y = round(range_modifier * (icon_y - view_list[2]*world.icon_size/2))
+<<<<<<< HEAD
 	given_turf = locate(marksman.x+round(given_x/world.icon_size, 1),marksman.y+round(given_y/world.icon_size, 1),marksman.z)
+=======
+	given_turf = locate(owner.x+round(given_x/world.icon_size, 1),owner.y+round(given_y/world.icon_size, 1),owner.z)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

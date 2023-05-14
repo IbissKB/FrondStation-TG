@@ -34,6 +34,10 @@
 	..()
 
 /obj/item/gun/magic/wand/afterattack(atom/target, mob/living/user)
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!charges)
 		shoot_with_empty_chamber(user)
 		return
@@ -47,7 +51,11 @@
 				no_den_usage = 0
 		zap_self(user)
 	else
+<<<<<<< HEAD
 		. = ..()
+=======
+		. |= ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 
 

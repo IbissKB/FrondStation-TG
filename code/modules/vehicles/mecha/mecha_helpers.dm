@@ -1,27 +1,51 @@
 ///Adds a cell, for use in Map-spawned mechs, Nuke Ops mechs, and admin-spawned mechs. Mechs built by hand will replace this.
+<<<<<<< HEAD
 /obj/vehicle/sealed/mecha/proc/add_cell(obj/item/stock_parts/cell/C=null)
 	QDEL_NULL(cell)
 	if(C)
 		C.forceMove(src)
 		cell = C
+=======
+/obj/vehicle/sealed/mecha/proc/add_cell(obj/item/stock_parts/cell/new_cell)
+	QDEL_NULL(cell)
+	if(new_cell)
+		new_cell.forceMove(src)
+		cell = new_cell
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	cell = new /obj/item/stock_parts/cell/high(src)
 
 ///Adds a scanning module, for use in Map-spawned mechs, Nuke Ops mechs, and admin-spawned mechs. Mechs built by hand will replace this.
+<<<<<<< HEAD
 /obj/vehicle/sealed/mecha/proc/add_scanmod(obj/item/stock_parts/scanning_module/sm=null)
 	QDEL_NULL(scanmod)
 	if(sm)
 		sm.forceMove(src)
 		scanmod = sm
+=======
+/obj/vehicle/sealed/mecha/proc/add_scanmod(obj/item/stock_parts/scanning_module/new_scanmod)
+	QDEL_NULL(scanmod)
+	if(new_scanmod)
+		new_scanmod.forceMove(src)
+		scanmod = new_scanmod
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	scanmod = new /obj/item/stock_parts/scanning_module(src)
 
 ///Adds a capacitor, for use in Map-spawned mechs, Nuke Ops mechs, and admin-spawned mechs. Mechs built by hand will replace this.
+<<<<<<< HEAD
 /obj/vehicle/sealed/mecha/proc/add_capacitor(obj/item/stock_parts/capacitor/cap=null)
 	QDEL_NULL(capacitor)
 	if(cap)
 		cap.forceMove(src)
 		capacitor = cap
+=======
+/obj/vehicle/sealed/mecha/proc/add_capacitor(obj/item/stock_parts/capacitor/new_capacitor)
+	QDEL_NULL(capacitor)
+	if(new_capacitor)
+		new_capacitor.forceMove(src)
+		capacitor = new_capacitor
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		capacitor = new /obj/item/stock_parts/capacitor(src)
 
@@ -29,7 +53,11 @@
 ///// Power stuff /////
 ///////////////////////
 /obj/vehicle/sealed/mecha/proc/has_charge(amount)
+<<<<<<< HEAD
 	return (get_charge()>=amount)
+=======
+	return (get_charge() >= amount)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/vehicle/sealed/mecha/proc/get_charge()
 	return cell?.charge

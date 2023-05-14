@@ -7,6 +7,13 @@
 		People seeing or slipping on your graffiti grants progress towards success."
 
 	progression_minimum = 0 MINUTES
+<<<<<<< HEAD
+=======
+	progression_maximum = 30 MINUTES
+	progression_reward = list(4 MINUTES, 8 MINUTES)
+	telecrystal_reward = list(0, 1)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	duplicate_type = /datum/traitor_objective/demoralise/graffiti
 	/// Have we given out a spray can yet?
 	var/obtained_spray = FALSE
@@ -112,6 +119,11 @@
 		user.balloon_alert(user, "already busy!")
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (!proximity || !check_allowed_items(target) || !isliving(user))
 		return
 
@@ -303,6 +315,13 @@
 
 	return ..()
 
+<<<<<<< HEAD
 #undef RUNE_STAGE_OUTLINE
 #undef RUNE_STAGE_COLOURED
 #undef RUNE_STAGE_COMPLETE
+=======
+#undef RUNE_STAGE_COLOURED
+#undef RUNE_STAGE_COMPLETE
+#undef RUNE_STAGE_OUTLINE
+#undef RUNE_STAGE_REMOVABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

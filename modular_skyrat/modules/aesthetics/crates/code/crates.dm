@@ -1,6 +1,12 @@
 /obj/structure/closet/crate
 	icon = 'modular_skyrat/modules/aesthetics/crates/icons/crates.dmi'
 
+<<<<<<< HEAD
+=======
+/obj/structure/closet/crate/syndicrate
+	icon = 'icons/obj/storage/crates.dmi'
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/delivery
 	icon = 'modular_skyrat/modules/aesthetics/crates/icons/crates.dmi'
 

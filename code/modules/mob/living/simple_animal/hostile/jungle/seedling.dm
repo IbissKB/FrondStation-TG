@@ -18,10 +18,15 @@
 	health = 100
 	melee_damage_lower = 30
 	melee_damage_upper = 30
+<<<<<<< HEAD
 	pixel_x = -16
 	base_pixel_x = -16
 	pixel_y = -14
 	base_pixel_y = -14
+=======
+	SET_BASE_PIXEL(-16, -14)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	minimum_distance = 3
 	move_to_delay = 20
 	vision_range = 9
@@ -44,7 +49,11 @@
 	damage_type = BURN
 	light_range = 2
 	armor_flag = ENERGY
+<<<<<<< HEAD
 	light_color = LIGHT_COLOR_YELLOW
+=======
+	light_color = LIGHT_COLOR_DIM_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hitsound = 'sound/weapons/sear.ogg'
 	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
 	nondirectional_sprite = TRUE
@@ -52,7 +61,11 @@
 /obj/projectile/seedling/Bump(atom/A)//Stops seedlings from destroying other jungle mobs through FF
 	if(isliving(A))
 		var/mob/living/L = A
+<<<<<<< HEAD
 		if("jungle" in L.faction)
+=======
+		if(FACTION_JUNGLE in L.faction)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 	return ..()
 
@@ -61,6 +74,10 @@
 	icon_state = "solar_beam"
 	icon = 'icons/effects/beam.dmi'
 	plane = LIGHTING_PLANE
+<<<<<<< HEAD
+=======
+	layer = LIGHTING_PRIMARY_LAYER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	duration = 5
 	randomdir = FALSE
 

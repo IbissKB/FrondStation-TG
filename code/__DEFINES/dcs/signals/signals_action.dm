@@ -39,3 +39,9 @@
 #define COMSIG_SWOOP_INVULNERABILITY_STARTED "mob_swoop_invulnerability_started"
 /// From base of /datum/action/cooldown/mob_cooldown/lava_swoop/proc/swoop_attack(): ()
 #define COMSIG_LAVA_ARENA_FAILED "mob_lava_arena_failed"
+<<<<<<< HEAD
+=======
+
+///From /datum/action/vehicle/sealed/mecha/mech_toggle_safeties/proc/update_action_icon(): ()
+#define COMSIG_MECH_SAFETIES_TOGGLE "mech_safeties_toggle"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

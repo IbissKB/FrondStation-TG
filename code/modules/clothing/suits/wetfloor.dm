@@ -14,10 +14,20 @@
 	body_parts_covered = CHEST|GROIN
 	attack_verb_continuous = list("warns", "cautions", "smashes")
 	attack_verb_simple = list("warn", "caution", "smash")
+<<<<<<< HEAD
 	armor = list(MELEE = 5, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/suit_caution
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	species_exception = list(/datum/species/golem)
 	allowed = list(
 		/obj/item/tank/internals/emergency_oxygen,
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/gun/ballistic/rifle/boltaction/pipegun/prime,
 	)
+<<<<<<< HEAD
+=======
+
+/datum/armor/suit_caution
+	melee = 5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

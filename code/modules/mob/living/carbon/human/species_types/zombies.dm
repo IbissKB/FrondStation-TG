@@ -7,8 +7,17 @@
 	sexes = 0
 	meat = /obj/item/food/meat/slab/human/mutant/zombie
 	mutanttongue = /obj/item/organ/internal/tongue/zombie
+<<<<<<< HEAD
 	species_traits = list(NOBLOOD,NOZOMBIE,NOTRANSSTING, HAS_FLESH, HAS_BONE)
 	inherent_traits = list(
+=======
+	species_traits = list(
+		NOZOMBIE,
+		NOTRANSSTING,
+	)
+	inherent_traits = list(
+		// SHARED WITH ALL ZOMBIES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_EASYDISMEMBER,
 		TRAIT_FAKEDEATH,
@@ -16,7 +25,10 @@
 		TRAIT_NOBREATH,
 		TRAIT_NOCLONELOSS,
 		TRAIT_NODEATH,
+<<<<<<< HEAD
 		TRAIT_SUCCUMB_OVERRIDE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		TRAIT_NOHUNGER,
 		TRAIT_NOMETABOLISM,
 		TRAIT_RADIMMUNE,
@@ -24,7 +36,18 @@
 		TRAIT_RESISTHIGHPRESSURE,
 		TRAIT_RESISTLOWPRESSURE,
 		TRAIT_TOXIMMUNE,
+<<<<<<< HEAD
 	)
+=======
+		// HIGH FUNCTIONING UNIQUE
+		TRAIT_NOBLOOD,
+		TRAIT_SUCCUMB_OVERRIDE,
+	)
+	mutantstomach = null
+	mutantheart = null
+	mutantliver = null
+	mutantlungs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	mutanttongue = /obj/item/organ/internal/tongue/zombie
 	var/static/list/spooks = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/wail.ogg')
@@ -45,7 +68,11 @@
 	)
 
 /// Zombies do not stabilize body temperature they are the walking dead and are cold blooded
+<<<<<<< HEAD
 /datum/species/zombie/body_temperature_core(mob/living/carbon/human/humi, delta_time, times_fired)
+=======
+/datum/species/zombie/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 /datum/species/zombie/check_roundstart_eligible()
@@ -79,10 +106,16 @@
 	name = "Infectious Zombie"
 	id = SPECIES_ZOMBIE_INFECTIOUS
 	examine_limb_id = SPECIES_ZOMBIE
+<<<<<<< HEAD
 	mutanthands = /obj/item/zombie_hand
 	armor = 20 // 120 damage to KO a zombie, which kills it
 	speedmod = 1.6
 	mutanteyes = /obj/item/organ/internal/eyes/night_vision/zombie
+=======
+	armor = 20 // 120 damage to KO a zombie, which kills it
+	speedmod = 1.6
+	mutanteyes = /obj/item/organ/internal/eyes/zombie
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mutantbrain = /obj/item/organ/internal/brain/zombie
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 	/// The rate the zombies regenerate at
@@ -91,6 +124,10 @@
 	COOLDOWN_DECLARE(regen_cooldown)
 
 	inherent_traits = list(
+<<<<<<< HEAD
+=======
+		// SHARED WITH ALL ZOMBIES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_EASYDISMEMBER,
 		TRAIT_FAKEDEATH,
@@ -105,20 +142,44 @@
 		TRAIT_RESISTHIGHPRESSURE,
 		TRAIT_RESISTLOWPRESSURE,
 		TRAIT_TOXIMMUNE,
+<<<<<<< HEAD
 	)
 
+=======
+		// INFECTIOUS UNIQUE
+		TRAIT_STABLEHEART, // Replacement for noblood. Infectious zombies can bleed but don't need their heart.
+		TRAIT_STABLELIVER, // Not necessary but for consistency with above
+	)
+
+/datum/species/zombie/infectious/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	. = ..()
+	C.AddComponent(/datum/component/mutant_hands, mutant_hand_path = /obj/item/mutant_hand/zombie)
+
+/datum/species/zombie/infectious/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+	. = ..()
+	qdel(C.GetComponent(/datum/component/mutant_hands))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/species/zombie/infectious/check_roundstart_eligible()
 	return FALSE
 
 /datum/species/zombie/infectious/spec_stun(mob/living/carbon/human/H,amount)
 	. = min(20, amount)
 
+<<<<<<< HEAD
 /datum/species/zombie/infectious/apply_damage(damage, damagetype = BRUTE, def_zone = null, blocked, mob/living/carbon/human/H, spread_damage = FALSE, forced = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null)
+=======
+/datum/species/zombie/infectious/apply_damage(damage, damagetype = BRUTE, def_zone = null, blocked, mob/living/carbon/human/H, spread_damage = FALSE, forced = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null, attacking_item)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(.)
 		COOLDOWN_START(src, regen_cooldown, REGENERATION_DELAY)
 
+<<<<<<< HEAD
 /datum/species/zombie/infectious/spec_life(mob/living/carbon/C, delta_time, times_fired)
+=======
+/datum/species/zombie/infectious/spec_life(mob/living/carbon/C, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	C.set_combat_mode(TRUE) // THE SUFFERING MUST FLOW
 
@@ -128,6 +189,7 @@
 		var/heal_amt = heal_rate
 		if(HAS_TRAIT(C, TRAIT_CRITICAL_CONDITION))
 			heal_amt *= 2
+<<<<<<< HEAD
 		C.heal_overall_damage(heal_amt * delta_time, heal_amt * delta_time)
 		C.adjustToxLoss(-heal_amt * delta_time)
 		for(var/i in C.all_wounds)
@@ -135,13 +197,26 @@
 			if(DT_PROB(2-(iter_wound.severity/2), delta_time))
 				iter_wound.remove_wound()
 	if(!HAS_TRAIT(C, TRAIT_CRITICAL_CONDITION) && DT_PROB(2, delta_time))
+=======
+		C.heal_overall_damage(heal_amt * seconds_per_tick, heal_amt * seconds_per_tick)
+		C.adjustToxLoss(-heal_amt * seconds_per_tick)
+		for(var/i in C.all_wounds)
+			var/datum/wound/iter_wound = i
+			if(SPT_PROB(2-(iter_wound.severity/2), seconds_per_tick))
+				iter_wound.remove_wound()
+	if(!HAS_TRAIT(C, TRAIT_CRITICAL_CONDITION) && SPT_PROB(2, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(C, pick(spooks), 50, TRUE, 10)
 
 //Congrats you somehow died so hard you stopped being a zombie
 /datum/species/zombie/infectious/spec_death(gibbed, mob/living/carbon/C)
 	. = ..()
 	var/obj/item/organ/internal/zombie_infection/infection
+<<<<<<< HEAD
 	infection = C.getorganslot(ORGAN_SLOT_ZOMBIE)
+=======
+	infection = C.get_organ_slot(ORGAN_SLOT_ZOMBIE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(infection)
 		qdel(infection)
 
@@ -152,7 +227,11 @@
 	// Infection organ needs to be handled separately from mutant_organs
 	// because it persists through species transitions
 	var/obj/item/organ/internal/zombie_infection/infection
+<<<<<<< HEAD
 	infection = C.getorganslot(ORGAN_SLOT_ZOMBIE)
+=======
+	infection = C.get_organ_slot(ORGAN_SLOT_ZOMBIE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!infection)
 		infection = new()
 		infection.Insert(C)

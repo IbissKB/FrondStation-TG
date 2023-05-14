@@ -4,6 +4,22 @@
 	desc = "Known for its wisdom, shares it with all."
 	gold_core_spawnable = FALSE
 	ai_controller = /datum/ai_controller/basic_controller/cow/wisdom
+<<<<<<< HEAD
+=======
+	///The type of wisdom this cow will grant
+	var/granted_wisdom
+	///How much experience this cow will grant.
+	var/granted_experience
+
+/mob/living/basic/cow/wisdom/Initialize(mapload, granted_wisdom, granted_experience = 500)
+	. = ..()
+	src.granted_wisdom = granted_wisdom
+	if(!granted_wisdom)
+		src.granted_wisdom = pick(GLOB.skill_types)
+	src.granted_experience = granted_experience
+	if(granted_experience < 0)
+		name = "unwise cow"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/basic/cow/wisdom/setup_eating()
 	return //cannot tame me! and I don't care about eatin' nothing, neither!
@@ -24,7 +40,11 @@
 /mob/living/basic/cow/wisdom/attack_hand(mob/living/carbon/user, list/modifiers)
 	if(!stat && !user.combat_mode)
 		to_chat(user, span_nicegreen("[src] whispers you some intense wisdoms and then disappears!"))
+<<<<<<< HEAD
 		user.mind?.adjust_experience(pick(GLOB.skill_types), 500)
+=======
+		user.mind?.adjust_experience(granted_wisdom, granted_experience)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		do_smoke(1, holder = src, location = get_turf(src))
 		qdel(src)
 		return

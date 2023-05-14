@@ -117,9 +117,13 @@
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "u" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/supply)

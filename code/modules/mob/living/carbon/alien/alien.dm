@@ -5,15 +5,21 @@
 	dna = null
 	faction = list(ROLE_ALIEN)
 	sight = SEE_MOBS
+<<<<<<< HEAD
 	see_in_dark = 4
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	verb_say = "hisses"
 	initial_language_holder = /datum/language_holder/alien
 	bubble_icon = "alien"
 	type_of_meat = /obj/item/food/meat/slab/xeno
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 
+<<<<<<< HEAD
 	var/move_delay_add = 0 // movement delay to add
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	status_flags = CANUNCONSCIOUS|CANPUSH
 
 	heat_protection = 0.5 // minor heat insulation
@@ -32,24 +38,41 @@
 
 	create_internal_organs()
 
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_NEVER_WOUNDED, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+=======
+	add_traits(list(TRAIT_NEVER_WOUNDED, TRAIT_VENTCRAWLER_ALWAYS), INNATE_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	. = ..()
 
 /mob/living/carbon/alien/create_internal_organs()
+<<<<<<< HEAD
 	internal_organs += new /obj/item/organ/internal/brain/alien
 	internal_organs += new /obj/item/organ/internal/alien/hivenode
 	internal_organs += new /obj/item/organ/internal/tongue/alien
 	internal_organs += new /obj/item/organ/internal/eyes/night_vision/alien
 	internal_organs += new /obj/item/organ/internal/liver/alien
 	internal_organs += new /obj/item/organ/internal/ears
+=======
+	organs += new /obj/item/organ/internal/brain/alien
+	organs += new /obj/item/organ/internal/alien/hivenode
+	organs += new /obj/item/organ/internal/tongue/alien
+	organs += new /obj/item/organ/internal/eyes/alien
+	organs += new /obj/item/organ/internal/liver/alien
+	organs += new /obj/item/organ/internal/ears
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 /mob/living/carbon/alien/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null) // beepsky won't hunt aliums
 	return -10
 
+<<<<<<< HEAD
 /mob/living/carbon/alien/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
+=======
+/mob/living/carbon/alien/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Run base mob body temperature proc before taking damage
 	// this balances body temp to the environment and natural stabilization
 	. = ..()
@@ -59,6 +82,7 @@
 		throw_alert(ALERT_XENO_FIRE, /atom/movable/screen/alert/alien_fire)
 		switch(bodytemperature)
 			if(360 to 400)
+<<<<<<< HEAD
 				apply_damage(HEAT_DAMAGE_LEVEL_1 * delta_time, BURN)
 			if(400 to 460)
 				apply_damage(HEAT_DAMAGE_LEVEL_2 * delta_time, BURN)
@@ -71,6 +95,20 @@
 		clear_alert(ALERT_XENO_FIRE)
 
 /mob/living/carbon/alien/reagent_check(datum/reagent/R, delta_time, times_fired) //can metabolize all reagents
+=======
+				apply_damage(HEAT_DAMAGE_LEVEL_1 * seconds_per_tick, BURN)
+			if(400 to 460)
+				apply_damage(HEAT_DAMAGE_LEVEL_2 * seconds_per_tick, BURN)
+			if(460 to INFINITY)
+				if(on_fire)
+					apply_damage(HEAT_DAMAGE_LEVEL_3 * seconds_per_tick, BURN)
+				else
+					apply_damage(HEAT_DAMAGE_LEVEL_2 * seconds_per_tick, BURN)
+	else
+		clear_alert(ALERT_XENO_FIRE)
+
+/mob/living/carbon/alien/reagent_check(datum/reagent/R, seconds_per_tick, times_fired) //can metabolize all reagents
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /mob/living/carbon/alien/getTrail()
@@ -87,7 +125,11 @@ Des: Gives the client of the alien an image on each infected mob.
 		for (var/i in GLOB.mob_living_list)
 			var/mob/living/L = i
 			if(HAS_TRAIT(L, TRAIT_XENO_HOST))
+<<<<<<< HEAD
 				var/obj/item/organ/internal/body_egg/alien_embryo/A = L.getorgan(/obj/item/organ/internal/body_egg/alien_embryo)
+=======
+				var/obj/item/organ/internal/body_egg/alien_embryo/A = L.get_organ_by_type(/obj/item/organ/internal/body_egg/alien_embryo)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(A)
 					var/I = image('icons/mob/nonhuman-player/alien.dmi', loc = L, icon_state = "infected[A.stage]")
 					client.images += I

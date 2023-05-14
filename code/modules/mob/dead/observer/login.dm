@@ -21,7 +21,11 @@
 	update_icon(ALL, preferred_form)
 	updateghostimages()
 	client.set_right_click_menu_mode(FALSE)
+<<<<<<< HEAD
 	lighting_alpha = default_lighting_alpha()
+=======
+	lighting_cutoff = default_lighting_cutoff()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_sight()
 
 

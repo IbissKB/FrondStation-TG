@@ -1,6 +1,10 @@
 /datum/vote/map_vote
 	name = "Map"
 	message = "Vote for next round's map!"
+<<<<<<< HEAD
+=======
+	count_method = VOTE_COUNT_METHOD_MULTI
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/vote/map_vote/New()
 	. = ..()
@@ -66,19 +70,39 @@
 	message = initial(message)
 	return TRUE
 
+<<<<<<< HEAD
 /// Before we create a vote, remove all maps from our choices that are outside of our population range. Note that this can result in zero remaining choices for our vote, which is not ideal (but ultimately okay).
+=======
+/// Before we create a vote, remove all maps from our choices that are outside of our population range.
+/// Note that this can result in zero remaining choices for our vote, which is not ideal (but ultimately okay).
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Argument should_key_choices is TRUE, pass as FALSE in a context where choices are already keyed in a list.
 /datum/vote/map_vote/proc/check_population(should_key_choices = TRUE)
 	if(should_key_choices)
 		for(var/key in default_choices)
 			choices[key] = 0
 
+<<<<<<< HEAD
 	for(var/map in choices)
 		var/datum/map_config/possible_config = config.maplist[map]
 		if(possible_config.config_min_users > 0 && GLOB.clients.len < possible_config.config_min_users)
 			choices -= map
 
 		else if(possible_config.config_max_users > 0 && GLOB.clients.len > possible_config.config_max_users)
+=======
+	var/filter_threshold = 0
+	if(SSticker.HasRoundStarted())
+		filter_threshold = get_active_player_count(alive_check = FALSE, afk_check = TRUE, human_check = FALSE)
+	else
+		filter_threshold = GLOB.clients.len
+
+	for(var/map in choices)
+		var/datum/map_config/possible_config = config.maplist[map]
+		if(possible_config.config_min_users > 0 && filter_threshold < possible_config.config_min_users)
+			choices -= map
+
+		else if(possible_config.config_max_users > 0 && filter_threshold > possible_config.config_max_users)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			choices -= map
 
 	return choices

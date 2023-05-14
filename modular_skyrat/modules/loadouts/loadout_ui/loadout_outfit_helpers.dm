@@ -19,6 +19,10 @@
  */
 /mob/living/carbon/human/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
 	if (!preference_source)
+<<<<<<< HEAD
+=======
+		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	var/datum/outfit/equipped_outfit
@@ -55,7 +59,14 @@
 					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job restrictions!"))
 				continue
 
+<<<<<<< HEAD
 			item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
+=======
+			// Make sure the item is not overriding an important for life outfit item
+			var/datum/outfit/outfit_important_for_life = dna.species.outfit_important_for_life
+			if(!outfit_important_for_life || !item.pre_equip_item(equipped_outfit, outfit_important_for_life, src, visuals_only))
+				item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 		equipOutfit(equipped_outfit, visuals_only)
@@ -63,6 +74,13 @@
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		item.on_equip_item(preference_source, src, visuals_only)
 
+<<<<<<< HEAD
+=======
+	if(preference_source?.read_preference(/datum/preference/toggle/green_pin))
+		var/obj/item/clothing/under/uniform = w_uniform
+		uniform?.attach_accessory(new /obj/item/clothing/accessory/green_pin(), src, FALSE)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	regenerate_icons()
 	return TRUE
 

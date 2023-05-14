@@ -76,6 +76,10 @@
 		icon_state = "firepit"
 
 /obj/structure/firepit/extinguish()
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(active)
 		active = FALSE
 		toggleFirepit()

@@ -5,11 +5,26 @@
 	proper_bomb = FALSE
 	/// The keg located within the beer nuke.
 	var/obj/structure/reagent_dispensers/beerkeg/keg
+<<<<<<< HEAD
+=======
+	/// Reagent that is produced once the nuke detonates.
+	var/flood_reagent = /datum/reagent/consumable/ethanol/beer
+	/// Round event control we might as well keep track of instead of locating every time
+	var/datum/round_event_control/scrubber_overflow/every_vent/overflow_control
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/nuclearbomb/beer/Initialize(mapload)
 	. = ..()
 	keg = new(src)
 	QDEL_NULL(core)
+<<<<<<< HEAD
+=======
+	overflow_control = locate(/datum/round_event_control/scrubber_overflow/every_vent) in SSevents.control
+
+/obj/machinery/nuclearbomb/beer/Destroy()
+	UnregisterSignal(overflow_control, COMSIG_CREATED_ROUND_EVENT)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/nuclearbomb/beer/examine(mob/user)
 	. = ..()
@@ -50,7 +65,11 @@
 /obj/machinery/nuclearbomb/beer/proc/local_foam()
 	var/datum/reagents/tmp_holder = new/datum/reagents(1000)
 	tmp_holder.my_atom = src
+<<<<<<< HEAD
 	tmp_holder.add_reagent(/datum/reagent/consumable/ethanol/beer, 100)
+=======
+	tmp_holder.add_reagent(flood_reagent, 100)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/datum/effect_system/fluid_spread/foam/foam = new
 	foam.set_up(200, holder = src, location = get_turf(src), carry = tmp_holder)
@@ -58,6 +77,19 @@
 	disarm_nuke()
 
 /obj/machinery/nuclearbomb/beer/really_actually_explode(detonation_status)
+<<<<<<< HEAD
 	disarm_nuke()
 	var/datum/round_event_control/event = locate(/datum/round_event_control/scrubber_overflow/beer) in SSevents.control
 	event.runEvent()
+=======
+	//if it's always hooked in it'll override admin choices
+	RegisterSignal(overflow_control, COMSIG_CREATED_ROUND_EVENT, PROC_REF(on_created_round_event))
+	disarm_nuke()
+	overflow_control.run_event(event_cause = "a beer nuke")
+
+/// signal sent from overflow control when it fires an event
+/obj/machinery/nuclearbomb/beer/proc/on_created_round_event(datum/round_event_control/source_event_control, datum/round_event/scrubber_overflow/every_vent/created_event)
+	SIGNAL_HANDLER
+	UnregisterSignal(overflow_control, COMSIG_CREATED_ROUND_EVENT)
+	created_event.forced_reagent_type = flood_reagent
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

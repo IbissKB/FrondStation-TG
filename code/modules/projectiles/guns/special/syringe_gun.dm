@@ -16,7 +16,11 @@
 	force = 6
 	base_pixel_x = -4
 	pixel_x = -4
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=2000)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clumsy_check = FALSE
 	fire_sound = 'sound/items/syringeproj.ogg'
 	var/load_sound = 'sound/weapons/gun/shotgun/insert_shell.ogg'
@@ -194,6 +198,7 @@
 	pixel_x = 0
 	force = 4
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
+<<<<<<< HEAD
 	has_gun_safety = FALSE // SKYRAT EDIT
 
 /obj/item/gun/syringe/blowgun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
@@ -202,3 +207,12 @@
 		user.adjustStaminaLoss(20)
 		user.adjustOxyLoss(20)
 		return ..()
+=======
+
+/obj/item/gun/syringe/blowgun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
+	visible_message(span_danger("[user] shoots the blowgun!"))
+
+	user.adjustStaminaLoss(20)
+	user.adjustOxyLoss(20)
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

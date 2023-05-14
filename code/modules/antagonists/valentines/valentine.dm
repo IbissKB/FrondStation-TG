@@ -7,7 +7,11 @@
 	var/datum/mind/date
 	count_against_dynamic_roll_chance = FALSE
 
+<<<<<<< HEAD
 /datum/antagonist/valentine/proc/forge_objectives()
+=======
+/datum/antagonist/valentine/forge_objectives()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/objective/protect/protect_objective = new /datum/objective/protect
 	protect_objective.owner = owner
 	protect_objective.target = date

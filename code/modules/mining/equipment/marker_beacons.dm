@@ -3,7 +3,11 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 "Random" = FALSE, //not a true color, will pick a random color
 "Burgundy" = LIGHT_COLOR_FLARE,
 "Bronze" = LIGHT_COLOR_ORANGE,
+<<<<<<< HEAD
 "Yellow" = LIGHT_COLOR_YELLOW,
+=======
+"Yellow" = LIGHT_COLOR_DIM_YELLOW,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Lime" = LIGHT_COLOR_SLIME_LAMP,
 "Olive" = LIGHT_COLOR_GREEN,
 "Jade" = LIGHT_COLOR_BLUEGREEN,
@@ -60,12 +64,20 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 		transfer_fingerprints_to(M)
 
 /obj/item/stack/marker_beacon/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/input_color = tgui_input_list(user, "Choose a color", "Beacon Color", GLOB.marker_beacon_colors)
 	if(isnull(input_color))
 		return
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	picked_color = input_color
 	update_appearance()
@@ -76,7 +88,11 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 	icon = 'icons/obj/marker.dmi'
 	icon_state = "marker"
 	layer = BELOW_OPEN_DOOR_LAYER
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 25, BIO = 0, FIRE = 25, ACID = 0)
+=======
+	armor_type = /datum/armor/structure_marker_beacon
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 50
 	anchored = TRUE
 	light_range = 2
@@ -85,6 +101,17 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 	var/remove_speed = 15
 	var/picked_color
 
+<<<<<<< HEAD
+=======
+/datum/armor/structure_marker_beacon
+	melee = 50
+	bullet = 75
+	laser = 75
+	energy = 75
+	bomb = 25
+	fire = 25
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/marker_beacon/Initialize(mapload, set_color)
 	. = ..()
 	if(set_color)
@@ -150,12 +177,20 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 
 /obj/structure/marker_beacon/AltClick(mob/living/user)
 	..()
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/input_color = tgui_input_list(user, "Choose a color", "Beacon Color", GLOB.marker_beacon_colors)
 	if(isnull(input_color))
 		return
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	picked_color = input_color
 	update_appearance()

@@ -23,6 +23,12 @@
 	. = ..()
 	if(prob(50))
 		var/obj/item/toy/singlecard/card = .
+<<<<<<< HEAD
+=======
+		if(!card)
+			return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/matrix/M = matrix()
 		M.Turn(180)
 		card.transform = M

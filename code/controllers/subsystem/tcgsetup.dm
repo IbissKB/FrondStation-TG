@@ -124,9 +124,15 @@ SUBSYSTEM_DEF(trading_card_game)
 			message_admins(toPrint.name)
 
 ///Checks the passed type list for missing raritys, or raritys out of bounds
+<<<<<<< HEAD
 /datum/controller/subsystem/trading_card_game/proc/checkCardpacks(cardPackList)
 	var/toReturn = ""
 	for(var/cardPack in cardPackList)
+=======
+/datum/controller/subsystem/trading_card_game/proc/check_cardpacks(card_pack_list)
+	var/toReturn = ""
+	for(var/cardPack in card_pack_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/obj/item/cardpack/pack = new cardPack()
 		//Lets see if someone made a type yeah?
 		if(!cached_cards[pack.series])
@@ -145,10 +151,18 @@ SUBSYSTEM_DEF(trading_card_game)
 			if(!cached_cards[pack.series][pack_rarity])
 				toReturn += "[pack.type] does not have the required rarity [pack_rarity]\n"
 		qdel(pack)
+<<<<<<< HEAD
 	return toReturn
 
 ///Checks the global card list for cards that don't override all the default values of the card datum
 /datum/controller/subsystem/trading_card_game/proc/checkCardDatums()
+=======
+
+	return toReturn
+
+///Checks the global card list for cards that don't override all the default values of the card datum
+/datum/controller/subsystem/trading_card_game/proc/check_card_datums()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/toReturn = ""
 	var/datum/thing = new()
 	for(var/series in cached_cards)
@@ -166,10 +180,18 @@ SUBSYSTEM_DEF(trading_card_game)
 			if(shouldAdd)
 				toReturn += toAdd
 	qdel(thing)
+<<<<<<< HEAD
 	return toReturn
 
 ///Used to test open a large amount of cardpacks
 /datum/controller/subsystem/trading_card_game/proc/checkCardDistribution(cardPack, batchSize, batchCount, guaranteed)
+=======
+
+	return toReturn
+
+///Used to test open a large amount of cardpacks
+/datum/controller/subsystem/trading_card_game/proc/check_card_distribution(cardPack, batchSize, batchCount, guaranteed)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/totalCards = 0
 	//Gotta make this look like an associated list so the implicit "does this exist" checks work proper later
 	var/list/cardsByCount = list("" = 0)

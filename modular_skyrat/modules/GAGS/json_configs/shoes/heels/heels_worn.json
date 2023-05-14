@@ -5,6 +5,7 @@
 			"icon_state": "heels_mob",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
+<<<<<<< HEAD
 		},
 		{
 			"type": "icon_state",
@@ -14,4 +15,8 @@
 		}
 	]
 
+=======
+		}
+	]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 }

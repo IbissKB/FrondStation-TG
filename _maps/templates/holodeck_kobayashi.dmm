@@ -45,13 +45,18 @@
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
 "l" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
 "m" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -61,6 +66,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 "o" = (
@@ -70,9 +81,13 @@
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
 "p" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/arcade/orion_trail/kobayashi,
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
@@ -81,18 +96,26 @@
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
 "s" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 "t" = (
 /obj/structure/table/glass,
 /obj/item/gun/energy/e_gun/mini/practice_phaser,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/recharger,
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
@@ -100,6 +123,7 @@
 /obj/structure/table,
 /obj/item/folder,
 /obj/item/pen/blue,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -115,6 +139,16 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"x" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/arcade/orion_trail/kobayashi,
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
@@ -125,6 +159,7 @@
 /obj/machinery/computer/atmos_alert{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
@@ -134,6 +169,17 @@
 /area/template_noop)
 "B" = (
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"A" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"B" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor/hyperspace,
 /area/template_noop)
 "C" = (
@@ -152,6 +198,7 @@
 /obj/structure/rack,
 /obj/item/clothing/under/trek/engsec,
 /obj/item/clothing/under/trek/engsec,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -162,6 +209,14 @@
 	dir = 4;
 	layer = 2.9
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+	layer = 2.9
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 "H" = (
@@ -172,6 +227,7 @@
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
 "J" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -182,18 +238,31 @@
 	dir = 4;
 	layer = 2.9
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+	layer = 2.9
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 "L" = (
 /obj/structure/table/glass,
 /obj/item/gun/energy/e_gun/mini/practice_phaser,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor/plating,
 /area/template_noop)
 "Q" = (
 /obj/structure/table,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -205,6 +274,14 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/item/folder,
+/obj/item/pen/red,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 "T" = (
@@ -212,6 +289,7 @@
 /obj/item/clothing/under/trek/medsci,
 /obj/item/clothing/under/trek/medsci,
 /obj/item/clothing/under/trek/command,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -225,6 +303,16 @@
 /area/template_noop)
 "V" = (
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"V" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/mass_driver{
 	dir = 1;
 	id = "trektorpedo2";
@@ -248,12 +336,18 @@
 /obj/structure/table,
 /obj/item/folder,
 /obj/item/pen,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 

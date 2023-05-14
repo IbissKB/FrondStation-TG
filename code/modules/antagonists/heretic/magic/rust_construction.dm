@@ -5,7 +5,11 @@
 	overlay_icon_state = "bg_heretic_border"
 	button_icon_state = "shield"
 	ranged_mousepointer = 'icons/effects/mouse_pointers/throw_target.dmi'
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED
+=======
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	school = SCHOOL_FORBIDDEN
 	cooldown_time = 5 SECONDS

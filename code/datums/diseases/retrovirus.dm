@@ -26,13 +26,18 @@
 	D.restcure = restcure
 	return D
 
+<<<<<<< HEAD
 /datum/disease/dna_retrovirus/stage_act(delta_time, times_fired)
+=======
+/datum/disease/dna_retrovirus/stage_act(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
 
 	switch(stage)
 		if(1)
+<<<<<<< HEAD
 			if(DT_PROB(4, delta_time))
 				to_chat(affected_mob, span_danger("Your head hurts."))
 			if(DT_PROB(4.5, delta_time))
@@ -40,10 +45,20 @@
 			if(DT_PROB(4.5, delta_time))
 				to_chat(affected_mob, span_danger("You feel angry."))
 			if(restcure && affected_mob.body_position == LYING_DOWN && DT_PROB(16, delta_time))
+=======
+			if(SPT_PROB(4, seconds_per_tick))
+				to_chat(affected_mob, span_danger("Your head hurts."))
+			if(SPT_PROB(4.5, seconds_per_tick))
+				to_chat(affected_mob, span_danger("You feel a tingling sensation in your chest."))
+			if(SPT_PROB(4.5, seconds_per_tick))
+				to_chat(affected_mob, span_danger("You feel angry."))
+			if(restcure && affected_mob.body_position == LYING_DOWN && SPT_PROB(16, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(affected_mob, span_notice("You feel better."))
 				cure()
 				return FALSE
 		if(2)
+<<<<<<< HEAD
 			if(DT_PROB(4, delta_time))
 				to_chat(affected_mob, span_danger("Your skin feels loose."))
 			if(DT_PROB(5, delta_time))
@@ -54,13 +69,31 @@
 			if(DT_PROB(2, delta_time))
 				to_chat(affected_mob, span_danger("Your stomach churns."))
 			if(restcure && affected_mob.body_position == LYING_DOWN && DT_PROB(10, delta_time))
+=======
+			if(SPT_PROB(4, seconds_per_tick))
+				to_chat(affected_mob, span_danger("Your skin feels loose."))
+			if(SPT_PROB(5, seconds_per_tick))
+				to_chat(affected_mob, span_danger("You feel very strange."))
+			if(SPT_PROB(2, seconds_per_tick))
+				to_chat(affected_mob, span_danger("You feel a stabbing pain in your head!"))
+				affected_mob.Unconscious(40)
+			if(SPT_PROB(2, seconds_per_tick))
+				to_chat(affected_mob, span_danger("Your stomach churns."))
+			if(restcure && affected_mob.body_position == LYING_DOWN && SPT_PROB(10, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(affected_mob, span_notice("You feel better."))
 				cure()
 				return FALSE
 		if(3)
+<<<<<<< HEAD
 			if(DT_PROB(5, delta_time))
 				to_chat(affected_mob, span_danger("Your entire body vibrates."))
 			if(DT_PROB(19, delta_time))
+=======
+			if(SPT_PROB(5, seconds_per_tick))
+				to_chat(affected_mob, span_danger("Your entire body vibrates."))
+			if(SPT_PROB(19, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				switch(rand(1,3))
 					if(1)
 						scramble_dna(affected_mob, 1, 0, 0, rand(15,45))
@@ -68,12 +101,20 @@
 						scramble_dna(affected_mob, 0, 1, 0, rand(15,45))
 					if(3)
 						scramble_dna(affected_mob, 0, 0, 1, rand(15,45))
+<<<<<<< HEAD
 			if(restcure && affected_mob.body_position == LYING_DOWN && DT_PROB(10, delta_time))
+=======
+			if(restcure && affected_mob.body_position == LYING_DOWN && SPT_PROB(10, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(affected_mob, span_notice("You feel better."))
 				cure()
 				return FALSE
 		if(4)
+<<<<<<< HEAD
 			if(DT_PROB(37, delta_time))
+=======
+			if(SPT_PROB(37, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				switch(rand(1,3))
 					if(1)
 						scramble_dna(affected_mob, 1, 0, 0, rand(50,75))
@@ -81,7 +122,11 @@
 						scramble_dna(affected_mob, 0, 1, 0, rand(50,75))
 					if(3)
 						scramble_dna(affected_mob, 0, 0, 1, rand(50,75))
+<<<<<<< HEAD
 			if(restcure && affected_mob.body_position == LYING_DOWN && DT_PROB(2.5, delta_time))
+=======
+			if(restcure && affected_mob.body_position == LYING_DOWN && SPT_PROB(2.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(affected_mob, span_notice("You feel better."))
 				cure()
 				return FALSE

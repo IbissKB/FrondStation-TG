@@ -67,7 +67,11 @@
 /turf/closed/wall/r_wall,
 /area/ruin/powered/clownplanet)
 "aw" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/disposalpipe/segment{
 	invisibility = 101
 	},
@@ -117,6 +121,7 @@
 	dir = 4;
 	invisibility = 101
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -127,6 +132,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
 "bb" = (
@@ -218,6 +226,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -228,6 +237,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
 "bt" = (
@@ -238,6 +250,7 @@
 /area/ruin/powered/clownplanet)
 "bx" = (
 /obj/effect/decal/cleanable/cobweb,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -248,6 +261,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
 "bz" = (
@@ -258,6 +274,7 @@
 /turf/open/indestructible/white,
 /area/ruin/powered/clownplanet)
 "bA" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -268,6 +285,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
 "bB" = (
@@ -300,6 +320,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -310,6 +331,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
 "bL" = (
@@ -422,6 +446,7 @@
 /area/ruin/powered/clownplanet)
 "dI" = (
 /obj/machinery/light/directional/north,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -432,6 +457,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
 "dK" = (

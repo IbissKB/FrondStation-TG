@@ -44,6 +44,10 @@
 
 /obj/effect/decal/cleanable/glass/ex_act()
 	qdel(src)
+<<<<<<< HEAD
+=======
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/decal/cleanable/glass/plasma
 	icon_state = "plasmatiny"
@@ -66,8 +70,13 @@
 	icon_state = "dirt"
 	base_icon_state = "dirt"
 	smoothing_flags = NONE
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_CLEANABLE_DIRT)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_CLEANABLE_DIRT)
+=======
+	smoothing_groups = SMOOTH_GROUP_CLEANABLE_DIRT
+	canSmoothWith = SMOOTH_GROUP_CLEANABLE_DIRT + SMOOTH_GROUP_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	beauty = -75
 
@@ -191,6 +200,12 @@
 /obj/effect/decal/cleanable/shreds/ex_act(severity, target)
 	if(severity >= EXPLODE_DEVASTATE) //so shreds created during an explosion aren't deleted by the explosion.
 		qdel(src)
+<<<<<<< HEAD
+=======
+		return TRUE
+
+	return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/decal/cleanable/shreds/Initialize(mapload, oldname)
 	pixel_x = rand(-10, 10)
@@ -253,6 +268,17 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "paper_shreds"
 
+<<<<<<< HEAD
+=======
+/obj/effect/decal/cleanable/wrapping/pinata
+	name = "pinata shreds"
+	desc = "Torn pieces of papier-mâché, left over from a pinata"
+	icon_state = "pinata_shreds"
+
+/obj/effect/decal/cleanable/wrapping/pinata/syndie
+	icon_state = "syndie_pinata_shreds"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/garbage
 	name = "decomposing garbage"
 	desc = "A split open garbage bag, its stinking content seems to be partially liquified. Yuck!"

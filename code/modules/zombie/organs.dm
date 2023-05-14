@@ -25,6 +25,11 @@
 
 /obj/item/organ/internal/zombie_infection/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
 	. = ..()
+<<<<<<< HEAD
+=======
+	if(!.)
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	START_PROCESSING(SSobj, src)
 
 /obj/item/organ/internal/zombie_infection/Remove(mob/living/carbon/M, special = FALSE)
@@ -40,14 +45,22 @@
 		web of pus and viscera, bound tightly around the brain like some \
 		biological harness.</span>")
 
+<<<<<<< HEAD
 /obj/item/organ/internal/zombie_infection/process(delta_time, times_fired)
 	if(!owner)
 		return
 	if(!(src in owner.internal_organs))
+=======
+/obj/item/organ/internal/zombie_infection/process(seconds_per_tick, times_fired)
+	if(!owner)
+		return
+	if(!(src in owner.organs))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		Remove(owner)
 	if(owner.mob_biotypes & MOB_MINERAL)//does not process in inorganic things
 		return
 	if (causes_damage && !iszombie(owner) && owner.stat != DEAD)
+<<<<<<< HEAD
 		owner.adjustToxLoss(0.5 * delta_time)
 		if (DT_PROB(5, delta_time))
 			to_chat(owner, span_danger("You feel sick..."))
@@ -59,6 +72,15 @@
 		return
 	if(!owner.getorgan(/obj/item/organ/internal/brain))
 		return
+=======
+		owner.adjustToxLoss(0.5 * seconds_per_tick)
+		if (SPT_PROB(5, seconds_per_tick))
+			to_chat(owner, span_danger("You feel sick..."))
+	if(timer_id || HAS_TRAIT(owner, TRAIT_SUICIDED) || !owner.get_organ_by_type(/obj/item/organ/internal/brain))
+		return
+	if(owner.stat != DEAD && !converts_living)
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!iszombie(owner))
 		to_chat(owner, "<span class='cultlarge'>You can feel your heart stopping, but something isn't right... \
 		life has not abandoned your broken form. You can only feel a deep and immutable hunger that \

@@ -5,7 +5,11 @@
 	icon = 'icons/obj/atmospherics/tank.dmi'
 	icon_state = "holder"
 
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 2000)
+=======
+	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	density = FALSE
 	anchored = FALSE

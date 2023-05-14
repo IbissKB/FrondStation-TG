@@ -7,7 +7,11 @@
 /datum/antagonist/abductee
 	name = "\improper Abductee"
 	roundend_category = "abductees"
+<<<<<<< HEAD
 	antagpanel_category = "Other"
+=======
+	antagpanel_category = ANTAG_GROUP_ABDUCTORS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	antag_hud_name = "abductee"
 
 /datum/antagonist/abductee/on_gain()
@@ -21,5 +25,10 @@
 
 /datum/antagonist/abductee/proc/give_objective()
 	var/objtype = (prob(75) ? /datum/objective/abductee/random : pick(subtypesof(/datum/objective/abductee/) - /datum/objective/abductee/random))
+<<<<<<< HEAD
 	var/datum/objective/abductee/O = new objtype()
 	objectives += O
+=======
+	var/datum/objective/abductee/objective = new objtype()
+	objectives += objective
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

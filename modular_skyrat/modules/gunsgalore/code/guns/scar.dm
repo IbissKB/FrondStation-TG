@@ -13,7 +13,10 @@
 	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/m16
 	can_suppress = FALSE
+<<<<<<< HEAD
 	burst_size = 3
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fire_delay = 1.90
 	fire_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/fire/scar_fire.ogg'
 	fire_sound_volume = 50
@@ -22,3 +25,11 @@
 	load_empty_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/scar_mag_in.ogg'
 	eject_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/scar_mag_out.ogg'
 	alt_icons = TRUE
+<<<<<<< HEAD
+=======
+
+/obj/item/gun/ballistic/automatic/scar/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

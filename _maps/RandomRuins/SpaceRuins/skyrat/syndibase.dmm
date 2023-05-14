@@ -43,7 +43,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "dc" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged/anthro,
+=======
+/mob/living/basic/syndicate/ranged/anthro,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "dq" = (
@@ -87,6 +91,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "hB" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee/sword/anthro,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -96,6 +101,17 @@
 /area/ruin/space/has_grav/powered)
 "if" = (
 /mob/living/simple_animal/hostile/syndicate/ranged,
+=======
+/mob/living/basic/syndicate/melee/sword/anthro,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+"hE" = (
+/mob/living/basic/syndicate/ranged/space/anthro/cat,
+/turf/open/misc/asteroid/lowpressure,
+/area/ruin/space/has_grav/powered)
+"if" = (
+/mob/living/basic/syndicate/ranged,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "il" = (
@@ -112,7 +128,11 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "ka" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee/anthro,
+=======
+/mob/living/basic/syndicate/melee/anthro,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "kc" = (
@@ -182,7 +202,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "rM" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged/smg,
+=======
+/mob/living/basic/syndicate/ranged/smg,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "sN" = (
@@ -277,7 +301,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "DI" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper,
+=======
+/mob/living/basic/syndicate/melee/space/stormtrooper,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/misc/asteroid/lowpressure,
 /area/ruin/space/has_grav/powered)
 "DM" = (
@@ -306,7 +334,11 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "EL" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+=======
+/mob/living/basic/syndicate/melee/sword/space,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/misc/asteroid/lowpressure,
 /area/ruin/space/has_grav/powered)
 "FA" = (
@@ -321,7 +353,11 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "Gp" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/civilian/scientist,
+=======
+/mob/living/basic/syndicate/melee/sword/space,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "GG" = (
@@ -338,7 +374,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "HA" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee,
+=======
+/mob/living/basic/syndicate/melee,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "Iw" = (
@@ -368,10 +408,13 @@
 /obj/effect/spawner/random/trash/box,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
 "KS" = (
 /mob/living/simple_animal/hostile/syndicate/civilian,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "LE" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/plasteel/twenty,
@@ -390,11 +433,16 @@
 /area/ruin/space/has_grav/powered)
 "MG" = (
 /obj/structure/table,
+<<<<<<< HEAD
 /obj/item/disk/tech_disk/spaceloot{
 	pixel_x = 5;
 	pixel_y = 5
 	},
 /obj/item/disk/tech_disk/spaceloot,
+=======
+/obj/item/disk/design_disk/bepis,
+/obj/item/disk/design_disk/bepis,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "MZ" = (
@@ -485,7 +533,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Ws" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee,
+=======
+/mob/living/basic/syndicate/melee,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "WT" = (
@@ -721,7 +773,11 @@ Mr
 Ew
 ck
 qT
+<<<<<<< HEAD
 KS
+=======
+qT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Qw
 qT
 qT

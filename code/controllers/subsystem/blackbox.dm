@@ -320,7 +320,14 @@ Versioning
 		return
 	if(!L || !L.key || !L.mind)
 		return
+<<<<<<< HEAD
 	if(!L.suiciding && !first_death.len)
+=======
+
+	var/did_they_suicide = HAS_TRAIT_FROM(L, TRAIT_SUICIDED, REF(L)) // simple boolean, did they suicide (true) or not (false)
+
+	if(!did_they_suicide && !first_death.len)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		first_death["name"] = "[(L.real_name == L.name) ? L.real_name : "[L.real_name] as [L.name]"]"
 		first_death["role"] = null
 		first_death["role"] = L.mind.assigned_role.title
@@ -344,7 +351,11 @@ Versioning
 		"lakey" = L.lastattackerckey,
 		"brute" = L.getBruteLoss(),
 		"fire" = L.getFireLoss(),
+<<<<<<< HEAD
 		"brain" = L.getOrganLoss(ORGAN_SLOT_BRAIN) || BRAIN_DAMAGE_DEATH, //getOrganLoss returns null without a brain but a value is required for this column
+=======
+		"brain" = L.get_organ_loss(ORGAN_SLOT_BRAIN) || BRAIN_DAMAGE_DEATH, //get_organ_loss returns null without a brain but a value is required for this column
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"oxy" = L.getOxyLoss(),
 		"tox" = L.getToxLoss(),
 		"clone" = L.getCloneLoss(),
@@ -353,7 +364,11 @@ Versioning
 		"y_coord" = L.y,
 		"z_coord" = L.z,
 		"last_words" = L.last_words,
+<<<<<<< HEAD
 		"suicide" = L.suiciding,
+=======
+		"suicide" = did_they_suicide,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"map" = SSmapping.config.map_name,
 		"server_name" = CONFIG_GET(string/serversqlname),  // SKYRAT EDIT ADDITION - MULTISERVER
 		"internet_address" = world.internet_address || "0",

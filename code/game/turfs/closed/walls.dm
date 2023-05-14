@@ -6,7 +6,11 @@
 	icon = 'icons/turf/walls/wall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
+<<<<<<< HEAD
 	explosion_block = 1
+=======
+	explosive_resistance = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 62500 //a little over 5 cm thick , 62500 for 1 m by 2.5 m by 0.25 m iron wall. also indicates the temperature at wich the wall will melt (currently only able to melt with H/E pipes)
@@ -16,8 +20,13 @@
 	flags_ricochet = RICOCHET_HARD
 
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_CLOSED_TURFS) // SKYRAT EDIT CHANGE - Sorting them because /tg/ forgot to
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
+=======
+	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	rcd_memory = RCD_MEMORY_WALL
 	///bool on whether this wall can be chiselled into
@@ -42,9 +51,13 @@
 	if(smoothing_flags & SMOOTH_DIAGONAL_CORNERS && fixed_underlay) //Set underlays for the diagonal walls.
 		var/mutable_appearance/underlay_appearance = mutable_appearance(layer = TURF_LAYER, offset_spokesman = src, plane = FLOOR_PLANE)
 		if(fixed_underlay["space"])
+<<<<<<< HEAD
 			underlay_appearance.icon = 'icons/turf/space.dmi'
 			underlay_appearance.icon_state = "space"
 			SET_PLANE(underlay_appearance, PLANE_SPACE, src)
+=======
+			generate_space_underlay(underlay_appearance, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			underlay_appearance.icon = fixed_underlay["icon"]
 			underlay_appearance.icon_state = fixed_underlay["icon_state"]
@@ -103,21 +116,37 @@
 /turf/closed/wall/ex_act(severity, target)
 	if(target == src)
 		dismantle_wall(1,1)
+<<<<<<< HEAD
 		return
+=======
+		return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			//SN src = null
 			var/turf/NT = ScrapeAway()
 			NT.contents_explosion(severity, target)
+<<<<<<< HEAD
 			return
+=======
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(EXPLODE_HEAVY)
 			dismantle_wall(prob(50), TRUE)
 		if(EXPLODE_LIGHT)
 			if (prob(hardness))
 				dismantle_wall(0,1)
+<<<<<<< HEAD
 	if(!density)
 		..()
+=======
+
+	if(!density)
+		return ..()
+
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /turf/closed/wall/blob_act(obj/structure/blob/B)
@@ -190,15 +219,24 @@
 
 	add_fingerprint(user)
 
+<<<<<<< HEAD
 	var/turf/T = user.loc //get user's location for delay checks
 
 	//the istype cascade has been spread among various procs for easy overriding
 	if(try_clean(W, user, T) || try_wallmount(W, user, T) || try_decon(W, user, T))
+=======
+	//the istype cascade has been spread among various procs for easy overriding
+	if(try_clean(W, user) || try_wallmount(W, user) || try_decon(W, user))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	return ..()
 
+<<<<<<< HEAD
 /turf/closed/wall/proc/try_clean(obj/item/W, mob/living/user, turf/T)
+=======
+/turf/closed/wall/proc/try_clean(obj/item/W, mob/living/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((user.combat_mode) || !LAZYLEN(dent_decals))
 		return FALSE
 
@@ -216,12 +254,17 @@
 
 	return FALSE
 
+<<<<<<< HEAD
 /turf/closed/wall/proc/try_wallmount(obj/item/W, mob/user, turf/T)
+=======
+/turf/closed/wall/proc/try_wallmount(obj/item/W, mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//check for wall mounted frames
 	if(istype(W, /obj/item/wallframe))
 		var/obj/item/wallframe/F = W
 		if(F.try_build(src, user))
 			F.attach(src, user)
+<<<<<<< HEAD
 		return TRUE
 	//Poster stuff
 	else if(istype(W, /obj/item/poster) && Adjacent(user)) //no tk memes.
@@ -231,6 +274,17 @@
 	return FALSE
 
 /turf/closed/wall/proc/try_decon(obj/item/I, mob/user, turf/T)
+=======
+			return TRUE
+		return FALSE
+	//Poster stuff
+	else if(istype(W, /obj/item/poster) && Adjacent(user)) //no tk memes.
+		return place_poster(W,user)
+
+	return FALSE
+
+/turf/closed/wall/proc/try_decon(obj/item/I, mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(I.tool_behaviour == TOOL_WELDER)
 		if(!I.tool_start_check(user, amount=0))
 			return FALSE
@@ -266,7 +320,11 @@
 	return null
 
 /turf/closed/wall/acid_act(acidpwr, acid_volume)
+<<<<<<< HEAD
 	if(explosion_block >= 2)
+=======
+	if(get_explosive_block() >= 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		acidpwr = min(acidpwr, 50) //we reduce the power so strong walls never get melted.
 	return ..()
 
@@ -277,12 +335,24 @@
 	switch(the_rcd.mode)
 		if(RCD_DECONSTRUCT)
 			return list("mode" = RCD_DECONSTRUCT, "delay" = 40, "cost" = 26)
+<<<<<<< HEAD
+=======
+		if(RCD_WALLFRAME)
+			return list("mode" = RCD_WALLFRAME, "delay" = 10, "cost" = 25)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /turf/closed/wall/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
+<<<<<<< HEAD
 		if(RCD_DECONSTRUCT)
 			to_chat(user, span_notice("You deconstruct the wall."))
+=======
+		if(RCD_WALLFRAME)
+			var/obj/item/wallframe/new_wallmount = new the_rcd.wallframe_type(user.drop_location())
+			return try_wallmount(new_wallmount, user, src)
+		if(RCD_DECONSTRUCT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			ScrapeAway()
 			return TRUE
 	return FALSE

@@ -11,7 +11,11 @@
 	)
 
 /datum/surgery/stomach_pump/can_start(mob/user, mob/living/carbon/target)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/target_stomach = target.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/target_stomach = target.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(HAS_TRAIT(target, TRAIT_HUSK))
 		return FALSE
 	if(!target_stomach)

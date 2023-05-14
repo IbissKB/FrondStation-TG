@@ -255,7 +255,11 @@
 				/obj/item/clothing/head/helmet/astrum = 10,
 				/obj/item/organ/internal/cyberimp/arm/armblade = 5,
 				/obj/effect/gibspawner/generic = 10,
+<<<<<<< HEAD
 				/obj/item/organ/internal/eyes/night_vision/alien = 5
+=======
+				/obj/item/organ/internal/eyes/alien = 5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				)
 
 /obj/item/gun/energy/alien/zeta
@@ -286,7 +290,11 @@
 	icon_state = "vest_combat"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 20, BIO = 50, FIRE = 90, ACID = 90)
+=======
+	armor_type = /datum/armor/abductor_astrum
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	allowed = list(
 		/obj/item/melee,
@@ -301,18 +309,49 @@
 		/obj/item/tank/internals/plasmaman
 		)
 
+<<<<<<< HEAD
+=======
+/datum/armor/abductor_astrum
+	melee = 40
+	bullet = 50
+	laser = 50
+	energy = 50
+	bomb = 20
+	bio = 50
+	fire = 90
+	acid = 90
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/helmet/astrum
 	name = "agent headgear"
 	desc = "An exceptionally robust helmet. For alien standards, that is."
 	icon_state = "alienhelmet"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 30, LASER = 30,ENERGY = 40, BOMB = 50, BIO = 90, FIRE = 100, ACID = 100, WOUND = 15)
+=======
+	armor_type = /datum/armor/helmet_astrum
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /*
 *	BOSS
 */
 
+<<<<<<< HEAD
+=======
+/datum/armor/helmet_astrum
+	melee = 40
+	bullet = 30
+	laser = 30
+	energy = 40
+	bomb = 50
+	bio = 90
+	fire = 100
+	acid = 100
+	wound = 15
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/hostile/megafauna/hierophant/astrum
 	name = "Abductor Captain"
 	desc = "The one you've come here for, finish this."

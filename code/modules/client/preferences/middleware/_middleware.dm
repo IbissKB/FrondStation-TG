@@ -57,7 +57,11 @@
 	return FALSE
 
 /// Called when applying preferences to the mob.
+<<<<<<< HEAD
 /datum/preference_middleware/proc/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences) //SKYRAT EDIT CHANGE
+=======
+/datum/preference_middleware/proc/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE) //SKYRAT EDIT CHANGE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
 	return

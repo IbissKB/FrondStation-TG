@@ -25,29 +25,47 @@
 	..()
 
 
+<<<<<<< HEAD
 /datum/disease/revblight/stage_act(delta_time, times_fired)
+=======
+/datum/disease/revblight/stage_act(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
 
 	if(!finalstage)
+<<<<<<< HEAD
 		if(affected_mob.body_position == LYING_DOWN && DT_PROB(3 * stage, delta_time))
 			cure()
 			return FALSE
 		if(DT_PROB(1.5 * stage, delta_time))
+=======
+		if(affected_mob.body_position == LYING_DOWN && SPT_PROB(3 * stage, seconds_per_tick))
+			cure()
+			return FALSE
+		if(SPT_PROB(1.5 * stage, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(affected_mob, span_revennotice("You suddenly feel [pick("sick and tired", "disoriented", "tired and confused", "nauseated", "faint", "dizzy")]..."))
 			affected_mob.adjust_confusion(8 SECONDS)
 			affected_mob.adjustStaminaLoss(20, FALSE)
 			new /obj/effect/temp_visual/revenant(affected_mob.loc)
 		if(stagedamage < stage)
 			stagedamage++
+<<<<<<< HEAD
 			affected_mob.adjustToxLoss(1 * stage * delta_time, FALSE) //should, normally, do about 30 toxin damage.
 			new /obj/effect/temp_visual/revenant(affected_mob.loc)
 		if(DT_PROB(25, delta_time))
+=======
+			affected_mob.adjustToxLoss(1 * stage * seconds_per_tick, FALSE) //should, normally, do about 30 toxin damage.
+			new /obj/effect/temp_visual/revenant(affected_mob.loc)
+		if(SPT_PROB(25, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			affected_mob.adjustStaminaLoss(stage, FALSE)
 
 	switch(stage)
 		if(2)
+<<<<<<< HEAD
 			if(DT_PROB(2.5, delta_time))
 				affected_mob.emote("pale")
 		if(3)
@@ -55,12 +73,25 @@
 				affected_mob.emote(pick("pale","shiver"))
 		if(4)
 			if(DT_PROB(7.5, delta_time))
+=======
+			if(SPT_PROB(2.5, seconds_per_tick))
+				affected_mob.emote("pale")
+		if(3)
+			if(SPT_PROB(5, seconds_per_tick))
+				affected_mob.emote(pick("pale","shiver"))
+		if(4)
+			if(SPT_PROB(7.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				affected_mob.emote(pick("pale","shiver","cries"))
 		if(5)
 			if(!finalstage)
 				finalstage = TRUE
 				to_chat(affected_mob, span_revenbignotice("You feel like [pick("nothing's worth it anymore", "nobody ever needed your help", "nothing you did mattered", "everything you tried to do was worthless")]."))
+<<<<<<< HEAD
 				affected_mob.adjustStaminaLoss(22.5 * delta_time, FALSE)
+=======
+				affected_mob.adjustStaminaLoss(22.5 * seconds_per_tick, FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				new /obj/effect/temp_visual/revenant(affected_mob.loc)
 				if(affected_mob.dna && affected_mob.dna.species)
 					affected_mob.dna.species.handle_mutant_bodyparts(affected_mob,"#1d2953")

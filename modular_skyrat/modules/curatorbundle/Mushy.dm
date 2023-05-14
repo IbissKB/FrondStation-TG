@@ -1,8 +1,13 @@
 /obj/item/clothing/head/mush_helmet
 	name = "mush cap"
 	desc = "A mushroom cap, this one also doubles as an umbrella!"
+<<<<<<< HEAD
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+=======
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "mush_cap"
 	worn_icon_state = "mush_cap"
 	greyscale_config = /datum/greyscale_config/mushcap

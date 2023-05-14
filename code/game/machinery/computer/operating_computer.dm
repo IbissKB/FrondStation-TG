@@ -16,8 +16,13 @@
 	var/datum/component/experiment_handler/experiment_handler
 
 /obj/machinery/computer/operating/Initialize(mapload)
+<<<<<<< HEAD
 	..()
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	. = ..()
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !linked_techweb)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		linked_techweb = SSresearch.science_tech
 	find_table()
 	return INITIALIZE_HINT_LATELOAD

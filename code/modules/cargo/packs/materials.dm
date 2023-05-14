@@ -128,7 +128,10 @@
 		pack.name = "[name] Canister"
 		pack.desc = "Contains a canister of [name]."
 		if(initial(gas.dangerous))
+<<<<<<< HEAD
 			pack.desc = "[pack.desc] Requires Atmospherics access to open."
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			pack.access = ACCESS_ATMOSPHERICS
 			pack.access_view = ACCESS_ATMOSPHERICS
 		pack.crate_name = "[name] canister crate"

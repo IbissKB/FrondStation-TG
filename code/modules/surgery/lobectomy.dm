@@ -12,7 +12,11 @@
 	)
 
 /datum/surgery/lobectomy/can_start(mob/user, mob/living/carbon/target)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/lungs/target_lungs = target.getorganslot(ORGAN_SLOT_LUNGS)
+=======
+	var/obj/item/organ/internal/lungs/target_lungs = target.get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(target_lungs)
 		if(target_lungs.damage > 60 && !target_lungs.operated)
 			return TRUE
@@ -45,7 +49,11 @@
 /datum/surgery_step/lobectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
+<<<<<<< HEAD
 		var/obj/item/organ/internal/lungs/target_lungs = human_target.getorganslot(ORGAN_SLOT_LUNGS)
+=======
+		var/obj/item/organ/internal/lungs/target_lungs = human_target.get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		target_lungs.operated = TRUE
 		human_target.setOrganLoss(ORGAN_SLOT_LUNGS, 60)
 		display_results(
@@ -55,7 +63,11 @@
 			span_notice("Successfully removes a piece of [human_target]'s lungs."),
 			"",
 		)
+<<<<<<< HEAD
 		display_pain(target, "Your chest hurts like hell, but breathng becomes slightly easier.")
+=======
+		display_pain(target, "Your chest hurts like hell, but breathing becomes slightly easier.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/surgery_step/lobectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)

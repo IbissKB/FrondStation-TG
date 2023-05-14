@@ -14,6 +14,7 @@
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Grant(mob/M)
 	. = ..()
+<<<<<<< HEAD
 	ADD_TRAIT(M, TRAIT_LAVA_IMMUNE, REF(src))
 	ADD_TRAIT(M, TRAIT_NOFIRE, REF(src))
 
@@ -21,6 +22,13 @@
 	. = ..()
 	REMOVE_TRAIT(M, TRAIT_LAVA_IMMUNE, REF(src))
 	REMOVE_TRAIT(M, TRAIT_NOFIRE, REF(src))
+=======
+	M.add_traits(list(TRAIT_LAVA_IMMUNE, TRAIT_NOFIRE), REF(src))
+
+/datum/action/cooldown/mob_cooldown/lava_swoop/Remove(mob/M)
+	. = ..()
+	M.remove_traits(list(TRAIT_LAVA_IMMUNE, TRAIT_NOFIRE), REF(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Activate(atom/target_atom)
 	StartCooldown(360 SECONDS, 360 SECONDS)
@@ -203,11 +211,19 @@
 	duration = 10
 
 /obj/effect/temp_visual/dragon_flight
+<<<<<<< HEAD
 	icon = 'icons/mob/simple/lavaland/64x64megafauna.dmi'
 	icon_state = "dragon"
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	pixel_x = -16
+=======
+	icon = 'icons/mob/simple/lavaland/96x96megafauna.dmi'
+	icon_state = "dragon"
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
+	pixel_x = -32
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	duration = 10
 	randomdir = FALSE
 
@@ -221,7 +237,11 @@
 	else
 		animate(src, pixel_x = SWOOP_HEIGHT*0.1, pixel_z = SWOOP_HEIGHT*0.15, time = 3, easing = BOUNCE_EASING)
 	sleep(0.3 SECONDS)
+<<<<<<< HEAD
 	icon_state = "swoop"
+=======
+	icon_state = "dragon_swoop"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(negative)
 		animate(src, pixel_x = -SWOOP_HEIGHT, pixel_z = SWOOP_HEIGHT, time = 7)
 	else

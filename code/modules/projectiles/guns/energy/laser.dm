@@ -4,7 +4,11 @@
 	icon_state = "laser"
 	inhand_icon_state = "laser"
 	w_class = WEIGHT_CLASS_BULKY
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=2000)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ammo_type = list(/obj/item/ammo_casing/energy/lasergun)
 	ammo_x_offset = 1
 	shaded_charge = 1
@@ -166,12 +170,20 @@
 
 /obj/item/gun/energy/laser/thermal //the common parent of these guns, it just shoots hard bullets, somoene might like that?
 	name = "nanite pistol"
+<<<<<<< HEAD
 	desc = "A modified handcannon with a self-replicating reserve of decommissioned weaponized nanites. Spit globs of angry robots into the bad guys."
+=======
+	desc = "A modified handcannon with a metamorphic reserve of decommissioned weaponized nanites. Spit globs of angry robots into the bad guys."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "infernopistol"
 	inhand_icon_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/nanite)
 	shaded_charge = TRUE
 	ammo_x_offset = 1
+<<<<<<< HEAD
+=======
+	obj_flags = UNIQUE_RENAME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_bayonet = TRUE
 	knife_x_offset = 19
 	knife_y_offset = 13
@@ -191,12 +203,35 @@
 
 /obj/item/gun/energy/laser/thermal/inferno //the magma gun
 	name = "inferno pistol"
+<<<<<<< HEAD
 	desc = "A modified handcannon with a self-replicating reserve of decommissioned weaponized nanites. Spit globs of molten angry robots into the bad guys. While it doesn't manipulate temperature in of itself, it does cause an violent eruption in anyone who is severely cold."
+=======
+	desc = "A modified handcannon with a metamorphic reserve of decommissioned weaponized nanites. Spit globs of molten angry robots into the bad guys. \
+		While it doesn't manipulate temperature in and of itself, it does cause an violent eruption in anyone who is severely cold."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "infernopistol"
 	ammo_type = list(/obj/item/ammo_casing/energy/nanite/inferno)
 
 /obj/item/gun/energy/laser/thermal/cryo //the ice gun
 	name = "cryo pistol"
+<<<<<<< HEAD
 	desc = "A modified handcannon with a self-replicating reserve of decommissioned weaponized nanites. Spit shards of frozen angry robots into the bad guys. While it doesn't manipulate temperature in of itself, it does cause an internal explosion in anyone who is severely hot."
 	icon_state = "cryopistol"
 	ammo_type = list(/obj/item/ammo_casing/energy/nanite/cryo)
+=======
+	desc = "A modified handcannon with a metamorphic reserve of decommissioned weaponized nanites. Spit shards of frozen angry robots into the bad guys. \
+		While it doesn't manipulate temperature in and of itself, it does cause an internal explosion in anyone who is severely hot."
+	icon_state = "cryopistol"
+	ammo_type = list(/obj/item/ammo_casing/energy/nanite/cryo)
+
+// luxury shuttle funnies
+/obj/item/firing_pin/paywall/luxury
+	multi_payment = TRUE
+	owned = TRUE
+	payment_amount = 20
+
+/obj/item/gun/energy/laser/luxurypaywall
+	name = "luxurious laser gun"
+	desc = "A laser gun modified to cost 20 credits to fire. Point towards poor people."
+	pin = /obj/item/firing_pin/paywall/luxury
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

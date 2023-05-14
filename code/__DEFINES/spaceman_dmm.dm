@@ -72,6 +72,7 @@
 	#define VAR_PRIVATE var
 	#define VAR_PROTECTED var
 #endif
+<<<<<<< HEAD
 
 /proc/auxtools_stack_trace(msg)
 	CRASH(msg)
@@ -82,3 +83,5 @@
 /proc/enable_debugging(mode, port)
 	CRASH("auxtools not loaded")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

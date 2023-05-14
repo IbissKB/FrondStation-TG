@@ -63,6 +63,11 @@
 	inhand_icon_state = "crossbow"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+<<<<<<< HEAD
+=======
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	worn_icon_state = "gun"
 	worn_icon = null
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/toy/crossbow

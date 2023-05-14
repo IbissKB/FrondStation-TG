@@ -18,7 +18,11 @@
 #define THERMAL_PROTECTION_HAND_LEFT 0.025
 #define THERMAL_PROTECTION_HAND_RIGHT 0.025
 
+<<<<<<< HEAD
 /mob/living/carbon/human/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/carbon/human/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(notransform)
 		return
 
@@ -27,12 +31,17 @@
 		return FALSE
 
 	//Body temperature stability and damage
+<<<<<<< HEAD
 	dna.species.handle_body_temperature(src, delta_time, times_fired)
+=======
+	dna.species.handle_body_temperature(src, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!IS_IN_STASIS(src))
 		if(.) //not dead
 
 			for(var/datum/mutation/human/HM in dna.mutations) // Handle active genes
+<<<<<<< HEAD
 				HM.on_life(delta_time, times_fired)
 
 		if(stat != DEAD)
@@ -45,6 +54,20 @@
 		for(var/i in all_wounds)
 			var/datum/wound/iter_wound = i
 			iter_wound.on_stasis(delta_time, times_fired)
+=======
+				HM.on_life(seconds_per_tick, times_fired)
+
+		if(stat != DEAD)
+			//heart attack stuff
+			handle_heart(seconds_per_tick, times_fired)
+			handle_liver(seconds_per_tick, times_fired)
+
+		dna.species.spec_life(src, seconds_per_tick, times_fired) // for mutantraces
+	else
+		for(var/i in all_wounds)
+			var/datum/wound/iter_wound = i
+			iter_wound.on_stasis(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
@@ -70,6 +93,7 @@
 		return (occupied_space.contents_pressure_protection * ONE_ATMOSPHERE + (1 - occupied_space.contents_pressure_protection) * pressure)
 	return pressure
 
+<<<<<<< HEAD
 
 /mob/living/carbon/human/handle_traits(delta_time, times_fired)
 	if (getOrganLoss(ORGAN_SLOT_BRAIN) >= 60)
@@ -78,13 +102,19 @@
 		clear_mood_event("brain_damage")
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/carbon/human/breathe()
 	if(!HAS_TRAIT(src, TRAIT_NOBREATH))
 		return ..()
 
 /mob/living/carbon/human/check_breath(datum/gas_mixture/breath)
+<<<<<<< HEAD
 
 	var/L = getorganslot(ORGAN_SLOT_LUNGS)
+=======
+	var/L = get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!L)
 		if(health >= crit_threshold)
@@ -112,12 +142,20 @@
 			lun.check_breath(breath,src)
 
 /// Environment handlers for species
+<<<<<<< HEAD
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
+=======
+/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// If we are in a cryo bed do not process life functions
 	if(istype(loc, /obj/machinery/atmospherics/components/unary/cryo_cell))
 		return
 
+<<<<<<< HEAD
 	dna.species.handle_environment(src, environment, delta_time, times_fired)
+=======
+	dna.species.handle_environment(src, environment, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Adjust the core temperature of a mob
@@ -284,14 +322,22 @@
 
 	return min(1, thermal_protection)
 
+<<<<<<< HEAD
 /mob/living/carbon/human/handle_random_events(delta_time, times_fired)
+=======
+/mob/living/carbon/human/handle_random_events(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Puke if toxloss is too high
 	if(stat)
 		return
 	if(getToxLoss() < 45 || nutrition <= 20)
 		return
 
+<<<<<<< HEAD
 	lastpuke += DT_PROB(30, delta_time)
+=======
+	lastpuke += SPT_PROB(30, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(lastpuke >= 50) // about 25 second delay I guess // This is actually closer to 150 seconds
 		vomit(20)
 		lastpuke = 0
@@ -310,17 +356,28 @@
 			return TRUE
 	return ..()
 
+<<<<<<< HEAD
 /mob/living/carbon/human/proc/handle_heart(delta_time, times_fired)
+=======
+/mob/living/carbon/human/proc/handle_heart(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/we_breath = !HAS_TRAIT_FROM(src, TRAIT_NOBREATH, SPECIES_TRAIT)
 
 	if(!undergoing_cardiac_arrest())
 		return
 
 	if(we_breath)
+<<<<<<< HEAD
 		adjustOxyLoss(4 * delta_time)
 		Unconscious(80)
 	// Tissues die without blood circulation
 	adjustBruteLoss(1 * delta_time)
+=======
+		adjustOxyLoss(4 * seconds_per_tick)
+		Unconscious(80)
+	// Tissues die without blood circulation
+	adjustBruteLoss(1 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef THERMAL_PROTECTION_HEAD
 #undef THERMAL_PROTECTION_CHEST

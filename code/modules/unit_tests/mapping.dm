@@ -17,4 +17,7 @@
 			continue
 
 		TEST_FAIL(log_entry)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

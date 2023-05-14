@@ -9,6 +9,10 @@
 /datum/symptom/narcolepsy
 	name = "Narcolepsy"
 	desc = "The virus causes a hormone imbalance, making the host sleepy and narcoleptic."
+<<<<<<< HEAD
+=======
+	illness = "Aurora Snorealis"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -1
 	resistance = -2
 	stage_speed = -3
@@ -19,7 +23,11 @@
 	severity = 4
 	var/yawning = FALSE
 	threshold_descs = list(
+<<<<<<< HEAD
 		"Transmission 4" = "Causes the host to periodically emit a yawn that spreads the virus in a manner similar to that of a sneeze.",
+=======
+		"Transmission 4" = "Causes the host to periodically emit a yawn that tries to infect bystanders within 6 meters of the host.",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"Stage Speed 10" = "Causes narcolepsy more often, increasing the chance of the host falling asleep.",
 	)
 
@@ -45,25 +53,47 @@
 		if(3)
 			if(prob(50))
 				to_chat(M, span_warning("You try to focus on staying awake."))
+<<<<<<< HEAD
 			if(M.drowsyness < 70)
 				M.adjust_drowsyness(5)
+=======
+
+			M.adjust_drowsiness_up_to(10 SECONDS, 140 SECONDS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(4)
 			if(prob(50))
 				if(yawning)
 					to_chat(M, span_warning("You try and fail to suppress a yawn."))
 				else
 					to_chat(M, span_warning("You nod off for a moment.")) //you can't really yawn while nodding off, can you?
+<<<<<<< HEAD
 			if(M.drowsyness < 70)
 				M.adjust_drowsyness(10)
+=======
+
+			M.adjust_drowsiness_up_to(20 SECONDS, 140 SECONDS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(yawning)
 				M.emote("yawn")
 				if(M.CanSpreadAirborneDisease())
 					A.spread(6)
+<<<<<<< HEAD
 		if(5)
 			if(prob(50))
 				to_chat(M, span_warning("[pick("So tired...","You feel very sleepy.","You have a hard time keeping your eyes open.","You try to stay awake.")]"))
 			if(M.drowsyness < 70)
 				M.adjust_drowsyness(40)
+=======
+
+		if(5)
+			if(prob(50))
+				to_chat(M, span_warning("[pick("So tired...","You feel very sleepy.","You have a hard time keeping your eyes open.","You try to stay awake.")]"))
+
+			M.adjust_drowsiness_up_to(80 SECONDS, 140 SECONDS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(yawning)
 				M.emote("yawn")
 				if(M.CanSpreadAirborneDisease())

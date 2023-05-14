@@ -70,6 +70,13 @@
 /datum/plane_master_group/proc/show_plane(atom/movable/screen/plane_master/plane)
 	plane.show_to(our_hud.mymob)
 
+<<<<<<< HEAD
+=======
+/// Nice wrapper for the "[]"ing
+/datum/plane_master_group/proc/get_plane(plane)
+	return plane_masters["[plane]"]
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Returns a list of all the plane master types we want to create
 /datum/plane_master_group/proc/get_plane_types()
 	return subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate
@@ -143,8 +150,11 @@
 			continue
 
 		var/visual_offset = plane.offset - new_offset
+<<<<<<< HEAD
 		// we get like 47 -> 42 from just no AO/displace on lower levels. 39 with no FOV blocking
 		// 31 with only barebones lower planes
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		// Basically uh, if we're showing something down X amount of levels, or up any amount of levels
 		if(multiz_boundary != MULTIZ_PERFORMANCE_DISABLE && (visual_offset > multiz_boundary || visual_offset < 0))

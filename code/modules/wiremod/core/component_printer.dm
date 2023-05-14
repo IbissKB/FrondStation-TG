@@ -19,7 +19,11 @@
 
 /obj/machinery/component_printer/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !techweb)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		connect_techweb(SSresearch.science_tech)
 
 	materials = AddComponent( \
@@ -77,9 +81,15 @@
 /obj/machinery/component_printer/proc/calculate_efficiency()
 	var/rating = 0
 
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/manipulator in component_parts)
 		///we do -1 because normal manipulators rating of 1 gives us 1-1=0 i.e no decrement in cost
 		rating += manipulator.rating-1
+=======
+	for(var/datum/stock_part/servo/servo in component_parts)
+		///we do -1 because normal manipulators rating of 1 gives us 1-1=0 i.e no decrement in cost
+		rating += servo.tier-1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///linear interpolation between full cost i.e 1 & 1/8th the cost i.e 0.125
 	///we do it in 6 steps because maximum rating of 2 manipulators is 8 but -1 gives us 6
@@ -89,8 +99,13 @@
 	if(materials)
 		var/total_storage = 0
 
+<<<<<<< HEAD
 		for(var/obj/item/stock_parts/matter_bin/bin in component_parts)
 			total_storage += bin.rating * 75000
+=======
+		for(var/datum/stock_part/matter_bin/bin in component_parts)
+			total_storage += bin.tier * 75000
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		materials.set_local_size(total_storage)
 
@@ -218,6 +233,7 @@
 
 	return data
 
+<<<<<<< HEAD
 /obj/item/circuitboard/machine/component_printer
 	name = "\improper Component Printer (Machine Board)"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
@@ -227,6 +243,8 @@
 		/obj/item/stock_parts/manipulator = 2,
 	)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/debug_component_printer
 	name = "debug component printer"
 	desc = "Produces components for the creation of integrated circuits."
@@ -350,13 +368,19 @@
 	if(materials)
 		var/total_storage = 0
 
+<<<<<<< HEAD
 		for(var/obj/item/stock_parts/matter_bin/bin in component_parts)
 			total_storage += bin.rating * 75000
+=======
+		for(var/datum/stock_part/matter_bin/bin in component_parts)
+			total_storage += bin.tier * 75000
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		materials.set_local_size(total_storage)
 
 	var/rating = 0
 
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/manipulator in component_parts)
 		///we do -1 because normal manipulators rating of 1 gives us 1-1=0 i.e no decrement in cost
 		rating += manipulator.rating-1
@@ -364,6 +388,15 @@
 	///linear interpolation between full cost i.e 1 & 1/8th the cost i.e 0.125
 	///we do it in 6 steps because maximum rating of 2 manipulators is 8 but -1 gives us 6
 	var/coff=1.0+((0.125-1.0)*(rating/6))
+=======
+	for(var/datum/stock_part/servo/servo in component_parts)
+		///we do -1 because normal manipulators rating of 1 gives us 1-1=0 i.e no decrement in cost
+		rating += servo.tier - 1
+
+	///linear interpolation between full cost i.e 1 & 1/8th the cost i.e 0.125
+	///we do it in 6 steps because maximum rating of 2 manipulators is 8 but -1 gives us 6
+	var/coff = 1.0 + ((0.125 - 1.0) * (rating/6))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return coff
 
@@ -529,6 +562,7 @@
 		data[initial(material_type.name)] = materials[material_type] * efficiency_coeff
 
 	return data
+<<<<<<< HEAD
 
 /obj/item/circuitboard/machine/module_duplicator
 	name = "\improper Module Duplicator (Machine Board)"
@@ -538,3 +572,5 @@
 		/obj/item/stock_parts/matter_bin = 2,
 		/obj/item/stock_parts/manipulator = 2,
 	)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

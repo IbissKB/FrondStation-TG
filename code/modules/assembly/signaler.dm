@@ -5,7 +5,11 @@
 	inhand_icon_state = "signaler"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=400, /datum/material/glass=120)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 4, /datum/material/glass=SMALL_MATERIAL_AMOUNT*1.2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attachable = TRUE
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'

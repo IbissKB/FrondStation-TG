@@ -13,6 +13,13 @@
 	tool_behaviors = list(TOOL_WIRECUTTER, TOOL_SCREWDRIVER, TOOL_WELDER)	//To cut the leather and fasten/weld the sheath detailing
 	time = 30
 	category = CAT_CLOTHING
+<<<<<<< HEAD
+=======
+	
+/datum/crafting_recipe/crusader_belt/on_craft_completion(mob/user, atom/result)
+	var/obj/item/storage/belt/crusader/crusader_belt = result
+	crusader_belt.PopulateContents()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/crusader_satchel
 	name = "Crusader Satchel"

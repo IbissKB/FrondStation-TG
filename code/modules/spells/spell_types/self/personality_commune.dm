@@ -30,7 +30,11 @@
 		return . | SPELL_CANCEL_CAST
 
 	to_send = tgui_input_text(cast_on, "What would you like to tell your other self?", "Commune")
+<<<<<<< HEAD
 	if(QDELETED(src) || QDELETED(trauma)|| QDELETED(cast_on) || QDELETED(trauma.owner) || !can_cast_spell())
+=======
+	if(QDELETED(src) || QDELETED(trauma) || QDELETED(cast_on) || QDELETED(trauma.owner) || !can_cast_spell())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return . | SPELL_CANCEL_CAST
 	if(!to_send)
 		reset_cooldown()
@@ -43,8 +47,17 @@
 
 	var/user_message = span_boldnotice("You concentrate and send thoughts to your other self:")
 	var/user_message_body = span_notice("[to_send]")
+<<<<<<< HEAD
 	to_chat(cast_on, "[user_message] [user_message_body]")
 	to_chat(trauma.owner, "[fluff_text] [user_message_body]")
+=======
+
+	to_chat(cast_on, "[user_message] [user_message_body]")
+
+	trauma.owner.balloon_alert(trauma.owner, "you hear a voice")
+	to_chat(trauma.owner, "[fluff_text] [user_message_body]")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	log_directed_talk(cast_on, trauma.owner, to_send, LOG_SAY, "[name]")
 	for(var/dead_mob in GLOB.dead_mob_list)
 		if(!isobserver(dead_mob))

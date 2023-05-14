@@ -22,3 +22,7 @@
 	var/turf/turf_above = get_step_multiz(target, UP)
 	if(turf_above?.z == user.z)
 		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item, handle_openspace_click), turf_above, user, user.CanReach(turf_above, source), click_parameters)
+<<<<<<< HEAD
+=======
+	return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

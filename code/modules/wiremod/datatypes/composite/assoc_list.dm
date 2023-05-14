@@ -4,7 +4,11 @@
 	expected_types = 2
 
 /datum/circuit_composite_template/assoc_list/generate_name(list/composite_datatypes)
+<<<<<<< HEAD
 	return "[composite_datatypes[1]], [composite_datatypes[2]] list"
+=======
+	return "[composite_datatypes[1]], [composite_datatypes[2]] assoc. list"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/circuit_datatype/composite_instance/assoc_list
 	color = "white"

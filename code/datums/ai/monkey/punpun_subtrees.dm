@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 /datum/ai_planning_subtree/punpun_shenanigans/SelectBehaviors(datum/ai_controller/monkey/controller, delta_time)
+=======
+/datum/ai_planning_subtree/punpun_shenanigans/SelectBehaviors(datum/ai_controller/monkey/controller, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	controller.set_trip_mode(mode = FALSE) // pun pun doesn't fuck around
 
 	if(prob(5))
 		controller.queue_behavior(/datum/ai_behavior/use_in_hand)
 
+<<<<<<< HEAD
 	if(!DT_PROB(MONKEY_SHENANIGAN_PROB, delta_time))
+=======
+	if(!SPT_PROB(MONKEY_SHENANIGAN_PROB, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(!controller.blackboard[BB_MONKEY_CURRENT_PRESS_TARGET])

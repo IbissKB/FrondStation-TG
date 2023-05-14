@@ -47,8 +47,14 @@ Nothing else in the console has ID requirements.
 
 /obj/machinery/computer/rdconsole/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
 		stored_research = SSresearch.science_tech
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !stored_research)
+		stored_research = SSresearch.science_tech
+	if(stored_research)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		stored_research.consoles_accessing += src
 
 /obj/machinery/computer/rdconsole/Destroy()
@@ -180,6 +186,7 @@ Nothing else in the console has ID requirements.
 			"stored_research" = t_disk.stored_research.researched_nodes,
 		)
 	if (d_disk)
+<<<<<<< HEAD
 		data["d_disk"] = list (
 			"max_blueprints" = d_disk.max_blueprints,
 			"blueprints" = list(),
@@ -190,6 +197,11 @@ Nothing else in the console has ID requirements.
 				data["d_disk"]["blueprints"] += D.id
 			else
 				data["d_disk"]["blueprints"] += null
+=======
+		data["d_disk"] = list("blueprints" = list())
+		for (var/datum/design/D in d_disk.blueprints)
+			data["d_disk"]["blueprints"] += D.id
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 	// Serialize all nodes to display
@@ -294,7 +306,11 @@ Nothing else in the console has ID requirements.
 	.["static_data"] = list(
 		"node_cache" = node_cache,
 		"design_cache" = design_cache,
+<<<<<<< HEAD
 		"id_cache" = flat_id_cache
+=======
+		"id_cache" = flat_id_cache,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /obj/machinery/computer/rdconsole/ui_act(action, list/params)
@@ -320,13 +336,17 @@ Nothing else in the console has ID requirements.
 				to_chat(usr, span_boldwarning("Unauthorized Access."))
 			return TRUE
 		if ("researchNode")
+<<<<<<< HEAD
 			if(!SSresearch.science_tech.available_nodes[params["node_id"]])
 				return TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			research_node(params["node_id"], usr)
 			return TRUE
 		if ("ejectDisk")
 			eject_disk(params["type"])
 			return TRUE
+<<<<<<< HEAD
 		if ("writeDesign")
 			if(QDELETED(d_disk))
 				say("No Design Disk Inserted!")
@@ -376,6 +396,8 @@ Nothing else in the console has ID requirements.
 				t_disk.stored_research = new
 				say("Wiping technology disk.")
 			return TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if ("uploadDisk")
 			if (params["type"] == RND_DESIGN_DISK)
 				if(QDELETED(d_disk))
@@ -384,6 +406,12 @@ Nothing else in the console has ID requirements.
 				for(var/D in d_disk.blueprints)
 					if(D)
 						stored_research.add_design(D, TRUE)
+<<<<<<< HEAD
+=======
+				say("Uploading blueprints from disk.")
+				d_disk.on_upload(stored_research)
+				return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if (params["type"] == RND_TECH_DISK)
 				if (QDELETED(t_disk))
 					say("No tech disk inserted!")
@@ -391,6 +419,10 @@ Nothing else in the console has ID requirements.
 				say("Uploading technology disk.")
 				t_disk.stored_research.copy_research_to(stored_research)
 			return TRUE
+<<<<<<< HEAD
+=======
+		//Tech disk-only action.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if ("loadTech")
 			if(QDELETED(t_disk))
 				say("No tech disk inserted!")

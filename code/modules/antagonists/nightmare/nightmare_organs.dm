@@ -9,6 +9,7 @@
 	desc = "A fleshy growth that was dug out of the skull of a Nightmare."
 	icon = 'icons/obj/medical/organs/organs.dmi'
 	icon_state = "brain-x-d"
+<<<<<<< HEAD
 	var/datum/action/cooldown/spell/jaunt/shadow_walk/our_jaunt
 
 /obj/item/organ/internal/brain/shadow/nightmare/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE, no_id_transfer = FALSE)
@@ -23,6 +24,30 @@
 /obj/item/organ/internal/brain/shadow/nightmare/Remove(mob/living/carbon/M, special = FALSE, no_id_transfer = FALSE)
 	QDEL_NULL(our_jaunt)
 	return ..()
+=======
+	///Our associated shadow jaunt spell, for all nightmares
+	var/datum/action/cooldown/spell/jaunt/shadow_walk/our_jaunt
+	///Our associated terrorize spell, for antagonist nightmares
+	var/datum/action/cooldown/spell/pointed/terrorize/terrorize_spell
+
+/obj/item/organ/internal/brain/shadow/nightmare/on_insert(mob/living/carbon/brain_owner)
+	. = ..()
+	if(brain_owner.dna.species.id != SPECIES_NIGHTMARE)
+		brain_owner.set_species(/datum/species/shadow/nightmare)
+		visible_message(span_warning("[brain_owner] thrashes as [src] takes root in [brain_owner.p_their()] body!"))
+
+	our_jaunt = new(brain_owner)
+	our_jaunt.Grant(brain_owner)
+
+	if(brain_owner.mind?.has_antag_datum(/datum/antagonist/nightmare)) //Only a TRUE NIGHTMARE is worthy of using this ability
+		terrorize_spell = new(src)
+		terrorize_spell.Grant(brain_owner)
+
+/obj/item/organ/internal/brain/shadow/nightmare/on_remove(mob/living/carbon/brain_owner)
+	. = ..()
+	QDEL_NULL(our_jaunt)
+	QDEL_NULL(terrorize_spell)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/heart/nightmare
 	name = "heart of darkness"
@@ -46,7 +71,11 @@
 		return ..()
 	user.visible_message(
 		span_warning("[user] raises [src] to [user.p_their()] mouth and tears into it with [user.p_their()] teeth!"),
+<<<<<<< HEAD
 		span_danger("[src] feels unnaturally cold in your hands. You raise [src] your mouth and devour it!")
+=======
+		span_danger("[src] feels unnaturally cold in your hands. You raise [src] to your mouth and devour it!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 
@@ -57,6 +86,7 @@
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	Insert(user)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/nightmare/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
 	. = ..()
 	if(special != HEART_SPECIAL_SHADOWIFY)
@@ -69,23 +99,49 @@
 		M.visible_message(span_warning("\The [blade] disintegrates!"))
 		QDEL_NULL(blade)
 	return ..()
+=======
+/obj/item/organ/internal/heart/nightmare/on_insert(mob/living/carbon/heart_owner, special)
+	. = ..()
+	if(special != HEART_SPECIAL_SHADOWIFY)
+		blade = new/obj/item/light_eater
+		heart_owner.put_in_hands(blade)
+
+/obj/item/organ/internal/heart/nightmare/on_remove(mob/living/carbon/heart_owner, special)
+	. = ..()
+	respawn_progress = 0
+	if(blade && special != HEART_SPECIAL_SHADOWIFY)
+		heart_owner.visible_message(span_warning("\The [blade] disintegrates!"))
+		QDEL_NULL(blade)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/heart/nightmare/Stop()
 	return 0
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/nightmare/on_death(delta_time, times_fired)
+=======
+/obj/item/organ/internal/heart/nightmare/on_death(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!owner)
 		return
 	var/turf/T = get_turf(owner)
 	if(istype(T))
 		var/light_amount = T.get_lumcount()
 		if(light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD)
+<<<<<<< HEAD
 			respawn_progress += delta_time SECONDS
+=======
+			respawn_progress += seconds_per_tick SECONDS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			playsound(owner, 'sound/effects/singlebeat.ogg', 40, TRUE)
 	if(respawn_progress < HEART_RESPAWN_THRESHHOLD)
 		return
 
+<<<<<<< HEAD
 	owner.revive(HEAL_ALL)
+=======
+	owner.revive(HEAL_ALL & ~HEAL_REFRESH_ORGANS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!(owner.dna.species.id == SPECIES_SHADOW || owner.dna.species.id == SPECIES_NIGHTMARE))
 		var/mob/living/carbon/old_owner = owner
 		Remove(owner, HEART_SPECIAL_SHADOWIFY)
@@ -97,8 +153,13 @@
 	playsound(owner, 'sound/hallucinations/far_noise.ogg', 50, TRUE)
 	respawn_progress = 0
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/nightmare/get_availability(datum/species/S)
 	if(istype(S,/datum/species/shadow/nightmare))
+=======
+/obj/item/organ/internal/heart/nightmare/get_availability(datum/species/owner_species, mob/living/owner_mob)
+	if(isnightmare(owner_mob))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	return ..()
 

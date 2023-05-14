@@ -44,7 +44,11 @@
 	return NONE
 
 /obj/item/toy/cards/cardhand/attack_self(mob/living/user)
+<<<<<<< HEAD
 	if(!isliving(user) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = TRUE))
+=======
+	if(!isliving(user) || !user.can_perform_action(src, NEED_DEXTERITY| FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/list/handradial = list()

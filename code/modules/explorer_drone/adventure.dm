@@ -493,6 +493,12 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 		if("exists")
 			return qkey in qualities
 
+<<<<<<< HEAD
+=======
+#undef ADVENTURE_VERSION_FIELD
+#undef CURRENT_ADVENTURE_VERSION
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef ADVENTURE_NAME_FIELD
 #undef ADVENTURE_STARTING_NODE_FIELD
 #undef ADVENTURE_REQUIRED_SITE_TRAITS_FIELD

@@ -9,7 +9,11 @@
 	emote_see = list("hisses.", "flicks its tongue.")
 	health = 20
 	maxHealth = 20
+<<<<<<< HEAD
 	faction = list("Lizard")
+=======
+	faction = list(FACTION_LIZARD)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -28,7 +32,10 @@
 	gold_core_spawnable = FRIENDLY_SPAWN
 	turns_per_move = 10
 	can_be_held = TRUE
+<<<<<<< HEAD
 	ai_controller = /datum/ai_controller/dog //Tegus can be taught to fetch
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stop_automated_movement = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/tegu/Initialize(mapload)
@@ -55,6 +62,7 @@
 	resize = 0.5
 	update_transform()
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/carp/megacarp/shorki
 	desc = "A not so ferocious, fang bearing creature that resembles a shark. This one seems a little big for its tank."
 	faction = list("neutral")
@@ -64,6 +72,22 @@
 	. = ..()
 	name = "Shorki"
 	real_name = "Shorki"
+=======
+/mob/living/basic/carp/mega/shorki
+	name = "Shorki"
+	desc = "A not so ferocious, fang bearing creature that resembles a shark. This one seems a little big for its tank."
+	faction = list(FACTION_NEUTRAL)
+	gender = MALE
+	gold_core_spawnable = NO_SPAWN
+	ai_controller = /datum/ai_controller/basic_controller/carp/pet
+
+/mob/living/basic/carp/mega/shorki/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/ai_retaliate)
+	AddElement(/datum/element/pet_bonus, "bloops happily!")
+	name = initial(name)
+	real_name = initial(name)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/pet/gondola/funky
 	name = "Funky"
@@ -86,7 +110,11 @@
 	name = "Wojtek"
 	real_name = "Wojtek"
 	desc = "The bearer of Bluespace Artillery."
+<<<<<<< HEAD
 	faction = list("neutral")
+=======
+	faction = list(FACTION_NEUTRAL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	gender = MALE
 
 /mob/living/simple_animal/chicken/teshari

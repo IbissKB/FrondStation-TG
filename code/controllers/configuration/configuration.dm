@@ -60,6 +60,12 @@
 	/// An assoc list of words that are soft blocked both IC and OOC to their reasons
 	var/static/list/soft_shared_filter_reasons
 
+<<<<<<< HEAD
+=======
+	/// A list of configuration errors that occurred during load
+	var/static/list/configuration_errors
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/configuration/proc/admin_reload()
 	if(IsAdminAdvancedProcCall())
 		return
@@ -75,6 +81,10 @@
 		directory = _directory
 	if(entries)
 		CRASH("/datum/controller/configuration/Load() called more than once!")
+<<<<<<< HEAD
+=======
+	configuration_errors ||= list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	InitEntries()
 	if(fexists("[directory]/config.txt") && LoadEntries("config.txt") <= 1)
 		var/list/legacy_configs = list("game_options.txt", "dbconfig.txt", "comms.txt")
@@ -92,6 +102,11 @@
 	LoadChatFilter()
 	if(CONFIG_GET(flag/load_jobs_from_txt))
 		validate_job_config()
+<<<<<<< HEAD
+=======
+	if(CONFIG_GET(flag/usewhitelist))
+		load_whitelist()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// SKYRAT EDIT ADDITION START
 	populate_interaction_instances()
@@ -102,6 +117,10 @@
 
 	if (Master)
 		Master.OnConfigLoad()
+<<<<<<< HEAD
+=======
+	process_config_errors()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/controller/configuration/proc/full_wipe()
 	if(IsAdminAdvancedProcCall())
@@ -112,6 +131,10 @@
 	QDEL_LIST_ASSOC_VAL(maplist)
 	maplist = null
 	QDEL_NULL(defaultmap)
+<<<<<<< HEAD
+=======
+	configuration_errors?.Cut()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/controller/configuration/Destroy()
 	full_wipe()
@@ -119,6 +142,19 @@
 
 	return ..()
 
+<<<<<<< HEAD
+=======
+/datum/controller/configuration/proc/log_config_error(error_message)
+	configuration_errors += error_message
+	log_config(error_message)
+
+/datum/controller/configuration/proc/process_config_errors()
+	if(!CONFIG_GET(flag/config_errors_runtime))
+		return
+	for(var/error_message in configuration_errors)
+		stack_trace(error_message)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/configuration/proc/InitEntries()
 	var/list/_entries = list()
 	entries = _entries
@@ -133,7 +169,11 @@
 		var/esname = E.name
 		var/datum/config_entry/test = _entries[esname]
 		if(test)
+<<<<<<< HEAD
 			log_config("Error: [test.type] has the same name as [E.type]: [esname]! Not initializing [E.type]!")
+=======
+			log_config_error("Error: [test.type] has the same name as [E.type]: [esname]! Not initializing [E.type]!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			qdel(E)
 			continue
 		_entries[esname] = E
@@ -149,7 +189,11 @@
 
 	var/filename_to_test = world.system_type == MS_WINDOWS ? lowertext(filename) : filename
 	if(filename_to_test in stack)
+<<<<<<< HEAD
 		log_config("Warning: Config recursion detected ([english_list(stack)]), breaking!")
+=======
+		log_config_error("Warning: Config recursion detected ([english_list(stack)]), breaking!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	stack = stack + filename_to_test
 
@@ -184,7 +228,11 @@
 
 		if(entry == "$include")
 			if(!value)
+<<<<<<< HEAD
 				log_config("Warning: Invalid $include directive: [value]")
+=======
+				log_config_error("Warning: Invalid $include directive: [value]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else
 				LoadEntries(value, stack)
 				++.
@@ -194,7 +242,11 @@
 		if (entry == "$reset")
 			var/datum/config_entry/resetee = _entries[lowertext(value)]
 			if (!value || !resetee)
+<<<<<<< HEAD
 				log_config("Warning: invalid $reset directive: [value]")
+=======
+				log_config_error("Warning: invalid $reset directive: [value]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				continue
 			resetee.set_default()
 			log_config("Reset configured value for [value] to original defaults")
@@ -224,10 +276,19 @@
 
 		var/validated = E.ValidateAndSet(value)
 		if(!validated)
+<<<<<<< HEAD
 			log_config("Failed to validate setting \"[value]\" for [entry]")
 		else
 			if(E.modified && !E.dupes_allowed)
 				log_config("Duplicate setting for [entry] ([value], [E.resident_file]) detected! Using latest.")
+=======
+			var/log_message = "Failed to validate setting \"[value]\" for [entry]"
+			log_config(log_message)
+			stack_trace(log_message)
+		else
+			if(E.modified && !E.dupes_allowed && E.resident_file == filename)
+				log_config_error("Duplicate setting for [entry] ([value], [E.resident_file]) detected! Using latest.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		E.resident_file = filename
 
@@ -298,7 +359,11 @@ Policy file should be a json file with a single object.
 Value is raw html.
 Possible keywords :
 Job titles / Assigned roles (ghost spawners for example) : Assistant , Captain , Ash Walker
+<<<<<<< HEAD
 Mob types : /mob/living/simple_animal/hostile/carp
+=======
+Mob types : /mob/living/basic/carp
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Antagonist types : /datum/antagonist/highlander
 Species types : /datum/species/lizard
 special keywords defined in _DEFINES/admin.dm

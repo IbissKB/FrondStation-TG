@@ -8,6 +8,11 @@
 #define REQUEST_NUKE "request_nuke"
 /// Requests somebody from fax
 #define REQUEST_FAX "request_fax"
+<<<<<<< HEAD
+=======
+/// Requests from Request Music
+#define REQUEST_INTERNET_SOUND "request_internet_sound"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 
@@ -108,6 +113,20 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 	request_for_client(requester, REQUEST_FAX, message, additional_info)
 
 /**
+<<<<<<< HEAD
+=======
+ * Creates a request for a song
+ *
+ * Arguments:
+ * * requester - The client who is sending the request
+ * * message - The URL of the song
+ */
+
+/datum/request_manager/proc/music_request(client/requester, message)
+	request_for_client(requester, REQUEST_INTERNET_SOUND, message)
+
+/**
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * Creates a request and registers the request with all necessary internal tracking lists
  *
  * Arguments:
@@ -221,6 +240,19 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 			var/obj/item/paper/request_message = request.additional_information
 			request_message.ui_interact(usr)
 			return TRUE
+<<<<<<< HEAD
+=======
+		if ("play")
+			if(request.req_type != REQUEST_INTERNET_SOUND)
+				to_chat(usr, "Request doesn't have a sound to play.", confidential = TRUE)
+				return TRUE
+			if(findtext(request.message, ":") && !findtext(request.message, GLOB.is_http_protocol))
+				to_chat(usr, "Request is not a valid URL.", confidential = TRUE)
+				return TRUE
+
+			web_sound(usr, request.message)
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/request_manager/ui_data(mob/user)
 	. = list(
@@ -246,3 +278,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 #undef REQUEST_SYNDICATE
 #undef REQUEST_NUKE
 #undef REQUEST_FAX
+<<<<<<< HEAD
+=======
+#undef REQUEST_INTERNET_SOUND
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

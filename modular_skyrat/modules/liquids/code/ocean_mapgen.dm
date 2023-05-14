@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+#define BIOME_RANDOM_SQUARE_DRIFT 2
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Mostly a copypaste of the jungle generator
 /datum/map_generator/ocean_generator
 	///2D list of all biomes based on heat and humidity combos.
@@ -88,8 +93,17 @@
 
 	feature_spawn_list = null
 
+<<<<<<< HEAD
 	mob_spawn_list = list(/mob/living/simple_animal/hostile/carp = 1)
+=======
+	mob_spawn_list = list(/mob/living/basic/carp = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mob_spawn_chance = 1
 
 	flora_spawn_chance = 4
 	flora_spawn_list = list(/obj/structure/flora/rock = 1, /obj/structure/flora/rock/pile = 1)
+<<<<<<< HEAD
+=======
+
+#undef BIOME_RANDOM_SQUARE_DRIFT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

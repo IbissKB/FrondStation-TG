@@ -20,6 +20,13 @@
 		var/datum/computer_file/program/program_type = new programs
 		add_file(program_type)
 
+<<<<<<< HEAD
+=======
+/obj/item/computer_disk/Destroy(force)
+	. = ..()
+	QDEL_LIST(stored_files)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * add_file
  *
@@ -29,6 +36,10 @@
 	if((file.size + used_capacity) > max_capacity)
 		return FALSE
 	stored_files.Add(file)
+<<<<<<< HEAD
+=======
+	file.disk_host = src
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	used_capacity += file.size
 	return TRUE
 

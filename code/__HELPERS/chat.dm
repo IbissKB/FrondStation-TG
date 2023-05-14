@@ -18,7 +18,11 @@ For example if you have the following channels in tgs4 set up
 
 and you make the call:
 
+<<<<<<< HEAD
 send2chat("I sniff butts", CONFIG_GET(string/where_to_send_sniff_butts))
+=======
+send2chat(new /datum/tgs_message_content("I sniff butts"), CONFIG_GET(string/where_to_send_sniff_butts))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 and the config option is set like:
 
@@ -38,11 +42,19 @@ In TGS3 it will always be sent to all connected designated game chats.
 /**
  * Sends a message to TGS chat channels.
  *
+<<<<<<< HEAD
  * message - The message to send.
  * channel_tag - Required. If "", the message with be sent to all connected (Game-type for TGS3) channels. Otherwise, it will be sent to TGS4 channels with that tag (Delimited by ','s).
  * admin_only - Determines if this communication can only be sent to admin only channels.
  */
 /proc/send2chat(message, channel_tag, admin_only = FALSE)
+=======
+ * message - The [/datum/tgs_message_content] to send.
+ * channel_tag - Required. If "", the message with be sent to all connected (Game-type for TGS3) channels. Otherwise, it will be sent to TGS4 channels with that tag (Delimited by ','s).
+ * admin_only - Determines if this communication can only be sent to admin only channels.
+ */
+/proc/send2chat(datum/tgs_message_content/message, channel_tag, admin_only = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(channel_tag == null || !world.TgsAvailable())
 		return
 
@@ -72,7 +84,11 @@ In TGS3 it will always be sent to all connected designated game chats.
 	message = replacetext(replacetext(message, "\proper", ""), "\improper", "")
 	if(!embed_links)
 		message = GLOB.has_discord_embeddable_links.Replace(replacetext(message, "`", ""), " ```$1``` ")
+<<<<<<< HEAD
 	world.TgsTargetedChatBroadcast("[category] | [message]", TRUE)
+=======
+	world.TgsTargetedChatBroadcast(new /datum/tgs_message_content("[category] | [message]"), TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Handles text formatting for item use hints in examine text
 #define EXAMINE_HINT(text) ("<b>" + text + "</b>")

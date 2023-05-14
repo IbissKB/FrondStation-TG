@@ -8,7 +8,11 @@
 	gain_text = span_notice("The ground doesn't feel so rough on your feet anymore.")
 	lose_text = span_danger("You start feeling the ridges and imperfections on the ground.")
 	medical_record_text = "Patient's feet are more resilient against traction."
+<<<<<<< HEAD
 	icon = "boot"
+=======
+	icon = FA_ICON_SHAPES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/quirk/linguist
 	name = "Linguist"
@@ -18,7 +22,11 @@
 	gain_text = span_notice("Your brain seems more equipped to handle different modes of conversation.")
 	lose_text = span_danger("Your grasp of the finer points of Draconic idioms fades away.")
 	medical_record_text = "Patient demonstrates a high brain plasticity in regards to language learning."
+<<<<<<< HEAD
 	icon = "globe"
+=======
+	icon = FA_ICON_GLOBE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // AdditionalEmotes *turf quirks
 /datum/quirk/water_aspect
@@ -29,7 +37,11 @@
 	gain_text = span_notice("You feel like you can control water.")
 	lose_text = span_danger("Somehow, you've lost your ability to control water!")
 	medical_record_text = "Patient holds a collection of nanobots designed to synthesize H2O."
+<<<<<<< HEAD
 	icon = "water"
+=======
+	icon = FA_ICON_WATER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/quirk/webbing_aspect
 	name = "Webbing aspect (Emotes)"
@@ -39,7 +51,11 @@
 	gain_text = span_notice("You could easily spin a web.")
 	lose_text = span_danger("Somehow, you've lost your ability to weave.")
 	medical_record_text = "Patient has the ability to weave webs with naturally synthesized silk."
+<<<<<<< HEAD
 	icon = "spider-web"
+=======
+	icon = FA_ICON_STICKY_NOTE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/quirk/floral_aspect
 	name = "Floral aspect (Emotes)"
@@ -49,7 +65,11 @@
 	gain_text = span_notice("You feel like you can grow vines.")
 	lose_text = span_danger("Somehow, you've lost your ability to rapidly photosynthesize.")
 	medical_record_text = "Patient can rapidly photosynthesize to grow vines."
+<<<<<<< HEAD
 	icon = "seedling"
+=======
+	icon = FA_ICON_PLANT_WILT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/quirk/ash_aspect
 	name = "Ash aspect (Emotes)"
@@ -59,7 +79,11 @@
 	gain_text = span_notice("There is a forge smouldering inside of you.")
 	lose_text = span_danger("Somehow, you've lost your ability to breathe fire.")
 	medical_record_text = "Patients possess a fire breathing gland commonly found in lizard folk."
+<<<<<<< HEAD
 	icon = "fire"
+=======
+	icon = FA_ICON_FIRE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/quirk/sparkle_aspect
 	name = "Sparkle aspect (Emotes)"
@@ -69,4 +93,8 @@
 	gain_text = span_notice("You're covered in sparkling dust!")
 	lose_text = span_danger("Somehow, you've completely cleaned yourself of glitter..")
 	medical_record_text = "Patient seems to be looking fabulous."
+<<<<<<< HEAD
 	icon = "hand-sparkles"
+=======
+	icon = FA_ICON_HAND_SPARKLES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

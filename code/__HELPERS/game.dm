@@ -11,12 +11,15 @@
 		return null
 	return format_text ? format_text(checked_area.name) : checked_area.name
 
+<<<<<<< HEAD
 //We used to use linear regression to approximate the answer, but Mloc realized this was actually faster.
 //And lo and behold, it is, and it's more accurate to boot.
 ///Calculate the hypotenuse cheaply (this should be in maths.dm)
 /proc/cheap_hypotenuse(Ax, Ay, Bx, By)
 	return sqrt(abs(Ax - Bx) ** 2 + abs(Ay - By) ** 2) //A squared + B squared = C squared
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /** toggle_organ_decay
  * inputs: first_object (object to start with)
  * outputs:
@@ -41,7 +44,11 @@
 
 		else if(iscarbon(object_to_check))
 			var/mob/living/carbon/mob_to_check = object_to_check
+<<<<<<< HEAD
 			for(var/organ in mob_to_check.internal_organs)
+=======
+			for(var/organ in mob_to_check.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				found_organ = organ
 				found_organ.organ_flags ^= ORGAN_FROZEN
 
@@ -74,6 +81,7 @@
 			return player_mob
 	return null
 
+<<<<<<< HEAD
 ///Returns true if the mob that a player is controlling is alive
 /proc/considered_alive(datum/mind/player_mind, enforce_human = TRUE)
 	if(player_mind?.current)
@@ -84,6 +92,32 @@
 			return player_mind.current.stat != DEAD && !issilicon(player_mind.current) && !isbrain(player_mind.current) && (!player_mob || player_mob.dna.species.id != SPECIES_ZOMBIE)
 		else if(isliving(player_mind.current))
 			return player_mind.current.stat != DEAD
+=======
+/**
+ * Checks if the passed mind has a mob that is "alive"
+ *
+ * * player_mind - who to check for alive status
+ * * enforce_human - if TRUE, the checks fails if the mind's mob is a silicon, brain, or infectious zombie.
+ *
+ * Returns TRUE if they're alive, FALSE otherwise
+ */
+/proc/considered_alive(datum/mind/player_mind, enforce_human = TRUE)
+	if(player_mind?.current)
+		if(enforce_human)
+			var/mob/living/carbon/human/player_mob = player_mind.current
+
+			if(player_mob.stat == DEAD)
+				return FALSE
+			if(issilicon(player_mob) || isbrain(player_mob))
+				return FALSE
+			if(istype(player_mob) && (player_mob.dna?.species?.id == SPECIES_ZOMBIE_INFECTIOUS))
+				return FALSE
+			return TRUE
+
+		else if(isliving(player_mind.current))
+			return (player_mind.current.stat != DEAD)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /**
@@ -119,7 +153,11 @@
 
 /// Like add_image_to_client, but will add the image from a list of clients
 /proc/add_image_to_clients(image/image_to_remove, list/show_to)
+<<<<<<< HEAD
 	for(var/client/add_to as anything in show_to)
+=======
+	for(var/client/add_to in show_to)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		add_to.images += image_to_remove
 
 /// Removes an image from a client's `.images`. Useful as a callback.
@@ -128,7 +166,11 @@
 
 /// Like remove_image_from_client, but will remove the image from a list of clients
 /proc/remove_image_from_clients(image/image_to_remove, list/hide_from)
+<<<<<<< HEAD
 	for(var/client/remove_from as anything in hide_from)
+=======
+	for(var/client/remove_from in hide_from)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		remove_from.images -= image_to_remove
 
 
@@ -158,7 +200,11 @@
 	flick_overlay(image_to_show, viewing, duration)
 
 ///Get active players who are playing in the round
+<<<<<<< HEAD
 /proc/get_active_player_count(alive_check = 0, afk_check = 0, human_check = 0)
+=======
+/proc/get_active_player_count(alive_check = FALSE, afk_check = FALSE, human_check = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/active_players = 0
 	for(var/i = 1; i <= GLOB.player_list.len; i++)
 		var/mob/player_mob = GLOB.player_list[i]
@@ -230,6 +276,12 @@
 
 ///Calls the show_candidate_poll_window() to all eligible ghosts
 /proc/poll_candidates(question, jobban_type, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE, list/group = null)
+<<<<<<< HEAD
+=======
+	if (group.len == 0)
+		return list()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/time_passed = world.time
 	if (!question)
 		question = "Would you like to be a special role?"
@@ -238,7 +290,11 @@
 		if(!candidate_mob.key || !candidate_mob.client || (ignore_category && GLOB.poll_ignore[ignore_category] && (candidate_mob.ckey in GLOB.poll_ignore[ignore_category])))
 			continue
 		//SKYRAT EDIT ADDITION BEGIN
+<<<<<<< HEAD
 		if(is_banned_from(candidate_mob.ckey, BAN_GHOST_TAKEOVER))
+=======
+		if(is_banned_from(candidate_mob.ckey, BAN_GHOST_TAKEOVER) || is_banned_from(candidate_mob.ckey, BAN_ANTAGONIST))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(candidate_mob, "There was a ghost prompt for: [question], unfortunately you are banned from ghost takeovers.")
 			continue
 		//SKYRAT EDIT END
@@ -406,12 +462,17 @@
 
 	return pick(possible_loc)
 
+<<<<<<< HEAD
 ///Prevents power_failure message spam if a traitor purchases repeatedly.
 GLOBAL_VAR_INIT(power_failure_message_cooldown, 0)
 
 ///Disable power in the station APCs
 /proc/power_fail(duration_min, duration_max)
 	var/message_cooldown
+=======
+///Disable power in the station APCs
+/proc/power_fail(duration_min, duration_max)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/machinery/power/apc/current_apc as anything in GLOB.apcs_list)
 		if(!current_apc.cell || !SSmapping.level_trait(current_apc.z, ZTRAIT_STATION))
 			continue
@@ -420,9 +481,13 @@ GLOBAL_VAR_INIT(power_failure_message_cooldown, 0)
 			continue
 
 		var/duration = rand(duration_min,duration_max)
+<<<<<<< HEAD
 		message_cooldown = max(duration, message_cooldown)
 		current_apc.energy_fail(duration)
 	GLOB.power_failure_message_cooldown = world.time + message_cooldown
+=======
+		current_apc.energy_fail(duration)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Sends a round tip to a target. If selected_tip is null, a random tip will be sent instead (5% chance of it being silly).

@@ -1,7 +1,13 @@
 /datum/export/material
+<<<<<<< HEAD
 	cost = 5 // Cost per MINERAL_MATERIAL_AMOUNT, which is 2000cm3 as of April 2016.
 	message = "cm3 of developer's tears. Please, report this on github"
 	amount_report_multiplier = MINERAL_MATERIAL_AMOUNT
+=======
+	cost = 5 // Cost per SHEET_MATERIAL_AMOUNT, which is 2000cm3 as of April 2016.
+	message = "cm3 of developer's tears. Please, report this on github"
+	amount_report_multiplier = SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/material_id = null
 	export_types = list(
 		/obj/item/stack/sheet/mineral, /obj/item/stack/tile/mineral,
@@ -25,7 +31,11 @@
 	if(istype(I, /obj/item/stack/ore))
 		amount *= 0.8 // Station's ore redemption equipment is really goddamn good.
 
+<<<<<<< HEAD
 	return round(amount / MINERAL_MATERIAL_AMOUNT)
+=======
+	return round(amount / SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Materials. Nothing but plasma is really worth selling. Better leave it all to RnD and sell some plasma instead.
 

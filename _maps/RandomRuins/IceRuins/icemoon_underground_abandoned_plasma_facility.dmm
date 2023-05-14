@@ -1,13 +1,23 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ac" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
 "af" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille,
 /obj/item/shard,
 /turf/open/floor/plating/icemoon,
@@ -52,6 +62,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "aM" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -75,11 +86,27 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/edge,
+/area/ruin/plasma_facility/commons)
+"aT" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/frame/computer{
 	anchored = 1;
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured,
 /area/ruin/plasma_facility/commons)
 "aY" = (
@@ -105,6 +132,7 @@
 /turf/open/floor/plating,
 /area/ruin/plasma_facility/operations)
 "bv" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -113,6 +141,13 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge,
 /area/ruin/plasma_facility/commons)
 "bD" = (
@@ -129,6 +164,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/plasma_facility/commons)
 "bM" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -139,10 +175,16 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/commons)
 "bT" = (
@@ -202,6 +244,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "dc" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -212,6 +255,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -220,6 +265,10 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/commons)
 "dr" = (
@@ -227,16 +276,23 @@
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
 "dx" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/chair,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/built/directional/east,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/operations)
 "dB" = (
@@ -246,6 +302,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "dG" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -256,10 +313,16 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table_frame,
 /obj/item/shard,
 /obj/effect/decal/cleanable/glass,
 /obj/item/stock_parts/capacitor,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured,
 /area/ruin/plasma_facility/commons)
 "dO" = (
@@ -311,6 +374,7 @@
 	},
 /area/ruin/plasma_facility/commons)
 "dY" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -321,11 +385,17 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/broken/directional/north,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/commons)
 "ed" = (
@@ -339,6 +409,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "eC" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -352,6 +423,12 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+=======
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/commons)
 "eD" = (
@@ -442,7 +519,11 @@
 /obj/machinery/conveyor{
 	id = "fire_facility_smelt"
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -479,7 +560,11 @@
 	dir = 4
 	},
 /obj/structure/table/glass,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/paper/crumpled/muddy{
 	pixel_x = -8;
 	pixel_y = 4
@@ -499,7 +584,11 @@
 /obj/structure/rack,
 /obj/machinery/light/small/broken/directional/east,
 /obj/item/pickaxe,
+<<<<<<< HEAD
 /obj/item/clothing/head/utility/hardhat/weldhat/orange,
+=======
+/obj/item/clothing/head/utility/hardhat/welding/orange,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/smooth{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -541,7 +630,11 @@
 "hN" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/spawner,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/commons)
 "hR" = (
@@ -557,18 +650,30 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "hV" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille,
 /obj/item/shard,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/commons)
 "hX" = (
+<<<<<<< HEAD
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/broken/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/brown/anticorner,
+<<<<<<< HEAD
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/broken/directional/south,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/corner{
 	dir = 1
 	},
@@ -644,7 +749,11 @@
 	id = "mining_internal";
 	name = "fire_facility_smelt"
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -655,10 +764,17 @@
 	},
 /area/ruin/plasma_facility/operations)
 "ja" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/full,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+=======
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/brown/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/large,
 /area/ruin/plasma_facility/commons)
 "js" = (
@@ -712,21 +828,32 @@
 	},
 /area/ruin/plasma_facility/operations)
 "ku" = (
+<<<<<<< HEAD
+=======
+/obj/effect/decal/cleanable/dirt,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/brown/anticorner{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/effect/decal/cleanable/dirt,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/corner{
 	dir = 4
 	},
 /area/ruin/plasma_facility/commons)
 "kA" = (
+<<<<<<< HEAD
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
+=======
+/obj/structure/closet/crate/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stack/ore/plasma,
 /obj/item/stack/ore/plasma,
 /obj/item/stack/ore/plasma,
@@ -816,6 +943,7 @@
 /turf/open/floor/wood/large,
 /area/ruin/plasma_facility/commons)
 "lW" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -826,10 +954,16 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/commons)
 "lX" = (
@@ -872,10 +1006,13 @@
 /turf/open/floor/plating,
 /area/ruin/plasma_facility/commons)
 "mN" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/purple/half,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -883,6 +1020,13 @@
 	name = "Ore Processing"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple/half,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_half,
 /area/ruin/plasma_facility/operations)
 "nk" = (
@@ -911,13 +1055,18 @@
 /area/ruin/plasma_facility/commons)
 "no" = (
 /obj/structure/transit_tube/station/reverse,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
 "nq" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
@@ -927,11 +1076,20 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/vehicle/ridden/wheelchair,
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/vehicle/ridden/wheelchair,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
 /area/ruin/plasma_facility/commons)
 "nu" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -941,6 +1099,14 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+=======
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge,
 /area/ruin/plasma_facility/commons)
 "nz" = (
@@ -1016,8 +1182,12 @@
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
 "oS" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/full,
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/transit_tube/station/reverse/flipped{
 	dir = 1
 	},
@@ -1027,6 +1197,10 @@
 /obj/structure/transit_tube_pod{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/ruin/plasma_facility/commons)
 "oW" = (
@@ -1047,6 +1221,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "pj" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
@@ -1057,11 +1232,21 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm/directional/north,
+=======
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
 /area/ruin/plasma_facility/commons)
 "pl" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1070,21 +1255,39 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+=======
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /turf/open/floor/iron/edge,
 /area/ruin/plasma_facility/commons)
 "pn" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/full,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/kirbyplants{
 	icon_state = "applebush"
 	},
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/large,
 /area/ruin/plasma_facility/commons)
 "pt" = (
 /obj/structure/table,
+<<<<<<< HEAD
 /obj/item/paperslip{
+=======
+/obj/item/paper/paperslip{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = 15;
 	pixel_y = -16
 	},
@@ -1093,17 +1296,36 @@
 /turf/open/floor/wood/large,
 /area/ruin/plasma_facility/commons)
 "pw" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/full,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/bot_white{
 	color = "#0560fc"
 	},
 /obj/structure/ore_box,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/ruin/plasma_facility/commons)
 "pC" = (
 /obj/machinery/space_heater/improvised_chem_heater,
 /turf/open/floor/plating,
 /area/ruin/plasma_facility/commons)
+<<<<<<< HEAD
+=======
+"pE" = (
+/obj/structure/bed/maint,
+/obj/item/bedsheet/dorms,
+/obj/item/flashlight/flare/candle{
+	pixel_x = 12;
+	pixel_y = 9
+	},
+/turf/open/floor/plating/icemoon,
+/area/ruin/plasma_facility/operations)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "pR" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating/icemoon,
@@ -1117,8 +1339,13 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "qv" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/commons)
@@ -1190,6 +1417,7 @@
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
 "rF" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
@@ -1197,25 +1425,39 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt,
 /obj/item/wallframe/airalarm{
 	pixel_y = 10
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
 /area/ruin/plasma_facility/commons)
 "rS" = (
 /obj/effect/turf_decal/bot/left,
+<<<<<<< HEAD
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
+=======
+/obj/structure/closet/crate/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stack/sheet/mineral/plasma/thirty,
 /turf/open/floor/iron/smooth_half{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/plasma_facility/operations)
 "sq" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -1229,15 +1471,25 @@
 /obj/structure/table/reinforced/rglass,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/disk/design_disk/modkit_disc/resonator_blast,
+=======
+/obj/structure/table/reinforced/rglass,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/disk/design_disk/modkit_disc/resonator_blast,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured,
 /area/ruin/plasma_facility/commons)
 "sr" = (
 /obj/structure/railing{
 	dir = 5
 	},
+<<<<<<< HEAD
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
+=======
+/obj/structure/closet/crate/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stack/sheet/mineral/silver,
 /obj/item/stack/sheet/mineral/silver,
 /obj/item/stack/sheet/mineral/silver,
@@ -1310,7 +1562,11 @@
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/commons)
 "tC" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille,
 /obj/item/shard,
 /turf/open/floor/plating/icemoon,
@@ -1348,7 +1604,11 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/glass,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
 "uo" = (
@@ -1366,6 +1626,7 @@
 	},
 /area/ruin/plasma_facility/operations)
 "uq" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1376,6 +1637,15 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+=======
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge,
 /area/ruin/plasma_facility/commons)
 "ux" = (
@@ -1442,12 +1712,19 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "wg" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/frame/computer{
 	anchored = 1;
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -1460,6 +1737,7 @@
 	},
 /area/ruin/plasma_facility/operations)
 "wu" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -1470,12 +1748,18 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/commons)
 "wF" = (
@@ -1502,6 +1786,7 @@
 /turf/open/floor/stone,
 /area/ruin/plasma_facility/commons)
 "xd" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1511,6 +1796,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/south,
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/directional/south,
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge,
 /area/ruin/plasma_facility/commons)
 "xV" = (
@@ -1534,6 +1827,7 @@
 /turf/open/floor/stone,
 /area/ruin/plasma_facility/commons)
 "yv" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1542,6 +1836,13 @@
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/south,
+=======
+/obj/machinery/light_switch/directional/south,
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge,
 /area/ruin/plasma_facility/commons)
 "yL" = (
@@ -1564,18 +1865,28 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "zO" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral{
+=======
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -1614,6 +1925,7 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/iron/smooth_half,
 /area/ruin/plasma_facility/operations)
+<<<<<<< HEAD
 "Ak" = (
 /obj/structure/bed/maint,
 /obj/item/bedsheet/dorms,
@@ -1633,11 +1945,21 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/tracks,
+=======
+"An" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
 /area/ruin/plasma_facility/commons)
 "Au" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1648,6 +1970,15 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
+=======
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/half,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge,
 /area/ruin/plasma_facility/commons)
 "AG" = (
@@ -1693,6 +2024,7 @@
 /turf/open/floor/plating,
 /area/ruin/plasma_facility/commons)
 "BM" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
@@ -1703,6 +2035,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
+=======
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -1723,15 +2064,22 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "BZ" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/brown/half,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/mining{
 	name = "Processing Control"
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_half,
 /area/ruin/plasma_facility/operations)
 "Cb" = (
@@ -1749,16 +2097,23 @@
 /turf/open/floor/plating,
 /area/ruin/plasma_facility/commons)
 "Co" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/conveyor_switch/oneway{
 	id = "fire_facility_smelt";
 	name = "mining conveyor"
 	},
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/skeleton/plasmaminer,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/operations)
 "CA" = (
@@ -1817,6 +2172,7 @@
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
 "DN" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -1835,6 +2191,17 @@
 /obj/item/kirbyplants{
 	icon_state = "applebush"
 	},
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron,
+/area/ruin/plasma_facility/commons)
+"DQ" = (
+/obj/item/kirbyplants{
+	icon_state = "applebush"
+	},
+/obj/effect/turf_decal/tile/brown/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/large,
 /area/ruin/plasma_facility/commons)
 "DR" = (
@@ -1901,9 +2268,13 @@
 "FD" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/corner,
+<<<<<<< HEAD
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
+=======
+/obj/structure/closet/crate/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stack/sheet/mineral/uranium/five,
 /obj/item/stack/sheet/mineral/uranium/five,
 /obj/item/stack/sheet/mineral/uranium/five,
@@ -1930,7 +2301,11 @@
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
 "FP" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/soap/homemade{
 	pixel_y = 2
 	},
@@ -1951,8 +2326,13 @@
 "Go" = (
 /obj/effect/decal/cleanable/glass,
 /obj/structure/grille/broken,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/shard,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
@@ -2028,7 +2408,11 @@
 /area/ruin/plasma_facility/operations)
 "Ij" = (
 /obj/structure/grille,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/window/reinforced/spawner,
 /obj/item/shard,
 /obj/effect/decal/cleanable/glass,
@@ -2089,16 +2473,23 @@
 	},
 /area/ruin/plasma_facility/commons)
 "Jp" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/half,
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/command/glass{
 	name = "Operations"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured_half,
 /area/ruin/plasma_facility/commons)
 "Ju" = (
@@ -2133,6 +2524,7 @@
 /turf/open/floor/wood/large,
 /area/ruin/plasma_facility/commons)
 "JD" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -2143,10 +2535,16 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /obj/machinery/light/small/broken/directional/west,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured,
 /area/ruin/plasma_facility/commons)
 "JQ" = (
@@ -2219,6 +2617,7 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
+<<<<<<< HEAD
 "KF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/lights/mixed{
@@ -2230,6 +2629,8 @@
 	},
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "KO" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -2291,7 +2692,11 @@
 	pixel_x = 3;
 	pixel_y = 4
 	},
+<<<<<<< HEAD
 /obj/item/paperslip,
+=======
+/obj/item/paper/paperslip,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/paper{
 	pixel_x = 7
 	},
@@ -2312,8 +2717,13 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "Mc" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/full,
 /obj/structure/closet/firecloset,
+=======
+/obj/structure/closet/firecloset,
+/obj/effect/turf_decal/tile/brown/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/large,
 /area/ruin/plasma_facility/commons)
 "Mi" = (
@@ -2394,10 +2804,13 @@
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
 "Ng" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green/half,
 /obj/effect/turf_decal/tile/green/half{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock/medical{
 	name = "Sickbay"
 	},
@@ -2405,6 +2818,7 @@
 	note_info = "DO NOT ENTER!!!"
 	},
 /obj/effect/decal/cleanable/blood/tracks,
+<<<<<<< HEAD
 /turf/open/floor/iron/white/textured_half,
 /area/ruin/plasma_facility/commons)
 "Nm" = (
@@ -2416,13 +2830,28 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+=======
+/obj/effect/turf_decal/tile/green/full,
+/turf/open/floor/iron/white/textured_half,
+/area/ruin/plasma_facility/commons)
+"Nm" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
 /area/ruin/plasma_facility/commons)
 "No" = (
 /obj/structure/rack,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/storage/medkit/fire,
 /obj/item/storage/medkit/regular{
 	pixel_x = -3;
@@ -2446,10 +2875,16 @@
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral,
+=======
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 8
 	},
@@ -2459,8 +2894,13 @@
 /turf/closed/wall,
 /area/icemoon/underground/explored)
 "NX" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt,
@@ -2489,6 +2929,7 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/underground/explored)
 "OC" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -2499,6 +2940,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/chair/office/light{
 	dir = 4
 	},
@@ -2508,6 +2951,10 @@
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/skeleton/plasmaminer/jackhammer,
 /obj/machinery/light_switch/directional/south,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured,
 /area/ruin/plasma_facility/commons)
 "OF" = (
@@ -2531,6 +2978,7 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "Ps" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -2542,11 +2990,18 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table/reinforced/rglass,
 /obj/item/toy/plush/plasmamanplushie{
 	name = "Aurem Negative Fourteen"
 	},
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured,
 /area/ruin/plasma_facility/commons)
 "Pt" = (
@@ -2593,6 +3048,7 @@
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
 "PB" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
@@ -2601,6 +3057,13 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -2635,9 +3098,15 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "PZ" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/full,
 /obj/effect/turf_decal/bot_red,
 /obj/machinery/suit_storage_unit,
+=======
+/obj/effect/turf_decal/bot_red,
+/obj/machinery/suit_storage_unit,
+/obj/effect/turf_decal/tile/neutral/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/ruin/plasma_facility/commons)
 "Qh" = (
@@ -2714,6 +3183,7 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/ruin/plasma_facility/commons)
 "RK" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
@@ -2721,10 +3191,19 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -2790,10 +3269,14 @@
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -2807,6 +3290,7 @@
 	},
 /turf/open/floor/stone,
 /area/ruin/plasma_facility/commons)
+<<<<<<< HEAD
 "TK" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -2818,6 +3302,20 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+"TE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 15;
+	pixel_y = 14
+	},
+/mob/living/basic/frog{
+	name = "Peter Jr."
+	},
+/turf/open/floor/plating/icemoon,
+/area/ruin/plasma_facility/operations)
+"TK" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2825,6 +3323,10 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/commons)
 "TY" = (
@@ -2870,10 +3372,14 @@
 /area/ruin/plasma_facility/operations)
 "VD" = (
 /obj/effect/turf_decal/tile/brown/half,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral{
+=======
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /turf/open/floor/iron/edge,
@@ -2896,7 +3402,11 @@
 /turf/open/floor/plating,
 /area/ruin/plasma_facility/commons)
 "Wd" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/commons)
@@ -2927,10 +3437,15 @@
 /turf/open/lava/plasma/ice_moon,
 /area/ruin/plasma_facility/operations)
 "WK" = (
+<<<<<<< HEAD
+=======
+/obj/effect/decal/cleanable/dirt,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/brown/anticorner{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral,
+<<<<<<< HEAD
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/corner,
 /area/ruin/plasma_facility/commons)
@@ -2939,10 +3454,19 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+/turf/open/floor/iron/corner,
+/area/ruin/plasma_facility/commons)
+"WU" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_switch/directional/east,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/operations)
 "Xh" = (
@@ -2986,13 +3510,21 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/underground/explored)
 "XS" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/toilet,
 /obj/structure/curtain,
 /turf/open/floor/iron/freezer,
 /area/ruin/plasma_facility/commons)
 "XT" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/glass,
 /obj/structure/transit_tube/horizontal,
@@ -3009,12 +3541,19 @@
 /turf/open/floor/plating,
 /area/ruin/plasma_facility/commons)
 "XW" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/full,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/bot_white{
 	color = "#0560fc"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/pickaxe,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/ruin/plasma_facility/commons)
 "Yl" = (
@@ -3025,10 +3564,17 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "YC" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/full,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/caution,
 /obj/machinery/light_switch/directional/south,
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/caution,
+/obj/machinery/light_switch/directional/south,
+/obj/effect/turf_decal/tile/neutral/full,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/ruin/plasma_facility/commons)
 "YI" = (
@@ -3061,6 +3607,7 @@
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
 "Zk" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 1
 	},
@@ -3071,6 +3618,15 @@
 /obj/item/paper/crumpled/bloody{
 	default_raw_text = "I've sealed the place off. I'm taking the last snowtreader to look for help. Please, if you find this place, leave. It's not safe here. We made them angry."
 	},
+=======
+/obj/item/paper/crumpled/bloody{
+	default_raw_text = "I've sealed the place off. I'm taking the last snowtreader to look for help. Please, if you find this place, leave. It's not safe here. We made them angry."
+	},
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -3096,7 +3652,11 @@
 	pixel_x = -3;
 	pixel_y = 17
 	},
+<<<<<<< HEAD
 /obj/item/paperslip{
+=======
+/obj/item/paper/paperslip{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = -5;
 	pixel_y = 15
 	},
@@ -3125,6 +3685,7 @@
 /turf/open/floor/stone,
 /area/ruin/plasma_facility/commons)
 "ZB" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -3138,6 +3699,12 @@
 /obj/structure/filingcabinet/chestdrawer/wheeled,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt,
+=======
+/obj/structure/filingcabinet/chestdrawer/wheeled,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured,
 /area/ruin/plasma_facility/commons)
 "ZC" = (
@@ -3888,7 +4455,11 @@ pd
 XI
 Hv
 SR
+<<<<<<< HEAD
 Ak
+=======
+pE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 hR
 oc
 rs
@@ -3958,7 +4529,11 @@ vt
 hR
 qW
 EZ
+<<<<<<< HEAD
 KF
+=======
+TE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 QY
 rk
 rs

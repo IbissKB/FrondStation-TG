@@ -66,7 +66,11 @@
 		STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/structure/mob_spawner/process(delta_time)
+=======
+/obj/structure/mob_spawner/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(passive_spawning)
 		if(spawned_mobs >= max_mobs)
 			return
@@ -140,7 +144,11 @@
 	desc = "A mush of sticky cobwebs and nasty looking eggs..."
 	icon_state = "nest_spider"
 	light_color = LIGHT_COLOR_BLOOD_MAGIC
+<<<<<<< HEAD
 	monster_types = list(/mob/living/simple_animal/hostile/giant_spider/hunter, /mob/living/simple_animal/hostile/giant_spider)
+=======
+	monster_types = list(/mob/living/basic/giant_spider/hunter, /mob/living/basic/giant_spider)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	loot = list(/obj/item/spider_egg = 4)
 
 /obj/item/spider_egg
@@ -155,7 +163,11 @@
 	if(do_after(user, 3 SECONDS, src))
 		to_chat(user, span_userdanger("You crack [src] open, something monsterous crawls out!"))
 		playsound(src, 'sound/effects/blobattack.ogg', 100)
+<<<<<<< HEAD
 		new /mob/living/simple_animal/hostile/giant_spider (user.loc)
+=======
+		new /mob/living/basic/giant_spider (user.loc)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		qdel(src)
 
 /obj/structure/mob_spawner/bush
@@ -171,7 +183,11 @@
 	name = "beehive"
 	desc = "Filled with little beings that exist only to make your life a living hell."
 	icon_state = "nest_bee"
+<<<<<<< HEAD
 	light_color = LIGHT_COLOR_YELLOW
+=======
+	light_color = LIGHT_COLOR_BRIGHT_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	monster_types = list(/mob/living/simple_animal/hostile/bee)
 	max_mobs = 15
 	spawn_cooldown = 5 SECONDS
@@ -199,7 +215,11 @@
 	name = "disgusting eggs"
 	desc = "These pulsating eggs are oozing out a puss like substance..."
 	icon_state = "nest_eggs"
+<<<<<<< HEAD
 	light_color = LIGHT_COLOR_YELLOW
+=======
+	light_color = LIGHT_COLOR_BRIGHT_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	monster_types = list(/mob/living/simple_animal/hostile/retaliate/snake)
 	max_mobs = 8
 	spawn_cooldown = 5 SECONDS

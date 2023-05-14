@@ -20,7 +20,11 @@
 
 /obj/item/clothing/shoes/wheelys/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_FEET)
+=======
+	AddElement(/datum/element/update_icon_updates_onmob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	wheels = new wheels(null)
 	wheels.link_shoes(src)
 

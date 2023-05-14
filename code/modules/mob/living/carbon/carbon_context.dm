@@ -25,7 +25,11 @@
 			if (body_position == STANDING_UP)
 				if(check_zone(user.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD))
 					context[SCREENTIP_CONTEXT_LMB] = "Headpat"
+<<<<<<< HEAD
 				else if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && !isnull(getorgan(/obj/item/organ/external/tail)))
+=======
+				else if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && !isnull(get_organ_by_type(/obj/item/organ/external/tail)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					context[SCREENTIP_CONTEXT_LMB] = "Pull tail"
 				else
 					context[SCREENTIP_CONTEXT_LMB] = "Hug"

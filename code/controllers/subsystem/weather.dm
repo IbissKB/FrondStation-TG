@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 #define STARTUP_STAGE 1
 #define MAIN_STAGE 2
 #define WIND_DOWN_STAGE 3
 #define END_STAGE 4
 
 //Used for all kinds of weather, ex. lavaland ash storms.
+=======
+/// Used for all kinds of weather, ex. lavaland ash storms.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 SUBSYSTEM_DEF(weather)
 	name = "Weather"
 	flags = SS_BACKGROUND

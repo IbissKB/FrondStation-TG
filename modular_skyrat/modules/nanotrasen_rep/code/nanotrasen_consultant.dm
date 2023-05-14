@@ -6,7 +6,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "Central Command"
+<<<<<<< HEAD
 	selection_color = "#c6ffe0"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
@@ -102,7 +105,11 @@
 	name = "Nanotrasen Consultant Plasmaman"
 
 	uniform = /obj/item/clothing/under/plasmaman/centcom_official
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/captain //Too iconic to be replaced with a plasma version
+=======
+	gloves = /obj/item/clothing/gloves/captain //Too iconic to be replaced with a plasma version
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	head = /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
 
 /obj/item/modular_computer/pda/nanotrasen_consultant
@@ -146,6 +153,10 @@
 	new /obj/item/radio/headset/heads/nanotrasen_consultant(src)
 	new /obj/item/clothing/glasses/sunglasses/gar/giga(src)
 	new /obj/item/clothing/gloves/combat(src)
+<<<<<<< HEAD
+=======
+	new /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/storage/photo_album/personal(src)
 	new /obj/item/bedsheet/centcom(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant(src)

@@ -27,8 +27,13 @@
 	var/list/covering_clothing = list(head, wear_mask, wear_suit, w_uniform, back, gloves, shoes, belt, s_store, glasses, ears, wear_id, wear_neck) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	for(var/obj/item/clothing/clothing_item in covering_clothing)
 		if(clothing_item.body_parts_covered & def_zone.body_part)
+<<<<<<< HEAD
 			protection *= (100 - min(clothing_item.armor.getRating(damage_type), 100)) * 0.01
 	protection *= (100 - min(physiology.armor.getRating(damage_type), 100)) * 0.01
+=======
+			protection *= (100 - min(clothing_item.get_armor_rating(damage_type), 100)) * 0.01
+	protection *= (100 - min(physiology.armor.get_rating(damage_type), 100)) * 0.01
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return 100 - protection
 
 ///Get all the clothing on a specific body part
@@ -332,6 +337,7 @@
 		var/armor_block = run_armor_check(affecting, MELEE)
 		apply_damage(damage, BRUTE, affecting, armor_block)
 
+<<<<<<< HEAD
 
 /mob/living/carbon/human/attack_basic_mob(mob/living/basic/user, list/modifiers)
 	. = ..()
@@ -349,6 +355,8 @@
 	apply_damage(damage, user.melee_damage_type, affecting, armor, wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, sharpness = user.sharpness, attack_direction = attack_direction)
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/carbon/human/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	. = ..()
 	if(!.)
@@ -391,11 +399,19 @@
 
 /mob/living/carbon/human/ex_act(severity, target, origin)
 	if(HAS_TRAIT(src, TRAIT_BOMBIMMUNE))
+<<<<<<< HEAD
 		return
 
 	. = ..()
 	if (!severity || QDELETED(src))
 		return
+=======
+		return FALSE
+
+	. = ..()
+	if (!. || !severity || QDELETED(src))
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/brute_loss = 0
 	var/burn_loss = 0
 	var/bomb_armor = getarmor(null, BOMB)
@@ -403,7 +419,11 @@
 //200 max knockdown for EXPLODE_HEAVY
 //160 max knockdown for EXPLODE_LIGHT
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/ears/ears = getorganslot(ORGAN_SLOT_EARS)
+=======
+	var/obj/item/organ/internal/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch (severity)
 		if (EXPLODE_DEVASTATE)
 			if(bomb_armor < EXPLODE_GIB_THRESHOLD) //gibs the mob if their bomb armor is lower than EXPLODE_GIB_THRESHOLD
@@ -417,7 +437,11 @@
 							SSexplosions.low_mov_atom += thing
 				investigate_log("has been gibbed by an explosion.", INVESTIGATE_DEATHS)
 				gib()
+<<<<<<< HEAD
 				return
+=======
+				return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else
 				brute_loss = 500
 				var/atom/throw_target = get_edge_target_turf(src, get_dir(src, get_step_away(src, src)))
@@ -473,6 +497,11 @@
 				if(!max_limb_loss)
 					break
 
+<<<<<<< HEAD
+=======
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/human/blob_act(obj/structure/blob/B)
 	if(stat == DEAD)
@@ -507,26 +536,44 @@
 	//SKYRAT EDIT BEGIN: MAKES POWERFUL SHOCKS HAVE A CHANCE TO STOP YOUR HEART. DANGER
 	if(can_heartattack() && !(flags & SHOCK_ILLUSION) && shock_damage >= 70)
 		if(shock_damage * siemens_coeff >= 1 && prob(30))//Higher chance to disrupt the pacemaker cells
+<<<<<<< HEAD
 			var/obj/item/organ/internal/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+=======
+			var/obj/item/organ/internal/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			heart.Stop()
 			visible_message("<span class='danger'>[src.name] briefly twitches; before falling limp - their breathing irratic and chest spasming violently!</span>", \
 								"<span class='danger'>You feel your heart thump eratically; before ceasing to beat, a violent twitch overcoming your form!</span>", ignored_mobs=src)
 	//SKYRAT EDIT END
+<<<<<<< HEAD
 	//Note we both check that the user is in cardiac arrest and can actually heartattack
 	//If they can't, they're missing their heart and this would runtime
 	if(undergoing_cardiac_arrest() && can_heartattack() && !(flags & SHOCK_ILLUSION))
 		if(shock_damage * siemens_coeff >= 1 && prob(25))
 			var/obj/item/organ/internal/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+=======
+	if(!(flags & SHOCK_ILLUSION))
+		if(shock_damage * siemens_coeff >= 5)
+			force_say()
+		//Note we both check that the user is in cardiac arrest and can actually heartattack
+		//If they can't, they're missing their heart and this would runtime
+		if(undergoing_cardiac_arrest() && can_heartattack() && (shock_damage * siemens_coeff >= 1) && prob(25))
+			var/obj/item/organ/internal/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(heart.Restart() && stat == CONSCIOUS)
 				to_chat(src, span_notice("You feel your heart beating again!"))
 	electrocution_animation(40)
 
+<<<<<<< HEAD
 //SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/carbon/human/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_CONTENTS)
 		return
+<<<<<<< HEAD
 	var/informed = FALSE
 	for(var/obj/item/bodypart/L as anything in src.bodyparts)
 		if(!IS_ORGANIC_LIMB(L))
@@ -542,6 +589,10 @@
 					Paralyze(100)
 */
 //SKYRAT EDIT REMOVAL END
+=======
+	for(var/obj/item/bodypart/L as anything in src.bodyparts)
+		L.emp_act()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/human/acid_act(acidpwr, acid_volume, bodyzone_hit) //todo: update this to utilize check_obscured_slots() //and make sure it's check_obscured_slots(TRUE) to stop aciding through visors etc
 	var/list/damaged = list()
@@ -718,7 +769,11 @@
 
 	for(var/obj/item/bodypart/body_part as anything in bodyparts)
 		missing -= body_part.body_zone
+<<<<<<< HEAD
 		if(body_part.is_pseudopart) //don't show injury text for fake bodyparts; ie chainsaw arms or synthetic armblades
+=======
+		if(body_part.bodypart_flags & BODYPART_PSEUDOPART) //don't show injury text for fake bodyparts; ie chainsaw arms or synthetic armblades
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 
 		body_part.check_for_injuries(src, combined_msg)
@@ -798,7 +853,11 @@
 	var/broken_plural
 	var/damaged_plural
 	//Sets organs into their proper list
+<<<<<<< HEAD
 	for(var/obj/item/organ/organ as anything in internal_organs)
+=======
+	for(var/obj/item/organ/organ as anything in organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(organ.organ_flags & ORGAN_FAILING)
 			if(broken.len)
 				broken += ", "
@@ -900,13 +959,21 @@
  * Used by fire code to damage worn items.
  *
  * Arguments:
+<<<<<<< HEAD
  * - delta_time
+=======
+ * - seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * - times_fired
  * - stacks: Current amount of firestacks
  *
  */
 
+<<<<<<< HEAD
 /mob/living/carbon/human/proc/burn_clothing(delta_time, times_fired, stacks)
+=======
+/mob/living/carbon/human/proc/burn_clothing(seconds_per_tick, times_fired, stacks)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/burning_items = list()
 	var/obscured = check_obscured_slots(TRUE)
 	//HEAD//
@@ -951,6 +1018,7 @@
 		burning_items |= leg_clothes
 
 	for(var/obj/item/burning in burning_items)
+<<<<<<< HEAD
 		burning.fire_act((stacks * 25 * delta_time)) //damage taken is reduced to 2% of this value by fire_act()
 
 /mob/living/carbon/human/on_fire_stack(delta_time, times_fired, datum/status_effect/fire_handler/fire_stacks/fire_handler)
@@ -961,3 +1029,14 @@
 		no_protection = dna.species.handle_fire(src, delta_time, times_fired, no_protection)
 	fire_handler.harm_human(delta_time, times_fired, no_protection)
 
+=======
+		burning.fire_act((stacks * 25 * seconds_per_tick)) //damage taken is reduced to 2% of this value by fire_act()
+
+/mob/living/carbon/human/on_fire_stack(seconds_per_tick, times_fired, datum/status_effect/fire_handler/fire_stacks/fire_handler)
+	SEND_SIGNAL(src, COMSIG_HUMAN_BURNING)
+	burn_clothing(seconds_per_tick, times_fired, fire_handler.stacks)
+	var/no_protection = FALSE
+	if(dna && dna.species)
+		no_protection = dna.species.handle_fire(src, seconds_per_tick, times_fired, no_protection)
+	fire_handler.harm_human(seconds_per_tick, times_fired, no_protection)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

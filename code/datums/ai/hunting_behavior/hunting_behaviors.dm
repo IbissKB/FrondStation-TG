@@ -21,8 +21,13 @@
 	. = ..()
 	hunt_targets = typecacheof(hunt_targets)
 
+<<<<<<< HEAD
 /datum/ai_planning_subtree/find_and_hunt_target/SelectBehaviors(datum/ai_controller/controller, delta_time)
 	if(!DT_PROB(hunt_chance, delta_time))
+=======
+/datum/ai_planning_subtree/find_and_hunt_target/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
+	if(!SPT_PROB(hunt_chance, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(controller.blackboard[BB_HUNTING_COOLDOWN] >= world.time)
 		return
@@ -31,6 +36,7 @@
 	if(HAS_TRAIT(controller.pawn, TRAIT_HANDS_BLOCKED) || living_pawn.stat != CONSCIOUS)
 		return
 
+<<<<<<< HEAD
 	// We're targeting something else for another reason
 	var/datum/weakref/target_weakref = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
 	var/atom/target = target_weakref?.resolve()
@@ -41,6 +47,11 @@
 	var/atom/hunted = hunting_weakref?.resolve()
 	// We're not hunting anything, look around for something
 	if(QDELETED(hunted))
+=======
+	var/atom/hunted = controller.blackboard[target_key]
+	// We're not hunting anything, look around for something
+	if(isnull(hunted))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		controller.queue_behavior(finding_behavior, target_key, hunt_targets, hunt_range)
 
 	// We ARE hunting something, execute the hunt.
@@ -54,7 +65,11 @@
 /// Finds a specific atom type to hunt.
 /datum/ai_behavior/find_hunt_target
 
+<<<<<<< HEAD
 /datum/ai_behavior/find_hunt_target/perform(delta_time, datum/ai_controller/controller, hunting_target_key, types_to_hunt, hunt_range)
+=======
+/datum/ai_behavior/find_hunt_target/perform(seconds_per_tick, datum/ai_controller/controller, hunting_target_key, types_to_hunt, hunt_range)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	var/mob/living/living_mob = controller.pawn
@@ -62,7 +77,11 @@
 	for(var/atom/possible_dinner as anything in typecache_filter_list(range(hunt_range, living_mob), types_to_hunt))
 		if(!valid_dinner(living_mob, possible_dinner, hunt_range))
 			continue
+<<<<<<< HEAD
 		controller.blackboard[hunting_target_key] = WEAKREF(possible_dinner)
+=======
+		controller.set_blackboard_key(hunting_target_key, possible_dinner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		finish_action(controller, TRUE)
 		return
 
@@ -81,6 +100,7 @@
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
 	/// How long do we have to wait after a successful hunt?
 	var/hunt_cooldown = 5 SECONDS
+<<<<<<< HEAD
 
 /datum/ai_behavior/hunt_target/setup(datum/ai_controller/controller, hunting_target_key, hunting_cooldown_key)
 	. = ..()
@@ -94,6 +114,24 @@
 	var/atom/hunted = hunting_weakref?.resolve()
 
 	if(QDELETED(hunted))
+=======
+	/// Do we reset the target after attacking something, so we can check for status changes.
+	var/always_reset_target = FALSE
+
+/datum/ai_behavior/hunt_target/setup(datum/ai_controller/controller, hunting_target_key, hunting_cooldown_key)
+	. = ..()
+	var/atom/hunt_target = controller.blackboard[hunting_target_key]
+	if (isnull(hunt_target))
+		return FALSE
+	set_movement_target(controller, hunt_target)
+
+/datum/ai_behavior/hunt_target/perform(seconds_per_tick, datum/ai_controller/controller, hunting_target_key, hunting_cooldown_key)
+	. = ..()
+	var/mob/living/hunter = controller.pawn
+	var/atom/hunted = controller.blackboard[hunting_target_key]
+
+	if(isnull(hunted))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		//Target is gone for some reason. forget about this task!
 		controller[hunting_target_key] = null
 		finish_action(controller, FALSE, hunting_target_key)
@@ -118,9 +156,17 @@
 /datum/ai_behavior/hunt_target/finish_action(datum/ai_controller/controller, succeeded, hunting_target_key, hunting_cooldown_key)
 	. = ..()
 	if(succeeded)
+<<<<<<< HEAD
 		controller.blackboard[hunting_cooldown_key] = world.time + hunt_cooldown
 	else if(hunting_target_key)
 		controller.blackboard[hunting_target_key] = null
+=======
+		controller.set_blackboard_key(hunting_cooldown_key, world.time + hunt_cooldown)
+	else if(hunting_target_key)
+		controller.clear_blackboard_key(hunting_target_key)
+	if(always_reset_target && hunting_target_key)
+		controller.clear_blackboard_key(hunting_target_key)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/ai_behavior/hunt_target/unarmed_attack_target
 

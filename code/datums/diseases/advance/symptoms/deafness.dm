@@ -9,6 +9,10 @@
 /datum/symptom/deafness
 	name = "Deafness"
 	desc = "The virus causes inflammation of the eardrums, causing intermittent deafness."
+<<<<<<< HEAD
+=======
+	illness = "Aural Perforation"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -1
 	resistance = -2
 	stage_speed = -1
@@ -42,7 +46,11 @@
 	if(!.)
 		return
 	var/mob/living/carbon/infected_mob = A.affected_mob
+<<<<<<< HEAD
 	var/obj/item/organ/internal/ears/ears = infected_mob.getorganslot(ORGAN_SLOT_EARS)
+=======
+	var/obj/item/organ/internal/ears/ears = infected_mob.get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!ears)
 		return //cutting off your ears to cure the deafness: the ultimate own
 	switch(A.stage)
@@ -54,7 +62,11 @@
 				if(ears.damage < ears.maxHealth)
 					to_chat(infected_mob, span_userdanger("Your ears pop painfully and start bleeding!"))
 					// Just absolutely murder me man
+<<<<<<< HEAD
 					ears.applyOrganDamage(ears.maxHealth)
+=======
+					ears.apply_organ_damage(ears.maxHealth)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					infected_mob.emote("scream")
 					ADD_TRAIT(infected_mob, TRAIT_DEAF, DISEASE_TRAIT)
 			else

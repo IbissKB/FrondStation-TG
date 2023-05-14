@@ -76,13 +76,20 @@
 	transfer_fingerprints_to(result)
 	return result
 
+<<<<<<< HEAD
 /obj/effect/particle_effect/fluid/foam/process(delta_time)
 	var/ds_delta_time = delta_time SECONDS
 	lifetime -= ds_delta_time
+=======
+/obj/effect/particle_effect/fluid/foam/process(seconds_per_tick)
+	var/ds_seconds_per_tick = seconds_per_tick SECONDS
+	lifetime -= ds_seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(lifetime <= 0)
 		kill_foam()
 		return
 
+<<<<<<< HEAD
 	var/fraction = (ds_delta_time * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
 	var/turf/location = loc
 	for(var/obj/object in location)
@@ -99,24 +106,58 @@
 		lifetime += ds_delta_time //this is so the decrease from mobs hit and the natural decrease don't cumulate.
 
 	reagents.expose(location, VAPOR, fraction)
+=======
+	if(ismob(loc))
+		stack_trace("A foam effect ([type]) was created within a mob! (Actual location: [loc] ([loc.type]))")
+		qdel(src)
+		return
+
+	var/fraction = (ds_seconds_per_tick * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
+
+	if(isturf(loc))
+		var/turf/turf_location = loc
+		for(var/obj/object in turf_location)
+			if(object == src)
+				continue
+			if(turf_location.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && HAS_TRAIT(object, TRAIT_T_RAY_VISIBLE))
+				continue
+			reagents.expose(object, VAPOR, fraction)
+
+	var/hit = 0
+	for(var/mob/living/foamer in loc)
+		hit += foam_mob(foamer, seconds_per_tick)
+	if(hit)
+		lifetime += ds_seconds_per_tick //this is so the decrease from mobs hit and the natural decrease don't cumulate.
+
+	reagents.expose(loc, VAPOR, fraction)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Applies the effect of this foam to a mob.
  *
  * Arguments:
  * - [foaming][/mob/living]: The mob that this foam is acting on.
+<<<<<<< HEAD
  * - delta_time: The amount of time that this foam is acting on them over.
+=======
+ * - seconds_per_tick: The amount of time that this foam is acting on them over.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  *
  * Returns:
  * - [TRUE]: If the foam was successfully applied to the mob. Used to scale how quickly foam dissipates according to the number of mobs it is applied to.
  * - [FALSE]: Otherwise.
  */
+<<<<<<< HEAD
 /obj/effect/particle_effect/fluid/foam/proc/foam_mob(mob/living/foaming, delta_time)
+=======
+/obj/effect/particle_effect/fluid/foam/proc/foam_mob(mob/living/foaming, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(lifetime <= 0)
 		return FALSE
 	if(!istype(foaming))
 		return FALSE
 
+<<<<<<< HEAD
 	delta_time = min(delta_time SECONDS, lifetime)
 	var/fraction = (delta_time * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
 	reagents.expose(foaming, VAPOR, fraction)
@@ -124,6 +165,15 @@
 	return TRUE
 
 /obj/effect/particle_effect/fluid/foam/spread(delta_time = 0.2 SECONDS)
+=======
+	seconds_per_tick = min(seconds_per_tick SECONDS, lifetime)
+	var/fraction = (seconds_per_tick * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
+	reagents.expose(foaming, VAPOR, fraction)
+	lifetime -= seconds_per_tick
+	return TRUE
+
+/obj/effect/particle_effect/fluid/foam/spread(seconds_per_tick = 0.2 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(group.total_size > group.target_size)
 		return
 	var/turf/location = get_turf(src)
@@ -138,7 +188,11 @@
 			continue
 
 		for(var/mob/living/foaming in spread_turf)
+<<<<<<< HEAD
 			foam_mob(foaming, delta_time)
+=======
+			foam_mob(foaming, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		var/obj/effect/particle_effect/fluid/foam/spread_foam = new type(spread_turf, group, src)
 		reagents.copy_to(spread_foam, (reagents.total_volume))
@@ -172,9 +226,15 @@
 	QDEL_NULL(chemholder)
 	return ..()
 
+<<<<<<< HEAD
 /datum/effect_system/fluid_spread/foam/set_up(range = 1, amount = DIAMOND_AREA(range), atom/holder, atom/location = null, datum/reagents/carry = null, result_type = null)
 	. = ..()
 	carry?.copy_to(chemholder, carry.total_volume)
+=======
+/datum/effect_system/fluid_spread/foam/set_up(range = 1, amount = DIAMOND_AREA(range), atom/holder, atom/location = null, datum/reagents/carry = null, result_type = null, stop_reactions = FALSE)
+	. = ..()
+	carry?.copy_to(chemholder, carry.total_volume, no_react = stop_reactions)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!isnull(result_type))
 		src.result_type = result_type
 
@@ -256,7 +316,11 @@
 		absorbed_plasma = 0
 	return deposit
 
+<<<<<<< HEAD
 /obj/effect/particle_effect/fluid/foam/firefighting/foam_mob(mob/living/foaming, delta_time)
+=======
+/obj/effect/particle_effect/fluid/foam/firefighting/foam_mob(mob/living/foaming, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!istype(foaming))
 		return
 	foaming.adjust_wet_stacks(2)
@@ -439,3 +503,18 @@
 		potential_tinder.extinguish_mob()
 	for(var/obj/item/potential_tinder in location)
 		potential_tinder.extinguish()
+<<<<<<< HEAD
+=======
+
+/datum/effect_system/fluid_spread/foam/dirty
+	effect_type = /obj/effect/particle_effect/fluid/foam/dirty
+
+/obj/effect/particle_effect/fluid/foam/dirty
+	name = "dirty foam"
+	allow_duplicate_results = FALSE
+	result_type = /obj/effect/decal/cleanable/dirt
+
+#undef MINIMUM_FOAM_DILUTION_RANGE
+#undef MINIMUM_FOAM_DILUTION
+#undef FOAM_REAGENT_SCALE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

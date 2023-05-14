@@ -6,7 +6,11 @@
 	inhand_icon_state = "cola"
 	lefthand_file = 'icons/mob/inhands/items/drinks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/drinks_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/plastic = 1200)
+=======
+	custom_materials = list(/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT*1.2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 500
 
 /obj/item/storage/cans/suicide_act(mob/living/carbon/user)

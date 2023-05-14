@@ -6,9 +6,17 @@
 	panel_type = "panel4"
 	products = list(
 		/obj/item/storage/bag/tray = 8,
+<<<<<<< HEAD
 		/obj/item/reagent_containers/cup/bowl = 20,
 		/obj/item/kitchen/fork = 6,
 		/obj/item/kitchen/spoon = 6,
+=======
+		/obj/item/reagent_containers/cup/bowl = 30,
+		/obj/item/reagent_containers/cup/soup_pot = 3,
+		/obj/item/kitchen/fork = 6,
+		/obj/item/kitchen/spoon = 10,
+		/obj/item/kitchen/spoon/soup_ladle = 3,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/reagent_containers/cup/glass/drinkingglass = 8,
 		/obj/item/reagent_containers/condiment/pack/ketchup = 5,
 		/obj/item/reagent_containers/condiment/pack/hotsauce = 5,

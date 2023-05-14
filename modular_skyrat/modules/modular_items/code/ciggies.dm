@@ -31,13 +31,25 @@
 	var/mob/living/carbon/smoker = owner
 	if(smoked.lit == FALSE)
 		smoked.icon_state = smoked.icon_on
+<<<<<<< HEAD
+=======
+		smoked.worn_icon_state = smoked.icon_on
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		smoked.inhand_icon_state = smoked.icon_on
 		smoked.lit = TRUE
 		smoked.name = "lit [smoked.name]"
 	else
 		smoked.icon_state = smoked.icon_off
+<<<<<<< HEAD
+=======
+		smoked.worn_icon_state = smoked.icon_off
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		smoked.inhand_icon_state = smoked.icon_off
 		smoked.lit = FALSE
 		smoked.name = copytext_char(smoked.name, 5) //5 == length_char("lit ") + 1
 	smoked.update_icon()
 	smoker.update_worn_mask()
+<<<<<<< HEAD
+=======
+	smoker.update_held_items()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

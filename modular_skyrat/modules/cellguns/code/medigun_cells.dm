@@ -433,7 +433,10 @@
 	icon_state = "glob_projectile"
 	shrapnel_type = /obj/item/mending_globule/hardlight
 	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0)
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 0
 
 /obj/projectile/energy/medical/utility/salve/on_hit(mob/living/target)
@@ -566,7 +569,11 @@
 
 /obj/structure/bed/roller/medigun/MouseDrop(over_object, src_location, over_location)
 	if(over_object == usr && Adjacent(usr))
+<<<<<<< HEAD
 		if(!ishuman(usr) || !usr.canUseTopic(src, be_close = TRUE))
+=======
+		if(!ishuman(usr) || !usr.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 
 		if(has_buckled_mobs())

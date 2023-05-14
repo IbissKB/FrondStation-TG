@@ -38,8 +38,13 @@
 	. = ..()
 	create_reagents(REAGENTS_BASE_VOLUME, INJECTABLE)
 	AddComponent(/datum/component/plumbing/simple_demand)
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/matter_bin/B in component_parts)
 		reagents.maximum_volume += REAGENTS_BASE_VOLUME * B.rating
+=======
+	for(var/datum/stock_part/matter_bin/B in component_parts)
+		reagents.maximum_volume += REAGENTS_BASE_VOLUME * B.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(is_operational)
 		begin_processing()
 
@@ -54,8 +59,13 @@
 /obj/machinery/smoke_machine/RefreshParts()
 	. = ..()
 	var/new_volume = REAGENTS_BASE_VOLUME
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/matter_bin/B in component_parts)
 		new_volume += REAGENTS_BASE_VOLUME * B.rating
+=======
+	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
+		new_volume += REAGENTS_BASE_VOLUME * matter_bin.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!reagents)
 		create_reagents(new_volume, INJECTABLE)
 	reagents.maximum_volume = new_volume
@@ -63,11 +73,19 @@
 		reagents.expose(loc, TOUCH) // if someone manages to downgrade it without deconstructing
 		reagents.clear_reagents()
 	efficiency = 18
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		efficiency += 2 * C.rating
 	max_range = 1
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		max_range += M.rating
+=======
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		efficiency += 2 * capacitor.tier
+	max_range = 1
+	for(var/datum/stock_part/servo/servo in component_parts)
+		max_range += servo.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_range = max(3, max_range)
 
 /obj/machinery/smoke_machine/on_set_is_operational(old_value)

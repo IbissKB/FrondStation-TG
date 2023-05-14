@@ -4,6 +4,7 @@
 	name = "flak helmet"
 	icon_state = "m1helm"
 	inhand_icon_state = "helmet"
+<<<<<<< HEAD
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0.1, "bio" = 0, "fire" = -10, "acid" = -15, "wound" = 1)
 	desc = "A dilapidated helmet used in ancient wars. This one is brittle and essentially useless. An ace of spades is tucked into the band around the outer shell."
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
@@ -12,10 +13,27 @@
 	. = ..()
 
 	create_storage(type = /datum/storage/pockets/tiny/spacenam)
+=======
+	armor_type = /datum/armor/hats_flakhelm
+	desc = "A dilapidated helmet used in ancient wars. This one is brittle and essentially useless. An ace of spades is tucked into the band around the outer shell."
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+
+/datum/armor/hats_flakhelm
+	bomb = 0.1
+	fire = -10
+	acid = -15
+	wound = 1
+
+/obj/item/clothing/head/hats/flakhelm/Initialize(mapload)
+	. = ..()
+
+	create_storage(storage_type = /datum/storage/pockets/tiny/spacenam)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/storage/pockets/tiny/spacenam
 	attack_hand_interact = TRUE		//So you can actually see what you stuff in there
 
+<<<<<<< HEAD
 /obj/item/clothing/head/costume/kepi
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
@@ -37,6 +55,8 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Cyberpunk PI Costume - Sprites from Eris
 /obj/item/clothing/head/fedora/det_hat/cybergoggles //Subset of detective fedora so that detectives dont have to sacrifice candycorns for style
 	name = "type-34C semi-enclosed headwear"
@@ -56,6 +76,7 @@
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#353535#AAAAAA"
 	icon_state = "beret_badge"
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, FIRE = 30, ACID = 50, WOUND = 6)
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
@@ -122,6 +143,21 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "papakha_kuban"
 	dog_fashion = null
+=======
+	armor_type = /datum/armor/navywarden_syndicate
+	strip_delay = 60
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+
+/datum/armor/navywarden_syndicate
+	melee = 40
+	bullet = 30
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 30
+	acid = 50
+	wound = 6
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/hats/sec/peacekeeper/sol
 	name = "sol police cap"
@@ -131,7 +167,11 @@
 	icon_state = "policeofficercap"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
 /obj/item/clothing/head/hats/hos/peacekeeper/sol
+=======
+/obj/item/clothing/head/hats/hos/cap/peacekeeper/sol
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "sol police chief cap"
 	desc = "A blue hat adorned with gold, rumoured to be used to distract Agents with its swag."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
@@ -157,6 +197,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
 /obj/item/clothing/head/costume/flowerpin
 	name = "flower pin"
 	desc = "A small, colourable flower pin"
@@ -168,6 +209,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hats/imperial
 	name = "grey naval officer cap"
 	desc = "A grey naval cap with a silver disk in the center."
@@ -213,7 +256,11 @@
 /obj/item/clothing/head/hats/imperial/ce
 	name = "chief engineer's blast helmet"
 	desc = "Despite seeming like it's made of metal, it's actually a very cheap plastic.."
+<<<<<<< HEAD
 	armor = list(MELEE = 15, BULLET = 5, LASER = 20, ENERGY = 10, BOMB = 20, BIO = 10, FIRE = 100, ACID = 50, WOUND = 10)
+=======
+	armor_type = /datum/armor/imperial_ce
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clothing_flags = STOPSPRESSUREDAMAGE
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELM_MAX_TEMP_PROTECT
@@ -223,6 +270,20 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/imperial_ce
+	melee = 15
+	bullet = 5
+	laser = 20
+	energy = 10
+	bomb = 20
+	bio = 10
+	fire = 100
+	acid = 50
+	wound = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hats/imperial/helmet
 	name = "blast helmet"
 	desc = "A sharp helmet with some goggles on the top. Unfortunately, both those and the helmet itself are made of flimsy plastic." //No armor moment
@@ -235,6 +296,7 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "goggles")
 
+<<<<<<< HEAD
 /obj/item/clothing/head/corgi/en
 	name = "E-N suit head"
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
@@ -242,6 +304,8 @@
 	icon_state = "enhead"
 	supports_variations_flags = NONE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/soft/yankee
 	name = "fashionable baseball cap"
 	desc = "Rimmed and brimmed."
@@ -260,6 +324,7 @@
 	icon_state = "yankeenobrimsoft"
 	soft_type = "yankeenobrim"
 
+<<<<<<< HEAD
 /obj/item/clothing/head/fedora/fedbrown
 	name = "brown fedora"
 	desc = "A noir-inspired fedora. Covers the eyes. Makes you look menacing, assuming you don't have a neckbeard."
@@ -289,6 +354,12 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "christmashatg"
+=======
+/obj/item/clothing/head/fedora/brown //Fedora without detective's candy corn gimmick
+	name = "brown fedora"
+	icon_state = "detective"
+	inhand_icon_state = "det_hat"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/standalone_hood
 	name = "hood"
@@ -309,3 +380,24 @@
 	greyscale_config_worn_teshari = /datum/greyscale_config/standalone_hood/worn/teshari
 	greyscale_config_worn_better_vox = /datum/greyscale_config/standalone_hood/worn/newvox
 	greyscale_config_worn_vox = /datum/greyscale_config/standalone_hood/worn/oldvox
+<<<<<<< HEAD
+=======
+
+/obj/item/clothing/head/beret/badge
+	name = "badged beret"
+	desc = "A beret. With a badge. What do you want, a dissertation? It's a hat."
+	icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#972A2A#EFEFEF"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/costume/cowboyhat_old
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	name = "old cowboy hat"
+	desc = "An older cowboy hat, perfect for any outlaw, though lacking fancy colour magic."
+	icon_state = "cowboyhat_black"
+	inhand_icon_state = "cowboy_hat_black"
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

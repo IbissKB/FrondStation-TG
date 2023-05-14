@@ -1,6 +1,10 @@
 /obj/item/wallframe
 	icon = 'icons/obj/wallframe.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT*2)
+=======
+	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT * 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_1 = CONDUCT_1
 	inhand_icon_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -11,14 +15,24 @@
 	var/pixel_shift //The amount of pixels
 
 /obj/item/wallframe/proc/try_build(turf/on_wall, mob/user)
+<<<<<<< HEAD
 	if(get_dist(on_wall,user)>1)
 		return
 	var/floor_to_wall = get_dir(user, on_wall)
 	if(!(floor_to_wall in GLOB.cardinals))
+=======
+	if(get_dist(on_wall,user) > 1)
+		balloon_alert(user, "you are too far!")
+		return
+	var/floor_to_wall = get_dir(user, on_wall)
+	if(!(floor_to_wall in GLOB.cardinals))
+		balloon_alert(user, "stand in line with wall!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/turf/T = get_turf(user)
 	var/area/A = get_area(T)
 	if(!isfloorturf(T))
+<<<<<<< HEAD
 		to_chat(user, span_warning("You cannot place [src] on this spot!"))
 		return
 	if(A.always_unpowered)
@@ -26,6 +40,15 @@
 		return
 	if(check_wall_item(T, floor_to_wall, wall_external))
 		to_chat(user, span_warning("There's already an item on this wall!"))
+=======
+		balloon_alert(user, "cannot place here!")
+		return
+	if(A.always_unpowered)
+		balloon_alert(user, "cannot place in this area!")
+		return
+	if(check_wall_item(T, floor_to_wall, wall_external))
+		balloon_alert(user, "already something here!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	return TRUE
@@ -66,12 +89,21 @@
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/item/wallframe/wrench_act(mob/living/user, obj/item/tool)
+<<<<<<< HEAD
 	var/metal_amt = round(custom_materials[GET_MATERIAL_REF(/datum/material/iron)]/MINERAL_MATERIAL_AMOUNT) //Replace this shit later
 	var/glass_amt = round(custom_materials[GET_MATERIAL_REF(/datum/material/glass)]/MINERAL_MATERIAL_AMOUNT) //Replace this shit later
+=======
+	var/metal_amt = round(custom_materials[GET_MATERIAL_REF(/datum/material/iron)]/SHEET_MATERIAL_AMOUNT) //Replace this shit later
+	var/glass_amt = round(custom_materials[GET_MATERIAL_REF(/datum/material/glass)]/SHEET_MATERIAL_AMOUNT) //Replace this shit later
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!metal_amt && !glass_amt)
 		return FALSE
 	to_chat(user, span_notice("You dismantle [src]."))
+<<<<<<< HEAD
+=======
+	tool.play_tool_sound(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(metal_amt)
 		new /obj/item/stack/sheet/iron(get_turf(src), metal_amt)
 	if(glass_amt)
@@ -88,6 +120,10 @@
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_SMALL
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+=======
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass= SMALL_MATERIAL_AMOUNT * 0.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	grind_results = list(/datum/reagent/iron = 10, /datum/reagent/silicon = 10)
 	custom_price = PAYCHECK_CREW * 0.5

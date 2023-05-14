@@ -5,6 +5,11 @@
 	min_players = 5
 	category = EVENT_CATEGORY_ENGINEERING
 	description = "Bolts open all doors in one or more departments."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 0
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/grey_tide
 	announce_when = 50

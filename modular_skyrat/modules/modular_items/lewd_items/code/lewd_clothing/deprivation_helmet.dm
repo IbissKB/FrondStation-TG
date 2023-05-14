@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //seems like it kinda SPACE helmet. So probably abusable, but not really.
 //If you want to make it less abusable and remove from helmet/space to just /helmet/ - please, add code that removes hair on use. Because we weren't able to do that.
 
@@ -5,6 +6,13 @@
 	name = "deprivation helmet"
 	desc = "Сompletely cuts off the wearer from the outside world."
 	icon_state = "dephelmet"
+=======
+/obj/item/clothing/head/deprivation_helmet
+	name = "deprivation helmet"
+	desc = "Completely cuts off the wearer from the outside world."
+	icon_state = "dephelmet_pink"
+	base_icon_state = "dephelmet"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = "dephelmet_pinkn"
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
 	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
@@ -12,15 +20,24 @@
 	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT|HIDEFACIALHAIR
+<<<<<<< HEAD
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 20, ACID = 15)
+=======
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
+	body_parts_covered = HEAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clothing_flags = SNUG_FIT
 	var/color_changed = FALSE
 	//these three vars needed to turn deprivation stuff on or off
 	var/muzzle = FALSE
 	var/earmuffs = FALSE
 	var/prevent_vision = FALSE
+<<<<<<< HEAD
 	//
+=======
+	/// The current color of the helmet.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/current_helmet_color = "pink"
 	var/static/list/helmet_designs
 	actions_types = list(
@@ -44,7 +61,11 @@
 
 //Vision switcher
 /datum/action/item_action/toggle_vision/Trigger(trigger_flags)
+<<<<<<< HEAD
 	var/obj/item/clothing/head/helmet/space/deprivation_helmet/deprivation_helmet = target
+=======
+	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/affected_carbon = usr
 	if(istype(deprivation_helmet))
 		if(deprivation_helmet == affected_carbon.head)
@@ -54,7 +75,11 @@
 
 //Hearing switcher
 /datum/action/item_action/toggle_hearing/Trigger(trigger_flags)
+<<<<<<< HEAD
 	var/obj/item/clothing/head/helmet/space/deprivation_helmet/deprivation_helmet = target
+=======
+	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/affected_carbon = usr
 	if(istype(deprivation_helmet))
 		if(deprivation_helmet == affected_carbon.head)
@@ -64,7 +89,11 @@
 
 //Speech switcher
 /datum/action/item_action/toggle_speech/Trigger(trigger_flags)
+<<<<<<< HEAD
 	var/obj/item/clothing/head/helmet/space/deprivation_helmet/deprivation_helmet = target
+=======
+	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/affected_carbon = usr
 	if(istype(deprivation_helmet))
 		if(deprivation_helmet == affected_carbon.head)
@@ -73,7 +102,11 @@
 			deprivation_helmet.SwitchHelmet("speech")
 
 //Helmet switcher
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/proc/SwitchHelmet(button)
+=======
+/obj/item/clothing/head/deprivation_helmet/proc/SwitchHelmet(button)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/user_client = button
 	if(user_client == "speech")
 		if(muzzle == TRUE)
@@ -123,7 +156,11 @@
 				to_chat(usr, span_purple("The helmet is blocking your vision! You can't make out anything on the other side..."))
 
 // Create radial menu
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/proc/populate_helmet_designs()
+=======
+/obj/item/clothing/head/deprivation_helmet/proc/populate_helmet_designs()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	helmet_designs = list(
 		"pink" = image(icon = src.icon, icon_state = "dephelmet_pink"),
 		"teal" = image(icon = src.icon, icon_state = "dephelmet_teal"),
@@ -131,7 +168,11 @@
 		"tealn" = image(icon = src.icon, icon_state = "dephelmet_tealn"))
 
 // To change model
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/AltClick(mob/user)
+=======
+/obj/item/clothing/head/deprivation_helmet/AltClick(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(color_changed == FALSE)
 		. = ..()
 		if(.)
@@ -146,7 +187,11 @@
 	else
 		return
 
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/proc/update_mob_action_buttonss()
+=======
+/obj/item/clothing/head/deprivation_helmet/proc/update_mob_action_buttonss()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/action/item_action/action_button
 
 	for(action_button in src.actions)
@@ -162,14 +207,22 @@
 	update_icon()
 
 // To check if we can change helmet's model
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/proc/check_menu(mob/living/user)
+=======
+/obj/item/clothing/head/deprivation_helmet/proc/check_menu(mob/living/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!istype(user))
 		return FALSE
 	if(user.incapacitated())
 		return FALSE
 	return TRUE
 
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/Initialize(mapload)
+=======
+/obj/item/clothing/head/deprivation_helmet/Initialize(mapload)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	update_icon_state()
 	update_icon()
@@ -178,6 +231,7 @@
 		populate_helmet_designs()
 
 // Updating both and icon in hands and icon worn
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/update_icon_state()
 	.=..()
 	icon_state = "[initial(icon_state)]_[current_helmet_color]"
@@ -185,6 +239,15 @@
 
 // Here goes code that applies stuff on the wearer
 /obj/item/clothing/head/helmet/space/deprivation_helmet/equipped(mob/living/carbon/human/user, slot)
+=======
+/obj/item/clothing/head/deprivation_helmet/update_icon_state()
+	.=..()
+	icon_state = "[base_icon_state]_[current_helmet_color]"
+	inhand_icon_state = "[base_icon_state]_[current_helmet_color]"
+
+// Here goes code that applies stuff on the wearer
+/obj/item/clothing/head/deprivation_helmet/equipped(mob/living/carbon/human/user, slot)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!(slot & ITEM_SLOT_HEAD))
 		return
@@ -200,7 +263,11 @@
 
 
 // Here goes code that heals the wearer after unequipping helmet
+<<<<<<< HEAD
 /obj/item/clothing/head/helmet/space/deprivation_helmet/dropped(mob/living/carbon/human/user)
+=======
+/obj/item/clothing/head/deprivation_helmet/dropped(mob/living/carbon/human/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(muzzle == TRUE)
 		REMOVE_TRAIT(user, TRAIT_MUTE, CLOTHING_TRAIT)

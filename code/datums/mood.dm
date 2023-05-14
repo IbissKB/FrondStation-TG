@@ -72,6 +72,7 @@
 	QDEL_LIST_ASSOC_VAL(mood_events)
 	return ..()
 
+<<<<<<< HEAD
 /datum/mood/process(delta_time)
 	switch(mood_level)
 		if(MOOD_LEVEL_SAD4)
@@ -92,14 +93,43 @@
 			set_sanity(sanity + 0.4 * delta_time, SANITY_NEUTRAL, SANITY_MAXIMUM)
 		if(MOOD_LEVEL_HAPPY4)
 			set_sanity(sanity + 0.6 * delta_time, SANITY_NEUTRAL, SANITY_MAXIMUM)
+=======
+/datum/mood/process(seconds_per_tick)
+	switch(mood_level)
+		if(MOOD_LEVEL_SAD4)
+			set_sanity(sanity - 0.3 * seconds_per_tick, SANITY_INSANE)
+		if(MOOD_LEVEL_SAD3)
+			set_sanity(sanity - 0.15 * seconds_per_tick, SANITY_INSANE)
+		if(MOOD_LEVEL_SAD2)
+			set_sanity(sanity - 0.1 * seconds_per_tick, SANITY_CRAZY)
+		if(MOOD_LEVEL_SAD1)
+			set_sanity(sanity - 0.05 * seconds_per_tick, SANITY_UNSTABLE)
+		if(MOOD_LEVEL_NEUTRAL)
+			set_sanity(sanity, SANITY_UNSTABLE) //This makes sure that mood gets increased should you be below the minimum.
+		if(MOOD_LEVEL_HAPPY1)
+			set_sanity(sanity + 0.2 * seconds_per_tick, SANITY_UNSTABLE)
+		if(MOOD_LEVEL_HAPPY2)
+			set_sanity(sanity + 0.3 * seconds_per_tick, SANITY_UNSTABLE)
+		if(MOOD_LEVEL_HAPPY3)
+			set_sanity(sanity + 0.4 * seconds_per_tick, SANITY_NEUTRAL, SANITY_MAXIMUM)
+		if(MOOD_LEVEL_HAPPY4)
+			set_sanity(sanity + 0.6 * seconds_per_tick, SANITY_NEUTRAL, SANITY_MAXIMUM)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	handle_nutrition()
 
 	// 0.416% is 15 successes / 3600 seconds. Calculated with 2 minute
 	// mood runtime, so 50% average uptime across the hour.
+<<<<<<< HEAD
 	if(HAS_TRAIT(mob_parent, TRAIT_DEPRESSION) && DT_PROB(0.416, delta_time))
 		add_mood_event("depression_mild", /datum/mood_event/depression_mild)
 
 	if(HAS_TRAIT(mob_parent, TRAIT_JOLLY) && DT_PROB(0.416, delta_time))
+=======
+	if(HAS_TRAIT(mob_parent, TRAIT_DEPRESSION) && SPT_PROB(0.416, seconds_per_tick))
+		add_mood_event("depression_mild", /datum/mood_event/depression_mild)
+
+	if(HAS_TRAIT(mob_parent, TRAIT_JOLLY) && SPT_PROB(0.416, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		add_mood_event("jolly", /datum/mood_event/jolly)
 
 /datum/mood/proc/handle_mob_death(datum/source)

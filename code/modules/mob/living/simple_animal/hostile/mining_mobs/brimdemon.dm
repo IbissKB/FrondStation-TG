@@ -4,7 +4,11 @@
 	name = "brimdemon"
 	desc = "A misshapen demon with big, red eyes and a hinged mouth. Not much is known about the creatures \
 		due to their response to any unexpected stimulus being \"brimbeam\", a deadly blood-laser barrage."
+<<<<<<< HEAD
 	icon = 'icons/mob/simple/lavaland/brimdemon.dmi'
+=======
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "brimdemon"
 	icon_living = "brimdemon"
 	icon_dead = "brimdemon_dead"
@@ -161,7 +165,11 @@
 
 /obj/effect/brimbeam
 	name = "brimbeam"
+<<<<<<< HEAD
 	icon = 'icons/mob/simple/lavaland/brimdemon.dmi'
+=======
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "brimbeam_mid"
 	layer = ABOVE_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
@@ -233,8 +241,17 @@
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
 
+<<<<<<< HEAD
 /obj/item/ore_sensor/process(delta_time)
+=======
+/obj/item/ore_sensor/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!COOLDOWN_FINISHED(src, ore_sensing_cooldown))
 		return
 	COOLDOWN_START(src, ore_sensing_cooldown, cooldown)
 	mineral_scan_pulse(get_turf(src), range)
+<<<<<<< HEAD
+=======
+
+#undef BRIMBEAM_RANGE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

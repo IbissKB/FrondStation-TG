@@ -4,11 +4,19 @@
 	desc = "A wizard with a taste for the arts."
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	boss_abilities = list(/datum/action/boss/wizard_summon_minions, /datum/action/boss/wizard_mimic)
+<<<<<<< HEAD
 	faction = list("hostile","stickman")
 	del_on_death = TRUE
 	icon = 'icons/mob/simple/simple_human.dmi'
 	icon_state = "paperwizard"
 	ranged = 1
+=======
+	faction = list(FACTION_HOSTILE,FACTION_STICKMAN)
+	del_on_death = TRUE
+	icon = 'icons/mob/simple/simple_human.dmi'
+	icon_state = "paperwizard"
+	ranged = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	minimum_distance = 3
 	retreat_distance = 3
@@ -21,9 +29,18 @@
 	projectiletype = /obj/projectile/temp
 	projectilesound = 'sound/weapons/emitter.ogg'
 	attack_sound = 'sound/hallucinations/growl1.ogg'
+<<<<<<< HEAD
 	var/list/copies = list()
 
 	footstep_type = FOOTSTEP_MOB_SHOE
+=======
+	footstep_type = FOOTSTEP_MOB_SHOE
+	var/list/copies = list()
+
+/mob/living/simple_animal/hostile/boss/paper_wizard/Initialize(mapload)
+	. = ..()
+	apply_dynamic_human_appearance(src, mob_spawn_path = /obj/effect/mob_spawn/corpse/human/wizard/paper)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/boss/paper_wizard/Destroy()
 	QDEL_LIST(copies)

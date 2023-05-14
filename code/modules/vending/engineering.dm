@@ -28,7 +28,11 @@
 		/obj/item/stock_parts/scanning_module = 5,
 		/obj/item/stock_parts/micro_laser = 5,
 		/obj/item/stock_parts/matter_bin = 5,
+<<<<<<< HEAD
 		/obj/item/stock_parts/manipulator = 5,
+=======
+		/obj/item/stock_parts/servo = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 	refill_canister = /obj/item/vending_refill/engineering
 	default_price = PAYCHECK_CREW

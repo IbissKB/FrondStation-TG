@@ -93,9 +93,14 @@
 
 /obj/effect/spawner/random/structure/crate_empty/make_item(spawn_loc, type_path_to_make)
 	var/obj/structure/closet/crate/peek_a_boo = ..()
+<<<<<<< HEAD
 	if(istype(peek_a_boo))
 		peek_a_boo.opened = prob(50)
 		peek_a_boo.update_appearance()
+=======
+	if(istype(peek_a_boo) && prob(50))
+		peek_a_boo.open(special_effects = FALSE) //the crate appears immediatly out of thin air so no need to animate anything
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return peek_a_boo
 
@@ -127,9 +132,14 @@
 
 /obj/effect/spawner/random/structure/closet_empty/make_item(spawn_loc, type_path_to_make)
 	var/obj/structure/closet/peek_a_boo = ..()
+<<<<<<< HEAD
 	if(istype(peek_a_boo))
 		peek_a_boo.opened = prob(50)
 		peek_a_boo.update_appearance()
+=======
+	if(istype(peek_a_boo) && prob(50))
+		peek_a_boo.open(special_effects = FALSE) //the crate appears immediatly out of thin air so no need to animate anything
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return peek_a_boo
 

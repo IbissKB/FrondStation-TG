@@ -6,7 +6,11 @@
 	overlay_icon_state = "bg_demon_border"
 
 	buttontooltipstyle = "cult"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
+=======
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ranged_mousepointer = 'icons/effects/mouse_pointers/cult_target.dmi'
 
 /datum/action/innate/cult/IsAvailable(feedback = FALSE)

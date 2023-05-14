@@ -22,7 +22,11 @@
 /datum/surgery/advanced/brainwashing/can_start(mob/user, mob/living/carbon/target)
 	if(!..())
 		return FALSE
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/target_brain = target.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!target_brain)
 		return FALSE
 	return TRUE
@@ -76,7 +80,11 @@
 	return ..()
 
 /datum/surgery_step/brainwash/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+<<<<<<< HEAD
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
+=======
+	if(target.get_organ_slot(ORGAN_SLOT_BRAIN))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		display_results(
 			user,
 			target,

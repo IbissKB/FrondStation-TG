@@ -2,9 +2,15 @@
 	category = "Consumables"
 
 /datum/market_item/consumable/clown_tears
+<<<<<<< HEAD
 	name = "Bowl of Clown's Tears"
 	desc = "Guaranteed fresh from Weepy Boggins Tragic Kitchen"
 	item = /obj/item/food/soup/clownstears
+=======
+	name = "Bottle of Clown's Tears"
+	desc = "Guaranteed fresh from Weepy Boggins Tragic Kitchen"
+	item = /obj/item/reagent_containers/cup/bottle/clownstears
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stock = 1
 
 	price_min = CARGO_CRATE_VALUE * 2.6

@@ -197,6 +197,7 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 	SEC_DEPT_SUPPLY,
 )))
 
+<<<<<<< HEAD
 /// Types of Crimes Prisoners will have on their record roundstart.
 /// (They also can choose Random, which picks from these options... randomly!)
 GLOBAL_LIST_INIT(prisoner_crimes, list(
@@ -221,6 +222,8 @@ GLOBAL_LIST_INIT(prisoner_crimes, list(
 	"Worship of Blacklisted Deities" = "Practiced worship of blacklisted deities.",
 ))
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Backpacks
 #define DBACKPACK "Department Backpack"
 #define DDUFFELBAG "Department Duffel Bag"
@@ -253,8 +256,13 @@ GLOBAL_LIST_INIT(backpacklist, list(
 GLOBAL_LIST_EMPTY(female_clothing_icons)
 
 GLOBAL_LIST_INIT(scarySounds, list(
+<<<<<<< HEAD
 	'sound/effects/clownstep1.ogg',
 	'sound/effects/clownstep2.ogg',
+=======
+	'sound/effects/footstep/clownstep1.ogg',
+	'sound/effects/footstep/clownstep2.ogg',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	'sound/effects/glassbr1.ogg',
 	'sound/effects/glassbr2.ogg',
 	'sound/effects/glassbr3.ogg',

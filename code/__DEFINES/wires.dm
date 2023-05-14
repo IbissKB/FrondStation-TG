@@ -13,7 +13,12 @@
 #define WIRE_BACKUP2 "Auxiliary Power 2"
 #define WIRE_BEACON "Beacon"
 #define WIRE_BOLTS "Bolts"
+<<<<<<< HEAD
 #define WIRE_BOOM "Boom"
+=======
+#define WIRE_BOOM "Boom Wire 1"
+#define WIRE_BOOM2 "Boom Wire 2"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define WIRE_CAMERA "Camera"
 #define WIRE_CONTRABAND "Contraband"
 #define WIRE_DELAY "Delay"
@@ -54,3 +59,12 @@
 #define WIRE_ZAP "High Voltage Circuit"
 #define WIRE_ZAP1 "High Voltage Circuit 1"
 #define WIRE_ZAP2 "High Voltage Circuit 2"
+<<<<<<< HEAD
+=======
+
+// Wire states for the AI
+#define AI_WIRE_NORMAL 0
+#define AI_WIRE_DISABLED 1
+#define AI_WIRE_HACKED 2
+#define AI_WIRE_DISABLED_HACKED -1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

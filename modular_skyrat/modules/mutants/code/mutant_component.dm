@@ -87,6 +87,7 @@
 /mob/living/carbon/human/proc/remove_mutant_immunity()
 	REMOVE_TRAIT(src, TRAIT_MUTANT_IMMUNE, "mutant_virus")
 
+<<<<<<< HEAD
 /datum/component/mutant_infection/process(delta_time)
 	if(!ismutant(host) && host.stat != DEAD)
 		var/toxloss = host.getToxLoss()
@@ -98,6 +99,19 @@
 		else
 			host.adjustToxLoss((tox_loss_mod * 2) * delta_time)
 			if(DT_PROB(10, delta_time))
+=======
+/datum/component/mutant_infection/process(seconds_per_tick)
+	if(!ismutant(host) && host.stat != DEAD)
+		var/toxloss = host.getToxLoss()
+		if(toxloss < 50)
+			host.adjustToxLoss(tox_loss_mod * seconds_per_tick)
+			if(SPT_PROB(5, seconds_per_tick))
+				to_chat(host, span_userdanger("You feel your motor controls seize up for a moment!"))
+				host.Paralyze(10)
+		else
+			host.adjustToxLoss((tox_loss_mod * 2) * seconds_per_tick)
+			if(SPT_PROB(10, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				var/obj/item/bodypart/wound_area = host.get_bodypart(BODY_ZONE_CHEST)
 				if(wound_area)
 					var/datum/wound/slash/moderate/rotting_wound = new

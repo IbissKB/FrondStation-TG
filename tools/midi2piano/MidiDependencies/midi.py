@@ -247,9 +247,15 @@ my_opus = score2opus(my_score)
 
         abs_time = 0
         for event in sorted_events:  # convert abs times => delta times
+<<<<<<< HEAD
             delta_time = event[1] - abs_time
             abs_time = event[1]
             event[1] = delta_time
+=======
+            seconds_per_tick = event[1] - abs_time
+            abs_time = event[1]
+            event[1] = seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         opus_tracks.append(sorted_events)
     opus_tracks.insert(0,ticks)
     _clean_up_warnings()

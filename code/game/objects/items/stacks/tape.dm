@@ -46,9 +46,17 @@
 	if(!istype(target))
 		return
 
+<<<<<<< HEAD
 	if(target.embedding && target.embedding == conferred_embed)
 		to_chat(user, span_warning("[target] is already coated in [src]!"))
 		return
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+	if(target.embedding && target.embedding == conferred_embed)
+		to_chat(user, span_warning("[target] is already coated in [src]!"))
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	user.visible_message(span_notice("[user] begins wrapping [target] with [src]."), span_notice("You begin wrapping [target] with [src]."))
 	playsound(user, 'sound/items/duct_tape_rip.ogg', 50, TRUE)
@@ -61,11 +69,19 @@
 			to_chat(user, span_notice("You turn [target] into [O] with [src]."))
 			QDEL_NULL(target)
 			user.put_in_hands(O)
+<<<<<<< HEAD
 			return
 
 		if(target.embedding && target.embedding == conferred_embed)
 			to_chat(user, span_warning("[target] is already coated in [src]!"))
 			return
+=======
+			return .
+
+		if(target.embedding && target.embedding == conferred_embed)
+			to_chat(user, span_warning("[target] is already coated in [src]!"))
+			return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		target.embedding = conferred_embed
 		target.updateEmbedding()
@@ -76,6 +92,11 @@
 			var/obj/item/grenade/sticky_bomb = target
 			sticky_bomb.sticky = TRUE
 
+<<<<<<< HEAD
+=======
+	return .
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stack/sticky_tape/super
 	name = "super sticky tape"
 	singular_name = "super sticky tape"

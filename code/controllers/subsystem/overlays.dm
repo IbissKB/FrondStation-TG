@@ -81,6 +81,10 @@ SUBSYSTEM_DEF(overlays)
 		return
 	STAT_START_STOPWATCH
 	overlays += build_appearance_list(add_overlays)
+<<<<<<< HEAD
+=======
+	VALIDATE_OVERLAY_LIMIT(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	POST_OVERLAY_CHANGE(src)
 	STAT_STOP_STOPWATCH
 	STAT_LOG_ENTRY(SSoverlays.stats, type)
@@ -98,11 +102,19 @@ SUBSYSTEM_DEF(overlays)
 			overlays = cached_other
 		else
 			overlays = null
+<<<<<<< HEAD
+=======
+		VALIDATE_OVERLAY_LIMIT(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		POST_OVERLAY_CHANGE(src)
 		STAT_STOP_STOPWATCH
 		STAT_LOG_ENTRY(SSoverlays.stats, type)
 	else if(cached_other)
 		overlays += cached_other
+<<<<<<< HEAD
+=======
+		VALIDATE_OVERLAY_LIMIT(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		POST_OVERLAY_CHANGE(src)
 		STAT_STOP_STOPWATCH
 		STAT_LOG_ENTRY(SSoverlays.stats, type)
@@ -138,11 +150,18 @@ SUBSYSTEM_DEF(overlays)
 	/// List of overlay "keys" (info about the appearance) -> mutable versions of static appearances
 	/// Drawn from the overlays list
 	var/list/realized_overlays
+<<<<<<< HEAD
+=======
+	/// List of underlay "keys" (info about the appearance) -> mutable versions of static appearances
+	/// Drawn from the underlays list
+	var/list/realized_underlays
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /image
 	/// List of overlay "keys" (info about the appearance) -> mutable versions of static appearances
 	/// Drawn from the overlays list
 	var/list/realized_overlays
+<<<<<<< HEAD
 
 /// Takes the atoms's existing overlays, and makes them mutable so they can be properly vv'd in the realized_overlays list
 /atom/proc/realize_overlays()
@@ -174,6 +193,26 @@ SUBSYSTEM_DEF(overlays)
 /image/proc/realize_overlays()
 	realized_overlays = list()
 	var/list/queue = overlays.Copy()
+=======
+	/// List of underlay "keys" (info about the appearance) -> mutable versions of static appearances
+	/// Drawn from the underlays list
+	var/list/realized_underlays
+
+/// Takes the atoms's existing overlays and underlays, and makes them mutable so they can be properly vv'd in the realized_overlays/underlays list
+/atom/proc/realize_overlays()
+	realized_overlays = realize_appearance_queue(overlays)
+	realized_underlays = realize_appearance_queue(underlays)
+
+/// Takes the image's existing overlays, and makes them mutable so they can be properly vv'd in the realized_overlays list
+/image/proc/realize_overlays()
+	realized_overlays = realize_appearance_queue(overlays)
+	realized_underlays = realize_appearance_queue(underlays)
+
+/// Takes a list of appearnces, makes them mutable so they can be properly vv'd and inspected
+/proc/realize_appearance_queue(list/appearances)
+	var/list/real_appearances = list()
+	var/list/queue = appearances.Copy()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/queue_index = 0
 	while(queue_index < length(queue))
 		queue_index++
@@ -186,6 +225,7 @@ SUBSYSTEM_DEF(overlays)
 		new_appearance.appearance = appearance
 		var/key = "[appearance.icon]-[appearance.icon_state]-[appearance.plane]-[appearance.layer]-[appearance.dir]-[appearance.color]"
 		var/tmp_key = key
+<<<<<<< HEAD
 		var/overlay_indx = 1
 		while(realized_overlays[tmp_key])
 			tmp_key = "[key]-[overlay_indx]"
@@ -195,6 +235,23 @@ SUBSYSTEM_DEF(overlays)
 		// Now check its children
 		for(var/mutable_appearance/child_appearance as anything in appearance.overlays)
 			queue += child_appearance
+=======
+		var/appearance_indx = 1
+		while(real_appearances[tmp_key])
+			tmp_key = "[key]-[appearance_indx]"
+			appearance_indx++
+
+		real_appearances[tmp_key] = new_appearance
+		var/add_index = queue_index
+		// Now check its children
+		for(var/mutable_appearance/child_appearance as anything in appearance.overlays)
+			add_index++
+			queue.Insert(add_index, child_appearance)
+		for(var/mutable_appearance/child_appearance as anything in appearance.underlays)
+			add_index++
+			queue.Insert(add_index, child_appearance)
+	return real_appearances
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Takes two appearances as args, prints out, logs, and returns a text representation of their differences
 /// Including suboverlays

@@ -1,5 +1,6 @@
 /mob/living/carbon/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_reagents(1000, REAGENT_HOLDER_ALIVE)
 	update_body_parts() //to update the carbon's new bodyparts appearance
 	register_context()
@@ -7,6 +8,12 @@
 	// Carbons cannot taste anything without a tongue; the tongue organ removes this on Insert
 	ADD_TRAIT(src, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 
+=======
+	create_carbon_reagents()
+	update_body_parts() //to update the carbon's new bodyparts appearance
+	register_context()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	GLOB.carbon_list += src
 	var/static/list/loc_connections = list(
 		COMSIG_CARBON_DISARM_PRESHOVE = PROC_REF(disarm_precollide),
@@ -19,7 +26,11 @@
 	. = ..()
 
 	QDEL_LIST(hand_bodyparts)
+<<<<<<< HEAD
 	QDEL_LIST(internal_organs)
+=======
+	QDEL_LIST(organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	QDEL_LIST(bodyparts)
 	QDEL_LIST(implants)
 	for(var/wound in all_wounds) // these LAZYREMOVE themselves when deleted so no need to remove the list here
@@ -30,7 +41,11 @@
 	QDEL_NULL(dna)
 	GLOB.carbon_list -= src
 
+<<<<<<< HEAD
 /mob/living/carbon/swap_hand(held_index)
+=======
+/mob/living/carbon/perform_hand_swap(held_index)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
@@ -155,12 +170,17 @@
 /mob/proc/throw_item(atom/target)
 	SEND_SIGNAL(src, COMSIG_MOB_THROW, target)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CARBON_THROW_THING, src, target)
+<<<<<<< HEAD
 	return
+=======
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/throw_item(atom/target)
 	. = ..()
 	throw_mode_off(THROW_MODE_TOGGLE)
 	if(!target || !isturf(loc))
+<<<<<<< HEAD
 		return
 	if(istype(target, /atom/movable/screen))
 		return
@@ -170,6 +190,15 @@
 	var/neckgrab_throw = FALSE // we can't check for if it's a neckgrab throw when totaling up power_throw since we've already stopped pulling them by then, so get it early
 
 	if(!I)
+=======
+		return FALSE
+	if(istype(target, /atom/movable/screen))
+		return FALSE
+	var/atom/movable/thrown_thing
+	var/obj/item/held_item = get_active_held_item()
+	var/neckgrab_throw = FALSE // we can't check for if it's a neckgrab throw when totaling up power_throw since we've already stopped pulling them by then, so get it early
+	if(!held_item)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(pulling && isliving(pulling) && grab_state >= GRAB_AGGRESSIVE)
 			var/mob/living/throwable_mob = pulling
 			if(!throwable_mob.buckled)
@@ -179,6 +208,7 @@
 				stop_pulling()
 				if(HAS_TRAIT(src, TRAIT_PACIFISM))
 					to_chat(src, span_notice("You gently let go of [throwable_mob]."))
+<<<<<<< HEAD
 					return
 	else
 		thrown_thing = I.on_thrown(src, target)
@@ -213,13 +243,60 @@
 		newtonian_move(get_dir(target, src))
 		thrown_thing.safe_throw_at(target, thrown_thing.throw_range, thrown_thing.throw_speed + power_throw, src, null, null, null, move_force)
 
+=======
+					return FALSE
+	else
+		thrown_thing = held_item.on_thrown(src, target)
+	if(!thrown_thing)
+		return FALSE
+	if(isliving(thrown_thing))
+		var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
+		var/turf/end_T = get_turf(target)
+		if(start_T && end_T)
+			log_combat(src, thrown_thing, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
+	var/power_throw = 0
+	if(HAS_TRAIT(src, TRAIT_HULK))
+		power_throw++
+	if(HAS_TRAIT(src, TRAIT_DWARF))
+		power_throw--
+	if(HAS_TRAIT(thrown_thing, TRAIT_DWARF))
+		power_throw++
+	//SKYRAT EDIT ADDITION
+	if(HAS_TRAIT(src, TRAIT_OVERSIZED))
+		power_throw++
+	if(HAS_TRAIT(thrown_thing, TRAIT_OVERSIZED))
+		power_throw--
+	//SKYRAT EDIT END
+	if(neckgrab_throw)
+		power_throw++
+	do_attack_animation(target, no_effect = 1) //SKYRAT EDIT ADDITION - AESTHETICS
+	playsound(loc, 'sound/weapons/punchmiss.ogg', 50, TRUE, -1) //SKYRAT EDIT ADDITION - AESTHETICS
+	visible_message(span_danger("[src] throws [thrown_thing][power_throw ? " really hard!" : "."]"), \
+					span_danger("You throw [thrown_thing][power_throw ? " really hard!" : "."]"))
+	log_message("has thrown [thrown_thing] [power_throw > 0 ? "really hard" : ""]", LOG_ATTACK)
+	var/extra_throw_range = HAS_TRAIT(src, TRAIT_THROWINGARM) ? 2 : 0
+	newtonian_move(get_dir(target, src))
+	thrown_thing.safe_throw_at(target, thrown_thing.throw_range + extra_throw_range, max(1,thrown_thing.throw_speed + power_throw), src, null, null, null, move_force)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/proc/canBeHandcuffed()
 	return FALSE
 
+<<<<<<< HEAD
 /mob/living/carbon/Topic(href, href_list)
 	..()
 	if(href_list["embedded_object"] && usr.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+/mob/living/carbon/proc/create_carbon_reagents()
+	if (!isnull(reagents))
+		return
+
+	create_reagents(1000, REAGENT_HOLDER_ALIVE)
+
+/mob/living/carbon/Topic(href, href_list)
+	..()
+	if(href_list["embedded_object"] && usr.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/obj/item/bodypart/L = locate(href_list["embedded_limb"]) in bodyparts
 		if(!L)
 			return
@@ -486,9 +563,15 @@
 
 /mob/living/carbon/proc/spew_organ(power = 5, amt = 1)
 	for(var/i in 1 to amt)
+<<<<<<< HEAD
 		if(!internal_organs.len)
 			break //Guess we're out of organs!
 		var/obj/item/organ/guts = pick(internal_organs)
+=======
+		if(!organs.len)
+			break //Guess we're out of organs!
+		var/obj/item/organ/guts = pick(organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/turf/T = get_turf(src)
 		guts.Remove(src)
 		guts.forceMove(T)
@@ -524,6 +607,10 @@
 		total_burn += (BP.burn_dam * BP.body_damage_coeff)
 	set_health(round(maxHealth - getOxyLoss() - getToxLoss() - getCloneLoss() - total_burn - total_brute, DAMAGE_PRECISION))
 	update_stat()
+<<<<<<< HEAD
+=======
+	update_stamina()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(((maxHealth - total_burn) < HEALTH_THRESHOLD_DEAD*2) && stat == DEAD )
 		become_husk(BURN)
 	med_hud_set_health()
@@ -531,7 +618,11 @@
 		add_movespeed_modifier(/datum/movespeed_modifier/carbon_softcrit)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/carbon_softcrit)
+<<<<<<< HEAD
 	SEND_SIGNAL(src, COMSIG_CARBON_HEALTH_UPDATE)
+=======
+	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/update_stamina()
 	var/stam = getStaminaLoss()
@@ -557,11 +648,15 @@
 			set_sight(initial(sight))
 		else
 			set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+<<<<<<< HEAD
 		set_see_in_dark(8)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		set_invis_see(SEE_INVISIBLE_OBSERVER)
 		return
 
 	var/new_sight = initial(sight)
+<<<<<<< HEAD
 	lighting_alpha = initial(lighting_alpha)
 	var/obj/item/organ/internal/eyes/E = getorganslot(ORGAN_SLOT_EYES)
 	if(!E)
@@ -572,6 +667,19 @@
 		new_sight |= E.sight_flags
 		if(!isnull(E.lighting_alpha))
 			lighting_alpha = E.lighting_alpha
+=======
+	lighting_cutoff = initial(lighting_cutoff)
+	lighting_color_cutoffs = list(lighting_cutoff_red, lighting_cutoff_green, lighting_cutoff_blue)
+
+	var/obj/item/organ/internal/eyes/eyes = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eyes)
+		set_invis_see(eyes.see_invisible)
+		new_sight |= eyes.sight_flags
+		if(!isnull(eyes.lighting_cutoff))
+			lighting_cutoff = eyes.lighting_cutoff
+		if(!isnull(eyes.color_cutoffs))
+			lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, eyes.color_cutoffs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(client.eye && client.eye != src)
 		var/atom/A = client.eye
@@ -579,6 +687,7 @@
 			return
 
 	if(glasses)
+<<<<<<< HEAD
 		var/obj/item/clothing/glasses/G = glasses
 		new_sight |= G.vision_flags
 		set_see_in_dark(max(G.darkness_view, see_in_dark))
@@ -604,6 +713,32 @@
 	if(HAS_TRAIT(src, TRAIT_XRAY_VISION))
 		new_sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 		set_see_in_dark(max(see_in_dark, 8))
+=======
+		new_sight |= glasses.vision_flags
+		if(glasses.invis_override)
+			set_invis_see(glasses.invis_override)
+		else
+			set_invis_see(min(glasses.invis_view, see_invisible))
+		if(!isnull(glasses.lighting_cutoff))
+			lighting_cutoff = max(lighting_cutoff, glasses.lighting_cutoff)
+		if(length(glasses.color_cutoffs))
+			lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, glasses.color_cutoffs)
+
+
+	if(HAS_TRAIT(src, TRAIT_TRUE_NIGHT_VISION))
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_HIGH)
+
+	if(HAS_TRAIT(src, TRAIT_MESON_VISION))
+		new_sight |= SEE_TURFS
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_MEDIUM)
+
+	if(HAS_TRAIT(src, TRAIT_THERMAL_VISION))
+		new_sight |= SEE_MOBS
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_MEDIUM)
+
+	if(HAS_TRAIT(src, TRAIT_XRAY_VISION))
+		new_sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(see_override)
 		set_invis_see(see_override)
@@ -614,6 +749,7 @@
 	set_sight(new_sight)
 	return ..()
 
+<<<<<<< HEAD
 
 //to recalculate and update the mob's total tint from tinted equipment it's wearing.
 /mob/living/carbon/proc/update_tint()
@@ -642,6 +778,36 @@
 
 	else
 		. += INFINITY
+=======
+/**
+ * Calculates how visually impaired the mob is by their equipment and other factors
+ *
+ * This is where clothing adds its various vision limiting effects, such as welding helmets
+ */
+/mob/living/carbon/proc/update_tint()
+	var/tint = 0
+	if(isclothing(head))
+		tint += head.tint
+	if(isclothing(wear_mask))
+		tint += wear_mask.tint
+	if(isclothing(glasses))
+		tint += glasses.tint
+
+	var/obj/item/organ/internal/eyes/eyes = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eyes)
+		tint += eyes.tint
+
+	if(tint >= TINT_BLIND)
+		become_blind(EYES_COVERED)
+
+	else if(tint >= TINT_DARKENED)
+		cure_blind(EYES_COVERED)
+		overlay_fullscreen("tint", /atom/movable/screen/fullscreen/impaired, 2)
+
+	else
+		cure_blind(EYES_COVERED)
+		clear_fullscreen("tint", 0 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //this handles hud updates
 /mob/living/carbon/update_damage_hud()
@@ -858,6 +1024,7 @@
 
 /mob/living/carbon/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	if(excess_healing)
+<<<<<<< HEAD
 		if(dna && !(NOBLOOD in dna.species.species_traits))
 			blood_volume += (excess_healing * 2) //1 excess = 10 blood
 
@@ -865,11 +1032,21 @@
 			if(organ.organ_flags & ORGAN_SYNTHETIC)
 				continue
 			organ.applyOrganDamage(excess_healing * -1) //1 excess = 5 organ damage healed
+=======
+		if(dna && !HAS_TRAIT(src, TRAIT_NOBLOOD))
+			blood_volume += (excess_healing * 2) //1 excess = 10 blood
+
+		for(var/obj/item/organ/organ as anything in organs)
+			if(organ.organ_flags & ORGAN_SYNTHETIC)
+				continue
+			organ.apply_organ_damage(excess_healing * -1) //1 excess = 5 organ damage healed
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return ..()
 
 /mob/living/carbon/heal_and_revive(heal_to = 75, revive_message)
 	// We can't heal them if they're missing a heart
+<<<<<<< HEAD
 	if(needs_heart() && !getorganslot(ORGAN_SLOT_HEART))
 		return FALSE
 
@@ -879,6 +1056,17 @@
 
 	// And we can't heal them if they're missing their liver
 	if(!HAS_TRAIT(src, TRAIT_NOMETABOLISM) && !getorganslot(ORGAN_SLOT_LIVER))
+=======
+	if(needs_heart() && !get_organ_slot(ORGAN_SLOT_HEART))
+		return FALSE
+
+	// We can't heal them if they're missing their lungs
+	if(!HAS_TRAIT(src, TRAIT_NOBREATH) && !isnull(dna?.species.mutantlungs) && !get_organ_slot(ORGAN_SLOT_LUNGS))
+		return FALSE
+
+	// And we can't heal them if they're missing their liver
+	if(!HAS_TRAIT(src, TRAIT_NOMETABOLISM) && !isnull(dna?.species.mutantliver) && !get_organ_slot(ORGAN_SLOT_LIVER))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	return ..()
@@ -901,8 +1089,13 @@
 	if(heal_flags & HEAL_LIMBS)
 		regenerate_limbs()
 
+<<<<<<< HEAD
 	if(heal_flags & HEAL_ORGANS)
 		regenerate_organs()
+=======
+	if(heal_flags & (HEAL_REFRESH_ORGANS|HEAL_ORGANS))
+		regenerate_organs(regenerate_existing = (heal_flags & HEAL_REFRESH_ORGANS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(heal_flags & HEAL_TRAUMAS)
 		cure_all_traumas(TRAUMA_RESILIENCE_MAGIC)
@@ -920,7 +1113,11 @@
 	return ..()
 
 /mob/living/carbon/can_be_revived()
+<<<<<<< HEAD
 	if(!getorgan(/obj/item/organ/internal/brain) && (!mind || !mind.has_antag_datum(/datum/antagonist/changeling)) || HAS_TRAIT(src, TRAIT_HUSK))
+=======
+	if(!get_organ_by_type(/obj/item/organ/internal/brain) && (!mind || !mind.has_antag_datum(/datum/antagonist/changeling)) || HAS_TRAIT(src, TRAIT_HUSK))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 //SKYRAT EDIT ADDITION - DNR TRAIT
 	if(HAS_TRAIT(src, TRAIT_DNR))
@@ -934,8 +1131,12 @@
 	if(HAS_TRAIT(src, TRAIT_DNR)) //This is also added when a ghost DNR's!
 		return DEFIB_FAIL_DNR
 //SKYRAT EDIT ADDITION END - DNR TRAIT
+<<<<<<< HEAD
 
 	if (suiciding)
+=======
+	if (HAS_TRAIT(src, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return DEFIB_FAIL_SUICIDE
 
 	if (HAS_TRAIT(src, TRAIT_HUSK))
@@ -949,7 +1150,11 @@
 
 	// Only check for a heart if they actually need a heart. Who would've thunk
 	if (needs_heart())
+<<<<<<< HEAD
 		var/obj/item/organ/internal/heart = getorgan(/obj/item/organ/internal/heart)
+=======
+		var/obj/item/organ/internal/heart = get_organ_by_type(/obj/item/organ/internal/heart)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if (!heart)
 			return DEFIB_FAIL_NO_HEART
@@ -957,7 +1162,11 @@
 		if (heart.organ_flags & ORGAN_FAILING)
 			return DEFIB_FAIL_FAILING_HEART
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/current_brain = getorgan(/obj/item/organ/internal/brain)
+=======
+	var/obj/item/organ/internal/brain/current_brain = get_organ_by_type(/obj/item/organ/internal/brain)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if (QDELETED(current_brain))
 		return DEFIB_FAIL_NO_BRAIN
@@ -965,7 +1174,11 @@
 	if (current_brain.organ_flags & ORGAN_FAILING)
 		return DEFIB_FAIL_FAILING_BRAIN
 
+<<<<<<< HEAD
 	if (current_brain.suicided || current_brain.brainmob?.suiciding)
+=======
+	if (current_brain.suicided || (current_brain.brainmob && HAS_TRAIT(current_brain.brainmob, TRAIT_SUICIDED)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return DEFIB_FAIL_NO_INTELLIGENCE
 
 	if(key && key[1] == "@") // Adminghosts
@@ -977,20 +1190,39 @@
 	if(QDELETED(src))
 		return
 	var/organs_amt = 0
+<<<<<<< HEAD
 	for(var/obj/item/organ/internal_organ as anything in internal_organs)
 		if(prob(50))
 			organs_amt++
 			internal_organ.Remove(src)
 			internal_organ.forceMove(drop_location())
+=======
+	for(var/obj/item/organ/organ as anything in organs)
+		if(prob(50))
+			organs_amt++
+			organ.Remove(src)
+			organ.forceMove(drop_location())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(organs_amt)
 		to_chat(user, span_notice("You retrieve some of [src]\'s internal organs!"))
 	remove_all_embedded_objects()
 
+<<<<<<< HEAD
 /mob/living/carbon/proc/create_bodyparts()
 	var/l_arm_index_next = -1
 	var/r_arm_index_next = 0
 	for(var/bodypart_path in bodyparts)
 		var/obj/item/bodypart/bodypart_instance = new bodypart_path()
+=======
+/// Creates body parts for this carbon completely from scratch.
+/// Optionally takes a map of body zones to what type to instantiate instead of them.
+/mob/living/carbon/proc/create_bodyparts(list/overrides)
+	var/l_arm_index_next = -1
+	var/r_arm_index_next = 0
+	for(var/obj/item/bodypart/bodypart_path as anything in bodyparts)
+		var/real_body_part_path = overrides?[initial(bodypart_path.body_zone)] || bodypart_path
+		var/obj/item/bodypart/bodypart_instance = new real_body_part_path()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		bodypart_instance.set_owner(src)
 		bodyparts.Remove(bodypart_path)
 		add_bodypart(bodypart_instance)
@@ -1040,7 +1272,11 @@
 
 
 /mob/living/carbon/proc/create_internal_organs()
+<<<<<<< HEAD
 	for(var/obj/item/organ/internal/internal_organ in internal_organs)
+=======
+	for(var/obj/item/organ/internal/internal_organ in organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		internal_organ.Insert(src)
 
 /proc/cmp_organ_slot_asc(slot_a, slot_b)
@@ -1091,7 +1327,11 @@
 			switch(edit_action)
 				if("remove")
 					if(BP)
+<<<<<<< HEAD
 						BP.drop_limb(special = TRUE)
+=======
+						BP.drop_limb()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						admin_ticket_log("[key_name_admin(usr)] has removed [src]'s [parse_zone(BP.body_zone)]")
 					else
 						to_chat(usr, span_boldwarning("[src] doesn't have such bodypart."))
@@ -1168,7 +1408,11 @@
 		return FALSE
 	if(has_status_effect(/datum/status_effect/hallucination))
 		return TRUE
+<<<<<<< HEAD
 	if(IsSleeping())
+=======
+	if(IsSleeping() || IsUnconscious())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_DUMB))
 		return TRUE
@@ -1195,7 +1439,11 @@
 	var/obscured = check_obscured_slots()
 
 	// If the eyes are covered by anything but glasses, that thing will be covering any potential glasses as well.
+<<<<<<< HEAD
 	if(glasses && is_eyes_covered(FALSE, TRUE, TRUE) && glasses.wash(clean_types))
+=======
+	if(glasses && is_eyes_covered(ITEM_SLOT_MASK|ITEM_SLOT_HEAD) && glasses.wash(clean_types))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_worn_glasses()
 		. = TRUE
 
@@ -1264,6 +1512,7 @@
 /mob/living/carbon/is_face_visible()
 	return !(wear_mask?.flags_inv & HIDEFACE) && !(head?.flags_inv & HIDEFACE)
 
+<<<<<<< HEAD
 /**
  * get_biological_state is a helper used to see what kind of wounds we roll for. By default we just assume carbons (read:monkeys) are flesh and bone, but humans rely on their species datums
  *
@@ -1272,6 +1521,8 @@
 /mob/living/carbon/proc/get_biological_state()
 	return BIO_FLESH_BONE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Returns whether or not the carbon should be able to be shocked
 /mob/living/carbon/proc/should_electrocute(power_source)
 	if (ismecha(loc))
@@ -1296,7 +1547,11 @@
 /mob/living/carbon/proc/adjust_skillchip_complexity_modifier(delta)
 	skillchip_complexity_modifier += delta
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/brain = getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!brain)
 		return

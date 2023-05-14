@@ -42,7 +42,11 @@
 	show_options(user)
 
 /obj/item/summon_beacon/proc/can_use_beacon(mob/living/user)
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	else
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
@@ -90,6 +94,15 @@
 	if(confirmed != "Yes")
 		return
 
+<<<<<<< HEAD
+=======
+	if(!uses)
+		return
+
+	uses -= 1
+	balloon_alert(user, "[uses] use[uses == 1 ? "" : "s"] left!")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	podspawn(list(
 		"target" = get_turf(target),
 		"path" = supply_pod_stay ? /obj/structure/closet/supplypod/podspawn/no_return : /obj/structure/closet/supplypod/podspawn,
@@ -105,11 +118,16 @@
 				[span_bold("Request received. Pod inbound, please stand back from the landing site.")] \
 				Message ends.\""))
 
+<<<<<<< HEAD
 	uses--
 	if(!uses)
 		qdel(src)
 	else
 		balloon_alert(user, "[uses] use[uses > 1 ? "s" : ""] left!")
+=======
+	if(!uses)
+		qdel(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Misc stuff here
 

@@ -217,16 +217,33 @@
 	name = "mail crate"
 	desc = "A certified post crate from CentCom."
 	icon_state = "mail"
+<<<<<<< HEAD
 	can_install_electronics = FALSE
+=======
+	base_icon_state = "mail"
+	can_install_electronics = FALSE
+	lid_icon_state = "maillid"
+	lid_x = -26
+	lid_y = 2
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/mail/update_icon_state()
 	. = ..()
 	if(opened)
+<<<<<<< HEAD
 		icon_state = "[initial(icon_state)]open"
 		if(locate(/obj/item/mail) in src)
 			icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]sealed"
+=======
+		icon_state = "[base_icon_state]open"
+		if(locate(/obj/item/mail) in src)
+			icon_state = base_icon_state
+	else
+		icon_state = "[base_icon_state]sealed"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Fills this mail crate with N pieces of mail, where N is the lower of the amount var passed, and the maximum capacity of this crate. If N is larger than the number of alive human players, the excess will be junkmail.
 /obj/structure/closet/crate/mail/proc/populate(amount)
@@ -274,6 +291,14 @@
 	populate(INFINITY)
 
 
+<<<<<<< HEAD
+=======
+/// Opened mail crate
+/obj/structure/closet/crate/mail/preopen
+	opened = TRUE
+	icon_state = "mailopen"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Mailbag.
 /obj/item/storage/bag/mail
 	name = "mail bag"

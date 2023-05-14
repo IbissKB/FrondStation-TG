@@ -33,12 +33,20 @@ SUBSYSTEM_DEF(mobs)
 	//cache for sanic speed (lists are references anyways)
 	var/list/currentrun = src.currentrun
 	var/times_fired = src.times_fired
+<<<<<<< HEAD
 	var/delta_time = wait / (1 SECONDS) // TODO: Make this actually responsive to stuff like pausing and resuming
+=======
+	var/seconds_per_tick = wait / (1 SECONDS) // TODO: Make this actually responsive to stuff like pausing and resuming
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	while(currentrun.len)
 		var/mob/living/L = currentrun[currentrun.len]
 		currentrun.len--
 		if(L)
+<<<<<<< HEAD
 			L.Life(delta_time, times_fired)
+=======
+			L.Life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			GLOB.mob_living_list.Remove(L)
 		if (MC_TICK_CHECK)

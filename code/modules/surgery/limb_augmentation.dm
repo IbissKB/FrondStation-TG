@@ -81,6 +81,11 @@
 				)
 				tool.forceMove(target.loc)
 				return
+<<<<<<< HEAD
+=======
+		if(tool.check_for_frankenstein(target))
+			tool.bodypart_flags |= BODYPART_IMPLANTED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		display_results(
 			user,
 			target,

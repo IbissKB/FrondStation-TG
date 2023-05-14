@@ -62,6 +62,11 @@
 			/area/station/security/prison,\
 			/area/station/security/range,\
 			/area/station/security/checkpoint,\
+<<<<<<< HEAD
+=======
+			/area/station/security/tram,\
+			/area/station/security/breakroom,\
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			/area/station/security/interrogation))
 		for (var/area_type in possible_areas)
 			if(GLOB.areas_by_type[area_type])

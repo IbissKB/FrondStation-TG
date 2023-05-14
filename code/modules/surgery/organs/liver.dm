@@ -90,23 +90,39 @@
 #define HAS_NO_TOXIN 1
 #define HAS_PAINFUL_TOXIN 2
 
+<<<<<<< HEAD
 /obj/item/organ/internal/liver/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/liver/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/liver_owner = owner
 	. = ..() //perform general on_life()
 
 	if(!istype(liver_owner))
 		return
 	if(organ_flags & ORGAN_FAILING || HAS_TRAIT(liver_owner, TRAIT_NOMETABOLISM)) //If your liver is failing or you lack a metabolism then we use the liverless version of metabolize
+<<<<<<< HEAD
 		liver_owner.reagents.metabolize(liver_owner, delta_time, times_fired, can_overdose=TRUE, liverless=TRUE)
 		return
 
 	var/obj/belly = liver_owner.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+		liver_owner.reagents.metabolize(liver_owner, seconds_per_tick, times_fired, can_overdose=TRUE, liverless=TRUE)
+		return
+
+	var/obj/belly = liver_owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/cached_reagents = liver_owner.reagents.reagent_list
 	var/liver_damage = 0
 	var/provide_pain_message = HAS_NO_TOXIN
 
 	if(filterToxins && !HAS_TRAIT(liver_owner, TRAIT_TOXINLOVER))
 		for(var/datum/reagent/toxin/toxin in cached_reagents)
+<<<<<<< HEAD
+=======
+			if(status != toxin.affected_organtype) //this particular toxin does not affect this type of organ
+				continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/amount = round(toxin.volume, CHEMICAL_QUANTISATION_LEVEL) // this is an optimization
 			if(belly)
 				amount += belly.reagents.get_reagent_amount(toxin.type)
@@ -117,6 +133,7 @@
 			if(provide_pain_message != HAS_PAINFUL_TOXIN)
 				provide_pain_message = toxin.silent_toxin ? HAS_SILENT_TOXIN : HAS_PAINFUL_TOXIN
 
+<<<<<<< HEAD
 	liver_owner.reagents.metabolize(liver_owner, delta_time, times_fired, can_overdose=TRUE)
 
 	if(liver_damage)
@@ -127,11 +144,27 @@
 
 
 /obj/item/organ/internal/liver/handle_failing_organs(delta_time)
+=======
+	liver_owner.reagents.metabolize(liver_owner, seconds_per_tick, times_fired, can_overdose=TRUE)
+
+	if(liver_damage)
+		apply_organ_damage(min(liver_damage * seconds_per_tick , MAX_TOXIN_LIVER_DAMAGE * seconds_per_tick))
+
+	if(provide_pain_message && damage > 10 && SPT_PROB(damage/6, seconds_per_tick)) //the higher the damage the higher the probability
+		to_chat(liver_owner, span_warning("You feel a dull pain in your abdomen."))
+
+
+/obj/item/organ/internal/liver/handle_failing_organs(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(HAS_TRAIT(owner, TRAIT_STABLELIVER) || HAS_TRAIT(owner, TRAIT_NOMETABOLISM))
 		return
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/organ/internal/liver/organ_failure(delta_time)
+=======
+/obj/item/organ/internal/liver/organ_failure(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(failure_time/LIVER_FAILURE_STAGE_SECONDS)
 		if(1)
 			to_chat(owner, span_userdanger("You feel stabbing pain in your abdomen!"))
@@ -155,6 +188,7 @@
 	switch(failure_time)
 		//After 60 seconds we begin to feel the effects
 		if(1 * LIVER_FAILURE_STAGE_SECONDS to 2 * LIVER_FAILURE_STAGE_SECONDS - 1)
+<<<<<<< HEAD
 			owner.adjustToxLoss(0.2 * delta_time,forced = TRUE)
 			owner.adjust_disgust(0.1 * delta_time)
 
@@ -179,6 +213,32 @@
 			owner.adjust_disgust(1.2 * delta_time)
 
 			if(DT_PROB(3, delta_time))
+=======
+			owner.adjustToxLoss(0.2 * seconds_per_tick,forced = TRUE)
+			owner.adjust_disgust(0.1 * seconds_per_tick)
+
+		if(2 * LIVER_FAILURE_STAGE_SECONDS to 3 * LIVER_FAILURE_STAGE_SECONDS - 1)
+			owner.adjustToxLoss(0.4 * seconds_per_tick,forced = TRUE)
+			owner.adjust_drowsiness(0.5 SECONDS * seconds_per_tick)
+			owner.adjust_disgust(0.3 * seconds_per_tick)
+
+		if(3 * LIVER_FAILURE_STAGE_SECONDS to 4 * LIVER_FAILURE_STAGE_SECONDS - 1)
+			owner.adjustToxLoss(0.6 * seconds_per_tick,forced = TRUE)
+			owner.adjustOrganLoss(pick(ORGAN_SLOT_HEART,ORGAN_SLOT_LUNGS,ORGAN_SLOT_STOMACH,ORGAN_SLOT_EYES,ORGAN_SLOT_EARS),0.2 * seconds_per_tick)
+			owner.adjust_drowsiness(1 SECONDS * seconds_per_tick)
+			owner.adjust_disgust(0.6 * seconds_per_tick)
+
+			if(SPT_PROB(1.5, seconds_per_tick))
+				owner.emote("drool")
+
+		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
+			owner.adjustToxLoss(0.8 * seconds_per_tick,forced = TRUE)
+			owner.adjustOrganLoss(pick(ORGAN_SLOT_HEART,ORGAN_SLOT_LUNGS,ORGAN_SLOT_STOMACH,ORGAN_SLOT_EYES,ORGAN_SLOT_EARS),0.5 * seconds_per_tick)
+			owner.adjust_drowsiness(1.6 SECONDS * seconds_per_tick)
+			owner.adjust_disgust(1.2 * seconds_per_tick)
+
+			if(SPT_PROB(3, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				owner.emote("drool")
 
 /obj/item/organ/internal/liver/on_owner_examine(datum/source, mob/user, list/examine_list)
@@ -186,7 +246,11 @@
 		return
 
 	var/mob/living/carbon/human/humie_owner = owner
+<<<<<<< HEAD
 	if(!humie_owner.getorganslot(ORGAN_SLOT_EYES) || humie_owner.is_eyes_covered())
+=======
+	if(!humie_owner.get_organ_slot(ORGAN_SLOT_EYES) || humie_owner.is_eyes_covered())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	switch(failure_time)
 		if(0 to 3 * LIVER_FAILURE_STAGE_SECONDS - 1)
@@ -196,6 +260,7 @@
 		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
 			examine_list += span_danger("[owner]'s eyes are completely yellow and swelling with pus. [owner.p_they(TRUE)] [owner.p_do()]n't look like [owner.p_they()] will be alive for much longer.")
 
+<<<<<<< HEAD
 /obj/item/organ/internal/liver/on_death(delta_time, times_fired)
 	. = ..()
 	var/mob/living/carbon/carbon_owner = owner
@@ -212,11 +277,19 @@
 
 /obj/item/organ/internal/liver/get_availability(datum/species/species)
 	return !(TRAIT_NOMETABOLISM in species.inherent_traits)
+=======
+/obj/item/organ/internal/liver/get_availability(datum/species/owner_species, mob/living/owner_mob)
+	return owner_species.mutantliver
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/liver/plasmaman
 	name = "reagent processing crystal"
 	icon_state = "liver-p"
 	desc = "A large crystal that is somehow capable of metabolizing chemicals, these are found in plasmamen."
+<<<<<<< HEAD
+=======
+	status = ORGAN_MINERAL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // alien livers can ignore up to 15u of toxins, but they take x3 liver damage
 /obj/item/organ/internal/liver/alien

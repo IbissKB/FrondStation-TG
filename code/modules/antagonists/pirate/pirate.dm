@@ -2,6 +2,10 @@
 	name = "\improper Space Pirate"
 	job_rank = ROLE_TRAITOR
 	roundend_category = "space pirates"
+<<<<<<< HEAD
+=======
+	antagpanel_category = ANTAG_GROUP_PIRATES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
 	suicide_cry = "FOR ME MATEYS!!"
@@ -10,7 +14,11 @@
 
 /datum/antagonist/pirate/greet()
 	. = ..()
+<<<<<<< HEAD
 	to_chat(owner, "<B>The station refused to pay for your protection, protect the ship, siphon the credits from the station and raid it for even more loot.</B>")
+=======
+	to_chat(owner, "<B>The station refused to pay for your protection. Protect the ship, siphon the credits from the station, and raid it for even more loot.</B>")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	owner.announce_objectives()
 
 /datum/antagonist/pirate/get_team()
@@ -71,7 +79,11 @@
 
 /datum/objective/loot
 	var/obj/machinery/computer/piratepad_control/cargo_hold
+<<<<<<< HEAD
 	explanation_text = "Acquire valuable loot and store it in designated area."
+=======
+	explanation_text = "Acquire valuable loot and store it in the designated area."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/target_value = 50000
 
 

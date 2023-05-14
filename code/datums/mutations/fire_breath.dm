@@ -18,6 +18,11 @@
 		return
 
 	if(GET_MUTATION_POWER(src) <= 1) // we only care about power from here on
+<<<<<<< HEAD
+=======
+		to_modify.cone_levels = initial(to_modify.cone_levels) //resets to default if no power chromosome
+		to_modify.self_throw_range = initial(to_modify.self_throw_range)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	to_modify.cone_levels += 2  // Cone fwooshes further, and...

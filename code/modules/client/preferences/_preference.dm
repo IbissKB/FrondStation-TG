@@ -508,7 +508,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	return rand(minimum, maximum)
 
 /datum/preference/numeric/is_valid(value)
+<<<<<<< HEAD
 	return isnum(value) && value >= minimum && value <= maximum
+=======
+	return isnum(value) && value >= round(minimum, step) && value <= round(maximum, step)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preference/numeric/compile_constant_data()
 	return list(

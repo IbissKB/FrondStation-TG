@@ -82,6 +82,11 @@
     )
   );
 
+<<<<<<< HEAD
   // Goonchat styles
   @include meta.load-css('../goon/chat-light.scss');
+=======
+  // tgchat styles
+  @include meta.load-css('../tgchat/chat-light.scss');
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 }

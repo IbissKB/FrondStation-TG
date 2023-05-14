@@ -59,8 +59,13 @@
 	opacity = TRUE
 	anchored = TRUE
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN)
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_RESIN)
+=======
+	smoothing_groups = SMOOTH_GROUP_ALIEN_RESIN
+	canSmoothWith = SMOOTH_GROUP_ALIEN_RESIN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 200
 	var/resintype = null
 	can_atmos_pass = ATMOS_PASS_DENSITY
@@ -86,8 +91,13 @@
 	icon_state = "resin_wall-0"
 	base_icon_state = "resin_wall"
 	resintype = "wall"
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
+=======
+	smoothing_groups = SMOOTH_GROUP_ALIEN_WALLS + SMOOTH_GROUP_ALIEN_RESIN
+	canSmoothWith = SMOOTH_GROUP_ALIEN_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/alien/resin/wall/block_superconductivity()
 	return 1
@@ -111,8 +121,13 @@
 	opacity = FALSE
 	max_integrity = 160
 	resintype = "membrane"
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
+=======
+	smoothing_groups = SMOOTH_GROUP_ALIEN_WALLS + SMOOTH_GROUP_ALIEN_RESIN
+	canSmoothWith = SMOOTH_GROUP_ALIEN_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/alien/resin/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
@@ -142,8 +157,13 @@
 	base_icon_state = "weeds1"
 	max_integrity = 15
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WEEDS)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_ALIEN_WEEDS)
+=======
+	smoothing_groups = SMOOTH_GROUP_ALIEN_WEEDS + SMOOTH_GROUP_ALIEN_RESIN
+	canSmoothWith = SMOOTH_GROUP_ALIEN_WEEDS + SMOOTH_GROUP_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///the range of the weeds going to be affected by the node
 	var/node_range = NODERANGE
 	///the parent node that will determine if we grow or die
@@ -323,6 +343,10 @@
 #define BURST "burst"
 #define GROWING "growing"
 #define GROWN "grown"
+<<<<<<< HEAD
+=======
+#define FAKE "fake"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define MIN_GROWTH_TIME 900 //time it takes to grow a hugger
 #define MAX_GROWTH_TIME 1500
 
@@ -363,6 +387,11 @@
 			icon_state = "[base_icon_state]"
 		if(BURST)
 			icon_state = "[base_icon_state]_hatched"
+<<<<<<< HEAD
+=======
+		if(FAKE)
+			icon_state = "[base_icon_state]_growing"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/structure/alien/egg/attack_paw(mob/living/user, list/modifiers)
@@ -375,7 +404,11 @@
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
 	if(user.getorgan(/obj/item/organ/internal/alien/plasmavessel))
+=======
+	if(user.get_organ_by_type(/obj/item/organ/internal/alien/plasmavessel))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		switch(status)
 			if(BURSTING)
 				to_chat(user, span_notice("The child is hatching out."))
@@ -443,7 +476,11 @@
 			return
 
 		var/mob/living/carbon/C = AM
+<<<<<<< HEAD
 		if(C.stat == CONSCIOUS && C.getorgan(/obj/item/organ/internal/body_egg/alien_embryo))
+=======
+		if(C.stat == CONSCIOUS && C.get_organ_by_type(/obj/item/organ/internal/body_egg/alien_embryo))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 
 		Burst(kill=FALSE)
@@ -456,6 +493,15 @@
 	status = BURST
 	icon_state = "egg_hatched"
 
+<<<<<<< HEAD
+=======
+/obj/structure/alien/egg/fake
+	status = FAKE
+	icon_state = "egg_growing"
+	layer = LOW_ITEM_LAYER
+
+#undef FAKE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef BURSTING
 #undef BURST
 #undef GROWING

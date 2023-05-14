@@ -33,10 +33,15 @@
 	freerange = 1;
 	name = "Pirate Radio Listening Channel"
 	},
+<<<<<<< HEAD
 /obj/structure/window{
 	dir = 8
 	},
 /obj/structure/window,
+=======
+/obj/structure/window/spawner/directional/west,
+/obj/structure/window/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/djstation)
 "q" = (
@@ -55,7 +60,11 @@
 "v" = (
 /obj/structure/table,
 /obj/item/paper/fluff/ruins/djstation,
+<<<<<<< HEAD
 /obj/structure/window,
+=======
+/obj/structure/window/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/djstation)
 "w" = (
@@ -72,9 +81,13 @@
 	freerange = 1;
 	name = "Pirate Radio Listening Channel"
 	},
+<<<<<<< HEAD
 /obj/structure/window{
 	dir = 8
 	},
+=======
+/obj/structure/window/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/djstation)
@@ -104,10 +117,15 @@
 	listening = 0;
 	name = "Pirate Radio Broadcast Channel"
 	},
+<<<<<<< HEAD
 /obj/structure/window{
 	dir = 4
 	},
 /obj/structure/window,
+=======
+/obj/structure/window/spawner/directional/east,
+/obj/structure/window/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/djstation)
 "U" = (

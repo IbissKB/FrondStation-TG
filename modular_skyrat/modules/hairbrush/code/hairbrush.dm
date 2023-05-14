@@ -28,7 +28,11 @@
 		if(!head)
 			to_chat(user, span_warning("[human_target] has no head!"))
 			return
+<<<<<<< HEAD
 		if(human_target.is_mouth_covered(head_only = TRUE))
+=======
+		if(human_target.is_mouth_covered(ITEM_SLOT_HEAD))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_warning("You can't brush [human_target]'s hair while [human_target.p_their()] head is covered!"))
 			return
 		if(!do_after(user, brush_speed, human_target))

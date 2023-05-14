@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 // Flags for [/obj/item/grenade/var/dud_flags]
 /// The grenade cannot detonate at all. It is innately nonfunctional.
 #define GRENADE_DUD (1<<0)
 /// The grenade has been used and as such cannot detonate.
 #define GRENADE_USED (1<<1)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Base class for all grenades.
  */
@@ -134,7 +137,11 @@
 		AddComponent(/datum/component/pellet_cloud, projectile_type = shrapnel_type, magnitude = shrapnel_radius)
 	playsound(src, 'sound/weapons/armbomb.ogg', volume, TRUE)
 	if(istype(user))
+<<<<<<< HEAD
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
+=======
+		user.add_mob_memory(/datum/memory/bomb_planted, antagonist = src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	active = TRUE
 	icon_state = initial(icon_state) + "_active"
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
@@ -202,7 +209,11 @@
 	var/newtime = tgui_input_list(user, "Please enter a new detonation time", "Detonation Timer", list("Instant", 3, 4, 5))
 	if (isnull(newtime))
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(newtime == "Instant" && change_det_time(0))
 		to_chat(user, span_notice("You modify the time delay. It's set to be instantaneous."))
@@ -237,7 +248,11 @@
 		var/turf/source_turf = get_turf(src)
 		var/logmsg = "held a grenade detonated by a projectile ([hitby]) at [COORD(source_turf)]"
 		owner.log_message(logmsg, LOG_GAME)
+<<<<<<< HEAD
 		owner.log_message(logmsg, LOG_VICTIM)
+=======
+		owner.log_message(logmsg, LOG_VICTIM, log_globally = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		message_admins("A projectile ([hitby]) detonated a grenade held by [key_name_admin(owner)] at [ADMIN_COORDJMP(source_turf)]")
 		detonate()
 
@@ -249,3 +264,7 @@
 	. = ..()
 	if(active)
 		user.throw_item(target)
+<<<<<<< HEAD
+=======
+		return . | AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

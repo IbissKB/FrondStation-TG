@@ -4,7 +4,11 @@
 	var/turf/actual_destination = get_teleport_turf(destination, accuracy)
 	var/obj/effect/portal/P1 = new newtype(source, _lifespan, null, FALSE, null)
 	var/obj/effect/portal/P2 = new newtype(actual_destination, _lifespan, P1, TRUE, null)
+<<<<<<< HEAD
 	if(!istype(P1)||!istype(P2))
+=======
+	if(!istype(P1) || !istype(P2))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	P1.link_portal(P2)
 	P1.hardlinked = TRUE
@@ -183,4 +187,9 @@
 
 /obj/effect/portal/permanent/one_way/one_use/teleport(atom/movable/M, force = FALSE)
 	. = ..()
+<<<<<<< HEAD
 	qdel(src)
+=======
+	if (. && !isdead(M))
+		qdel(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

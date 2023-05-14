@@ -67,6 +67,20 @@
 	var/lip_style
 	var/lip_color = "white"
 
+<<<<<<< HEAD
+=======
+	/// Offset to apply to equipment worn on the ears
+	var/datum/worn_feature_offset/worn_ears_offset
+	/// Offset to apply to equipment worn on the eyes
+	var/datum/worn_feature_offset/worn_glasses_offset
+	/// Offset to apply to equipment worn on the mouth
+	var/datum/worn_feature_offset/worn_mask_offset
+	/// Offset to apply to equipment worn on the head
+	var/datum/worn_feature_offset/worn_head_offset
+	/// Offset to apply to overlays placed on the face
+	var/datum/worn_feature_offset/worn_face_offset
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/stored_lipstick_trait
 	///The image for hair
 	var/mutable_appearance/hair_overlay
@@ -77,17 +91,29 @@
 	///The image for facial hair gradient
 	var/mutable_appearance/facial_gradient_overlay
 
+<<<<<<< HEAD
 	var/is_blushing = FALSE
 	var/face_offset_x = 0
 	var/face_offset_y = 0
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bodypart/head/Destroy()
 	QDEL_NULL(brainmob) //order is sensitive, see warning in handle_atom_del() below
 	QDEL_NULL(brain)
 	QDEL_NULL(eyes)
 	QDEL_NULL(ears)
 	QDEL_NULL(tongue)
+<<<<<<< HEAD
+=======
+
+	QDEL_NULL(worn_ears_offset)
+	QDEL_NULL(worn_glasses_offset)
+	QDEL_NULL(worn_mask_offset)
+	QDEL_NULL(worn_head_offset)
+	QDEL_NULL(worn_face_offset)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/bodypart/head/handle_atom_del(atom/head_atom)
@@ -113,7 +139,11 @@
 	if(IS_ORGANIC_LIMB(src) && show_organs_on_examine)
 		if(!brain)
 			. += span_info("The brain has been removed from [src].")
+<<<<<<< HEAD
 		else if(brain.suicided || brainmob?.suiciding)
+=======
+		else if(brain.suicided || (brainmob && HAS_TRAIT(brainmob, TRAIT_SUICIDED)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			. += span_info("There's a miserable expression on [real_name]'s face; they must have really hated life. There's no hope of recovery.")
 		else if(brainmob?.health <= HEALTH_THRESHOLD_DEAD)
 			. += span_info("It's leaking some kind of... clear fluid? The brain inside must be in pretty bad shape.")
@@ -155,7 +185,11 @@
 				brainmob = null
 			if(violent_removal && prob(rand(80, 100))) //ghetto surgery can damage the brain.
 				to_chat(user, span_warning("[brain] was damaged in the process!"))
+<<<<<<< HEAD
 				brain.setOrganDamage(brain.maxHealth)
+=======
+				brain.set_organ_damage(brain.maxHealth)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			brain.forceMove(drop_loc)
 			brain = null
 			update_icon_dropped()
@@ -174,8 +208,11 @@
 
 	return ..()
 
+<<<<<<< HEAD
 #define OFFSET_X 1
 #define OFFSET_Y 2
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bodypart/head/update_limb(dropping_limb, is_creating)
 	. = ..()
 
@@ -188,6 +225,7 @@
 		stored_lipstick_trait = null
 	update_hair_and_lips()
 
+<<<<<<< HEAD
 	if(OFFSET_FACE in owner.dna?.species.offset_features)
 		var/offset = owner.dna.species.offset_features[OFFSET_FACE]
 		face_offset_x = offset[OFFSET_X]
@@ -197,12 +235,15 @@
 
 #undef OFFSET_X
 #undef OFFSET_Y
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/item/bodypart/head/get_limb_icon(dropped, draw_external_organs)
 	cut_overlays()
 	. = ..()
 
+<<<<<<< HEAD
 	// Blush emote overlay
 	if (is_blushing)
 		var/mutable_appearance/blush_overlay = mutable_appearance('icons/mob/species/human/human_face.dmi', "blush", -BODY_ADJ_LAYER) // Should appear behind the eyes
@@ -211,6 +252,8 @@
 		blush_overlay.pixel_y += face_offset_y
 		. += blush_overlay
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(dropped) //certain overlays only appear when the limb is being detached from its owner.
 
 		if(IS_ORGANIC_LIMB(src)) //having a robotic head hides certain features.
@@ -223,6 +266,7 @@
 					facial_overlay.alpha = hair_alpha
 					. += facial_overlay
 
+<<<<<<< HEAD
 			if(!eyes)
 				. += image('icons/mob/species/human/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
 
@@ -239,6 +283,16 @@
 					debrain_overlay.icon = 'icons/mob/species/human/human_face.dmi'
 					debrain_overlay.icon_state = "debrained"
 				. += debrain_overlay
+=======
+			if(!eyes && !(NOEYEHOLES in species_flags_list) && !(NOEYESPRITES in species_flags_list))
+				var/image/no_eyes = image('icons/mob/species/human/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
+				worn_glasses_offset?.apply_offset(no_eyes)
+				. += no_eyes
+
+			//Applies the debrained overlay if there is no brain
+			if(!brain)
+				. += get_debrain_overlay(can_rotate = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else
 				var/datum/sprite_accessory/sprite2 = GLOB.hairstyles_list[hair_style]
 				if(sprite2 && (HAIR in species_flags_list))
@@ -255,13 +309,27 @@
 			. += lips_overlay
 
 		// eyes
+<<<<<<< HEAD
 		if(eyes) // This is a bit of copy/paste code from eyes.dm:generate_body_overlay
+=======
+		if(eyes && eyes.eye_icon_state && !(NOEYESPRITES in species_flags_list)) // This is a bit of copy/paste code from eyes.dm:generate_body_overlay
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/image/eye_left = image('icons/mob/species/human/human_face.dmi', "[eyes.eye_icon_state]_l", -BODY_LAYER, SOUTH)
 			var/image/eye_right = image('icons/mob/species/human/human_face.dmi', "[eyes.eye_icon_state]_r", -BODY_LAYER, SOUTH)
 			if(eyes.eye_color_left)
 				eye_left.color = eyes.eye_color_left
 			if(eyes.eye_color_right)
 				eye_right.color = eyes.eye_color_right
+<<<<<<< HEAD
+=======
+
+			// SKYRAT EDIT START - Customization (darn synths I swear)
+			if(eyes.eye_icon_state == "None")
+				eye_left.alpha = 0
+				eye_right.alpha = 0
+			// SKYRAT EDIT END
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			. += eye_left
 			. += eye_right
 	else
@@ -272,7 +340,11 @@
 				. += facial_gradient_overlay
 
 		if(show_debrained)
+<<<<<<< HEAD
 			. += mutable_appearance('icons/mob/species/human/human_face.dmi', "debrained", HAIR_LAYER)
+=======
+			. += get_debrain_overlay(can_rotate = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		else if(!hair_hidden && hair_overlay && (HAIR in species_flags_list))
 			hair_overlay.alpha = hair_alpha
@@ -280,6 +352,32 @@
 			if(hair_gradient_overlay)
 				. += hair_gradient_overlay
 
+<<<<<<< HEAD
+=======
+/// Returns an appropriate debrained icon state
+/obj/item/bodypart/head/proc/get_debrain_overlay(can_rotate = TRUE)
+	var/debrain_icon = 'icons/mob/species/human/human_face.dmi'
+	var/debrain_icon_state = "debrained"
+	if(bodytype & BODYTYPE_ALIEN)
+		debrain_icon = 'icons/mob/species/alien/bodyparts.dmi'
+		debrain_icon_state = "debrained_alien"
+	else if(bodytype & BODYTYPE_LARVA_PLACEHOLDER)
+		debrain_icon = 'icons/mob/species/alien/bodyparts.dmi'
+		debrain_icon_state = "debrained_larva"
+	else if(bodytype & BODYTYPE_GOLEM)
+		debrain_icon = 'icons/mob/species/golems.dmi'
+		debrain_icon_state = "debrained"
+	else if((TRAIT_NOBLOOD in species_flags_list))
+		return null
+
+	var/image/debrain_overlay
+	if (can_rotate)
+		debrain_overlay = mutable_appearance(debrain_icon, debrain_icon_state, HAIR_LAYER)
+	else
+		debrain_overlay = image(debrain_icon, debrain_icon_state, -HAIR_LAYER, SOUTH)
+	return debrain_overlay
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/proc/set_haircolor(hex_string, override)
 	return
 
@@ -319,6 +417,12 @@
 
 /obj/item/bodypart/head/monkey
 	icon = 'icons/mob/species/monkey/bodyparts.dmi'
+<<<<<<< HEAD
+=======
+	icon_static = 'icons/mob/species/monkey/bodyparts.dmi'
+	icon_husk = 'icons/mob/species/monkey/bodyparts.dmi'
+	husk_type = "monkey"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "default_monkey_head"
 	limb_id = SPECIES_MONKEY
 	bodytype = BODYTYPE_MONKEY | BODYTYPE_ORGANIC
@@ -335,7 +439,11 @@
 	should_draw_greyscale = FALSE
 	px_x = 0
 	px_y = 0
+<<<<<<< HEAD
 	dismemberable = FALSE
+=======
+	bodypart_flags = BODYPART_UNREMOVABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_damage = 500
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ALIEN | BODYTYPE_ORGANIC
 
@@ -348,6 +456,10 @@
 	should_draw_greyscale = FALSE
 	px_x = 0
 	px_y = 0
+<<<<<<< HEAD
 	dismemberable = FALSE
+=======
+	bodypart_flags = BODYPART_UNREMOVABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_damage = 50
 	bodytype = BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_ORGANIC

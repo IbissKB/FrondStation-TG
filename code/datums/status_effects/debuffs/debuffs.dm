@@ -30,6 +30,7 @@
 	. = ..()
 	if(!.)
 		return
+<<<<<<< HEAD
 	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_IMMOBILIZED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_HANDS_BLOCKED, TRAIT_STATUS_EFFECT(id))
@@ -41,6 +42,14 @@
 	return ..()
 
 
+=======
+	owner.add_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/incapacitating/stun/on_remove()
+	owner.remove_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), TRAIT_STATUS_EFFECT(id))
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //KNOCKDOWN
 /datum/status_effect/incapacitating/knockdown
 	id = "knockdown"
@@ -79,6 +88,7 @@
 	. = ..()
 	if(!.)
 		return
+<<<<<<< HEAD
 	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_IMMOBILIZED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
@@ -89,6 +99,12 @@
 	REMOVE_TRAIT(owner, TRAIT_IMMOBILIZED, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(owner, TRAIT_HANDS_BLOCKED, TRAIT_STATUS_EFFECT(id))
+=======
+	owner.add_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_FLOORED, TRAIT_HANDS_BLOCKED), TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/incapacitating/paralyzed/on_remove()
+	owner.remove_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_FLOORED, TRAIT_HANDS_BLOCKED), TRAIT_STATUS_EFFECT(id))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 //INCAPACITATED
@@ -192,7 +208,11 @@
 		var/is_sleeping_in_darkness = rest_turf.get_lumcount() <= LIGHTING_TILE_IS_DARK
 
 		// sleeping with a blindfold or in the dark helps us rest
+<<<<<<< HEAD
 		if(HAS_TRAIT_FROM(owner, TRAIT_BLIND, BLINDFOLD_TRAIT) || is_sleeping_in_darkness)
+=======
+		if(owner.is_blind_from(EYES_COVERED) || is_sleeping_in_darkness)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			healing += 0.1
 
 		// sleeping in silence is always better
@@ -206,11 +226,20 @@
 			healing += 0.1
 
 		// don't forget the bedsheet
+<<<<<<< HEAD
 		for(var/obj/item/bedsheet/bedsheet in range(owner.loc,0))
 			if(bedsheet.loc != owner.loc) //bedsheets in your backpack/neck don't give you comfort
 				continue
 			healing += 0.1
 			break //Only count the first bedsheet
+=======
+		if(locate(/obj/item/bedsheet) in owner.loc)
+			healing += 0.1
+
+		// you forgot the pillow
+		if(locate(/obj/item/pillow) in owner.loc)
+			healing += 0.1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(healing > 0 && health_ratio > 0.8)
 			owner.adjustBruteLoss(-1 * healing, required_bodytype = BODYTYPE_ORGANIC)
@@ -261,9 +290,13 @@
 	. = ..()
 	if(!.)
 		return
+<<<<<<< HEAD
 	ADD_TRAIT(owner, TRAIT_IMMOBILIZED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_HANDS_BLOCKED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_NUMBED, TRAIT_STATUS_EFFECT(id)) //SKYRAT EDIT START - STASIS APPLIES NUMBING
+=======
+	owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_NUMBED), TRAIT_STATUS_EFFECT(id))//SKYRAT EDIT START - STASIS APPLIES NUMBING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	owner.throw_alert("stasis numbed", /atom/movable/screen/alert/numbed) //SKYRAT EDIT END
 	owner.add_filter("stasis_status_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
 	var/filter = owner.get_filter("stasis_status_ripple")
@@ -279,11 +312,16 @@
 		owner.Sleeping(15 SECONDS) //SKYRAT EDIT END
 
 /datum/status_effect/grouped/stasis/on_remove()
+<<<<<<< HEAD
 	REMOVE_TRAIT(owner, TRAIT_IMMOBILIZED, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(owner, TRAIT_HANDS_BLOCKED, TRAIT_STATUS_EFFECT(id))
 	if(HAS_TRAIT(owner, TRAIT_NUMBED)) //SKYRAT EDIT START - STASIS END REMOVES NUMBING
 		REMOVE_TRAIT(owner, TRAIT_NUMBED, TRAIT_STATUS_EFFECT(id))
 		owner.clear_alert("stasis numbed") //SKYRAT EDIT END
+=======
+	owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_NUMBED), TRAIT_STATUS_EFFECT(id)) //SKYRAT EDIT START - STASIS END REMOVES NUMBING
+	owner.clear_alert("stasis numbed") //SKYRAT EDIT END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	owner.remove_filter("stasis_status_ripple")
 	update_time_of_death()
 	if(iscarbon(owner))
@@ -296,6 +334,7 @@
 	desc = "Your biological functions have halted. You could live forever this way, but it's pretty boring."
 	icon_state = "stasis"
 
+<<<<<<< HEAD
 /datum/status_effect/pacify
 	id = "pacify"
 	status_type = STATUS_EFFECT_REPLACE
@@ -315,6 +354,8 @@
 /datum/status_effect/pacify/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, STATUS_EFFECT_TRAIT)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/status_effect/his_wrath //does minor damage over time unless holding His Grace
 	id = "his_wrath"
 	duration = -1
@@ -342,7 +383,10 @@
 
 /datum/status_effect/cultghost/on_apply()
 	owner.set_invis_see(SEE_INVISIBLE_OBSERVER)
+<<<<<<< HEAD
 	owner.set_see_in_dark(2)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/status_effect/cultghost/tick()
 	if(owner.reagents)
@@ -417,6 +461,7 @@
 	alert_type = null
 	duration = -1
 
+<<<<<<< HEAD
 /datum/status_effect/neck_slice/tick()
 	var/mob/living/carbon/human/H = owner
 	var/obj/item/bodypart/throat = H.get_bodypart(BODY_ZONE_HEAD)
@@ -434,6 +479,35 @@
 
 	if(prob(10))
 		H.emote(pick("gasp", "gag", "choke"))
+=======
+/datum/status_effect/neck_slice/on_apply()
+	if(!ishuman(owner))
+		return FALSE
+	if(!owner.get_bodypart(BODY_ZONE_HEAD))
+		return FALSE
+	return TRUE
+
+/datum/status_effect/neck_slice/tick()
+	var/obj/item/bodypart/throat = owner.get_bodypart(BODY_ZONE_HEAD)
+	if(owner.stat == DEAD || !throat) // they can lose their head while it's going.
+		qdel(src)
+		return
+
+	var/still_bleeding = FALSE
+	for(var/datum/wound/bleeding_thing as anything in throat.wounds)
+		if(bleeding_thing.wound_type == WOUND_SLASH && bleeding_thing.severity > WOUND_SEVERITY_MODERATE)
+			still_bleeding = TRUE
+			break
+	if(!still_bleeding)
+		qdel(src)
+		return
+
+	if(prob(10))
+		owner.emote(pick("gasp", "gag", "choke"))
+
+/datum/status_effect/neck_slice/get_examine_text()
+	return span_warning("[owner.p_their(TRUE)] neck is cut and is bleeding profusely!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/proc/apply_necropolis_curse(set_curse)
 	var/datum/status_effect/necropolis_curse/C = has_status_effect(/datum/status_effect/necropolis_curse)
@@ -533,14 +607,22 @@
 
 /datum/status_effect/gonbola_pacify/on_apply()
 	. = ..()
+<<<<<<< HEAD
 	ADD_TRAIT(owner, TRAIT_PACIFISM, CLOTHING_TRAIT)
 	ADD_TRAIT(owner, TRAIT_MUTE, CLOTHING_TRAIT)
+=======
+	owner.add_traits(list(TRAIT_PACIFISM, TRAIT_MUTE), CLOTHING_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	owner.add_mood_event(type, /datum/mood_event/gondola)
 	to_chat(owner, span_notice("You suddenly feel at peace and feel no need to make any sudden or rash actions..."))
 
 /datum/status_effect/gonbola_pacify/on_remove()
+<<<<<<< HEAD
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, CLOTHING_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_MUTE, CLOTHING_TRAIT)
+=======
+	owner.remove_traits(list(TRAIT_PACIFISM, TRAIT_MUTE), CLOTHING_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	owner.clear_mood_event(type)
 	return ..()
 
@@ -819,7 +901,11 @@
 /datum/status_effect/ants/on_remove()
 	ants_remaining = 0
 	to_chat(owner, span_notice("All of the ants are off of your body!"))
+<<<<<<< HEAD
 	UnregisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(ants_washed))
+=======
+	UnregisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 /datum/status_effect/ants/proc/ants_washed()
@@ -856,7 +942,11 @@
 					leg.receive_damage(3,0)
 				if(50) // 2% chance
 					to_chat(victim, span_danger("You rub some ants away from your eyes!"))
+<<<<<<< HEAD
 					victim.blur_eyes(3)
+=======
+					victim.set_eye_blur_if_lower(6 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					ants_remaining -= 5 // To balance out the blindness, it'll be a little shorter.
 	ants_remaining--
 	if(ants_remaining <= 0 || victim.stat >= HARD_CRIT)
@@ -939,3 +1029,16 @@
 /datum/status_effect/discoordinated/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_DISCOORDINATED_TOOL_USER, "[type]")
 	return ..()
+<<<<<<< HEAD
+=======
+
+///Maddly teleports the victim around all of space for 10 seconds
+/datum/status_effect/teleport_madness
+	id = "teleport_madness"
+	duration = 10 SECONDS
+	status_type = STATUS_EFFECT_REPLACE
+	tick_interval = 0.1 SECONDS
+
+/datum/status_effect/teleport_madness/tick()
+	dump_in_space(owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

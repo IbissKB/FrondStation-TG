@@ -24,7 +24,11 @@
 	. += span_notice("A light blinking on the side indicates that it is [occupant ? "occupied" : "vacant"].")
 	. += span_notice("It has a screen on the side displaying the vitals of the occupant. Interact to read it.")
 
+<<<<<<< HEAD
 /obj/machinery/stasissleeper/open_machine()
+=======
+/obj/machinery/stasissleeper/open_machine(drop = TRUE, density_to_set = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!state_open && !panel_open)
 		if(occupant)
 			thaw_them(occupant)
@@ -33,11 +37,19 @@
 		flick("[initial(icon_state)]-anim", src)
 		..()
 
+<<<<<<< HEAD
 /obj/machinery/stasissleeper/close_machine(mob/user)
 	if((isnull(user) || istype(user)) && state_open && !panel_open)
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
 		flick("[initial(icon_state)]-anim", src)
 		..(user)
+=======
+/obj/machinery/stasissleeper/close_machine(atom/movable/target, density_to_set = TRUE)
+	if((isnull(target) || istype(target)) && state_open && !panel_open)
+		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
+		flick("[initial(icon_state)]-anim", src)
+		..(target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/mob/living/mob_occupant = occupant
 		if(occupant)
 			play_power_sound()
@@ -55,7 +67,11 @@
 		last_stasis_sound = _running
 
 /obj/machinery/stasissleeper/AltClick(mob/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, !issilicon(user)))
+=======
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!panel_open)
 		user.visible_message(span_notice("\The [src] [state_open ? "hisses as it seals shut." : "hisses as it swings open."]."), \

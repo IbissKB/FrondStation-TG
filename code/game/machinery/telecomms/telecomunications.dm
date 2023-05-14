@@ -104,7 +104,10 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	soundloop = new(src, on)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	GLOB.telecomms_list += src
 	if(mapload && autolinkers.len)
 		return INITIALIZE_HINT_LATELOAD
@@ -118,7 +121,10 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 
 /obj/machinery/telecomms/Destroy()
 	GLOB.telecomms_list -= src
+<<<<<<< HEAD
 	QDEL_NULL(soundloop)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/machinery/telecomms/comm in GLOB.telecomms_list)
 		remove_link(comm)
 	links = list()
@@ -141,6 +147,7 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 	icon_state = "[initial(icon_state)][panel_open ? "_o" : null][on ? null : "_off"]"
 	return ..()
 
+<<<<<<< HEAD
 /obj/machinery/telecomms/proc/update_power()
 
 	if(toggled)
@@ -162,6 +169,29 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 
 	if(traffic > 0)
 		traffic -= netspeed * delta_time
+=======
+/obj/machinery/telecomms/on_set_panel_open(old_value)
+	update_appearance()
+	return ..()
+
+/obj/machinery/telecomms/proc/update_power()
+	var/old_on = on
+	if(toggled)
+		if(machine_stat & (BROKEN|NOPOWER|EMPED)) // if powered, on. if not powered, off. if too damaged, off
+			on = FALSE
+		else
+			on = TRUE
+	else
+		on = FALSE
+	if(old_on != on)
+		update_appearance()
+
+/obj/machinery/telecomms/process(seconds_per_tick)
+	update_power()
+
+	if(traffic > 0)
+		traffic -= netspeed * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/telecomms/emp_act(severity)
 	. = ..()

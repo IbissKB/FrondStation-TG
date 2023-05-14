@@ -36,12 +36,17 @@
 	to_chat(cast_on, span_userdanger("A freezing darkness surrounds you..."))
 	cast_on.playsound_local(get_turf(cast_on), 'sound/hallucinations/i_see_you1.ogg', 50, 1)
 	owner.playsound_local(get_turf(owner), 'sound/effects/ghost2.ogg', 50, 1)
+<<<<<<< HEAD
 	cast_on.become_blind(ABYSSAL_GAZE_BLIND)
 	addtimer(CALLBACK(src, PROC_REF(cure_blindness), cast_on), blind_duration)
+=======
+	cast_on.adjust_temp_blindness(blind_duration)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(ishuman(cast_on))
 		var/mob/living/carbon/human/human_cast_on = cast_on
 		human_cast_on.adjust_coretemperature(-amount_to_cool)
 	cast_on.adjust_bodytemperature(-amount_to_cool)
+<<<<<<< HEAD
 
 /**
  * cure_blidness: Cures Abyssal Gaze blindness from the target
@@ -54,3 +59,5 @@
 		return
 
 	cast_on.cure_blind(ABYSSAL_GAZE_BLIND)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

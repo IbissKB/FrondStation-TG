@@ -39,7 +39,10 @@
 	icon_state = "neurotoxin"
 	damage = 5
 	damage_type = BURN
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	knockdown = 20
 	armor_flag = BIO
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/neurotoxin

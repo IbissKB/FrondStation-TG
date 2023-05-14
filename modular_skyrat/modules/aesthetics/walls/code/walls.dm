@@ -1,6 +1,10 @@
 /turf/closed/wall
 	icon = 'modular_skyrat/modules/aesthetics/walls/icons/wall.dmi'
+<<<<<<< HEAD
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_AIRLOCK)
+=======
+	canSmoothWith = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/closed/wall/r_wall
 	icon = 'modular_skyrat/modules/aesthetics/walls/icons/reinforced_wall.dmi'

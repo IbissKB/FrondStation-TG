@@ -42,6 +42,7 @@
 
 /obj/projectile/leaper/on_hit(atom/target, blocked = FALSE)
 	..()
+<<<<<<< HEAD
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
 		C.reagents.add_reagent(/datum/reagent/toxin/leaper_venom, 5)
@@ -49,6 +50,20 @@
 	if(isanimal(target))
 		var/mob/living/simple_animal/L = target
 		L.adjustHealth(25)
+=======
+	if (!isliving(target))
+		return
+	var/mob/living/bubbled = target
+	if(iscarbon(target))
+		bubbled.reagents.add_reagent(/datum/reagent/toxin/leaper_venom, 5)
+		return
+	if(isanimal(target))
+		var/mob/living/simple_animal/bubbled_animal = bubbled
+		bubbled_animal.adjustHealth(25)
+		return
+	if (isbasicmob(target))
+		bubbled.adjustBruteLoss(25)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/leaper/on_range()
 	var/turf/T = get_turf(src)
@@ -101,6 +116,7 @@
 	playsound(src,'sound/effects/snap.ogg',50, TRUE, -1)
 	return ..()
 
+<<<<<<< HEAD
 /obj/structure/leaper_bubble/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
 	if(isliving(AM))
@@ -115,6 +131,24 @@
 				var/mob/living/simple_animal/A = L
 				A.adjustHealth(25)
 			qdel(src)
+=======
+/obj/structure/leaper_bubble/proc/on_entered(datum/source, atom/movable/bubbled)
+	SIGNAL_HANDLER
+	if(!isliving(bubbled) || istype(bubbled, /mob/living/simple_animal/hostile/jungle/leaper))
+		return
+	var/mob/living/bubbled_mob = bubbled
+
+	playsound(src,'sound/effects/snap.ogg',50, TRUE, -1)
+	bubbled_mob.Paralyze(50)
+	if(iscarbon(bubbled_mob))
+		bubbled_mob.reagents.add_reagent(/datum/reagent/toxin/leaper_venom, 5)
+	else if(isanimal(bubbled_mob))
+		var/mob/living/simple_animal/bubbled_animal = bubbled_mob
+		bubbled_animal.adjustHealth(25)
+	else if(isbasicmob(bubbled_mob))
+		bubbled_mob.adjustBruteLoss(25)
+	qdel(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/reagent/toxin/leaper_venom
 	name = "Leaper venom"
@@ -124,9 +158,15 @@
 	taste_description = "french cuisine"
 	taste_mult = 1.3
 
+<<<<<<< HEAD
 /datum/reagent/toxin/leaper_venom/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(volume >= 10)
 		M.adjustToxLoss(5 * REAGENTS_EFFECT_MULTIPLIER * delta_time, 0)
+=======
+/datum/reagent/toxin/leaper_venom/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	if(volume >= 10)
+		M.adjustToxLoss(5 * REM * seconds_per_tick, 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 /obj/effect/temp_visual/leaper_crush
@@ -136,10 +176,14 @@
 	icon_state = "lily_pad"
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE
+<<<<<<< HEAD
 	pixel_x = -32
 	base_pixel_x = -32
 	pixel_y = -32
 	base_pixel_y = -32
+=======
+	SET_BASE_PIXEL(-32, -32)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	duration = 30
 
 /mob/living/simple_animal/hostile/jungle/leaper/Initialize(mapload)
@@ -182,7 +226,11 @@
 		if(!hopping)
 			Hop()
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/jungle/leaper/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/simple_animal/hostile/jungle/leaper/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	update_icons()
 

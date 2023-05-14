@@ -11,13 +11,29 @@
 	anchored = TRUE
 	pass_flags_self = PASSGRILLE
 	flags_1 = CONDUCT_1
+<<<<<<< HEAD
 	pressure_resistance = 5*ONE_ATMOSPHERE
 	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	obj_flags = CAN_BE_HIT | IGNORE_DENSITY
+	pressure_resistance = 5*ONE_ATMOSPHERE
+	armor_type = /datum/armor/structure_grille
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 50
 	integrity_failure = 0.4
 	var/rods_type = /obj/item/stack/rods
 	var/rods_amount = 2
 
+<<<<<<< HEAD
+=======
+/datum/armor/structure_grille
+	melee = 50
+	bullet = 70
+	laser = 70
+	energy = 100
+	bomb = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/atmos_sensitive, mapload)
@@ -54,12 +70,31 @@
 		if(RCD_DECONSTRUCT)
 			return list("mode" = RCD_DECONSTRUCT, "delay" = 20, "cost" = 5)
 		if(RCD_WINDOWGRILLE)
+<<<<<<< HEAD
 			var/cost = 8
 			var/delay = 2 SECONDS
 
 			if(the_rcd.window_glass == RCD_WINDOW_REINFORCED)
 				delay = 4 SECONDS
 				cost = 12
+=======
+			var/cost = 0
+			var/delay = 0
+			if(the_rcd.window_type  == /obj/structure/window)
+				cost = 6
+				delay = 2 SECONDS
+			else if(the_rcd.window_type  == /obj/structure/window/reinforced)
+				cost = 9
+				delay = 2.5 SECONDS
+			else if(the_rcd.window_type  == /obj/structure/window/fulltile)
+				cost = 12
+				delay = 3 SECONDS
+			else if(the_rcd.window_type  == /obj/structure/window/reinforced/fulltile)
+				cost = 15
+				delay = 4 SECONDS
+			if(!cost)
+				return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			return rcd_result_with_memory(
 				list("mode" = RCD_WINDOWGRILLE, "delay" = delay, "cost" = cost),
@@ -79,17 +114,30 @@
 			var/turf/T = loc
 
 			if(repair_grille())
+<<<<<<< HEAD
 				to_chat(user, span_notice("You rebuild the broken grille."))
+=======
+				balloon_alert(user, "grille rebuilt")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			if(!clear_tile(user))
 				return FALSE
 
+<<<<<<< HEAD
 			if(!ispath(the_rcd.window_type, /obj/structure/window))
 				CRASH("Invalid window path type in RCD: [the_rcd.window_type]")
 			var/obj/structure/window/window_path = the_rcd.window_type
 			if(!valid_window_location(T, user.dir, is_fulltile = initial(window_path.fulltile)))
 				return FALSE
 			to_chat(user, span_notice("You construct the window."))
+=======
+			var/obj/structure/window/window_path = the_rcd.window_type
+			if(!ispath(window_path))
+				CRASH("Invalid window path type in RCD: [window_path]")
+			if(!valid_build_direction(T, user.dir, is_fulltile = initial(window_path.fulltile)))
+				balloon_alert(user, "window already here!")
+				return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/obj/structure/window/WD = new the_rcd.window_type(T, user.dir)
 			WD.set_anchored(TRUE)
 			return TRUE
@@ -193,7 +241,11 @@
 
 /obj/structure/grille/attackby(obj/item/W, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
+<<<<<<< HEAD
 	if(istype(W, /obj/item/stack/rods) && broken)
+=======
+	if(istype(W, /obj/item/stack/rods) && broken && do_after(user, 1 SECONDS, target = src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(shock(user, 90))
 			return
 		var/obj/item/stack/rods/R = W
@@ -349,3 +401,8 @@
 /obj/structure/grille/broken/Initialize(mapload)
 	. = ..()
 	take_damage(max_integrity * 0.6)
+<<<<<<< HEAD
+=======
+
+#undef CLEAR_TILE_MOVE_LIMIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

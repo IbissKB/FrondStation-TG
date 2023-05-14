@@ -22,7 +22,11 @@
 	TEST_ASSERT_EQUAL(wizard_dog.mind, wizard_mind, "Mind transfer failed to occur, which invalidates the test.")
 
 	for(var/datum/action/cooldown/spell/remaining_spell in wizard.actions)
+<<<<<<< HEAD
 		Fail("Spell: [remaining_spell] failed to transfer minds when a mind transfer occured.")
+=======
+		TEST_FAIL("Spell: [remaining_spell] failed to transfer minds when a mind transfer occured.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	qdel(fireball)
 	qdel(missile)

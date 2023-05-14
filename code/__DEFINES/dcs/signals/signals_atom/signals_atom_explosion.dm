@@ -11,3 +11,8 @@
 	/// When returned on a signal hooked to [COMSIG_ATOM_EXPLODE], [COMSIG_ATOM_INTERNAL_EXPLOSION], or [COMSIG_AREA_INTERNAL_EXPLOSION] it prevents the explosion from being propagated further.
 	#define COMSIG_CANCEL_EXPLOSION (1<<0)
 
+<<<<<<< HEAD
+=======
+/// from [/atom/movable/proc/set_explosion_resistance] : (old_block, new_block)
+#define COMSIG_MOVABLE_EXPLOSION_BLOCK_CHANGED "explosion_block_changed"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

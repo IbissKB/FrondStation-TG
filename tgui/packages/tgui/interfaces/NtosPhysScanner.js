@@ -1,11 +1,19 @@
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
+<<<<<<< HEAD
 import { Section, Box, Dropdown } from '../components';
+=======
+import { Section, Box } from '../components';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { sanitizeText } from '../sanitize';
 
 export const NtosPhysScanner = (props, context) => {
   const { act, data } = useBackend(context);
+<<<<<<< HEAD
   const { set_mode, last_record, available_modes = [] } = data;
+=======
+  const { last_record } = data;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const textHtml = {
     __html: sanitizeText(last_record),
   };
@@ -18,6 +26,7 @@ export const NtosPhysScanner = (props, context) => {
         </Section>
         <Section>
           <Box bold>
+<<<<<<< HEAD
             SELECTED MODE <br /> <br />
           </Box>
           <Dropdown
@@ -32,6 +41,8 @@ export const NtosPhysScanner = (props, context) => {
         </Section>
         <Section>
           <Box bold>
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
             LAST SAVED RESULT
             <br />
             <br />

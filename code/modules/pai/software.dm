@@ -160,6 +160,7 @@
 	if(!iscarbon(holder))
 		balloon_alert(src, "not being carried")
 		return FALSE
+<<<<<<< HEAD
 	balloon_alert(src, "requesting DNA sample")
 	if(tgui_alert(holder, "[src] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "Checking DNA", list("Yes", "No")) != "Yes")
 		balloon_alert(src, "DNA sample refused")
@@ -167,6 +168,15 @@
 	holder.visible_message(span_notice("[holder] presses [holder.p_their()] thumb against [src]."), span_notice("You press your thumb against [src]."), span_notice("[src] makes a sharp clicking sound as it extracts DNA material from [holder]."))
 	if(!holder.has_dna())
 		balloon_alert(src, "no DNA detected")
+=======
+	balloon_alert(src, "requesting dna sample")
+	if(tgui_alert(holder, "[src] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "Checking DNA", list("Yes", "No")) != "Yes")
+		balloon_alert(src, "dna sample refused!")
+		return FALSE
+	holder.visible_message(span_notice("[holder] presses [holder.p_their()] thumb against [src]."), span_notice("You press your thumb against [src]."), span_notice("[src] makes a sharp clicking sound as it extracts DNA material from [holder]."))
+	if(!holder.has_dna())
+		balloon_alert(src, "no dna detected!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	to_chat(src, span_boldannounce(("[holder]'s UE string: [holder.dna.unique_enzymes]")))
 	to_chat(src, span_notice("DNA [holder.dna.unique_enzymes == master_dna ? "matches" : "does not match"] our stored Master's DNA."))

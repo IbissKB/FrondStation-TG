@@ -4,6 +4,11 @@
 	max_occurrences = 1
 	category = EVENT_CATEGORY_SPACE
 	description = "Radiation storm affects the station, forcing the crew to escape to maintenance."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 3
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/radiation_storm
 

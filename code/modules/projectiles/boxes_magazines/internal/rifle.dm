@@ -6,6 +6,12 @@
 	max_ammo = 5
 	multiload = TRUE
 
+<<<<<<< HEAD
+=======
+/obj/item/ammo_box/magazine/internal/boltaction/surplus
+	ammo_type = /obj/item/ammo_casing/a762/surplus
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/ammo_box/magazine/internal/boltaction/pipegun
 	name = "pipegun internal magazine"
 	caliber = CALIBER_SHOTGUN

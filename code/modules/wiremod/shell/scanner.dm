@@ -58,4 +58,8 @@
 	attacker.set_output(user)
 	attacking.set_output(target)
 	signal.set_output(COMPONENT_SIGNAL)
+<<<<<<< HEAD
+=======
+	return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 

@@ -25,7 +25,11 @@
 	examine_limb_id = SPECIES_HUMAN
 
 // Prevents felinids from taking toxin damage from carpotoxin
+<<<<<<< HEAD
 /datum/species/human/felinid/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)
+=======
+/datum/species/human/felinid/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(istype(chem, /datum/reagent/toxin/carpotoxin))
 		var/datum/reagent/toxin/carpotoxin/fish = chem
@@ -63,7 +67,11 @@
 /proc/purrbation_toggle(mob/living/carbon/human/target_human, silent = FALSE)
 	if(!ishuman(target_human))
 		return
+<<<<<<< HEAD
 	if(!istype(target_human.getorganslot(ORGAN_SLOT_EARS), /obj/item/organ/internal/ears/cat))
+=======
+	if(!istype(target_human.get_organ_slot(ORGAN_SLOT_EARS), /obj/item/organ/internal/ears/cat))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		purrbation_apply(target_human, silent = silent)
 		. = TRUE
 	else
@@ -83,7 +91,11 @@
 		var/obj/item/organ/external/tail/cat/kitty_tail = new
 
 		// This removes the spines if they exist
+<<<<<<< HEAD
 		var/obj/item/organ/external/spines/current_spines = soon_to_be_felinid.getorganslot(ORGAN_SLOT_EXTERNAL_SPINES)
+=======
+		var/obj/item/organ/external/spines/current_spines = soon_to_be_felinid.get_organ_slot(ORGAN_SLOT_EXTERNAL_SPINES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(current_spines)
 			current_spines.Remove(soon_to_be_felinid, special = TRUE)
 			qdel(current_spines)
@@ -92,7 +104,10 @@
 		// Humans get converted directly to felinids, and the key is handled in on_species_gain.
 		// Now when we get mob.dna.features[feature_key], it returns None, which is why the tail is invisible.
 		// stored_feature_id is only set once (the first time an organ is inserted), so this should be safe.
+<<<<<<< HEAD
 		kitty_tail.stored_feature_id = "Cat"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		kitty_ears.Insert(soon_to_be_felinid, special = TRUE, drop_if_replaced = FALSE)
 		kitty_tail.Insert(soon_to_be_felinid, special = TRUE, drop_if_replaced = FALSE)
 	if(!silent)
@@ -109,7 +124,11 @@
 		var/datum/species/target_species = purrbated_human.dna.species
 
 		// From the previous check we know they're not a felinid, therefore removing cat ears and tail is safe
+<<<<<<< HEAD
 		var/obj/item/organ/external/tail/old_tail = purrbated_human.getorganslot(ORGAN_SLOT_EXTERNAL_TAIL)
+=======
+		var/obj/item/organ/external/tail/old_tail = purrbated_human.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(istype(old_tail, /obj/item/organ/external/tail/cat))
 			old_tail.Remove(purrbated_human, special = TRUE)
 			qdel(old_tail)
@@ -123,7 +142,11 @@
 					var/obj/item/organ/external/spines/new_spines = new external_organ()
 					new_spines.Insert(purrbated_human, special = TRUE, drop_if_replaced = FALSE)
 
+<<<<<<< HEAD
 		var/obj/item/organ/internal/ears/old_ears = purrbated_human.getorganslot(ORGAN_SLOT_EARS)
+=======
+		var/obj/item/organ/internal/ears/old_ears = purrbated_human.get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(istype(old_ears, /obj/item/organ/internal/ears/cat))
 			var/obj/item/organ/new_ears = new target_species.mutantears()
 			new_ears.Insert(purrbated_human, special = TRUE, drop_if_replaced = FALSE)
@@ -136,14 +159,24 @@
 	human_for_preview.update_body_parts()
 
 	/* SKYRAT EDIT - Making the species menu icons work better - ORIGINAL:
+<<<<<<< HEAD
 	var/obj/item/organ/internal/ears/cat/cat_ears = human_for_preview.getorgan(/obj/item/organ/internal/ears/cat)
+=======
+	var/obj/item/organ/internal/ears/cat/cat_ears = human_for_preview.get_organ_by_type(/obj/item/organ/internal/ears/cat)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (cat_ears)
 		cat_ears.color = human_for_preview.hair_color
 		human_for_preview.update_body()
 	*/ // START
+<<<<<<< HEAD
 	human_for_preview.dna.species.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
 	human_for_preview.dna.species.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
 	human_for_preview.update_mutant_bodyparts(TRUE)
+=======
+	human_for_preview.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	regenerate_organs(human_for_preview, src, visual_only = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	human_for_preview.update_body(TRUE)
 	// SKYRAT EDIT END
 

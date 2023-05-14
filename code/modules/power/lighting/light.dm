@@ -25,7 +25,11 @@
 	///Basically the alpha of the emitted light source
 	var/bulb_power = 1
 	///Default colour of the light.
+<<<<<<< HEAD
 	var/bulb_colour = "#f3fffa"
+=======
+	var/bulb_colour = LIGHT_COLOR_DEFAULT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/status = LIGHT_OK
 	///Should we flicker?
@@ -88,6 +92,20 @@
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 
+<<<<<<< HEAD
+=======
+	// Detect and scream about double stacked lights
+	if(PERFORM_ALL_TESTS(focus_only/stacked_lights))
+		var/turf/our_location = get_turf(src)
+		for(var/obj/machinery/light/on_turf in our_location)
+			if(on_turf == src)
+				continue
+			if(on_turf.dir != dir)
+				continue
+			stack_trace("Conflicting double stacked light [on_turf.type] found at ([our_location.x],[our_location.y],[our_location.z])")
+			qdel(on_turf)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!mapload) //sync up nightshift lighting for player made lights
 		var/area/our_area = get_room_area(src)
 		var/obj/machinery/power/apc/temp_apc = our_area.apc
@@ -124,11 +142,29 @@
 /obj/machinery/light/update_icon_state()
 	switch(status) // set icon_states
 		if(LIGHT_OK)
+<<<<<<< HEAD
 			//var/area/local_area = get_area(src) SKYRAT EDIT REMOVAL
 			if(low_power_mode || major_emergency) // SKYRAT EDIT CHANGE
 				icon_state = "[base_state]_emergency"
 			else
 				icon_state = "[base_state]"
+=======
+			var/area/local_area = get_area(src)
+			//SKYRAT EDIT BEGIN - Original
+			/*
+			if(low_power_mode || major_emergency || (local_area?.fire))
+				icon_state = "[base_state]_emergency"
+			else
+				icon_state = "[base_state]"
+			*/
+			if(low_power_mode)
+				icon_state = "[base_state]_lpower"
+			else if(major_emergency || (local_area?.fire))
+				icon_state = "[base_state]_emergency"
+			else
+				icon_state = "[base_state]"
+			// SKYRAT EDIT END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
 		if(LIGHT_BURNED)
@@ -146,7 +182,12 @@
 	var/area/local_area = get_area(src)
 	if(emergency_mode || (local_area?.fire))
 	*/
+<<<<<<< HEAD
 	if(low_power_mode || major_emergency) // SKYRAT EDIT END
+=======
+	var/area/local_area = get_area(src)
+	if(low_power_mode || major_emergency || (local_area?.fire)) // SKYRAT EDIT END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		. += mutable_appearance(overlay_icon, "[base_state]_emergency")
 		return
 	if(nightshift_enabled)
@@ -156,7 +197,11 @@
 
 
 //SKYRAT EDIT ADDITION BEGIN - AESTHETICS
+<<<<<<< HEAD
 #define LIGHT_ON_DELAY_UPPER (3 SECONDS)
+=======
+#define LIGHT_ON_DELAY_UPPER (4 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define LIGHT_ON_DELAY_LOWER (1 SECONDS)
 //SKYRAT EDIT END
 
@@ -180,7 +225,11 @@
 
 /obj/machinery/light/proc/handle_fire(area/source, new_fire)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	update()
+=======
+	update(instant = TRUE, play_sound = FALSE) //SKYRAT EDIT CHANGE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) //SKYRAT EDIT CHANGE
@@ -277,14 +326,22 @@
 		var/delay = rand(BROKEN_SPARKS_MIN, BROKEN_SPARKS_MAX)
 		addtimer(CALLBACK(src, PROC_REF(broken_sparks)), delay, TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
+<<<<<<< HEAD
 /obj/machinery/light/process(delta_time)
+=======
+/obj/machinery/light/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(has_power()) //If the light is being powered by the station.
 		if(cell)
 			if(cell.charge == cell.maxcharge && !reagents) //If the cell is done mooching station power, and reagents don't need processing, stop processing
 				return PROCESS_KILL
 			cell.charge = min(cell.maxcharge, cell.charge + LIGHT_EMERGENCY_POWER_USE) //Recharge emergency power automatically while not using it
 	if(reagents) //with most reagents coming out at 300, and with most meaningful reactions coming at 370+, this rate gives a few seconds of time to place it in and get out of dodge regardless of input.
+<<<<<<< HEAD
 		reagents.adjust_thermal_energy(8 * reagents.total_volume * SPECIFIC_HEAT_DEFAULT * delta_time)
+=======
+		reagents.adjust_thermal_energy(8 * reagents.total_volume * SPECIFIC_HEAT_DEFAULT * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reagents.handle_reactions()
 	if(low_power_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE) //Disables emergency mode and sets the color to normal
@@ -337,7 +394,11 @@
 	//Light replacer code
 	if(istype(tool, /obj/item/lightreplacer))
 		var/obj/item/lightreplacer/replacer = tool
+<<<<<<< HEAD
 		replacer.ReplaceLight(src, user)
+=======
+		replacer.replace_light(src, user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	// attempt to insert light
@@ -542,20 +603,33 @@
 		// create a light tube/bulb item and put it in the user's hand
 		drop_light_tube(user)
 		return
+<<<<<<< HEAD
 	var/protection_amount = 0
 	var/mob/living/carbon/human/electrician = user
 
 	if(istype(electrician))
 		var/obj/item/organ/internal/stomach/maybe_stomach = electrician.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+
+	var/protected = FALSE
+
+	if(istype(user))
+		var/obj/item/organ/internal/stomach/maybe_stomach = user.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(istype(maybe_stomach, /obj/item/organ/internal/stomach/ethereal))
 			var/obj/item/organ/internal/stomach/ethereal/stomach = maybe_stomach
 			if(stomach.drain_time > world.time)
 				return
+<<<<<<< HEAD
 			to_chat(electrician, span_notice("You start channeling some power through the [fitting] into your body."))
+=======
+			to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
 				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 				if(istype(stomach))
+<<<<<<< HEAD
 					to_chat(electrician, span_notice("You receive some charge from the [fitting]."))
 					stomach.adjust_charge(LIGHT_POWER_GAIN)
 				else
@@ -570,10 +644,27 @@
 		protection_amount = 1
 
 	if(protection_amount > 0 || HAS_TRAIT(user, TRAIT_RESISTHEAT) || HAS_TRAIT(user, TRAIT_RESISTHEATHANDS))
+=======
+					to_chat(user, span_notice("You receive some charge from the [fitting]."))
+					stomach.adjust_charge(LIGHT_POWER_GAIN)
+				else
+					to_chat(user, span_warning("You can't receive charge from the [fitting]!"))
+			return
+
+		if(user.gloves)
+			var/obj/item/clothing/gloves/electrician_gloves = user.gloves
+			if(electrician_gloves.max_heat_protection_temperature && electrician_gloves.max_heat_protection_temperature > 360)
+				protected = TRUE
+	else
+		protected = TRUE
+
+	if(protected || HAS_TRAIT(user, TRAIT_RESISTHEAT) || HAS_TRAIT(user, TRAIT_RESISTHEATHANDS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_notice("You remove the light [fitting]."))
 	else if(istype(user) && user.dna.check_mutation(/datum/mutation/human/telekinesis))
 		to_chat(user, span_notice("You telekinetically remove the light [fitting]."))
 	else
+<<<<<<< HEAD
 		var/obj/item/bodypart/affecting = electrician.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 		if(affecting?.receive_damage( 0, 5 )) // 5 burn damage
 			electrician.update_damage_overlays()
@@ -583,6 +674,17 @@
 				return
 			if(affecting?.receive_damage( 0, 10 )) // 10 more burn damage
 				electrician.update_damage_overlays()
+=======
+		var/obj/item/bodypart/affecting = user.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+		if(affecting?.receive_damage( 0, 5 )) // 5 burn damage
+			user.update_damage_overlays()
+		if(HAS_TRAIT(user, TRAIT_LIGHTBULB_REMOVER))
+			to_chat(user, span_notice("You feel your [affecting] burning, and the light beginning to budge."))
+			if(!do_after(user, 5 SECONDS, target = src))
+				return
+			if(affecting?.receive_damage( 0, 10 )) // 10 more burn damage
+				user.update_damage_overlays()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_notice("You manage to remove the light [fitting], shattering it in process."))
 			break_light_tube()
 		else
@@ -611,7 +713,11 @@
 	light_object.switchcount = switchcount
 	switchcount = 0
 
+<<<<<<< HEAD
 	light_object.update()
+=======
+	light_object.update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_object.forceMove(loc)
 
 	if(user) //puts it in our active hand

@@ -40,7 +40,11 @@
 	return ..()
 
 /obj/structure/headpike/update_name()
+<<<<<<< HEAD
 	name = "[victim.real_name] on a [spear]"
+=======
+	name = "[victim.real_name] on a [spear.name]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/structure/headpike/update_overlays()

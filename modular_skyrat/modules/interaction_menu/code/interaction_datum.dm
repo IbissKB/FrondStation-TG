@@ -57,7 +57,11 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 	if(user_required_parts.len)
 		for(var/thing in user_required_parts)
+<<<<<<< HEAD
 			var/obj/item/organ/external/genital/required_part = user.getorganslot(thing)
+=======
+			var/obj/item/organ/external/genital/required_part = user.get_organ_slot(thing)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(isnull(required_part))
 				return FALSE
 			if(!required_part.is_exposed())
@@ -65,7 +69,11 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 	if(target_required_parts.len)
 		for(var/thing in target_required_parts)
+<<<<<<< HEAD
 			var/obj/item/organ/external/genital/required_part = target.getorganslot(thing)
+=======
+			var/obj/item/organ/external/genital/required_part = target.get_organ_slot(thing)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(isnull(required_part))
 				return FALSE
 			if(!required_part.is_exposed())

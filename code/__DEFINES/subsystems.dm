@@ -20,7 +20,11 @@
  *
  * make sure you add an update to the schema_version stable in the db changelog
  */
+<<<<<<< HEAD
 #define DB_MINOR_VERSION 24
+=======
+#define DB_MINOR_VERSION 25
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 //! ## Timing subsystem
@@ -156,7 +160,10 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_RESEARCH 47
 #define INIT_ORDER_TIMETRACK 46
+<<<<<<< HEAD
 #define INIT_ORDER_NETWORKS 45
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
 #define INIT_ORDER_OUTPUTS 35
@@ -204,6 +211,10 @@
 #define FIRE_PRIORITY_FLUIDS 20
 #define FIRE_PRIORITY_AIR 20
 #define FIRE_PRIORITY_NPC 20
+<<<<<<< HEAD
+=======
+#define FIRE_PRIORITY_HYPERSPACE_DRIFT 20
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define FIRE_PRIORITY_NPC_MOVEMENT 21
 #define FIRE_PRIORITY_NPC_ACTIONS 22
 #define FIRE_PRIORITY_PATHFINDING 23
@@ -211,11 +222,18 @@
 #define FIRE_PRIORITY_THROWING 25
 #define FIRE_PRIORITY_REAGENTS 26
 #define FIRE_PRIORITY_SPACEDRIFT 30
+<<<<<<< HEAD
 #define FIRE_PRIOTITY_SMOOTHING 35
 #define FIRE_PRIORITY_NETWORKS 40
 #define FIRE_PRIORITY_OBJ 40
 #define FIRE_PRIORITY_ACID 40
 #define FIRE_PRIOTITY_BURNING 40
+=======
+#define FIRE_PRIORITY_SMOOTHING 35
+#define FIRE_PRIORITY_OBJ 40
+#define FIRE_PRIORITY_ACID 40
+#define FIRE_PRIORITY_BURNING 40
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_PARALLAX 65
 #define FIRE_PRIORITY_INSTRUMENTS 80
@@ -238,7 +256,10 @@
 
 // SS runlevels
 
+<<<<<<< HEAD
 #define RUNLEVEL_INIT 0
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define RUNLEVEL_LOBBY 1
 #define RUNLEVEL_SETUP 2
 #define RUNLEVEL_GAME 4
@@ -258,6 +279,7 @@
 /// Game has round finished
 #define GAME_STATE_FINISHED 4
 
+<<<<<<< HEAD
 //! ## Overlays subsystem
 
 #define POST_OVERLAY_CHANGE(changed_on) \
@@ -277,12 +299,18 @@
 		} \
 	}
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
 	Create a new timer and add it to the queue.
 	* Arguments:
 	* * callback the callback to call on timer finish
 	* * wait deciseconds to run the timer for
 	* * flags flags for this timer, see: code\__DEFINES\subsystems.dm
+<<<<<<< HEAD
+=======
+	* * timer_subsystem the subsystem to insert this timer into
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 */
 #define addtimer(args...) _addtimer(args, file = __FILE__, line = __LINE__)
 
@@ -296,7 +324,11 @@
 #define SSAIR_SUPERCONDUCTIVITY 7
 #define SSAIR_PROCESS_ATOMS 8
 
+<<<<<<< HEAD
 //Pipeline rebuild helper defines, these suck but it'll do for now //Fools you actually merged it
+=======
+// Pipeline rebuild helper defines, these suck but it'll do for now //Fools you actually merged it
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define SSAIR_REBUILD_PIPELINE 1
 #define SSAIR_REBUILD_QUEUE 2
 
@@ -309,23 +341,39 @@
 #define SSWARDROBE_STOCK 1
 #define SSWARDROBE_INSPECT 2
 
+<<<<<<< HEAD
 //Wardrobe cache metadata indexes
+=======
+// Wardrobe cache metadata indexes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define WARDROBE_CACHE_COUNT 1
 #define WARDROBE_CACHE_LAST_INSPECT 2
 #define WARDROBE_CACHE_CALL_INSERT 3
 #define WARDROBE_CACHE_CALL_REMOVAL 4
 
+<<<<<<< HEAD
 //Wardrobe preloaded stock indexes
+=======
+// Wardrobe preloaded stock indexes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define WARDROBE_STOCK_CONTENTS 1
 #define WARDROBE_STOCK_CALL_INSERT 2
 #define WARDROBE_STOCK_CALL_REMOVAL 3
 
+<<<<<<< HEAD
 //Wardrobe callback master list indexes
+=======
+// Wardrobe callback master list indexes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define WARDROBE_CALLBACK_INSERT 1
 #define WARDROBE_CALLBACK_REMOVE 2
 
 // Subsystem delta times or tickrates, in seconds. I.e, how many seconds in between each process() call for objects being processed by that subsystem.
+<<<<<<< HEAD
 // Only use these defines if you want to access some other objects processing delta_time, otherwise use the delta_time that is sent as a parameter to process()
+=======
+// Only use these defines if you want to access some other objects processing seconds_per_tick, otherwise use the seconds_per_tick that is sent as a parameter to process()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define SSFLUIDS_DT (SSplumbing.wait/10)
 #define SSMACHINES_DT (SSmachines.wait/10)
 #define SSMOBS_DT (SSmobs.wait/10)
@@ -333,3 +381,12 @@
 
 /// The timer key used to know how long subsystem initialization takes
 #define SS_INIT_TIMER_KEY "ss_init"
+<<<<<<< HEAD
+=======
+
+// Vote subsystem counting methods
+/// First past the post. One selection per person, and the selection with the most votes wins.
+#define VOTE_COUNT_METHOD_SINGLE 1
+/// Approval voting. Any number of selections per person, and the selection with the most votes wins.
+#define VOTE_COUNT_METHOD_MULTI 2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

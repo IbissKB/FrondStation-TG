@@ -2,10 +2,20 @@
 	var/amount = 0
 	var/maxamount = 3
 	var/upgrade_item = /obj/item/stack/sheet/animalhide/goliath_hide
+<<<<<<< HEAD
 	var/datum/armor/added_armor = list(MELEE = 10)
 	var/upgrade_name
 
 /datum/component/armor_plate/Initialize(_maxamount,obj/item/_upgrade_item,datum/armor/_added_armor)
+=======
+	var/datum/armor/armor_mod = /datum/armor/armor_plate
+	var/upgrade_name
+
+/datum/armor/armor_plate
+	melee = 10
+
+/datum/component/armor_plate/Initialize(_maxamount, obj/item/_upgrade_item, datum/armor/_added_armor)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!isobj(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -20,6 +30,7 @@
 	if(_upgrade_item)
 		upgrade_item = _upgrade_item
 	if(_added_armor)
+<<<<<<< HEAD
 		if(islist(_added_armor))
 			added_armor = getArmor(arglist(_added_armor))
 		else if (istype(_added_armor, /datum/armor))
@@ -28,6 +39,9 @@
 			stack_trace("Invalid type [_added_armor.type] passed as _armor_item argument to armorplate component")
 	else
 		added_armor = getArmor(arglist(added_armor))
+=======
+		armor_mod = _added_armor
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/typecast = upgrade_item
 	upgrade_name = initial(typecast.name)
 
@@ -68,7 +82,11 @@
 
 	var/obj/O = parent
 	amount++
+<<<<<<< HEAD
 	O.armor = O.armor.attachArmor(added_armor)
+=======
+	O.set_armor(O.get_armor().add_other_armor(armor_mod))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(ismecha(O))
 		var/obj/vehicle/sealed/mecha/R = O

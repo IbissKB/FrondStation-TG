@@ -66,6 +66,10 @@
 				target.apply_status_effect(/datum/status_effect/trance, 100, TRUE)
 			else
 				to_chat(target, span_hypnophrase("The light is so pretty..."))
+<<<<<<< HEAD
 				target.adjust_drowsyness(min(target.drowsyness + 10, 20))
+=======
+				target.adjust_drowsiness_up_to(20 SECONDS, 40 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				target.adjust_confusion_up_to(10 SECONDS, 20 SECONDS)
 				target.adjust_dizzy_up_to(20 SECONDS, 40 SECONDS)

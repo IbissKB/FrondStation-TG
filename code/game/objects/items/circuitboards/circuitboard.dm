@@ -12,7 +12,11 @@
 	inhand_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass = 1000)
+=======
+	custom_materials = list(/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_SMALL
 	grind_results = list(/datum/reagent/silicon = 20)
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
@@ -25,7 +29,12 @@
 /obj/item/circuitboard/Initialize(mapload)
 	if(name_extension)
 		name = "[initial(name)] [name_extension]"
+<<<<<<< HEAD
 	set_greyscale(new_config = /datum/greyscale_config/circuit)
+=======
+	if(icon_state == "circuit_map") // some circuitboards have cool custom sprites
+		set_greyscale(new_config = /datum/greyscale_config/circuit)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/circuitboard/proc/apply_default_parts(obj/machinery/machine)
@@ -92,12 +101,21 @@ micro-manipulator, console screen, beaker, Microlaser, matter bin, power cells.
 			comp_path = def_components[comp_path]
 
 		if(ispath(comp_path, /obj/item/stack))
+<<<<<<< HEAD
 			machine.component_parts += new comp_path(machine, comp_amt)
 		else if (ispath(comp_path, /datum/stock_part))
 			for (var/_ in 1 to comp_amt)
 				var/stock_part_datum = GLOB.stock_part_datums[comp_path]
 				if (isnull(stock_part_datum))
 					CRASH("[comp_path] didn't have a matching stock part datum")
+=======
+			continue
+		else if (ispath(comp_path, /datum/stock_part))
+			var/stock_part_datum = GLOB.stock_part_datums[comp_path]
+			if (isnull(stock_part_datum))
+				CRASH("[comp_path] didn't have a matching stock part datum")
+			for (var/_ in 1 to comp_amt)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				machine.component_parts += stock_part_datum
 		else
 			for(var/component in 1 to comp_amt)

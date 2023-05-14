@@ -18,6 +18,10 @@
 		/obj/item/stack/medical/suture = 2,
 		/obj/item/stack/medical/bone_gel/four = 4,
 		/obj/item/cane/white = 2,
+<<<<<<< HEAD
+=======
+		/obj/item/clothing/glasses/eyepatch/medical = 2,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	contraband = list(
 		/obj/item/storage/box/gum/happiness = 3,

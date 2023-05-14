@@ -190,14 +190,23 @@
 
 /obj/machinery/dna_vault/proc/upgrade(mob/living/carbon/human/H, upgrade_type)
 	var/datum/weakref/human_weakref = WEAKREF(H)
+<<<<<<< HEAD
 	if(!(upgrade_type in power_lottery[human_weakref])||(HAS_TRAIT(H, TRAIT_USED_DNA_VAULT)))
+=======
+	if(!(upgrade_type in power_lottery[human_weakref]) || (HAS_TRAIT(H, TRAIT_USED_DNA_VAULT)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/datum/species/S = H.dna.species
 	switch(upgrade_type)
 		if(VAULT_TOXIN)
 			to_chat(H, span_notice("You feel resistant to airborne toxins."))
+<<<<<<< HEAD
 			if(locate(/obj/item/organ/internal/lungs) in H.internal_organs)
 				var/obj/item/organ/internal/lungs/L = H.internal_organs_slot[ORGAN_SLOT_LUNGS]
+=======
+			if(locate(/obj/item/organ/internal/lungs) in H.organs) // SKYRAT TODO: Missing Mirror PR here, someone should PR it when they get the time.
+				var/obj/item/organ/internal/lungs/L = H.organs_slot[ORGAN_SLOT_LUNGS]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				L.plas_breath_dam_min = 0
 				L.plas_breath_dam_max = 0
 			ADD_TRAIT(H, TRAIT_VIRUSIMMUNE, DNA_VAULT_TRAIT)
@@ -225,3 +234,14 @@
 	ADD_TRAIT(H, TRAIT_USED_DNA_VAULT, DNA_VAULT_TRAIT)
 	power_lottery[human_weakref] = list()
 	use_power(active_power_usage)
+<<<<<<< HEAD
+=======
+
+#undef VAULT_TOXIN
+#undef VAULT_NOBREATH
+#undef VAULT_FIREPROOF
+#undef VAULT_STUNTIME
+#undef VAULT_ARMOUR
+#undef VAULT_SPEED
+#undef VAULT_QUICK
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

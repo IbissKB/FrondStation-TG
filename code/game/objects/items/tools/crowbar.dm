@@ -13,7 +13,11 @@
 	throwforce = 7
 	demolition_mod = 1.25
 	w_class = WEIGHT_CLASS_SMALL
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=50)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	drop_sound = 'sound/items/handling/crowbar_drop.ogg'
 	pickup_sound = 'sound/items/handling/crowbar_pickup.ogg'
 
@@ -21,9 +25,19 @@
 	attack_verb_simple = list("attack", "bash", "batter", "bludgeon", "whack")
 	tool_behaviour = TOOL_CROWBAR
 	toolspeed = 1
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
 	var/force_opens = FALSE
 
+=======
+	armor_type = /datum/armor/item_crowbar
+	var/force_opens = FALSE
+
+/datum/armor/item_crowbar
+	fire = 50
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/crowbar/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/falling_hazard, damage = force, wound_bonus = wound_bonus, hardhat_safety = TRUE, crushes = FALSE, impact_sound = hitsound)
@@ -43,7 +57,11 @@
 	desc = "A hard-light crowbar. It appears to pry by itself, without any effort required."
 	icon = 'icons/obj/abductor.dmi'
 	usesound = 'sound/weapons/sonic_jackhammer.ogg'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
+=======
+	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT*1.25, /datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/titanium =SHEET_MATERIAL_AMOUNT, /datum/material/diamond =SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "crowbar"
 	belt_icon_state = "crowbar_alien"
 	toolspeed = 0.1
@@ -56,7 +74,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 3
 	throw_range = 3
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=70)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.7)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "crowbar_large"
 	worn_icon_state = "crowbar"
 	toolspeed = 0.7
@@ -92,7 +114,11 @@
 	worn_icon_state = "jawsoflife"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 4500, /datum/material/silver = 2500, /datum/material/titanium = 3500)
+=======
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*2.25, /datum/material/silver = SHEET_MATERIAL_AMOUNT*1.25, /datum/material/titanium = SHEET_MATERIAL_AMOUNT*1.75)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	usesound = 'sound/items/jaws_pry.ogg'
 	force = 15
 	w_class = WEIGHT_CLASS_NORMAL
@@ -106,7 +132,13 @@
 		throwforce_on = throwforce, \
 		hitsound_on = hitsound, \
 		w_class_on = w_class, \
+<<<<<<< HEAD
 		clumsy_check = FALSE)
+=======
+		clumsy_check = FALSE, \
+		inhand_icon_change = FALSE, \
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /*
@@ -177,11 +209,22 @@
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = NONE
 	toolspeed = 1.25
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 100, ACID = 0)
+=======
+	armor_type = /datum/armor/crowbar_mechremoval
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 	bare_wound_bonus = 15
 	wound_bonus = 10
 
+<<<<<<< HEAD
+=======
+/datum/armor/crowbar_mechremoval
+	bomb = 100
+	fire = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/crowbar/mechremoval/Initialize(mapload)
 	. = ..()
 	transform = transform.Translate(0, -8)

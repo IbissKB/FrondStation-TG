@@ -8,6 +8,11 @@
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a slaughter demon, to hunt by travelling through pools of blood."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 6
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/ghost_role/slaughter
 	minimum_required = 1
@@ -23,6 +28,7 @@
 	var/datum/mind/player_mind = new /datum/mind(selected.key)
 	player_mind.active = TRUE
 
+<<<<<<< HEAD
 	var/list/spawn_locs = list()
 	for(var/obj/effect/landmark/carpspawn/L in GLOB.landmarks_list)
 		if(isturf(L.loc))
@@ -35,6 +41,13 @@
 	var/turf/chosen = pick(spawn_locs)
 	var/mob/living/simple_animal/hostile/imp/slaughter/S = new(chosen)
 	new /obj/effect/dummy/phased_mob(chosen, S)
+=======
+	var/spawn_location = find_space_spawn()
+	if(!spawn_location)
+		return MAP_ERROR //This sends an error message further up.
+	var/mob/living/simple_animal/hostile/imp/slaughter/S = new(spawn_location)
+	new /obj/effect/dummy/phased_mob(spawn_location, S)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	player_mind.transfer_to(S)
 	player_mind.set_assigned_role(SSjob.GetJobType(/datum/job/slaughter_demon))

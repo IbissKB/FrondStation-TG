@@ -26,7 +26,11 @@
 	density = TRUE
 	anchored = FALSE
 	max_integrity = 500
+<<<<<<< HEAD
 	armor = list(MELEE = 45, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 10, BIO = 0, FIRE = 30, ACID = 30)
+=======
+	armor_type = /datum/armor/machinery_roulette
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/static/list/numbers = list("0" = "green", "1" = "red", "3" = "red", "5" = "red", "7" = "red", "9" = "red", "12" = "red", "14" = "red", "16" = "red",\
 	"18" = "red", "19" = "red", "21" = "red", "23" = "red", "25" = "red", "27" = "red", "30" = "red", "32" = "red", "34" = "red", "36" = "red",\
 	"2" = "black", "4" = "black", "6" = "black", "8" = "black", "10" = "black", "11" = "black", "13" = "black", "15" = "black", "17" = "black", "20" = "black",\
@@ -46,6 +50,18 @@
 	var/on = TRUE
 	var/last_spin = 13
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_roulette
+	melee = 45
+	bullet = 30
+	laser = 30
+	energy = 30
+	bomb = 10
+	fire = 30
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/roulette/Initialize(mapload)
 	. = ..()
 	jackpot_loop = new(src, FALSE)
@@ -449,6 +465,18 @@
 	new /obj/effect/pod_landingzone(drop_location(), toLaunch)
 	qdel(src)
 
+<<<<<<< HEAD
+=======
+#undef ROULETTE_DOZ_COL_PAYOUT
+#undef ROULETTE_BET_1TO12
+#undef ROULETTE_BET_13TO24
+#undef ROULETTE_BET_25TO36
+
+#undef ROULETTE_BET_2TO1_FIRST
+#undef ROULETTE_BET_2TO1_SECOND
+#undef ROULETTE_BET_2TO1_THIRD
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef ROULETTE_SINGLES_PAYOUT
 #undef ROULETTE_SIMPLE_PAYOUT
 

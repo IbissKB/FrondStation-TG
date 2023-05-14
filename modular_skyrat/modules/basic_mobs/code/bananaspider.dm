@@ -41,7 +41,11 @@
 	icon_state = "bananaspider_peel"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
 	foodtypes = GORE | MEAT | RAW
+<<<<<<< HEAD
 	grind_results = list(/datum/reagent/blood = 20, /datum/reagent/liquidgibs = 5)
+=======
+	grind_results = list(/datum/reagent/blood = 20, /datum/reagent/consumable/liquidgibs = 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	juice_results = list(/datum/reagent/consumable/banana = 10)
 
 
@@ -49,7 +53,11 @@
 	. = ..()
 	AddComponent(/datum/component/slippery, 20)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/giant_spider/badnana_spider
+=======
+/mob/living/basic/giant_spider/badnana_spider
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "badnana spider"
 	desc = "WHY WOULD GOD ALLOW THIS?!"
 	icon = 'modular_skyrat/master_files/icons/mob/newmobs.dmi'
@@ -60,6 +68,7 @@
 	health = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 5
+<<<<<<< HEAD
 	move_to_delay = 4
 	speed = -0.5
 	faction = list("spiders")
@@ -69,4 +78,8 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
 		carbon_target.reagents.add_reagent(/datum/reagent/consumable/laughter, 10)
+=======
+	speed = -0.5
+	faction = list(FACTION_SPIDER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 

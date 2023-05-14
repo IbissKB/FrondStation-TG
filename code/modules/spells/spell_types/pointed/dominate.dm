@@ -20,17 +20,30 @@
 	active_msg = "You prepare to dominate the mind of a target..."
 
 /datum/action/cooldown/spell/pointed/dominate/is_valid_target(atom/cast_on)
+<<<<<<< HEAD
 	if(!isanimal(cast_on))
 		return FALSE
 
 	var/mob/living/simple_animal/animal = cast_on
+=======
+	if(!isliving(cast_on))
+		return FALSE
+
+	var/mob/living/animal = cast_on
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(animal.mind)
 		return FALSE
 	if(animal.stat == DEAD)
 		return FALSE
+<<<<<<< HEAD
 	if(animal.sentience_type != SENTIENCE_ORGANIC)
 		return FALSE
 	if("cult" in animal.faction)
+=======
+	if(!animal.compare_sentience_type(SENTIENCE_ORGANIC)) // Will also return false if not a basic or simple mob, which are the only two we want anyway
+		return FALSE
+	if(FACTION_CULT in animal.faction)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	if(HAS_TRAIT(animal, TRAIT_HOLY))
 		return FALSE
@@ -46,6 +59,10 @@
 
 	var/turf/cast_turf = get_turf(cast_on)
 	cast_on.add_atom_colour("#990000", FIXED_COLOUR_PRIORITY)
+<<<<<<< HEAD
 	cast_on.faction |= "cult"
+=======
+	cast_on.faction |= FACTION_CULT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(cast_turf, 'sound/effects/ghost.ogg', 100, TRUE)
 	new /obj/effect/temp_visual/cult/sac(cast_turf)

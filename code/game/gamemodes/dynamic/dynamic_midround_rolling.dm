@@ -32,7 +32,11 @@
 	next_midround_injection = null
 	forced_injection = FALSE
 
+<<<<<<< HEAD
 	dynamic_log("A midround ruleset is rolling, and will be [spawn_heavy ? "HEAVY" : "LIGHT"].")
+=======
+	log_dynamic_and_announce("A midround ruleset is rolling, and will be [spawn_heavy ? "HEAVY" : "LIGHT"].")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	random_event_hijacked = HIJACKED_NOTHING
 
@@ -41,6 +45,7 @@
 
 	for (var/datum/dynamic_ruleset/midround/ruleset in midround_rules)
 		if (ruleset.weight == 0)
+<<<<<<< HEAD
 			log_game("DYNAMIC: FAIL: [ruleset] has a weight of 0")
 			continue
 
@@ -54,16 +59,41 @@
 
 		if (ruleset.minimum_round_time > world.time - SSticker.round_start_time)
 			log_game("DYNAMIC: FAIL: [ruleset] is trying to run too early. Minimum round time: [ruleset.minimum_round_time], current round time: [world.time - SSticker.round_start_time]")
+=======
+			log_dynamic("FAIL: [ruleset] has a weight of 0")
+			continue
+
+		if (!ruleset.acceptable(GLOB.alive_player_list.len, threat_level))
+			log_dynamic("FAIL: [ruleset] is not acceptable with the current parameters. Alive players: [GLOB.alive_player_list.len], threat level: [threat_level]")
+			continue
+
+		if (mid_round_budget < ruleset.cost)
+			log_dynamic("FAIL: [ruleset] is too expensive, and cannot be bought. Midround budget: [mid_round_budget], ruleset cost: [ruleset.cost]")
+			continue
+
+		if (ruleset.minimum_round_time > world.time - SSticker.round_start_time)
+			log_dynamic("FAIL: [ruleset] is trying to run too early. Minimum round time: [ruleset.minimum_round_time], current round time: [world.time - SSticker.round_start_time]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 
 		// If admins have disabled dynamic from picking from the ghost pool
 		if(istype(ruleset, /datum/dynamic_ruleset/midround/from_ghosts) && !(GLOB.ghost_role_flags & GHOSTROLE_MIDROUND_EVENT))
+<<<<<<< HEAD
 			log_game("DYNAMIC: FAIL: [ruleset] is a from_ghosts ruleset, but ghost roles are disabled")
 			continue
 
 		ruleset.trim_candidates()
 		if (!ruleset.ready())
 			log_game("DYNAMIC: FAIL: [ruleset] is not ready()")
+=======
+			log_dynamic("FAIL: [ruleset] is a from_ghosts ruleset, but ghost roles are disabled")
+			continue
+
+		ruleset.trim_candidates()
+		ruleset.load_templates()
+		if (!ruleset.ready())
+			log_dynamic("FAIL: [ruleset] is not ready()")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 
 		var/ruleset_is_heavy = (ruleset.midround_ruleset_style == MIDROUND_RULESET_STYLE_HEAVY)
@@ -74,15 +104,25 @@
 
 	var/heavy_light_log_count = "[drafted_heavies.len] heavies / [drafted_lights.len] lights"
 
+<<<<<<< HEAD
 	log_game("DYNAMIC: Rolling [spawn_heavy ? "HEAVY" : "LIGHT"]... [heavy_light_log_count]")
+=======
+	log_dynamic("Rolling [spawn_heavy ? "HEAVY" : "LIGHT"]... [heavy_light_log_count]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if (spawn_heavy && drafted_heavies.len > 0 && pick_midround_rule(drafted_heavies, "heavy rulesets"))
 		return
 	else if (drafted_lights.len > 0 && pick_midround_rule(drafted_lights, "light rulesets"))
 		if (spawn_heavy)
+<<<<<<< HEAD
 			dynamic_log("A heavy ruleset was intended to roll, but there weren't any available. [heavy_light_log_count]")
 	else
 		dynamic_log("No midround rulesets could be drafted. ([heavy_light_log_count])")
+=======
+			log_dynamic_and_announce("A heavy ruleset was intended to roll, but there weren't any available. [heavy_light_log_count]")
+	else
+		log_dynamic_and_announce("No midround rulesets could be drafted. ([heavy_light_log_count])")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Gets the chance for a heavy ruleset midround injection, the dry_run argument is only used for forced injection.
 /datum/game_mode/dynamic/proc/get_heavy_midround_injection_chance(dry_run)

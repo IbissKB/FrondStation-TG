@@ -165,7 +165,11 @@
 			spawner.antag_team = team
 			if(candidates.len > 0)
 				var/mob/our_candidate = candidates[1]
+<<<<<<< HEAD
 				spawner.create(our_candidate)
+=======
+				spawner.create_from_ghost(our_candidate)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				spawner.antag_team.players_spawned += (our_candidate.ckey)
 				candidates.Splice(1, 2)
 				notify_ghosts(

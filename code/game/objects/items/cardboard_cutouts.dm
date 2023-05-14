@@ -6,12 +6,17 @@
 	icon_state = "cutout_basic"
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FLAMMABLE
+<<<<<<< HEAD
 	/// Possible restyles for the cutout, add an entry in change_appearance() if you add to here
 	var/list/possible_appearances = list()
+=======
+	item_flags = NO_PIXEL_RANDOM_DROP
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// If the cutout is pushed over and has to be righted
 	var/pushed_over = FALSE
 	/// If the cutout actually appears as what it portray and not a discolored version
 	var/deceptive = FALSE
+<<<<<<< HEAD
 
 /obj/item/cardboard_cutout/Initialize(mapload)
 	. = ..()
@@ -35,6 +40,29 @@
 		"Laughter Demon" = image(icon = 'icons/mob/simple/mob.dmi', icon_state = "bowmon"),
 		"Private Security Officer" = image(icon = src.icon, icon_state = "cutout_ntsec")
 	))
+=======
+	/// What cutout datum we spawn at the start? Uses the name, not the path.
+	var/starting_cutout
+
+/obj/item/cardboard_cutout/Initialize(mapload)
+	. = ..()
+	if(starting_cutout)
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/item/cardboard_cutout/LateInitialize()
+	ASSERT(!isnull(starting_cutout))
+
+	var/datum/cardboard_cutout/cutout
+	for (var/datum/cardboard_cutout/cutout_subtype as anything in subtypesof(/datum/cardboard_cutout))
+		if (initial(cutout_subtype.name) != starting_cutout)
+			continue
+
+		cutout = get_cardboard_cutout_instance(cutout_subtype)
+
+	ASSERT(!isnull(cutout), "No cutout found with name [starting_cutout]")
+
+	cutout.apply(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/cardboard_cutout/attack_hand(mob/living/user, list/modifiers)
@@ -45,12 +73,19 @@
 	push_over()
 
 /obj/item/cardboard_cutout/proc/push_over()
+<<<<<<< HEAD
 	name = initial(name)
 	desc = "[initial(desc)] It's been pushed over."
 	icon = initial(icon)
 	icon_state = "cutout_pushed_over"
 	remove_atom_colour(FIXED_COLOUR_PRIORITY)
 	alpha = initial(alpha)
+=======
+	appearance = initial(appearance)
+	desc = "[initial(desc)] It's been pushed over."
+	icon_state = "cutout_pushed_over"
+	remove_atom_colour(FIXED_COLOUR_PRIORITY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pushed_over = TRUE
 
 /obj/item/cardboard_cutout/attack_self(mob/living/user)
@@ -92,6 +127,19 @@
 		push_over()
 	return BULLET_ACT_HIT
 
+<<<<<<< HEAD
+=======
+/proc/get_cardboard_cutout_instance(datum/cardboard_cutout/cardboard_cutout)
+	ASSERT(ispath(cardboard_cutout), "[cardboard_cutout] is not a path of /datum/cardboard_cutout")
+
+	var/static/list/cardboard_cutouts = list()
+
+	if(isnull(cardboard_cutouts[cardboard_cutout]))
+		cardboard_cutouts[cardboard_cutout] = new cardboard_cutout
+
+	return cardboard_cutouts[cardboard_cutout]
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * change_appearance: Changes a skin of the cardboard cutout based on a user's choice
  *
@@ -100,6 +148,17 @@
  * * user The mob choosing a skin of the cardboard cutout
  */
 /obj/item/cardboard_cutout/proc/change_appearance(obj/item/toy/crayon/crayon, mob/living/user)
+<<<<<<< HEAD
+=======
+	var/list/appearances_by_name = list()
+	var/list/possible_appearances = list()
+
+	for (var/datum/cardboard_cutout/cutout_subtype as anything in subtypesof(/datum/cardboard_cutout))
+		var/datum/cardboard_cutout/cutout = get_cardboard_cutout_instance(cutout_subtype)
+		appearances_by_name[cutout.name] = cutout
+		possible_appearances[cutout.name] = image(icon = cutout.applied_appearance)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/new_appearance = show_radial_menu(user, src, possible_appearances, custom_check = CALLBACK(src, PROC_REF(check_menu), user, crayon), radius = 36, require_near = TRUE)
 	if(!new_appearance)
 		return FALSE
@@ -114,6 +173,7 @@
 	icon = initial(icon)
 	if(!deceptive)
 		add_atom_colour("#FFD7A7", FIXED_COLOUR_PRIORITY)
+<<<<<<< HEAD
 	switch(new_appearance)
 		if(JOB_ASSISTANT)
 			name = "[pick(GLOB.first_names_male)] [pick(GLOB.last_names)]"
@@ -193,6 +253,10 @@
 			icon_state = "cutout_ntsec"
 		else
 			return FALSE
+=======
+	var/datum/cardboard_cutout/cutout = appearances_by_name[new_appearance]
+	cutout.apply(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /**
@@ -219,9 +283,201 @@
 		return FALSE
 	return TRUE
 
+<<<<<<< HEAD
 /obj/item/cardboard_cutout/setDir(newdir)
 	newdir = SOUTH
 	return ..()
 
 /obj/item/cardboard_cutout/adaptive //Purchased by Syndicate agents, these cutouts are indistinguishable from normal cutouts but aren't discolored when their appearance is changed
 	deceptive = TRUE
+=======
+// Cutouts always face forward
+/obj/item/cardboard_cutout/setDir(newdir)
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
+/obj/item/cardboard_cutout/adaptive //Purchased by Syndicate agents, these cutouts are indistinguishable from normal cutouts but aren't discolored when their appearance is changed
+	deceptive = TRUE
+
+/datum/cardboard_cutout
+	/// Name of the cutout, used for radial selection and the global list.
+	var/name = "Boardjak"
+	/// The appearance we apply to the cardboard cutout.
+	var/mutable_appearance/applied_appearance = null
+	/// The base name we actually give to to the cardboard cutout. Can be overridden in get_name().
+	var/applied_name = "boardjak"
+	/// The desc we give to the cardboard cutout.
+	var/applied_desc = "A cardboard cutout of a boardjak."
+	/// If we're not using dynamic generation (for non-humans), we can set a direct icon to give.
+	var/direct_icon = null
+	/// Same as direct_icon, but icon_state!
+	var/direct_icon_state = ""
+	/// If we're using dynamic generation, the outfit the generated mob will have.
+	var/outfit = null
+	/// If we're using dynamic generation, the right hand item the generated mob will have.
+	var/r_hand = NO_REPLACE
+	/// If we're using dynamic generation, the left hand item the generated mob will have.
+	var/l_hand = NO_REPLACE
+	/// If we're using dynamic generation, the mob spawner the generated mob will base visuals from.
+	var/mob_spawner = null
+	/// If we're using dynamic generation, the species of the generated mob.
+	var/species = /datum/species/human
+
+/datum/cardboard_cutout/New()
+	. = ..()
+	if(direct_icon)
+		applied_appearance = mutable_appearance(direct_icon, direct_icon_state)
+	else
+		applied_appearance = get_dynamic_human_appearance(outfit, species, mob_spawner, l_hand, r_hand, animated = FALSE)
+
+/// This proc returns the name that the cardboard cutout item will use.
+/datum/cardboard_cutout/proc/get_name()
+	return applied_name
+
+/// This proc sets the cardboard cutout item's vars.
+/datum/cardboard_cutout/proc/apply(obj/item/cardboard_cutout/cutouts)
+	cutouts.appearance = applied_appearance
+	cutouts.name = get_name()
+	cutouts.desc = applied_desc
+
+/datum/cardboard_cutout/assistant
+	name = "Assistant"
+	applied_name = "John Greytide"
+	applied_desc = "A cardboard cutout of an assistant."
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/generic_assistant
+
+/datum/cardboard_cutout/assistant/get_name()
+	return "[pick(GLOB.first_names_male)] [pick(GLOB.last_names)]"
+
+/datum/cardboard_cutout/clown
+	name = "Clown"
+	applied_name = "HONK"
+	applied_desc = "A cardboard cutout of a clown. You get the feeling that it should be in a corner."
+	outfit = /datum/outfit/job/clown
+
+/datum/cardboard_cutout/clown/get_name()
+	return pick(GLOB.clown_names)
+
+/datum/cardboard_cutout/mime
+	name = "Mime"
+	applied_name = "..."
+	applied_desc = "...(A cardboard cutout of a mime.)"
+	outfit = /datum/outfit/job/mime
+
+/datum/cardboard_cutout/mime/get_name()
+	return pick(GLOB.mime_names)
+
+/datum/cardboard_cutout/traitor
+	name = "Traitor"
+	applied_name = "Unknown"
+	applied_desc = "A cardboard cutout of a traitor."
+	outfit = /datum/outfit/traitor_cutout
+
+/datum/cardboard_cutout/traitor/get_name()
+	return pick("Unknown", "Captain")
+
+/datum/cardboard_cutout/nuclear_operative
+	name = "Nuclear Operative"
+	applied_name = "Unknown"
+	applied_desc = "A cardboard cutout of a nuclear operative."
+	outfit = /datum/outfit/syndicate/full
+
+/datum/cardboard_cutout/nuclear_operative/get_name()
+	return pick("Unknown", "COMMS", "Telecomms", "AI", "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")
+
+/datum/cardboard_cutout/cultist
+	name = "Cultist"
+	applied_name = "Unknown"
+	applied_desc = "A cardboard cutout of a cultist."
+	outfit = /datum/outfit/cult_cutout
+
+/datum/cardboard_cutout/revolutionary
+	name = "Revolutionary"
+	applied_name = "Unknown"
+	applied_desc = "A cardboard cutout of a revolutionary."
+	outfit = /datum/outfit/rev_cutout
+
+/datum/cardboard_cutout/wizard
+	name = "Wizard"
+	applied_name = "wizard"
+	applied_desc = "A cardboard cutout of a wizard."
+	outfit = /datum/outfit/wizard/bookless
+
+/datum/cardboard_cutout/wizard/get_name()
+	return "[pick(GLOB.wizard_first)] [pick(GLOB.wizard_second)]"
+
+/datum/cardboard_cutout/nightmare
+	name = "Nightmare"
+	applied_name = "nightmare"
+	applied_desc = "A cardboard cutout of a nightmare."
+	species = /datum/species/shadow/nightmare
+
+/datum/cardboard_cutout/nightmare/get_name()
+	return pick(GLOB.nightmare_names)
+
+/datum/cardboard_cutout/xenomorph
+	name = "Xenomorph"
+	applied_name = "alien hunter"
+	applied_desc = "A cardboard cutout of a xenomorph."
+	direct_icon = 'icons/mob/nonhuman-player/alien.dmi'
+	direct_icon_state = "alienh"
+
+/datum/cardboard_cutout/xenomorph/get_name()
+	return applied_name + " ([rand(1, 999)])"
+
+/datum/cardboard_cutout/xenomorph_maid
+	name = "Xenomorph Maid"
+	applied_name = "lusty xenomorph maid"
+	applied_desc = "A cardboard cutout of a xenomorph maid."
+	direct_icon = 'icons/mob/nonhuman-player/alien.dmi'
+	direct_icon_state = "maid"
+
+/datum/cardboard_cutout/xenomorph_maid/get_name()
+	return applied_name + " ([rand(1, 999)])"
+
+/datum/cardboard_cutout/ash_walker
+	name = "Ash Walker"
+	applied_name = "lizard"
+	applied_desc = "A cardboard cutout of an ash walker."
+	species = /datum/species/lizard/ashwalker
+	outfit = /datum/outfit/ashwalker/spear
+
+/datum/cardboard_cutout/ash_walker/get_name()
+	return lizard_name(pick(MALE, FEMALE))
+
+/datum/cardboard_cutout/death_squad
+	name = "Deathsquad Officer"
+	applied_name = "deathsquad officer"
+	applied_desc = "A cardboard cutout of a death commando."
+	outfit = /datum/outfit/centcom/death_commando
+
+/datum/cardboard_cutout/death_squad/get_name()
+	return pick(GLOB.commando_names)
+
+/datum/cardboard_cutout/ian
+	name = "Ian"
+	applied_name = "Ian"
+	applied_desc = "A cardboard cutout of the HoP's beloved corgi."
+	direct_icon = 'icons/mob/simple/pets.dmi'
+	direct_icon_state = "corgi"
+
+/datum/cardboard_cutout/slaughter_demon
+	name = "Slaughter Demon"
+	applied_name = "slaughter demon"
+	applied_desc = "A cardboard cutout of a slaughter demon."
+	direct_icon = 'icons/mob/simple/mob.dmi'
+	direct_icon_state = "daemon"
+
+/datum/cardboard_cutout/laughter_demon
+	name = "Laughter Demon"
+	applied_name = "laughter demon"
+	applied_desc = "A cardboard cutout of a laughter demon."
+	direct_icon = 'icons/mob/simple/mob.dmi'
+	direct_icon_state = "bowmon"
+
+/datum/cardboard_cutout/security_officer
+	name = "Private Security Officer"
+	applied_name = "Private Security Officer"
+	applied_desc = "A cardboard cutout of a private security officer."
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasensoldier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

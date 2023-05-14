@@ -170,7 +170,11 @@ Industrial extracts:
 	plasmarequired = 10
 
 /obj/item/slimecross/industrial/gold/process()
+<<<<<<< HEAD
 	itempath = pick(/obj/item/coin/silver, /obj/item/coin/iron, /obj/item/coin/gold, /obj/item/coin/diamond, /obj/item/coin/plasma, /obj/item/coin/uranium)
+=======
+	itempath = get_random_coin()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 /obj/item/slimecross/industrial/oil

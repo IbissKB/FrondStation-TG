@@ -16,6 +16,10 @@
 #define span_big(str) ("<span class='big'>" + str + "</span>")
 #define span_bigicon(str) ("<span class='bigicon'>" + str + "</span>")
 #define span_binarysay(str) ("<span class='binarysay'>" + str + "</span>")
+<<<<<<< HEAD
+=======
+#define span_blob(str) ("<span class='blob'>" + str + "</span>")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define span_blue(str) ("<span class='blue'>" + str + "</span>")
 #define span_blueteamradio(str) ("<span class='blueteamradio'>" + str + "</span>")
 #define span_bold(str) ("<span class='bold'>" + str + "</span>")
@@ -55,6 +59,10 @@
 #define span_highlight(str) ("<span class='highlight'>" + str + "</span>")
 #define span_his_grace(str) ("<span class='his_grace'>" + str + "</span>")
 #define span_holoparasite(str) ("<span class='holoparasite'>" + str + "</span>")
+<<<<<<< HEAD
+=======
+#define span_boldholoparasite(str) ("<span class='holoparasite bold'>" + str + "</span>")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define span_hypnophrase(str) ("<span class='hypnophrase'>" + str + "</span>")
 #define span_icon(str) ("<span class='icon'>" + str + "</span>")
 #define span_info(str) ("<span class='info'>" + str + "</span>")

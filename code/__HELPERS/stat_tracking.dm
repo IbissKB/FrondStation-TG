@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// For use with the stopwatch defines
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /proc/render_stats(list/stats, user, sort = GLOBAL_PROC_REF(cmp_generic_stat_item_time))
 	sortTim(stats, sort, TRUE)
 
@@ -12,7 +16,12 @@
 
 	. = lines.Join("\n")
 
+<<<<<<< HEAD
 /proc/stat_tracking_export_to_file_later(filename, costs, counts)
+=======
+// For use with the set_cost defines
+/proc/stat_tracking_export_to_json_later(filename, costs, counts)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (IsAdminAdvancedProcCall())
 		return
 
@@ -25,3 +34,18 @@
 		)
 
 	rustg_file_write(json_encode(output), "[GLOB.log_directory]/[filename]")
+<<<<<<< HEAD
+=======
+
+/proc/stat_tracking_export_to_csv_later(filename, costs, counts)
+	if (IsAdminAdvancedProcCall())
+		return
+
+	var/list/output = list()
+
+	output += "key, cost, count"
+	for (var/key in costs)
+		output += "[replacetext(key, ",", "")], [costs[key]], [counts[key]]"
+
+	rustg_file_write(output.Join("\n"), "[GLOB.log_directory]/[filename]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

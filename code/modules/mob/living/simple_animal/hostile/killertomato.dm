@@ -10,7 +10,10 @@
 	turns_per_move = 5
 	maxHealth = 30
 	health = 30
+<<<<<<< HEAD
 	see_in_dark = 3
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	butcher_results = list(/obj/item/food/meat/slab/killertomato = 2)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
@@ -23,7 +26,11 @@
 	attack_verb_continuous = "slams"
 	attack_verb_simple = "slam"
 	attack_sound = 'sound/weapons/punch1.ogg'
+<<<<<<< HEAD
 	faction = list("plants")
+=======
+	faction = list(FACTION_PLANTS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 150

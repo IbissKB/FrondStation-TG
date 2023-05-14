@@ -8,8 +8,13 @@
 	icon_off = "glass_pipeoff"
 	chem_volume = 20
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/cigarette/pipe/crackpipe/process(delta_time)
 	smoketime -= delta_time
+=======
+/obj/item/clothing/mask/cigarette/pipe/crackpipe/process(seconds_per_tick)
+	smoketime -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(smoketime <= 0)
 		if(ismob(loc))
 			var/mob/living/smoking_mob = loc

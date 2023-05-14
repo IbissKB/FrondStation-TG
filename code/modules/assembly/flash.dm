@@ -1,5 +1,6 @@
 #define CONFUSION_STACK_MAX_MULTIPLIER 2
 
+<<<<<<< HEAD
 
 /// No deviation at all. Flashed from the front or front-left/front-right. Alternatively, flashed in direct view.
 #define DEVIATION_NONE 0
@@ -8,6 +9,8 @@
 /// Full deviation. Flashed from directly behind or behind-left/behind-rack. Not flashed at all.
 #define DEVIATION_FULL 2
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/assembly/flash
 	name = "flash"
 	desc = "A powerful and versatile flashbulb device, with applications ranging from disorienting attackers to acting as visual receptors in robot production."
@@ -17,7 +20,11 @@
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 300, /datum/material/glass = 300)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*3, /datum/material/glass = SMALL_MATERIAL_AMOUNT*3)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_system = MOVABLE_LIGHT //Used as a flash here.
 	light_range = FLASH_LIGHT_RANGE
 	light_color = COLOR_WHITE
@@ -91,7 +98,11 @@
 	return TRUE
 
 //BYPASS CHECKS ALSO PREVENTS BURNOUT!
+<<<<<<< HEAD
 /obj/item/assembly/flash/proc/AOE_flash(bypass_checks = FALSE, range = 3, confusion_duration = 5 SECONDS, targeted = FALSE, mob/user)
+=======
+/obj/item/assembly/flash/proc/AOE_flash(bypass_checks = FALSE, range = 3, confusion_duration = 5 SECONDS, mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!bypass_checks && !try_use_flash())
 		return FALSE
 	var/list/mob/targets = get_flash_targets(get_turf(src), range, FALSE)
@@ -99,7 +110,11 @@
 		targets -= user
 		to_chat(user, span_danger("[src] emits a blinding light!"))
 	for(var/mob/living/carbon/nearby_carbon in targets)
+<<<<<<< HEAD
 		flash_carbon(nearby_carbon, user, confusion_duration = confusion_duration, targeted = targeted, generic_message = TRUE)
+=======
+		flash_carbon(nearby_carbon, user, confusion_duration, targeted = FALSE, generic_message = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/item/assembly/flash/proc/get_flash_targets(atom/target_loc, range = 3, override_vision_checks = FALSE)
@@ -156,15 +171,33 @@
 
 	var/deviation = calculate_deviation(flashed, user || src)
 
+<<<<<<< HEAD
 	var/datum/antagonist/rev/head/converter = user?.mind?.has_antag_datum(/datum/antagonist/rev/head)
 
 	//If you face away from someone they shouldnt notice any effects.
 	if(deviation == DEVIATION_FULL && !converter)
+=======
+	if(user)
+		var/sigreturn = SEND_SIGNAL(user, COMSIG_MOB_PRE_FLASHED_CARBON, flashed, src, deviation)
+		if(sigreturn & STOP_FLASH)
+			return
+
+		if(sigreturn & DEVIATION_OVERRIDE_FULL)
+			deviation = DEVIATION_FULL
+		else if(sigreturn & DEVIATION_OVERRIDE_PARTIAL)
+			deviation = DEVIATION_PARTIAL
+		else if(sigreturn & DEVIATION_OVERRIDE_NONE)
+			deviation = DEVIATION_NONE
+
+	//If you face away from someone they shouldnt notice any effects.
+	if(deviation == DEVIATION_FULL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(targeted)
 		if(flashed.flash_act(1, 1))
 			flashed.set_confusion_if_lower(confusion_duration * CONFUSION_STACK_MAX_MULTIPLIER)
+<<<<<<< HEAD
 			// Special check for if we're a revhead. Special cases to attempt conversion.
 			if(converter)
 				// Did we try to flash them from behind?
@@ -178,6 +211,14 @@
 			//easy way to make sure that you can only long stun someone who is facing in your direction
 			flashed.adjustStaminaLoss(rand(80, 120) * (1 - (deviation * 0.5)))
 			flashed.Paralyze(rand(25, 50) * (1 - (deviation * 0.5)))
+=======
+			visible_message(span_danger("[user] blinds [flashed] with the flash!"), span_userdanger("[user] blinds you with the flash!"))
+			//easy way to make sure that you can only long stun someone who is facing in your direction
+			flashed.adjustStaminaLoss(rand(80, 120) * (1 - (deviation * 0.5)))
+			flashed.Paralyze(rand(25, 50) * (1 - (deviation * 0.5)))
+			SEND_SIGNAL(user, COMSIG_MOB_SUCCESSFUL_FLASHED_CARBON, flashed, src, deviation)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else if(user)
 			visible_message(span_warning("[user] fails to blind [flashed] with the flash!"), span_danger("[user] fails to blind you with the flash!"))
 		else
@@ -277,6 +318,7 @@
 		return
 	AOE_flash()
 
+<<<<<<< HEAD
 /**
  * Converts the victim to revs
  *
@@ -305,6 +347,8 @@
 		to_chat(aggressor, span_warning("This mind seems resistant to the flash!"))
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/assembly/flash/cyborg
 
 /obj/item/assembly/flash/cyborg/attack(mob/living/M, mob/user)
@@ -398,8 +442,13 @@
 				to_chat(M, span_hypnophrase("The light makes you feel oddly relaxed..."))
 				M.adjust_confusion_up_to(10 SECONDS, 20 SECONDS)
 				M.adjust_dizzy_up_to(20 SECONDS, 40 SECONDS)
+<<<<<<< HEAD
 				M.adjust_drowsyness(min(M.drowsyness+10, 20))
 				M.apply_status_effect(/datum/status_effect/pacify, 100)
+=======
+				M.adjust_drowsiness_up_to(20 SECONDS, 40 SECONDS)
+				M.adjust_pacifism(10 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else
 				M.apply_status_effect(/datum/status_effect/trance, 200, TRUE)
 
@@ -412,6 +461,7 @@
 		to_chat(M, span_notice("Such a pretty light..."))
 		M.adjust_confusion_up_to(4 SECONDS, 20 SECONDS)
 		M.adjust_dizzy_up_to(8 SECONDS, 40 SECONDS)
+<<<<<<< HEAD
 		M.adjust_drowsyness(min(M.drowsyness+4, 20))
 		M.apply_status_effect(/datum/status_effect/pacify, 40)
 
@@ -419,3 +469,9 @@
 #undef DEVIATION_NONE
 #undef DEVIATION_PARTIAL
 #undef DEVIATION_FULL
+=======
+		M.adjust_drowsiness_up_to(8 SECONDS, 40 SECONDS)
+		M.adjust_pacifism(4 SECONDS)
+
+#undef CONFUSION_STACK_MAX_MULTIPLIER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

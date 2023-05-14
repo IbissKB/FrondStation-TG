@@ -10,6 +10,10 @@
 /datum/symptom/genetic_mutation
 	name = "Dormant DNA Activator"
 	desc = "The virus bonds with the DNA of the host, activating random dormant mutations within their DNA. When the virus is cured, the host's genetic alterations are undone."
+<<<<<<< HEAD
+=======
+	illness = "Lycanthropy"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -2
 	resistance = -3
 	stage_speed = 0

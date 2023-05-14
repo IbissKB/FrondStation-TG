@@ -7,8 +7,11 @@
 		HAIR,
 		FACEHAIR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	inherent_traits = list(
 		TRAIT_DWARF,TRAIT_SNOB,
@@ -24,6 +27,10 @@
 	payday_modifier = 0.75
 	liked_food = ALCOHOL | MEAT | DAIRY //Dwarves like alcohol, meat, and dairy products.
 	disliked_food = JUNKFOOD | FRIED | CLOTH //Dwarves hate foods that have no nutrition other than alcohol.
+<<<<<<< HEAD
+=======
+	body_size_restricted = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/species/dwarf/get_species_description()
 	return placeholder_description
@@ -34,5 +41,9 @@
 /datum/species/dwarf/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.facial_hairstyle = "Beard (Dwarf)"
 	human.facial_hair_color = "#a55310"
+<<<<<<< HEAD
 	human.update_mutant_bodyparts(TRUE)
+=======
+	regenerate_organs(human, src, visual_only = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	human.update_body(TRUE)

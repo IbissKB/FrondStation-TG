@@ -61,11 +61,21 @@
 	. = ..()
 	if(!istype(object) || !proximity)
 		return
+<<<<<<< HEAD
 	if(scanning_mode == SCAN_EXPORTS)
 		export_scan(object, user)
 		return
 	if(scanning_mode == SCAN_PRICE_TAG)
 		price_tag(target = object, user = user)
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+	if(scanning_mode == SCAN_EXPORTS)
+		export_scan(object, user)
+		return .
+	if(scanning_mode == SCAN_PRICE_TAG)
+		price_tag(target = object, user = user)
+	return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/universal_scanner/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -115,7 +125,11 @@
 			to_chat(user, span_warning("You must be holding \the [src] to continue!"))
 			return
 		var/chosen_price = tgui_input_number(user, "Set price", "Price", new_custom_price)
+<<<<<<< HEAD
 		if(!chosen_price || QDELETED(user) || QDELETED(src) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE) || loc != user)
+=======
+		if(!chosen_price || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH) || loc != user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 		new_custom_price = chosen_price
 		to_chat(user, span_notice("[src] will now give things a [new_custom_price] cr tag."))

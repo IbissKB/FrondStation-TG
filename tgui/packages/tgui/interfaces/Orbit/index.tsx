@@ -4,10 +4,17 @@ import { capitalizeFirst, multiline } from 'common/string';
 import { useBackend, useLocalState } from 'tgui/backend';
 import { Button, Collapsible, Icon, Input, LabeledList, NoticeBox, Section, Stack } from 'tgui/components';
 import { Window } from 'tgui/layouts';
+<<<<<<< HEAD
 import { JobToIcon } from '../common/JobToIcon';
 import { ANTAG2COLOR } from './constants';
 import { collateAntagonists, getDisplayColor, getDisplayName, isJobOrNameMatch } from './helpers';
 import type { AntagGroup, Observable, OrbitData } from './types';
+=======
+import { JOB2ICON } from '../common/JobToIcon';
+import { ANTAG2COLOR } from './constants';
+import { getAntagCategories, getDisplayColor, getDisplayName, getMostRelevant, isJobOrNameMatch } from './helpers';
+import type { AntagGroup, Antagonist, Observable, OrbitData } from './types';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 export const Orbit = (props, context) => {
   return (
@@ -34,6 +41,10 @@ const ObservableSearch = (props, context) => {
   const {
     alive = [],
     antagonists = [],
+<<<<<<< HEAD
+=======
+    deadchat_controlled = [],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     dead = [],
     ghosts = [],
     misc = [],
@@ -58,6 +69,7 @@ const ObservableSearch = (props, context) => {
 
   /** Gets a list of Observables, then filters the most relevant to orbit */
   const orbitMostRelevant = (searchQuery: string) => {
+<<<<<<< HEAD
     /** Returns the most orbited observable that matches the search. */
     const mostRelevant: Observable = flow([
       // Filters out anything that doesn't match search
@@ -68,6 +80,17 @@ const ObservableSearch = (props, context) => {
       sortBy<Observable>((observable) => -(observable.orbiters || 0)),
       // Makes a single Observables list for an easy search
     ])([alive, antagonists, dead, ghosts, misc, npcs].flat())[0];
+=======
+    const mostRelevant = getMostRelevant(searchQuery, [
+      alive,
+      antagonists,
+      deadchat_controlled,
+      dead,
+      ghosts,
+      misc,
+      npcs,
+    ]);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
     if (mostRelevant !== undefined) {
       act('orbit', {
@@ -138,6 +161,10 @@ const ObservableContent = (props, context) => {
   const {
     alive = [],
     antagonists = [],
+<<<<<<< HEAD
+=======
+    deadchat_controlled = [],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     dead = [],
     ghosts = [],
     misc = [],
@@ -147,11 +174,16 @@ const ObservableContent = (props, context) => {
   let collatedAntagonists: AntagGroup[] = [];
 
   if (antagonists.length) {
+<<<<<<< HEAD
     collatedAntagonists = collateAntagonists(antagonists);
+=======
+    collatedAntagonists = getAntagCategories(antagonists);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   }
 
   return (
     <Stack vertical>
+<<<<<<< HEAD
       {collatedAntagonists?.map(([name, antag]) => {
         return (
           <ObservableSection
@@ -162,6 +194,23 @@ const ObservableContent = (props, context) => {
           />
         );
       })}
+=======
+      {collatedAntagonists?.map(([title, antagonists]) => {
+        return (
+          <ObservableSection
+            color={ANTAG2COLOR[title] || 'bad'}
+            key={title}
+            section={antagonists}
+            title={title}
+          />
+        );
+      })}
+      <ObservableSection
+        color="purple"
+        section={deadchat_controlled}
+        title="Deadchat Controlled"
+      />
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <ObservableSection color="blue" section={alive} title="Alive" />
       <ObservableSection section={dead} title="Dead" />
       <ObservableSection section={ghosts} title="Ghosts" />
@@ -228,7 +277,11 @@ const ObservableItem = (
 ) => {
   const { act } = useBackend<OrbitData>(context);
   const { color, item } = props;
+<<<<<<< HEAD
   const { extra, full_name, job, job_icon, health, name, orbiters, ref } = item;
+=======
+  const { extra, full_name, job, health, name, orbiters, ref } = item;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
   const [autoObserve] = useLocalState<boolean>(context, 'autoObserve', false);
   const [heatMap] = useLocalState<boolean>(context, 'heatMap', false);
@@ -236,7 +289,11 @@ const ObservableItem = (
   return (
     <Button
       color={getDisplayColor(item, heatMap, color)}
+<<<<<<< HEAD
       icon={job_icon || (job && JobToIcon[job]) || null}
+=======
+      icon={(job && JOB2ICON[job]) || null}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       onClick={() => act('orbit', { auto_observe: autoObserve, ref: ref })}
       tooltip={(!!health || !!extra) && <ObservableTooltip item={item} />}
       tooltipPosition="bottom-start">
@@ -253,10 +310,20 @@ const ObservableItem = (
 };
 
 /** Displays some info on the mob as a tooltip. */
+<<<<<<< HEAD
 const ObservableTooltip = (props: { item: Observable }) => {
   const {
     item: { extra, full_name, job, health },
   } = props;
+=======
+const ObservableTooltip = (props: { item: Observable | Antagonist }) => {
+  const { item } = props;
+  const { extra, full_name, health, job } = item;
+  let antag;
+  if ('antag' in item) {
+    antag = item.antag;
+  }
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
   const extraInfo = extra?.split(':');
   const displayHealth = !!health && health >= 0 ? `${health}%` : 'Critical';
@@ -274,9 +341,20 @@ const ObservableTooltip = (props: { item: Observable }) => {
         ) : (
           <>
             {!!full_name && (
+<<<<<<< HEAD
               <LabeledList.Item label="Name">{full_name}</LabeledList.Item>
             )}
             {!!job && <LabeledList.Item label="Job">{job}</LabeledList.Item>}
+=======
+              <LabeledList.Item label="Real ID">{full_name}</LabeledList.Item>
+            )}
+            {!!job && !antag && (
+              <LabeledList.Item label="Job">{job}</LabeledList.Item>
+            )}
+            {!!antag && (
+              <LabeledList.Item label="Threat">{antag}</LabeledList.Item>
+            )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
             {!!health && (
               <LabeledList.Item label="Health">
                 {displayHealth}

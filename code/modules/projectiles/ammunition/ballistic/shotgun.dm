@@ -6,7 +6,11 @@
 	icon_state = "blshell"
 	worn_icon_state = "shell"
 	caliber = CALIBER_SHOTGUN
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=4000)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	projectile_type = /obj/projectile/bullet/shotgun_slug
 
 /obj/item/ammo_casing/shotgun/executioner
@@ -25,7 +29,11 @@
 	name = "beanbag slug"
 	desc = "A weak beanbag slug for riot control."
 	icon_state = "bshell"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=250)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*2.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	projectile_type = /obj/projectile/bullet/shotgun_beanbag
 	harmful = FALSE //SKYRAT EDIT ADDITION
 
@@ -53,7 +61,11 @@
 	desc = "A stunning taser slug."
 	icon_state = "stunshell"
 	projectile_type = /obj/projectile/bullet/shotgun_stunslug
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=250)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*2.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/shotgun/meteorslug
 	name = "meteorslug shell"
@@ -83,6 +95,12 @@
 	pellets = 6
 	variance = 25
 
+<<<<<<< HEAD
+=======
+/obj/item/ammo_casing/shotgun/buckshot/spent
+	projectile_type = null
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
 	desc = "A shotgun casing filled with densely-packed rubber balls, used to incapacitate crowds from a distance."
@@ -90,7 +108,11 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_rubbershot
 	pellets = 6
 	variance = 20
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=4000)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	harmful = FALSE //SKYRAT EDIT ADDITION
 
 /obj/item/ammo_casing/shotgun/incapacitate
@@ -100,14 +122,22 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_incapacitate
 	pellets = 12//double the pellets, but half the stun power of each, which makes this best for just dumping right in someone's face.
 	variance = 25
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=4000)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/shotgun/improvised
 	name = "improvised shell"
 	desc = "An extremely weak shotgun shell with multiple small pellets made out of metal shards."
 	icon_state = "improvshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_improvised
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=250)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*2.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pellets = 10
 	variance = 25
 

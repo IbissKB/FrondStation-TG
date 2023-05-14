@@ -24,6 +24,12 @@
 	. += span_notice("Allows you to transmute objects by invoking the rune after collecting the prerequisites overhead.")
 	. += span_notice("You can use your <i>Mansus Grasp</i> on the rune to remove it.")
 
+<<<<<<< HEAD
+=======
+/obj/effect/heretic_rune/attack_paw(mob/living/user, list/modifiers)
+	return attack_hand(user, modifiers)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/heretic_rune/can_interact(mob/living/user)
 	. = ..()
 	if(!.)
@@ -180,6 +186,43 @@
 /// A 3x3 heretic rune. The kind heretics actually draw in game.
 /obj/effect/heretic_rune/big
 	icon = 'icons/effects/96x96.dmi'
+<<<<<<< HEAD
 	icon_state = "eldritch_rune1"
 	pixel_x = -32 //So the big ol' 96x96 sprite shows up right
 	pixel_y = -32
+=======
+	icon_state = "transmutation_rune"
+	pixel_x = -33 //So the big ol' 96x96 sprite shows up right
+	pixel_y = -32
+	greyscale_config = /datum/greyscale_config/heretic_rune
+
+/obj/effect/heretic_rune/big/Initialize(mapload, path_colour)
+	. = ..()
+	if (path_colour)
+		set_greyscale(colors = list(path_colour))
+
+/obj/effect/temp_visual/drawing_heretic_rune
+	duration = 30 SECONDS
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "transmutation_rune"
+	pixel_x = -33
+	pixel_y = -32
+	plane = GAME_PLANE
+	layer = SIGIL_LAYER
+	greyscale_config = /datum/greyscale_config/heretic_rune
+	/// We only set this state after setting the colour, otherwise the animation doesn't colour correctly
+	var/animation_state = "transmutation_rune_draw"
+
+/obj/effect/temp_visual/drawing_heretic_rune/Initialize(mapload, path_colour = COLOR_WHITE)
+	. = ..()
+	set_greyscale(colors = list(path_colour))
+	icon_state = animation_state
+
+/obj/effect/temp_visual/drawing_heretic_rune/fast
+	duration = 12 SECONDS
+	animation_state = "transmutation_rune_fast"
+
+/obj/effect/temp_visual/drawing_heretic_rune/fail
+	duration = 0.25 SECONDS
+	animation_state = "transmutation_rune_fail"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

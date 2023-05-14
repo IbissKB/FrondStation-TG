@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/chaplain/bland
+<<<<<<< HEAD
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	icon_state = "knight_generic"
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
@@ -47,6 +48,38 @@
 	new /obj/item/clothing/head/helmet/chaplain/bland(src)
 	new /obj/item/clothing/suit/chaplainsuit/armor/hospitaller(src)
 
+=======
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/chaplain.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/chaplain.dmi'
+	name = "crusader helmet"
+	desc = "Helfen, Wehren, Heilen."
+	icon_state = "knight_generic"
+	unique_reskin = list(
+		"Basic" = "knight_generic",
+		"Winged" = "knight_winged",
+		"Horned" = "knight_horned",
+		)
+
+/obj/item/clothing/suit/chaplainsuit/armor/templar/generic
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/chaplain.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/chaplain.dmi'
+	desc = "Protect the weak and defenceless, live by honor and glory, and fight for the welfare of all!"
+	icon_state = "knight_generic"
+	unique_reskin = list(
+		"Basic" = "knight_generic",
+		"Teutonic" = "knight_teutonic",
+		"Hospitaller" = "knight_hospitaller",
+	)
+
+/obj/item/storage/box/holy/knight
+	name = "knight's kit"
+
+/obj/item/storage/box/holy/knight/PopulateContents()
+	new /obj/item/clothing/head/helmet/chaplain/bland(src)
+	new /obj/item/clothing/suit/chaplainsuit/armor/templar/generic(src)
+
+//make chaplain version w/ unique sprite?
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cultlain_robe
 	name = "ancient robes"
 	desc = "A ragged, dusty set of robes."
@@ -55,8 +88,13 @@
 	icon_state = "cultrobes"
 	inhand_icon_state = "cultrobes"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 80, ACID = 80, WOUND = 20) // Chaplain Riot armor
 	allowed = list(/obj/item/storage/book/bible, /obj/item/nullrod, /obj/item/reagent_containers/cup/glass/bottle/holywater, /obj/item/storage/fancy/candle_box, /obj/item/candle, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman)
+=======
+	armor_type = /datum/armor/chaplainsuit_armor
+	allowed = list(/obj/item/storage/book/bible, /obj/item/nullrod, /obj/item/reagent_containers/cup/glass/bottle/holywater, /obj/item/storage/fancy/candle_box, /obj/item/flashlight/flare/candle, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hoodtype = /obj/item/clothing/head/hooded/cultlain_hood
 
 /obj/item/clothing/head/hooded/cultlain_hood
@@ -68,7 +106,11 @@
 	body_parts_covered = HEAD
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEEARS
 	flags_cover = HEADCOVERSEYES
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 80, ACID = 80) // Chaplain Riot Helmet
+=======
+	armor_type = /datum/armor/helmet_chaplain
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/box/holy/narsian
 	name = "ancient kit"
@@ -116,7 +158,10 @@
 		special_desc_requirement = NONE // No point in keeping something that can't no longer be used
 		narsian = TRUE
 
+<<<<<<< HEAD
 /* The other one isn't merged yet so we'll wait.
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/nullrod/spear
 	special_desc_requirement = EXAMINE_CHECK_JOB
 	special_desc_jobs = list(JOB_CHAPLAIN)
@@ -125,17 +170,30 @@
 
 /obj/item/nullrod/spear/attack_self(mob/user)
 	if(ratvarian)
+<<<<<<< HEAD
 	else if(user.mind && (user.mind.holy_role))
 		user.grant_language(/datum/language/ratvar, TRUE, TRUE, LANGUAGE_MIND)
 		special_desc_requirement = NONE // No point in keeping something that can't no longer be used
 		ratvarian = TRUE
 */
+=======
+		return ..()
+	else if(user.mind?.holy_role)
+		to_chat(user, span_bigbrass("The sound of cogs permeates your head..."))
+		user.grant_language(/datum/language/ratvar, TRUE, TRUE, LANGUAGE_MIND)
+		special_desc_requirement = NONE // No point in keeping something that can't no longer be used
+		ratvarian = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/nullrod/rosary
 	name = "prayer beads"
 	desc = "A set of prayer beads used by many of the more traditional religions in space"
 	icon = 'modular_skyrat/modules/chaplain/icons/holy_weapons.dmi'
 	icon_state = "rosary"
+<<<<<<< HEAD
+=======
+	worn_icon_state = "nullrod"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	force = 4
 	throwforce = 0
 	attack_verb_simple = list("whipped", "repented", "lashed", "flagellated")
@@ -196,3 +254,7 @@
 	desc = "Made of clear crystal, the blade refracts the light slightly. Purity, so close yet unattainable in this form."
 	icon_state = "void_blade"
 	inhand_icon_state = "void_blade"
+<<<<<<< HEAD
+=======
+	worn_icon_state = "dark_blade"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

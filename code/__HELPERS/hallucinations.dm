@@ -1,6 +1,20 @@
 /// A global list of all ongoing hallucinations, primarily for easy access to be able to stop (delete) hallucinations.
 GLOBAL_LIST_EMPTY(all_ongoing_hallucinations)
 
+<<<<<<< HEAD
+=======
+/// What typepath of the hallucination
+#define HALLUCINATION_ARG_TYPE 1
+/// Where the hallucination came from, for logging
+#define HALLUCINATION_ARG_SOURCE 2
+
+/// Onwards from this index, it's the arglist that gets passed into the hallucination created.
+#define HALLUCINATION_ARGLIST 3
+
+/// Biotypes which cannot hallucinate for balance and logic reasons (not code)
+#define NO_HALLUCINATION_BIOTYPES (MOB_ROBOTIC|MOB_SPIRIT|MOB_EPIC)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Macro wrapper for _cause_hallucination so we can cheat in named arguments, like AddComponent.
 /**
  * Causes a hallucination of a certain type to the mob.
@@ -17,6 +31,7 @@ GLOBAL_LIST_EMPTY(all_ongoing_hallucinations)
 	if(!length(raw_args))
 		CRASH("cause_hallucination called with no arguments.")
 
+<<<<<<< HEAD
 	var/datum/hallucination/hallucination_type = raw_args[1] // first arg is the type always
 	if(!ispath(hallucination_type))
 		CRASH("cause_hallucination was given a non-hallucination type.")
@@ -27,6 +42,18 @@ GLOBAL_LIST_EMPTY(all_ongoing_hallucinations)
 	if(length(raw_args) > 2)
 		var/list/passed_args = raw_args.Copy(3)
 		passed_args.Insert(1, src)
+=======
+	var/datum/hallucination/hallucination_type = raw_args[HALLUCINATION_ARG_TYPE] // first arg is the type always
+	if(!ispath(hallucination_type))
+		CRASH("cause_hallucination was given a non-hallucination type.")
+
+	var/hallucination_source = raw_args[HALLUCINATION_ARG_SOURCE] // and second arg, the source
+	var/datum/hallucination/new_hallucination
+
+	if(length(raw_args) >= HALLUCINATION_ARGLIST)
+		var/list/passed_args = raw_args.Copy(HALLUCINATION_ARGLIST)
+		passed_args.Insert(HALLUCINATION_ARG_TYPE, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		new_hallucination = new hallucination_type(arglist(passed_args))
 	else
@@ -63,6 +90,12 @@ GLOBAL_LIST_EMPTY(all_ongoing_hallucinations)
 		if(HAS_TRAIT(nearby_living, TRAIT_MADNESS_IMMUNE) || (nearby_living.mind && HAS_TRAIT(nearby_living.mind, TRAIT_MADNESS_IMMUNE)))
 			continue
 
+<<<<<<< HEAD
+=======
+		if(nearby_living.mob_biotypes & NO_HALLUCINATION_BIOTYPES)
+			continue
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(nearby_living.is_blind())
 			continue
 

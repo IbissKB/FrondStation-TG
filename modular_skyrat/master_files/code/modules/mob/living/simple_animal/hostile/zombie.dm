@@ -1,5 +1,6 @@
 /mob/living/simple_animal/hostile/zombie
 	var/no_corpse = FALSE
+<<<<<<< HEAD
 	var/list/possible_jobs = list(
 		JOB_ASSISTANT,
 		JOB_STATION_ENGINEER,
@@ -17,10 +18,13 @@
 		JOB_GENETICIST,
 		JOB_BOTANIST,
 	)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/zombie/nocorpse
 	no_corpse = TRUE
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/zombie/proc/setup_visuals()
 	var/picked_job = pick(possible_jobs)
 	var/datum/job/zombie_job = SSjob.GetJob(picked_job)
@@ -31,6 +35,8 @@
 		zombie_outfit.r_hand = null
 		zombie_outfit.l_hand = null
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/hostile/zombie/cheesezombie
 	name = "Cheese Zombie"
 	desc = "Oh God it stinks!!"

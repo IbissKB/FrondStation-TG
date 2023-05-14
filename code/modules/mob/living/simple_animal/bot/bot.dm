@@ -23,7 +23,11 @@
 	initial_language_holder = /datum/language_holder/synthetic
 	bubble_icon = "machine"
 	speech_span = SPAN_ROBOT
+<<<<<<< HEAD
 	faction = list("neutral", "silicon", "turret")
+=======
+	faction = list(FACTION_NEUTRAL, FACTION_SILICON, FACTION_TURRET)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_system = MOVABLE_LIGHT
 	light_range = 3
 	light_power = 0.9
@@ -97,7 +101,10 @@
 	///The nearest beacon's location
 	var/turf/nearest_beacon_loc
 
+<<<<<<< HEAD
 	var/beacon_freq = FREQ_NAV_BEACON
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///The type of data HUD the bot uses. Diagnostic by default.
 	var/data_hud_type = DATA_HUD_DIAGNOSTIC_BASIC
 	var/datum/atom_hud/data/bot_path/path_hud
@@ -133,9 +140,13 @@
 	if(stat)
 		return FALSE
 	bot_mode_flags |= BOT_MODE_ON
+<<<<<<< HEAD
 	REMOVE_TRAIT(src, TRAIT_INCAPACITATED, POWER_LACK_TRAIT)
 	REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, POWER_LACK_TRAIT)
 	REMOVE_TRAIT(src, TRAIT_HANDS_BLOCKED, POWER_LACK_TRAIT)
+=======
+	remove_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), POWER_LACK_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_light_on(bot_mode_flags & BOT_MODE_ON ? TRUE : FALSE)
 	update_appearance()
 	balloon_alert(src, "turned on")
@@ -144,9 +155,13 @@
 
 /mob/living/simple_animal/bot/proc/turn_off()
 	bot_mode_flags &= ~BOT_MODE_ON
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_INCAPACITATED, POWER_LACK_TRAIT)
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, POWER_LACK_TRAIT)
 	ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, POWER_LACK_TRAIT)
+=======
+	add_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), POWER_LACK_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_light_on(bot_mode_flags & BOT_MODE_ON ? TRUE : FALSE)
 	bot_reset() //Resets an AI's call, should it exist.
 	balloon_alert(src, "turned off")
@@ -213,6 +228,11 @@
 		return TRUE
 	if(!(bot_cover_flags & BOT_COVER_LOCKED)) // Unlocked.
 		return TRUE
+<<<<<<< HEAD
+=======
+	if(!istype(user)) // Non-living mobs shouldn't be manipulating bots (like observes using the botkeeper UI).
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/obj/item/card/id/used_id = id || user.get_idcard(TRUE)
 
@@ -348,7 +368,11 @@
 	. = ..()
 	if(!can_interact(user))
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, !issilicon(user)))
+=======
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	unlock_with_id(user)
 
@@ -756,7 +780,11 @@ Pass a positive integer as an argument to override a bot's default speed.
 		if(NB.location == next_destination) //Does the Beacon location text match the destination?
 			destination = new_destination //We now know the name of where we want to go.
 			patrol_target = NB.loc //Get its location and set it as the target.
+<<<<<<< HEAD
 			next_destination = NB.codes["next_patrol"] //Also get the name of the next beacon in line.
+=======
+			next_destination = NB.codes[NAVBEACON_PATROL_NEXT] //Also get the name of the next beacon in line.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return TRUE
 
 /mob/living/simple_animal/bot/proc/find_nearest_beacon()
@@ -767,7 +795,11 @@ Pass a positive integer as an argument to override a bot's default speed.
 			if(dist>1 && dist<get_dist(src,nearest_beacon_loc))
 				nearest_beacon = NB.location
 				nearest_beacon_loc = NB.loc
+<<<<<<< HEAD
 				next_destination = NB.codes["next_patrol"]
+=======
+				next_destination = NB.codes[NAVBEACON_PATROL_NEXT]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else
 				continue
 		else if(dist > 1) //Begin the search, save this one for comparison on the next loop.
@@ -940,11 +972,19 @@ Pass a positive integer as an argument to override a bot's default speed.
 				ejectpai(usr)
 
 /mob/living/simple_animal/bot/update_icon_state()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)][get_bot_flag(bot_mode_flags, BOT_MODE_ON)]"
 	return ..()
 
 /mob/living/simple_animal/bot/proc/topic_denied(mob/user) //Access check proc for bot topics! Remember to place in a bot's individual Topic if desired.
 	if(!user.canUseTopic(src, !issilicon(user)))
+=======
+	icon_state = "[isnull(base_icon_state) ? initial(icon_state) : base_icon_state][get_bot_flag(bot_mode_flags, BOT_MODE_ON)]"
+	return ..()
+
+/mob/living/simple_animal/bot/proc/topic_denied(mob/user) //Access check proc for bot topics! Remember to place in a bot's individual Topic if desired.
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	// 0 for access, 1 for denied.
 	if(bot_cover_flags & BOT_COVER_EMAGGED) //An emagged bot cannot be controlled by humans, silicons can if one hacked it.
@@ -1030,7 +1070,11 @@ Pass a positive integer as an argument to override a bot's default speed.
 		ejectpai(0)
 
 /mob/living/simple_animal/bot/sentience_act()
+<<<<<<< HEAD
 	faction -= "silicon"
+=======
+	faction -= FACTION_SILICON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/bot/proc/set_path(list/newpath)
 	path = newpath ? newpath : list()
@@ -1060,7 +1104,11 @@ Pass a positive integer as an argument to override a bot's default speed.
 				var/turf/prevT = path[i - 1]
 				var/image/prevI = path[prevT]
 				direction = get_dir(prevT, T)
+<<<<<<< HEAD
 				if(i > 2)
+=======
+				if(i > 2 && prevI) // make sure we actually have an image to manipulate at index > 2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					var/turf/prevprevT = path[i - 2]
 					var/prevDir = get_dir(prevprevT, prevT)
 					var/mixDir = direction|prevDir

@@ -19,13 +19,26 @@
 	var/antimagic_flags = NONE
 	///if true, immune atoms moving ends the timestop instead of duration.
 	var/channelled = FALSE
+<<<<<<< HEAD
 
 /obj/effect/timestop/Initialize(mapload, radius, time, list/immune_atoms, start = TRUE) //Immune atoms assoc list atom = TRUE
+=======
+	/// hides time icon effect and mutes sound
+	var/hidden = FALSE
+
+/obj/effect/timestop/Initialize(mapload, radius, time, list/immune_atoms, start = TRUE, silent = FALSE) //Immune atoms assoc list atom = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!isnull(time))
 		duration = time
 	if(!isnull(radius))
 		freezerange = radius
+<<<<<<< HEAD
+=======
+	if(silent)
+		hidden = TRUE
+		alpha = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/A in immune_atoms)
 		immune[A] = TRUE
 	for(var/mob/living/to_check in GLOB.player_list)
@@ -39,12 +52,22 @@
 
 /obj/effect/timestop/Destroy()
 	QDEL_NULL(chronofield)
+<<<<<<< HEAD
 	playsound(src, 'sound/magic/timeparadox2.ogg', 75, TRUE, frequency = -1) //reverse!
+=======
+	if(!hidden)
+		playsound(src, 'sound/magic/timeparadox2.ogg', 75, TRUE, frequency = -1) //reverse!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/effect/timestop/proc/timestop()
 	target = get_turf(src)
+<<<<<<< HEAD
 	playsound(src, 'sound/magic/timeparadox2.ogg', 75, TRUE, -1)
+=======
+	if(!hidden)
+		playsound(src, 'sound/magic/timeparadox2.ogg', 75, TRUE, -1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	chronofield = new (src, freezerange, TRUE, immune, antimagic_flags, channelled)
 	if(!channelled)
 		QDEL_IN(src, duration)
@@ -58,6 +81,10 @@
 	channelled = TRUE
 
 /datum/proximity_monitor/advanced/timestop
+<<<<<<< HEAD
+=======
+	edge_is_a_field = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/immune = list()
 	var/list/frozen_things = list()
 	var/list/frozen_mobs = list() //cached separately for processing
@@ -124,6 +151,11 @@
 	RegisterSignal(A, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(unfreeze_atom))
 	RegisterSignal(A, COMSIG_ITEM_PICKUP, PROC_REF(unfreeze_atom))
 
+<<<<<<< HEAD
+=======
+	SEND_SIGNAL(A, COMSIG_ATOM_TIMESTOP_FREEZE, src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /datum/proximity_monitor/advanced/timestop/proc/unfreeze_all()
@@ -134,7 +166,10 @@
 
 /datum/proximity_monitor/advanced/timestop/proc/unfreeze_atom(atom/movable/A)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(A.throwing)
 		unfreeze_throwing(A)
 	if(isliving(A))
@@ -146,6 +181,12 @@
 
 	UnregisterSignal(A, COMSIG_MOVABLE_PRE_MOVE)
 	UnregisterSignal(A, COMSIG_ITEM_PICKUP)
+<<<<<<< HEAD
+=======
+
+	SEND_SIGNAL(A, COMSIG_ATOM_TIMESTOP_UNFREEZE, src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	escape_the_negative_zone(A)
 	A.move_resist = frozen_things[A]
 	frozen_things -= A
@@ -158,7 +199,10 @@
 /datum/proximity_monitor/advanced/timestop/proc/unfreeze_mecha(obj/vehicle/sealed/mecha/M)
 	M.completely_disabled = FALSE
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/proximity_monitor/advanced/timestop/proc/freeze_throwing(atom/movable/AM)
 	var/datum/thrownthing/T = AM.throwing
 	T.paused = TRUE
@@ -187,12 +231,20 @@
 		var/mob/living/m = i
 		m.Stun(20, ignore_canstun = TRUE)
 
+<<<<<<< HEAD
 /datum/proximity_monitor/advanced/timestop/setup_field_turf(turf/T)
 	. = ..()
 	for(var/i in T.contents)
 		freeze_atom(i)
 	freeze_turf(T)
 
+=======
+/datum/proximity_monitor/advanced/timestop/setup_field_turf(turf/target)
+	. = ..()
+	for(var/i in target.contents)
+		freeze_atom(i)
+	freeze_turf(target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/proximity_monitor/advanced/timestop/proc/freeze_projectile(obj/projectile/P)
 	P.paused = TRUE
@@ -200,6 +252,7 @@
 /datum/proximity_monitor/advanced/timestop/proc/unfreeze_projectile(obj/projectile/P)
 	P.paused = FALSE
 
+<<<<<<< HEAD
 /datum/proximity_monitor/advanced/timestop/proc/freeze_mob(mob/living/L)
 	frozen_mobs += L
 	L.Stun(20, ignore_canstun = TRUE)
@@ -219,6 +272,33 @@
 	if(isanimal(L))
 		var/mob/living/simple_animal/S = L
 		S.toggle_ai(initial(S.AIStatus))
+=======
+/datum/proximity_monitor/advanced/timestop/proc/freeze_mob(mob/living/victim)
+	frozen_mobs += victim
+	victim.Stun(20, ignore_canstun = TRUE)
+	victim.add_traits(list(TRAIT_MUTE, TRAIT_EMOTEMUTE), TIMESTOP_TRAIT)
+	SSmove_manager.stop_looping(victim) //stops them mid pathing even if they're stunimmune //This is really dumb
+	if(isanimal(victim))
+		var/mob/living/simple_animal/animal_victim = victim
+		animal_victim.toggle_ai(AI_OFF)
+		if(ishostile(victim))
+			var/mob/living/simple_animal/hostile/hostile_victim = victim
+			hostile_victim.LoseTarget()
+	else if(isbasicmob(victim))
+		var/mob/living/basic/basic_victim = victim
+		basic_victim.ai_controller?.set_ai_status(AI_STATUS_OFF)
+
+/datum/proximity_monitor/advanced/timestop/proc/unfreeze_mob(mob/living/victim)
+	victim.AdjustStun(-20, ignore_canstun = TRUE)
+	victim.remove_traits(list(TRAIT_MUTE, TRAIT_EMOTEMUTE), TIMESTOP_TRAIT)
+	frozen_mobs -= victim
+	if(isanimal(victim))
+		var/mob/living/simple_animal/animal_victim = victim
+		animal_victim.toggle_ai(initial(animal_victim.AIStatus))
+	else if(isbasicmob(victim))
+		var/mob/living/basic/basic_victim = victim
+		basic_victim.ai_controller?.reset_ai_status()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //you don't look quite right, is something the matter?
 /datum/proximity_monitor/advanced/timestop/proc/into_the_negative_zone(atom/A)

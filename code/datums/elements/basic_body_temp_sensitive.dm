@@ -39,14 +39,22 @@
 	return ..()
 
 
+<<<<<<< HEAD
 /datum/element/basic_body_temp_sensitive/proc/on_life(datum/target, delta_time, times_fired)
+=======
+/datum/element/basic_body_temp_sensitive/proc/on_life(datum/target, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 
 	var/mob/living/basic/basic_mob = target
 	var/gave_alert = FALSE
 
 	if(basic_mob.bodytemperature < min_body_temp)
+<<<<<<< HEAD
 		basic_mob.adjust_health(cold_damage * delta_time)
+=======
+		basic_mob.adjust_health(cold_damage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		switch(cold_damage)
 			if(1 to 5)
 				basic_mob.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 1)
@@ -57,7 +65,11 @@
 		gave_alert = TRUE
 
 	else if(basic_mob.bodytemperature > max_body_temp)
+<<<<<<< HEAD
 		basic_mob.adjust_health(heat_damage * delta_time)
+=======
+		basic_mob.adjust_health(heat_damage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		switch(heat_damage)
 			if(1 to 5)
 				basic_mob.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 1)

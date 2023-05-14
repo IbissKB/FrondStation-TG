@@ -3,7 +3,11 @@
 	desc = "Better stay away from that thing."
 	density = FALSE
 	anchored = TRUE
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/weapons/grenade.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "uglymine"
 	base_icon_state = "uglymine"
 	/// We manually check to see if we've been triggered in case multiple atoms cross us in the time between the mine being triggered and it actually deleting, to avoid a race condition with multiple detonations
@@ -64,6 +68,19 @@
 /obj/effect/mine/proc/can_trigger(atom/movable/on_who)
 	if(triggered || !isturf(loc) || iseffect(on_who) || !armed)
 		return FALSE
+<<<<<<< HEAD
+=======
+
+	var/mob/living/living_mob
+	if(ismob(on_who))
+		if(!isliving(on_who)) //no ghosties.
+			return FALSE
+		living_mob = on_who
+
+	if(living_mob?.incorporeal_move || on_who.movement_type & FLYING)
+		return foot_on_mine ? IS_WEAKREF_OF(on_who, foot_on_mine) : FALSE //Only go boom if their foot was on the mine PRIOR to flying/phasing. You fucked up, you live with the consequences.
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/effect/mine/proc/on_entered(datum/source, atom/movable/arrived)
@@ -71,9 +88,12 @@
 
 	if(!can_trigger(arrived))
 		return
+<<<<<<< HEAD
 	// Flying = can't step on a mine
 	if(arrived.movement_type & FLYING)
 		return
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Someone already on it
 	if(foot_on_mine?.resolve())
 		return
@@ -132,6 +152,27 @@
 /obj/effect/mine/explosive/mineEffect(mob/victim)
 	explosion(src, range_devastation, range_heavy, range_light, range_flame, range_flash)
 
+<<<<<<< HEAD
+=======
+/obj/effect/mine/explosive/light
+	name = "low-yield explosive mine"
+	range_heavy = 0
+	range_light = 3
+	range_flash = 2
+
+/obj/effect/mine/explosive/flame
+	name = "incendiary explosive mine"
+	range_heavy = 0
+	range_light = 1
+	range_flame = 3
+
+/obj/effect/mine/explosive/flash
+	name = "blinding explosive mine"
+	range_heavy = 0
+	range_light = 1
+	range_flash = 6
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mine/stun
 	name = "stun mine"
 	var/stun_time = 80

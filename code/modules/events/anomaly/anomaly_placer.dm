@@ -62,6 +62,10 @@
 		/area/station/ai_monitored/turret_protected/ai,
 		/area/station/ai_monitored/turret_protected/ai_upload,
 		/area/station/engineering,
+<<<<<<< HEAD
+=======
+		/area/station/science/ordnance/bomb,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/area/station/solars,
 		/area/station/holodeck,
 		/area/station/maintenance,

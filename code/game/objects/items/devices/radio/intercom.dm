@@ -7,6 +7,10 @@
 	canhear_range = 2
 	dog_fashion = null
 	unscrewed = FALSE
+<<<<<<< HEAD
+=======
+	item_flags = NO_BLOOD_ON_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	overlay_speaker_idle = "intercom_s"
 	overlay_speaker_active = "intercom_recieve"
@@ -170,9 +174,12 @@
 		set_on(current_area.powered(AREA_USAGE_EQUIP)) // set "on" to the equipment power status of our area.
 	update_appearance()
 
+<<<<<<< HEAD
 /obj/item/radio/intercom/add_blood_DNA(list/blood_dna)
 	return FALSE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Created through the autolathe or through deconstructing intercoms. Can be applied to wall to make a new intercom on it!
 /obj/item/wallframe/intercom
 	name = "intercom frame"
@@ -180,7 +187,11 @@
 	icon_state = "intercom"
 	result_path = /obj/item/radio/intercom/unscrewed
 	pixel_shift = 26
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.75, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.25)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/item/radio/intercom, 26)
 

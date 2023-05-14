@@ -1,7 +1,13 @@
 /obj/structure/closet/secure_closet/captains
+<<<<<<< HEAD
 	name = "\proper captain's locker"
 	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
+=======
+	name = "captain's locker"
+	icon_state = "cap"
+	req_access = list(ACCESS_CAPTAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/captains/PopulateContents()
 	..()
@@ -17,18 +23,32 @@
 	new /obj/item/radio/headset/heads/captain/alt(src)
 	new /obj/item/radio/headset/heads/captain(src)
 	new /obj/item/storage/belt/sabre(src)
+<<<<<<< HEAD
 	new /obj/item/storage/box/gunset/pdh_captain(src) // SKYRAT EDIT ADDITION
+=======
+	new /obj/item/storage/box/gunset/pdh(src) // SKYRAT EDIT CHANGE - ORIGINAL: new /obj/item/gun/energy/e_gun(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/door_remote/captain(src)
 	new /obj/item/storage/photo_album/captain(src)
 
 /obj/structure/closet/secure_closet/hop
+<<<<<<< HEAD
 	name = "\proper head of personnel's locker"
 	req_access = list(ACCESS_HOP)
 	icon_state = "hop"
+=======
+	name = "head of personnel's locker"
+	icon_state = "hop"
+	req_access = list(ACCESS_HOP)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	storage_capacity = 40 //SKYRAT EDIT ADDITION
 
 /obj/structure/closet/secure_closet/hop/PopulateContents()
 	..()
+<<<<<<< HEAD
+=======
+	new /obj/item/dog_bone(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/storage/bag/garment/hop(src)
 	new /obj/item/storage/lockbox/medal/service(src)
 	new /obj/item/computer_disk/command/hop(src)
@@ -37,7 +57,11 @@
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/assembly/flash/handheld(src)
+<<<<<<< HEAD
 	new /obj/item/storage/box/gunset/pdh(src) // SKYRAT EDIT ADDITION
+=======
+	new /obj/item/gun/energy/e_gun(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/door_remote/civilian(src)
@@ -46,9 +70,15 @@
 	new /obj/item/storage/lockbox/medal/hop(src)
 
 /obj/structure/closet/secure_closet/hos
+<<<<<<< HEAD
 	name = "\proper head of security's locker"
 	req_access = list(ACCESS_HOS)
 	icon_state = "hos"
+=======
+	name = "head of security's locker"
+	icon_state = "hos"
+	req_access = list(ACCESS_HOS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/hos/PopulateContents()
 	..()
@@ -74,12 +104,22 @@
 	new /obj/item/pinpointer/nuke(src)
 
 /obj/structure/closet/secure_closet/warden
+<<<<<<< HEAD
 	name = "\proper warden's locker"
 	req_access = list(ACCESS_ARMORY)
 	icon_state = "warden"
 
 /obj/structure/closet/secure_closet/warden/PopulateContents()
 	..()
+=======
+	name = "warden's locker"
+	icon_state = "warden"
+	req_access = list(ACCESS_ARMORY)
+
+/obj/structure/closet/secure_closet/warden/PopulateContents()
+	..()
+	new /obj/item/dog_bone(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/radio/headset/headset_sec(src)
 	new /obj/item/clothing/suit/armor/vest/warden(src)
 	//new /obj/item/clothing/head/hats/warden(src) SKYRAT EDIT REMOVAL
@@ -102,8 +142,13 @@
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
+<<<<<<< HEAD
 	req_access = list(ACCESS_BRIG)
 	icon_state = "sec"
+=======
+	icon_state = "sec"
+	req_access = list(ACCESS_BRIG)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/security/PopulateContents()
 	..()
@@ -130,6 +175,7 @@
 	icon = 'icons/obj/storage/closet.dmi'
 
 /obj/structure/closet/secure_closet/security/cargo/PopulateContents()
+<<<<<<< HEAD
 	new /obj/item/storage/box/gunset/pepperball(src)
 	new /obj/item/storage/bag/garment/customs_agent(src)
 	new /obj/item/restraints/handcuffs/cable/orange(src)
@@ -137,13 +183,27 @@
 /obj/structure/closet/secure_closet/security/engine
 	name = "\proper engineering guard's locker"
 	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_ENGINE_EQUIP)
+=======
+	new /obj/item/storage/bag/garment/customs_agent(src)
+	new /obj/item/restraints/handcuffs/cable/orange(src)
+	new /obj/item/assembly/flash/handheld(src)
+
+/obj/structure/closet/secure_closet/security/engine
+	name = "\proper engineering guard's locker"
+	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_ENGINEERING)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "eng_secure"
 	icon = 'icons/obj/storage/closet.dmi'
 
 /obj/structure/closet/secure_closet/security/engine/PopulateContents()
 	new /obj/item/restraints/handcuffs/cable/yellow(src)
+<<<<<<< HEAD
 	new /obj/item/storage/box/gunset/pepperball(src)
 	new /obj/item/storage/bag/garment/engineering_guard(src)
+=======
+	new /obj/item/storage/bag/garment/engineering_guard(src)
+	new /obj/item/assembly/flash/handheld(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/security/science
 	name = "\proper science guard's locker"
@@ -153,8 +213,13 @@
 
 /obj/structure/closet/secure_closet/security/science/PopulateContents()
 	new /obj/item/restraints/handcuffs/cable/pink(src)
+<<<<<<< HEAD
 	new /obj/item/storage/box/gunset/pepperball(src)
 	new /obj/item/storage/bag/garment/science_guard(src)
+=======
+	new /obj/item/storage/bag/garment/science_guard(src)
+	new /obj/item/assembly/flash/handheld(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/security/med
 	name = "\proper orderly's locker"
@@ -164,19 +229,31 @@
 
 /obj/structure/closet/secure_closet/security/med/PopulateContents()
 	new /obj/item/restraints/handcuffs/cable/blue(src)
+<<<<<<< HEAD
 	new /obj/item/storage/box/gunset/pepperball(src)
 	new /obj/item/storage/bag/garment/orderly(src)
+=======
+	new /obj/item/storage/bag/garment/orderly(src)
+	new /obj/item/assembly/flash/handheld(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // SKYRAT EDIT CHANGE END -- GOOFSEC DEP GUARDS
 
 /obj/structure/closet/secure_closet/detective
 	name = "\improper detective's cabinet"
+<<<<<<< HEAD
 	req_access = list(ACCESS_DETECTIVE)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "cabinet"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
 	door_anim_time = 0 // no animation
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
+<<<<<<< HEAD
+=======
+	req_access = list(ACCESS_DETECTIVE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/detective/PopulateContents()
 	..()
@@ -203,13 +280,19 @@
 
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
+<<<<<<< HEAD
 	req_one_access = list(ACCESS_BRIG)
 	anchored = TRUE
+=======
+	anchored = TRUE
+	req_one_access = list(ACCESS_BRIG)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/id = null
 
 /obj/structure/closet/secure_closet/brig/genpop
 	name = "genpop storage locker"
 	desc = "Used for storing the belongings of genpop's tourists visiting the locals."
+<<<<<<< HEAD
 
 	///Reference to the ID linked to the locker, done by swiping a prisoner ID on it
 	var/datum/weakref/assigned_id_ref = null
@@ -217,11 +300,16 @@
 /obj/structure/closet/secure_closet/brig/genpop/Destroy()
 	assigned_id_ref = null
 	return ..()
+=======
+	access_choices = FALSE
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/brig/genpop/examine(mob/user)
 	. = ..()
 	. += span_notice("<b>Right-click</b> with a Security-level ID to reset [src]'s registered ID.")
 
+<<<<<<< HEAD
 /obj/structure/closet/secure_closet/brig/genpop/attackby(obj/item/card/id/advanced/prisoner/used_id, mob/user, params)
 	. = ..()
 	if(!istype(used_id, /obj/item/card/id/advanced/prisoner))
@@ -250,15 +338,50 @@
 		assigned_id_ref = null
 		name = initial(name)
 		update_appearance()
+=======
+/obj/structure/closet/secure_closet/brig/genpop/attackby(obj/item/card/id/advanced/prisoner/user_id, mob/user, params)
+	if(!secure || !istype(user_id))
+		return ..()
+
+	if(isnull(id_card))
+		say("Prisoner ID linked to locker.")
+		id_card = WEAKREF(user_id)
+		name = "genpop storage locker - [user_id.registered_name]"
+
+/obj/structure/closet/secure_closet/brig/genpop/proc/clear_access()
+	say("Authorized ID detected. Unlocking locker and resetting ID.")
+	locked = FALSE
+	id_card = null
+	name = initial(name)
+	update_appearance()
+
+/obj/structure/closet/secure_closet/brig/genpop/attackby_secondary(obj/item/card/id/advanced/used_id, mob/user, params)
+	if(!secure || !istype(used_id))
+		return ..()
+
+	var/list/id_access = used_id.GetAccess()
+	if(!isnull(id_card) && (ACCESS_BRIG in id_access))
+		clear_access()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/closet/secure_closet/evidence
 	anchored = TRUE
+<<<<<<< HEAD
 	name = "Secure Evidence Closet"
 	req_one_access = list("armory","detective")
 
 /obj/structure/closet/secure_closet/brig/PopulateContents()
 	..()
+=======
+	name = "secure evidence closet"
+	req_one_access = list(ACCESS_ARMORY, ACCESS_DETECTIVE)
+
+/obj/structure/closet/secure_closet/brig/PopulateContents()
+	..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/clothing/under/rank/prisoner( src )
 	new /obj/item/clothing/under/rank/prisoner/skirt( src )
 	new /obj/item/clothing/shoes/sneakers/orange( src )
@@ -269,13 +392,22 @@
 
 /obj/structure/closet/secure_closet/courtroom/PopulateContents()
 	..()
+<<<<<<< HEAD
 	new /obj/item/clothing/shoes/sneakers/brown(src)
+=======
+	new /obj/item/clothing/shoes/laceup(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/i in 1 to 3)
 		new /obj/item/paper/fluff/jobs/security/court_judgement (src)
 	new /obj/item/pen (src)
 	new /obj/item/clothing/suit/costume/judgerobe (src)
 	new /obj/item/clothing/head/costume/powdered_wig (src)
 	new /obj/item/storage/briefcase(src)
+<<<<<<< HEAD
+=======
+	new /obj/item/clothing/under/suit/black_really(src)
+	new /obj/item/clothing/neck/tie/red(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/contraband/armory
 	anchored = TRUE
@@ -283,6 +415,7 @@
 	req_access = list(ACCESS_ARMORY)
 
 /obj/structure/closet/secure_closet/contraband/heads
+<<<<<<< HEAD
 	anchored = TRUE
 	name = "Contraband Locker"
 	req_access = list(ACCESS_COMMAND)
@@ -291,6 +424,16 @@
 	name = "armory armor locker"
 	req_access = list(ACCESS_ARMORY)
 	icon_state = "armory" // SKYRAT EDIT ADDITION - NEW ICON ADDED IN peacekeeper_lockers.dm
+=======
+	name = "contraband locker"
+	req_access = list(ACCESS_COMMAND)
+	anchored = TRUE
+
+/obj/structure/closet/secure_closet/armory1
+	name = "armory armor locker"
+	icon_state = "armory" // SKYRAT EDIT ADDITION - NEW ICON ADDED IN peacekeeper_lockers.dm
+	req_access = list(ACCESS_ARMORY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/armory1/PopulateContents()
 	..()
@@ -309,8 +452,13 @@
 
 /obj/structure/closet/secure_closet/armory2
 	name = "armory ballistics locker"
+<<<<<<< HEAD
 	req_access = list(ACCESS_ARMORY)
 	icon_state = "armory" // SKYRAT EDIT ADDITION - NEW ICON ADDED IN peacekeeper_lockers.dm
+=======
+	icon_state = "armory" // SKYRAT EDIT ADDITION - NEW ICON ADDED IN peacekeeper_lockers.dm
+	req_access = list(ACCESS_ARMORY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/armory2/PopulateContents()
 	..()
@@ -322,8 +470,13 @@
 
 /obj/structure/closet/secure_closet/armory3
 	name = "armory energy gun locker"
+<<<<<<< HEAD
 	req_access = list(ACCESS_ARMORY)
 	icon_state = "armory" // SKYRAT EDIT ADDITION - NEW ICON ADDED IN peacekeeper_lockers.dm
+=======
+	icon_state = "armory" // SKYRAT EDIT ADDITION - NEW ICON ADDED IN peacekeeper_lockers.dm
+	req_access = list(ACCESS_ARMORY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/armory3/PopulateContents()
 	..()
@@ -338,8 +491,13 @@
 
 /obj/structure/closet/secure_closet/tac
 	name = "armory tac locker"
+<<<<<<< HEAD
 	req_access = list(ACCESS_ARMORY)
 	icon_state = "tac"
+=======
+	icon_state = "tac"
+	req_access = list(ACCESS_ARMORY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/tac/PopulateContents()
 	..()
@@ -350,8 +508,13 @@
 
 /obj/structure/closet/secure_closet/labor_camp_security
 	name = "labor camp security locker"
+<<<<<<< HEAD
 	req_access = list(ACCESS_SECURITY)
 	icon_state = "sec"
+=======
+	icon_state = "sec"
+	req_access = list(ACCESS_SECURITY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/labor_camp_security/PopulateContents()
 	..()

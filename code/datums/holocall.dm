@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #define HOLOPAD_MAX_DIAL_TIME 200
 
 #define HOLORECORD_DELAY "delay"
@@ -13,6 +14,15 @@
 	. = ..()
 	var/obj/machinery/holopad/H = origin
 	H?.move_hologram(eye_user, loc)
+=======
+/mob/camera/ai_eye/remote/holo/setLoc(turf/destination, force_update = FALSE)
+	// If we're moving outside the space of our projector, then just... don't
+	var/obj/machinery/holopad/H = origin
+	if(!H?.move_hologram(eye_user, destination))
+		sprint = initial(sprint) // Reset sprint so it doesn't balloon in our calling proc
+		return
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/holopad/remove_eye_control(mob/living/user)
 	if(user.client)
@@ -74,9 +84,13 @@
 //cleans up ALL references :)
 /datum/holocall/Destroy()
 	QDEL_NULL(hangup)
+<<<<<<< HEAD
 
 	if(!QDELETED(eye))
 		QDEL_NULL(eye)
+=======
+	QDEL_NULL(eye)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(connected_holopad && !QDELETED(hologram))
 		hologram = null
@@ -233,7 +247,11 @@
 	desc = "Stores recorder holocalls."
 	icon_state = "holodisk"
 	obj_flags = UNIQUE_RENAME
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/holorecord/record
 	//Preset variables
 	var/preset_image_type
@@ -356,7 +374,14 @@
 	outfit_type = /datum/outfit/job/captain
 
 /datum/preset_holoimage/nanotrasenprivatesecurity
+<<<<<<< HEAD
 	outfit_type = /datum/outfit/nanotrasensoldiercorpse2
+=======
+	outfit_type = /datum/outfit/nanotrasensoldiercorpse
+
+/datum/preset_holoimage/syndicatebattlecruisercaptain
+	outfit_type = /datum/outfit/syndicate_empty/battlecruiser
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preset_holoimage/hivebot
 	nonhuman_mobtype = /mob/living/simple_animal/hostile/hivebot
@@ -367,6 +392,12 @@
 /datum/preset_holoimage/robot
 	nonhuman_mobtype = /mob/living/silicon/robot
 
+<<<<<<< HEAD
+=======
+/datum/preset_holoimage/assistant
+	outfit_type = /datum/outfit/job/assistant
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/disk/holodisk/example
 	preset_image_type = /datum/preset_holoimage/clown
 	preset_record_text = {"
@@ -476,3 +507,126 @@
 	NAME Blackbox Automated Message
 	SAY Connection lost. Dumping audio logs to disk.
 	DELAY 50"}
+<<<<<<< HEAD
+=======
+
+/obj/item/disk/holodisk/ruin/ghost_restaurant
+	name = "Blackbox Print-out #NG234"
+	preset_image_type = /datum/preset_holoimage/assistant
+	preset_record_text = {"
+	NAME Aron Blue
+	SAY Message from NTGrub Themed Surprise Deliveries, Trademark.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Must you always say the full name, dude?
+	DELAY 20
+	NAME Aron Blue
+	SAY Ahem!
+	DELAY 20
+	NAME Aron Blue
+	SAY It says that they loved our new robot themes!
+	DELAY 20
+	NAME Henry Fresh
+	SAY Oh dang!
+	DELAY 20
+	NAME Henry Fresh
+	SAY Will we be moved to the main team?
+	DELAY 20
+	NAME Aron Blue
+	SAY Hell yeah we will! High five!
+	DELAY 20
+	SOUND punch
+	NAME Henry Fresh
+	SAY High five!
+	DELAY 20
+	NAME Henry Fresh
+	SAY Oh, new order. Its for, hah, *Funny Food*.
+	DELAY 20
+	NAME Aron Blue
+	SAY Easy!
+	DELAY 20
+	NAME Aron Blue
+	SAY I will dress up this robot as a clown.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Well, if you are that basic, lets make it ask for a Banana Pie.
+	DELAY 20
+	NAME Aron Blue
+	SAY Gateway to Planetside Pagliacci 15 is open.
+	DELAY 20
+	NAME Aron Blue
+	SAY Feels appropriate.
+	DELAY 15
+	SOUND clown_step
+	DELAY 10
+	SOUND sparks
+	DELAY 10
+	NAME Aron Blue
+	SAY Next order is for a simple farm dish.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Unlike you, I am creative.
+	DELAY 20
+	NAME Henry Fresh
+	SAY I'll dress it up as a scarecrow.
+	SOUND rustle
+	DELAY 20
+	NAME Aron Blue
+	SAY Let's ask for uuuh, Hot Potato.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Send it to the new place. Firebase Balthazord.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Wait.
+	DELAY 10
+	NAME Henry Fresh
+	SAY You know its called Baked Potato, right?
+	DELAY 10
+	SOUND sparks
+	DELAY 20
+	NAME Aron Blue
+	SAY Shut up, they'll know what I meant!
+	DELAY 20
+	SOUND sparks
+	DELAY 10
+	NAME Henry Fresh
+	SAY Its back.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Haha, it brought a raw potato.
+	DELAY 20
+	NAME Aron Blue
+	SAY HENRY ITS TICK-
+	DELAY 20
+	SOUND explosion
+	DELAY 20
+	PRESET /datum/preset_holoimage/corgi
+	NAME Blackbox Automated Message
+	SAY Connection lost. Dumping audio logs to disk.
+	DELAY 50
+	"}
+
+/obj/item/disk/holodisk/ruin/space/travelers_rest
+	name = "Owner's memo"
+	desc = "A holodisk containing a small memo from the previous owner, addressed to someone else."
+	preset_image_type = /datum/preset_holoimage/engineer/atmos
+	preset_record_text = {"
+		NAME Space Adventurer
+		SOUND PING
+		DELAY 20
+		SAY Hey, I left you this message for when you come back.
+		DELAY 50
+		SAY I picked up an emergency signal from a freighter and I'm going there to search for some goodies.
+		DELAY 50
+		SAY You can crash here if you need to, but make sure to check the anchor cables before you leave.
+		DELAY 50
+		SAY If you don't, this thing might drift off into space.
+		DELAY 50
+		SAY Then some weirdo could find it and potentially claim it as their own.
+		DELAY 50
+		SAY Anyway, gotta go, see ya!
+		DELAY 40
+		SOUND sparks
+	"}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 //See also controllers/globals.dm
+=======
+// See also controllers/globals.dm
+// See initialization order in /code/game/world.dm
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Creates a global initializer with a given InitValue expression, do not use
 #define GLOBAL_MANAGED(X, InitValue)\
@@ -20,11 +25,20 @@
 #define GLOBAL_PROTECT(X)
 #endif
 
+<<<<<<< HEAD
 /// Standard BYOND global, do not use
 #define GLOBAL_REAL_VAR(X) var/global/##X
 
 /// Standard typed BYOND global, do not use
 #define GLOBAL_REAL(X, Typepath) var/global##Typepath/##X
+=======
+/// Standard BYOND global, seriously do not use without an earthshakingly good reason
+#define GLOBAL_REAL_VAR(X) var/global/##X;
+
+
+/// Standard typed BYOND global, seriously do not use without an earthshakingly good reason
+#define GLOBAL_REAL(X, Typepath) var/global##Typepath/##X;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Defines a global var on the controller, do not use
 #define GLOBAL_RAW(X) /datum/controller/global_vars/var/global##X

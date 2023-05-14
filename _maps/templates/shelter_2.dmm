@@ -62,8 +62,12 @@
 /turf/open/floor/pod,
 /area/misc/survivalpod)
 "n" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 8;
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 3
 	},
 /obj/machinery/door/window/survival_pod{
@@ -74,6 +78,7 @@
 "o" = (
 /obj/structure/chair/comfy/black,
 /obj/item/cardboard_cutout{
+<<<<<<< HEAD
 	desc = "A cardboard cutout of a xenomorph maid.";
 	icon_state = "cutout_lusty";
 	name = "lusty xenomorph maid"
@@ -81,6 +86,11 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1
 	},
+=======
+	starting_cutout = "Xenomorph Maid"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/carpet/black,
 /area/misc/survivalpod)
 "p" = (
@@ -97,9 +107,13 @@
 /turf/open/floor/pod,
 /area/misc/survivalpod)
 "r" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/carpet/black,
 /area/misc/survivalpod)
 "s" = (
@@ -119,9 +133,13 @@
 /obj/machinery/microwave{
 	pixel_y = -2
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table/wood/fancy/black{
 	pixel_y = -9
 	},
@@ -134,9 +152,13 @@
 /turf/open/floor/carpet/black,
 /area/misc/survivalpod)
 "v" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/displaycase{
 	alert = 0;
 	desc = "A display case containing an expensive forgery, probably.";

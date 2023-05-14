@@ -11,7 +11,11 @@
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
 	This proc checks if the current directory of the savefile S needs updating
 	It is to be used by the load_character and load_preferences procs.
+<<<<<<< HEAD
 	(S.cd=="/" is preferences, S.cd=="/character[integer]" is a character slot, etc)
+=======
+	(S.cd == "/" is preferences, S.cd == "/character[integer]" is a character slot, etc)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if the current directory's version is below SAVEFILE_VERSION_MIN it will simply wipe everything in that directory
 	(if we're at root "/" then it'll just wipe the entire savefile, for instance.)
@@ -118,12 +122,24 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 		if(parent.hotkeys)
 			for(var/hotkeytobind in kb.hotkey_keys)
+<<<<<<< HEAD
 				if(!length(binds_by_key[hotkeytobind]) && hotkeytobind != "Unbound") //Only bind to the key if nothing else is bound expect for Unbound
+=======
+				if(hotkeytobind == "Unbound")
+					addedbind = TRUE
+				else if(!length(binds_by_key[hotkeytobind])) //Only bind to the key if nothing else is bound
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					key_bindings[kb.name] |= hotkeytobind
 					addedbind = TRUE
 		else
 			for(var/classickeytobind in kb.classic_keys)
+<<<<<<< HEAD
 				if(!length(binds_by_key[classickeytobind]) && classickeytobind != "Unbound") //Only bind to the key if nothing else is bound expect for Unbound
+=======
+				if(classickeytobind == "Unbound")
+					addedbind = TRUE
+				else if(!length(binds_by_key[classickeytobind])) //Only bind to the key if nothing else is bound
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					key_bindings[kb.name] |= classickeytobind
 					addedbind = TRUE
 
@@ -141,14 +157,24 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		to_chat(parent, span_danger("[conflicted.category]: [conflicted.full_name] needs updating"))
 
 /datum/preferences/proc/load_path(ckey, filename="preferences.json")
+<<<<<<< HEAD
 	if(!ckey)
+=======
+	if(!ckey || !load_and_save)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	path = "data/player_saves/[ckey[1]]/[ckey]/[filename]"
 
 /datum/preferences/proc/load_savefile()
+<<<<<<< HEAD
 	if(!path)
 		CRASH("Attempted to load savefile without first loading a path!")
 	savefile = new /datum/json_savefile(path)
+=======
+	if(load_and_save && !path)
+		CRASH("Attempted to load savefile without first loading a path!")
+	savefile = new /datum/json_savefile(load_and_save ? path : null)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preferences/proc/load_preferences()
 	if(!savefile)
@@ -159,7 +185,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			return FALSE
 
 	var/needs_update = save_data_needs_update(savefile.get_entry())
+<<<<<<< HEAD
 	if(needs_update == -2) //fatal, can't load any data
+=======
+	if(load_and_save && (needs_update == -2)) //fatal, can't load any data
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/bacpath = "[path].updatebac" //todo: if the savefile version is higher then the server, check the backup, and give the player a prompt to load the backup
 		if (fexists(bacpath))
 			fdel(bacpath) //only keep 1 version of backup
@@ -264,7 +294,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 /datum/preferences/proc/load_character(slot)
 	SHOULD_NOT_SLEEP(TRUE)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!slot)
 		slot = default_slot
 	slot = sanitize_integer(slot, 1, max_save_slots, initial(default_slot))
@@ -313,14 +346,21 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)
 			job_preferences -= j
 
+<<<<<<< HEAD
 	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks))
+=======
+	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), augments)// SKYRAT EDIT - AUGMENTS+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	validate_quirks()
 
 	return TRUE
 
 /datum/preferences/proc/save_character()
 	SHOULD_NOT_SLEEP(TRUE)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!path)
 		return FALSE
 	var/tree_key = "character[default_slot]"

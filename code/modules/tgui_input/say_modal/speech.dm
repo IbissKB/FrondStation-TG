@@ -44,6 +44,12 @@
 		if(OOC_CHANNEL)
 			client.ooc(entry)
 			return TRUE
+<<<<<<< HEAD
+=======
+		if(ADMIN_CHANNEL)
+			client.cmd_admin_say(entry)
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /**

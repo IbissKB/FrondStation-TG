@@ -29,9 +29,13 @@
 /area/ruin/space/has_grav/powered/aesthetic)
 "i" = (
 /obj/effect/spawner/random/structure/musician/piano/random_piano,
+<<<<<<< HEAD
 /obj/structure/window{
 	dir = 8
 	},
+=======
+/obj/structure/window/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
 "j" = (
@@ -60,9 +64,13 @@
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
 "o" = (
+<<<<<<< HEAD
 /obj/structure/window{
 	dir = 4
 	},
+=======
+/obj/structure/window/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
 "p" = (
@@ -73,9 +81,13 @@
 /turf/open/floor/holofloor/beach,
 /area/ruin/space/has_grav/powered/aesthetic)
 "r" = (
+<<<<<<< HEAD
 /obj/structure/window{
 	dir = 8
 	},
+=======
+/obj/structure/window/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
 "s" = (
@@ -90,7 +102,11 @@
 /turf/open/floor/holofloor/beach,
 /area/ruin/space/has_grav/powered/aesthetic)
 "u" = (
+<<<<<<< HEAD
 /turf/open/floor/holofloor/beach/coast_t,
+=======
+/turf/open/floor/holofloor/beach/coast,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/space/has_grav/powered/aesthetic)
 "v" = (
 /obj/item/statuebust,
@@ -107,7 +123,11 @@
 /turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "y" = (
+<<<<<<< HEAD
 /turf/open/floor/holofloor/beach/coast_b,
+=======
+/turf/open/floor/holofloor/beach/water,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/space/has_grav/powered/aesthetic)
 "z" = (
 /obj/structure/fans/tiny,

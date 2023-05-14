@@ -1,4 +1,13 @@
 #define MAX_TRANSIT_REQUEST_RETRIES 10
+<<<<<<< HEAD
+=======
+/// How many turfs to allow before we stop blocking transit requests
+#define MAX_TRANSIT_TILE_COUNT (150 ** 2)
+/// How many turfs to allow before we start freeing up existing "soft reserved" transit docks
+/// If we're under load we want to allow for cycling, but if not we want to preserve already generated docks for use
+#define SOFT_TRANSIT_RESERVATION_THRESHOLD (100 ** 2)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 SUBSYSTEM_DEF(shuttle)
 	name = "Shuttle"
@@ -25,6 +34,11 @@ SUBSYSTEM_DEF(shuttle)
 	var/list/transit_requesters = list()
 	/// An associative list of the mobile docking ports that have failed a transit request, with the amount of times they've actually failed that transit request, up to MAX_TRANSIT_REQUEST_RETRIES
 	var/list/transit_request_failures = list()
+<<<<<<< HEAD
+=======
+	/// How many turfs our shuttles are currently utilizing in reservation space
+	var/transit_utilized = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/**
 	 * Emergency shuttle stuff
@@ -158,6 +172,20 @@ SUBSYSTEM_DEF(shuttle)
 		if(!pack.contains)
 			continue
 
+<<<<<<< HEAD
+=======
+		//Adds access requirements to the end of each description.
+		if(pack.access && pack.access_view)
+			if(pack.access == pack.access_view)
+				pack.desc += " Requires [SSid_access.get_access_desc(pack.access)] access to open or purchase."
+			else
+				pack.desc += " Requires [SSid_access.get_access_desc(pack.access)] access to open, or [SSid_access.get_access_desc(pack.access_view)] access to purchase."
+		else if(pack.access)
+			pack.desc += " Requires [SSid_access.get_access_desc(pack.access)] access to open."
+		else if(pack.access_view)
+			pack.desc += " Requires [SSid_access.get_access_desc(pack.access_view)] access to purchase."
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		supply_packs[pack.id] = pack
 
 	setup_shuttles(stationary_docking_ports)
@@ -192,6 +220,14 @@ SUBSYSTEM_DEF(shuttle)
 		// This next one removes transit docks/zones that aren't
 		// immediately being used. This will mean that the zone creation
 		// code will be running a lot.
+<<<<<<< HEAD
+=======
+
+		// If we're below the soft reservation threshold, don't clear the old space
+		// We're better off holding onto it for now
+		if(transit_utilized < SOFT_TRANSIT_RESERVATION_THRESHOLD)
+			continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/obj/docking_port/mobile/owner = T.owner
 		if(owner)
 			var/idle = owner.mode == SHUTTLE_IDLE
@@ -204,7 +240,14 @@ SUBSYSTEM_DEF(shuttle)
 	if(!SSmapping.clearing_reserved_turfs)
 		while(transit_requesters.len)
 			var/requester = popleft(transit_requesters)
+<<<<<<< HEAD
 			var/success = generate_transit_dock(requester)
+=======
+			var/success = null
+			// Do not try and generate any transit if we're using more then our max already
+			if(transit_utilized < MAX_TRANSIT_TILE_COUNT)
+				success = generate_transit_dock(requester)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(!success) // BACK OF THE QUEUE
 				transit_request_failures[requester]++
 				if(transit_request_failures[requester] < MAX_TRANSIT_REQUEST_RETRIES)
@@ -619,6 +662,10 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/turf/midpoint = locate(transit_x, transit_y, bottomleft.z)
 	if(!midpoint)
+<<<<<<< HEAD
+=======
+		qdel(proposal)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	var/area/old_area = midpoint.loc
 	old_area.turfs_to_uncontain += proposal.reserved_turfs
@@ -635,9 +682,24 @@ SUBSYSTEM_DEF(shuttle)
 	// Add 180, because ports point inwards, rather than outwards
 	new_transit_dock.setDir(angle2dir(dock_angle))
 
+<<<<<<< HEAD
 	M.assigned_transit = new_transit_dock
 	return new_transit_dock
 
+=======
+	// Proposals use 2 extra hidden tiles of space, from the cordons that surround them
+	transit_utilized += (proposal.width + 2) * (proposal.height + 2)
+	M.assigned_transit = new_transit_dock
+	RegisterSignal(proposal, COMSIG_PARENT_QDELETING, PROC_REF(transit_space_clearing))
+
+	return new_transit_dock
+
+/// Gotta manage our space brother
+/datum/controller/subsystem/shuttle/proc/transit_space_clearing(datum/turf_reservation/source)
+	SIGNAL_HANDLER
+	transit_utilized -= (source.width + 2) * (source.height + 2)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/subsystem/shuttle/Recover()
 	initialized = SSshuttle.initialized
 	if (istype(SSshuttle.mobile_docking_ports))
@@ -856,7 +918,11 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/load_template(datum/map_template/shuttle/loading_template)
 	. = FALSE
 	// Load shuttle template to a fresh block reservation.
+<<<<<<< HEAD
 	preview_reservation = SSmapping.RequestBlockReservation(loading_template.width, loading_template.height, SSmapping.transit.z_value, /datum/turf_reservation/transit)
+=======
+	preview_reservation = SSmapping.RequestBlockReservation(loading_template.width, loading_template.height, type = /datum/turf_reservation/transit)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!preview_reservation)
 		CRASH("failed to reserve an area for shuttle template loading")
 	var/turf/bottom_left = TURF_FROM_COORDS_LIST(preview_reservation.bottom_left_coords)
@@ -1075,3 +1141,10 @@ SUBSYSTEM_DEF(shuttle)
 			has_purchase_shuttle_access |= shuttle_template.who_can_purchase
 
 	return has_purchase_shuttle_access
+<<<<<<< HEAD
+=======
+
+#undef MAX_TRANSIT_REQUEST_RETRIES
+#undef MAX_TRANSIT_TILE_COUNT
+#undef SOFT_TRANSIT_RESERVATION_THRESHOLD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -4,6 +4,10 @@
 			"name" = "Head",
 			"icon" = "hat-cowboy",
 			"products" = list(
+<<<<<<< HEAD
+=======
+				/obj/item/clothing/head/beret/badge = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				/obj/item/clothing/head/colourable_flatcap= 5,
 				/obj/item/clothing/head/cowboy/skyrat/cattleman = 5,
 				/obj/item/clothing/head/cowboy/skyrat/cattleman/wide = 5,
@@ -14,10 +18,17 @@
 				/obj/item/clothing/head/cowboy/skyrat/flat/sheriff = 5,
 				/obj/item/clothing/head/cowboy/skyrat/flat/deputy = 5,
 				/obj/item/clothing/head/cowboy/skyrat/flat/cowl/sheriff = 5,
+<<<<<<< HEAD
 				/obj/item/clothing/head/fedora/beige = 5,
 				/obj/item/clothing/head/fedora/white = 5,
 				/obj/item/clothing/head/fedora/fedblack = 5,
 				/obj/item/clothing/head/fedora/fedbrown = 5,
+=======
+				/obj/item/clothing/head/fedora= 5,
+				/obj/item/clothing/head/fedora/brown = 5,
+				/obj/item/clothing/head/fedora/beige = 5,
+				/obj/item/clothing/head/fedora/white = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				/obj/item/clothing/head/standalone_hood = 5,
 			),
 		),

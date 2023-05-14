@@ -37,9 +37,15 @@
 		apply_vars(angle_override, p_x, p_y, color_override, scaling)
 	return ..()
 
+<<<<<<< HEAD
 /obj/effect/projectile/proc/apply_vars(angle_override, p_x = 0, p_y = 0, color_override, scaling = 1, new_loc, increment = 0)
 	var/mutable_appearance/look = new(src)
 	SET_PLANE_EXPLICIT(look, plane, new_loc)
+=======
+/obj/effect/projectile/proc/apply_vars(angle_override, p_x = 0, p_y = 0, color_override, scaling = 1, atom/new_loc, increment = 0)
+	var/mutable_appearance/look = new(src)
+	SET_PLANE_EXPLICIT(look, plane, new_loc || src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	look.pixel_x = p_x
 	look.pixel_y = p_y
 	if(color_override)

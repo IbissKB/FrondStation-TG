@@ -35,6 +35,7 @@
 
 	switch(mode)
 		if("security")
+<<<<<<< HEAD
 			for(var/datum/data/record/person in GLOB.data_core.general)
 				var/datum/data/record/security_person = find_record("id", person.fields["id"], GLOB.data_core.security)
 				var/list/current_record = list()
@@ -61,15 +62,45 @@
 				current_record["ma_dis"] = person.fields["ma_dis"]
 				current_record["notes"] = person.fields["notes"]
 				current_record["cnotes"] = person.fields["notes_d"]
+=======
+			for(var/datum/record/crew/person in GLOB.manifest.general)
+				var/list/current_record = list()
+
+				current_record["age"] = person.age
+				current_record["fingerprint"] = person.fingerprint
+				current_record["gender"] = person.gender
+				current_record["name"] = person.name
+				current_record["rank"] = person.rank
+				current_record["species"] = person.species
+				current_record["wanted"] = person.wanted_status
+
+				all_records += list(current_record)
+		if("medical")
+			for(var/datum/record/crew/person in GLOB.manifest.general)
+				var/list/current_record = list()
+
+				current_record["bloodtype"] = person.blood_type
+				current_record["ma_dis"] = person.major_disabilities_desc
+				current_record["mi_dis"] = person.minor_disabilities_desc
+				current_record["physical_status"] = person.physical_status
+				current_record["mental_status"] = person.mental_status
+				current_record["name"] = person.name
+				current_record["notes"] = person.medical_notes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 				all_records += list(current_record)
 
 	return all_records
 
+<<<<<<< HEAD
 
 
 /datum/computer_file/program/records/ui_data(mob/user)
 	var/list/data = get_header_data()
+=======
+/datum/computer_file/program/records/ui_static_data(mob/user)
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["records"] = GetRecordsReadable()
 	data["mode"] = mode
 	return data

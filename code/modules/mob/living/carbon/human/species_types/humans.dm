@@ -1,7 +1,16 @@
 /datum/species/human
 	name = "\improper Human"
 	id = SPECIES_HUMAN
+<<<<<<< HEAD
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH,HAS_BONE)
+=======
+	species_traits = list(
+		EYECOLOR,
+		HAIR,
+		FACEHAIR,
+		LIPS,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inherent_traits = list(
 		TRAIT_CAN_USE_FLIGHT_POTION,
 	)
@@ -87,3 +96,7 @@
 		))
 
 	return to_add
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

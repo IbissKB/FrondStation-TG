@@ -53,6 +53,17 @@
 		else if(A.type == datum_type)
 			return A
 
+<<<<<<< HEAD
+=======
+/// Returns true if mind has any antag datum from a list of types
+/datum/mind/proc/has_antag_datum_in_list(list/antag_types)
+	for(var/antag_datum in antag_datums)
+		var/datum/antagonist/check_datum = antag_datum
+		if(is_type_in_list(check_datum, antag_types))
+			return TRUE
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*
 	Removes antag type's references from a mind.
 	objectives, uplinks, powers etc are all handled.
@@ -158,6 +169,10 @@
 		new_implant.implant(traitor_mob, null, silent = TRUE)
 		if(!silent)
 			to_chat(traitor_mob, span_boldnotice("Your Syndicate Uplink has been cunningly implanted in you, for a small TC fee. Simply trigger the uplink to access it."))
+<<<<<<< HEAD
+=======
+		add_memory(/datum/memory/key/traitor_uplink/implant, uplink_loc = "implant")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return new_implant
 
 	. = uplink_loc
@@ -171,10 +186,22 @@
 	new_uplink.uplink_handler.assigned_species = traitor_mob.dna.species.id
 	if(uplink_loc == R)
 		unlock_text = "Your Uplink is cunningly disguised as your [R.name]. Simply speak \"[new_uplink.unlock_code]\" into frequency [RADIO_TOKEN_UPLINK] to unlock its hidden features."
+<<<<<<< HEAD
 	else if(uplink_loc == PDA)
 		unlock_text = "Your Uplink is cunningly disguised as your [PDA.name]. Simply enter the code \"[new_uplink.unlock_code]\" into the ring tone selection to unlock its hidden features."
 	else if(uplink_loc == P)
 		unlock_text = "Your Uplink is cunningly disguised as your [P.name]. Simply twist the top of the pen [english_list(new_uplink.unlock_code)] from its starting position to unlock its hidden features."
+=======
+		add_memory(/datum/memory/key/traitor_uplink, uplink_loc = R.name, uplink_code = new_uplink.unlock_code)
+	else if(uplink_loc == PDA)
+		unlock_text = "Your Uplink is cunningly disguised as your [PDA.name]. Simply enter the code \"[new_uplink.unlock_code]\" into the ring tone selection to unlock its hidden features."
+		add_memory(/datum/memory/key/traitor_uplink, uplink_loc = "PDA", uplink_code = new_uplink.unlock_code)
+	else if(uplink_loc == P)
+		var/instructions = english_list(new_uplink.unlock_code)
+		unlock_text = "Your Uplink is cunningly disguised as your [P.name]. Simply twist the top of the pen [instructions] from its starting position to unlock its hidden features."
+		add_memory(/datum/memory/key/traitor_uplink, uplink_loc = "PDA pen", uplink_code = instructions)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new_uplink.unlock_text = unlock_text
 	if(!silent)
 		to_chat(traitor_mob, span_boldnotice(unlock_text))
@@ -188,7 +215,11 @@
 
 	else if(IS_REVOLUTIONARY(creator))
 		var/datum/antagonist/rev/converter = creator.mind.has_antag_datum(/datum/antagonist/rev,TRUE)
+<<<<<<< HEAD
 		converter.add_revolutionary(src,FALSE)
+=======
+		converter.add_revolutionary(src, stun = FALSE, mute = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	else if(IS_NUKE_OP(creator))
 		var/datum/antagonist/nukeop/converter = creator.mind.has_antag_datum(/datum/antagonist/nukeop,TRUE)
@@ -198,12 +229,23 @@
 		add_antag_datum(N,converter.nuke_team)
 
 
+<<<<<<< HEAD
 	enslaved_to = creator
+=======
+	enslaved_to = WEAKREF(creator)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	current.faction |= creator.faction
 	creator.faction |= current.faction
 
+<<<<<<< HEAD
 	if(creator.mind.special_role)
+=======
+	current.log_message("has been enslaved to [key_name(creator)].", LOG_GAME)
+	log_admin("[key_name(current)] has been enslaved to [key_name(creator)].")
+
+	if(creator.mind?.special_role)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		message_admins("[ADMIN_LOOKUPFLW(current)] has been created by [ADMIN_LOOKUPFLW(creator)], an antagonist.")
 		to_chat(current, span_userdanger("Despite your creator's current allegiances, your true master remains [creator.real_name]. If their loyalties change, so do yours. This will never change unless your creator's body is destroyed."))
 

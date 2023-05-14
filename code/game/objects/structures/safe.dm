@@ -93,6 +93,13 @@ FLOOR SAFES
 			if(3)
 				desc = initial(desc) + "\nThe lock seems to be broken."
 
+<<<<<<< HEAD
+=======
+		return TRUE
+
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/safe/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/simple/safe),
@@ -131,7 +138,11 @@ FLOOR SAFES
 	if(!ishuman(usr))
 		return
 	var/mob/living/carbon/human/user = usr
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/canhear = FALSE

@@ -1,4 +1,8 @@
 #define ORGAN_SLOT_SCANNER "scanner"
+<<<<<<< HEAD
+=======
+#define ORGAN_SLOT_BRAIN_NIF "nif"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #define ORGAN_SLOT_PENIS "penis"
 #define ORGAN_SLOT_WOMB "womb"
@@ -7,5 +11,9 @@
 #define ORGAN_SLOT_BREASTS "breasts"
 #define ORGAN_SLOT_ANUS "anus"
 #define ORGAN_SLOT_NIPPLES "nipples"
+<<<<<<< HEAD
+=======
+#define ORGAN_ERP_LIST list(ORGAN_SLOT_PENIS, ORGAN_SLOT_WOMB, ORGAN_SLOT_VAGINA, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS, ORGAN_SLOT_NIPPLES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #define ORGAN_SLOT_WINGS "wings"

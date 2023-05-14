@@ -128,7 +128,11 @@
 /obj/item/surprise_egg/attack_self(mob/user)
 	..()
 	to_chat(user, span_notice("You unwrap [src] and find a prize inside!"))
+<<<<<<< HEAD
 	dispensePrize(get_turf(user))
+=======
+	dispensePrize(get_turf(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	qdel(src)
 
 //Easter Recipes + food
@@ -149,7 +153,11 @@
 	)
 	result = /obj/item/food/hotcrossbun
 
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/briochecake
 	name = "Brioche cake"
@@ -158,7 +166,11 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/cake/brioche
+<<<<<<< HEAD
 	subcategory = CAT_MISCFOOD
+=======
+	category = CAT_MISCFOOD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/food/scotchegg
 	name = "scotch egg"
@@ -177,7 +189,11 @@
 		/obj/item/food/meatball = 1
 	)
 	result = /obj/item/food/scotchegg
+<<<<<<< HEAD
 	subcategory = CAT_EGG
+=======
+	category = CAT_EGG
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mammi
 	name = "Mammi"
@@ -186,8 +202,13 @@
 		/obj/item/food/chocolatebar = 1,
 		/datum/reagent/consumable/milk = 5
 	)
+<<<<<<< HEAD
 	result = /obj/item/food/soup/mammi
 	subcategory = CAT_MISCFOOD
+=======
+	result = /obj/item/food/bowled/mammi
+	category = CAT_MISCFOOD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/food/chocolatebunny
 	name = "chocolate bunny"
@@ -202,4 +223,8 @@
 		/obj/item/food/chocolatebar = 1
 	)
 	result = /obj/item/food/chocolatebunny
+<<<<<<< HEAD
 	subcategory = CAT_MISCFOOD
+=======
+	category = CAT_MISCFOOD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

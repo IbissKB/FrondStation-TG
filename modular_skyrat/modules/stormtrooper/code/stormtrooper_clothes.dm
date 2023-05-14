@@ -20,7 +20,11 @@
 	icon = 'modular_skyrat/modules/stormtrooper/icons/items.dmi'
 	worn_icon = 'modular_skyrat/modules/stormtrooper/icons/feet.dmi'
 	icon_state = "stormtrooper_boots"
+<<<<<<< HEAD
 	armor = null
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	strip_delay = 30
 	equip_delay_other = 50
 	resistance_flags = NONE
@@ -34,4 +38,7 @@
 	worn_icon = 'modular_skyrat/modules/stormtrooper/icons/hands.dmi'
 	icon_state = "stormtrooper_gloves"
 	worn_icon_state = "stormtrooper_gloves"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

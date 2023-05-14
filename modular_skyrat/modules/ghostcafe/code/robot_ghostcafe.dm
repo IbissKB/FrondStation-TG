@@ -33,7 +33,11 @@
 		/obj/item/multitool/cyborg,
 		/obj/item/stack/sheet/iron,
 		/obj/item/stack/sheet/glass,
+<<<<<<< HEAD
 		/obj/item/stack/sheet/rglass/cyborg,
+=======
+		/obj/item/borg/apparatus/sheet_manipulator,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/stack/rods/cyborg,
 		/obj/item/stack/tile/iron,
 		/obj/item/stack/cable_coil,

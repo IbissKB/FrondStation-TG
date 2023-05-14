@@ -23,7 +23,11 @@
 		external_power_immediate += projectile.damage * bullet_energy + kiss_power
 		log_activation(who = projectile.firer, how = projectile.fired_from)
 	else
+<<<<<<< HEAD
 		external_damage_immediate += projectile.damage * bullet_energy
+=======
+		external_damage_immediate += projectile.damage * bullet_energy * 0.1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		// Stop taking damage at emergency point, yell to players at danger point.
 		// This isn't clean and we are repeating [/obj/machinery/power/supermatter_crystal/proc/calculate_damage], sorry for this.
 		var/damage_to_be = damage + external_damage_immediate * clamp((emergency_point - damage) / emergency_point, 0, 1)
@@ -52,7 +56,11 @@
 	to_chat(jedi, span_userdanger("That was a really dense idea."))
 	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	jedi.ghostize()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.internal_organs
+=======
+	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.organs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(rip_u)
 		rip_u.Remove(jedi)
 		qdel(rip_u)
@@ -94,7 +102,11 @@
 			user.investigate_log("attached [destabilizing_crystal] to a supermatter crystal.", INVESTIGATE_ENGINE)
 			to_chat(user, span_danger("\The [destabilizing_crystal] snaps onto \the [src]."))
 			set_delam(SM_DELAM_PRIO_IN_GAME, /datum/sm_delam/cascade)
+<<<<<<< HEAD
 			external_damage_immediate += 100
+=======
+			external_damage_immediate += 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			external_power_trickle += 500
 			log_activation(who = user, how = destabilizing_crystal)
 			qdel(destabilizing_crystal)

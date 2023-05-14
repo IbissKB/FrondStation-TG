@@ -12,7 +12,11 @@
 	icon = 'icons/obj/doors/mineral_doors.dmi'
 	icon_state = "metal"
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 10, BIO = 0, FIRE = 50, ACID = 50)
+=======
+	armor_type = /datum/armor/structure_mineral_door
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_atmos_pass = ATMOS_PASS_DENSITY
 	rad_insulation = RAD_MEDIUM_INSULATION
 	material_flags = MATERIAL_EFFECTS
@@ -28,6 +32,16 @@
 	var/sheetType = /obj/item/stack/sheet/iron //what we're made of
 	var/sheetAmount = 10 //how much it takes to construct us.
 
+<<<<<<< HEAD
+=======
+/datum/armor/structure_mineral_door
+	melee = 10
+	energy = 100
+	bomb = 10
+	fire = 50
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/mineral_door/Initialize(mapload)
 	. = ..()
 	var/obj/item/stack/initialized_mineral = new sheetType // Okay this kinda sucks.

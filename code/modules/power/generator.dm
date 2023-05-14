@@ -206,7 +206,11 @@
 /obj/machinery/power/generator/screwdriver_act(mob/user, obj/item/I)
 	if(..())
 		return TRUE
+<<<<<<< HEAD
 	panel_open = !panel_open
+=======
+	toggle_panel_open()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	I.play_tool_sound(src)
 	to_chat(user, span_notice("You [panel_open?"open":"close"] the panel on [src]."))
 	return TRUE
@@ -228,3 +232,8 @@
 	if(cold_circ)
 		cold_circ.generator = null
 		cold_circ = null
+<<<<<<< HEAD
+=======
+
+#undef GENRATE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -97,7 +97,11 @@
 /datum/supply_pack/engineering/shuttle_engine
 	name = "Shuttle Engine Crate"
 	desc = "Through advanced bluespace-shenanigans, our engineers have managed to fit an entire \
+<<<<<<< HEAD
 		shuttle engine into one tiny little crate. Requires CE access to open."
+=======
+		shuttle engine into one tiny little crate."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 6
 	access = ACCESS_CE
 	access_view = ACCESS_CE
@@ -155,14 +159,21 @@
 	name = "Bluespace Artillery Parts"
 	desc = "The pride of Nanotrasen Naval Command. The legendary Bluespace Artillery Cannon is a \
 		devastating feat of human engineering and testament to wartime determination. \
+<<<<<<< HEAD
 		Highly advanced research is required for proper construction. "
+=======
+		Highly advanced research is required for proper construction."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 30
 	special = TRUE
 	access_view = ACCESS_COMMAND
 	contains = list(/obj/item/circuitboard/machine/bsa/front,
 					/obj/item/circuitboard/machine/bsa/middle,
 					/obj/item/circuitboard/machine/bsa/back,
+<<<<<<< HEAD
 					/obj/item/circuitboard/machine/bsa/powercore, //SKYRAT EDIT ADDITION
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					/obj/item/circuitboard/computer/bsa_control,
 				)
 	crate_name= "bluespace artillery parts crate"
@@ -221,7 +232,11 @@
 /datum/supply_pack/engine/emitter
 	name = "Emitter Crate"
 	desc = "Useful for powering forcefield generators while destroying locked crates \
+<<<<<<< HEAD
 		and intruders alike. Contains two high-powered energy emitters. Requires CE access to open."
+=======
+		and intruders alike. Contains two high-powered energy emitters."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 7
 	access = ACCESS_CE
 	contains = list(/obj/machinery/power/emitter = 2)
@@ -261,7 +276,11 @@
 
 /datum/supply_pack/engine/supermatter_shard
 	name = "Supermatter Shard Crate"
+<<<<<<< HEAD
 	desc = "The power of the heavens condensed into a single crystal. Requires CE access to open."
+=======
+	desc = "The power of the heavens condensed into a single crystal."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 20
 	access = ACCESS_CE
 	contains = list(/obj/machinery/power/supermatter_crystal/shard)
@@ -280,7 +299,11 @@
 
 /datum/supply_pack/engine/hypertorus_fusion_reactor
 	name = "HFR Crate"
+<<<<<<< HEAD
 	desc = "The new and improved fusion reactor. Requires CE access to open."
+=======
+	desc = "The new and improved fusion reactor."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 23
 	access = ACCESS_CE
 	contains = list(/obj/item/hfr_box/corner = 4,

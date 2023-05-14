@@ -68,6 +68,12 @@
 		ui.open()
 
 /datum/component/interactable/ui_status(mob/user, datum/ui_state/state)
+<<<<<<< HEAD
+=======
+	if(!ishuman(user))
+		return UI_CLOSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return UI_INTERACTIVE // This UI is always interactive as we handle distance flags via can_interact
 
 /datum/component/interactable/ui_data(mob/user)
@@ -131,6 +137,13 @@
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
+=======
+
+	if(!ishuman(usr))
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]
 		if(GLOB.interaction_instances[interaction_id])

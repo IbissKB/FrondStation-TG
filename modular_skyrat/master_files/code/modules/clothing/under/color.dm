@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+/obj/item/clothing/under/color
+	greyscale_config_worn_monkey = /datum/greyscale_config/jumpsuit_worn/monkey
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Random jumpsuit is the preferred style of the wearer if loaded as an outfit.
  * This is cleaner than creating a ../skirt variant as skirts are precached into SSwardrobe

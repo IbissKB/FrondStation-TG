@@ -38,8 +38,13 @@
 	icon_state = "hedge-0"
 	base_icon_state = "hedge"
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_HEDGE_FLUFF)
 	canSmoothWith = list(SMOOTH_GROUP_HEDGE_FLUFF)
+=======
+	smoothing_groups = SMOOTH_GROUP_HEDGE_FLUFF
+	canSmoothWith = SMOOTH_GROUP_HEDGE_FLUFF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = TRUE
 	anchored = TRUE
 	opacity = FALSE

@@ -61,7 +61,11 @@ Slimecrossing Weapons
 	icon_state = "adamshield"
 	inhand_icon_state = "adamshield"
 	w_class = WEIGHT_CLASS_HUGE
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 80, ACID = 70)
+=======
+	armor_type = /datum/armor/shield_adamantineshield
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	slot_flags = ITEM_SLOT_BACK
 	block_chance = 75
 	force = 0
@@ -72,6 +76,17 @@ Slimecrossing Weapons
 	item_flags = SLOWS_WHILE_IN_HAND
 	breakable_by_damage = FALSE
 
+<<<<<<< HEAD
+=======
+/datum/armor/shield_adamantineshield
+	melee = 50
+	bullet = 50
+	laser = 50
+	bomb = 30
+	fire = 80
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/shield/adamantineshield/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, require_twohands=TRUE, force_wielded=15)
@@ -98,8 +113,13 @@ Slimecrossing Weapons
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 
+<<<<<<< HEAD
 /obj/item/gun/magic/bloodchill/process(delta_time)
 	charge_timer += delta_time
+=======
+/obj/item/gun/magic/bloodchill/process(seconds_per_tick)
+	charge_timer += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(charge_timer < recharge_rate || charges >= max_charges)
 		return FALSE
 	charge_timer = 0
@@ -117,9 +137,12 @@ Slimecrossing Weapons
 /obj/projectile/magic/bloodchill
 	name = "blood ball"
 	icon_state = "pulse0_bl"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = OXY
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hitsound = 'sound/effects/splat.ogg'
 
 /obj/projectile/magic/bloodchill/on_hit(mob/living/target)

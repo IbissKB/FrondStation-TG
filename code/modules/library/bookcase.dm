@@ -12,7 +12,11 @@
 	opacity = FALSE
 	resistance_flags = FLAMMABLE
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 0)
+=======
+	armor_type = /datum/armor/structure_bookcase
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/state = BOOKCASE_UNANCHORED
 	/// When enabled, books_to_load number of random books will be generated for this bookcase
 	var/load_random_books = FALSE
@@ -21,6 +25,12 @@
 	/// How many random books to generate.
 	var/books_to_load = 0
 
+<<<<<<< HEAD
+=======
+/datum/armor/structure_bookcase
+	fire = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/bookcase/Initialize(mapload)
 	. = ..()
 	if(!mapload || QDELETED(src))
@@ -39,12 +49,23 @@
 	else
 		SSlibrary.shelves_to_load += src
 
+<<<<<<< HEAD
+=======
+///proc for doing things after a bookcase is randomly populated
+/obj/structure/bookcase/proc/after_random_load()
+	return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Loads the shelf, both by allowing it to generate random items, and by adding its contents to a list used by library machines
 /obj/structure/bookcase/proc/load_shelf()
 	//Loads a random selection of books in from the db, adds a copy of their info to a global list
 	//To send to library consoles as a starting inventory
 	if(load_random_books)
 		create_random_books(books_to_load, src, FALSE, random_category)
+<<<<<<< HEAD
+=======
+		after_random_load()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_appearance() //Make sure you look proper
 
 	var/area/our_area = get_area(src)
@@ -123,10 +144,17 @@
 				to_chat(user, span_notice("You empty \the [I] into \the [src]."))
 				update_appearance()
 			else if(istype(I, /obj/item/pen))
+<<<<<<< HEAD
 				if(!user.canUseTopic(src, be_close = TRUE) || !user.can_write(I))
 					return
 				var/newname = tgui_input_text(user, "What would you like to title this bookshelf?", "Bookshelf Renaming", max_length = MAX_NAME_LEN)
 				if(!user.canUseTopic(src, be_close = TRUE) || !user.can_write(I))
+=======
+				if(!user.can_perform_action(src) || !user.can_write(I))
+					return
+				var/newname = tgui_input_text(user, "What would you like to title this bookshelf?", "Bookshelf Renaming", max_length = MAX_NAME_LEN)
+				if(!user.can_perform_action(src) || !user.can_write(I))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				if(!newname)
 					return

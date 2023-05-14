@@ -6,6 +6,7 @@
  *
  *
  * Arguments:
+<<<<<<< HEAD
  * - delta_time: The amount of time that has elapsed since this last fired.
  * - times_fired: The number of times SSmobs has fired
  */
@@ -13,6 +14,15 @@
 	set waitfor = FALSE
 
 	SEND_SIGNAL(src, COMSIG_LIVING_LIFE, delta_time, times_fired)
+=======
+ * - seconds_per_tick: The amount of time that has elapsed since this last fired.
+ * - times_fired: The number of times SSmobs has fired
+ */
+/mob/living/proc/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	set waitfor = FALSE
+
+	SEND_SIGNAL(src, COMSIG_LIVING_LIFE, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if (client)
 		var/turf/T = get_turf(src)
@@ -43,6 +53,7 @@
 
 		if(stat != DEAD)
 			//Mutations and radiation
+<<<<<<< HEAD
 			handle_mutations(delta_time, times_fired)
 
 		if(stat != DEAD)
@@ -52,17 +63,33 @@
 		handle_diseases(delta_time, times_fired)// DEAD check is in the proc itself; we want it to spread even if the mob is dead, but to handle its disease-y properties only if you're not.
 
 		handle_wounds(delta_time, times_fired)
+=======
+			handle_mutations(seconds_per_tick, times_fired)
+
+		if(stat != DEAD)
+			//Breathing, if applicable
+			handle_breathing(seconds_per_tick, times_fired)
+
+		handle_diseases(seconds_per_tick, times_fired)// DEAD check is in the proc itself; we want it to spread even if the mob is dead, but to handle its disease-y properties only if you're not.
+
+		handle_wounds(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if (QDELETED(src)) // diseases can qdel the mob via transformations
 			return
 
 		if(stat != DEAD)
 			//Random events (vomiting etc)
+<<<<<<< HEAD
 			handle_random_events(delta_time, times_fired)
+=======
+			handle_random_events(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		//Handle temperature/pressure differences between body and environment
 		var/datum/gas_mixture/environment = loc.return_air()
 		if(environment)
+<<<<<<< HEAD
 			handle_environment(environment, delta_time, times_fired)
 
 		handle_gravity(delta_time, times_fired)
@@ -70,6 +97,11 @@
 		if(stat != DEAD)
 			handle_traits(delta_time, times_fired) // eye, ear, brain damages
 			handle_status_effects(delta_time, times_fired) //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
+=======
+			handle_environment(environment, seconds_per_tick, times_fired)
+
+		handle_gravity(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(machine)
 		machine.check_eye(src)
@@ -77,6 +109,7 @@
 	if(stat != DEAD)
 		return 1
 
+<<<<<<< HEAD
 /mob/living/proc/handle_breathing(delta_time, times_fired)
 	SEND_SIGNAL(src, COMSIG_LIVING_HANDLE_BREATHING, delta_time, times_fired)
 	return
@@ -95,6 +128,26 @@
 
 // Base mob environment handler for body temperature
 /mob/living/proc/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
+=======
+/mob/living/proc/handle_breathing(seconds_per_tick, times_fired)
+	SEND_SIGNAL(src, COMSIG_LIVING_HANDLE_BREATHING, seconds_per_tick, times_fired)
+	return
+
+/mob/living/proc/handle_mutations(seconds_per_tick, times_fired)
+	return
+
+/mob/living/proc/handle_diseases(seconds_per_tick, times_fired)
+	return
+
+/mob/living/proc/handle_wounds(seconds_per_tick, times_fired)
+	return
+
+/mob/living/proc/handle_random_events(seconds_per_tick, times_fired)
+	return
+
+// Base mob environment handler for body temperature
+/mob/living/proc/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/loc_temp = get_temperature(environment)
 	var/temp_delta = loc_temp - bodytemperature
 
@@ -104,9 +157,15 @@
 
 	if(temp_delta < 0) // it is cold here
 		if(!on_fire) // do not reduce body temp when on fire
+<<<<<<< HEAD
 			adjust_bodytemperature(max(max(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_COOLING_MAX) * delta_time, temp_delta))
 	else // this is a hot place
 		adjust_bodytemperature(min(min(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_HEATING_MAX) * delta_time, temp_delta))
+=======
+			adjust_bodytemperature(max(max(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_COOLING_MAX) * seconds_per_tick, temp_delta))
+	else // this is a hot place
+		adjust_bodytemperature(min(min(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_HEATING_MAX) * seconds_per_tick, temp_delta))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Get the fullness of the mob
@@ -137,6 +196,7 @@
 /mob/living/proc/has_reagent(reagent, amount = -1, needs_metabolizing = FALSE)
 	return reagents.has_reagent(reagent, amount, needs_metabolizing)
 
+<<<<<<< HEAD
 /*
  * this updates some effects: mostly old stuff such as drunkness, druggy, etc.
  * that should be converted to status effect datums one day.
@@ -171,10 +231,19 @@
 		handle_high_gravity(gravity, delta_time, times_fired)
 	else if(get_filter("gravity"))
 		remove_filter("gravity")
+=======
+/mob/living/proc/update_damage_hud()
+	return
+
+/mob/living/proc/handle_gravity(seconds_per_tick, times_fired)
+	if(gravity_state > STANDARD_GRAVITY)
+		handle_high_gravity(gravity_state, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/proc/gravity_animate()
 	if(!get_filter("gravity"))
 		add_filter("gravity",1,list("type"="motion_blur", "x"=0, "y"=0))
+<<<<<<< HEAD
 	INVOKE_ASYNC(src, PROC_REF(gravity_pulse_animation))
 
 /mob/living/proc/gravity_pulse_animation()
@@ -183,10 +252,20 @@
 	animate(get_filter("gravity"), y = 0, time = 10)
 
 /mob/living/proc/handle_high_gravity(gravity, delta_time, times_fired)
+=======
+	animate(get_filter("gravity"), y = 1, time = 10, loop = -1)
+	animate(y = 0, time = 10)
+
+/mob/living/proc/handle_high_gravity(gravity, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(gravity < GRAVITY_DAMAGE_THRESHOLD) //Aka gravity values of 3 or more
 		return
 
 	var/grav_strength = gravity - GRAVITY_DAMAGE_THRESHOLD
+<<<<<<< HEAD
 	adjustBruteLoss(min(GRAVITY_DAMAGE_SCALING * grav_strength, GRAVITY_DAMAGE_MAXIMUM) * delta_time)
+=======
+	adjustBruteLoss(min(GRAVITY_DAMAGE_SCALING * grav_strength, GRAVITY_DAMAGE_MAXIMUM) * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef BODYTEMP_DIVISOR

@@ -16,6 +16,10 @@
 /datum/crafting_recipe/ash_recipe/ash_headdress
 	name = "Ash Headdress"
 	result = /obj/item/clothing/head/ash_headdress
+<<<<<<< HEAD
+=======
+	category = CAT_CLOTHING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/ash_headdress/Initialize(mapload)
 	. = ..()
@@ -25,7 +29,11 @@
 	name = "winged ash headdress"
 	icon_state = "wing_headdress"
 
+<<<<<<< HEAD
 /datum/crafting_recipe/ash_headdress/winged
+=======
+/datum/crafting_recipe/ash_recipe/ash_headdress/winged
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "Winged Ash Headdress"
 	result = /obj/item/clothing/head/ash_headdress/winged
 
@@ -45,6 +53,10 @@
 /datum/crafting_recipe/ash_recipe/ash_robes
 	name = "Ash Robes"
 	result = /obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes
+<<<<<<< HEAD
+=======
+	category = CAT_CLOTHING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes/Initialize(mapload)
 	. = ..()
@@ -67,6 +79,10 @@
 /datum/crafting_recipe/ash_recipe/ash_plates
 	name = "Ash Combat Plates"
 	result = /obj/item/clothing/suit/ash_plates
+<<<<<<< HEAD
+=======
+	category = CAT_CLOTHING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/ash_plates/Initialize(mapload)
 	. = ..()
@@ -79,3 +95,7 @@
 /datum/crafting_recipe/ash_recipe/ash_plates/decorated
 	name = "Decorated Ash Combat Plates"
 	result = /obj/item/clothing/suit/ash_plates/decorated
+<<<<<<< HEAD
+=======
+	category = CAT_CLOTHING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

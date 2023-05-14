@@ -9,7 +9,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_HOP
+<<<<<<< HEAD
 	selection_color = "#ddddff"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	req_admin_notify = 1
 	minimal_player_age = 10
 	exp_requirements = 180
@@ -71,7 +74,11 @@
 
 	chameleon_extras = list(
 		/obj/item/gun/energy/e_gun,
+<<<<<<< HEAD
 		/obj/item/stamp/hop,
+=======
+		/obj/item/stamp/head/hop,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 
 /datum/outfit/job/hop/pre_equip(mob/living/carbon/human/H)

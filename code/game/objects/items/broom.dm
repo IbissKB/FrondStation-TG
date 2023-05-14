@@ -52,6 +52,10 @@
 	if(!proximity)
 		return
 	sweep(user, A)
+<<<<<<< HEAD
+=======
+	return . | AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Attempts to push up to BROOM_PUSH_LIMIT atoms from a given location the user's faced direction
@@ -91,3 +95,8 @@
 /obj/item/pushbroom/cyborg/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CYBORG_ITEM_TRAIT)
+<<<<<<< HEAD
+=======
+
+#undef BROOM_PUSH_LIMIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -17,8 +17,16 @@
 		var/initial_desc = initial(item_instance.desc)
 
 		if(item_path in all_paths)
+<<<<<<< HEAD
 			Fail("[orderable_item] is purchasable under two different orderable_item types,")
 		all_paths += item_path
 
 		if (item_instance.desc != initial_desc)
 			Fail("[orderable_item] has an item ([item_path]) that has a dynamic description. [item_instance.desc] (dynamic description) != [initial_desc] (initial description)")
+=======
+			TEST_FAIL("[orderable_item] is purchasable under two different orderable_item types,")
+		all_paths += item_path
+
+		if (item_instance.desc != initial_desc)
+			TEST_FAIL("[orderable_item] has an item ([item_path]) that has a dynamic description. [item_instance.desc] (dynamic description) != [initial_desc] (initial description)")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -38,6 +38,14 @@
 	tickets.Cut()
 	return ..()
 
+<<<<<<< HEAD
+=======
+/obj/machinery/ticket_machine/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/wallframe/ticket_machine(loc)
+	qdel(src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/ticket_machine, 32)
 
 /obj/machinery/ticket_machine/examine(mob/user)
@@ -67,6 +75,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/ticket_machine, 32)
 		tickets.Cut()
 	update_appearance()
 
+<<<<<<< HEAD
+=======
+/obj/item/wallframe/ticket_machine
+	name = "ticket machine frame"
+	desc = "An unmounted ticket machine. Attach it to a wall to use."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "ticketmachine_off"
+	result_path = /obj/machinery/ticket_machine
+	pixel_shift = 32
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Increments the counter by one, if there is a ticket after the current one we are serving.
 ///If we have a current ticket, remove it from the top of our tickets list and replace it with the next one if applicable
 /obj/machinery/ticket_machine/proc/increment()

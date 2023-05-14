@@ -153,7 +153,11 @@
 	close_machine(target)
 
 
+<<<<<<< HEAD
 /obj/machinery/implantchair/close_machine(mob/living/user)
+=======
+/obj/machinery/implantchair/close_machine(mob/living/user, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((isnull(user) || istype(user)) && state_open)
 		..(user)
 		if(auto_inject && ready && ready_implants > 0)

@@ -27,6 +27,7 @@
 	var/list/colors
 	switch(default_color)
 		if(DEFAULT_PRIMARY)
+<<<<<<< HEAD
 			colors = features["mcolor"]
 		if(DEFAULT_SECONDARY)
 			colors = features["mcolor2"]
@@ -37,6 +38,18 @@
 				colors = features["skin_color"]
 			else
 				colors = features["mcolor"]
+=======
+			colors = sanitize_hexcolor(features["mcolor"])
+		if(DEFAULT_SECONDARY)
+			colors = sanitize_hexcolor(features["mcolor2"])
+		if(DEFAULT_TERTIARY)
+			colors = sanitize_hexcolor(features["mcolor3"])
+		if(DEFAULT_SKIN_OR_PRIMARY)
+			if(pref_species && pref_species.use_skintones)
+				colors = sanitize_hexcolor(features["skin_color"])
+			else
+				colors = sanitize_hexcolor(features["mcolor"])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			colors = default_color
 
@@ -542,6 +555,25 @@
 	affected_bodyparts = HEAD
 	recommended_species = list(SPECIES_XENO)
 
+<<<<<<< HEAD
+=======
+/datum/body_marking/tertiary/dtiger
+	name = "Dark Tiger Body"
+	icon_state = "dtiger"
+	affected_bodyparts = CHEST
+
+/datum/body_marking/tertiary/ltiger
+	name = "Light Tiger Body"
+	icon_state = "ltiger"
+	affected_bodyparts = CHEST
+
+/datum/body_marking/tertiary/lbelly
+	name = "Light Belly"
+	icon_state = "lbelly"
+	affected_bodyparts = CHEST
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/body_marking/tattoo
 	icon = 'modular_skyrat/master_files/icons/mob/body_markings/tattoo_markings.dmi'
 	recommended_species = null

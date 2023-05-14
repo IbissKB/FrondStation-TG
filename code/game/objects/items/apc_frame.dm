@@ -3,7 +3,11 @@
 	name = "\improper APC frame"
 	desc = "Used for repairing or building APCs."
 	icon_state = "apc"
+<<<<<<< HEAD
 	result_path = /obj/machinery/power/apc
+=======
+	result_path = /obj/machinery/power/apc/auto_name
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/wallframe/apc/try_build(turf/on_wall, user)
 	if(!..())

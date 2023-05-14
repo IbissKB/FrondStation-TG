@@ -13,8 +13,13 @@
 
 /datum/ai_controller/robot_customer/Destroy()
 	// clear possible datum refs
+<<<<<<< HEAD
 	blackboard[BB_CUSTOMER_CURRENT_ORDER] = null
 	blackboard[BB_CUSTOMER_CUSTOMERINFO] = null
+=======
+	clear_blackboard_key(BB_CUSTOMER_CURRENT_ORDER)
+	clear_blackboard_key(BB_CUSTOMER_CUSTOMERINFO)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/ai_controller/robot_customer/TryPossessPawn(atom/new_pawn)
@@ -35,9 +40,17 @@
 	SIGNAL_HANDLER
 	var/datum/venue/attending_venue = blackboard[BB_CUSTOMER_ATTENDING_VENUE]
 	if(attending_venue.is_correct_order(I, blackboard[BB_CUSTOMER_CURRENT_ORDER]))
+<<<<<<< HEAD
 		to_chat(user, span_notice("You hand [I] to [pawn]"))
 		eat_order(I, attending_venue)
 		return COMPONENT_NO_AFTERATTACK
+=======
+		to_chat(user, span_notice("You hand [I] to [pawn]."))
+		eat_order(I, attending_venue)
+		return COMPONENT_NO_AFTERATTACK
+	else if(!I.force)
+		INVOKE_ASYNC(src, PROC_REF(dont_want_that), I, user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		INVOKE_ASYNC(src, PROC_REF(warn_greytider), user)
 
@@ -46,6 +59,7 @@
 	INVOKE_ASYNC(src, PROC_REF(warn_greytider), attacker)
 
 /datum/ai_controller/robot_customer/proc/eat_order(obj/item/order_item, datum/venue/attending_venue)
+<<<<<<< HEAD
 	if(!blackboard[BB_CUSTOMER_EATING])
 		blackboard[BB_CUSTOMER_EATING] = TRUE
 		attending_venue.on_get_order(pawn, order_item)
@@ -53,6 +67,17 @@
 		if(isdatum(our_order))
 			qdel(our_order)
 		blackboard[BB_CUSTOMER_CURRENT_ORDER] = null
+=======
+	if(blackboard[BB_CUSTOMER_EATING])
+		return
+
+	set_blackboard_key(BB_CUSTOMER_EATING, TRUE)
+	attending_venue.on_get_order(pawn, order_item)
+	var/our_order = blackboard[BB_CUSTOMER_CURRENT_ORDER]
+	if(isdatum(our_order))
+		qdel(our_order)
+	clear_blackboard_key(BB_CUSTOMER_CURRENT_ORDER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 ///Called when
@@ -76,7 +101,14 @@
 	customer.resist()
 
 
+<<<<<<< HEAD
 
+=======
+/datum/ai_controller/robot_customer/proc/dont_want_that(mob/living/chef, obj/item/thing)
+	var/mob/living/simple_animal/robot_customer/customer = pawn
+	var/datum/customer_data/customer_data = blackboard[BB_CUSTOMER_CUSTOMERINFO]
+	customer.say(customer_data.wrong_item_line)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/ai_controller/robot_customer/proc/warn_greytider(mob/living/greytider)
 	var/mob/living/simple_animal/robot_customer/customer = pawn
@@ -94,7 +126,11 @@
 			return
 		if(3)
 			customer.say(customer_data.self_defense_line)
+<<<<<<< HEAD
 	blackboard[BB_CUSTOMER_CURRENT_TARGET] = greytider
+=======
+	set_blackboard_key(BB_CUSTOMER_CURRENT_TARGET, greytider)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	CancelActions()
 

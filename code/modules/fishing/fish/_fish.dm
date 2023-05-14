@@ -194,11 +194,19 @@
 	else
 		stop_flopping()
 
+<<<<<<< HEAD
 /obj/item/fish/process(delta_time)
 	if(in_stasis || status != FISH_ALIVE)
 		return
 
 	process_health(delta_time)
+=======
+/obj/item/fish/process(seconds_per_tick)
+	if(in_stasis || status != FISH_ALIVE)
+		return
+
+	process_health(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(ready_to_reproduce())
 		try_to_reproduce()
 
@@ -242,7 +250,11 @@
 		return FALSE
 	return TRUE
 
+<<<<<<< HEAD
 /obj/item/fish/proc/process_health(delta_time)
+=======
+/obj/item/fish/proc/process_health(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/health_change_per_second = 0
 	if(!proper_environment())
 		health_change_per_second -= 3 //Dying here
@@ -250,7 +262,11 @@
 		health_change_per_second -= 0.5 //Starving
 	else
 		health_change_per_second += 0.5 //Slowly healing
+<<<<<<< HEAD
 	adjust_health(health + health_change_per_second * delta_time)
+=======
+	adjust_health(health + health_change_per_second * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/fish/proc/adjust_health(amt)
 	health = clamp(amt, 0, initial(health))

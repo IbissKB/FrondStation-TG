@@ -65,6 +65,10 @@
 	data["user"]["job"] = "Official"
 	data["user"]["department"] = "Department of News"
 
+<<<<<<< HEAD
+=======
+	data["admin_mode"] = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["security_mode"] = TRUE
 	data["photo_data"] = !isnull(current_image)
 	data["creating_channel"] = creating_channel

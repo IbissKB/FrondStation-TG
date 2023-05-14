@@ -305,6 +305,7 @@
 	if((TECHWEB_POINT_TYPE_GENERIC in purchasing_techweb.boosted_nodes[node_id]) && (purchasing_techweb.boosted_nodes[node_id][TECHWEB_POINT_TYPE_GENERIC] >= boosted_nodes[node_id])) // Already bought or we have a bigger discount
 		return FALSE
 	return TRUE
+<<<<<<< HEAD
 
 /datum/computer_file/data/ordnance
 	size = 4
@@ -344,3 +345,5 @@
 	var/datum/computer_file/data/ordnance/gaseous/temp = ..()
 	temp.gas_record = gas_record
 	return temp
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

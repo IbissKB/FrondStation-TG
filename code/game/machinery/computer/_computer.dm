@@ -5,7 +5,11 @@
 	density = TRUE
 	max_integrity = 200
 	integrity_failure = 0.5
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 40, ACID = 20)
+=======
+	armor_type = /datum/armor/machinery_computer
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON|INTERACT_MACHINE_SET_MACHINE|INTERACT_MACHINE_REQUIRES_LITERACY
 	/// How bright we are when turned on.
 	var/brightness_on = 1
@@ -20,6 +24,13 @@
 	/// Are we authenticated to use this? Used by things like comms console, security and medical data, and apc controller.
 	var/authenticated = FALSE
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_computer
+	fire = 40
+	acid = 20
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 
@@ -127,7 +138,11 @@
 	. = ..()
 	if(!can_interact(user))
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = !issilicon(user)) || !is_operational)
+=======
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH) || !is_operational)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 /obj/machinery/computer/ui_interact(mob/user, datum/tgui/ui)

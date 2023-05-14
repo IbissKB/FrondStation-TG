@@ -153,12 +153,22 @@
 		/datum/material/bluespace,
 	)
 	AddComponent(/datum/component/material_container, allowed_materials, INFINITY, MATCONTAINER_EXAMINE|BREAKDOWN_FLAGS_ORE_PROCESSOR, allowed_items=/obj/item/stack)
+<<<<<<< HEAD
 	stored_research = new /datum/techweb/specialized/autounlocking/smelter
+=======
+	if(!GLOB.autounlock_techwebs[/datum/techweb/autounlocking/smelter])
+		GLOB.autounlock_techwebs[/datum/techweb/autounlocking/smelter] = new /datum/techweb/autounlocking/smelter
+	stored_research = GLOB.autounlock_techwebs[/datum/techweb/autounlocking/smelter]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	selected_material = GET_MATERIAL_REF(/datum/material/iron)
 
 /obj/machinery/mineral/processing_unit/Destroy()
 	mineral_machine = null
+<<<<<<< HEAD
 	QDEL_NULL(stored_research)
+=======
+	stored_research = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/machinery/mineral/processing_unit/proc/process_ore(obj/item/stack/ore/O)
@@ -214,7 +224,11 @@
 	if(istype(target, /obj/item/stack/ore))
 		process_ore(target)
 
+<<<<<<< HEAD
 /obj/machinery/mineral/processing_unit/process(delta_time)
+=======
+/obj/machinery/mineral/processing_unit/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!on)
 		end_processing()
 		if(mineral_machine)
@@ -222,32 +236,54 @@
 		return
 
 	if(selected_material)
+<<<<<<< HEAD
 		smelt_ore(delta_time)
 	else if(selected_alloy)
 		smelt_alloy(delta_time)
+=======
+		smelt_ore(seconds_per_tick)
+	else if(selected_alloy)
+		smelt_alloy(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(mineral_machine)
 		mineral_machine.updateUsrDialog()
 
+<<<<<<< HEAD
 /obj/machinery/mineral/processing_unit/proc/smelt_ore(delta_time = 2)
+=======
+/obj/machinery/mineral/processing_unit/proc/smelt_ore(seconds_per_tick = 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	var/datum/material/mat = selected_material
 	if(!mat)
 		return
+<<<<<<< HEAD
 	var/sheets_to_remove = (materials.materials[mat] >= (MINERAL_MATERIAL_AMOUNT * SMELT_AMOUNT * delta_time) ) ? SMELT_AMOUNT * delta_time : round(materials.materials[mat] /  MINERAL_MATERIAL_AMOUNT)
+=======
+	var/sheets_to_remove = (materials.materials[mat] >= (SHEET_MATERIAL_AMOUNT * SMELT_AMOUNT * seconds_per_tick) ) ? SMELT_AMOUNT * seconds_per_tick : round(materials.materials[mat] /  SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!sheets_to_remove)
 		on = FALSE
 	else
 		var/out = get_step(src, output_dir)
 		materials.retrieve_sheets(sheets_to_remove, mat, out)
 
+<<<<<<< HEAD
 /obj/machinery/mineral/processing_unit/proc/smelt_alloy(delta_time = 2)
+=======
+/obj/machinery/mineral/processing_unit/proc/smelt_alloy(seconds_per_tick = 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/design/alloy = stored_research.isDesignResearchedID(selected_alloy) //check if it's a valid design
 	if(!alloy)
 		on = FALSE
 		return
 
+<<<<<<< HEAD
 	var/amount = can_smelt(alloy, delta_time)
+=======
+	var/amount = can_smelt(alloy, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!amount)
 		on = FALSE
@@ -258,11 +294,19 @@
 
 	generate_mineral(alloy.build_path)
 
+<<<<<<< HEAD
 /obj/machinery/mineral/processing_unit/proc/can_smelt(datum/design/D, delta_time = 2)
 	if(D.make_reagents.len)
 		return FALSE
 
 	var/build_amount = SMELT_AMOUNT * delta_time
+=======
+/obj/machinery/mineral/processing_unit/proc/can_smelt(datum/design/D, seconds_per_tick = 2)
+	if(D.make_reagent)
+		return FALSE
+
+	var/build_amount = SMELT_AMOUNT * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 

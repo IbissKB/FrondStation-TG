@@ -2,7 +2,11 @@
 	use_power = IDLE_POWER_USE
 	req_access = list(ACCESS_CENT_GENERAL)
 	faction = list(FACTION_XEN, FACTION_BLACKMESA, FACTION_HECU, FACTION_BLACKOPS)
+<<<<<<< HEAD
 	mode = TURRET_LETHAL
+=======
+	mode = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	uses_stored = FALSE
 	max_integrity = 120
 	base_icon_state = "syndie"

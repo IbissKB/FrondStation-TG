@@ -34,7 +34,11 @@
 	toggle_working()
 
 /obj/structure/liquid_pump/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(!user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	to_chat(user, span_notice("You flick [src]'s spewing mode [spewing_mode ? "off" : "on"]."))
 	spewing_mode = !spewing_mode

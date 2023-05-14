@@ -43,7 +43,11 @@
 	//This looks rediculous, but expose is usually called from the donor reagents datum - we want to edit the post exposure version present in the mob.
 	var/mob/living/carbon/carby = living_mob
 	//But because carbon mobs have stomachs we have to search in there because we're ingested
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/stomach = carby.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/stomach = carby.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/reagent/eigenstate/eigen
 	if(stomach)
 		eigen = stomach.reagents.has_reagent(/datum/reagent/eigenstate)

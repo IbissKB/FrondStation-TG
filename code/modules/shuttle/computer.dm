@@ -118,12 +118,21 @@
 /obj/machinery/computer/shuttle/proc/get_valid_destinations()
 	var/list/destination_list = params2list(possible_destinations)
 	var/obj/docking_port/mobile/mobile_docking_port = SSshuttle.getShuttle(shuttleId)
+<<<<<<< HEAD
+=======
+	var/obj/docking_port/stationary/current_destination = mobile_docking_port.destination
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/valid_destinations = list()
 	for(var/obj/docking_port/stationary/stationary_docking_port in SSshuttle.stationary_docking_ports)
 		if(!destination_list.Find(stationary_docking_port.port_destinations))
 			continue
 		if(!mobile_docking_port.check_dock(stationary_docking_port, silent = TRUE))
 			continue
+<<<<<<< HEAD
+=======
+		if(stationary_docking_port == current_destination)
+			continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/list/location_data = list(
 			id = stationary_docking_port.shuttle_id,
 			name = stationary_docking_port.name
@@ -233,9 +242,18 @@
 	possible_destinations += ";[port.shuttle_id]_custom"
 
 #undef SHUTTLE_CONSOLE_ACCESSDENIED
+<<<<<<< HEAD
 #undef  SHUTTLE_CONSOLE_ENDGAME
 #undef  SHUTTLE_CONSOLE_RECHARGING
 #undef  SHUTTLE_CONSOLE_INTRANSIT
 #undef  SHUTTLE_CONSOLE_DESTINVALID
 #undef  SHUTTLE_CONSOLE_SUCCESS
 #undef  SHUTTLE_CONSOLE_ERROR
+=======
+#undef SHUTTLE_CONSOLE_ENDGAME
+#undef SHUTTLE_CONSOLE_RECHARGING
+#undef SHUTTLE_CONSOLE_INTRANSIT
+#undef SHUTTLE_CONSOLE_DESTINVALID
+#undef SHUTTLE_CONSOLE_SUCCESS
+#undef SHUTTLE_CONSOLE_ERROR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

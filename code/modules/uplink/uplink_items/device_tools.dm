@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // File ordered based on progression
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_category/device_tools
 	name = "Misc. Gadgets"
 	weight = 3
@@ -7,8 +10,11 @@
 /datum/uplink_item/device_tools
 	category = /datum/uplink_category/device_tools
 
+<<<<<<< HEAD
 // No progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/device_tools/soap
 	name = "Syndicate Soap"
 	desc = "A sinister-looking surfactant used to clean blood stains to hide murders and prevent DNA analysis. \
@@ -44,6 +50,17 @@
 	item = /obj/item/storage/book/bible/syndicate
 	cost = 5
 
+<<<<<<< HEAD
+=======
+/datum/uplink_item/device_tools/tram_remote
+	name = "Tram Remote Control"
+	desc = "When linked to a tram's on board computer systems, this device allows the user to manipulate the controls remotely. \
+		Includes direction toggle and a rapid mode to bypass door safety checks and crossing signals. \
+		Perfect for running someone over in the name of a tram malfunction!"
+	item = /obj/item/tram_remote
+	cost = 2
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
 	desc = "These goggles can be turned to resemble common eyewear found throughout the station. \
@@ -192,13 +209,19 @@
 	surplus = 75
 	restricted = TRUE
 
+<<<<<<< HEAD
 // Low progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/device_tools/emag
 	name = "Cryptographic Sequencer"
 	desc = "The cryptographic sequencer, electromagnetic card, or emag, is a small card that unlocks hidden functions \
 			in electronic devices, subverts intended functions, and easily breaks security mechanisms. Cannot be used to open airlocks."
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	item = /obj/item/card/emag
 	cost = 4
 
@@ -206,7 +229,10 @@
 	name = "Stimpack"
 	desc = "Stimpacks, the tool of many great heroes, make you nearly immune to stuns and knockdowns for about \
 			5 minutes after injection."
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	item = /obj/item/reagent_containers/hypospray/medipen/stimulants
 	cost = 5
 	surplus = 90
@@ -215,12 +241,18 @@
 	name = "Super Pointy Tape"
 	desc = "An all-purpose super pointy tape roll. The tape is built with hundreds of tiny metal needles, the roll comes with in 5 pieces. When added to items the \
 			item that was taped will embed when thrown at people. Taping people's mouthes with it will hurt them if pulled off by someone else."
+<<<<<<< HEAD
 	progression_minimum = 10 MINUTES
 	item = /obj/item/stack/sticky_tape/pointy/super
 	cost = 1
 
 // Medium progression cost
 
+=======
+	item = /obj/item/stack/sticky_tape/pointy/super
+	cost = 1
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/device_tools/hacked_module
 	name = "Hacked AI Law Upload Module"
 	desc = "When used with an upload console, this module allows you to upload priority laws to an artificial intelligence. \
@@ -232,14 +264,20 @@
 /datum/uplink_item/device_tools/hypnotic_flash
 	name = "Hypnotic Flash"
 	desc = "A modified flash able to hypnotize targets. If the target is not in a mentally vulnerable state, it will only confuse and pacify them temporarily."
+<<<<<<< HEAD
 	progression_minimum = 30 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	item = /obj/item/assembly/flash/hypnotic
 	cost = 7
 
 /datum/uplink_item/device_tools/hypnotic_grenade
 	name = "Hypnotic Grenade"
 	desc = "A modified flashbang grenade able to hypnotize targets. The sound portion of the flashbang causes hallucinations, and will allow the flash to induce a hypnotic trance to viewers."
+<<<<<<< HEAD
 	progression_minimum = 30 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	item = /obj/item/grenade/hypnotic
 	cost = 12
 
@@ -252,6 +290,10 @@
 	progression_minimum = 30 MINUTES
 	item = /obj/item/sbeacondrop
 	cost = 10
+<<<<<<< HEAD
+=======
+	surplus = 0 // not while there isnt one on any station
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/device_tools/powersink

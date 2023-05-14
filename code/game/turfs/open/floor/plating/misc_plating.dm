@@ -15,8 +15,15 @@
 	icon_state = "alienpod1"
 	base_icon_state = "alienpod1"
 	tiled_dirt = FALSE
+<<<<<<< HEAD
 
 /turf/open/floor/plating/abductor/setup_broken_states()
+=======
+	// Not actually broken, just should never break...yeah.
+	broken = TRUE
+
+/turf/open/floor/plating/abductor/broken_states()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return list("alienpod1")
 
 /turf/open/floor/plating/abductor/Initialize(mapload)
@@ -64,8 +71,13 @@
 	icon_state = "snow_turf-0"
 	base_icon_state = "snow_turf"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_SNOWED)
 	canSmoothWith = list(SMOOTH_GROUP_FLOOR_SNOWED)
+=======
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_SNOWED
+	canSmoothWith = SMOOTH_GROUP_FLOOR_SNOWED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	planetary_atmos = TRUE
 
 /turf/open/floor/plating/snowed/temperatre

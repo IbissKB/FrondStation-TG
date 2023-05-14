@@ -120,7 +120,11 @@
 	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/hlscience
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/laceup
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/latex
+=======
+	gloves = /obj/item/clothing/gloves/latex
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/corpse/human/guard_zombie
 	name = "Security Guard"

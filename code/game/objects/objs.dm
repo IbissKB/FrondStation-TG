@@ -4,6 +4,16 @@
 	speech_span = SPAN_ROBOT
 	var/obj_flags = CAN_BE_HIT
 
+<<<<<<< HEAD
+=======
+	/// Extra examine line to describe controls, such as right-clicking, left-clicking, etc.
+	var/desc_controls
+
+	/// Icon to use as a 32x32 preview in crafting menus and such
+	var/icon_preview
+	var/icon_state_preview
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/damtype = BRUTE
 	var/force = 0
 
@@ -21,12 +31,26 @@
 	var/infinite_reskin = FALSE
 
 	// Access levels, used in modules\jobs\access.dm
+<<<<<<< HEAD
 	var/list/req_access
 	var/req_access_txt = "0"
 	var/list/req_one_access
 	var/req_one_access_txt = "0"
 	/// Custom fire overlay icon
 	var/custom_fire_overlay
+=======
+	/// List of accesses needed to use this object: The user must possess all accesses in this list in order to use the object.
+	/// Example: If req_access = list(ACCESS_ENGINE, ACCESS_CE)- then the user must have both ACCESS_ENGINE and ACCESS_CE in order to use the object.
+	var/list/req_access
+	/// List of accesses needed to use this object: The user must possess at least one access in this list in order to use the object.
+	/// Example: If req_one_access = list(ACCESS_ENGINE, ACCESS_CE)- then the user must have either ACCESS_ENGINE or ACCESS_CE in order to use the object.
+	var/list/req_one_access
+
+	/// Custom fire overlay icon, will just use the default overlay if this is null
+	var/custom_fire_overlay
+	/// Particles this obj uses when burning, if any
+	var/burning_particles
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/renamedByPlayer = FALSE //set when a player uses a pen on a renamable object
 
@@ -35,9 +59,12 @@
 	/// Map tag for something.  Tired of it being used on snowflake items.  Moved here for some semblance of a standard.
 	/// Next pr after the network fix will have me refactor door interactions, so help me god.
 	var/id_tag = null
+<<<<<<< HEAD
 	/// Network id. If set it can be found by either its hardware id or by the id tag if thats set.  It can also be
 	/// broadcasted to as long as the other guys network is on the same branch or above.
 	var/network_id = null
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	uses_integrity = TRUE
 
@@ -47,6 +74,7 @@
 			return FALSE
 	return ..()
 
+<<<<<<< HEAD
 // Call this if you want to add your object to a network
 /obj/proc/init_network_id(network_id)
 	var/area/A = get_area(src)
@@ -60,6 +88,8 @@
 		network_id = NETWORK_NAME_COMBINE(STATION_NETWORK_ROOT, network_id) // I regret nothing!!
 	AddComponent(/datum/component/ntnet_interface, network_id, id_tag)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// A list of all /obj by their id_tag
 GLOBAL_LIST_EMPTY(objects_by_id_tag)
 
@@ -136,7 +166,11 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 				ui_interact(M)
 		if(issilicon(usr) || isAdminGhostAI(usr))
 			if (!(usr in nearby))
+<<<<<<< HEAD
 				if (usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+=======
+				if (usr.client && usr.machine == src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					is_in_use = TRUE
 					ui_interact(usr)
 
@@ -145,7 +179,11 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
 			if(!(usr in nearby))
+<<<<<<< HEAD
 				if(usr.client && usr.machine==src)
+=======
+				if(usr.client && usr.machine == src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					if(H.dna.check_mutation(/datum/mutation/human/telekinesis))
 						is_in_use = TRUE
 						ui_interact(usr)
@@ -222,7 +260,10 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	VV_DROPDOWN_OPTION("", "---")
 	VV_DROPDOWN_OPTION(VV_HK_MASS_DEL_TYPE, "Delete all of type")
 	VV_DROPDOWN_OPTION(VV_HK_OSAY, "Object Say")
+<<<<<<< HEAD
 	VV_DROPDOWN_OPTION(VV_HK_ARMOR_MOD, "Modify armor values")
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/vv_do_topic(list/href_list)
 	if(!(. = ..()))
@@ -230,6 +271,7 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	if(href_list[VV_HK_OSAY])
 		if(check_rights(R_FUN, FALSE))
 			usr.client.object_say(src)
+<<<<<<< HEAD
 	if(href_list[VV_HK_ARMOR_MOD])
 		var/list/pickerlist = list()
 		var/list/armorlist = armor.getList()
@@ -252,6 +294,9 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 			                  acid = text2num(result["values"][ACID]))
 				log_admin("[key_name(usr)] modified the armor on [src] ([type]) to melee: [armor.melee], bullet: [armor.bullet], laser: [armor.laser], energy: [armor.energy], bomb: [armor.bomb], bio: [armor.bio], fire: [armor.fire], acid: [armor.acid]")
 				message_admins(span_notice("[key_name_admin(usr)] modified the armor on [src] ([type]) to melee: [armor.melee], bullet: [armor.bullet], laser: [armor.laser], energy: [armor.energy], bomb: [armor.bomb], bio: [armor.bio], fire: [armor.fire], acid: [armor.acid]"))
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(href_list[VV_HK_MASS_DEL_TYPE])
 		if(check_rights(R_DEBUG|R_SERVER))
 			var/action_type = tgui_alert(usr, "Strict type ([type]) or type and all subtypes?",,list("Strict type","Type and subtypes","Cancel"))
@@ -293,6 +338,11 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 
 /obj/examine(mob/user)
 	. = ..()
+<<<<<<< HEAD
+=======
+	if(desc_controls)
+		. += span_notice(desc_controls)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(obj_flags & UNIQUE_RENAME)
 		. += span_notice("Use a pen on it to rename it or change its description.")
 	if(unique_reskin && (!current_skin || infinite_reskin))
@@ -300,7 +350,11 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 
 /obj/AltClick(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	if(unique_reskin && (!current_skin || infinite_reskin) && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(unique_reskin && (!current_skin || infinite_reskin) && user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskin_obj(user)
 
 /**
@@ -362,11 +416,14 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	if(. && receive_ricochet_damage_coeff)
 		take_damage(P.damage * receive_ricochet_damage_coeff, P.damage_type, P.armor_flag, 0, turn(P.dir, 180), P.armour_penetration) // pass along receive_ricochet_damage_coeff damage to the structure for the ricochet
 
+<<<<<<< HEAD
 /obj/update_overlays()
 	. = ..()
 	if(resistance_flags & ON_FIRE)
 		. += custom_fire_overlay ? custom_fire_overlay : GLOB.fire_overlay
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Handles exposing an object to reagents.
 /obj/expose_reagents(list/reagents, datum/reagents/source, methods=TOUCH, volume_modifier=1, show_message=TRUE)
 	. = ..()
@@ -382,7 +439,11 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 /obj/proc/freeze()
 	if(HAS_TRAIT(src, TRAIT_FROZEN))
 		return FALSE
+<<<<<<< HEAD
 	if(obj_flags & FREEZE_PROOF)
+=======
+	if(resistance_flags & FREEZE_PROOF)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	AddElement(/datum/element/frozen)

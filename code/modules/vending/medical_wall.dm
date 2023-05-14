@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /obj/machinery/vending/wallmed //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+=======
+/obj/machinery/vending/wallmed
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "\improper NanoMed"
 	desc = "Wall-mounted Medical Equipment dispenser."
 	icon_state = "wallmed"

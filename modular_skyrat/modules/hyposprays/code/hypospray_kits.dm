@@ -3,6 +3,11 @@
 	desc = "It's a kit containing a hypospray and specific treatment chemical-filled vials."
 	icon = 'modular_skyrat/modules/hyposprays/icons/hypokits.dmi'
 	icon_state = "firstaid-mini"
+<<<<<<< HEAD
+=======
+	worn_icon_state = "healthanalyzer" // Get a better sprite later
+	inhand_icon_state = "medkit"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
@@ -94,6 +99,10 @@
 	name = "deluxe hypospray kit"
 	desc = "A kit containing a deluxe hypospray and vials."
 	icon_state = "tactical-mini"
+<<<<<<< HEAD
+=======
+	inhand_icon_state = "medkit-tactical"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	current_case = "tactical"
 	cmo_case = TRUE
 

@@ -33,6 +33,13 @@
 	loot = list(/obj/effect/decal/remains/human)
 	del_on_death = TRUE
 
+<<<<<<< HEAD
+=======
+/mob/living/simple_animal/hostile/dark_wizard/Initialize(mapload)
+	. = ..()
+	apply_dynamic_human_appearance(src, mob_spawn_path = /obj/effect/mob_spawn/corpse/human/wizard/dark, r_hand = /obj/item/staff)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/projectile/temp/earth_bolt
 	name = "earth bolt"
 	icon_state = "declone"

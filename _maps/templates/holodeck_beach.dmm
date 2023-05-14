@@ -1,10 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
+<<<<<<< HEAD
 /turf/open/floor/holofloor/beach/water,
 /area/template_noop)
 "f" = (
 /obj/item/shovel/spade,
 /turf/open/floor/holofloor/beach/coast_t,
+=======
+/turf/open/floor/holofloor/beach/coast,
+/area/template_noop)
+"f" = (
+/obj/item/shovel/spade,
+/turf/open/floor/holofloor/beach,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/template_noop)
 "g" = (
 /obj/item/toy/beach_ball,
@@ -15,12 +23,18 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
+<<<<<<< HEAD
 "k" = (
 /turf/open/floor/holofloor/beach/coast_b,
 /area/template_noop)
 "q" = (
 /obj/item/reagent_containers/cup/bucket,
 /turf/open/floor/holofloor/beach/coast_t,
+=======
+"q" = (
+/obj/item/reagent_containers/cup/bucket,
+/turf/open/floor/holofloor/beach,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/template_noop)
 "t" = (
 /turf/open/floor/holofloor/carpet,
@@ -29,16 +43,23 @@
 /obj/effect/holodeck_effect/mobspawner/monkey,
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
+<<<<<<< HEAD
 "J" = (
 /turf/open/floor/holofloor/beach/coast_t,
 /area/template_noop)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "M" = (
 /obj/item/toy/seashell,
 /turf/open/floor/holofloor/beach,
 /area/template_noop)
 "Q" = (
 /obj/effect/holodeck_effect/mobspawner/crab/jon,
+<<<<<<< HEAD
 /turf/open/floor/holofloor/beach/coast_t,
+=======
+/turf/open/floor/holofloor/beach,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/template_noop)
 "R" = (
 /turf/open/floor/holofloor/beach,
@@ -69,8 +90,13 @@ R
 R
 R
 R
+<<<<<<< HEAD
 J
 k
+=======
+R
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (2,1,1) = {"
@@ -82,7 +108,11 @@ R
 S
 R
 Q
+<<<<<<< HEAD
 k
+=======
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (3,1,1) = {"
@@ -93,8 +123,13 @@ R
 R
 t
 t
+<<<<<<< HEAD
 J
 k
+=======
+R
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (4,1,1) = {"
@@ -105,8 +140,13 @@ R
 h
 R
 R
+<<<<<<< HEAD
 J
 k
+=======
+R
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (5,1,1) = {"
@@ -117,8 +157,13 @@ R
 R
 t
 t
+<<<<<<< HEAD
 J
 k
+=======
+R
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (6,1,1) = {"
@@ -130,7 +175,11 @@ X
 g
 R
 q
+<<<<<<< HEAD
 k
+=======
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (7,1,1) = {"
@@ -142,7 +191,11 @@ R
 R
 R
 f
+<<<<<<< HEAD
 k
+=======
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (8,1,1) = {"
@@ -153,8 +206,13 @@ R
 H
 R
 M
+<<<<<<< HEAD
 J
 k
+=======
+R
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}
 (9,1,1) = {"
@@ -165,7 +223,12 @@ R
 R
 R
 R
+<<<<<<< HEAD
 J
 k
+=======
+R
+R
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 a
 "}

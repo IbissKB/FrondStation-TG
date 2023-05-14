@@ -753,6 +753,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "Nt" = (
+<<<<<<< HEAD
 /obj/docking_port/stationary{
 	dir = 8;
 	dwidth = 1;
@@ -760,6 +761,10 @@
 	name = "escape pod loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
+=======
+/obj/docking_port/stationary/escape_pod{
+	dir = 8
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
@@ -1639,7 +1644,11 @@ ej
 ej
 ej
 ej
+<<<<<<< HEAD
 ej
+=======
+HQ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ej
 ej
 ej
@@ -1671,7 +1680,11 @@ ej
 ej
 ej
 ej
+<<<<<<< HEAD
 HQ
+=======
+ej
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ej
 ej
 ej

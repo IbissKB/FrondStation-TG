@@ -135,7 +135,11 @@
 	dir = 4
 	},
 /obj/structure/table/bronze,
+<<<<<<< HEAD
 /obj/item/disk/design_disk/adv/knight_gear,
+=======
+/obj/item/disk/design_disk/knight_gear,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/necropolis,
 /area/lavaland/surface/outdoors)
 "q" = (

@@ -15,6 +15,7 @@
 	if(iscarbon(loc))
 		Insert(loc)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/body_egg/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
 	..()
 	ADD_TRAIT(owner, TRAIT_XENO_HOST, ORGAN_TRAIT)
@@ -41,6 +42,33 @@
 	egg_process(delta_time, times_fired)
 
 /obj/item/organ/internal/body_egg/proc/egg_process(delta_time, times_fired)
+=======
+/obj/item/organ/internal/body_egg/Insert(mob/living/carbon/egg_owner, special = FALSE, drop_if_replaced = TRUE)
+	. = ..()
+	if(!.)
+		return
+	egg_owner.add_traits(list(TRAIT_XENO_HOST, TRAIT_XENO_IMMUNE), ORGAN_TRAIT)
+	egg_owner.med_hud_set_status()
+	INVOKE_ASYNC(src, PROC_REF(AddInfectionImages), egg_owner)
+
+/obj/item/organ/internal/body_egg/Remove(mob/living/carbon/egg_owner, special = FALSE)
+	. = ..()
+	egg_owner.remove_traits(list(TRAIT_XENO_HOST, TRAIT_XENO_IMMUNE), ORGAN_TRAIT)
+	egg_owner.med_hud_set_status()
+	INVOKE_ASYNC(src, PROC_REF(RemoveInfectionImages), egg_owner)
+
+/obj/item/organ/internal/body_egg/on_death(seconds_per_tick, times_fired)
+	. = ..()
+	if(!owner)
+		return
+	egg_process(seconds_per_tick, times_fired)
+
+/obj/item/organ/internal/body_egg/on_life(seconds_per_tick, times_fired)
+	. = ..()
+	egg_process(seconds_per_tick, times_fired)
+
+/obj/item/organ/internal/body_egg/proc/egg_process(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 /obj/item/organ/internal/body_egg/proc/RefreshInfectionImage()

@@ -21,6 +21,13 @@
 	var/empty = FALSE
 	var/damagetype_healed //defines damage type of the medkit. General ones stay null. Used for medibot healing bonuses
 
+<<<<<<< HEAD
+=======
+/obj/item/storage/medkit/Initialize(mapload)
+	. = ..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/storage/medkit/regular
 	icon_state = "medkit"
 	desc = "A first aid kit with the ability to heal common types of injuries."
@@ -64,7 +71,11 @@
 	name = "surgical medkit"
 	icon_state = "medkit_surgery"
 	inhand_icon_state = "medkit"
+<<<<<<< HEAD
 	desc = "A high capacity aid kit for doctors, full of medical supplies and basic surgical equipment"
+=======
+	desc = "A high capacity aid kit for doctors, full of medical supplies and basic surgical equipment."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/medkit/surgery/Initialize(mapload)
 	. = ..()
@@ -284,6 +295,10 @@
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/reagent_containers/pill/patch/libital = 4,
 		/obj/item/reagent_containers/pill/patch/aiuri = 4,
+<<<<<<< HEAD
+=======
+		/obj/item/healthanalyzer/advanced = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/stack/medical/gauze = 2,
 		/obj/item/stack/medical/splint = 2, //SKYRAT EDIT ADDITION - MEDICAL
 		/obj/item/reagent_containers/hypospray/medipen/atropine = 2,
@@ -308,11 +323,19 @@
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/reagent_containers/pill/patch/libital = 3,
 		/obj/item/reagent_containers/pill/patch/aiuri = 3,
+<<<<<<< HEAD
+=======
+		/obj/item/healthanalyzer/advanced = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/stack/medical/gauze = 2,
 		/obj/item/stack/medical/splint = 2, //SKYRAT EDIT ADDITION - MEDICAL
 		/obj/item/mod/module/thread_ripper = 1,
 		/obj/item/mod/module/surgical_processor/preloaded = 1,
 		/obj/item/mod/module/defibrillator/combat = 1,
+<<<<<<< HEAD
+=======
+		/obj/item/mod/module/health_analyzer = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/autosurgeon/syndicate/emaggedsurgerytoolset = 1,
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
 		/obj/item/storage/box/evilmeds = 1,
@@ -321,6 +344,59 @@
 	)
 	generate_items_inside(items_inside,src)
 
+<<<<<<< HEAD
+=======
+/obj/item/storage/medkit/coroner
+	name = "compact coroner's medkit"
+	desc = "A smaller medical kit designed primarily for assisting in dissecting the deceased, rather than treating the living."
+	icon = 'icons/obj/storage/medkit.dmi'
+	icon_state = "compact_coronerkit"
+	inhand_icon_state = "coronerkit"
+	var/max_slots = 6
+	var/max_total_storage = 6
+
+/obj/item/storage/medkit/coroner/Initialize(mapload)
+	. = ..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL //lowering this so it can't hold the autopsy scanner
+	atom_storage.max_slots = max_slots
+	atom_storage.max_total_storage = max_total_storage
+
+/obj/item/storage/medkit/coroner/PopulateContents()
+	if(empty)
+		return
+	var/static/items_inside = list(
+		/obj/item/reagent_containers/cup/bottle/formaldehyde = 1,
+		/obj/item/reagent_containers/medigel/sterilizine = 1,
+		/obj/item/reagent_containers/blood = 1,
+		/obj/item/bodybag = 2,
+		/obj/item/reagent_containers/syringe = 1,
+	)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/medkit/coroner/large
+	name = "coroner's medkit"
+	desc = "A medical kit designed primarily for assisting in dissecting the deceased, rather than treating the living."
+	icon = 'icons/obj/storage/medkit.dmi'
+	icon_state = "coronerkit"
+	inhand_icon_state = "coronerkit"
+	max_slots = 12
+	max_total_storage = 24
+
+/obj/item/storage/medkit/coroner/large/PopulateContents()
+	if(empty)
+		return
+	var/static/items_inside = list(
+		/obj/item/reagent_containers/cup/bottle/formaldehyde = 1,
+		/obj/item/reagent_containers/medigel/sterilizine = 1,
+		/obj/item/toy/crayon/white = 1,
+		/obj/item/reagent_containers/blood = 1,
+		/obj/item/bodybag = 2,
+		/obj/item/reagent_containers/syringe = 1,
+		/obj/item/folder/white = 1,//for storing autopsy reports from the scanner
+	)
+	generate_items_inside(items_inside,src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //medibot assembly
 /obj/item/storage/medkit/attackby(obj/item/bodypart/bodypart, mob/user, params)
 	if((!istype(bodypart, /obj/item/bodypart/arm/left/robot)) && (!istype(bodypart, /obj/item/bodypart/arm/right/robot)))
@@ -366,7 +442,14 @@
 /obj/item/storage/pill_bottle/Initialize(mapload)
 	. = ..()
 	atom_storage.allow_quick_gather = TRUE
+<<<<<<< HEAD
 	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill))
+=======
+	atom_storage.set_holdable(list(
+		/obj/item/reagent_containers/pill,
+		/obj/item/food/bait/natural,
+	))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/pill_bottle/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is trying to get the cap off [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -558,6 +641,18 @@
 	for(var/i in 1 to 5)
 		new /obj/item/reagent_containers/pill/paxpsych(src)
 
+<<<<<<< HEAD
+=======
+/obj/item/storage/pill_bottle/naturalbait
+	name = "freshness jar"
+	desc = "Full of natural fish bait."
+
+/obj/item/storage/pill_bottle/naturalbait/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/food/bait/natural(src)
+
+/// A box which takes in coolant and uses it to preserve organs and body parts
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/storage/organbox
 	name = "organ transport box"
 	desc = "An advanced box with an cooling mechanism that uses cryostylane or other cold reagents to keep the organs or bodyparts inside preserved."
@@ -575,7 +670,11 @@
 /obj/item/storage/organbox/Initialize(mapload)
 	. = ..()
 
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/organ_box, max_specific_storage = WEIGHT_CLASS_BULKY, max_total_storage = 21)
+=======
+	create_storage(storage_type = /datum/storage/organ_box, max_specific_storage = WEIGHT_CLASS_BULKY, max_total_storage = 21)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	atom_storage.set_holdable(list(
 		/obj/item/organ,
 		/obj/item/bodypart,
@@ -585,6 +684,7 @@
 	create_reagents(100, TRANSPARENT)
 	START_PROCESSING(SSobj, src)
 
+<<<<<<< HEAD
 /obj/item/storage/organbox/process(delta_time)
 	///if there is enough coolant var
 	var/cool = FALSE
@@ -608,11 +708,44 @@
 		update_appearance()
 		for(var/C in contents)
 			unfreeze_contents(C)
+=======
+/obj/item/storage/organbox/process(seconds_per_tick)
+	///if there is enough coolant var
+	var/using_coolant = coolant_to_spend()
+	if (isnull(using_coolant))
+		if (cooling)
+			cooling = FALSE
+			update_appearance()
+			for(var/obj/stored in contents)
+				stored.unfreeze()
+		return
+
+	var/amount_used = 0.05 * seconds_per_tick
+	if (using_coolant != /datum/reagent/cryostylane)
+		amount_used *= 2
+	reagents.remove_reagent(using_coolant, amount_used)
+
+	if(cooling)
+		return
+	cooling = TRUE
+	update_appearance()
+	for(var/obj/stored in contents)
+		stored.freeze()
+
+/// Returns which coolant we are about to use, or null if there isn't any
+/obj/item/storage/organbox/proc/coolant_to_spend()
+	if (reagents.get_reagent_amount(/datum/reagent/cryostylane))
+		return /datum/reagent/cryostylane
+	if (reagents.get_reagent_amount(/datum/reagent/consumable/ice))
+		return /datum/reagent/consumable/ice
+	return null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/organbox/update_icon_state()
 	icon_state = "[base_icon_state][cooling ? "-working" : null]"
 	return ..()
 
+<<<<<<< HEAD
 ///freezes the organ and loops bodyparts like heads
 /obj/item/storage/organbox/proc/freeze_contents(datum/source, obj/item/I)
 	SIGNAL_HANDLER
@@ -637,6 +770,8 @@
 		for(var/obj/item/organ/internal/int_organ in B.contents)
 			int_organ.organ_flags &= ~ORGAN_FROZEN
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/storage/organbox/attackby(obj/item/I, mob/user, params)
 	if(is_reagent_container(I) && I.is_open_container())
 		var/obj/item/reagent_containers/RC = I
@@ -667,3 +802,13 @@
 	user.adjust_bodytemperature(-300)
 	user.apply_status_effect(/datum/status_effect/freon)
 	return FIRELOSS
+<<<<<<< HEAD
+=======
+
+/// A subtype of organ storage box which starts with a full coolant tank
+/obj/item/storage/organbox/preloaded
+
+/obj/item/storage/organbox/preloaded/Initialize(mapload)
+	. = ..()
+	reagents.add_reagent(/datum/reagent/cryostylane, reagents.maximum_volume)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

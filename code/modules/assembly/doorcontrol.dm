@@ -3,9 +3,16 @@
 	desc = "A small electronic device able to control a blast door remotely."
 	icon_state = "control"
 	attachable = TRUE
+<<<<<<< HEAD
 	var/id = null
 	var/can_change_id = 0
 	var/cooldown = FALSE //Door cooldowns
+=======
+	/// The ID of the blast door electronics to match to the ID of the blast door being used.
+	var/id = null
+	/// Cooldown of the door's controller. Updates when pressed (activate())
+	var/cooldown = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/sync_doors = TRUE
 
 /obj/item/assembly/control/examine(mob/user)
@@ -15,9 +22,16 @@
 
 /obj/item/assembly/control/multitool_act(mob/living/user)
 	var/change_id = tgui_input_number(user, "Set the door controllers ID", "Door ID", id, 100)
+<<<<<<< HEAD
 	if(!change_id || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 		return
 	id = change_id
+=======
+	if(!change_id || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+		return
+	id = change_id
+	balloon_alert(user, "id changed")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(user, span_notice("You change the ID to [id]."))
 
 /obj/item/assembly/control/activate()
@@ -111,14 +125,26 @@
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
 
+<<<<<<< HEAD
 	sleep(1 SECONDS)
 
+=======
+	addtimer(CALLBACK(src, PROC_REF(activate_stage2)), 1 SECONDS)
+
+/obj/item/assembly/control/massdriver/proc/activate_stage2()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/machinery/mass_driver/M in GLOB.machines)
 		if(M.id == src.id)
 			M.drive()
 
+<<<<<<< HEAD
 	sleep(6 SECONDS)
 
+=======
+	addtimer(CALLBACK(src, PROC_REF(activate_stage3)), 6 SECONDS)
+
+/obj/item/assembly/control/massdriver/proc/activate_stage3()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/machinery/door/poddoor/M in GLOB.airlocks)
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
@@ -183,7 +209,11 @@
 	///ID to link to allow us to link to one specific tram in the world
 	var/specific_lift_id = MAIN_STATION_TRAM
 	///this is our destination's landmark, so we only have to find it the first time.
+<<<<<<< HEAD
 	var/datum/weakref/to_where
+=======
+	var/datum/weakref/destination_platform
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/assembly/control/tram/Initialize(mapload)
 	..()
@@ -193,12 +223,21 @@
 	. = ..()
 	//find where the tram needs to go to (our destination). only needs to happen the first time
 	for(var/obj/effect/landmark/tram/our_destination as anything in GLOB.tram_landmarks[specific_lift_id])
+<<<<<<< HEAD
 		if(our_destination.destination_id == initial_id)
 			to_where = WEAKREF(our_destination)
 			break
 
 /obj/item/assembly/control/tram/Destroy()
 	to_where = null
+=======
+		if(our_destination.platform_code == initial_id)
+			destination_platform = WEAKREF(our_destination)
+			break
+
+/obj/item/assembly/control/tram/Destroy()
+	destination_platform = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/assembly/control/tram/activate()
@@ -213,6 +252,7 @@
 			tram = possible_match
 			break
 
+<<<<<<< HEAD
 	if(!tram)
 		say("The tram is not responding to call signals. Please send a technician to repair the internals of the tram.")
 		return
@@ -225,6 +265,20 @@
 	if(!current_location)
 		return
 	if(tram.from_where == current_location) //already here
+=======
+	if(!tram || !tram.is_operational) //tram is QDEL or has no power
+		say("The tram is not in service. Please send a technician to repair the internals of the tram.")
+		return
+	if(tram.travelling) //in use
+		say("The tram is already travelling to [tram.idle_platform].")
+		return
+	if(!destination_platform)
+		return
+	var/obj/effect/landmark/tram/current_location = destination_platform.resolve()
+	if(!current_location)
+		return
+	if(tram.idle_platform == current_location) //already here
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		say("The tram is already here. Please board the tram and select a destination.")
 		return
 

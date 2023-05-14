@@ -3,6 +3,7 @@
 
 /obj/item/mod/control/seal_part(obj/item/clothing/part, seal)
 	. = ..()
+<<<<<<< HEAD
 	wearer.dna.species.handle_mutant_bodyparts(wearer, force_update = TRUE)
 
 /obj/item/mod/control/finish_activation(on)
@@ -16,11 +17,44 @@
 /obj/item/mod/control/on_mod_retracted(mob/user)
 	. = ..()
 	wearer.dna.species.handle_mutant_bodyparts(wearer, force_update = TRUE)
+=======
+	if(activating)
+		return
+
+	update_external_organs_modsuit_status(seal && active)
+	wearer.update_body_parts(TRUE)
+
+/obj/item/mod/control/finish_activation(on)
+	. = ..()
+	update_external_organs_modsuit_status(on)
+	wearer.update_body_parts(TRUE)
+
+/obj/item/mod/control/on_mod_deployed(mob/user)
+	. = ..()
+	update_external_organs_modsuit_status(active)
+	wearer.update_body_parts(TRUE)
+
+/obj/item/mod/control/on_mod_retracted(mob/user)
+	. = ..()
+	update_external_organs_modsuit_status(FALSE)
+	wearer.update_body_parts(TRUE)
+
+/// Simple helper proc to force an update of the external organs appearance
+/// if necessary.
+/obj/item/mod/control/proc/update_external_organs_modsuit_status(status)
+	if(!wearer?.organs)
+		return
+
+	for(var/obj/item/organ/external/to_update in wearer.organs)
+		to_update.bodypart_overlay.set_modsuit_status(status)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Tail hardlight
 /datum/sprite_accessory/tails
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/tails/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
@@ -31,12 +65,28 @@
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+=======
+/datum/sprite_accessory/tails/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return special_icon
 
 // Ears hardlight
 /datum/sprite_accessory/ears
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/ears/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.head && istype(wearer.head, /obj/item/clothing/head/mod))
@@ -47,12 +97,28 @@
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+=======
+/datum/sprite_accessory/ears/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.head && istype(wearer.head, /obj/item/clothing/head/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return special_icon
 
 // Wings hardlight
 /datum/sprite_accessory/wings
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/wings/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
@@ -63,12 +129,28 @@
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+=======
+/datum/sprite_accessory/wings/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return special_icon
 
 // Antennae hardlight
 /datum/sprite_accessory/moth_antennae
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/moth_antennae/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.head && istype(wearer.head, /obj/item/clothing/head/mod))
@@ -79,12 +161,28 @@
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+=======
+/datum/sprite_accessory/moth_antennae/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.head && istype(wearer.head, /obj/item/clothing/head/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return special_icon
 
 // IPC Antennae hardlight
 /datum/sprite_accessory/antenna
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/antenna/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.head && istype(wearer.head, /obj/item/clothing/head/mod))
@@ -95,12 +193,28 @@
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+=======
+/datum/sprite_accessory/antenna/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.head && istype(wearer.head, /obj/item/clothing/head/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return special_icon
 
 // Horns hardlight
 /datum/sprite_accessory/horns
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/horns/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.head && istype(wearer.head, /obj/item/clothing/head/mod))
@@ -108,6 +222,17 @@
 		var/datum/mod_theme/mod_theme = modsuit_control.theme
 		if(!modsuit_control.active || !mod_theme.hardlight)
 			return
+=======
+/datum/sprite_accessory/horns/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.head && istype(wearer.head, /obj/item/clothing/head/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
@@ -117,6 +242,7 @@
 /datum/sprite_accessory/taur
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/taur/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
@@ -124,6 +250,17 @@
 		var/datum/mod_theme/mod_theme = modsuit_control.theme
 		if(!modsuit_control.active || !mod_theme.hardlight)
 			return
+=======
+/datum/sprite_accessory/taur/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
@@ -133,6 +270,7 @@
 /datum/sprite_accessory/spines
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/spines/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
@@ -140,6 +278,17 @@
 		var/datum/mod_theme/mod_theme = modsuit_control.theme
 		if(!modsuit_control.active || !mod_theme.hardlight)
 			return
+=======
+/datum/sprite_accessory/spines/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
@@ -149,6 +298,7 @@
 /datum/sprite_accessory/xenodorsal
 	use_custom_mod_icon = TRUE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/xenodorsal/get_custom_mod_icon(mob/living/carbon/human/wearer)
 	var/icon/special_icon = icon(icon, icon_state)
 	if(wearer.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
@@ -156,6 +306,17 @@
 		var/datum/mod_theme/mod_theme = modsuit_control.theme
 		if(!modsuit_control.active || !mod_theme.hardlight)
 			return
+=======
+/datum/sprite_accessory/xenodorsal/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)

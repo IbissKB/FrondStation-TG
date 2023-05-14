@@ -60,11 +60,19 @@
 		var/turf/place = turfs[i]
 		if(isspaceturf(place)) // This assumes all shuttles are loaded in a single spot then moved to their real destination.
 			continue
+<<<<<<< HEAD
 		if(length(place.baseturfs) < 2) // Some snowflake shuttle shit
 			continue
 		var/list/sanity = place.baseturfs.Copy()
 		sanity.Insert(3, /turf/baseturf_skipover/shuttle)
 		place.baseturfs = baseturfs_string_list(sanity, place)
+=======
+
+		if (place.count_baseturfs() < 2) // Some snowflake shuttle shit
+			continue
+
+		place.insert_baseturf(3, /turf/baseturf_skipover/shuttle)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		for(var/obj/docking_port/mobile/port in place)
 			port.calculate_docking_port_information(src)
@@ -177,6 +185,15 @@
 	description = "A respectable mid-sized shuttle that first saw service shuttling Nanotrasen crew to and from their asteroid belt embedded facilities."
 	credit_cost = CARGO_CRATE_VALUE * 6
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/emergency/venture
+	suffix = "venture"
+	name = "Venture Emergency Shuttle"
+	description = "A mid-sized shuttle for those who like a lot of space for their legs."
+	credit_cost = CARGO_CRATE_VALUE * 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/emergency/bar
 	suffix = "bar"
 	name = "The Emergency Escape Bar"
@@ -223,7 +240,12 @@
 	description = "A luxurious golden shuttle complete with an indoor swimming pool. Each crewmember wishing to board must bring 500 credits, payable in cash and mineral coin."
 	extra_desc = "This shuttle costs 500 credits to board."
 	admin_notes = "Due to the limited space for non paying crew, this shuttle may cause a riot."
+<<<<<<< HEAD
 	credit_cost = CARGO_CRATE_VALUE * 20
+=======
+	emag_only = TRUE
+	credit_cost = EMAG_LOCKED_SHUTTLE_COST
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/emergency/medisim
 	suffix = "medisim"
@@ -329,6 +351,15 @@
 	credit_cost = CARGO_CRATE_VALUE * 4
 	description = "A train but in space, choo choo!"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/emergency/birdshot
+	suffix = "birdshot"
+	name = "Birdshot Station Emergency Shuttle"
+	credit_cost = CARGO_CRATE_VALUE * 2
+	description = "We pulled this one out of Mothball just for you!"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/emergency/scrapheap
 	suffix = "scrapheap"
 	name = "Standby Evacuation Vessel \"Scrapheap Challenge\""
@@ -451,6 +482,10 @@
 	suffix = "shadow"
 	name = "The NTSS Shadow"
 	description = "Guaranteed to get you somewhere FAST. With a custom-built plasma engine, this bad boy will put more distance between you and certain danger than any other!"
+<<<<<<< HEAD
+=======
+	admin_notes = "The aft of the ship has a plasma tank that starts ignited. May get released by crew. The plasma windows next to the engine heaters will also erupt into flame, and also risk getting released by crew."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	credit_cost = CARGO_CRATE_VALUE * 50
 
 /datum/map_template/shuttle/emergency/fish
@@ -460,6 +495,30 @@
 	admin_notes = "There's a chasm in it, it has railings but that won't stop determined players."
 	credit_cost = CARGO_CRATE_VALUE * 10
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/emergency/lance
+	suffix = "lance"
+	name = "The Lance Crew Evacuation System"
+	description = "A brand new shuttle by Nanotrasen's finest in shuttle-engineering, it's designed to tactically slam into a destroyed station, dispatching threats and saving crew at the same time! Be careful to stay out of it's path."
+	admin_notes = "WARNING: This shuttle is designed to crash into the station. It has turrets, similar to the raven."
+	credit_cost = CARGO_CRATE_VALUE * 70
+
+/datum/map_template/shuttle/emergency/tranquility
+	suffix = "tranquility"
+	name = "The Tranquility Relocation Shuttle"
+	description = "A large shuttle, covered in flora and comfortable resting areas. The perfect way to end a peaceful shift"
+	admin_notes = "it's pretty big, and comfy. Be careful when placing it down!"
+	credit_cost = CARGO_CRATE_VALUE * 25
+
+/datum/map_template/shuttle/emergency/hugcage
+	suffix = "hugcage"
+	name = "Hug Relaxation Shuttle"
+	description = "A small cozy shuttle with plenty of beds for tired or sensitive spacemen, and a box for pillow-fights."
+	admin_notes = "Has a sentience fun balloon for pets."
+	credit_cost = CARGO_CRATE_VALUE * 16
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/ferry/base
 	suffix = "base"
 	name = "transport ferry"
@@ -492,49 +551,107 @@
 	name = "kilo transport ferry"
 	description = "Standard issue CentCom Ferry for Kilo pattern stations. Includes additional equipment and rechargers."
 
+<<<<<<< HEAD
 /datum/map_template/shuttle/whiteship/box
 	suffix = "box"
 	name = "Hospital Ship"
+=======
+/datum/map_template/shuttle/ferry/northstar
+	suffix = "northstar"
+	name = "north star transport ferry"
+	description = "In the very depths of the frontier, you'll need a rugged shuttle capable of delivering crew, this is that."
+
+/datum/map_template/shuttle/whiteship/box
+	suffix = "box"
+	name = "Hospital Ship"
+	description = "Whiteship with medical supplies. Zombies do not currently spawn corpses, and are not infectious."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/meta
 	suffix = "meta"
 	name = "Salvage Ship"
+<<<<<<< HEAD
+=======
+	description = "Whiteship that focuses on a large cargo bay that players can build in. Spawns with Syndicate mobs who do not drop corpses and are highly aggressive."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/pubby
 	suffix = "pubby"
 	name = "NT Science Vessel"
+<<<<<<< HEAD
 
 /datum/map_template/shuttle/whiteship/cere
 	suffix = "cere"
 	name = "NT Construction Vessel"
+=======
+	description = "A small science vessel that uses just one area and is full of angry ants."
+
+/datum/map_template/shuttle/whiteship/cere
+	suffix = "cere"
+	name = "NT Heavy Salvage Vessel"
+	description = "A beefy, well-rounded salvage vessel with a pair of corpses (miner and engineer) and a Captain's hat. Equipped with solar sails and a PACMAN generator."
+
+/datum/map_template/shuttle/whiteship/birdshot
+	suffix = "birdshot"
+	name = "NT Patrol Bee"
+	description = "A small patrol vessel with a central corridor connecting all rooms. Features 2 small cargo bays and a brig. Spawns with an agressive and deadly Gelatinous Cube"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/kilo
 	suffix = "kilo"
 	name = "NT Mining Shuttle"
+<<<<<<< HEAD
+=======
+	description = "A mining vessel with a curious shape starting with a few angry netherworld mobs."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/donut
 	suffix = "donut"
 	name = "NT Long-Distance Bluespace Jumper"
+<<<<<<< HEAD
+=======
+	description = "A ship hit with an engine blowout, leaving it as a depressurised husk. Has infinite power, although likely to bait people into removing that property. Also the most open out of all the whiteships, and starts with a 25% ripley chance."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/tram
 	suffix = "tram"
 	name = "NT Long-Distance Bluespace Freighter"
+<<<<<<< HEAD
+=======
+	description = "A long shuttle that starts with Nanotrasen private security corpses. DOES NOT FIT IN THE BASE DOCKS! Does fit in Deep Space's dock though."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/delta
 	suffix = "delta"
 	name = "NT Frigate"
+<<<<<<< HEAD
+=======
+	description = "A standard whiteship with big spiders onboard. PACMAN generator is not wired and next to main grid cabling, so it requires some work."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/pod
 	suffix = "whiteship_pod"
 	name = "Salvage Pod"
+<<<<<<< HEAD
+=======
+	description = "There is no map for this vessel and it was supposed to be used with the Meta-class. Do not try to spawn it!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/personalshuttle
 	suffix = "personalshuttle"
 	name = "Personal Travel Shuttle"
+<<<<<<< HEAD
+=======
+	description = "A small vessel with a few zombies and an engineer's corpse that can be looted."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/whiteship/obelisk
 	suffix = "obelisk"
 	name = "Obelisk"
+<<<<<<< HEAD
+=======
+	description = "A large research vessel affected by the Cult of Nar'Sie. PACMAN generator is not wired and next to main grid cabling, so it requires some work."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	admin_notes = "Not actually an obelisk, has nonsentient cult constructs."
 
 /datum/map_template/shuttle/cargo/kilo
@@ -553,6 +670,13 @@
 	suffix = "pubby"
 	name = "supply shuttle (Pubby)"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/cargo/birdshot
+	suffix = "birdshot"
+	name = "supply shuttle (Birdshot)"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/emergency/delta
 	suffix = "delta"
 	name = "Delta Station Emergency Shuttle"
@@ -560,6 +684,16 @@
 	admin_notes = "Go big or go home."
 	credit_cost = CARGO_CRATE_VALUE * 15
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/emergency/northstar
+	suffix = "northstar"
+	name = "North Star Emergency Shuttle"
+	description = "A rugged shuttle meant for long-distance transit from the tips of the frontier to Central Command and back. \
+	moderately comfortable and large, but cramped."
+	credit_cost = CARGO_CRATE_VALUE * 14
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/emergency/raven
 	suffix = "raven"
 	name = "CentCom Raven Cruiser"
@@ -604,13 +738,28 @@
 	suffix = "donut"
 	name = "arrival shuttle (Donut)"
 
+<<<<<<< HEAD
 /datum/map_template/shuttle/infiltrator/basic
 	suffix = "basic"
 	name = "basic syndicate infiltrator"
+=======
+/datum/map_template/shuttle/arrival/birdshot
+	suffix = "birdshot"
+	name = "arrival shuttle (Birdshot)"
+
+/datum/map_template/shuttle/infiltrator/basic
+	suffix = "basic"
+	name = "basic syndicate infiltrator"
+	description = "Base Syndicate infiltrator, spawned by default for nukeops to use."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/infiltrator/advanced
 	suffix = "advanced"
 	name = "advanced syndicate infiltrator"
+<<<<<<< HEAD
+=======
+	description = "A much larger version of the standard Syndicate infiltrator that feels more like Kilostation. Has APCs, but power is not a concern for nuclear operatives. Also comes with atmos!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/cargo/delta
 	suffix = "delta"
@@ -628,6 +777,13 @@
 	suffix = "large"
 	name = "mining shuttle (Large)"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/mining/northstar
+	suffix = "northstar"
+	name = "mining shuttle (North Star)"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/labour/delta
 	suffix = "delta"
 	name = "labour shuttle (Delta)"
@@ -644,6 +800,13 @@
 	suffix = "kilo"
 	name = "lavaland shuttle (Kilo)"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/mining_common/northstar
+	suffix = "northstar"
+	name = "lavaland shuttle (North Star)"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/arrival/delta
 	suffix = "delta"
 	name = "arrival shuttle (Delta)"
@@ -668,15 +831,36 @@
 	suffix = "small"
 	name = "auxilliary base (Small)"
 
+<<<<<<< HEAD
 /* SKYRAT EDIT REMOVAL
 /datum/map_template/shuttle/escape_pod/default
 	suffix = "default"
 	name = "escape pod (Default)"
 */
+=======
+/datum/map_template/shuttle/escape_pod/default
+	suffix = "default"
+	name = "escape pod (Default)"
+	description = "Base escape pod with 2 tiles of interior space."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/escape_pod/large
 	suffix = "large"
 	name = "escape pod (Large)"
+<<<<<<< HEAD
+=======
+	description = "Actually the old Pubbystation monastery shuttle."
+
+/datum/map_template/shuttle/escape_pod/luxury
+	suffix = "luxury"
+	name = "escape pod (Luxury)"
+	description = "Upgraded escape pod with 3 tiles of interior space."
+
+/datum/map_template/shuttle/escape_pod/cramped
+	suffix = "cramped"
+	name = "escape pod (Cramped)"
+	description = "Downgraded escape pod that lacks a window and only has one seat, alongside lacking an emergency safe."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/assault_pod/default
 	suffix = "default"
@@ -694,10 +878,13 @@
 	suffix = "dutchman"
 	name = "pirate ship (Flying Dutchman)"
 
+<<<<<<< HEAD
 /datum/map_template/shuttle/pirate/psykers
 	suffix = "psyker"
 	name = "pirate ship (Psyker-gang)"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/hunter/space_cop
 	suffix = "space_cop"
 	name = "Police Spacevan"
@@ -710,6 +897,13 @@
 	suffix = "bounty"
 	name = "Bounty Hunter Ship"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/hunter/psyker
+	suffix = "psyker"
+	name = "Psyker Fortune-Telling Ship"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_template/shuttle/starfury
 	port_id = "starfury"
 	who_can_purchase = null
@@ -733,22 +927,42 @@
 /datum/map_template/shuttle/ruin/cyborg_mothership
 	suffix = "cyborg_mothership"
 	name = "Cyborg Mothership"
+<<<<<<< HEAD
+=======
+	description = "A highly industrialised vessel designed for silicon operation infested with hivebots and space vines."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/ruin/caravan_victim
 	suffix = "caravan_victim"
 	name = "Small Freighter"
+<<<<<<< HEAD
+=======
+	description = "Small freight vessel, starts near blacked-out with 3 Syndicate Commandos and 1 Syndicate Stormtrooper, alongside a large hull breach."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/ruin/pirate_cutter
 	suffix = "pirate_cutter"
 	name = "Pirate Cutter"
+<<<<<<< HEAD
+=======
+	description = "Small pirate vessel with ballistic turrets. Spawns with 3 pirate mobs, one of which drops an energy cutlass."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/ruin/syndicate_dropship
 	suffix = "syndicate_dropship"
 	name = "Syndicate Dropship"
+<<<<<<< HEAD
+=======
+	description = "Light Syndicate vessel with laser turrets. Spawns with a Syndicate mob in the bridge."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/ruin/syndicate_fighter_shiv
 	suffix = "syndicate_fighter_shiv"
 	name = "Syndicate Fighter"
+<<<<<<< HEAD
+=======
+	description = "A small Syndicate vessel with exactly one tile of useful interior space and 4 laser turrets. Starts with a Syndicate mob in the pilot's seat, and extremely cramped."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/shuttle/snowdin/mining
 	suffix = "mining"
@@ -758,6 +972,17 @@
 	suffix = "excavation"
 	name = "Snowdin Excavation Elevator"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/shuttle/arrival/northstar
+	suffix = "northstar"
+	name = "arrival shuttle (North Star)"
+
+/datum/map_template/shuttle/cargo/northstar
+	suffix = "northstar"
+	name = "cargo ferry (North Star)"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Custom ERT shuttles
 /datum/map_template/shuttle/ert/bounty
 	suffix = "bounty"

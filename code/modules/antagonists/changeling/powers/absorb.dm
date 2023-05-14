@@ -13,6 +13,7 @@
 		return
 
 	if(is_absorbing)
+<<<<<<< HEAD
 		to_chat(owner, span_warning("We are already absorbing!"))
 		return
 
@@ -21,6 +22,16 @@
 		return
 	if(owner.grab_state <= GRAB_NECK)
 		to_chat(owner, span_warning("We must have a tighter grip to absorb this creature!"))
+=======
+		owner.balloon_alert(owner, "already absorbing!")
+		return
+
+	if(!owner.pulling || !iscarbon(owner.pulling))
+		owner.balloon_alert(owner, "needs grab!")
+		return
+	if(owner.grab_state <= GRAB_NECK)
+		owner.balloon_alert(owner, "needs tighter grip!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/mob/living/carbon/target = owner.pulling
@@ -70,7 +81,11 @@
 
 	for(var/memory_type in suckedbrain.memories)
 		var/datum/memory/stolen_memory = suckedbrain.memories[memory_type]
+<<<<<<< HEAD
 		changeling.stolen_memories[stolen_memory.name] = stolen_memory.generate_story(STORY_CHANGELING_ABSORB)
+=======
+		changeling.stolen_memories[stolen_memory.name] = stolen_memory.generate_story(STORY_CHANGELING_ABSORB, STORY_FLAG_NO_STYLE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	suckedbrain.wipe_memory()
 
 	for(var/datum/antagonist/antagonist_datum as anything in suckedbrain.antag_datums)
@@ -160,8 +175,13 @@
 				target.take_overall_damage(40)
 
 		SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("Absorb DNA", "[absorbing_iteration]"))
+<<<<<<< HEAD
 		if(!do_mob(owner, target, 15 SECONDS))
 			to_chat(owner, span_warning("Our absorption of [target] has been interrupted!"))
+=======
+		if(!do_after(owner, 15 SECONDS, target))
+			owner.balloon_alert(owner, "interrupted!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			is_absorbing = FALSE
 			return FALSE
 	return TRUE

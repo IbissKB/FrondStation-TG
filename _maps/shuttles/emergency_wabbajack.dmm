@@ -50,20 +50,35 @@
 	id = "shuttle_flasher";
 	pixel_x = -24
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "al" = (
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"al" = (
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "am" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "an" = (
 /obj/structure/table/wood,
 /obj/item/candle/infinite,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"an" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/shuttle/escape)
 "ao" = (
@@ -87,7 +102,11 @@
 /obj/machinery/flasher/directional/west{
 	id = "shuttle_flasher"
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "au" = (
 /obj/structure/chair/wood,
@@ -135,7 +154,11 @@
 	name = "Emergency Shuttle Brig"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aC" = (
 /obj/machinery/door/airlock/titanium,
@@ -178,9 +201,13 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "aK" = (
@@ -265,8 +292,12 @@
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "be" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = 33
 	},
 /turf/open/lava/smooth/airless,
@@ -286,7 +317,11 @@
 /area/shuttle/escape)
 "bj" = (
 /obj/machinery/light/small/directional/north,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "bk" = (
 /obj/structure/chair/wood,
@@ -338,9 +373,13 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
 "IH" = (

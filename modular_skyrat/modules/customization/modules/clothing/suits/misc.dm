@@ -46,7 +46,11 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	name = "eastern winter coat"
+<<<<<<< HEAD
 	desc = "War crimes make people cold, not just on the inside, but on the outside as well, just ask Germany, France, Sweden, Germany again, Russia themselves and Poland, this coat's a touch more eastern, however."
+=======
+	desc = "War makes people cold, not just on the inside, but on the outside as well... luckily this coat's not seen any hardships like that, and is actually quite warm!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "chi_korea_coat"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -126,7 +130,15 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 10, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/suit_brownfurrich
+
+/datum/armor/suit_brownfurrich
+	melee = 10
+	bullet = 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/brownfurrich/public
 	name = "fur coat"
@@ -163,7 +175,15 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 10, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/suit_british_officer
+
+/datum/armor/suit_british_officer
+	melee = 10
+	bullet = 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/modern_winter
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -196,7 +216,17 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 10, LASER = 20,ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/suit_gautumn
+
+/datum/armor/suit_gautumn
+	melee = 10
+	bullet = 10
+	laser = 20
+	energy = 20
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/autumn
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -208,7 +238,15 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 10, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/suit_autumn
+
+/datum/armor/suit_autumn
+	melee = 10
+	bullet = 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/texas
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -302,3 +340,63 @@
 	greyscale_config_worn = /datum/greyscale_config/hawaiian_shirt/worn
 	greyscale_colors = "#313B82#CCCFF0"
 	flags_1 = IS_PLAYER_COLORABLE_1
+<<<<<<< HEAD
+=======
+
+/obj/item/clothing/suit/apron/overalls/greyscale
+	desc = "A set of overalls."
+	icon_state = "overalls"
+	greyscale_config = /datum/greyscale_config/overalls
+	greyscale_config_worn = /datum/greyscale_config/overalls/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/overalls/worn/digi
+	greyscale_colors = "#594032"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/apron/overalls/greyscale/Initialize(mapload)
+	. = ..()
+	allowed += list(
+		/obj/item/flashlight,
+		/obj/item/lighter,
+		/obj/item/modular_computer/pda,
+		/obj/item/radio,
+		/obj/item/storage/bag/books,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/tank/internals/plasmaman,
+		/obj/item/toy,
+		/obj/item/analyzer,
+		/obj/item/construction/rcd,
+		/obj/item/fireaxe/metal_h2_axe,
+		/obj/item/pipe_dispenser,
+		/obj/item/storage/bag/construction,
+		/obj/item/t_scanner,
+	)
+
+/obj/item/clothing/suit/apron/overalls/greyscale/examine(mob/user)
+	. = ..()
+
+	. += span_notice("With <b>Alt + Click</b> you can switch this between making it overclothes or jumpsuit slot wearable.")
+
+	return .
+
+/obj/item/clothing/suit/apron/overalls/greyscale/AltClick(mob/user)
+	. = ..()
+	if(!iscarbon(user))
+		return
+	var/mob/living/carbon/carbon_user = user
+	if(carbon_user.get_item_by_slot(slot_flags) == src)
+		to_chat(user, span_warning("You must take [src] off before adjusting it!"))
+		return
+	if(!user.is_holding(src))
+		to_chat(user, span_warning("You must be holding [src] in order to adjust it!"))
+		return
+	switch(slot_flags)
+		if(ITEM_SLOT_ICLOTHING)
+			slot_flags = ITEM_SLOT_OCLOTHING
+			to_chat(user, span_warning("You adjust [src] to let you wear it over jumpsuits."))
+			return
+		if(ITEM_SLOT_OCLOTHING)
+			slot_flags = ITEM_SLOT_ICLOTHING
+			to_chat(user, span_warning("You adjust [src] to let you wear it as a jumpsuit."))
+			return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

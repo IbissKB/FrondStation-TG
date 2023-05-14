@@ -143,9 +143,13 @@
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered)
 "ev" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/engine/airless,
 /area/ruin/unpowered)
 "fh" = (
@@ -343,10 +347,15 @@
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered)
 "mx" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/engine/airless,
 /area/ruin/unpowered)
 "mN" = (
@@ -504,7 +513,11 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+=======
+/mob/living/basic/syndicate/melee/sword/space,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
@@ -907,7 +920,11 @@
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered)
 "GJ" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered)
 "GO" = (
@@ -989,9 +1006,13 @@
 /area/ruin/unpowered)
 "IC" = (
 /obj/effect/turf_decal/bot_red,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered)
 "IO" = (
@@ -1324,7 +1345,11 @@
 /turf/open/floor/iron/airless,
 /area/ruin/unpowered)
 "Rj" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/engine/airless,
 /area/ruin/unpowered)
 "Rq" = (

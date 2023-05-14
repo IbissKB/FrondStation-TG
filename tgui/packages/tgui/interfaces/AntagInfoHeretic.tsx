@@ -136,17 +136,28 @@ const GuideSection = () => {
         <Stack.Item>
           - Follow your <span style={hereticRed}>Living Heart</span> to find
           your targets. Bring them back to a&nbsp;
+<<<<<<< HEAD
           <span style={hereticGreen}>transmutation rune</span> in critical&nbsp;
           or worse condition to&nbsp;
+=======
+          <span style={hereticGreen}>transmutation rune</span> in critical or
+          worse condition to&nbsp;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           <span style={hereticRed}>sacrifice</span> them for&nbsp;
           <span style={hereticBlue}>knowledge points</span>. The Mansus{' '}
           <b>ONLY</b> accepts targets pointed to by the&nbsp;
           <span style={hereticRed}>Living Heart</span>.
         </Stack.Item>
         <Stack.Item>
+<<<<<<< HEAD
           - Make yourself a <span style={hereticYellow}>focus</span> to be&nbsp;
           able to cast various advanced spells to assist you in acquire&nbsp;
           harder and harder sacrifices.
+=======
+          - Make yourself a <span style={hereticYellow}>focus</span> to be able
+          to cast various advanced spells to assist you in acquiring harder and
+          harder sacrifices.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         </Stack.Item>
         <Stack.Item>
           - Accomplish all of your objectives to be able to learn the{' '}

@@ -10,7 +10,11 @@
 	equipping_mob.delete_equipment() //Applying VV to wrong objects is not reccomended.
 	return ..()
 
+<<<<<<< HEAD
 /datum/outfit/varedit/proc/set_equipement_by_slot(slot,item_path)
+=======
+/datum/outfit/varedit/proc/set_equipment_by_slot(slot,item_path)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(slot)
 		if(ITEM_SLOT_ICLOTHING)
 			uniform = item_path
@@ -44,6 +48,7 @@
 			r_pocket = item_path
 
 
+<<<<<<< HEAD
 /proc/collect_vv(obj/item/I)
 	//Temporary/Internal stuff, do not copy these.
 	var/static/list/ignored_vars = list("vars","x","y","z","plane","layer","override","animate_movement","pixel_step_size","screen_loc","fingerprintslast","tip_timer")
@@ -58,19 +63,59 @@
 			var/vval = I.vars[varname]
 			//Does it even work ?
 			if(vval == initial(I.vars[varname]))
+=======
+/proc/collect_vv(obj/item/item)
+	//Temporary/Internal stuff, do not copy these.
+	var/static/list/ignored_vars = list(
+		NAMEOF(item, animate_movement),
+#ifndef EXPERIMENT_515_DONT_CACHE_REF
+		NAMEOF(item, cached_ref),
+#endif
+		NAMEOF(item, datum_flags),
+		NAMEOF(item, fingerprintslast),
+		NAMEOF(item, layer),
+		NAMEOF(item, plane),
+		NAMEOF(item, screen_loc),
+		NAMEOF(item, tip_timer),
+		NAMEOF(item, vars),
+		NAMEOF(item, x),
+		NAMEOF(item, y),
+		NAMEOF(item, z),
+	)
+
+	if(istype(item) && item.datum_flags & DF_VAR_EDITED)
+		var/list/vedits = list()
+		for(var/varname in item.vars)
+			if(!item.can_vv_get(varname))
+				continue
+			if(varname in ignored_vars)
+				continue
+			var/vval = item.vars[varname]
+			//Does it even work ?
+			if(vval == initial(item.vars[varname]))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				continue
 			//Only text/numbers and icons variables to make it less weirdness prone.
 			if(!istext(vval) && !isnum(vval) && !isicon(vval))
 				continue
+<<<<<<< HEAD
 			vedits[varname] = I.vars[varname]
 		return vedits
 
 /mob/living/carbon/human/proc/copy_outfit()
 	var/datum/outfit/varedit/O = new
+=======
+			vedits[varname] = item.vars[varname]
+		return vedits
+
+/mob/living/carbon/human/proc/copy_outfit()
+	var/datum/outfit/varedit/outfit = new
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//Copy equipment
 	var/list/result = list()
 	var/list/slots_to_check = list(ITEM_SLOT_ICLOTHING,ITEM_SLOT_BACK,ITEM_SLOT_OCLOTHING,ITEM_SLOT_BELT,ITEM_SLOT_GLOVES,ITEM_SLOT_FEET,ITEM_SLOT_HEAD,ITEM_SLOT_MASK,ITEM_SLOT_NECK,ITEM_SLOT_EARS,ITEM_SLOT_EYES,ITEM_SLOT_ID,ITEM_SLOT_SUITSTORE,ITEM_SLOT_LPOCKET,ITEM_SLOT_RPOCKET)
+<<<<<<< HEAD
 	for(var/s in slots_to_check)
 		var/obj/item/I = get_item_by_slot(s)
 		var/vedits = collect_vv(I)
@@ -90,27 +135,61 @@
 				O.update_id_name = TRUE
 			if(ID.trim)
 				O.id_trim = ID.trim.type
+=======
+	for(var/slot in slots_to_check)
+		var/obj/item/item = get_item_by_slot(slot)
+		var/vedits = collect_vv(item)
+		if(vedits)
+			result["[slot]"] = vedits
+		if(istype(item))
+			outfit.set_equipment_by_slot(slot, item.type)
+
+	//Copy access
+	outfit.stored_access = list()
+	var/obj/item/id_slot = get_item_by_slot(ITEM_SLOT_ID)
+	if(id_slot)
+		outfit.stored_access |= id_slot.GetAccess()
+		var/obj/item/card/id/ID = id_slot.GetID()
+		if(ID)
+			if(ID.registered_name == real_name)
+				outfit.update_id_name = TRUE
+			if(ID.trim)
+				outfit.id_trim = ID.trim.type
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Copy hands
 	if(held_items.len >= 2) //Not in the mood to let outfits transfer amputees
 		var/obj/item/left_hand = held_items[1]
 		var/obj/item/right_hand = held_items[2]
 		if(istype(left_hand))
+<<<<<<< HEAD
 			O.l_hand = left_hand.type
+=======
+			outfit.l_hand = left_hand.type
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/vedits = collect_vv(left_hand)
 			if(vedits)
 				result["LHAND"] = vedits
 		if(istype(right_hand))
+<<<<<<< HEAD
 			O.r_hand = right_hand.type
 			var/vedits = collect_vv(left_hand)
 			if(vedits)
 				result["RHAND"] = vedits
 	O.vv_values = result
+=======
+			outfit.r_hand = right_hand.type
+			var/vedits = collect_vv(left_hand)
+			if(vedits)
+				result["RHAND"] = vedits
+	outfit.vv_values = result
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Copy backpack contents if exist.
 	var/obj/item/backpack = get_item_by_slot(ITEM_SLOT_BACK)
 	if(istype(backpack) && backpack.atom_storage)
 		var/list/bp_stuff = list()
 		var/list/typecounts = list()
 		backpack.atom_storage.return_inv(bp_stuff, FALSE)
+<<<<<<< HEAD
 		for(var/obj/item/I in bp_stuff)
 			if(typecounts[I.type])
 				typecounts[I.type] += 1
@@ -129,10 +208,31 @@
 	to_chat(usr,"Outfit registered, use select equipment to equip it.")
 
 /datum/outfit/varedit/post_equip(mob/living/carbon/human/H, visualsOnly)
+=======
+		for(var/obj/item/backpack_item in bp_stuff)
+			if(typecounts[backpack_item.type])
+				typecounts[backpack_item.type] += 1
+			else
+				typecounts[backpack_item.type] = 1
+		outfit.backpack_contents = typecounts
+		//TODO : Copy varedits from backpack stuff too.
+	//Copy implants
+	outfit.implants = list()
+	for(var/obj/item/implant/implant in implants)
+		outfit.implants |= implant.type
+	//Copy to outfit cache
+	var/outfit_name = stripped_input(usr,"Enter the outfit name")
+	outfit.name = outfit_name
+	GLOB.custom_outfits += outfit
+	to_chat(usr,"Outfit registered, use select equipment to equip it.")
+
+/datum/outfit/varedit/post_equip(mob/living/carbon/human/human, visualsOnly)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	//Apply VV
 	for(var/slot in vv_values)
 		var/list/edits = vv_values[slot]
+<<<<<<< HEAD
 		var/obj/item/I
 		switch(slot)
 			if("LHAND")
@@ -145,12 +245,30 @@
 			I.vv_edit_var(vname,edits[vname])
 	//Apply access
 	var/obj/item/id_slot = H.get_item_by_slot(ITEM_SLOT_ID)
+=======
+		var/obj/item/item
+		switch(slot)
+			if("LHAND")
+				item = human.held_items[1]
+			if("RHAND")
+				item = human.held_items[2]
+			else
+				item = human.get_item_by_slot(text2num(slot))
+		for(var/vname in edits)
+			item.vv_edit_var(vname,edits[vname])
+	//Apply access
+	var/obj/item/id_slot = human.get_item_by_slot(ITEM_SLOT_ID)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(id_slot)
 		var/obj/item/card/id/card = id_slot.GetID()
 		if(istype(card))
 			card.add_access(stored_access, mode = FORCE_ADD_ALL)
 		if(update_id_name)
+<<<<<<< HEAD
 			card.registered_name = H.real_name
+=======
+			card.registered_name = human.real_name
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			card.update_label()
 			card.update_icon()
 

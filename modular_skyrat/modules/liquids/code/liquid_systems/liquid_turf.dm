@@ -71,11 +71,19 @@
 
 	SSliquids.add_active_turf(src)
 
+<<<<<<< HEAD
 /turf/proc/add_liquid_from_reagents(datum/reagents/giver, no_react = FALSE)
 	var/list/compiled_list = list()
 	for(var/r in giver.reagent_list)
 		var/datum/reagent/R = r
 		compiled_list[R.type] = R.volume
+=======
+/turf/proc/add_liquid_from_reagents(datum/reagents/giver, no_react = FALSE, reagent_multiplier = 1)
+	var/list/compiled_list = list()
+	for(var/r in giver.reagent_list)
+		var/datum/reagent/R = r
+		compiled_list[R.type] = R.volume * reagent_multiplier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!compiled_list.len) //No reagents to add, don't bother going further
 		return
 	add_liquid_list(compiled_list, no_react, giver.chem_temp)
@@ -102,7 +110,11 @@
 	if(!no_react)
 		//We do react so, make a simulation
 		create_reagents(10000) //Reagents are on turf level, should they be on liquids instead?
+<<<<<<< HEAD
 		reagents.add_reagent_list(liquids.reagent_list, no_react = TRUE)
+=======
+		reagents.add_noreact_reagent_list(liquids.reagent_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reagents.chem_temp = liquids.temp
 		if(reagents.handle_reactions())//Any reactions happened, so re-calculate our reagents
 			liquids.reagent_list = list()
@@ -146,7 +158,11 @@
 	if(!no_react)
 		//We do react so, make a simulation
 		create_reagents(10000)
+<<<<<<< HEAD
 		reagents.add_reagent_list(liquids.reagent_list, no_react = TRUE)
+=======
+		reagents.add_noreact_reagent_list(liquids.reagent_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(reagents.handle_reactions())//Any reactions happened, so re-calculate our reagents
 			liquids.reagent_list = list()
 			liquids.total_reagents = 0
@@ -278,7 +294,11 @@
 			user.balloon_alert_to_viewers("climbing...")
 		else
 			dropped_mob.balloon_alert_to_viewers("being pulled up...")
+<<<<<<< HEAD
 		if(do_mob(user, dropped_mob, 2 SECONDS))
+=======
+		if(do_after(user, 2 SECONDS, dropped_mob))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			dropped_mob.forceMove(src)
 		return
 	if(turf_height - mob_turf.turf_height <= -TURF_HEIGHT_BLOCK_THRESHOLD)
@@ -287,6 +307,10 @@
 			user.balloon_alert_to_viewers("climbing down...")
 		else
 			dropped_mob.balloon_alert_to_viewers("being lowered...")
+<<<<<<< HEAD
 		if(do_mob(user, dropped_mob, 2 SECONDS))
+=======
+		if(do_after(user, 2 SECONDS, dropped_mob))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			dropped_mob.forceMove(src)
 		return

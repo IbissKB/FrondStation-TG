@@ -5,7 +5,11 @@
 	hijack_speed = 2 //You literally are here to do nothing else. Might as well be fast about it.
 	suicide_cry = "HAHAHAHAHA!!"
 
+<<<<<<< HEAD
 /datum/antagonist/wishgranter/proc/forge_objectives()
+=======
+/datum/antagonist/wishgranter/forge_objectives()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/objective/hijack/hijack = new
 	hijack.owner = owner
 	objectives += hijack

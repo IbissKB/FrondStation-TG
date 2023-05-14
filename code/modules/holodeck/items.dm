@@ -50,6 +50,7 @@
 		card_atoms -= card
 		card.forceMove(drop_location())
 
+<<<<<<< HEAD
 //BASKETBALL OBJECTS
 
 /obj/item/toy/beach_ball/holoball
@@ -67,6 +68,17 @@
 	desc = "Used for playing the most violent and degrading of childhood games."
 
 /obj/item/toy/beach_ball/holoball/dodgeball/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+=======
+/obj/item/toy/dodgeball
+	name = "dodgeball"
+	icon = 'icons/obj/toys/balls.dmi'
+	icon_state = "dodgeball"
+	inhand_icon_state = "dodgeball"
+	desc = "Used for playing the most violent and degrading of childhood games."
+	w_class = WEIGHT_CLASS_BULKY //Stops people from hiding it in their bags/pockets
+
+/obj/item/toy/dodgeball/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	if((ishuman(hit_atom)))
 		var/mob/living/carbon/M = hit_atom
@@ -77,6 +89,7 @@
 			visible_message(span_danger("[M] is knocked right off [M.p_their()] feet!"))
 
 //
+<<<<<<< HEAD
 // Structures
 //
 
@@ -124,6 +137,8 @@
 
 
 //
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Machines
 //
 

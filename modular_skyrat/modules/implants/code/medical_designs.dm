@@ -6,7 +6,13 @@
 	materials = list (/datum/material/iron = 3500, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/armblade
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/cyberimp_hacker
@@ -17,7 +23,13 @@
 	materials = list (/datum/material/iron = 3500, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/hacker
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/cyberimp_flash
@@ -28,7 +40,13 @@
 	materials = list (/datum/material/iron = 3500, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/flash
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/cyberimp_botany
@@ -39,7 +57,13 @@
 	materials = list (/datum/material/iron = 3500, /datum/material/glass = 1500, /datum/material/silver = 1500, /datum/material/plastic = 2000)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/botany
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/cyberimp_nv
@@ -50,7 +74,13 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 600, /datum/material/gold = 600, /datum/material/uranium = 1000,)
 	build_path = /obj/item/organ/internal/eyes/night_vision/cyber
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cyberimp_antisleep
@@ -61,7 +91,13 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 1000, /datum/material/gold = 500)
 	build_path = /obj/item/organ/internal/cyberimp/brain/anti_sleep
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cyberimp_scanner
@@ -72,7 +108,13 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2500, /datum/material/silver = 2000, /datum/material/gold = 1500)
 	build_path = /obj/item/organ/internal/cyberimp/chest/scanner
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cyberimp_janitor
@@ -83,7 +125,13 @@
 	materials = list (/datum/material/iron = 3500, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/janitor
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/cyberimp_lighter
@@ -94,5 +142,11 @@
 	materials = list (/datum/material/iron = 500, /datum/material/glass = 500, /datum/material/silver = 500)
 	construction_time = 100
 	build_path = /obj/item/organ/internal/cyberimp/arm/lighter
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS)
+=======
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SERVICE

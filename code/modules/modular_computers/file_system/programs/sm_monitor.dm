@@ -22,7 +22,11 @@
 	refresh()
 
 /// Apparently destroy calls this [/datum/computer_file/Destroy]. Here just to clean our references.
+<<<<<<< HEAD
 /datum/computer_file/program/supermatter_monitor/kill_program(forced = FALSE)
+=======
+/datum/computer_file/program/supermatter_monitor/kill_program()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/supermatter in supermatters)
 		clear_supermatter(supermatter)
 	return ..()
@@ -31,7 +35,11 @@
 /datum/computer_file/program/supermatter_monitor/proc/refresh()
 	for(var/supermatter in supermatters)
 		clear_supermatter(supermatter)
+<<<<<<< HEAD
 	var/turf/user_turf = get_turf(ui_host())
+=======
+	var/turf/user_turf = get_turf(computer.ui_host())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!user_turf)
 		return
 	for(var/obj/machinery/power/supermatter_crystal/sm in GLOB.machines)
@@ -47,18 +55,26 @@
 	return data
 
 /datum/computer_file/program/supermatter_monitor/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["sm_data"] = list()
 	for (var/obj/machinery/power/supermatter_crystal/sm as anything in supermatters)
 		data["sm_data"] += list(sm.sm_ui_data())
 	data["focus_uid"] = focused_supermatter?.uid
 	return data
 
+<<<<<<< HEAD
 /datum/computer_file/program/supermatter_monitor/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
+=======
+/datum/computer_file/program/supermatter_monitor/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("PRG_refresh")
 			refresh()
@@ -107,7 +123,11 @@
 	for(var/obj/machinery/power/supermatter_crystal/S in supermatters)
 		. = max(., S.get_status())
 
+<<<<<<< HEAD
 /datum/computer_file/program/supermatter_monitor/process_tick(delta_time)
+=======
+/datum/computer_file/program/supermatter_monitor/process_tick(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	var/new_status = get_status()
 	if(last_status != new_status)

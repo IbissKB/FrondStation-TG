@@ -19,7 +19,10 @@
 		/obj/item/storage/box/syndicate/contract_kit/midround,
 		/obj/item/knife/combat/survival,
 		/obj/item/pinpointer/crew/contractor,
+<<<<<<< HEAD
 		/obj/item/melee/baton/telescopic/contractor_baton,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	implants = list(

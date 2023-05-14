@@ -7,6 +7,10 @@
 	alert_observers = FALSE
 	category = EVENT_CATEGORY_SPACE
 	description = "A single space dust is hurled at the station."
+<<<<<<< HEAD
+=======
+	map_flags = EVENT_SPACE_ONLY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/space_dust
 	start_when = 1
@@ -16,6 +20,7 @@
 /datum/round_event/space_dust/start()
 	spawn_meteors(1, GLOB.meteors_dust)
 
+<<<<<<< HEAD
 /datum/round_event_control/space_dust/major_dust
 	name = "Space Dust: Major"
 	typepath = /datum/round_event/space_dust/major_dust
@@ -46,3 +51,5 @@
 /datum/round_event/space_dust/major_dust/tick()
 	if(ISMULTIPLE(activeFor, 3))
 		spawn_meteors(5, GLOB.meteors_dust)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

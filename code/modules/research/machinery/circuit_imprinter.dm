@@ -11,8 +11,13 @@
 
 	var/rating = 0
 
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/manipulator in component_parts)
 		rating += manipulator.rating // There is only one.
+=======
+	for(var/datum/stock_part/servo/servo in component_parts)
+		rating += servo.tier // There is only one.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	efficiency_coeff = 0.5 ** max(rating - 1, 0) // One sheet, half sheet, quarter sheet, eighth sheet.
 

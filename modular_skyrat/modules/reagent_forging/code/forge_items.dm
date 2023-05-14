@@ -79,7 +79,11 @@
 /obj/item/forging/incomplete/tong_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(length(tool.contents) > 0)
+<<<<<<< HEAD
 		user.balloon_alert("tongs are full already!")
+=======
+		user.balloon_alert(user, "tongs are full already!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	forceMove(tool)
 	tool.icon_state = "tong_full"

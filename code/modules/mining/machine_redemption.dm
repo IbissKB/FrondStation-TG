@@ -15,6 +15,7 @@
 	needs_item_input = TRUE
 	processing_flags = START_PROCESSING_MANUALLY
 
+<<<<<<< HEAD
 	var/points = 0
 	var/ore_multiplier = 1
 	var/point_upgrade = 1
@@ -32,6 +33,49 @@
 
 /obj/machinery/mineral/ore_redemption/Destroy()
 	QDEL_NULL(stored_research)
+=======
+	///Boolean on whether the ORM can claim points without being connected to an ore silo.
+	var/requires_silo = TRUE
+	/// The current amount of unclaimed points in the machine
+	var/points = 0
+	/// Smelted ore's amount is multiplied by this
+	var/ore_multiplier = 1
+	/// Increases the amount of points the miners gain
+	var/point_upgrade = 1
+	/// Details how many credits each smelted ore is worth
+	var/static/list/ore_values = list(
+		/datum/material/iron = 1,
+		/datum/material/glass = 1,
+		/datum/material/plasma = 15,
+		/datum/material/silver = 16,
+		/datum/material/gold = 18,
+		/datum/material/titanium = 30,
+		/datum/material/uranium = 30,
+		/datum/material/diamond = 50,
+		/datum/material/bluespace = 50,
+		/datum/material/bananium = 60,
+	)
+	/// Variable that holds a timer which is used for callbacks to `send_console_message()`. Used for preventing multiple calls to this proc while the ORM is eating a stack of ores.
+	var/console_notify_timer
+	/// References the alloys the smelter can create
+	var/datum/techweb/stored_research
+	/// Linkage to the ORM silo
+	var/datum/component/remote_materials/materials
+
+/obj/machinery/mineral/ore_redemption/offstation
+	circuit = /obj/item/circuitboard/machine/ore_redemption/offstation
+	requires_silo = FALSE
+
+/obj/machinery/mineral/ore_redemption/Initialize(mapload)
+	. = ..()
+	if(!GLOB.autounlock_techwebs[/datum/techweb/autounlocking/smelter])
+		GLOB.autounlock_techwebs[/datum/techweb/autounlocking/smelter] = new /datum/techweb/autounlocking/smelter
+	stored_research = GLOB.autounlock_techwebs[/datum/techweb/autounlocking/smelter]
+	materials = AddComponent(/datum/component/remote_materials, "orm", mapload, mat_container_flags=BREAKDOWN_FLAGS_ORM)
+
+/obj/machinery/mineral/ore_redemption/Destroy()
+	stored_research = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	materials = null
 	return ..()
 
@@ -40,13 +84,20 @@
 	if(panel_open)
 		. += span_notice("Alt-click to rotate the input and output direction.")
 
+<<<<<<< HEAD
 /obj/machinery/mineral/ore_redemption/proc/smelt_ore(obj/item/stack/ore/O)
 	if(QDELETED(O))
+=======
+/// Turns ore into its refined type, and sends it to its material container
+/obj/machinery/mineral/ore_redemption/proc/smelt_ore(obj/item/stack/ore/gathered_ore)
+	if(QDELETED(gathered_ore))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if (!mat_container)
 		return
 
+<<<<<<< HEAD
 	if(O.refined_type == null)
 		return
 
@@ -72,6 +123,36 @@
 /obj/machinery/mineral/ore_redemption/proc/can_smelt_alloy(datum/design/D)
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if(!mat_container || D.make_reagents.len)
+=======
+	if(gathered_ore.refined_type == null)
+		return
+
+	if(gathered_ore?.refined_type)
+		points += gathered_ore.points * point_upgrade * gathered_ore.amount
+
+	var/material_amount = mat_container.get_item_material_amount(gathered_ore, BREAKDOWN_FLAGS_ORM)
+
+	if(!material_amount)
+		qdel(gathered_ore) //no materials, incinerate it
+
+	else if(!mat_container.has_space(material_amount * gathered_ore.amount)) //if there is no space, eject it
+		unload_mineral(gathered_ore)
+
+	else
+		var/list/stack_mats = gathered_ore.get_material_composition(BREAKDOWN_FLAGS_ORM)
+		var/mats = stack_mats & mat_container.materials
+		var/amount = gathered_ore.amount
+		mat_container.insert_item(gathered_ore, ore_multiplier, breakdown_flags=BREAKDOWN_FLAGS_ORM) //insert it
+		materials.silo_log(src, "smelted", amount, gathered_ore.name, mats)
+		qdel(gathered_ore)
+
+	SEND_SIGNAL(src, COMSIG_ORM_COLLECTED_ORE)
+
+/// Returns the amount of a specific alloy design, based on the accessible materials
+/obj/machinery/mineral/ore_redemption/proc/can_smelt_alloy(datum/design/D)
+	var/datum/component/material_container/mat_container = materials.mat_container
+	if(!mat_container || D.make_reagent)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	var/build_amount = 0
@@ -95,10 +176,18 @@
 
 	return build_amount
 
+<<<<<<< HEAD
+=======
+/// Smelts the passed ores one by one
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/mineral/ore_redemption/proc/process_ores(list/ores_to_process)
 	for(var/ore in ores_to_process)
 		smelt_ore(ore)
 
+<<<<<<< HEAD
+=======
+/// Sends a message to the request consoles that signed up for ore updates
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/mineral/ore_redemption/proc/send_console_message()
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if(!mat_container || !is_station_level(z))
@@ -106,6 +195,7 @@
 
 	console_notify_timer = null
 
+<<<<<<< HEAD
 	var/area/A = get_area(src)
 	var/msg = "Now available in [A]:<br>"
 
@@ -117,16 +207,38 @@
 		if(mineral_amount)
 			has_minerals = TRUE
 		msg += "[capitalize(M.name)]: [mineral_amount] sheets<br>"
+=======
+	var/area/our_area = get_area(src)
+	var/message = "Now available in [our_area]:"
+
+	var/has_minerals = FALSE
+	var/list/appended_list = list()
+
+	for(var/current_material in mat_container.materials)
+		var/datum/material/material_datum = current_material
+		var/mineral_amount = mat_container.materials[current_material] / SHEET_MATERIAL_AMOUNT
+		if(mineral_amount)
+			has_minerals = TRUE
+		appended_list["[capitalize(material_datum.name)]"] = "[mineral_amount] sheets"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!has_minerals)
 		return
 
 	var/datum/signal/subspace/messaging/rc/signal = new(src, list(
 		"ore_update" = TRUE,
+<<<<<<< HEAD
 		"sender" = "Ore Redemption Machine",
 		"message" = msg,
 		"verified" = "<font color='green'><b>Verified by Ore Redemption Machine</b></font>",
 		"priority" = REQ_NORMAL_MESSAGE_PRIORITY
+=======
+		"sender_department" = "Ore Redemption Machine",
+		"message" = message,
+		"verified" = "Ore Redemption Machine",
+		"priority" = REQ_NORMAL_MESSAGE_PRIORITY,
+		"appended_list" = appended_list,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	))
 	signal.send_to_receivers()
 
@@ -172,6 +284,7 @@
 	if(!powered())
 		return ..()
 
+<<<<<<< HEAD
 	if(istype(W, /obj/item/disk/design_disk))
 		if(user.transferItemToLoc(W, src))
 			inserted_disk = W
@@ -180,6 +293,11 @@
 	var/obj/item/stack/ore/O = W
 	if(istype(O))
 		if(O.refined_type == null)
+=======
+	var/obj/item/stack/ore/O = W
+	if(istype(O))
+		if(isnull(O.refined_type))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_warning("[O] has already been refined!"))
 			return
 
@@ -187,7 +305,11 @@
 
 /obj/machinery/mineral/ore_redemption/AltClick(mob/living/user)
 	. = ..()
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(panel_open)
 		input_dir = turn(input_dir, -90)
@@ -207,6 +329,7 @@
 /obj/machinery/mineral/ore_redemption/ui_data(mob/user)
 	var/list/data = list()
 	data["unclaimedPoints"] = points
+<<<<<<< HEAD
 
 	data["materials"] = list()
 	var/datum/component/material_container/mat_container = materials.mat_container
@@ -242,6 +365,82 @@
 				index++
 	return data
 
+=======
+	data["materials"] = list()
+	var/datum/component/material_container/mat_container = materials.mat_container
+	if (mat_container)
+		for(var/datum/material/material as anything in mat_container.materials)
+			var/amount = mat_container.materials[material]
+			var/sheet_amount = amount / SHEET_MATERIAL_AMOUNT
+			data["materials"] += list(list(
+				"name" = material.name,
+				"id" = REF(material),
+				"amount" = sheet_amount,
+				"category" = "material",
+				"value" = ore_values[material.type],
+			))
+
+		for(var/research in stored_research.researched_designs)
+			var/datum/design/alloy = SSresearch.techweb_design_by_id(research)
+			data["materials"] += list(list(
+				"name" = alloy.name,
+				"id" = alloy.id,
+				"category" = "alloy",
+				"amount" = can_smelt_alloy(alloy),
+			))
+
+	data["disconnected"] = null
+	if (!mat_container)
+		data["disconnected"] = "Local mineral storage is unavailable"
+	else if (!materials.silo && requires_silo)
+		data["disconnected"] = "No ore silo connection is available; storing locally"
+	else if (!materials.check_z_level() && requires_silo)
+		data["disconnected"] = "Unable to connect to ore silo, too far away"
+	else if (materials.on_hold())
+		data["disconnected"] = "Mineral withdrawal is on hold"
+
+	var/obj/item/card/id/card
+	if(isliving(user))
+		var/mob/living/customer = user
+		card = customer.get_idcard(hand_first = TRUE)
+		if(card?.registered_account)
+			data["user"] = list(
+				"name" = card.registered_account.account_holder,
+				"cash" = card.registered_account.account_balance,
+			)
+
+		else if(issilicon(user))
+			var/mob/living/silicon/silicon_player = user
+			data["user"] = list(
+				"name" = silicon_player.name,
+				"cash" = "No valid account",
+			)
+	return data
+
+/obj/machinery/mineral/ore_redemption/ui_static_data(mob/user)
+	var/list/data = list()
+
+	var/datum/component/material_container/mat_container = materials.mat_container
+	if (mat_container)
+		for(var/datum/material/material as anything in mat_container.materials)
+			var/obj/material_display = initial(material.sheet_type)
+			data["material_icons"] += list(list(
+				"id" = REF(material),
+				"product_icon" = icon2base64(getFlatIcon(image(icon = initial(material_display.icon), icon_state = initial(material_display.icon_state)), no_anim=TRUE)),
+			))
+
+	for(var/research in stored_research.researched_designs)
+		var/datum/design/alloy = SSresearch.techweb_design_by_id(research)
+		var/obj/alloy_display = initial(alloy.build_path)
+		data["material_icons"] += list(list(
+			"id" = alloy.id,
+			"product_icon" = icon2base64(getFlatIcon(image(icon = initial(alloy_display.icon), icon_state = initial(alloy_display.icon_state)), no_anim=TRUE)),
+		))
+
+	return data
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/mineral/ore_redemption/ui_act(action, params)
 	. = ..()
 	if(.)
@@ -253,9 +452,17 @@
 			if(isliving(usr))
 				var/mob/living/user = usr
 				user_id_card = user.get_idcard(TRUE)
+<<<<<<< HEAD
 			if(points)
 				if(user_id_card)
 					user_id_card.mining_points += points
+=======
+			if(!materials.check_z_level() && (requires_silo || !user_id_card.registered_account.replaceable))
+				return TRUE
+			if(points)
+				if(user_id_card)
+					user_id_card.registered_account.mining_points += points
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					points = 0
 				else
 					to_chat(usr, span_warning("No valid ID detected."))
@@ -276,6 +483,7 @@
 				if(!amount)
 					return
 
+<<<<<<< HEAD
 				var/stored_amount = CEILING(amount / MINERAL_MATERIAL_AMOUNT, 0.1)
 
 				if(!stored_amount)
@@ -315,6 +523,21 @@
 			if(inserted_disk && inserted_disk.blueprints && inserted_disk.blueprints[n])
 				stored_research.add_design(inserted_disk.blueprints[n])
 			return TRUE
+=======
+				var/stored_amount = CEILING(amount / SHEET_MATERIAL_AMOUNT, 0.1)
+				if(!stored_amount)
+					return
+
+				var/desired = text2num(params["sheets"])
+				var/sheets_to_remove = round(min(desired, 50, stored_amount))
+
+				var/count = mat_container.retrieve_sheets(sheets_to_remove, mat, get_step(src, output_dir))
+				var/list/mats = list()
+				mats[mat] = SHEET_MATERIAL_AMOUNT
+				materials.silo_log(src, "released", -count, "sheets", mats)
+				//Logging deleted for quick coding
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("Smelt")
 			if(!mat_container)
 				return
@@ -328,6 +551,7 @@
 				var/mob/living/user = usr
 				user_id_card = user.get_idcard(TRUE)
 			if((check_access(user_id_card) || allowed(usr)) && alloy)
+<<<<<<< HEAD
 				var/smelt_amount = can_smelt_alloy(alloy)
 				var/desired = 0
 				if (params["sheets"])
@@ -337,6 +561,9 @@
 					if(!desired || QDELETED(usr) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 						return
 				var/amount = round(min(desired,50,smelt_amount))
+=======
+				var/amount = round(min(text2num(params["sheets"]), 50, can_smelt_alloy(alloy)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(amount < 1) //no negative mats
 					return
 				mat_container.use_materials(alloy.materials, amount)
@@ -363,6 +590,7 @@
 	. = ..()
 	if((machine_stat & NOPOWER))
 		return
+<<<<<<< HEAD
 	var/image/ore_input
 	var/image/ore_output
 
@@ -387,6 +615,25 @@
 			ore_input.pixel_x = -32
 			ore_output = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_e")
 			ore_output.pixel_x = 32
+=======
+	var/image/ore_input = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_[input_dir]")
+	var/image/ore_output = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_[turn(input_dir, 180)]")
+
+	switch(input_dir)
+		if(NORTH)
+			ore_input.pixel_y = 32
+			ore_output.pixel_y = -32
+		if(SOUTH)
+			ore_input.pixel_y = -32
+			ore_output.pixel_y = 32
+		if(EAST)
+			ore_input.pixel_x = 32
+			ore_output.pixel_x = -32
+		if(WEST)
+			ore_input.pixel_x = -32
+			ore_output.pixel_x = 32
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ore_input.color = COLOR_MODERATE_BLUE
 	ore_output.color = COLOR_SECURITY_RED
 	var/mutable_appearance/light_in = emissive_appearance(ore_input.icon, ore_input.icon_state, offset_spokesman = src, alpha = ore_input.alpha)

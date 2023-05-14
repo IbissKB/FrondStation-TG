@@ -1,21 +1,36 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+<<<<<<< HEAD
 "a" = (
 /turf/template_noop,
 /area/template_noop)
 "b" = (
+=======
+"aa" = (
+/turf/template_noop,
+/area/template_noop)
+"ab" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "c" = (
+=======
+"ac" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "d" = (
+=======
+"ad" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/poddoor{
 	id = "thunderdomehea";
 	name = "Heavy Supply"
@@ -23,17 +38,28 @@
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "e" = (
+=======
+"ae" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "f" = (
 /turf/open/floor/circuit/green,
 /area/template_noop)
 "g" = (
+=======
+"af" = (
+/turf/open/floor/circuit/green,
+/area/template_noop)
+"ag" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/camera/directional/north{
 	c_tag = "Red Team";
 	network = list("thunder");
@@ -45,7 +71,11 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "h" = (
+=======
+"ah" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack,
 /obj/item/clothing/under/color/green,
 /obj/item/clothing/shoes/sneakers/brown,
@@ -57,14 +87,22 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "i" = (
+=======
+"ai" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "j" = (
+=======
+"aj" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -73,16 +111,27 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "k" = (
+=======
+"ak" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "l" = (
 /turf/closed/indestructible/fakeglass,
 /area/template_noop)
 "m" = (
+=======
+"al" = (
+/turf/closed/indestructible/fakeglass,
+/area/template_noop)
+"am" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/poddoor{
 	id = "thunderdome";
 	name = "Thunderdome Blast Door"
@@ -92,30 +141,50 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "n" = (
+=======
+"an" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/loading_area{
 	dir = 8
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "o" = (
+=======
+"ao" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "p" = (
+=======
+"ap" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "q" = (
+=======
+"aq" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "r" = (
+=======
+"ar" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/poddoor{
 	id = "thunderdomegen";
 	name = "General Supply"
@@ -125,6 +194,7 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "s" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
@@ -134,14 +204,32 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "u" = (
+=======
+"as" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron,
+/area/template_noop)
+"at" = (
+/obj/effect/turf_decal/tile/green,
+/turf/open/floor/iron,
+/area/template_noop)
+"au" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "v" = (
 /turf/closed/indestructible/riveted,
 /area/template_noop)
 "w" = (
+=======
+"av" = (
+/turf/closed/indestructible/riveted,
+/area/template_noop)
+"aw" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack,
 /obj/item/clothing/under/color/red,
 /obj/item/clothing/shoes/sneakers/brown,
@@ -153,21 +241,33 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "x" = (
+=======
+"ax" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "y" = (
+=======
+"ay" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "z" = (
+=======
+"az" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack,
 /obj/item/clothing/under/color/red,
 /obj/item/clothing/shoes/sneakers/brown,
@@ -180,14 +280,22 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "A" = (
+=======
+"aA" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "B" = (
+=======
+"aB" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/poddoor{
 	id = "thunderdome";
 	name = "Thunderdome Blast Door"
@@ -197,14 +305,22 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "C" = (
+=======
+"aC" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "D" = (
+=======
+"aD" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack,
 /obj/item/clothing/under/color/green,
 /obj/item/clothing/shoes/sneakers/brown,
@@ -217,19 +333,31 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "E" = (
+=======
+"aE" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "F" = (
+=======
+"aF" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "G" = (
+=======
+"aG" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -238,20 +366,32 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "H" = (
+=======
+"aH" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "I" = (
+=======
+"aI" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "J" = (
+=======
+"aJ" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
@@ -259,28 +399,44 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "K" = (
+=======
+"aK" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "L" = (
+=======
+"aL" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "M" = (
+=======
+"aM" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "N" = (
+=======
+"aN" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
@@ -288,21 +444,34 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "O" = (
+=======
+"aO" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/igniter/on,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "P" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/template_noop)
 "Q" = (
+=======
+"aP" = (
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/iron,
+/area/template_noop)
+"aQ" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/camera/motion/thunderdome{
 	pixel_x = 10
 	},
 /turf/open/floor/circuit/green,
 /area/template_noop)
+<<<<<<< HEAD
 "R" = (
 /turf/open/floor/iron,
 /area/template_noop)
@@ -311,13 +480,27 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "T" = (
+=======
+"aR" = (
+/turf/open/floor/iron,
+/area/template_noop)
+"aS" = (
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/template_noop)
+"aT" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "U" = (
+=======
+"aU" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/camera/directional/north{
 	c_tag = "Green Team";
 	network = list("thunder");
@@ -329,28 +512,44 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "V" = (
+=======
+"aV" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "W" = (
+=======
+"aW" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/thunderdome/two,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "X" = (
+=======
+"aX" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/flasher{
 	id = "tdomeflash";
 	name = "Thunderdome Flash"
 	},
 /turf/open/floor/circuit/green,
 /area/template_noop)
+<<<<<<< HEAD
 "Y" = (
+=======
+"aY" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/poddoor{
 	id = "thunderdomegen";
 	name = "General Supply"
@@ -360,12 +559,17 @@
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 "Z" = (
+=======
+"aZ" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
 /turf/open/floor/iron,
 /area/template_noop)
+<<<<<<< HEAD
 
 (1,1,1) = {"
 a
@@ -795,4 +999,459 @@ v
 v
 a
 a
+=======
+"ib" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/template_noop)
+"nu" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/template_noop)
+"SV" = (
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/template_noop)
+"XQ" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/template_noop)
+
+(1,1,1) = {"
+aa
+av
+av
+av
+av
+av
+av
+av
+av
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+av
+az
+az
+az
+az
+az
+az
+av
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+av
+aY
+aY
+aY
+aY
+aY
+aY
+av
+av
+av
+"}
+(4,1,1) = {"
+aa
+av
+aL
+aC
+aC
+aC
+aC
+aI
+ad
+aw
+av
+"}
+(5,1,1) = {"
+aa
+av
+aA
+aN
+aF
+aF
+aN
+ao
+ad
+aw
+av
+"}
+(6,1,1) = {"
+aa
+av
+aA
+aF
+ag
+aF
+aF
+ao
+ad
+aw
+av
+"}
+(7,1,1) = {"
+aa
+av
+aA
+aN
+aF
+aF
+aN
+ao
+ad
+aw
+av
+"}
+(8,1,1) = {"
+aa
+av
+aV
+aW
+aW
+aW
+aW
+aT
+ad
+aw
+av
+"}
+(9,1,1) = {"
+av
+av
+am
+am
+am
+am
+am
+am
+av
+av
+av
+"}
+(10,1,1) = {"
+al
+aO
+XQ
+ac
+ak
+ak
+aZ
+XQ
+aO
+al
+aa
+"}
+(11,1,1) = {"
+al
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+al
+aa
+"}
+(12,1,1) = {"
+al
+aS
+aP
+aP
+aP
+aP
+aP
+aP
+aS
+al
+aa
+"}
+(13,1,1) = {"
+al
+aR
+ib
+ib
+ib
+ib
+ib
+ib
+aR
+al
+aa
+"}
+(14,1,1) = {"
+al
+aR
+as
+as
+as
+as
+as
+as
+aR
+al
+aa
+"}
+(15,1,1) = {"
+al
+aR
+as
+as
+as
+as
+as
+as
+aR
+al
+aa
+"}
+(16,1,1) = {"
+al
+aR
+as
+as
+af
+af
+as
+as
+aR
+al
+aa
+"}
+(17,1,1) = {"
+al
+aR
+as
+as
+aX
+aQ
+as
+as
+aR
+al
+aa
+"}
+(18,1,1) = {"
+al
+aR
+as
+as
+af
+af
+as
+as
+aR
+al
+aa
+"}
+(19,1,1) = {"
+al
+aR
+as
+as
+as
+as
+as
+as
+aR
+al
+aa
+"}
+(20,1,1) = {"
+al
+aR
+as
+as
+as
+as
+as
+as
+aR
+al
+aa
+"}
+(21,1,1) = {"
+al
+aR
+nu
+nu
+nu
+nu
+nu
+nu
+aR
+al
+aa
+"}
+(22,1,1) = {"
+al
+aS
+aP
+aP
+aP
+aP
+aP
+aP
+aS
+al
+aa
+"}
+(23,1,1) = {"
+al
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+al
+aa
+"}
+(24,1,1) = {"
+al
+aO
+SV
+aH
+an
+an
+at
+SV
+aO
+al
+aa
+"}
+(25,1,1) = {"
+av
+av
+aB
+aB
+aB
+aB
+aB
+aB
+av
+av
+av
+"}
+(26,1,1) = {"
+aa
+av
+ap
+ae
+ae
+ae
+ae
+ai
+ad
+ah
+av
+"}
+(27,1,1) = {"
+aa
+av
+aK
+aJ
+aq
+aq
+aJ
+au
+ad
+ah
+av
+"}
+(28,1,1) = {"
+aa
+av
+aK
+aq
+aU
+aq
+aq
+au
+ad
+ah
+av
+"}
+(29,1,1) = {"
+aa
+av
+aK
+aJ
+aq
+aq
+aJ
+au
+ad
+ah
+av
+"}
+(30,1,1) = {"
+aa
+av
+aE
+ab
+ab
+ab
+ab
+ax
+ad
+ah
+av
+"}
+(31,1,1) = {"
+aa
+av
+ar
+ar
+ar
+ar
+ar
+ar
+av
+av
+av
+"}
+(32,1,1) = {"
+aa
+av
+aD
+aD
+aD
+aD
+aD
+aD
+av
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+av
+av
+av
+av
+av
+av
+av
+av
+aa
+aa
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}

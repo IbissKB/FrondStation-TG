@@ -57,7 +57,11 @@
 /obj/item/mod/module/stealth/proc/on_bullet_act(datum/source, obj/projectile/projectile)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(projectile.nodamage)
+=======
+	if(!projectile.is_hostile_projectile())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	unstealth(source)
 
@@ -381,6 +385,10 @@
 	icon_state = "adrenaline_boost"
 	removable = FALSE
 	module_type = MODULE_USABLE
+<<<<<<< HEAD
+=======
+	allow_flags = MODULE_ALLOW_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	incompatible_modules = list(/obj/item/mod/module/adrenaline_boost)
 	cooldown_time = 12 SECONDS
 	/// What reagent we need to refill?

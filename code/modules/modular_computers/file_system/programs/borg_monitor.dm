@@ -10,7 +10,10 @@
 	size = 5
 	tgui_id = "NtosCyborgRemoteMonitor"
 	program_icon = "project-diagram"
+<<<<<<< HEAD
 	var/emagged = FALSE ///Bool of if this app has already been emagged
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/loglist = list() ///A list to copy a borg's IC log list into
 	var/mob/living/silicon/robot/DL_source ///reference of a borg if we're downloading a log, or null if not.
 	var/DL_progress = -1 ///Progress of current download, 0 to 100, -1 for no current download
@@ -20,18 +23,25 @@
 	DL_source = null
 	return ..()
 
+<<<<<<< HEAD
 /datum/computer_file/program/borg_monitor/kill_program(forced = FALSE)
+=======
+/datum/computer_file/program/borg_monitor/kill_program()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	loglist = null //Not everything is saved if you close an app
 	DL_source = null
 	DL_progress = 0
 	return ..()
 
+<<<<<<< HEAD
 /datum/computer_file/program/borg_monitor/run_emag()
 	if(emagged)
 		return FALSE
 	emagged = TRUE
 	return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/computer_file/program/borg_monitor/tap(atom/A, mob/living/user, params)
 	var/mob/living/silicon/robot/borgo = A
 	if(!istype(borgo) || !borgo.modularInterface)
@@ -47,7 +57,11 @@
 	borgo.logevent("File request by [username]: /var/logs/syslog")
 	return TRUE
 
+<<<<<<< HEAD
 /datum/computer_file/program/borg_monitor/process_tick(delta_time)
+=======
+/datum/computer_file/program/borg_monitor/process_tick(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!DL_source)
 		DL_progress = -1
 		return
@@ -69,14 +83,22 @@
 			loglist.Insert(1,"System log of unit [DL_source.name]")
 		DL_progress = -1
 		DL_source = null
+<<<<<<< HEAD
 		for(var/datum/tgui/window in SStgui.open_uis_by_src[REF(src)])
 			window.send_full_update()
+=======
+		update_static_data_for_all_viewers()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	DL_progress += 25
 
 /datum/computer_file/program/borg_monitor/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	data["card"] = FALSE
 	if(checkID())
@@ -115,24 +137,39 @@
 	data["borglog"] = loglist
 	return data
 
+<<<<<<< HEAD
 /datum/computer_file/program/borg_monitor/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
+=======
+/datum/computer_file/program/borg_monitor/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("messagebot")
 			var/mob/living/silicon/robot/R = locate(params["ref"]) in GLOB.silicon_mobs
 			if(!istype(R))
+<<<<<<< HEAD
 				return
 			var/ID = checkID()
 			if(!ID)
 				return
+=======
+				return TRUE
+			var/ID = checkID()
+			if(!ID)
+				return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(R.stat == DEAD) //Dead borgs will listen to you no longer
 				to_chat(usr, span_warning("Error -- Could not open a connection to unit:[R]"))
 			var/message = tgui_input_text(usr, "Message to be sent to remote cyborg", "Send Message")
 			if(!message)
+<<<<<<< HEAD
 				return
+=======
+				return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(R, "<br><br>[span_notice("Message from [ID] -- \"[message]\"")]<br>")
 			to_chat(usr, "Message sent to [R]: [message]")
 			R.logevent("Message from [ID] -- \"[message]\"")
@@ -141,6 +178,10 @@
 				to_chat(R.connected_ai, "<br><br>[span_notice("Message from [ID] to [R] -- \"[message]\"")]<br>")
 				SEND_SOUND(R.connected_ai, 'sound/machines/twobeep_high.ogg')
 			usr.log_talk(message, LOG_PDA, tag="Cyborg Monitor Program: ID name \"[ID]\" to [R]")
+<<<<<<< HEAD
+=======
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///This proc is used to determin if a borg should be shown in the list (based on the borg's scrambledcodes var). Syndicate version overrides this to show only syndicate borgs.
 /datum/computer_file/program/borg_monitor/proc/evaluate_borg(mob/living/silicon/robot/R)
@@ -154,7 +195,11 @@
 /datum/computer_file/program/borg_monitor/proc/checkID()
 	var/obj/item/card/id/ID = computer.GetID()
 	if(!ID)
+<<<<<<< HEAD
 		if(emagged)
+=======
+		if(computer.obj_flags & EMAGGED)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return "STDERR:UNDF"
 		return FALSE
 	return ID.registered_name
@@ -170,10 +215,13 @@
 	available_on_ntnet = FALSE
 	available_on_syndinet = TRUE
 	transfer_access = list()
+<<<<<<< HEAD
 	tgui_id = "NtosCyborgRemoteMonitorSyndicate"
 
 /datum/computer_file/program/borg_monitor/syndicate/run_emag()
 	return FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/computer_file/program/borg_monitor/syndicate/evaluate_borg(mob/living/silicon/robot/R)
 	if(!is_valid_z_level(get_turf(computer), get_turf(R)))

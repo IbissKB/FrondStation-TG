@@ -50,7 +50,11 @@
 		tox_loss = L.getToxLoss()
 		oxy_loss = L.getOxyLoss()
 		stamina_loss = L.getStaminaLoss()
+<<<<<<< HEAD
 		brain_loss = L.getOrganLoss(ORGAN_SLOT_BRAIN)
+=======
+		brain_loss = L.get_organ_loss(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		rewind_type = PROC_REF(rewind_living)
 
 	if(iscarbon(parent))
@@ -58,9 +62,15 @@
 		saved_bodyparts = C.save_bodyparts()
 		rewind_type = PROC_REF(rewind_carbon)
 
+<<<<<<< HEAD
 	else if(isanimal(parent))
 		var/mob/living/simple_animal/M = parent
 		brute_loss = M.bruteloss
+=======
+	else if(isanimal_or_basicmob(parent))
+		var/mob/living/animal = parent
+		brute_loss = animal.bruteloss
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		rewind_type = PROC_REF(rewind_animal)
 
 	else if(isobj(parent))
@@ -110,7 +120,11 @@
 	rewind_living()
 
 /datum/component/dejavu/proc/rewind_animal()
+<<<<<<< HEAD
 	var/mob/living/simple_animal/master = parent
+=======
+	var/mob/living/master = parent
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	master.bruteloss = brute_loss
 	master.updatehealth()
 	rewind_living()

@@ -3,29 +3,53 @@
 	name = "design"
 
 /datum/asset/spritesheet/research_designs/create_spritesheets()
+<<<<<<< HEAD
 	for (var/path in subtypesof(/datum/design))
 		var/datum/design/D = path
+=======
+	for (var/datum/design/path as anything in subtypesof(/datum/design))
+		if(initial(path.id) == DESIGN_ID_IGNORE)
+			continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		var/icon_file
 		var/icon_state
 		var/icon/I
 
+<<<<<<< HEAD
 		if(initial(D.research_icon) && initial(D.research_icon_state)) //If the design has an icon replacement skip the rest
 			icon_file = initial(D.research_icon)
 			icon_state = initial(D.research_icon_state)
 			if (PERFORM_ALL_TESTS(focus_only/invalid_research_designs))
 				if(!(icon_state in icon_states(icon_file)))
 					stack_trace("design [D] with icon '[icon_file]' missing state '[icon_state]'")
+=======
+		if(initial(path.research_icon) && initial(path.research_icon_state)) //If the design has an icon replacement skip the rest
+			icon_file = initial(path.research_icon)
+			icon_state = initial(path.research_icon_state)
+			if (PERFORM_ALL_TESTS(focus_only/invalid_research_designs))
+				if(!(icon_state in icon_states(icon_file)))
+					stack_trace("design [path] with icon '[icon_file]' missing state '[icon_state]'")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					continue
 			I = icon(icon_file, icon_state, SOUTH)
 
 		else
 			// construct the icon and slap it into the resource cache
+<<<<<<< HEAD
 			var/atom/item = initial(D.build_path)
 			if (!ispath(item, /atom))
 				// biogenerator outputs to beakers by default
 				if (initial(D.build_type) & BIOGENERATOR)
 					item = /obj/item/reagent_containers/cup/beaker/large
+=======
+			var/atom/item = initial(path.build_path)
+			if (!ispath(item, /atom))
+				// biogenerator reagent designs display their default container
+				if(initial(path.make_reagent))
+					var/datum/reagent/reagent = initial(path.make_reagent)
+					item = initial(reagent.default_container)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				else
 					continue  // shouldn't happen, but just in case
 
@@ -47,7 +71,11 @@
 			icon_state = initial(item.icon_state)
 			if (PERFORM_ALL_TESTS(focus_only/invalid_research_designs))
 				if(!(icon_state in icon_states(icon_file)))
+<<<<<<< HEAD
 					stack_trace("design [D] with icon '[icon_file]' missing state '[icon_state]'")
+=======
+					stack_trace("design [path] with icon '[icon_file]' missing state '[icon_state]'")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					continue
 			I = icon(icon_file, icon_state, SOUTH)
 
@@ -62,4 +90,8 @@
 				if (keyboard && (keyboard in all_states))
 					I.Blend(icon(icon_file, keyboard, SOUTH), ICON_OVERLAY)
 
+<<<<<<< HEAD
 		Insert(initial(D.id), I)
+=======
+		Insert(initial(path.id), I)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -2,7 +2,11 @@
 	icon_state = "monkey" //for mapping
 	race = /datum/species/monkey
 	ai_controller = /datum/ai_controller/monkey
+<<<<<<< HEAD
 	faction = list("neutral", "monkey")
+=======
+	faction = list(FACTION_NEUTRAL, FACTION_MONKEY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/human/species/monkey/Initialize(mapload, cubespawned=FALSE, mob/spawner)
 	if (cubespawned)
@@ -65,6 +69,11 @@ GLOBAL_DATUM(the_one_and_only_punpun, /mob/living/carbon/human/species/monkey/pu
 
 	if(!GLOB.the_one_and_only_punpun && mapload)
 		GLOB.the_one_and_only_punpun = src
+<<<<<<< HEAD
+=======
+	// 1 Pun Pun should exist
+	REGISTER_REQUIRED_MAP_ITEM(1, 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	fully_replace_character_name(real_name, name_to_use)
 
@@ -85,7 +94,11 @@ GLOBAL_DATUM(the_one_and_only_punpun, /mob/living/carbon/human/species/monkey/pu
 
 	return ..()
 
+<<<<<<< HEAD
 /mob/living/carbon/human/species/monkey/punpun/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/carbon/human/species/monkey/punpun/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!stat && SSticker.current_state == GAME_STATE_FINISHED && !memory_saved)
 		Write_Memory(FALSE, FALSE)
 		memory_saved = TRUE

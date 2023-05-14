@@ -10,7 +10,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
 	item_flags = NOBLUDGEON
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 150, /datum/material/glass = 150)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/last_perceived_radiation_danger = null
 
@@ -69,6 +73,10 @@
 
 /obj/item/geiger_counter/afterattack(atom/target, mob/living/user, params)
 	. = ..()
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if (user.combat_mode)
 		return
@@ -87,7 +95,11 @@
 /obj/item/geiger_counter/dropped(mob/user, silent = FALSE)
 	. = ..()
 
+<<<<<<< HEAD
 	UnregisterSignal(user, COMSIG_IN_RANGE_OF_IRRADIATION, PROC_REF(on_pre_potential_irradiation))
+=======
+	UnregisterSignal(user, COMSIG_IN_RANGE_OF_IRRADIATION)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/geiger_counter/proc/on_pre_potential_irradiation(datum/source, datum/radiation_pulse_information/pulse_information, insulation_to_target)
 	SIGNAL_HANDLER
@@ -110,7 +122,11 @@
 	to_chat(user, span_notice("[icon2html(src, user)] [isliving(target) ? "Subject" : "Target"] is free of radioactive contamination."))
 
 /obj/item/geiger_counter/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return ..()
 	if(!scanning)
 		to_chat(usr, span_warning("[src] must be on to reset its radiation level!"))

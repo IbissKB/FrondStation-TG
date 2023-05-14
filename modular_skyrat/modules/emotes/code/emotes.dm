@@ -11,11 +11,26 @@
 /datum/emote/living/custom
 	mob_type_blacklist_typecache = list(/mob/living/brain)
 	cooldown = 0
+<<<<<<< HEAD
+=======
+	stat_allowed = SOFT_CRIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //me-verb emotes should not have a cooldown check
 /datum/emote/living/custom/check_cooldown(mob/user, intentional)
 	return TRUE
 
+<<<<<<< HEAD
+=======
+
+/datum/emote/imaginary_friend/custom/check_cooldown(mob/user, intentional)
+	return TRUE
+
+
+/datum/emote/living/blush
+	sound = 'modular_skyrat/modules/emotes/sound/emotes/blush.ogg'
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/emote/living/quill
 	key = "quill"
 	key_third_person = "quills"
@@ -53,7 +68,11 @@
 	return
 
 /datum/emote/flip/can_run_emote(mob/user, status_check, intentional)
+<<<<<<< HEAD
 	if(intentional && !HAS_TRAIT(user, TRAIT_FREERUNNING) && !isobserver(user))
+=======
+	if(intentional && (!HAS_TRAIT(user, TRAIT_FREERUNNING) && !HAS_TRAIT(user, TRAIT_STYLISH)) && !isobserver(user))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.balloon_alert(user, "not nimble enough!")
 		return FALSE
 	return ..()

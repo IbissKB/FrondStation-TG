@@ -1,10 +1,17 @@
 {
   "private": true,
   "name": "tgui",
+<<<<<<< HEAD
   "version": "4.3.0",
   "dependencies": {
     "@popperjs/core": "^2.9.3",
     "@types/marked": "^4.0.3",
+=======
+  "version": "4.3.1",
+  "dependencies": {
+    "@popperjs/core": "^2.9.3",
+    "@types/marked": "^4.0.8",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     "common": "workspace:*",
     "dateformat": "^4.5.1",
     "dompurify": "^2.3.1",
@@ -12,7 +19,11 @@
     "inferno": "^7.4.8",
     "inferno-vnode-flags": "^7.4.8",
     "js-yaml": "^4.1.0",
+<<<<<<< HEAD
     "marked": "^4.0.10",
+=======
+    "marked": "^4.2.12",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     "tgui-dev-server": "workspace:*",
     "tgui-polyfill": "workspace:*"
   }

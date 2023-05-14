@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+#define COLLISION_HAZARD_THRESHOLD 11
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/sign/clock
 	name = "wall clock"
 	desc = "It's your run-of-the-mill wall clock showing both the local Coalition Standard Time and the galactic Treaty Coordinated Time. Perfect for staring at instead of working."
@@ -91,6 +96,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/delamination_counter, 32)
 	is_editable = TRUE
 	var/hit_count = 0
 	var/tram_id = TRAM_LIFT_ID
+<<<<<<< HEAD
+=======
+	/// Has the tram hit enough people it now flashes hazard lights?
+	var/hazard_flash = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/sign/collision_counter/Initialize(mapload)
 	..()
@@ -107,10 +117,35 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/delamination_counter, 32)
 /obj/structure/sign/collision_counter/Destroy()
 	return ..()
 
+<<<<<<< HEAD
 /obj/structure/sign/collision_counter/proc/new_hit()
 	SIGNAL_HANDLER
 
 	hit_count++
+=======
+/obj/structure/sign/collision_counter/proc/new_hit(lift_master, collided_type)
+	SIGNAL_HANDLER
+
+	if(!ismob(collided_type))
+		return
+
+	var/mob/victim = collided_type // Real players only, no gaming high score
+	if(!victim.client)
+		return
+
+	hit_count++
+
+	if(hazard_flash)
+		update_appearance()
+		return
+
+	if(hit_count == COLLISION_HAZARD_THRESHOLD) // When we hit the threshold, enable flashing the lights
+		hazard_flash = TRUE
+		icon_state = "tram_hits_alert"
+		update_appearance()
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 
 /obj/structure/sign/collision_counter/update_overlays()
@@ -140,3 +175,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/delamination_counter, 32)
 			. += span_info("Good work! Nanotrasen's finest!")
 		if(11 to INFINITY)
 			. += span_info("Incredible! You're probably reading this from medbay.")
+<<<<<<< HEAD
+=======
+
+#undef COLLISION_HAZARD_THRESHOLD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

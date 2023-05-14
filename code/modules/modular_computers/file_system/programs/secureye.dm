@@ -72,7 +72,11 @@
 	return .
 
 /datum/computer_file/program/secureye/ui_data()
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["network"] = network
 	data["activeCamera"] = null
 	var/obj/machinery/camera/active_camera = camera_ref?.resolve()
@@ -83,7 +87,11 @@
 		)
 	return data
 
+<<<<<<< HEAD
 /datum/computer_file/program/secureye/ui_static_data()
+=======
+/datum/computer_file/program/secureye/ui_static_data(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/data = list()
 	data["mapRef"] = cam_screen.assigned_map
 	var/list/cameras = get_available_cameras()
@@ -96,11 +104,18 @@
 
 	return data
 
+<<<<<<< HEAD
 /datum/computer_file/program/secureye/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
+=======
+/datum/computer_file/program/secureye/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(action == "switch_camera")
 		var/c_tag = format_text(params["name"])
 		var/list/cameras = get_available_cameras()
@@ -150,7 +165,11 @@
 	last_camera_turf = new_cam_turf
 
 	//Here we gather what's visible from the camera's POV based on its view_range and xray modifier if present
+<<<<<<< HEAD
 	var/list/visible_things = active_camera.isXRay() ? range(active_camera.view_range, new_cam_turf) : view(active_camera.view_range, new_cam_turf)
+=======
+	var/list/visible_things = active_camera.isXRay(ignore_malf_upgrades = TRUE) ? range(active_camera.view_range, new_cam_turf) : view(active_camera.view_range, new_cam_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	for(var/turf/visible_turf in visible_things)
 		visible_turfs += visible_turf
@@ -190,3 +209,8 @@
 		if(tempnetwork.len)
 			camlist["[cam.c_tag]"] = cam
 	return camlist
+<<<<<<< HEAD
+=======
+
+#undef DEFAULT_MAP_SIZE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

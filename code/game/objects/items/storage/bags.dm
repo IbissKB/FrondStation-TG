@@ -39,7 +39,11 @@
 	inhand_icon_state = "trashbag"
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+<<<<<<< HEAD
 	slot_flags = null
+=======
+	storage_type = /datum/storage/trash
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///If true, can be inserted into the janitor cart
 	var/insertable = TRUE
 
@@ -49,6 +53,26 @@
 	atom_storage.max_total_storage = 30
 	atom_storage.max_slots = 30
 	atom_storage.set_holdable(cant_hold_list = list(/obj/item/disk/nuclear))
+<<<<<<< HEAD
+=======
+	atom_storage.supports_smart_equip = FALSE
+	RegisterSignal(atom_storage, COMSIG_STORAGE_DUMP_POST_TRANSFER, PROC_REF(post_insertion))
+
+/// If you dump a trash bag into something, anything that doesn't get inserted will spill out onto your feet
+/obj/item/storage/bag/trash/proc/post_insertion(datum/storage/source, atom/dest_object, mob/user)
+	SIGNAL_HANDLER
+	// If there's no item in there, don't do anything
+	if(!(locate(/obj/item) in src))
+		return
+
+	// Otherwise, we're gonna dump into the dest object
+	var/turf/dump_onto = get_turf(dest_object)
+	user.visible_message(
+		span_notice("[user] dumps the contents of [src] all out on \the [dump_onto]"),
+		span_notice("The remaining trash in \the [src] falls out onto \the [dump_onto]"),
+	)
+	source.remove_all(dump_onto)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/bag/trash/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] puts [src] over [user.p_their()] head and starts chomping at the insides! Disgusting!"))
@@ -329,7 +353,11 @@
 	throw_range = 5
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=3000)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*1.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	custom_price = PAYCHECK_CREW * 0.6
 
 /obj/item/storage/bag/tray/Initialize(mapload)
@@ -525,6 +553,10 @@
 /obj/item/storage/bag/harpoon_quiver
 	name = "harpoon quiver"
 	desc = "A quiver for holding harpoons."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/guns/bows/quivers.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "quiver"
 	inhand_icon_state = null
 	worn_icon_state = "harpoon_quiver"

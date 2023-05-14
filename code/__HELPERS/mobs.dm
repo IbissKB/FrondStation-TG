@@ -137,7 +137,11 @@
 
 /proc/random_unique_name(gender, attempts_to_find_unique_name=10)
 	for(var/i in 1 to attempts_to_find_unique_name)
+<<<<<<< HEAD
 		if(gender==FEMALE)
+=======
+		if(gender == FEMALE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			. = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
 			. = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
@@ -224,6 +228,7 @@ GLOBAL_LIST_EMPTY(species_list)
 		else
 			return "unknown"
 
+<<<<<<< HEAD
 
 ///Timed action involving two mobs, the user and the target. interaction_key is the assoc key under which the do_after is capped under, and the max interaction count is how many of this interaction you can do at once.
 /proc/do_mob(mob/user, mob/target, time = 3 SECONDS, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1)
@@ -287,6 +292,8 @@ GLOBAL_LIST_EMPTY(species_list)
 		LAZYREMOVE(user.do_afters, interaction_key)
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //some additional checks as a callback for for do_afters that want to break on losing health or on the mob taking action
 /mob/proc/break_do_after_checks(list/checked_health, check_clicks)
 	if(check_clicks && next_move > world.time)
@@ -312,9 +319,14 @@ GLOBAL_LIST_EMPTY(species_list)
 /proc/do_after(mob/user, delay, atom/target, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1)
 	if(!user)
 		return FALSE
+<<<<<<< HEAD
 	var/atom/target_loc = null
 	if(target && !isturf(target))
 		target_loc = target.loc
+=======
+	if(!isnum(delay))
+		CRASH("do_after was passed a non-number delay: [delay || "null"].")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!interaction_key && target)
 		interaction_key = target //Use the direct ref to the target
@@ -325,6 +337,10 @@ GLOBAL_LIST_EMPTY(species_list)
 		LAZYSET(user.do_afters, interaction_key, current_interaction_count + 1)
 
 	var/atom/user_loc = user.loc
+<<<<<<< HEAD
+=======
+	var/atom/target_loc = target?.loc
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/drifting = FALSE
 	if(SSmove_manager.processing_on(user, SSspacedrift))
@@ -354,6 +370,7 @@ GLOBAL_LIST_EMPTY(species_list)
 			drifting = FALSE
 			user_loc = user.loc
 
+<<<<<<< HEAD
 		if(
 			QDELETED(user) \
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
@@ -371,6 +388,19 @@ GLOBAL_LIST_EMPTY(species_list)
 			&& (QDELETED(target) || target_loc != target.loc) \
 			&& ((user_loc != target_loc || target_loc != user)) \
 			)
+=======
+		if(QDELETED(user) \
+			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
+			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
+			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && HAS_TRAIT(user, TRAIT_INCAPACITATED)) \
+			|| (extra_checks && !extra_checks.Invoke()))
+			. = FALSE
+			break
+
+		if(target && (user != target) && \
+			(QDELETED(target) \
+			|| (!(timed_action_flags & IGNORE_TARGET_LOC_CHANGE) && target.loc != target_loc)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			. = FALSE
 			break
 
@@ -381,6 +411,7 @@ GLOBAL_LIST_EMPTY(species_list)
 		LAZYREMOVE(user.do_afters, interaction_key)
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
 
+<<<<<<< HEAD
 ///Timed action involving at least one mob user and a list of targets. interaction_key is the assoc key under which the do_after is capped under, and the max interaction count is how many of this interaction you can do at once.
 /proc/do_after_mob(mob/user, list/targets, time = 3 SECONDS, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1)
 	if(!user)
@@ -459,6 +490,8 @@ GLOBAL_LIST_EMPTY(species_list)
 	if(interaction_key)
 		LAZYREMOVE(user.do_afters, interaction_key)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /proc/is_species(A, species_datum)
 	. = FALSE
 	if(ishuman(A))
@@ -904,7 +937,10 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	name = "INTERNAL DVIEW MOB"
 	invisibility = 101
 	density = FALSE
+<<<<<<< HEAD
 	see_in_dark = 1e6
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	move_resist = INFINITY
 	var/ready_to_die = FALSE
 
@@ -943,7 +979,10 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	else
 		. = invoked_callback.Invoke()
 	usr = temp
+<<<<<<< HEAD
 
 #undef FACING_SAME_DIR
 #undef FACING_EACHOTHER
 #undef FACING_INIT_FACING_TARGET_TARGET_FACING_PERPENDICULAR
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

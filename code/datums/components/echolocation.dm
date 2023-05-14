@@ -29,6 +29,11 @@
 	var/static/list/danger_turfs
 	/// A matrix that turns everything except #ffffff into pure blackness, used for our images (the outlines are #ffffff).
 	var/static/list/black_white_matrix = list(85, 85, 85, 0, 85, 85, 85, 0, 85, 85, 85, 0, 0, 0, 0, 1, -254, -254, -254, 0)
+<<<<<<< HEAD
+=======
+	/// A matrix that turns everything into pure white.
+	var/static/list/white_matrix = list(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 0, 1, 0, -0, 0, 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Cooldown for the echolocation.
 	COOLDOWN_DECLARE(cooldown_last)
 
@@ -38,7 +43,11 @@
 	if(!istype(echolocator))
 		return COMPONENT_INCOMPATIBLE
 	if(!danger_turfs)
+<<<<<<< HEAD
 		danger_turfs = typecacheof(list(/turf/open/space, /turf/open/openspace, /turf/open/chasm, /turf/open/lava))
+=======
+		danger_turfs = typecacheof(list(/turf/open/space, /turf/open/openspace, /turf/open/chasm, /turf/open/lava, /turf/open/floor/fakespace, /turf/open/floor/fakepit, /turf/closed/wall/space))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!allowed_paths)
 		allowed_paths = typecacheof(list(/turf/closed, /obj, /mob/living)) + danger_turfs - typecacheof(/obj/effect/decal)
 	if(!isnull(echo_range))
@@ -58,7 +67,11 @@
 	if(ispath(color_path))
 		client_color = echolocator.add_client_colour(color_path)
 	src.echo_group = echo_group || REF(src)
+<<<<<<< HEAD
 	ADD_TRAIT(echolocator, TRAIT_ECHOLOCATION_RECEIVER, echo_group)
+=======
+	echolocator.add_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), echo_group) //so they see all the tiles they echolocated, even if they are in the dark
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	echolocator.become_blind(ECHOLOCATION_TRAIT)
 	echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
 	START_PROCESSING(SSfastprocess, src)
@@ -67,7 +80,11 @@
 	STOP_PROCESSING(SSfastprocess, src)
 	var/mob/living/echolocator = parent
 	QDEL_NULL(client_color)
+<<<<<<< HEAD
 	REMOVE_TRAIT(echolocator, TRAIT_ECHOLOCATION_RECEIVER, echo_group)
+=======
+	echolocator.remove_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), echo_group)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	echolocator.cure_blind(ECHOLOCATION_TRAIT)
 	echolocator.clear_fullscreen("echo")
 	for(var/timeframe in images)
@@ -85,8 +102,16 @@
 		return
 	COOLDOWN_START(src, cooldown_last, cooldown_time)
 	var/mob/living/echolocator = parent
+<<<<<<< HEAD
 	var/list/filtered = list()
 	var/list/seen = dview(echo_range, echolocator.loc, invis_flags = echolocator.see_invisible)
+=======
+	var/real_echo_range = echo_range
+	if(HAS_TRAIT(echolocator, TRAIT_ECHOLOCATION_EXTRA_RANGE))
+		real_echo_range += 2
+	var/list/filtered = list()
+	var/list/seen = dview(real_echo_range, get_turf(echolocator.client?.eye || echolocator), invis_flags = echolocator.see_invisible)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/atom/seen_atom as anything in seen)
 		if(!seen_atom.alpha)
 			continue
@@ -116,6 +141,11 @@
 	if(images_are_static)
 		final_image.pixel_x = input.pixel_x
 		final_image.pixel_y = input.pixel_y
+<<<<<<< HEAD
+=======
+	if(HAS_TRAIT_FROM(input, TRAIT_ECHOLOCATION_RECEIVER, echo_group)) //mark other echolocation with full white
+		final_image.color = white_matrix
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	images[current_time] += final_image
 	for(var/mob/living/echolocate_receiver as anything in receivers[current_time])
 		if(echolocate_receiver == input)
@@ -129,6 +159,10 @@
 	var/mutable_appearance/copied_appearance = new /mutable_appearance()
 	copied_appearance.appearance = input
 	if(istype(input, /obj/machinery/door/airlock)) //i hate you
+<<<<<<< HEAD
+=======
+		copied_appearance.cut_overlays()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		copied_appearance.icon = 'icons/obj/doors/airlocks/station/public.dmi'
 		copied_appearance.icon_state = "closed"
 	else if(danger_turfs[input.type])
@@ -172,6 +206,7 @@
 /atom/movable/screen/fullscreen/echo/Destroy()
 	QDEL_NULL(particles)
 	return ..()
+<<<<<<< HEAD
 
 /particles/echo
 	icon = 'icons/effects/particles/echo.dmi'
@@ -186,3 +221,5 @@
 	position = generator(GEN_BOX, list(-240, -240), list(240, 240), NORMAL_RAND)
 	drift = generator(GEN_VECTOR, list(-0.1, 0), list(0.1, 0))
 	rotation = generator(GEN_NUM, 0, 360, NORMAL_RAND)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

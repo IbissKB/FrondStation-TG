@@ -48,7 +48,11 @@
 
 /datum/component/follow/proc/toggle_follow(datum/source, mob/living/living_user)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	if(!istype(living_user) || !living_user.canUseTopic(parent_mob, TRUE))
+=======
+	if(!istype(living_user) || !living_user.can_perform_action(parent_mob))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	following = !following
 	if(following)

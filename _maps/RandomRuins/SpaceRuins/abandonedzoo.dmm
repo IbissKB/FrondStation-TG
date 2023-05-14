@@ -47,6 +47,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/research,
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -57,6 +58,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/abandonedzoo)
 "aG" = (
@@ -66,20 +70,29 @@
 /area/ruin/space/has_grav/abandonedzoo)
 "aI" = (
 /obj/structure/table/reinforced,
+<<<<<<< HEAD
 /obj/machinery/computer/med_data/laptop{
+=======
+/obj/machinery/computer/records/medical/laptop{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8;
 	pixel_y = 1
 	},
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/abandonedzoo)
 "aK" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/template_noop,
 /area/template_noop)
 "aL" = (
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -90,6 +103,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/abandonedzoo)
 "aN" = (
@@ -105,9 +121,13 @@
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/abandonedzoo)
 "aQ" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/template_noop,
 /area/template_noop)
 "aT" = (
@@ -314,8 +334,13 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/abandonedzoo)
 "eY" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/reagent_dispensers/watertank,
+=======
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/turf_decal/tile/green/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/abandonedzoo)
 "gE" = (
@@ -339,8 +364,13 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Bio-Research Station"
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/green/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/abandonedzoo)
 "iZ" = (
@@ -352,6 +382,7 @@
 	},
 /obj/item/wirecutters,
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -362,11 +393,15 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/abandonedzoo)
 "kp" = (
 /obj/machinery/light/small/directional/west,
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -377,6 +412,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/abandonedzoo)
 "kF" = (
@@ -402,8 +440,13 @@
 /turf/open/floor/grass,
 /area/ruin/space/has_grav/abandonedzoo)
 "oS" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/cable,
+=======
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/green/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/abandonedzoo)
 "qX" = (
@@ -432,6 +475,7 @@
 "wc" = (
 /obj/machinery/light/small/directional/east,
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -442,6 +486,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/abandonedzoo)
 "Ap" = (
@@ -471,13 +518,18 @@
 /area/ruin/space/has_grav/abandonedzoo)
 "Ig" = (
 /obj/machinery/light/directional/north,
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/carp,
+=======
+/mob/living/basic/carp,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/abandonedzoo)
 "LD" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/machinery/power/apc/unlocked{
 	dir = 8;
 	environ = 0;
@@ -486,6 +538,14 @@
 	pixel_x = -25
 	},
 /obj/item/melee/baton/security/cattleprod,
+=======
+/obj/machinery/power/apc/worn_out/directional/west{
+	environ = 0;
+	lighting = 0
+	},
+/obj/item/melee/baton/security/cattleprod,
+/obj/effect/mapping_helpers/apc/unlocked,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/abandonedzoo)
 "Mb" = (

@@ -244,7 +244,11 @@
 /area/command/heads_quarters/captain/private/nt_rep)
 "fA" = (
 /obj/structure/disposalpipe/segment,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/station/maintenance/fore/lesser)
 "fF" = (
@@ -517,7 +521,11 @@
 	},
 /area/station/hallway/primary/fore)
 "lw" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/transit_tube/crossing,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/lesser)
@@ -722,7 +730,11 @@
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "rt" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plating,
@@ -1332,7 +1344,11 @@
 	pixel_x = 6;
 	pixel_y = 9
 	},
+<<<<<<< HEAD
 /obj/item/clothing/gloves/color/latex,
+=======
+/obj/item/clothing/gloves/latex,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "HW" = (
@@ -1507,7 +1523,11 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/effect/landmark/xeno_spawn,
+=======
+/obj/effect/landmark/generic_maintenance_landmark,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "NU" = (

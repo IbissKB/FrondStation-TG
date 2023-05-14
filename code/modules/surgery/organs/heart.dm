@@ -28,7 +28,11 @@
 	return ..()
 
 /obj/item/organ/internal/heart/Remove(mob/living/carbon/heartless, special = 0)
+<<<<<<< HEAD
 	..()
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!special)
 		addtimer(CALLBACK(src, PROC_REF(stop_if_unowned)), 120)
 
@@ -59,7 +63,11 @@
 	beating = FALSE
 	update_appearance()
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/heart/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 	// If the owner doesn't need a heart, we don't need to do anything with it.
@@ -95,8 +103,13 @@
 		owner.set_heartattack(TRUE)
 		failed = TRUE
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/get_availability(datum/species/owner_species)
 	return !(NOBLOOD in owner_species.species_traits)
+=======
+/obj/item/organ/internal/heart/get_availability(datum/species/owner_species, mob/living/owner_mob)
+	return owner_species.mutantheart
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/heart/cursed
 	name = "cursed heart"
@@ -107,8 +120,15 @@
 	actions_types = list(/datum/action/item_action/organ_action/cursed_heart)
 	var/last_pump = 0
 	var/add_colour = TRUE //So we're not constantly recreating colour datums
+<<<<<<< HEAD
 	var/pump_delay = 30 //you can pump 1 second early, for lag, but no more (otherwise you could spam heal)
 	var/blood_loss = 100 //600 blood is human default, so 5 failures (below 122 blood is where humans die because reasons?)
+=======
+	/// How long between needed pumps; you can pump one second early
+	var/pump_delay = 3 SECONDS
+	/// How much blood volume you lose every missed pump, this is a flat amount not a percentage!
+	var/blood_loss = (BLOOD_VOLUME_NORMAL / 5) // 20% of normal volume, missing five pumps is instant death
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//How much to heal per pump, negative numbers would HURT the player
 	var/heal_brute = 0
@@ -124,6 +144,7 @@
 	else
 		return ..()
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/cursed/on_life(delta_time, times_fired)
 	if(world.time > (last_pump + pump_delay))
 		if(ishuman(owner) && owner.client) //While this entire item exists to make people suffer, they can't control disconnects.
@@ -144,6 +165,57 @@
 
 /obj/item/organ/internal/heart/cursed/Remove(mob/living/carbon/accursed, special = FALSE)
 	..()
+=======
+/// Worker proc that checks logic for if a pump can happen, and applies effects/notifications from doing so
+/obj/item/organ/internal/heart/cursed/proc/on_pump(mob/owner)
+	var/next_pump = last_pump + pump_delay - (1 SECONDS) // pump a second early
+	if(world.time < next_pump)
+		to_chat(owner, span_userdanger("Too soon!"))
+		return
+
+	last_pump = world.time
+	playsound(owner,'sound/effects/singlebeat.ogg', 40, TRUE)
+	to_chat(owner, span_notice("Your heart beats."))
+
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/accursed = owner
+
+	if(HAS_TRAIT(accursed, TRAIT_NOBLOOD) || !accursed.dna)
+		return
+	accursed.blood_volume = min(accursed.blood_volume + (blood_loss * 0.5), BLOOD_VOLUME_MAXIMUM)
+	accursed.remove_client_colour(/datum/client_colour/cursed_heart_blood)
+	add_colour = TRUE
+	accursed.adjustBruteLoss(-heal_brute)
+	accursed.adjustFireLoss(-heal_burn)
+	accursed.adjustOxyLoss(-heal_oxy)
+
+/obj/item/organ/internal/heart/cursed/on_life(seconds_per_tick, times_fired)
+	if(!owner.client || !ishuman(owner)) // Let's be fair, if you're not here to pump, you're not here to suffer.
+		last_pump = world.time
+		return
+
+	if(world.time <= (last_pump + pump_delay))
+		return
+
+	var/mob/living/carbon/human/accursed = owner
+	if(HAS_TRAIT(accursed, TRAIT_NOBLOOD) || !accursed.dna)
+		return
+
+	accursed.blood_volume = max(accursed.blood_volume - blood_loss, 0)
+	to_chat(accursed, span_userdanger("You have to keep pumping your blood!"))
+	if(add_colour)
+		accursed.add_client_colour(/datum/client_colour/cursed_heart_blood) //bloody screen so real
+		add_colour = FALSE
+
+/obj/item/organ/internal/heart/cursed/on_insert(mob/living/carbon/accursed)
+	. = ..()
+	last_pump = world.time // give them time to react
+	to_chat(accursed, span_userdanger("Your heart has been replaced with a cursed one, you have to pump this one manually otherwise you'll die!"))
+
+/obj/item/organ/internal/heart/cursed/Remove(mob/living/carbon/accursed, special = FALSE)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	accursed.remove_client_colour(/datum/client_colour/cursed_heart_blood)
 
 /datum/action/item_action/organ_action/cursed_heart
@@ -153,6 +225,7 @@
 //You are now brea- pumping blood manually
 /datum/action/item_action/organ_action/cursed_heart/Trigger(trigger_flags)
 	. = ..()
+<<<<<<< HEAD
 	if(. && istype(target, /obj/item/organ/internal/heart/cursed))
 		var/obj/item/organ/internal/heart/cursed/cursed_heart = target
 
@@ -174,6 +247,15 @@
 				accursed.adjustFireLoss(-cursed_heart.heal_burn)
 				accursed.adjustOxyLoss(-cursed_heart.heal_oxy)
 
+=======
+	if(!.)
+		return
+
+	var/obj/item/organ/internal/heart/cursed/cursed_heart = target
+	if(!istype(cursed_heart))
+		CRASH("Cursed heart pump action created on non-cursed heart!")
+	cursed_heart.on_pump(owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/client_colour/cursed_heart_blood
 	priority = 100 //it's an indicator you're dying, so it's very high priority
@@ -230,7 +312,11 @@
 						span_userdanger("You feel a terrible pain in your chest, as if your heart has stopped!"))
 		addtimer(CALLBACK(src, PROC_REF(Restart)), 10 SECONDS)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/cybernetic/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/heart/cybernetic/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(dose_available && owner.health <= owner.crit_threshold && !owner.reagents.has_reagent(rid))
 		used_dose()
@@ -250,12 +336,20 @@
 	/// The cooldown until the next time this heart can give the host an adrenaline boost.
 	COOLDOWN_DECLARE(adrenaline_cooldown)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/freedom/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/heart/freedom/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(owner.health < 5 && COOLDOWN_FINISHED(src, adrenaline_cooldown))
 		COOLDOWN_START(src, adrenaline_cooldown, rand(25 SECONDS, 1 MINUTES))
 		to_chat(owner, span_userdanger("You feel yourself dying, but you refuse to give up!"))
+<<<<<<< HEAD
 		owner.heal_overall_damage(15, 15, BODYTYPE_ORGANIC)
+=======
+		owner.heal_overall_damage(brute = 15, burn = 15, required_bodytype = BODYTYPE_ORGANIC)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(owner.reagents.get_reagent_amount(/datum/reagent/medicine/ephedrine) < 20)
 			owner.reagents.add_reagent(/datum/reagent/medicine/ephedrine, 10)
 
@@ -280,6 +374,7 @@
 	. = ..()
 	add_atom_colour(ethereal_color, FIXED_COLOUR_PRIORITY)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/heart/ethereal/Insert(mob/living/carbon/owner, special = FALSE, drop_if_replaced = TRUE)
 	. = ..()
 	RegisterSignal(owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_change))
@@ -290,6 +385,20 @@
 	UnregisterSignal(owner, list(COMSIG_MOB_STATCHANGE, COMSIG_LIVING_POST_FULLY_HEAL, COMSIG_PARENT_QDELETING))
 	REMOVE_TRAIT(owner, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
 	stop_crystalization_process(owner)
+=======
+/obj/item/organ/internal/heart/ethereal/Insert(mob/living/carbon/heart_owner, special = FALSE, drop_if_replaced = TRUE)
+	. = ..()
+	if(!.)
+		return
+	RegisterSignal(heart_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_change))
+	RegisterSignal(heart_owner, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(on_owner_fully_heal))
+	RegisterSignal(heart_owner, COMSIG_PARENT_QDELETING, PROC_REF(owner_deleted))
+
+/obj/item/organ/internal/heart/ethereal/Remove(mob/living/carbon/heart_owner, special = FALSE)
+	UnregisterSignal(heart_owner, list(COMSIG_MOB_STATCHANGE, COMSIG_LIVING_POST_FULLY_HEAL, COMSIG_PARENT_QDELETING))
+	REMOVE_TRAIT(heart_owner, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
+	stop_crystalization_process(heart_owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	QDEL_NULL(current_crystal)
 	return ..()
 
@@ -330,7 +439,11 @@
 		return
 
 
+<<<<<<< HEAD
 	if(QDELETED(victim) || victim.suiciding)
+=======
+	if(QDELETED(victim) || HAS_TRAIT(victim, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return //lol rip
 
 	if(!COOLDOWN_FINISHED(src, crystalize_cooldown))
@@ -339,10 +452,16 @@
 	if(HAS_TRAIT(victim, TRAIT_CANNOT_CRYSTALIZE))
 		return // no reviving during mafia, or other inconvenient times.
 
+<<<<<<< HEAD
 	victim.visible_message(
 		span_notice("Crystals start forming around [victim]."),
 		span_nicegreen("Crystals start forming around your dead body."),
 	)
+=======
+	to_chat(victim, span_nicegreen("Crystals start forming around your dead body."))
+	victim.visible_message(span_notice("Crystals start forming around [victim]."), ignored_mobs = victim)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ADD_TRAIT(victim, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
 
 	crystalize_timer_id = addtimer(CALLBACK(src, PROC_REF(crystalize), victim), CRYSTALIZE_PRE_WAIT_TIME, TIMER_STOPPABLE)
@@ -387,7 +506,11 @@
 	crystalization_process_damage = 0 //Reset damage taken during crystalization
 
 	if(!succesful)
+<<<<<<< HEAD
 		REMOVE_TRAIT(owner, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
+=======
+		REMOVE_TRAIT(ethereal, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		QDEL_NULL(current_crystal)
 
 	if(crystalize_timer_id)
@@ -474,7 +597,11 @@
 	ethereal_heart.owner.forceMove(get_turf(src))
 	REMOVE_TRAIT(ethereal_heart.owner, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
 	deltimer(crystal_heal_timer)
+<<<<<<< HEAD
 	visible_message(span_notice("The crystals shatters, causing [ethereal_heart.owner] to fall out"))
+=======
+	visible_message(span_notice("The crystals shatters, causing [ethereal_heart.owner] to fall out."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/structure/ethereal_crystal/update_overlays()
@@ -485,13 +612,31 @@
 		. += shine
 
 /obj/structure/ethereal_crystal/proc/heal_ethereal()
+<<<<<<< HEAD
 	ethereal_heart.owner.revive(HEAL_ALL)
 	to_chat(ethereal_heart.owner, span_notice("You burst out of the crystal with vigour... </span><span class='userdanger'>But at a cost."))
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/brain_trauma/picked_trauma
 	if(prob(10)) //10% chance for a severe trauma
 		picked_trauma = pick(subtypesof(/datum/brain_trauma/severe))
 	else
 		picked_trauma = pick(subtypesof(/datum/brain_trauma/mild))
+<<<<<<< HEAD
 	ethereal_heart.owner.gain_trauma(picked_trauma, TRAUMA_RESILIENCE_ABSOLUTE)
 	playsound(get_turf(ethereal_heart.owner), 'sound/effects/ethereal_revive.ogg', 100)
 	qdel(src)
+=======
+
+	// revive will regenerate organs, so our heart refence is going to be null'd. Unreliable
+	var/mob/living/carbon/regenerating = ethereal_heart.owner
+
+	playsound(get_turf(regenerating), 'sound/effects/ethereal_revive.ogg', 100)
+	to_chat(regenerating, span_notice("You burst out of the crystal with vigour... </span><span class='userdanger'>But at a cost."))
+	regenerating.gain_trauma(picked_trauma, TRAUMA_RESILIENCE_ABSOLUTE)
+	regenerating.revive(HEAL_ALL & ~HEAL_REFRESH_ORGANS)
+	// revive calls fully heal -> deletes the crystal.
+	// this qdeleted check is just for sanity.
+	if(!QDELETED(src))
+		qdel(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

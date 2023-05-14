@@ -13,7 +13,11 @@
 				span_warning("You fall [levels > 1 ? "[levels] levels" : "one level"] into [target_turf], perfecting the landing!"))
 			return
 
+<<<<<<< HEAD
 	var/obj/item/organ/external/wings/gliders = getorgan(/obj/item/organ/external/wings)
+=======
+	var/obj/item/organ/external/wings/gliders = get_organ_by_type(/obj/item/organ/external/wings)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((HAS_TRAIT(src, TRAIT_FREERUNNING) && levels < 2) || gliders?.can_soften_fall()) // the power of parkour or wings allows falling short distances unscathed
 		visible_message(span_danger("[src] makes a hard landing on [target_turf] but remains unharmed from the fall."), \
 				span_userdanger("You brace for the fall. You make a hard landing on [target_turf] but remain unharmed."))

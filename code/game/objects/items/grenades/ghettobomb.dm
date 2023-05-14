@@ -6,6 +6,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/weapons/grenade.dmi'
 	icon_state = "improvised_grenade"
+<<<<<<< HEAD
+=======
+	icon_state_preview = "ied_preview"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = "flashbang"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'

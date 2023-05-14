@@ -4,6 +4,10 @@
 	name = "abandoned crate"
 	desc = "What could be inside?"
 	icon_state = "securecrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "securecrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	integrity_failure = 0 //no breaking open the crate
 	var/code = null
 	var/lastattempt = null
@@ -30,7 +34,11 @@
 	if(locked)
 		to_chat(user, span_notice("The crate is locked with a Deca-code lock."))
 		var/input = input(usr, "Enter [codelen] digits. All digits must be unique.", "Deca-Code Lock", "") as text|null
+<<<<<<< HEAD
 		if(user.canUseTopic(src, be_close = TRUE) && locked)
+=======
+		if(user.can_perform_action(src) && locked)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/list/sanitised = list()
 			var/sanitycheck = TRUE
 			var/char = ""
@@ -60,7 +68,11 @@
 	return ..()
 
 /obj/structure/closet/crate/secure/loot/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	return attack_hand(user) //this helps you not blow up so easily by overriding unlocking which results in an immediate boom.
 
@@ -124,7 +136,11 @@
 		return
 	return ..()
 
+<<<<<<< HEAD
 /obj/structure/closet/crate/secure/loot/open(mob/living/user, force = FALSE)
+=======
+/obj/structure/closet/crate/secure/loot/after_open(mob/living/user, force)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(qdel_on_open)
 		qdel(src)

@@ -10,14 +10,26 @@
 
 //That part allows reinforcing this item with handcuffs
 /obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, params)
+<<<<<<< HEAD
 	if(!istype(attacking_item, /obj/item/restraints/handcuffs))
 		return ..()
+=======
+	. = ..()
+	if(.)
+		return
+	if(!istype(attacking_item, /obj/item/restraints/handcuffs))
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/clothing/gloves/ball_mittens_reinforced/reinforced_muffs = new
 	remove_item_from_storage(user)
 	user.put_in_hands(reinforced_muffs)
 	to_chat(user, span_notice("You reinforced the belts on [src] with [attacking_item]."))
 	qdel(attacking_item)
 	qdel(src)
+<<<<<<< HEAD
+=======
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //ball_mittens reinforced
 /obj/item/clothing/gloves/ball_mittens_reinforced //We getting this item by using handcuffs on normal ball mittens

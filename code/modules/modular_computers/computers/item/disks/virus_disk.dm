@@ -77,10 +77,17 @@
 
 	var/original_host = source
 	var/fakename = sanitize_name(tgui_input_text(user, "Enter a name for the rigged message.", "Forge Message", max_length = MAX_NAME_LEN), allow_numbers = TRUE)
+<<<<<<< HEAD
 	if(!fakename || source != original_host || !user.canUseTopic(source, be_close = TRUE))
 		return
 	var/fakejob = sanitize_name(tgui_input_text(user, "Enter a job for the rigged message.", "Forge Message", max_length = MAX_NAME_LEN), allow_numbers = TRUE)
 	if(!fakejob || source != original_host || !user.canUseTopic(source, be_close = TRUE))
+=======
+	if(!fakename || source != original_host || !user.can_perform_action(source))
+		return
+	var/fakejob = sanitize_name(tgui_input_text(user, "Enter a job for the rigged message.", "Forge Message", max_length = MAX_NAME_LEN), allow_numbers = TRUE)
+	if(!fakejob || source != original_host || !user.can_perform_action(source))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/datum/computer_file/program/messenger/app = locate() in source.stored_files
@@ -89,8 +96,12 @@
 	charges--
 	user.show_message(span_notice("Success!"))
 	var/reference = REF(src)
+<<<<<<< HEAD
 	ADD_TRAIT(target, TRAIT_PDA_CAN_EXPLODE, reference)
 	ADD_TRAIT(target, TRAIT_PDA_MESSAGE_MENU_RIGGED, reference)
+=======
+	target.add_traits(list(TRAIT_PDA_CAN_EXPLODE, TRAIT_PDA_MESSAGE_MENU_RIGGED), reference)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	addtimer(TRAIT_CALLBACK_REMOVE(target, TRAIT_PDA_MESSAGE_MENU_RIGGED, reference), 10 SECONDS)
 	return TRUE
 

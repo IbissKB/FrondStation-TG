@@ -90,7 +90,11 @@
 * The main loop that sets up, creates and displays results from a reaction
 * warning: this code is a hot mess
 */
+<<<<<<< HEAD
 /obj/machinery/chem_recipe_debug/process(delta_time)
+=======
+/obj/machinery/chem_recipe_debug/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(processing == FALSE)
 		setup_reactions()
 	if(should_force_ph)
@@ -98,7 +102,11 @@
 	if(should_force_temp)
 		reagents.chem_temp = force_temp
 	if(reagents.is_reacting == TRUE)
+<<<<<<< HEAD
 		react_time += delta_time
+=======
+		react_time += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(reaction_stated == TRUE)
 		reaction_stated = FALSE

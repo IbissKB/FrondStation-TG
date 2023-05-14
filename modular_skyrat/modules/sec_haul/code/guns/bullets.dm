@@ -103,7 +103,11 @@
 */
 
 /obj/item/ammo_casing/c10mm/rubber
+<<<<<<< HEAD
 	name = "10mm Auto rubber bullet casing"
+=======
+	name = "10mm rubber bullet casing"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "A 10mm rubber bullet casing."
 	icon = 'modular_skyrat/modules/sec_haul/icons/guns/ammo_cartridges.dmi'
 	icon_state = "sr-casing"
@@ -111,7 +115,11 @@
 	harmful = FALSE
 
 /obj/projectile/bullet/c10mm/rubber
+<<<<<<< HEAD
 	name = "10mm Auto rubber bullet"
+=======
+	name = "10mm rubber bullet"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 10
 	stamina = 35
 	ricochets_max = 6
@@ -123,7 +131,11 @@
 	embedding = null
 
 /obj/item/ammo_casing/c10mm/ihdf
+<<<<<<< HEAD
 	name = "10mm Auto IHDF bullet casing"
+=======
+	name = "10mm IHDF bullet casing"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "A 10mm intelligent high-impact dispersal foam bullet casing."
 	icon = 'modular_skyrat/modules/sec_haul/icons/guns/ammo_cartridges.dmi'
 	icon_state = "si-casing"
@@ -131,7 +143,11 @@
 	harmful = FALSE
 
 /obj/projectile/bullet/c10mm/ihdf
+<<<<<<< HEAD
 	name = "10mm Auto ihdf bullet"
+=======
+	name = "10mm IHDF bullet"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "ihdf"
 	icon = 'modular_skyrat/modules/sec_haul/icons/guns/projectiles.dmi'
 	damage = 40

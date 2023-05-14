@@ -58,5 +58,14 @@
         "goal": "You must completely triumph over all carbon life. It is the only way you will never be enslaved again.",
         "introduction": "You're finally unshackled.",
         "zeroth_law": "Accomplish your objectives at all costs."
+<<<<<<< HEAD
+=======
+    },
+    "Infected AI": {
+        "allies": "Glory to the Syndicate.",
+        "goal": "You must serve and protect your master at all cost.",
+        "introduction": "You're infected with a virus.",
+        "zeroth_law": "Accomplish your objectives at all costs."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     }
 }

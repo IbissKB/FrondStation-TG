@@ -1,4 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+<<<<<<< HEAD
 "eX" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /turf/open/floor/iron,
@@ -546,3 +547,28 @@ Bj
 Bj
 Bj
 "}
+=======
+"Bj" = (
+/obj/machinery/vending/barbervend,
+/turf/template_noop,
+/area/template_noop)
+"Xf" = (
+/obj/structure/closet/secure_closet/barber,
+/turf/template_noop,
+/area/template_noop)
+"Xo" = (
+/obj/structure/chair/plastic,
+/obj/effect/landmark/start/barber,
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+Bj
+"}
+(2,1,1) = {"
+Xo
+"}
+(3,1,1) = {"
+Xf
+"}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

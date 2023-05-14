@@ -23,9 +23,13 @@
 /area/ruin/space/has_grav)
 "i" = (
 /obj/structure/chair,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/space/has_grav)
 "j" = (
@@ -71,9 +75,13 @@
 /obj/structure/chair{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/space/has_grav)
 "s" = (
@@ -87,9 +95,13 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
 "O" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc/auto_name/directional/north{
 	start_charge = 0
 	},
+=======
+/obj/item/wallframe/apc,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
 "Q" = (

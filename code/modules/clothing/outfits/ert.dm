@@ -306,7 +306,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	l_pocket = /obj/item/ammo_box/a762
 	r_pocket = /obj/item/ammo_box/a762
+<<<<<<< HEAD
 	l_hand = /obj/item/gun/ballistic/rifle/boltaction/brand_new
+=======
+	l_hand = /obj/item/gun/ballistic/rifle/boltaction
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/centcom/centcom_intern/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
@@ -330,7 +334,11 @@
 	name = "CentCom Head Intern"
 
 	suit = /obj/item/clothing/suit/armor/vest
+<<<<<<< HEAD
 	suit_store = /obj/item/gun/ballistic/rifle/boltaction/brand_new
+=======
+	suit_store = /obj/item/gun/ballistic/rifle/boltaction
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	belt = /obj/item/melee/baton/security/loaded
 	head = /obj/item/clothing/head/hats/intern
 	l_hand = /obj/item/megaphone
@@ -391,7 +399,11 @@
 		/obj/item/stack/sheet/iron/fifty = 1,
 		/obj/item/stack/sheet/plasteel/twenty = 1,
 	)
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/utility/hardhat/weldhat
+=======
+	head = /obj/item/clothing/head/utility/hardhat/welding
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mask = /obj/item/clothing/mask/gas/atmos
 	l_hand = /obj/item/areaeditor/blueprints
 
@@ -454,6 +466,7 @@
 		/obj/item/skillchip/disk_verifier,
 	)
 
+<<<<<<< HEAD
 /datum/outfit/centcom/death_commando/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
@@ -466,11 +479,39 @@
 	W.update_label()
 	W.update_icon()
 	..()
+=======
+/datum/outfit/centcom/death_commando/post_equip(mob/living/carbon/human/squaddie, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/radio/radio = squaddie.ears
+	radio.set_frequency(FREQ_CENTCOM)
+	radio.freqlock = RADIO_FREQENCY_LOCKED
+	var/obj/item/card/id/id = squaddie.wear_id
+	id.registered_name = squaddie.real_name
+	id.update_label()
+	id.update_icon()
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/centcom/death_commando/officer
 	name = "Death Commando Officer"
 
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/helmet/space/beret
+=======
+	back = /obj/item/mod/control/pre_equipped/apocryphal/officer
+
+/datum/outfit/centcom/death_commando/officer/post_equip(mob/living/carbon/human/squaddie, visualsOnly = FALSE)
+	. = ..()
+	var/obj/item/mod/control/mod = squaddie.back
+	if(!istype(mod))
+		return
+	var/obj/item/mod/module/hat_stabilizer/hat_holder = locate() in mod.modules
+	var/obj/item/clothing/head/helmet/space/beret/beret = new(hat_holder)
+	hat_holder.attached_hat = beret
+	squaddie.update_clothing(mod.slot_flags)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/centcom/ert/marine
 	name = "Marine Commander"

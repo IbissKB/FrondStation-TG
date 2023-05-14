@@ -14,7 +14,11 @@
 		/obj/item/food/patty = 1
 	)
 	result = /obj/item/food/burger/human
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/burger
 	name = "Plain Burger"
@@ -24,7 +28,11 @@
 	)
 
 	result = /obj/item/food/burger/plain
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/corgiburger
 	name = "Corgi burger"
@@ -34,7 +42,11 @@
 	)
 
 	result = /obj/item/food/burger/corgi
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/appendixburger
 	name = "Appendix burger"
@@ -43,7 +55,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/appendix
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/brainburger
 	name = "Brain burger"
@@ -52,7 +68,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/brain
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/xenoburger
 	name = "Xeno burger"
@@ -61,7 +81,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/xeno
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/bearger
 	name = "Bearger"
@@ -70,7 +94,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/bearger
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/fishburger
 	name = "Fish burger"
@@ -80,7 +108,11 @@
 		/obj/item/food/cheese/wedge = 1
 	)
 	result = /obj/item/food/burger/fish
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/tofuburger
 	name = "Tofu burger"
@@ -89,7 +121,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/tofu
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/ghostburger
 	name = "Ghost burger"
@@ -99,7 +135,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/ghost
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/clownburger
 	name = "Clown burger"
@@ -108,7 +148,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/clown
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mimeburger
 	name = "Mime burger"
@@ -117,7 +161,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/mime
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/redburger
 	name = "Red burger"
@@ -127,7 +175,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/red
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/orangeburger
 	name = "Orange burger"
@@ -137,7 +189,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/orange
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/yellowburger
 	name = "Yellow burger"
@@ -147,7 +203,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/yellow
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/greenburger
 	name = "Green burger"
@@ -157,7 +217,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/green
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/blueburger
 	name = "Blue burger"
@@ -167,7 +231,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/blue
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/purpleburger
 	name = "Purple burger"
@@ -177,7 +245,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/purple
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/blackburger
 	name = "Black burger"
@@ -187,7 +259,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/black
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/whiteburger
 	name = "White burger"
@@ -197,7 +273,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/white
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/spellburger
 	name = "Spell burger"
@@ -206,7 +286,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/spell
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/spellburger2
 	name = "Spell burger"
@@ -215,7 +299,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/spell
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/bigbiteburger
 	name = "Big bite burger"
@@ -225,7 +313,11 @@
 		/obj/item/food/cheese/wedge = 2
 	)
 	result = /obj/item/food/burger/bigbite
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/superbiteburger
 	name = "Super bite burger"
@@ -242,7 +334,11 @@
 
 	)
 	result = /obj/item/food/burger/superbite
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/slimeburger
 	name = "Jelly burger"
@@ -251,7 +347,11 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/jelly/slime
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/jellyburger
 	name = "Jelly burger"
@@ -260,7 +360,11 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/jelly/cherry
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/fivealarmburger
 	name = "Five alarm burger"
@@ -270,7 +374,11 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/fivealarm
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/ratburger
 	name = "Rat burger"
@@ -279,7 +387,11 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/rat
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/baseballburger
 	name = "Home run baseball burger"
@@ -288,7 +400,11 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/baseball
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/baconburger
 	name = "Bacon Burger"
@@ -298,7 +414,11 @@
 	)
 
 	result = /obj/item/food/burger/baconburger
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/empoweredburger
 	name = "Empowered Burger"
@@ -308,7 +428,11 @@
 	)
 
 	result = /obj/item/food/burger/empoweredburger
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/catburger
 	name = "Cat burger"
@@ -319,7 +443,11 @@
 		/obj/item/organ/external/tail/cat = 1,
 	)
 	result = /obj/item/food/burger/catburger
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/crabburger
 	name = "Crab Burger"
@@ -329,7 +457,11 @@
 	)
 
 	result = /obj/item/food/burger/crab
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/cheeseburger
 	name = "Cheese Burger"
@@ -339,7 +471,11 @@
 			/obj/item/food/cheese/wedge = 1,
 	)
 	result = /obj/item/food/burger/cheese
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/soylentburger
 	name = "Soylent Burger"
@@ -349,7 +485,11 @@
 			/obj/item/food/cheese/wedge = 2,
 	)
 	result = /obj/item/food/burger/soylent
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/ribburger
 	name = "McRib"
@@ -359,7 +499,11 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/rib
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mcguffin
 	name = "McGuffin"
@@ -369,7 +513,11 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/mcguffin
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/chickenburger
 	name = "Chicken Sandwich"
@@ -379,7 +527,11 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/chicken
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/crazyhamburger
 	name = "Crazy hamburger"
@@ -394,4 +546,8 @@
 			/datum/reagent/consumable/cooking_oil = 15
 	)
 	result = /obj/item/food/burger/crazy
+<<<<<<< HEAD
 	subcategory = CAT_BURGER
+=======
+	category = CAT_BURGER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

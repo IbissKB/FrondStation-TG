@@ -74,7 +74,11 @@
 	name = "referee costume spawner"
 	items = list(
 		/obj/item/clothing/mask/whistle,
+<<<<<<< HEAD
 		/obj/item/clothing/gloves/color/latex,
+=======
+		/obj/item/clothing/gloves/latex,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/head/soft/black,
 		/obj/item/clothing/under/costume/referee,
@@ -167,6 +171,17 @@
 		/obj/item/clothing/suit/wizrobe/marisa/fake,
 	)
 
+<<<<<<< HEAD
+=======
+/obj/effect/spawner/costume/tape_wizard
+	name = "tape wizard costume spawner"
+	items = list(
+		/obj/item/clothing/head/wizard/tape/fake,
+		/obj/item/clothing/suit/wizrobe/tape/fake,
+		/obj/item/staff/tape,
+	)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/spawner/costume/cutewitch
 	name = "cute witch costume spawner"
 	items = list(

@@ -11,7 +11,11 @@
 /datum/element/rust/Attach(atom/target, rust_icon = 'icons/effects/rust_overlay.dmi', rust_icon_state = "rust_default")
 	. = ..()
 	if(!isatom(target))
+<<<<<<< HEAD
 		return COMPONENT_INCOMPATIBLE
+=======
+		return ELEMENT_INCOMPATIBLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!rust_overlay)
 		rust_overlay = image(rust_icon, rust_icon_state)
 	ADD_TRAIT(target, TRAIT_RUSTY, ELEMENT_TRAIT(type))
@@ -19,7 +23,11 @@
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(handle_examine))
 	RegisterSignals(target, list(COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_WELDER), COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_RUSTSCRAPER)), PROC_REF(secondary_tool_act))
 	// Unfortunately registering with parent sometimes doesn't cause an overlay update
+<<<<<<< HEAD
 	target.update_icon(UPDATE_OVERLAYS)
+=======
+	target.update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/element/rust/Detach(atom/source)
 	. = ..()
@@ -27,19 +35,37 @@
 	UnregisterSignal(source, COMSIG_PARENT_EXAMINE)
 	UnregisterSignal(source, list(COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_WELDER), COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_RUSTSCRAPER)))
 	REMOVE_TRAIT(source, TRAIT_RUSTY, ELEMENT_TRAIT(type))
+<<<<<<< HEAD
 	source.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/rust/proc/handle_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
+=======
+	source.update_appearance()
+
+/datum/element/rust/proc/handle_examine(datum/source, mob/user, list/examine_text)
+	SIGNAL_HANDLER
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	examine_text += span_notice("[source] is very rusty, you could probably <i>burn</i> or <i>scrape</i> it off.")
 
 /datum/element/rust/proc/apply_rust_overlay(atom/parent_atom, list/overlays)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	overlays += rust_overlay
+=======
+
+	if(rust_overlay)
+		overlays += rust_overlay
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Because do_after sleeps we register the signal here and defer via an async call
 /datum/element/rust/proc/secondary_tool_act(atom/source, mob/user, obj/item/item)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	INVOKE_ASYNC(src, PROC_REF(handle_tool_use), source, user, item)
 	return COMPONENT_BLOCK_TOOL_ATTACK
 

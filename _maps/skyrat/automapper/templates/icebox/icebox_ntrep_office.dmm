@@ -415,7 +415,11 @@
 /turf/open/floor/carpet/executive,
 /area/command/heads_quarters/captain/private/nt_rep)
 "Fk" = (
+<<<<<<< HEAD
 /turf/open/genturf/alternative,
+=======
+/turf/open/genturf/blue,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/icemoon/underground/unexplored/rivers/deep/shoreline)
 "FF" = (
 /obj/machinery/holopad,

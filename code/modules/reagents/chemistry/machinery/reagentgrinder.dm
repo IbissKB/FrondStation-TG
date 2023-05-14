@@ -67,8 +67,13 @@
 /obj/machinery/reagentgrinder/RefreshParts()
 	. = ..()
 	speed = 1
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		speed = M.rating
+=======
+	for(var/datum/stock_part/servo/servo in component_parts)
+		speed = servo.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/reagentgrinder/examine(mob/user)
 	. = ..()
@@ -99,7 +104,11 @@
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
+<<<<<<< HEAD
 	if(!can_interact(user) || !user.canUseTopic(src, !issilicon(user), FALSE, no_tk = TRUE))
+=======
+	if(!can_interact(user) || !user.can_perform_action(src, ALLOW_SILICON_REACH|FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(operating)
 		return
@@ -201,7 +210,11 @@
 /obj/machinery/reagentgrinder/ui_interact(mob/user) // The microwave Menu //I am reasonably certain that this is not a microwave
 	. = ..()
 
+<<<<<<< HEAD
 	if(operating || !user.canUseTopic(src, !issilicon(user)))
+=======
+	if(operating || !user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/list/options = list()
@@ -232,7 +245,11 @@
 		choice = show_radial_menu(user, src, options, require_near = !issilicon(user))
 
 	// post choice verification
+<<<<<<< HEAD
 	if(operating || (isAI(user) && machine_stat & NOPOWER) || !user.canUseTopic(src, !issilicon(user)))
+=======
+	if(operating || (isAI(user) && machine_stat & NOPOWER) || !user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	switch(choice)
@@ -361,3 +378,8 @@
 			var/amount = beaker.reagents.get_reagent_amount(/datum/reagent/consumable/cream)
 			beaker.reagents.remove_reagent(/datum/reagent/consumable/cream, amount)
 			beaker.reagents.add_reagent(/datum/reagent/consumable/whipped_cream, amount)
+<<<<<<< HEAD
+=======
+
+#undef MILK_TO_BUTTER_COEFF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

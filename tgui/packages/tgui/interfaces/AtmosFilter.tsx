@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
 import { Button, LabeledList, NumberInput, Section } from '../components';
 import { getGasLabel } from '../constants';
 import { Window } from '../layouts';
+=======
+import { Button, LabeledList, NumberInput, Section } from '../components';
+
+import { BooleanLike } from 'common/react';
+import { Window } from '../layouts';
+import { useBackend } from '../backend';
+import { getGasLabel } from '../constants';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 type Data = {
   filter_types: Filter[];
@@ -12,10 +21,16 @@ type Data = {
 };
 
 type Filter = {
+<<<<<<< HEAD
   id: number;
   enabled: BooleanLike;
   gas_id: number;
   gas_name: string;
+=======
+  enabled: BooleanLike;
+  gas_id: string;
+  name: string;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 export const AtmosFilter = (props, context) => {
@@ -23,6 +38,7 @@ export const AtmosFilter = (props, context) => {
   const { filter_types = [], on, rate, max_rate } = data;
 
   return (
+<<<<<<< HEAD
     <Window width={420} height={221}>
       <Window.Content>
         <Section>
@@ -35,6 +51,22 @@ export const AtmosFilter = (props, context) => {
                 onClick={() => act('power')}
               />
             </LabeledList.Item>
+=======
+    <Window width={440} height={240}>
+      <Window.Content>
+        <Section
+          buttons={
+            <Button
+              icon={on ? 'power-off' : 'times'}
+              content={on ? 'On' : 'Off'}
+              selected={on}
+              onClick={() => act('power')}
+            />
+          }
+          fill
+          title="Gas Filter">
+          <LabeledList>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
             <LabeledList.Item label="Transfer Rate">
               <NumberInput
                 animated
@@ -61,6 +93,7 @@ export const AtmosFilter = (props, context) => {
                 }
               />
             </LabeledList.Item>
+<<<<<<< HEAD
             <LabeledList.Item label="Filters">
               {filter_types.map((filter) => (
                 <Button
@@ -74,6 +107,21 @@ export const AtmosFilter = (props, context) => {
                     })
                   }
                 />
+=======
+            <LabeledList.Item label="Filter Types">
+              {filter_types.map(({ enabled, gas_id }, index) => (
+                <Button
+                  key={index}
+                  icon={enabled ? 'check-square-o' : 'square-o'}
+                  selected={enabled}
+                  onClick={() =>
+                    act('toggle_filter', {
+                      val: gas_id,
+                    })
+                  }>
+                  {getGasLabel(gas_id)}
+                </Button>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               ))}
             </LabeledList.Item>
           </LabeledList>

@@ -17,10 +17,17 @@
 		/obj/structure/closet/syndicate = 25, /obj/machinery/suit_storage_unit/syndicate = 15)
 
 /datum/map_generator_module/splatter_layer/syndie_mobs
+<<<<<<< HEAD
 	spawnableAtoms = list(/mob/living/simple_animal/hostile/syndicate = 30, \
 		/mob/living/simple_animal/hostile/syndicate/melee = 20, \
 		/mob/living/simple_animal/hostile/syndicate/ranged = 20, \
 		/mob/living/simple_animal/hostile/viscerator = 30)
+=======
+	spawnableAtoms = list(/mob/living/basic/syndicate = 30, \
+		/mob/living/basic/syndicate/melee = 20, \
+		/mob/living/basic/syndicate/ranged = 20, \
+		/mob/living/basic/viscerator = 30)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	spawnableTurfs = list()
 
 // Generators

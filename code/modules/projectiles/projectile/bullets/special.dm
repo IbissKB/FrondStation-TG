@@ -5,7 +5,10 @@
 	damage = 0
 	movement_type = FLYING
 	projectile_piercing = ALL
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hitsound = 'sound/items/bikehorn.ogg'
 	icon = 'icons/obj/hydroponics/harvest.dmi'
 	icon_state = "banana"

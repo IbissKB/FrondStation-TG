@@ -9,7 +9,11 @@
 	mob_biotypes = MOB_ORGANIC|MOB_EPIC
 	obj_damage = 400
 	light_range = 3
+<<<<<<< HEAD
 	faction = list("mining", "boss")
+=======
+	faction = list(FACTION_MINING, FACTION_BOSS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	weather_immunities = list(TRAIT_LAVA_IMMUNE,TRAIT_ASHSTORM_IMMUNE)
 	robust_searching = TRUE
 	ranged_ignores_vision = TRUE
@@ -46,8 +50,11 @@
 	var/recovery_time = 0
 	/// If this is a megafauna that is real (has achievements, gps signal)
 	var/true_spawn = TRUE
+<<<<<<< HEAD
 	/// Range the megafauna can move from their nest (if they have one
 	var/nest_range = 10
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// The chosen attack by the megafauna
 	var/chosen_attack = 1
 	/// Attack actions, sets chosen_attack to the number in the action
@@ -60,9 +67,14 @@
 	AddElement(/datum/element/simple_flying)
 	if(gps_name && true_spawn)
 		AddComponent(/datum/component/gps, gps_name)
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_NO_TELEPORT, MEGAFAUNA_TRAIT)
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_MARTIAL_ARTS_IMMUNE, MEGAFAUNA_TRAIT)
+=======
+	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_MARTIAL_ARTS_IMMUNE), MEGAFAUNA_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/action_type in attack_action_types)
 		var/datum/action/innate/megafauna_attack/attack_action = new action_type()
 		attack_action.Grant(src)
@@ -74,6 +86,7 @@
 	//Safety check
 	if(!loc)
 		return ..()
+<<<<<<< HEAD
 	if(nest && nest.parent && get_dist(nest.parent, src) > nest_range)
 		var/turf/closest = get_turf(nest.parent)
 		for(var/i = 1 to nest_range)
@@ -81,16 +94,27 @@
 		forceMove(closest) // someone teleported out probably and the megafauna kept chasing them
 		LoseTarget()
 		return
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /mob/living/simple_animal/hostile/megafauna/death(gibbed, list/force_grant)
 	if(health > 0)
 		return
 	var/datum/status_effect/crusher_damage/crusher_dmg = has_status_effect(/datum/status_effect/crusher_damage)
+<<<<<<< HEAD
 	var/crusher_kill = FALSE
 	if(crusher_dmg && crusher_loot && crusher_dmg.total_damage >= maxHealth * 0.6)
 		spawn_crusher_loot()
 		crusher_kill = TRUE
+=======
+	///Whether we killed the megafauna with primarily crusher damage or not
+	var/crusher_kill = FALSE
+	if(crusher_dmg && crusher_dmg.total_damage >= maxHealth * 0.6)
+		crusher_kill = TRUE
+		if(crusher_loot) // spawn crusher loot, if any
+			spawn_crusher_loot()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//SKYRAT ADDITION START - ASHWALKER TROPHIES
 	var/datum/status_effect/ashwalker_damage/ashie_damage = has_status_effect(/datum/status_effect/ashwalker_damage)
 	if(!crusher_kill && ashie_damage && crusher_loot && ashie_damage.total_damage >= maxHealth * 0.6)
@@ -160,6 +184,11 @@
 		if (EXPLODE_LIGHT)
 			adjustBruteLoss(50)
 
+<<<<<<< HEAD
+=======
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Sets/adds the next time the megafauna can use a melee or ranged attack, in deciseconds. It is a list to allow using named args. Use the ignore_staggered var if youre setting the cooldown to ranged_cooldown_time.
 /mob/living/simple_animal/hostile/megafauna/proc/update_cooldowns(list/cooldown_updates, ignore_staggered = FALSE)
 	if(!ignore_staggered && has_status_effect(/datum/status_effect/stagger))
@@ -184,7 +213,11 @@
 	for(var/mob/living/L in grant_achievement)
 		if(L.stat || !L.client)
 			continue
+<<<<<<< HEAD
 		L?.mind.add_memory(MEMORY_MEGAFAUNA_KILL, list(DETAIL_PROTAGONIST = L, DETAIL_DEUTERAGONIST = src), STORY_VALUE_LEGENDARY, memory_flags = MEMORY_CHECK_BLIND_AND_DEAF)
+=======
+		L.add_mob_memory(/datum/memory/megafauna_slayer, antagonist = src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		L.client.give_award(/datum/award/achievement/boss/boss_killer, L)
 		L.client.give_award(achievement_type, L)
 		if(crusher_kill && istype(L.get_active_held_item(), /obj/item/kinetic_crusher))

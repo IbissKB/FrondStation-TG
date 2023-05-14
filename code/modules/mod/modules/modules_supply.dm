@@ -12,7 +12,11 @@
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 0.2
 	incompatible_modules = list(/obj/item/mod/module/gps)
 	cooldown_time = 0.5 SECONDS
+<<<<<<< HEAD
 	allowed_inactive = TRUE
+=======
+	allow_flags = MODULE_ALLOW_INACTIVE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/mod/module/gps/Initialize(mapload)
 	. = ..()
@@ -82,7 +86,11 @@
 	else
 		balloon_alert(mod.wearer, "invalid target!")
 
+<<<<<<< HEAD
 /obj/item/mod/module/clamp/on_suit_deactivation(deleting = FALSE)
+=======
+/obj/item/mod/module/clamp/on_suit_deactivation(deleting = FALSE) //SKYRAT EDIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(deleting)
 		return
 	for(var/atom/movable/crate as anything in stored_crates)
@@ -173,7 +181,11 @@
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 0.2
 	incompatible_modules = list(/obj/item/mod/module/orebag)
 	cooldown_time = 0.5 SECONDS
+<<<<<<< HEAD
 	allowed_inactive = TRUE
+=======
+	allow_flags = MODULE_ALLOW_INACTIVE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// The ores stored in the bag.
 	var/list/ores = list()
 
@@ -227,12 +239,15 @@
 	/// User overlay
 	var/mutable_appearance/lightning
 
+<<<<<<< HEAD
 /obj/item/mod/module/hydraulic/on_suit_activation()
 	ADD_TRAIT(mod.wearer, TRAIT_TRASHMAN, MOD_TRAIT)
 
 /obj/item/mod/module/hydraulic/on_suit_deactivation(deleting = FALSE) //SKYRAT EDIT
 	REMOVE_TRAIT(mod.wearer, TRAIT_TRASHMAN, MOD_TRAIT)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/mod/module/hydraulic/on_select_use(atom/target)
 	. = ..()
 	if(!.)
@@ -375,7 +390,11 @@
 	/// How many tiles we traveled through.
 	var/traveled_tiles = 0
 	/// Armor values per tile.
+<<<<<<< HEAD
 	var/list/armor_values = list(MELEE = 4, BULLET = 1, LASER = 2, ENERGY = 2, BOMB = 4)
+=======
+	var/datum/armor/armor_mod = /datum/armor/mod_ash_accretion
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Speed added when you're fully covered in ash.
 	var/speed_added = 0.5
 	/// Speed that we actually added.
@@ -385,6 +404,16 @@
 	/// Turfs that let us keep ash.
 	var/static/list/keep_turfs
 
+<<<<<<< HEAD
+=======
+/datum/armor/mod_ash_accretion
+	melee = 4
+	bullet = 1
+	laser = 2
+	energy = 2
+	bomb = 4
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/mod/module/ash_accretion/Initialize(mapload)
 	. = ..()
 	if(!accretion_turfs)
@@ -408,6 +437,7 @@
 		))
 
 /obj/item/mod/module/ash_accretion/on_suit_activation()
+<<<<<<< HEAD
 	ADD_TRAIT(mod.wearer, TRAIT_ASHSTORM_IMMUNE, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_SNOWSTORM_IMMUNE, MOD_TRAIT)
 	RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
@@ -415,15 +445,28 @@
 /obj/item/mod/module/ash_accretion/on_suit_deactivation(deleting = FALSE)
 	REMOVE_TRAIT(mod.wearer, TRAIT_ASHSTORM_IMMUNE, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_SNOWSTORM_IMMUNE, MOD_TRAIT)
+=======
+	mod.wearer.add_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE), MOD_TRAIT)
+	RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
+
+/obj/item/mod/module/ash_accretion/on_suit_deactivation(deleting = FALSE)
+	mod.wearer.remove_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE), MOD_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)
 	if(!traveled_tiles)
 		return
 	var/list/parts = mod.mod_parts + mod
+<<<<<<< HEAD
 	var/list/removed_armor = armor_values.Copy()
 	for(var/armor_type in removed_armor)
 		removed_armor[armor_type] = -removed_armor[armor_type] * traveled_tiles
 	for(var/obj/item/part as anything in parts)
 		part.armor = part.armor.modifyRating(arglist(removed_armor))
+=======
+	var/datum/armor/to_remove = get_armor_by_type(armor_mod)
+	for(var/obj/item/part as anything in parts)
+		part.set_armor(part.get_armor().subtract_other_armor(to_remove.generate_new_with_multipliers(list(ARMOR_ALL = traveled_tiles))))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(traveled_tiles == max_traveled_tiles)
 		mod.slowdown += speed_added
 		mod.wearer.update_equipment_speed_mods()
@@ -444,7 +487,11 @@
 		traveled_tiles++
 		var/list/parts = mod.mod_parts + mod
 		for(var/obj/item/part as anything in parts)
+<<<<<<< HEAD
 			part.armor = part.armor.modifyRating(arglist(armor_values))
+=======
+			part.set_armor(part.get_armor().add_other_armor(armor_mod))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(traveled_tiles >= max_traveled_tiles)
 			balloon_alert(mod.wearer, "fully ash covered")
 			mod.wearer.color = list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,3) //make them super light
@@ -463,11 +510,16 @@
 			mod.wearer.update_equipment_speed_mods()
 		traveled_tiles--
 		var/list/parts = mod.mod_parts + mod
+<<<<<<< HEAD
 		var/list/removed_armor = armor_values.Copy()
 		for(var/armor_type in removed_armor)
 			removed_armor[armor_type] = -removed_armor[armor_type]
 		for(var/obj/item/part as anything in parts)
 			part.armor = part.armor.modifyRating(arglist(removed_armor))
+=======
+		for(var/obj/item/part as anything in parts)
+			part.set_armor(part.get_armor().subtract_other_armor(armor_mod))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(traveled_tiles <= 0)
 			balloon_alert(mod.wearer, "ran out of ash!")
 
@@ -484,6 +536,16 @@
 	cooldown_time = 1.25 SECONDS
 	/// Time it takes us to complete the animation.
 	var/animate_time = 0.25 SECONDS
+<<<<<<< HEAD
+=======
+	/// List of traits to add/remove from our subject as needed.
+	var/static/list/user_traits = list(
+		TRAIT_FORCED_STANDING,
+		TRAIT_HANDS_BLOCKED,
+		TRAIT_LAVA_IMMUNE,
+		TRAIT_NO_SLIP_ALL,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/mod/module/sphere_transform/on_activation()
 	if(!mod.wearer.has_gravity())
@@ -499,10 +561,14 @@
 	mod.wearer.base_pixel_y -= 4
 	animate(mod.wearer, animate_time, pixel_y = mod.wearer.base_pixel_y, flags = ANIMATION_PARALLEL)
 	mod.wearer.SpinAnimation(1.5)
+<<<<<<< HEAD
 	ADD_TRAIT(mod.wearer, TRAIT_LAVA_IMMUNE, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_HANDS_BLOCKED, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_FORCED_STANDING, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_NOSLIPALL, MOD_TRAIT)
+=======
+	mod.wearer.add_traits(user_traits, MOD_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mod.wearer.RemoveElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	mod.wearer.AddElement(/datum/element/footstep, FOOTSTEP_OBJ_ROBOT, 1, -6, sound_vary = TRUE)
 	mod.wearer.add_movespeed_modifier(/datum/movespeed_modifier/sphere)
@@ -514,6 +580,7 @@
 		return
 	if(!deleting)
 		playsound(src, 'sound/items/modsuit/ballin.ogg', 100, TRUE, frequency = -1)
+<<<<<<< HEAD
 	mod.wearer.base_pixel_y = 0
 	animate(mod.wearer, animate_time, pixel_y = mod.wearer.base_pixel_y)
 	addtimer(CALLBACK(mod.wearer, TYPE_PROC_REF(/atom, remove_filter), list("mod_ball", "mod_blur", "mod_outline")), animate_time)
@@ -521,6 +588,12 @@
 	REMOVE_TRAIT(mod.wearer, TRAIT_HANDS_BLOCKED, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_FORCED_STANDING, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_NOSLIPALL, MOD_TRAIT)
+=======
+	mod.wearer.base_pixel_y += 4
+	animate(mod.wearer, animate_time, pixel_y = mod.wearer.base_pixel_y)
+	addtimer(CALLBACK(mod.wearer, TYPE_PROC_REF(/datum, remove_filter), list("mod_ball", "mod_blur", "mod_outline")), animate_time)
+	mod.wearer.remove_traits(user_traits, MOD_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mod.wearer.remove_movespeed_mod_immunities(MOD_TRAIT, /datum/movespeed_modifier/damage_slowdown)
 	mod.wearer.RemoveElement(/datum/element/footstep, FOOTSTEP_OBJ_ROBOT, 1, -6, sound_vary = TRUE)
 	mod.wearer.AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
@@ -545,7 +618,11 @@
 	INVOKE_ASYNC(bomb, TYPE_PROC_REF(/obj/projectile, fire))
 	drain_power(use_power_cost)
 
+<<<<<<< HEAD
 /obj/item/mod/module/sphere_transform/on_active_process(delta_time)
+=======
+/obj/item/mod/module/sphere_transform/on_active_process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	animate(mod.wearer) //stop the animation
 	mod.wearer.SpinAnimation(1.5) //start it back again
 	if(!mod.wearer.has_gravity())
@@ -564,7 +641,10 @@
 	icon_state = "mine_bomb"
 	icon = 'icons/obj/clothing/modsuit/mod_modules.dmi'
 	damage = 0
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	range = 6
 	suppressed = SUPPRESSED_VERY
 	armor_flag = BOMB

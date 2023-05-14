@@ -111,7 +111,11 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/ballgag/choking/process(delta_time)
+=======
+/obj/item/clothing/mask/ballgag/choking/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/human/wearer = loc
 	if(!istype(wearer))
 		return
@@ -119,7 +123,11 @@
 		return
 	if(!chokes_wearer)
 		return
+<<<<<<< HEAD
 	choke_timer += delta_time
+=======
+	choke_timer += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(choke_timer < choke_interval)
 		return
 	switch(gag_size)

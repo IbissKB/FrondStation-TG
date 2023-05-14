@@ -13,7 +13,11 @@
 		message_admins("[key_name(src)] toggled debugging on.")
 		log_admin("[key_name(src)] toggled debugging on.")
 
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Debug Two") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Debug Two") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/Cell()
 	set category = "Debug"
@@ -24,7 +28,11 @@
 	if(!isturf(T))
 		return
 	atmos_scan(user=usr, target=T, silent=TRUE)
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Air Status In Location") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Air Status In Location") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_admin_robotize(mob/M in GLOB.mob_list)
 	set category = "Admin.Fun"
@@ -68,7 +76,11 @@
 		CHECK_TICK
 	log_admin("[key_name(src)] has deleted all ([counter]) instances of [type_to_del].")
 	message_admins("[key_name_admin(src)] has deleted all ([counter]) instances of [type_to_del].")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Delete All") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Delete All") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_debug_force_del_all(object as text)
 	set category = "Debug"
@@ -87,7 +99,11 @@
 		CHECK_TICK
 	log_admin("[key_name(src)] has force-deleted all ([counter]) instances of [type_to_del].")
 	message_admins("[key_name_admin(src)] has force-deleted all ([counter]) instances of [type_to_del].")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Force-Delete All") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Force-Delete All") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_debug_hard_del_all(object as text)
 	set category = "Debug"
@@ -131,7 +147,11 @@
 			CHECK_TICK
 	log_admin("[key_name(src)] has hard deleted all ([counter]) instances of [type_to_del].")
 	message_admins("[key_name_admin(src)] has hard deleted all ([counter]) instances of [type_to_del].")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Hard Delete All") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Hard Delete All") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_debug_make_powernets()
 	set category = "Debug"
@@ -139,7 +159,11 @@
 	SSmachines.makepowernets()
 	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.")
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Make Powernets") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Make Powernets") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_admin_grantfullaccess(mob/M in GLOB.mob_list)
 	set category = "Debug"
@@ -181,7 +205,11 @@
 
 	else
 		tgui_alert(usr,"Invalid mob")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Grant Full Access") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Grant Full Access") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	log_admin("[key_name(src)] has granted [M.key] full access.")
 	message_admins(span_adminnotice("[key_name_admin(usr)] has granted [M.key] full access."))
 
@@ -205,7 +233,11 @@
 	init_verbs()
 	if(isobserver(adminmob))
 		qdel(adminmob)
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Assume Direct Control") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Assume Direct Control") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_give_direct_control(mob/M in GLOB.mob_list)
 	set category = "Admin.Game"
@@ -232,7 +264,11 @@
 		qdel(oldmob)
 	message_admins(span_adminnotice("[key_name_admin(usr)] gave away direct control of [M] to [newkey]."))
 	log_admin("[key_name(usr)] gave away direct control of [M] to [newkey].")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Direct Control") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Direct Control") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_admin_areatest(on_station, filter_maint)
 	set category = "Mapping"
@@ -310,7 +346,11 @@
 			areas_with_multiple_APCs.Add(A.type)
 		CHECK_TICK
 
+<<<<<<< HEAD
 	for(var/obj/machinery/airalarm/AA in GLOB.machines)
+=======
+	for(var/obj/machinery/airalarm/AA in GLOB.air_alarms)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/area/A = get_area(AA)
 		if(!A) //Make sure the target isn't inside an object, which results in runtimes.
 			dat += "Skipped over [AA] in invalid location, [AA.loc].<br>"
@@ -319,7 +359,11 @@
 			areas_with_air_alarm.Add(A.type)
 		CHECK_TICK
 
+<<<<<<< HEAD
 	for(var/obj/machinery/requests_console/RC in GLOB.allConsoles)
+=======
+	for(var/obj/machinery/requests_console/RC in GLOB.req_console_all)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/area/A = get_area(RC)
 		if(!A)
 			dat += "Skipped over [RC] in invalid location, [RC.loc].<br>"
@@ -513,7 +557,11 @@
 	var/msg = span_danger("Admin [key_name_admin(usr)] healed / revived [ADMIN_LOOKUPFLW(M)]!")
 	message_admins(msg)
 	admin_ticket_log(M, msg)
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Rejuvenate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Rejuvenate") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/cmd_admin_delete(atom/A as obj|mob|turf in world)
 	set category = "Debug"
@@ -531,7 +579,11 @@
 	var/list/L = M.get_contents()
 	for(var/t in L)
 		to_chat(usr, "[t] [ADMIN_VV(t)] [ADMIN_TAG(t)]", confidential = TRUE)
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check Contents") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check Contents") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/modify_goals()
 	set category = "Debug"
@@ -737,7 +789,11 @@
 	set name = "Unload CTF"
 	set desc = "Despawns the majority of CTF"
 
+<<<<<<< HEAD
 	toggle_id_ctf(usr, unload=TRUE)
+=======
+	toggle_id_ctf(usr, CTF_GHOST_CTF_GAME_ID, unload=TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/proc/run_empty_query(val as num)
 	set category = "Debug"
@@ -795,6 +851,18 @@
 
 	GLOB.error_cache.show_to(src)
 
+<<<<<<< HEAD
+=======
+	// The runtime viewer has the potential to crash the server if there's a LOT of runtimes
+	// this has happened before, multiple times, so we'll just leave an alert on it
+	if(GLOB.total_runtimes >= 50000) // arbitrary number, I don't know when exactly it happens
+		var/warning = "There are a lot of runtimes, clicking any button (especially \"linear\") can have the potential to lag or crash the server"
+		if(GLOB.total_runtimes >= 100000)
+			warning = "There are a TON of runtimes, clicking any button (especially \"linear\") WILL LIKELY crash the server"
+		// Not using TGUI alert, because it's view runtimes, stuff is probably broken
+		alert(usr, "[warning]. Proceed with caution. If you really need to see the runtimes, download the runtime log and view it in a text editor.", "HEED THIS WARNING CAREFULLY MORTAL")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /client/proc/pump_random_event()
 	set category = "Debug"
 	set name = "Pump Random Event"
@@ -852,7 +920,11 @@
 	set desc = "Force config reload to world default"
 	if(!check_rights(R_DEBUG))
 		return
+<<<<<<< HEAD
 	if(tgui_alert(usr, "Are you absolutely sure you want to reload the configuration from the default path on the disk, wiping any in-round modificatoins?", "Really reset?", list("No", "Yes")) == "Yes")
+=======
+	if(tgui_alert(usr, "Are you absolutely sure you want to reload the configuration from the default path on the disk, wiping any in-round modifications?", "Really reset?", list("No", "Yes")) == "Yes")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		config.admin_reload()
 
 /// A debug verb to check the sources of currently running timers

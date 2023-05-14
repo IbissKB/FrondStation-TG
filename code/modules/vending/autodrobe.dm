@@ -52,8 +52,19 @@
 				/obj/item/clothing/under/costume/deckers = 5,
 				/obj/item/clothing/under/costume/sailor = 1,
 				/obj/item/clothing/head/costume/delinquent = 1,
+<<<<<<< HEAD
 			),
 		),		
+=======
+				/obj/item/clothing/suit/costume/dracula = 1,
+				/obj/item/clothing/under/costume/draculass = 1,
+				/obj/item/clothing/suit/costume/gothcoat = 1,
+				/obj/item/clothing/glasses/eyepatch = 1,
+				/obj/item/clothing/glasses/eyepatch/medical = 1,
+				/obj/item/clothing/under/costume/gi = 1,
+			),
+		),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		list(
 			"name" = "Supernatural",
 			"icon" = "hand-sparkles",
@@ -72,7 +83,11 @@
 				/obj/item/clothing/suit/costume/shrine_maiden = 1,
 				/obj/item/gohei = 1,
 			),
+<<<<<<< HEAD
 		),		
+=======
+		),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		list(
 			"name" = "Entertainers",
 			"icon" = "masks-theater",
@@ -84,7 +99,11 @@
 				/obj/item/clothing/under/rank/civilian/clown/purple = 1,
 				/obj/item/clothing/mask/gas/sexyclown = 1,
 				/obj/item/clothing/under/rank/civilian/clown/sexy = 1,
+<<<<<<< HEAD
 				/obj/item/clothing/head/beret = 3,
+=======
+				/obj/item/clothing/head/beret = 6,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				/obj/item/clothing/mask/gas/sexymime = 1,
 				/obj/item/clothing/under/rank/civilian/mime/sexy = 1,
 				/obj/item/clothing/under/rank/civilian/mime/skirt = 1,
@@ -100,7 +119,11 @@
 				/obj/item/clothing/head/costume/cueball = 1,
 				/obj/item/clothing/under/suit/white_on_white = 1,
 			),
+<<<<<<< HEAD
 		),		
+=======
+		),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		list(
 			"name" = "Fancy",
 			"icon" = "user-tie",
@@ -125,7 +148,11 @@
 				/obj/item/clothing/suit/costume/cheongsam_red = 1,
 				/obj/item/clothing/suit/costume/cheongsam_blue = 1,
 			),
+<<<<<<< HEAD
 		),		
+=======
+		),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		list(
 			"name" = "Animals",
 			"icon" = "paw",
@@ -149,7 +176,11 @@
 				/obj/item/clothing/mask/animal/cowmask = 1,
 				/obj/item/clothing/mask/animal/horsehead = 1,
 			),
+<<<<<<< HEAD
 		),		
+=======
+		),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		list(
 			"name" = "Service",
 			"icon" = "kitchen-set",
@@ -167,7 +198,11 @@
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 1,
 				/obj/item/clothing/accessory/maidapron = 1,
 			),
+<<<<<<< HEAD
 		),		
+=======
+		),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		list(
 			"name" = "Other",
 			"icon" = "star",
@@ -197,7 +232,14 @@
 		/obj/item/clothing/shoes/clown_shoes/ducky_shoes = 1,
 		/obj/item/clothing/shoes/clown_shoes/meown_shoes = 1,
 		/obj/item/clothing/suit/costume/judgerobe = 1,
+<<<<<<< HEAD
 		/obj/item/gun/magic/wand/nothing = 2,
+=======
+		/obj/item/clothing/head/costume/lobsterhat = 1,
+		/obj/item/clothing/under/costume/lobster = 1,
+		/obj/item/gun/magic/wand/nothing = 2,
+		/obj/item/storage/box/tape_wizard = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	premium = list(
 		/obj/item/clothing/suit/costume/pirate/captain = 2,
@@ -215,7 +257,14 @@
 		/obj/item/clothing/under/dress/wedding_dress = 1,
 		/obj/item/clothing/under/suit/tuxedo = 1,
 		/obj/item/clothing/head/costume/weddingveil = 1,
+<<<<<<< HEAD
 		/obj/item/storage/belt/cummerbund = 1,
+=======
+		/obj/item/storage/belt/fannypack/cummerbund = 1,
+		/obj/item/clothing/suit/costume/drfreeze_coat = 1,
+		/obj/item/clothing/under/costume/drfreeze = 1,
+		/obj/item/clothing/head/costume/drfreezehat = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	refill_canister = /obj/item/vending_refill/autodrobe
 	default_price = PAYCHECK_CREW * 0.8 //Default of 40.

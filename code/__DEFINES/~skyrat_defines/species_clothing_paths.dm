@@ -21,7 +21,11 @@
 #define VOX_PRIMALIS_BELT_ICON 'modular_skyrat/modules/better_vox/icons/clothing/belt.dmi'
 #define VOX_PRIMALIS_EYES_ICON 'modular_skyrat/modules/better_vox/icons/clothing/eyes.dmi'
 #define VOX_PRIMALIS_FEET_ICON 'modular_skyrat/modules/better_vox/icons/clothing/feet.dmi'
+<<<<<<< HEAD
 #define VOX_PRIMALIS_HANDS_ICON 'modular_skyrat/modules/better_vox/icons/clothing/hands.dmi'
+=======
+#define VOX_PRIMALIS_GLOVES_ICON 'modular_skyrat/modules/better_vox/icons/clothing/hands.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define VOX_PRIMALIS_HEAD_ICON 'modular_skyrat/modules/better_vox/icons/clothing/head.dmi'
 #define VOX_PRIMALIS_MASK_ICON 'modular_skyrat/modules/better_vox/icons/clothing/mask.dmi'
 #define VOX_PRIMALIS_NECK_ICON 'modular_skyrat/modules/better_vox/icons/clothing/neck.dmi'

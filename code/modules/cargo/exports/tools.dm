@@ -155,4 +155,8 @@
 /datum/export/candle
 	cost = CARGO_CRATE_VALUE * 0.125
 	unit_name = "candle"
+<<<<<<< HEAD
 	export_types = list(/obj/item/candle)
+=======
+	export_types = list(/obj/item/flashlight/flare/candle)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

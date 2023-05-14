@@ -44,7 +44,11 @@
 
 	if(A.stage >= 3)
 		M.adjust_dizzy(-4 SECONDS)
+<<<<<<< HEAD
 		M.adjust_drowsyness(-2)
+=======
+		M.adjust_drowsiness(-4 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		M.adjust_slurring(-1 SECONDS)
 		M.adjust_confusion(-2 SECONDS)
 		if(purge_alcohol)
@@ -52,7 +56,11 @@
 			M.adjust_drunk_effect(-5)
 
 	if(A.stage >= 4)
+<<<<<<< HEAD
 		M.adjust_drowsyness(-2)
+=======
+		M.adjust_drowsiness(-4 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(M.reagents.has_reagent(/datum/reagent/toxin/mindbreaker))
 			M.reagents.remove_reagent(/datum/reagent/toxin/mindbreaker, 5)
 		if(M.reagents.has_reagent(/datum/reagent/toxin/histamine))
@@ -84,6 +92,7 @@
 	symptom_delay_min = 1
 	symptom_delay_max = 1
 
+<<<<<<< HEAD
 /datum/symptom/sensory_restoration/Activate(datum/disease/advance/A)
 	. = ..()
 	if(!.)
@@ -113,3 +122,36 @@
 		else
 			if(prob(base_message_chance))
 				to_chat(M, span_notice("[pick("Your eyes feel great.","You feel like your eyes can focus more clearly.", "You don't feel the need to blink.","Your ears feel great.","Your hearing feels more acute.")]"))
+=======
+/datum/symptom/sensory_restoration/Activate(datum/disease/advance/source_disease)
+	. = ..()
+	if(!.)
+		return
+	var/mob/living/carbon/ill_mob = source_disease.affected_mob
+	switch(source_disease.stage)
+		if(4, 5)
+			var/obj/item/organ/internal/ears/ears = ill_mob.get_organ_slot(ORGAN_SLOT_EARS)
+			if(ears)
+				ears.adjustEarDamage(-4, -4)
+
+			ill_mob.adjust_temp_blindness(-4 SECONDS)
+			ill_mob.adjust_eye_blur(-4 SECONDS)
+
+			var/obj/item/organ/internal/eyes/eyes = ill_mob.get_organ_slot(ORGAN_SLOT_EYES)
+			if(!eyes) // only dealing with eye stuff from here on out
+				return
+
+			eyes.apply_organ_damage(-2)
+			if(prob(20))
+				if(ill_mob.is_blind_from(EYE_DAMAGE))
+					to_chat(ill_mob, span_warning("Your vision slowly returns..."))
+					ill_mob.adjust_eye_blur(20 SECONDS)
+
+				else if(ill_mob.is_nearsighted_from(EYE_DAMAGE))
+					to_chat(ill_mob, span_warning("The blackness in your peripheral vision begins to fade."))
+					ill_mob.adjust_eye_blur(5 SECONDS)
+
+		else
+			if(prob(base_message_chance))
+				to_chat(ill_mob, span_notice("[pick("Your eyes feel great.","You feel like your eyes can focus more clearly.", "You don't feel the need to blink.","Your ears feel great.","Your hearing feels more acute.")]"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

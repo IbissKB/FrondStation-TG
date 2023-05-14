@@ -23,17 +23,27 @@
 
 
 /mob/living/simple_animal/robot_customer/Initialize(mapload, datum/customer_data/customer_data = /datum/customer_data/american, datum/venue/attending_venue = SSrestaurant.all_venues[/datum/venue/restaurant])
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_NOMOBSWAP, INNATE_TRAIT) //dont push me bitch
 	ADD_TRAIT(src, TRAIT_NO_TELEPORT, INNATE_TRAIT) //dont teleport me bitch
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT) //strong arms bitch
+=======
+	ADD_TRAIT(src, list(TRAIT_NOMOBSWAP, TRAIT_NO_TELEPORT, TRAIT_STRONG_GRABBER), INNATE_TRAIT) // never suffer a bitch to fuck with you
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/footstep, FOOTSTEP_OBJ_ROBOT, 1, -6, sound_vary = TRUE)
 	var/datum/customer_data/customer_info = SSrestaurant.all_customers[customer_data]
 	clothes_set = pick(customer_info.clothing_sets)
 	ai_controller = customer_info.ai_controller_used
 	. = ..()
+<<<<<<< HEAD
 	ai_controller.blackboard[BB_CUSTOMER_CUSTOMERINFO] = customer_info
 	ai_controller.blackboard[BB_CUSTOMER_ATTENDING_VENUE] = attending_venue
 	ai_controller.blackboard[BB_CUSTOMER_PATIENCE] = customer_info.total_patience
+=======
+	ai_controller.set_blackboard_key(BB_CUSTOMER_CUSTOMERINFO, customer_info)
+	ai_controller.set_blackboard_key(BB_CUSTOMER_ATTENDING_VENUE, attending_venue)
+	ai_controller.set_blackboard_key(BB_CUSTOMER_PATIENCE, customer_info.total_patience)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = customer_info.base_icon
 	icon_state = customer_info.base_icon_state
 	name = "[pick(customer_info.name_prefixes)]-bot"
@@ -43,9 +53,14 @@
 ///Clean up on the mobs seat etc when its deleted (Either by murder or because it left)
 /mob/living/simple_animal/robot_customer/Destroy()
 	var/datum/venue/attending_venue = ai_controller.blackboard[BB_CUSTOMER_ATTENDING_VENUE]
+<<<<<<< HEAD
 	attending_venue.current_visitors -= src
 	var/datum/weakref/seat_ref = ai_controller.blackboard[BB_CUSTOMER_MY_SEAT]
 	var/obj/structure/holosign/robot_seat/our_seat = seat_ref?.resolve()
+=======
+	var/obj/structure/holosign/robot_seat/our_seat = ai_controller.blackboard[BB_CUSTOMER_MY_SEAT]
+	attending_venue.current_visitors -= src
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(attending_venue.linked_seats[our_seat])
 		attending_venue.linked_seats[our_seat] = null
 	QDEL_NULL(hud_to_show_on_hover)
@@ -92,6 +107,10 @@
 
 /mob/living/simple_animal/robot_customer/examine(mob/user)
 	. = ..()
+<<<<<<< HEAD
+=======
+	// this should be handled by the ai controller
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(ai_controller.blackboard[BB_CUSTOMER_CURRENT_ORDER])
 		var/datum/venue/attending_venue = ai_controller.blackboard[BB_CUSTOMER_ATTENDING_VENUE]
 		var/wanted_item = ai_controller.blackboard[BB_CUSTOMER_CURRENT_ORDER]

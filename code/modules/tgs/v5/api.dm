@@ -17,9 +17,20 @@
 
 	var/initialized = FALSE
 
+<<<<<<< HEAD
 /datum/tgs_api/v5/ApiVersion()
 	return new /datum/tgs_version(
 		#include "interop_version.dm"
+=======
+	var/chunked_requests = 0
+	var/list/chunked_topics = list()
+
+	var/detached = FALSE
+
+/datum/tgs_api/v5/ApiVersion()
+	return new /datum/tgs_version(
+		#include "__interop_version.dm"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /datum/tgs_api/v5/OnWorldNew(minimum_required_security_level)
@@ -97,6 +108,7 @@
 /datum/tgs_api/v5/OnInitializationComplete()
 	Bridge(DMAPI5_BRIDGE_COMMAND_PRIME)
 
+<<<<<<< HEAD
 /datum/tgs_api/v5/proc/TopicResponse(error_message = null)
 	var/list/response = list()
 	response[DMAPI5_RESPONSE_ERROR_MESSAGE] = error_message
@@ -104,11 +116,16 @@
 	return json_encode(response)
 
 /datum/tgs_api/v5/OnTopic(T)
+=======
+/datum/tgs_api/v5/OnTopic(T)
+	RequireInitialBridgeResponse()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/params = params2list(T)
 	var/json = params[DMAPI5_TOPIC_DATA]
 	if(!json)
 		return FALSE // continue to /world/Topic
 
+<<<<<<< HEAD
 	var/list/topic_parameters = json_decode(json)
 	if(!topic_parameters)
 		return TopicResponse("Invalid topic parameters json!");
@@ -263,6 +280,13 @@
 		return
 
 	return bridge_response
+=======
+	if(!initialized)
+		TGS_WARNING_LOG("Missed topic due to not being initialized: [json]")
+		return TRUE // too early to handle, but it's still our responsibility
+
+	return ProcessTopicJson(json, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/tgs_api/v5/OnReboot()
 	var/list/result = Bridge(DMAPI5_BRIDGE_COMMAND_REBOOT)
@@ -297,7 +321,19 @@
 	RequireInitialBridgeResponse()
 	return revision
 
+<<<<<<< HEAD
 /datum/tgs_api/v5/ChatBroadcast(message, list/channels)
+=======
+// Common proc b/c it's used by the V3/V4 APIs
+/datum/tgs_api/proc/UpgradeDeprecatedChatMessage(datum/tgs_message_content/message)
+	if(!istext(message))
+		return message
+
+	TGS_WARNING_LOG("Received legacy string when a [/datum/tgs_message_content] was expected. Please audit all calls to TgsChatBroadcast, TgsChatTargetedBroadcast, and TgsChatPrivateMessage to ensure they use the new /datum.")
+	return new /datum/tgs_message_content(message)
+
+/datum/tgs_api/v5/ChatBroadcast(datum/tgs_message_content/message, list/channels)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!length(channels))
 		channels = ChatChannelInfo()
 
@@ -306,26 +342,50 @@
 		var/datum/tgs_chat_channel/channel = I
 		ids += channel.id
 
+<<<<<<< HEAD
 	message = list(DMAPI5_CHAT_MESSAGE_TEXT = message, DMAPI5_CHAT_MESSAGE_CHANNEL_IDS = ids)
+=======
+	message = UpgradeDeprecatedChatMessage(message)
+	message = message._interop_serialize()
+	message[DMAPI5_CHAT_MESSAGE_CHANNEL_IDS] = ids
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(intercepted_message_queue)
 		intercepted_message_queue += list(message)
 	else
 		Bridge(DMAPI5_BRIDGE_COMMAND_CHAT_SEND, list(DMAPI5_BRIDGE_PARAMETER_CHAT_MESSAGE = message))
 
+<<<<<<< HEAD
 /datum/tgs_api/v5/ChatTargetedBroadcast(message, admin_only)
+=======
+/datum/tgs_api/v5/ChatTargetedBroadcast(datum/tgs_message_content/message, admin_only)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/channels = list()
 	for(var/I in ChatChannelInfo())
 		var/datum/tgs_chat_channel/channel = I
 		if (!channel.is_private_channel && ((channel.is_admin_channel && admin_only) || (!channel.is_admin_channel && !admin_only)))
 			channels += channel.id
+<<<<<<< HEAD
 	message = list(DMAPI5_CHAT_MESSAGE_TEXT = message, DMAPI5_CHAT_MESSAGE_CHANNEL_IDS = channels)
+=======
+
+	message = UpgradeDeprecatedChatMessage(message)
+	message = message._interop_serialize()
+	message[DMAPI5_CHAT_MESSAGE_CHANNEL_IDS] = channels
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(intercepted_message_queue)
 		intercepted_message_queue += list(message)
 	else
 		Bridge(DMAPI5_BRIDGE_COMMAND_CHAT_SEND, list(DMAPI5_BRIDGE_PARAMETER_CHAT_MESSAGE = message))
 
+<<<<<<< HEAD
 /datum/tgs_api/v5/ChatPrivateMessage(message, datum/tgs_chat_user/user)
 	message = list(DMAPI5_CHAT_MESSAGE_TEXT = message, DMAPI5_CHAT_MESSAGE_CHANNEL_IDS = list(user.channel.id))
+=======
+/datum/tgs_api/v5/ChatPrivateMessage(datum/tgs_message_content/message, datum/tgs_chat_user/user)
+	message = UpgradeDeprecatedChatMessage(message)
+	message = message._interop_serialize()
+	message[DMAPI5_CHAT_MESSAGE_CHANNEL_IDS] = list(user.channel.id)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(intercepted_message_queue)
 		intercepted_message_queue += list(message)
 	else
@@ -354,6 +414,10 @@
 	channel.is_admin_channel = channel_json[DMAPI5_CHAT_CHANNEL_IS_ADMIN_CHANNEL]
 	channel.is_private_channel = channel_json[DMAPI5_CHAT_CHANNEL_IS_PRIVATE_CHANNEL]
 	channel.custom_tag = channel_json[DMAPI5_CHAT_CHANNEL_TAG]
+<<<<<<< HEAD
+=======
+	channel.embeds_supported = channel_json[DMAPI5_CHAT_CHANNEL_EMBEDS_SUPPORTED]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return channel
 
 /datum/tgs_api/v5/SecurityLevel()

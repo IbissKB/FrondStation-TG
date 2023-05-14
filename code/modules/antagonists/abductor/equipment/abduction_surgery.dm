@@ -30,7 +30,11 @@
 	var/list/organ_types = list(/obj/item/organ/internal/heart)
 
 /datum/surgery_step/extract_organ/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+<<<<<<< HEAD
 	for(var/atom/A in target.internal_organs)
+=======
+	for(var/atom/A in target.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(A.type in organ_types)
 			IC = A
 			break

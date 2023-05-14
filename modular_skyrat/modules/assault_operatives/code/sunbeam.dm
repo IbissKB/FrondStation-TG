@@ -71,7 +71,11 @@
 		beam_overlay.pixel_y = beam_offset_y * i
 		. += beam_overlay
 
+<<<<<<< HEAD
 /obj/effect/sunbeam/process(delta_time)
+=======
+/obj/effect/sunbeam/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(target_atom && COOLDOWN_FINISHED(src, movement_delay))
 		step_towards(src, target_atom)
 		COOLDOWN_START(src, movement_delay, movement_cooldown)

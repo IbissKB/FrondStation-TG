@@ -93,7 +93,12 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 	//SKYRAT EDIT ADDITION END
 	var/log_text = "[key_name(src)] [message] [loc_name(src)]"
 	switch(message_type)
+<<<<<<< HEAD
 		if(LOG_ATTACK)
+=======
+		/// ship both attack logs and victim logs to the end of round attack.log just to ensure we don't lose information
+		if(LOG_ATTACK, LOG_VICTIM)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			log_attack(log_text)
 		if(LOG_SAY)
 			log_say(log_text)
@@ -148,6 +153,10 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 /* Close open log handles. This should be called as late as possible, and no logging should hapen after. */
 /proc/shutdown_logging()
 	rustg_log_close_all()
+<<<<<<< HEAD
+=======
+	GLOB.logger.shutdown_logging()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /* Helper procs for building detailed log lines */
 /proc/key_name(whom, include_link = null, include_name = TRUE)

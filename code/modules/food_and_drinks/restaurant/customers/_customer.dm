@@ -25,6 +25,11 @@
 	var/second_warning_line = "This is your last warning!"
 	///Line when harrased by someone for the last time
 	var/self_defense_line = "Omae wa mo, shinderou."
+<<<<<<< HEAD
+=======
+	///Line sent when the customer is clicked on by someone with a 0 force item that's not the correct order
+	var/wrong_item_line = "No, I don't want that."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///Clothing sets to pick from when dressing the robot.
 	var/list/clothing_sets = list("amerifat_clothes")
@@ -85,10 +90,17 @@
 			/obj/item/food/danish_hotdog = 3,
 		),
 		VENUE_BAR = list(
+<<<<<<< HEAD
 			/datum/reagent/consumable/ethanol/b52 = 6,
 			/datum/reagent/consumable/ethanol/manhattan = 3,
 			/datum/reagent/consumable/ethanol/atomicbomb = 1,
 			/datum/reagent/consumable/ethanol/beer = 25,
+=======
+			/datum/reagent/consumable/ethanol/beer = 25,
+			/datum/reagent/consumable/ethanol/b52 = 6,
+			/datum/reagent/consumable/ethanol/manhattan = 3,
+			/datum/reagent/consumable/ethanol/atomicbomb = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		),
 	)
 
@@ -157,10 +169,17 @@
 		VENUE_RESTAURANT = list(
 			/obj/item/food/baguette = 20,
 			/obj/item/food/garlicbread = 5,
+<<<<<<< HEAD
 			/obj/item/food/soup/onion = 4,
 			/obj/item/food/pie/berryclafoutis = 2,
 			/obj/item/food/omelette = 15,
 			/datum/custom_order/icecream = 6,
+=======
+			/obj/item/food/omelette = 15,
+			/datum/custom_order/icecream = 6,
+			/datum/reagent/consumable/nutriment/soup/french_onion = 4,
+			/obj/item/food/pie/berryclafoutis = 2,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		),
 		VENUE_BAR = list(
 			/datum/reagent/consumable/ethanol/champagne = 10,
@@ -199,6 +218,7 @@
 	speech_sound = 'sound/creatures/tourist/tourist_talk_japanese1.ogg'
 	orderable_objects = list(
 		VENUE_RESTAURANT = list(
+<<<<<<< HEAD
 			/obj/item/food/tofu = 5,
 			/obj/item/food/breadslice/plain = 5,
 			/obj/item/food/soup/miso = 10,
@@ -209,6 +229,18 @@
 			/obj/item/food/beef_stroganoff = 2,
 			/datum/custom_order/icecream = 4,
 			/obj/item/food/fish_poke = 5,
+=======
+			/datum/custom_order/icecream = 4,
+			/datum/reagent/consumable/nutriment/soup/miso = 10,
+			/datum/reagent/consumable/nutriment/soup/vegetable_soup = 4,
+			/obj/item/food/beef_stroganoff = 2,
+			/obj/item/food/breadslice/plain = 5,
+			/obj/item/food/chawanmushi = 4,
+			/obj/item/food/fish_poke = 5,
+			/obj/item/food/muffin/berry = 2,
+			/obj/item/food/sashimi = 4,
+			/obj/item/food/tofu = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		),
 		VENUE_BAR = list(
 			/datum/reagent/consumable/ethanol/sake = 8,
@@ -243,6 +275,7 @@
 	speech_sound = 'sound/creatures/tourist/tourist_talk_japanese2.ogg'
 	orderable_objects = list(
 		VENUE_RESTAURANT = list(
+<<<<<<< HEAD
 			/obj/item/food/tofu = 5,
 			/obj/item/food/soup/miso = 6,
 			/obj/item/food/soup/vegetable = 4,
@@ -251,6 +284,16 @@
 			/obj/item/food/meatbun = 4,
 			/obj/item/food/beef_stroganoff = 2,
 			/obj/item/food/meat_poke = 4,
+=======
+			/datum/reagent/consumable/nutriment/soup/miso = 6,
+			/datum/reagent/consumable/nutriment/soup/vegetable_soup = 4,
+			/obj/item/food/beef_stroganoff = 2,
+			/obj/item/food/chawanmushi = 4,
+			/obj/item/food/meat_poke = 4,
+			/obj/item/food/meatbun = 4,
+			/obj/item/food/sashimi = 4,
+			/obj/item/food/tofu = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		),
 		VENUE_BAR = list(
 			/datum/reagent/consumable/ethanol/beer = 14,
@@ -384,6 +427,7 @@
 
 	orderable_objects = list(
 		VENUE_RESTAURANT = list(
+<<<<<<< HEAD
 			/obj/item/food/fishandchips = 10,
 			/obj/item/food/soup/stew = 10,
 			/obj/item/food/salad/ricepudding = 5,
@@ -394,6 +438,18 @@
 			/obj/item/food/soup/indian_curry = 3,
 			/obj/item/food/beef_wellington_slice = 2,
 			/datum/custom_order/icecream = 8
+=======
+			/datum/custom_order/icecream = 8,
+			/datum/reagent/consumable/nutriment/soup/indian_curry = 3,
+			/datum/reagent/consumable/nutriment/soup/stew = 10,
+			/obj/item/food/beef_wellington_slice = 2,
+			/obj/item/food/benedict = 5,
+			/obj/item/food/fishandchips = 10,
+			/obj/item/food/full_english = 2,
+			/obj/item/food/grilled_cheese_sandwich = 5,
+			/obj/item/food/pie/meatpie = 5,
+			/obj/item/food/salad/ricepudding = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		),
 		VENUE_BAR = list(
 			/datum/reagent/consumable/ethanol/ale = 10,
@@ -460,5 +516,8 @@
 	first_warning_line = "You'd fit in well where I'm from. But you better stop."
 	second_warning_line = "Breaking-you-so-bad-you'll-reminisce-the-days-before-I-made-you-crooked.exe: booting..."
 	self_defense_line = "I have been designed to do two things: Order food, and break every bone in your body."
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

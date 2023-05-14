@@ -11,8 +11,17 @@
 	can_suppress = TRUE
 	fire_sound_volume = 30
 	w_class = WEIGHT_CLASS_SMALL
+<<<<<<< HEAD
 	has_gun_safety = FALSE
 	company_flag = COMPANY_CANTALAN
+=======
+
+/obj/item/gun/ballistic/automatic/pistol/cfa_snub/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_CANTALAN)
+
+/obj/item/gun/ballistic/automatic/pistol/cfa_snub/give_gun_safeties()
+	return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/automatic/pistol/cfa_snub/empty
 	spawnwithmagazine = FALSE
@@ -26,8 +35,17 @@
 	can_suppress = FALSE
 	fire_sound_volume = 120
 	w_class = WEIGHT_CLASS_NORMAL
+<<<<<<< HEAD
 	has_gun_safety = FALSE
 	company_flag = COMPANY_CANTALAN
+=======
+
+/obj/item/gun/ballistic/automatic/pistol/cfa_ruby/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_CANTALAN)
+
+/obj/item/gun/ballistic/automatic/pistol/cfa_ruby/give_gun_safeties()
+	return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/automatic/pistol/cfa_ruby/empty
 	spawnwithmagazine = FALSE
@@ -45,7 +63,11 @@
 	ammo_type = /obj/item/ammo_casing/c42x30mm
 	caliber = CALIBER_42X30MM
 	max_ammo = 16
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_snub/ap
 	ammo_type = /obj/item/ammo_casing/c42x30mm/ap
@@ -71,7 +93,11 @@
 	ammo_type = /obj/item/ammo_casing/c12mm
 	caliber = CALIBER_12MM
 	max_ammo = 8
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_ruby/empty
 	start_empty = TRUE

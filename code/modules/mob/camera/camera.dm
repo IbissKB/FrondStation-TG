@@ -6,7 +6,10 @@
 	move_resist = INFINITY
 	status_flags = GODMODE  // You can't damage it.
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+<<<<<<< HEAD
 	see_in_dark = 7
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	invisibility = INVISIBILITY_ABSTRACT // No one can see us
 	sight = SEE_SELF
 	move_on_shuttle = FALSE
@@ -45,3 +48,10 @@
 	if(has_emotes)
 		return ..()
 	return FALSE
+<<<<<<< HEAD
+=======
+
+/mob/camera/update_sight()
+	lighting_color_cutoffs = list(lighting_cutoff_red, lighting_cutoff_green, lighting_cutoff_blue)
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

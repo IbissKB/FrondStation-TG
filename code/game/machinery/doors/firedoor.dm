@@ -19,7 +19,11 @@
 	safe = FALSE
 	layer = BELOW_OPEN_DOOR_LAYER
 	closingLayer = CLOSED_FIREDOOR_LAYER
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 0, FIRE = 95, ACID = 70)
+=======
+	armor_type = /datum/armor/door_firedoor
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON | INTERACT_MACHINE_REQUIRES_SILICON | INTERACT_MACHINE_OPEN
 
 	COOLDOWN_DECLARE(activation_cooldown)
@@ -65,6 +69,18 @@
 	var/bash_sound = 'sound/effects/glassbash.ogg'
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/door_firedoor
+	melee = 10
+	bullet = 30
+	laser = 20
+	energy = 20
+	bomb = 30
+	fire = 95
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/firedoor/Initialize(mapload)
 	. = ..()
 	soundloop = new(src, FALSE)
@@ -235,11 +251,20 @@
 
 		if(!checked_turf)
 			continue
+<<<<<<< HEAD
 		if(isclosedturf(checked_turf))
 			continue
 		process_results(checked_turf)
 		RegisterSignal(checked_turf, COMSIG_TURF_EXPOSE, PROC_REF(process_results))
 
+=======
+
+		RegisterSignal(checked_turf, COMSIG_TURF_CHANGE, PROC_REF(adjacent_change))
+		RegisterSignal(checked_turf, COMSIG_TURF_EXPOSE, PROC_REF(process_results))
+		if(!isopenturf(checked_turf))
+			continue
+		process_results(checked_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/door/firedoor/proc/unregister_adjacent_turfs(atom/old_loc)
 	if(!loc)
@@ -253,8 +278,19 @@
 		if(!checked_turf)
 			continue
 
+<<<<<<< HEAD
 		UnregisterSignal(checked_turf, COMSIG_TURF_EXPOSE)
 
+=======
+		UnregisterSignal(checked_turf, COMSIG_TURF_CHANGE)
+		UnregisterSignal(checked_turf, COMSIG_TURF_EXPOSE)
+
+// If a turf adjacent to us changes, recalc our affecting areas when it's done yeah?
+/obj/machinery/door/firedoor/proc/adjacent_change(turf/changed, path, list/new_baseturfs, flags, list/post_change_callbacks)
+	SIGNAL_HANDLER
+	post_change_callbacks += CALLBACK(src, PROC_REF(CalculateAffectingAreas))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/firedoor/proc/check_atmos(turf/checked_turf)
 	var/datum/gas_mixture/environment = checked_turf.return_air()
 
@@ -891,3 +927,7 @@
 #undef CONSTRUCTION_PANEL_OPEN
 #undef CONSTRUCTION_NO_CIRCUIT
 #undef REACTIVATION_DELAY
+<<<<<<< HEAD
+=======
+#undef DEFAULT_STEP_TIME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

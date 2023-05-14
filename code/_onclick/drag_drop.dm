@@ -180,3 +180,9 @@
 	..()
 	drag_start = 0
 	drag_details = null
+<<<<<<< HEAD
+=======
+
+#undef LENIENCY_DISTANCE
+#undef LENIENCY_TIME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -68,4 +68,8 @@
 	if(dropsound)
 		playsound(master, pick(dropsound), 30)
 	if(drop_memory)
+<<<<<<< HEAD
 		fool.mind?.add_memory(MEMORY_SPAGHETTI_SPILL, list(DETAIL_PROTAGONIST = fool), story_value = STORY_VALUE_OKAY, memory_flags = MEMORY_CHECK_BLINDNESS)
+=======
+		fool.add_mob_memory(drop_memory)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -3,7 +3,13 @@
 		{
 			"template": "default",
 			"icon": "icons/runtime/tcg/xenos.dmi",
+<<<<<<< HEAD
 			"series": "resinfront"
+=======
+			"series": "resinfront",
+			"summon_icon_file": "icons/obj/toys/tcgsummons.dmi",
+			"summon_icon_state": "carp"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		}
 	],
 	"cards": [
@@ -19,7 +25,12 @@
 			"summoncost": 6,
 			"cardtype": "Creature",
 			"cardsubtype": "Silicon Xenomorph",
+<<<<<<< HEAD
 			"rarity": "epic"
+=======
+			"rarity": "epic",
+			"summon_icon_state": "xenoborg"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "sentinel",
@@ -33,7 +44,12 @@
 			"summoncost": 4,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "common"
+=======
+			"rarity": "common",
+			"summon_icon_state": "xenosen"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "drone",
@@ -47,7 +63,12 @@
 			"summoncost": 2,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "common"
+=======
+			"rarity": "common",
+			"summon_icon_state": "xenodrone"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "hunter",
@@ -61,7 +82,12 @@
 			"summoncost": 5,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "uncommon"
+=======
+			"rarity": "uncommon",
+			"summon_icon_state": "xenohunt"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "spitter",
@@ -75,7 +101,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "uncommon"
+=======
+			"rarity": "uncommon",
+			"summon_icon_state": "xenospit"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "runner",
@@ -89,7 +120,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "common"
+=======
+			"rarity": "common",
+			"summon_icon_state": "xenorun"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "praetorian",
@@ -103,7 +139,12 @@
 			"summoncost": 5,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "rare"
+=======
+			"rarity": "rare",
+			"summon_icon_state": "xenoprae"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "hivelord",
@@ -117,7 +158,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "rare"
+=======
+			"rarity": "rare",
+			"summon_icon_state": "xenohive"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "boiler",
@@ -131,7 +177,12 @@
 			"summoncost": 4,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "rare"
+=======
+			"rarity": "rare",
+			"summon_icon_state": "xenoboil"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "ravager",
@@ -145,7 +196,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "rare"
+=======
+			"rarity": "rare",
+			"summon_icon_state": "xenoravage"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "crusher",
@@ -159,7 +215,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "rare"
+=======
+			"rarity": "rare",
+			"summon_icon_state": "xenocrush"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "defender",
@@ -173,7 +234,12 @@
 			"summoncost": 2,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "common"
+=======
+			"rarity": "common",
+			"summon_icon_state": "xenodefend"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "warrior",
@@ -187,7 +253,12 @@
 			"summoncost": 4,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "uncommon"
+=======
+			"rarity": "uncommon",
+			"summon_icon_state": "xenowar"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "queen",
@@ -215,7 +286,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "uncommon"
+=======
+			"rarity": "uncommon",
+			"summon_icon_state": "xenocarry"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "defiler",
@@ -229,7 +305,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "rare"
+=======
+			"rarity": "rare",
+			"summon_icon_state": "xenodefile"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "predalien",
@@ -243,7 +324,12 @@
 			"summoncost": 3,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph Soldier",
+<<<<<<< HEAD
 			"rarity": "legendary"
+=======
+			"rarity": "legendary",
+			"summon_icon_state": "xenopred"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "shrike",
@@ -257,7 +343,12 @@
 			"summoncost": 2,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "rare"
+=======
+			"rarity": "rare",
+			"summon_icon_state" :"xenoshrike"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "bull",
@@ -271,7 +362,12 @@
 			"summoncost": 6,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "uncommon"
+=======
+			"rarity": "uncommon",
+			"summon_icon_state": "xenobull"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "hivemind",
@@ -285,7 +381,12 @@
 			"summoncost": 1,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "uncommon"
+=======
+			"rarity": "uncommon",
+			"summon_icon_state": "xenomind"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "screecher",
@@ -299,7 +400,12 @@
 			"summoncost": 2,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "epic"
+=======
+			"rarity": "epic",
+			"summon_icon_state": "xenoscreech"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 		{
 			"id": "creep",
@@ -313,7 +419,12 @@
 			"summoncost": 5,
 			"cardtype": "Creature",
 			"cardsubtype": "Xenomorph",
+<<<<<<< HEAD
 			"rarity": "common"
+=======
+			"rarity": "common",
+			"summon_icon_state": "xenocreep"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		}
 	]
 }

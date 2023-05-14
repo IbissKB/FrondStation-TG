@@ -19,6 +19,7 @@
 #define BRAIN "brain"
 
 //Damage flag defines //
+<<<<<<< HEAD
 /// Involves a melee attack or a thrown object.
 #define MELEE "melee"
 /// Involves a solid projectile.
@@ -39,24 +40,66 @@
 #define WOUND "wound"
 /// Involves being eaten
 #define CONSUME "consume"
+=======
+
+/// Involves corrosive substances.
+#define ACID "acid"
+/// Involved in checking wheter a disease can infect or spread. Also involved in xeno neurotoxin.
+#define BIO "bio"
+/// Involves a shockwave, usually from an explosion.
+#define BOMB "bomb"
+/// Involves a solid projectile.
+#define BULLET "bullet"
+/// Involves being eaten
+#define CONSUME "consume"
+/// Involves an EMP or energy-based projectile.
+#define ENERGY "energy"
+/// Involves fire or temperature extremes.
+#define FIRE "fire"
+/// Involves a laser.
+#define LASER "laser"
+/// Involves a melee attack or a thrown object.
+#define MELEE "melee"
+/// Involved in checking the likelyhood of applying a wound to a mob.
+#define WOUND "wound"
+
+#define ARMOR_ALL "all_damage_types"
+
+/// Armor values that are used for damage
+#define ARMOR_LIST_DAMAGE(...) list(BIO, BOMB, BULLET, ENERGY, LASER, MELEE, WOUND)
+/// Armor values that are used for durability
+#define ARMOR_LIST_DURABILITY(...) list(ACID, FIRE)
+
+/// All armors, preferable in the order as seen above
+#define ARMOR_LIST_ALL(...) list(ACID, BIO, BOMB, BULLET, CONSUME, ENERGY, FIRE, LASER, MELEE, WOUND)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //bitflag damage defines used for suicide_act
 #define BRUTELOSS (1<<0)
 #define FIRELOSS (1<<1)
 #define TOXLOSS (1<<2)
 #define OXYLOSS (1<<3)
+<<<<<<< HEAD
 #define SHAME             (1<<4)
 #define MANUAL_SUICIDE (1<<5) //suicide_act will do the actual killing.
 #define MANUAL_SUICIDE_NONLETHAL (1<<6)  //when the suicide is conditionally lethal
+=======
+#define SHAME (1<<4)
+#define MANUAL_SUICIDE (1<<5) //suicide_act will do the actual killing.
+#define MANUAL_SUICIDE_NONLETHAL (1<<6) //when the suicide is conditionally lethal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #define EFFECT_STUN "stun"
 #define EFFECT_KNOCKDOWN "knockdown"
 #define EFFECT_UNCONSCIOUS "unconscious"
 #define EFFECT_PARALYZE "paralyze"
 #define EFFECT_IMMOBILIZE "immobilize"
+<<<<<<< HEAD
 #define EFFECT_EYE_BLUR "eye_blur"
 #define EFFECT_DROWSY "drowsy"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Bitflags defining which status effects could be or are inflicted on a mob
 #define CANSTUN (1<<0)
 #define CANKNOCKDOWN (1<<1)
@@ -78,6 +121,10 @@
 #define CLICK_CD_THROW 8
 #define CLICK_CD_RANGE 4
 #define CLICK_CD_RAPID 2
+<<<<<<< HEAD
+=======
+#define CLICK_CD_HYPER_RAPID 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define CLICK_CD_CLICK_ABILITY 6
 #define CLICK_CD_BREAKOUT 100
 #define CLICK_CD_HANDCUFFED 10
@@ -187,7 +234,11 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 ///  Example: c20, shotguns, m90
 #define BOLT_TYPE_STANDARD 1
 ///Gun has a bolt, it is open when ready to fire. The gun can never have a chambered bullet with no magazine, but the bolt stays ready when a mag is removed.
+<<<<<<< HEAD
 ///  Example: Some SMGs, the L6
+=======
+///  Example: Tomson, Uzi, the L6 SAW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define BOLT_TYPE_OPEN 2
 ///Gun has no moving bolt mechanism, it cannot be racked. Also dumps the entire contents when emptied instead of a magazine.
 ///  Example: Break action shotguns, revolvers
@@ -206,12 +257,17 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define AMMO_BOX_ONE_SPRITE 0
 ///ammo box will have a different state for each bullet; <icon_state>-<bullets left>
 #define AMMO_BOX_PER_BULLET 1
+<<<<<<< HEAD
 ///ammo box will have a different state for full and empty; <icon_state>-max_ammo and <icon_state>-0
 #define AMMO_BOX_FULL_EMPTY 2
 //SKYRAT EDIT ADDITON BEGIN - SEC_HAUL
 ///ammo box will have a different state for full and empty; <icon_state>-full and <icon_state>-0
 #define AMMO_BOX_FULL_EMPTY_BASIC 3
 //SKYRAT EDIT END
+=======
+/// Ammo box will have a different sprite for any ammo at all, and no ammo, <icon_state>-full <icon_state>-empty
+#define AMMO_BOX_FULL_EMPTY 2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #define SUPPRESSED_NONE 0
 #define SUPPRESSED_QUIET 1 ///standard suppressed
@@ -281,6 +337,16 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 /// Proceed with the attack chain, but don't call the normal methods.
 #define SECONDARY_ATTACK_CONTINUE_CHAIN 3
 
+<<<<<<< HEAD
+=======
+/// Flag for when /afterattack potentially acts on an item.
+/// Used for the swap hands/drop tutorials to know when you might just be trying to do something normally.
+/// Does not necessarily imply success, or even that it did hit an item, just intent.
+// This is intentionally not (1 << 0) because some stuff currently erroneously returns TRUE/FALSE for afterattack.
+// Doesn't need to be set if proximity flag is FALSE.
+#define AFTERATTACK_PROCESSED_ITEM (1 << 1)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Autofire component
 /// Compatible firemode is in the gun. Wait until it's held in the user hands.
 #define AUTOFIRE_STAT_IDLE (1<<0)
@@ -315,3 +381,16 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define BATON_ATTACK_DONE 2
 /// The baton attack is still going. baton_effect() is called.
 #define BATON_ATTACKING 3
+<<<<<<< HEAD
+=======
+
+// Defines for combo attack component
+/// LMB Attack
+#define LEFT_ATTACK "Left Attack"
+/// RMB Attack
+#define RIGHT_ATTACK "Right Attack"
+/// Steps for the combo
+#define COMBO_STEPS "steps"
+/// The proc the combo calls
+#define COMBO_PROC "proc"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

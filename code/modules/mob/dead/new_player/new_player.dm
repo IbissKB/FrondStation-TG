@@ -36,9 +36,36 @@
 
 	return ..()
 
+<<<<<<< HEAD
 /mob/dead/new_player/prepare_huds()
 	return
 
+=======
+/mob/dead/new_player/mob_negates_gravity()
+	return TRUE //no need to calculate if they have gravity.
+
+/mob/dead/new_player/prepare_huds()
+	return
+
+/mob/dead/new_player/Topic(href, href_list)
+	if (usr != src)
+		return
+
+	if (!client)
+		return
+
+	if (client.interviewee)
+		return
+
+	if (href_list["viewpoll"])
+		var/datum/poll_question/poll = locate(href_list["viewpoll"]) in GLOB.polls
+		poll_player(poll)
+
+	if (href_list["votepollref"])
+		var/datum/poll_question/poll = locate(href_list["votepollref"]) in GLOB.polls
+		vote_on_poll_handler(poll, href_list)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //When you cop out of the round (NB: this HAS A SLEEP FOR PLAYER INPUT IN IT)
 /mob/dead/new_player/proc/make_me_an_observer()
 	if(QDELETED(src) || !src.client)
@@ -208,7 +235,11 @@
 	if(humanc) //These procs all expect humans
 		// BEGIN SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES
 		var/chosen_rank = humanc.client?.prefs.alt_job_titles[rank] || rank
+<<<<<<< HEAD
 		GLOB.data_core.manifest_inject(humanc, humanc.client)
+=======
+		GLOB.manifest.inject(humanc, humanc.client)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(SSshuttle.arrivals)
 			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank)
 		else
@@ -218,6 +249,10 @@
 
 		humanc.increment_scar_slot()
 		humanc.load_persistent_scars()
+<<<<<<< HEAD
+=======
+		SSpersistence.load_modular_persistence(humanc.get_organ_slot(ORGAN_SLOT_BRAIN)) // SKYRAT EDIT ADDITION - MODULAR_PERSISTENCE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(GLOB.curse_of_madness_triggered)
 			give_madness(humanc, GLOB.curse_of_madness_triggered)

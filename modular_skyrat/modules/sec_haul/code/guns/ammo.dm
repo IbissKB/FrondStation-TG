@@ -21,13 +21,19 @@
 
 /obj/item/ammo_box/advanced/b6mm/rubber
 	name = "6.3mm dissuasive pellet box"
+<<<<<<< HEAD
 	icon = 'modular_skyrat/modules/sec_haul/icons/guns/ammoboxes.dmi'
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "box10mm-rubber"
 	ammo_type = /obj/item/ammo_casing/b6mm/rubber
 
 /obj/item/ammo_box/advanced/b6mm/ihdf
 	name = "6.3mm fragmentation pellet box"
+<<<<<<< HEAD
 	icon = 'modular_skyrat/modules/sec_haul/icons/guns/ammoboxes.dmi'
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "box10mm-hv"
 	ammo_type = /obj/item/ammo_casing/b6mm/ihdf
 
@@ -108,6 +114,10 @@
 	desc = "An advanced magazine with smart type displays. Alt+click to reskin it."
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NO_MAT_REDEMPTION
+<<<<<<< HEAD
+=======
+	var/multitype = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/round_type = AMMO_TYPE_LETHAL
 	var/base_name = ""
 	var/list/possible_types = list(AMMO_TYPE_LETHAL, AMMO_TYPE_HOLLOWPOINT, AMMO_TYPE_RUBBER, AMMO_TYPE_IHDF)
@@ -136,8 +146,11 @@
 		if(AMMO_BOX_PER_BULLET)
 			icon_state = "[initial(icon_state)]_[round_type]-[shells_left]"
 		if(AMMO_BOX_FULL_EMPTY)
+<<<<<<< HEAD
 			icon_state = "[initial(icon_state)]_[round_type]-[shells_left ? "[max_ammo]" : "0"]"
 		if(AMMO_BOX_FULL_EMPTY_BASIC)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			icon_state = "[initial(icon_state)]_[round_type]-[shells_left ? "full" : "empty"]"
 	desc = "[initial(desc)] There [(shells_left == 1) ? "is" : "are"] [shells_left] shell\s left!"
 	if(length(bullet_cost))
@@ -154,7 +167,11 @@
 	desc = "Designed to quickly reload revolvers."
 	icon_state = "speedloader"
 	max_ammo = 8
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/round_type = AMMO_TYPE_LETHAL
 	var/list/possible_types = list(AMMO_TYPE_LETHAL, AMMO_TYPE_HOLLOWPOINT, AMMO_TYPE_RUBBER, AMMO_TYPE_IHDF)
 	start_empty = TRUE //SOmething strange going on with refills.

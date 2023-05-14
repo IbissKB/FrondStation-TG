@@ -5,9 +5,17 @@
 	max_occurrences = 1
 	earliest_start = 0 MINUTES
 	description = "Everything becomes pointy enough to embed in people when thrown."
+<<<<<<< HEAD
 
 ///behold... the only reason sticky is a subtype...
 /datum/round_event_control/wizard/embedpocalypse/can_spawn_event(players_amt, gamemode)
+=======
+	min_wizard_trigger_potency = 3
+	max_wizard_trigger_potency = 7
+
+///behold... the only reason sticky is a subtype...
+/datum/round_event_control/wizard/embedpocalypse/can_spawn_event(players_amt, allow_magic = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return .

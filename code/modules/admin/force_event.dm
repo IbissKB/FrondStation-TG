@@ -3,7 +3,11 @@
 	set name = "Trigger Event"
 	set category = "Admin.Events"
 
+<<<<<<< HEAD
 	if(!holder ||!check_rights(R_FUN))
+=======
+	if(!holder || !check_rights(R_FUN))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	holder.forceEvent()
@@ -66,6 +70,10 @@
 			"description" = event_control.description,
 			"type" = event_control.type,
 			"category" = event_control.category,
+<<<<<<< HEAD
+=======
+			"has_customization" = !!length(event_control.admin_setup),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		))
 	data["categories"] = categories
 	data["events"] = events
@@ -88,10 +96,20 @@
 			var/datum/round_event_control/event = locate(event_to_run_type) in SSevents.control
 			if(!event)
 				return
+<<<<<<< HEAD
 			if(event.admin_setup(usr) == ADMIN_CANCEL_EVENT)
 				return
 			var/always_announce_chance = 100
 			var/no_announce_chance = 0
 			event.runEvent(announce_chance_override = announce_event ? always_announce_chance : no_announce_chance, admin_forced = TRUE)
+=======
+			if(length(event.admin_setup))
+				for(var/datum/event_admin_setup/admin_setup_datum in event.admin_setup)
+					if(admin_setup_datum.prompt_admins() == ADMIN_CANCEL_EVENT)
+						return
+			var/always_announce_chance = 100
+			var/no_announce_chance = 0
+			event.run_event(announce_chance_override = announce_event ? always_announce_chance : no_announce_chance, admin_forced = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			message_admins("[key_name_admin(usr)] has triggered an event. ([event.name])")
 			log_admin("[key_name(usr)] has triggered an event. ([event.name])")

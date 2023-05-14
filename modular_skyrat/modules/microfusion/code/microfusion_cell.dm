@@ -109,6 +109,7 @@ Essentially, power cells that malfunction if not used in an MCR, and should only
 
 /obj/item/stock_parts/cell/microfusion/screwdriver_act(mob/living/user, obj/item/tool)
 	if(!attachments.len)
+<<<<<<< HEAD
 		to_chat(user, span_danger("There are no attachments to remove!"))
 		return
 	remove_attachments()
@@ -118,6 +119,17 @@ Essentially, power cells that malfunction if not used in an MCR, and should only
 /obj/item/stock_parts/cell/microfusion/process(delta_time)
 	for(var/obj/item/microfusion_cell_attachment/microfusion_cell_attachment as anything in attachments)
 		microfusion_cell_attachment.process_attachment(src, delta_time)
+=======
+		balloon_alert(user, "no attachments!")
+		return
+	remove_attachments()
+	playsound(src, 'sound/items/screwdriver.ogg', 70, TRUE)
+	balloon_alert(user, "attachments removed")
+
+/obj/item/stock_parts/cell/microfusion/process(seconds_per_tick)
+	for(var/obj/item/microfusion_cell_attachment/microfusion_cell_attachment as anything in attachments)
+		microfusion_cell_attachment.process_attachment(src, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/stock_parts/cell/microfusion/examine(mob/user)
 	. = ..()
@@ -131,15 +143,26 @@ Essentially, power cells that malfunction if not used in an MCR, and should only
 
 /obj/item/stock_parts/cell/microfusion/proc/add_attachment(obj/item/microfusion_cell_attachment/microfusion_cell_attachment, mob/living/user, obj/item/gun/microfusion/microfusion_gun)
 	if(attachments.len >= max_attachments)
+<<<<<<< HEAD
 		to_chat(user, span_warning("[src] cannot fit any more attachments!"))
 		return FALSE
 	if(is_type_in_list(microfusion_cell_attachment, attachments))
 		to_chat(user, span_warning("[src] already has [microfusion_cell_attachment] installed!"))
+=======
+		balloon_alert(user, "can't attach more!")
+		return FALSE
+	if(is_type_in_list(microfusion_cell_attachment, attachments))
+		balloon_alert(user, "already installed!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	attachments += microfusion_cell_attachment
 	microfusion_cell_attachment.forceMove(src)
 	microfusion_cell_attachment.add_attachment(src)
+<<<<<<< HEAD
 	to_chat(user, span_notice("You successfully install [microfusion_cell_attachment] onto [src]!"))
+=======
+	balloon_alert(user, "installed attachment")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(src, 'sound/effects/structure_stress/pop2.ogg', 70, TRUE)
 	update_appearance()
 	return TRUE
@@ -153,15 +176,21 @@ Essentially, power cells that malfunction if not used in an MCR, and should only
 
 /obj/item/stock_parts/cell/microfusion/proc/inserted_into_weapon()
 	chargerate = 300
+<<<<<<< HEAD
 	say("Cell charging systems enabled!")
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 30, FALSE, FALSE)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/stock_parts/cell/microfusion/proc/cell_removal_discharge()
 	chargerate = 0
 	charge = 0
 	do_sparks(4, FALSE, src)
+<<<<<<< HEAD
 	say("Cell safety discharge tripped, charging systems disabled!")
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 30, FALSE, FALSE)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 
 /datum/crafting_recipe/makeshift/microfusion_cell

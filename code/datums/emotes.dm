@@ -28,8 +28,13 @@
 	var/message_AI = ""
 	/// Message displayed if the user is a monkey.
 	var/message_monkey = ""
+<<<<<<< HEAD
 	/// Message to display if the user is a simple_animal.
 	var/message_simple = ""
+=======
+	/// Message to display if the user is a simple_animal or basic mob.
+	var/message_animal_or_basic = ""
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Message with %t at the end to allow adding params to the message, like for mobs doing an emote relatively to something else.
 	var/message_param = ""
 	/// Whether the emote is visible and/or audible bitflag
@@ -122,12 +127,15 @@
 				continue
 			if(ghost.client.prefs.chat_toggles & CHAT_GHOSTSIGHT && !(ghost in viewers(user_turf, null)))
 				ghost.show_message("<span class='emote'>[FOLLOW_LINK(ghost, user)] [dchatmsg]</span>")
+<<<<<<< HEAD
 	//SKYRAT EDIT ADDITION BEGIN - AI QoL
 	for(var/mob/living/silicon/ai/ai as anything in GLOB.ai_list)
 		var/ai_eye_turf = get_turf(ai.eyeobj)
 		if(ai.client && !(ai.stat == DEAD) && (get_dist(user_turf, ai_eye_turf)<8))
 			ai.show_message("<span class='emote'>[dchatmsg]</span>")
 	//SKYRAT EDIT ADDITION END - AI QoL
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(emote_type & (EMOTE_AUDIBLE | EMOTE_VISIBLE)) //emote is audible and visible
 		user.audible_message(msg, deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>", audible_message_flags = EMOTE_MESSAGE)
 	else if(emote_type & EMOTE_VISIBLE)	//emote is only visible
@@ -137,6 +145,21 @@
 			if(viewer.is_blind() && !viewer.can_hear())
 				to_chat(viewer, msg)
 
+<<<<<<< HEAD
+=======
+	// SKYRAT EDIT -- BEGIN -- ADDITION -- AI QOL - RELAY EMOTES OVER HOLOPADS
+	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
+	if(hologram)
+		if(emote_type & (EMOTE_AUDIBLE | EMOTE_VISIBLE))
+			hologram.audible_message(msg, deaf_message = span_emote("You see how <b>[user]</b> [msg]"), audible_message_flags = EMOTE_MESSAGE)
+		else if(emote_type & EMOTE_VISIBLE)
+			hologram.visible_message(msg, visible_message_flags = EMOTE_MESSAGE)
+		if(emote_type & EMOTE_IMPORTANT)
+			for(var/mob/living/viewer in viewers(world.view, hologram))
+				if(viewer.is_blind() && !viewer.can_hear())
+					to_chat(viewer, msg)
+	// SKYRAT EDIT -- END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SEND_SIGNAL(user, COMSIG_MOB_EMOTED(key))
 
 /**
@@ -211,7 +234,11 @@
 	. = msg
 	if(!muzzle_ignore && user.is_muzzled() && emote_type & EMOTE_AUDIBLE)
 		return "makes a [pick("strong ", "weak ", "")]noise."
+<<<<<<< HEAD
 	if(user.mind?.miming && message_mime)
+=======
+	if(HAS_TRAIT(user, TRAIT_MIMING) && message_mime)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		. = message_mime
 	if(isalienadult(user) && message_alien)
 		. = message_alien
@@ -223,8 +250,13 @@
 		. = message_AI
 	else if(ismonkey(user) && message_monkey)
 		. = message_monkey
+<<<<<<< HEAD
 	else if(isanimal(user) && message_simple)
 		. = message_simple
+=======
+	else if(isanimal_or_basicmob(user) && message_animal_or_basic)
+		. = message_animal_or_basic
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Replaces the %t in the message in message_param by params.
@@ -305,9 +337,15 @@
 			return FALSE
 		if(ishuman(user))
 			var/mob/living/carbon/human/loud_mouth = user
+<<<<<<< HEAD
 			if(loud_mouth.mind?.miming) // vow of silence prevents outloud noises
 				return FALSE
 			if(!loud_mouth.getorganslot(ORGAN_SLOT_TONGUE))
+=======
+			if(HAS_TRAIT(loud_mouth, TRAIT_MIMING)) // vow of silence prevents outloud noises
+				return FALSE
+			if(!loud_mouth.get_organ_slot(ORGAN_SLOT_TONGUE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return FALSE
 
 	if(only_forced_audio && intentional)

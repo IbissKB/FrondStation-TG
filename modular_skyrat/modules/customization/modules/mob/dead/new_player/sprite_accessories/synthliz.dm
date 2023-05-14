@@ -12,21 +12,30 @@
 	color_src = USE_MATRIXED_COLORS
 	name = "Synthetic Lizard - Snout Under"
 	icon_state = "synthliz_under"
+<<<<<<< HEAD
 	extra = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/snouts/synthliz/synthliz_tert
 	color_src = USE_MATRIXED_COLORS
 	name = "Synthetic Lizard - Snout Tertiary"
 	icon_state = "synthliz_tert"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/snouts/synthliz/synthliz_tertunder
 	color_src = USE_MATRIXED_COLORS
 	name = "Synthetic Lizard - Snout Tertiary Under"
 	icon_state = "synthliz_tertunder"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/snouts/synthliz/synthliz_long
 	color_src = USE_ONE_COLOR
@@ -47,44 +56,62 @@
 	color_src = USE_MATRIXED_COLORS
 	name = "Synthetic Lizard - Barless Under"
 	icon_state = "synthliz_barless_under"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/snouts/synthliz/barlessover
 	color_src = USE_MATRIXED_COLORS
 	name = "Synthetic Lizard - Barless Over"
 	icon_state = "synthliz_barless_over"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/snouts/synthliz/barlesstert
 	color_src = USE_MATRIXED_COLORS
 	name = "Synthetic Lizard - Barless Tertiary"
 	icon_state = "synthliz_barless_tert"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/snouts/synthliz/barlesstertunder
 	color_src = USE_MATRIXED_COLORS
 	name = "Synthetic Lizard - Barless Tertiary Under"
 	icon_state = "synthliz_barless_tertunder"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Protogen snoot
 /datum/sprite_accessory/snouts/synthliz/protogen
 	color_src = USE_MATRIXED_COLORS
 	name = "Protogen"
 	icon_state = "protogen"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/snouts/synthliz/protogen_withbolt
 	color_src = USE_MATRIXED_COLORS
 	name = "Protogen - With Bolt"
 	icon_state = "protogen_withbolt"
+<<<<<<< HEAD
 	extra = TRUE
 	extra_color_src = USE_MATRIXED_COLORS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 //Synth tails
@@ -161,6 +188,10 @@
 	taur_mode = STYLE_TAUR_PAW
 	recommended_species = list()
 	genetic = FALSE
+<<<<<<< HEAD
+=======
+	organ_type = /obj/item/organ/external/taur_body/synth
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/taur/synthliz/inv
 	name = "Cybernetic Lizard (Inverted)"

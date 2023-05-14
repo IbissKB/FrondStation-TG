@@ -9,7 +9,11 @@
 	icon_living = "markus"
 	var/static/list/markus_speak = list("Borf!", "Boof!", "Bork!", "Bowwow!", "Burg?")
 	butcher_results = list(/obj/item/food/burger/cheese = 1, /obj/item/food/meat/slab = 2, /obj/item/trash/syndi_cakes = 1)
+<<<<<<< HEAD
 	ai_controller = /datum/ai_controller/dog/corgi
+=======
+	ai_controller = /datum/ai_controller/basic_controller/dog/corgi
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	gender = MALE
 	can_be_held = FALSE
 	gold_core_spawnable = FRIENDLY_SPAWN
@@ -23,7 +27,11 @@
 	speech.speak = markus_speak
 
 /datum/chemical_reaction/mark_reaction
+<<<<<<< HEAD
 	results = list(/datum/reagent/liquidgibs = 15)
+=======
+	results = list(/datum/reagent/consumable/liquidgibs = 15)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_reagents = list(/datum/reagent/blood = 20,
 	/datum/reagent/medicine/omnizine = 20,
 	/datum/reagent/medicine/c2/synthflesh = 20,
@@ -54,11 +62,19 @@
 	can_be_held = FALSE
 	maxHealth = 150
 	health = 150
+<<<<<<< HEAD
 	butcher_results = list(/obj/item/clothing/head/corgi/en = 1, /obj/item/clothing/suit/corgisuit/en = 1)
 	death_message = "beeps, its mechanical parts hissing before the chassis collapses in a loud thud."
 	gold_core_spawnable = NO_SPAWN
 	nofur = TRUE
 	ai_controller = /datum/ai_controller/dog/borgi
+=======
+	butcher_results = list(/obj/item/clothing/head/costume/skyrat/en = 1, /obj/item/clothing/suit/corgisuit/en = 1)
+	death_message = "beeps, its mechanical parts hissing before the chassis collapses in a loud thud."
+	gold_core_spawnable = NO_SPAWN
+	nofur = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/dog/borgi
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	unsuitable_atmos_damage = 0
 	minimum_survivable_temperature = 0
 
@@ -96,11 +112,20 @@
  * * always_shoot - always shoot the target, as opposed to only if not a friend.
  */
 /mob/living/basic/pet/dog/corgi/borgi/proc/harass_target(mob/living/target, always_shoot = FALSE)
+<<<<<<< HEAD
 	var/datum/ai_controller/dog/EN = ai_controller
 	if(!EN)
 		return
 
 	var/is_friend = EN.blackboard[BB_DOG_FRIENDS][WEAKREF(target)]
+=======
+	var/datum/ai_controller/basic_controller/dog/EN = ai_controller
+	if(!EN)
+		return
+
+	var/list/friends_list = EN.blackboard[BB_FRIENDS_LIST]
+	var/is_friend = friends_list && friends_list[WEAKREF(target)]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(always_shoot || !is_friend)
 		INVOKE_ASYNC(src, PROC_REF(shoot_at), target)
@@ -110,7 +135,11 @@
 
 	EN.set_movement_target(target)
 	EN.blackboard[BB_DOG_HARASS_TARGET] = WEAKREF(target)
+<<<<<<< HEAD
 	EN.queue_behavior(/datum/ai_behavior/harass)
+=======
+	EN.queue_behavior(/datum/ai_behavior/basic_melee_attack/dog, BB_DOG_HARASS_TARGET, BB_PET_TARGETTING_DATUM)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/basic/pet/dog/corgi/borgi/proc/on_attack_hand(datum/source, mob/living/target)
 	SIGNAL_HANDLER
@@ -147,7 +176,11 @@
 		return
 
 	var/mob/living/carbon/human/target = proj.firer
+<<<<<<< HEAD
 	if(!proj.nodamage && proj.damage >= 10)
+=======
+	if(proj.damage >= 10)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(proj.damage_type != BRUTE && proj.damage_type != BURN)
 			return
 
@@ -206,7 +239,11 @@
 	UnregisterSignal(src, COMSIG_ATOM_EMAG_ACT)
 
 	do_sparks(3, 1, src)
+<<<<<<< HEAD
 	var/datum/ai_controller/dog/EN = ai_controller
+=======
+	var/datum/ai_controller/basic_controller/dog/EN = ai_controller
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	LAZYCLEARLIST(EN.current_behaviors)
 
 /mob/living/basic/pet/dog/corgi/borgi/proc/on_emag_act(mob/living/basic/pet/dog/target, mob/user)
@@ -239,6 +276,7 @@
 	gib() // Yuck, robo-blood
 
 /// Dog controller but with emag attack support
+<<<<<<< HEAD
 /datum/ai_controller/dog/borgi
 	blackboard = list(
 		BB_SIMPLE_CARRY_ITEM = null,
@@ -253,12 +291,25 @@
 		BB_VISION_RANGE = AI_DOG_VISION_RANGE,
 		BB_DOG_IS_SLOW = TRUE,
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic(),
+=======
+/datum/ai_controller/basic_controller/dog/borgi
+	blackboard = list(
+		BB_DOG_HARASS_HARM = TRUE,
+		BB_VISION_RANGE = AI_DOG_VISION_RANGE,
+		BB_DOG_IS_SLOW = TRUE,
+		BB_PET_TARGETTING_DATUM = new /datum/targetting_datum/basic(),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/emagged_borgi,
 		/datum/ai_planning_subtree/random_speech/dog,
+<<<<<<< HEAD
 		/datum/ai_planning_subtree/dog,
+=======
+		/datum/ai_planning_subtree/pet_planning,
+		/datum/ai_planning_subtree/dog_harassment,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /// Subtree that schedules borgi to randomly shoot if they're emagged.
@@ -268,7 +319,11 @@
 	/// Range to immediately target enemies
 	var/view_range = 10
 
+<<<<<<< HEAD
 /datum/ai_planning_subtree/emagged_borgi/SelectBehaviors(datum/ai_controller/controller, delta_time)
+=======
+/datum/ai_planning_subtree/emagged_borgi/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	// Emagged borgi?
@@ -280,10 +335,17 @@
 	var/datum/weakref/weak_target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
 	var/atom/target = weak_target?.resolve()
 	if(QDELETED(target))
+<<<<<<< HEAD
 		if(!DT_PROB(chance, delta_time))
 			return
 
 		controller.queue_behavior(/datum/ai_behavior/find_potential_targets, BB_BASIC_MOB_CURRENT_TARGET, BB_TARGETTING_DATUM, BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)
+=======
+		if(!SPT_PROB(chance, seconds_per_tick))
+			return
+
+		controller.queue_behavior(/datum/ai_behavior/find_potential_targets, BB_BASIC_MOB_CURRENT_TARGET, BB_PET_TARGETTING_DATUM, BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	// Attack.
@@ -296,7 +358,11 @@
 /datum/ai_behavior/emagged_borgi_attack
 	action_cooldown = 3 SECONDS
 
+<<<<<<< HEAD
 /datum/ai_behavior/emagged_borgi_attack/perform(delta_time, datum/ai_controller/controller, target_key)
+=======
+/datum/ai_behavior/emagged_borgi_attack/perform(seconds_per_tick, datum/ai_controller/controller, target_key)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/atom/target = controller.blackboard[target_key]
 	if(QDELETED(target))
 		return

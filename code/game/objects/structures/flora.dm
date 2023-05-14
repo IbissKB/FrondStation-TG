@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 //These globs are to make sure that each flora instance doesn't have to make a new typepath if its type already made it; aka performance junk
 GLOBAL_LIST_EMPTY(flora_required_tools_typepaths)
 GLOBAL_LIST_EMPTY(flora_disallowed_tools_typepaths)
 GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora
 	name = "flora"
 	desc = "Some sort of plant."
@@ -19,6 +22,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	/// A lazylist of products that could be created when harvesting this flora, syntax is (type = weight)
 	/// Because of how this works, it can spawn in anomalies if you want it to. Or wall girders
 	var/product_types
+<<<<<<< HEAD
 	/// A lazylist typecache of items that can harvest this flora.
 	/// Will be set automatically on Initialization depending on flora_flags.
 	/// Paths in this list and their subtypes will be able to harvest the flora.
@@ -26,6 +30,8 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	/// A lazylist typecache of items that will be excluded from required_tools
 	/// Paths in this list disallows items from harvesting this flora if that item is a type of this path
 	var/disallowed_tools
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// If the user is able to harvest this with their hands
 	var/harvest_with_hands = FALSE
 	/// The "verb" to use when the user harvests the flora
@@ -34,8 +40,11 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	var/harvest_verb_suffix = "s"
 	/// If the user is allowed to uproot the flora
 	var/can_uproot = TRUE
+<<<<<<< HEAD
 	/// What tools are allowed to be used to uproot the flora
 	var/uprooting_tools = list(/obj/item/shovel)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/uprooted = FALSE
 	var/previous_rotation = 0
 
@@ -66,6 +75,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	/// Flags for the flora to determine what kind of sound to play when it gets hit
 	var/flora_flags = NONE
 
+<<<<<<< HEAD
 /obj/structure/flora/Initialize(mapload)
 	. = ..()
 	if(!required_tools)
@@ -87,13 +97,19 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	disallowed_tools = GLOB.flora_disallowed_tools_typepaths[type]
 	uprooting_tools = GLOB.flora_uprooting_tools_typepaths[type]
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/attackby(obj/item/used_item, mob/living/user, params)
 	if(user.combat_mode)
 		return ..()
 	if(flags_1 & HOLOGRAM_1)
 		balloon_alert(user, "it goes right through!")
 		return ..()
+<<<<<<< HEAD
 	if(can_uproot && is_type_in_typecache(used_item, uprooting_tools))
+=======
+	if(can_uproot && used_item.tool_behaviour == TOOL_SHOVEL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(uprooted)
 			user.visible_message(span_notice("[user] starts to replant [src]..."),
 				span_notice("You start to replant [src]..."))
@@ -191,12 +207,15 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 		return null
 
 	if(harvesting_item)
+<<<<<<< HEAD
 		//Check if its disallowed first, because we wanna cut it down in its tracks if so
 		if(is_type_in_typecache(harvesting_item, disallowed_tools))
 			return FALSE
 		//If its a required_tool then it skips all checks and gets forced to succeed (Unless its also disallowed. Which is... weird.)
 		if(is_type_in_typecache(harvesting_item, required_tools))
 			return TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		//Check to see if wooden flora is being attacked by a saw item (letting the items on/off state control this is better than putting them in the list)
 		if((flora_flags & FLORA_WOODEN) && (harvesting_item.tool_behaviour == TOOL_SAW))
 			return TRUE
@@ -218,7 +237,11 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
  * Also renames the flora if harvested_name or harvested_desc is set in the variables
  * Returns: FALSE if nothing was made, otherwise a list of created products
  */
+<<<<<<< HEAD
 /obj/structure/flora/proc/harvest(user)
+=======
+/obj/structure/flora/proc/harvest(user, product_amount_multiplier = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = FALSE
 	if(harvested && !LAZYLEN(product_types))
 		return FALSE
@@ -234,7 +257,11 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	//If it *is* an item stack, we don't want to go through 50 different iterations of a new object where it just gets qdeleted after the first
 	. = list()
 	for(var/product in products_to_create)
+<<<<<<< HEAD
 		var/amount_to_create = products_to_create[product]
+=======
+		var/amount_to_create = round(products_to_create[product]*product_amount_multiplier, 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		products_created += amount_to_create
 		if(ispath(product, /obj/item/stack))
 			var/product_left = amount_to_create
@@ -304,6 +331,17 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	var/matrix/M = matrix(transform)
 	transform = M.Turn(-previous_rotation)
 
+<<<<<<< HEAD
+=======
+/obj/structure/flora/deconstruct()
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(harvested)
+			return ..()
+
+		harvest(product_amount_multiplier = 0.6)
+	. = ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*********
  * Trees *
  *********/
@@ -330,14 +368,21 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/tree/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/seethrough, get_seethrough_map())
 
 ///Return a see_through_map, examples in seethrough.dm
 /obj/structure/flora/tree/proc/get_seethrough_map()
 	return SEE_THROUGH_MAP_DEFAULT
 
+<<<<<<< HEAD
 /obj/structure/flora/tree/harvest(mob/living/user)
+=======
+/obj/structure/flora/tree/harvest(mob/living/user, product_amount_multiplier)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/turf/my_turf = get_turf(src)
 	playsound(my_turf, 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
@@ -356,7 +401,11 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	density = FALSE
 	delete_on_harvest = TRUE
 
+<<<<<<< HEAD
 /obj/structure/flora/tree/stump/harvest(mob/living/user)
+=======
+/obj/structure/flora/tree/stump/harvest(mob/living/user, product_amount_multiplier)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(user, span_notice("You manage to remove [src]."))
 	qdel(src)
 
@@ -375,6 +424,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/tree/dead/style_2
 	icon_state = "tree_2"
+<<<<<<< HEAD
 /obj/structure/flora/tree/dead/style_3
 	icon_state = "tree_3"
 /obj/structure/flora/tree/dead/style_4
@@ -383,6 +433,21 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "tree_5"
 /obj/structure/flora/tree/dead/style_6
 	icon_state = "tree_6"
+=======
+
+/obj/structure/flora/tree/dead/style_3
+	icon_state = "tree_3"
+
+/obj/structure/flora/tree/dead/style_4
+	icon_state = "tree_4"
+
+/obj/structure/flora/tree/dead/style_5
+	icon_state = "tree_5"
+
+/obj/structure/flora/tree/dead/style_6
+	icon_state = "tree_6"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/tree/dead/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "tree_[rand(1, 6)]"
@@ -399,6 +464,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/tree/jungle/style_2
 	icon_state = "tree2"
+<<<<<<< HEAD
 /obj/structure/flora/tree/jungle/style_3
 	icon_state = "tree3"
 /obj/structure/flora/tree/jungle/style_4
@@ -407,6 +473,21 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "tree5"
 /obj/structure/flora/tree/jungle/style_6
 	icon_state = "tree6"
+=======
+
+/obj/structure/flora/tree/jungle/style_3
+	icon_state = "tree3"
+
+/obj/structure/flora/tree/jungle/style_4
+	icon_state = "tree4"
+
+/obj/structure/flora/tree/jungle/style_5
+	icon_state = "tree5"
+
+/obj/structure/flora/tree/jungle/style_6
+	icon_state = "tree6"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/tree/jungle/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "tree[rand(1, 6)]"
@@ -422,6 +503,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/tree/jungle/small/style_2
 	icon_state = "tree2"
+<<<<<<< HEAD
 /obj/structure/flora/tree/jungle/small/style_3
 	icon_state = "tree3"
 /obj/structure/flora/tree/jungle/small/style_4
@@ -430,6 +512,21 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "tree5"
 /obj/structure/flora/tree/jungle/small/style_6
 	icon_state = "tree6"
+=======
+
+/obj/structure/flora/tree/jungle/small/style_3
+	icon_state = "tree3"
+
+/obj/structure/flora/tree/jungle/small/style_4
+	icon_state = "tree4"
+
+/obj/structure/flora/tree/jungle/small/style_5
+	icon_state = "tree5"
+
+/obj/structure/flora/tree/jungle/small/style_6
+	icon_state = "tree6"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/tree/jungle/small/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "tree[rand(1, 6)]"
@@ -449,8 +546,15 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/tree/pine/style_2
 	icon_state = "pine_2"
+<<<<<<< HEAD
 /obj/structure/flora/tree/pine/style_3
 	icon_state = "pine_3"
+=======
+
+/obj/structure/flora/tree/pine/style_3
+	icon_state = "pine_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/tree/pine/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "pine_[rand(1,3)]"
@@ -520,6 +624,10 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/tree/palm/style_2
 	icon_state = "palm2"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/tree/palm/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "palm[rand(1,2)]"
@@ -544,30 +652,60 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"
+<<<<<<< HEAD
 /obj/structure/flora/grass/brown/style_2
 	icon_state = "snowgrass2bb"
 /obj/structure/flora/grass/brown/style_3
 	icon_state = "snowgrass2bb"
+=======
+
+/obj/structure/flora/grass/brown/style_2
+	icon_state = "snowgrass2bb"
+
+/obj/structure/flora/grass/brown/style_3
+	icon_state = "snowgrass2bb"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/grass/brown/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "snowgrass[rand(1, 3)]bb"
 
 /obj/structure/flora/grass/green
 	icon_state = "snowgrass1gb"
+<<<<<<< HEAD
 /obj/structure/flora/grass/green/style_2
 	icon_state = "snowgrass2gb"
 /obj/structure/flora/grass/green/style_3
 	icon_state = "snowgrass3gb"
+=======
+
+/obj/structure/flora/grass/green/style_2
+	icon_state = "snowgrass2gb"
+
+/obj/structure/flora/grass/green/style_3
+	icon_state = "snowgrass3gb"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/grass/green/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "snowgrass[rand(1, 3)]gb"
 
 /obj/structure/flora/grass/both
 	icon_state = "snowgrassall1"
+<<<<<<< HEAD
 /obj/structure/flora/grass/both/style_2
 	icon_state = "snowgrassall2"
 /obj/structure/flora/grass/both/style_3
 	icon_state = "snowgrassall3"
+=======
+
+/obj/structure/flora/grass/both/style_2
+	icon_state = "snowgrassall2"
+
+/obj/structure/flora/grass/both/style_3
+	icon_state = "snowgrassall3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/grass/both/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "snowgrassall[rand(1, 3)]"
@@ -580,18 +718,32 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/grass/jungle/a/style_2
 	icon_state = "grassa2"
+<<<<<<< HEAD
 /obj/structure/flora/grass/jungle/a/style_3
 	icon_state = "grassa3"
 /obj/structure/flora/grass/jungle/a/style_4
 	icon_state = "grassa4"
 /obj/structure/flora/grass/jungle/a/style_5
 	icon_state = "grassa5"
+=======
+
+/obj/structure/flora/grass/jungle/a/style_3
+	icon_state = "grassa3"
+
+/obj/structure/flora/grass/jungle/a/style_4
+	icon_state = "grassa4"
+
+/obj/structure/flora/grass/jungle/a/style_5
+	icon_state = "grassa5"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/grass/jungle/a/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "grassa[rand(1, 5)]"
 
 /obj/structure/flora/grass/jungle/b
 	icon_state = "grassb1"
+<<<<<<< HEAD
 /obj/structure/flora/grass/jungle/b/style_2
 	icon_state = "grassb2"
 /obj/structure/flora/grass/jungle/b/style_3
@@ -600,6 +752,21 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "grassb4"
 /obj/structure/flora/grass/jungle/b/style_5
 	icon_state = "grassb5"
+=======
+
+/obj/structure/flora/grass/jungle/b/style_2
+	icon_state = "grassb2"
+
+/obj/structure/flora/grass/jungle/b/style_3
+	icon_state = "grassb3"
+
+/obj/structure/flora/grass/jungle/b/style_4
+	icon_state = "grassb4"
+
+/obj/structure/flora/grass/jungle/b/style_5
+	icon_state = "grassb5"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/grass/jungle/b/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "grassb[rand(1, 5)]"
@@ -617,172 +784,350 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/bush/style_2
 	icon_state = "firstbush_2"
+<<<<<<< HEAD
 /obj/structure/flora/bush/style_3
 	icon_state = "firstbush_3"
 /obj/structure/flora/bush/style_4
 	icon_state = "firstbush_4"
+=======
+
+/obj/structure/flora/bush/style_3
+	icon_state = "firstbush_3"
+
+/obj/structure/flora/bush/style_4
+	icon_state = "firstbush_4"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "firstbush_[rand(1, 4)]"
 
 /obj/structure/flora/bush/reed
 	icon_state = "reedbush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/reed/style_2
 	icon_state = "reedbush_2"
 /obj/structure/flora/bush/reed/style_3
 	icon_state = "reedbush_3"
 /obj/structure/flora/bush/reed/style_4
 	icon_state = "reedbush_4"
+=======
+
+/obj/structure/flora/bush/reed/style_2
+	icon_state = "reedbush_2"
+
+/obj/structure/flora/bush/reed/style_3
+	icon_state = "reedbush_3"
+
+/obj/structure/flora/bush/reed/style_4
+	icon_state = "reedbush_4"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/reed/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "reedbush_[rand(1, 4)]"
 
 /obj/structure/flora/bush/leafy
 	icon_state = "leafybush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/leavy/style_2
 	icon_state = "leafybush_2"
 /obj/structure/flora/bush/leavy/style_3
 	icon_state = "leafybush_3"
+=======
+
+/obj/structure/flora/bush/leavy/style_2
+	icon_state = "leafybush_2"
+
+/obj/structure/flora/bush/leavy/style_3
+	icon_state = "leafybush_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/leavy/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "leafybush_[rand(1, 3)]"
 
 /obj/structure/flora/bush/pale
 	icon_state = "palebush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/pale/style_2
 	icon_state = "palebush_2"
 /obj/structure/flora/bush/pale/style_3
 	icon_state = "palebush_3"
 /obj/structure/flora/bush/pale/style_4
 	icon_state = "palebush_4"
+=======
+
+/obj/structure/flora/bush/pale/style_2
+	icon_state = "palebush_2"
+
+/obj/structure/flora/bush/pale/style_3
+	icon_state = "palebush_3"
+
+/obj/structure/flora/bush/pale/style_4
+	icon_state = "palebush_4"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/pale/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "palebush_[rand(1, 4)]"
 
 /obj/structure/flora/bush/stalky
 	icon_state = "stalkybush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/stalky/style_2
 	icon_state = "stalkybush_2"
 /obj/structure/flora/bush/stalky/style_3
 	icon_state = "stalkybush_3"
+=======
+
+/obj/structure/flora/bush/stalky/style_2
+	icon_state = "stalkybush_2"
+
+/obj/structure/flora/bush/stalky/style_3
+	icon_state = "stalkybush_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/stalky/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "stalkybush_[rand(1, 3)]"
 
 /obj/structure/flora/bush/grassy
 	icon_state = "grassybush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/grassy/style_2
 	icon_state = "grassybush_2"
 /obj/structure/flora/bush/grassy/style_3
 	icon_state = "grassybush_3"
 /obj/structure/flora/bush/grassy/style_4
 	icon_state = "grassybush_4"
+=======
+
+/obj/structure/flora/bush/grassy/style_2
+	icon_state = "grassybush_2"
+
+/obj/structure/flora/bush/grassy/style_3
+	icon_state = "grassybush_3"
+
+/obj/structure/flora/bush/grassy/style_4
+	icon_state = "grassybush_4"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/grassy/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "grassybush_[rand(1, 4)]"
 
 /obj/structure/flora/bush/sparsegrass
 	icon_state = "sparsegrass_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/sparsegrass/style_2
 	icon_state = "sparsegrass_2"
 /obj/structure/flora/bush/sparsegrass/style_3
 	icon_state = "sparsegrass_3"
+=======
+
+/obj/structure/flora/bush/sparsegrass/style_2
+	icon_state = "sparsegrass_2"
+
+/obj/structure/flora/bush/sparsegrass/style_3
+	icon_state = "sparsegrass_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/sparsegrass/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "sparsegrass_[rand(1, 3)]"
 
 /obj/structure/flora/bush/fullgrass
 	icon_state = "fullgrass_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/fullgrass/style_2
 	icon_state = "fullgrass_2"
 /obj/structure/flora/bush/fullgrass/style_3
 	icon_state = "fullgrass_3"
+=======
+
+/obj/structure/flora/bush/fullgrass/style_2
+	icon_state = "fullgrass_2"
+
+/obj/structure/flora/bush/fullgrass/style_3
+	icon_state = "fullgrass_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/fullgrass/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "fullgrass_[rand(1, 3)]"
 
 /obj/structure/flora/bush/ferny
 	icon_state = "fernybush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/ferny/style_2
 	icon_state = "fernybush_2"
 /obj/structure/flora/bush/ferny/style_3
 	icon_state = "fernybush_3"
+=======
+
+/obj/structure/flora/bush/ferny/style_2
+	icon_state = "fernybush_2"
+
+/obj/structure/flora/bush/ferny/style_3
+	icon_state = "fernybush_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/ferny/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "fernybush_[rand(1, 3)]"
 
 /obj/structure/flora/bush/sunny
 	icon_state = "sunnybush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/sunny/style_2
 	icon_state = "sunnybush_2"
 /obj/structure/flora/bush/sunny/style_3
 	icon_state = "sunnybush_3"
+=======
+
+/obj/structure/flora/bush/sunny/style_2
+	icon_state = "sunnybush_2"
+
+/obj/structure/flora/bush/sunny/style_3
+	icon_state = "sunnybush_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/sunny/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "sunnybush_[rand(1, 3)]"
 
 /obj/structure/flora/bush/generic
 	icon_state = "genericbush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/generic/style_2
 	icon_state = "genericbush_2"
 /obj/structure/flora/bush/generic/style_3
 	icon_state = "genericbush_3"
 /obj/structure/flora/bush/generic/style_4
 	icon_state = "genericbush_4"
+=======
+
+/obj/structure/flora/bush/generic/style_2
+	icon_state = "genericbush_2"
+
+/obj/structure/flora/bush/generic/style_3
+	icon_state = "genericbush_3"
+
+/obj/structure/flora/bush/generic/style_4
+	icon_state = "genericbush_4"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/generic/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "genericbush_[rand(1, 4)]"
 
 /obj/structure/flora/bush/pointy
 	icon_state = "pointybush_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/pointy/style_2
 	icon_state = "pointybush_2"
 /obj/structure/flora/bush/pointy/style_3
 	icon_state = "pointybush_3"
 /obj/structure/flora/bush/pointy/style_4
 	icon_state = "pointybush_4"
+=======
+
+/obj/structure/flora/bush/pointy/style_2
+	icon_state = "pointybush_2"
+
+/obj/structure/flora/bush/pointy/style_3
+	icon_state = "pointybush_3"
+
+/obj/structure/flora/bush/pointy/style_4
+	icon_state = "pointybush_4"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/pointy/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "pointybush_[rand(1, 4)]"
 
 /obj/structure/flora/bush/lavendergrass
 	icon_state = "lavendergrass_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/lavendergrass/style_2
 	icon_state = "lavendergrass_2"
 /obj/structure/flora/bush/lavendergrass/style_3
 	icon_state = "lavendergrass_3"
 /obj/structure/flora/bush/lavendergrass/style_4
 	icon_state = "lavendergrass_4"
+=======
+
+/obj/structure/flora/bush/lavendergrass/style_2
+	icon_state = "lavendergrass_2"
+
+/obj/structure/flora/bush/lavendergrass/style_3
+	icon_state = "lavendergrass_3"
+
+/obj/structure/flora/bush/lavendergrass/style_4
+	icon_state = "lavendergrass_4"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/lavendergrass/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "lavendergrass_[rand(1, 4)]"
 
 /obj/structure/flora/bush/flowers_yw
 	icon_state = "ywflowers_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/flowers_yw/style_2
 	icon_state = "ywflowers_2"
 /obj/structure/flora/bush/flowers_yw/style_3
 	icon_state = "ywflowers_3"
+=======
+
+/obj/structure/flora/bush/flowers_yw/style_2
+	icon_state = "ywflowers_2"
+
+/obj/structure/flora/bush/flowers_yw/style_3
+	icon_state = "ywflowers_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/flowers_yw/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "ywflowers_[rand(1, 3)]"
 
 /obj/structure/flora/bush/flowers_br
 	icon_state = "brflowers_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/flowers_br/style_2
 	icon_state = "brflowers_2"
 /obj/structure/flora/bush/flowers_br/style_3
 	icon_state = "brflowers_3"
+=======
+
+/obj/structure/flora/bush/flowers_br/style_2
+	icon_state = "brflowers_2"
+
+/obj/structure/flora/bush/flowers_br/style_3
+	icon_state = "brflowers_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/flowers_br/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "brflowers_[rand(1, 3)]"
 
 /obj/structure/flora/bush/flowers_pp
 	icon_state = "ppflowers_1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/flowers_pp/style_2
 	icon_state = "ppflowers_2"
 /obj/structure/flora/bush/flowers_pp/style_3
 	icon_state = "ppflowers_3"
+=======
+
+/obj/structure/flora/bush/flowers_pp/style_2
+	icon_state = "ppflowers_2"
+
+/obj/structure/flora/bush/flowers_pp/style_3
+	icon_state = "ppflowers_3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/flowers_pp/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "ppflowers_[rand(1, 3)]"
@@ -793,6 +1138,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/bush/snow/style_2
 	icon_state = "snowbush2"
+<<<<<<< HEAD
 /obj/structure/flora/bush/snow/style_3
 	icon_state = "snowbush3"
 /obj/structure/flora/bush/snow/style_4
@@ -801,6 +1147,21 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "snowbush5"
 /obj/structure/flora/bush/snow/style_6
 	icon_state = "snowbush6"
+=======
+
+/obj/structure/flora/bush/snow/style_3
+	icon_state = "snowbush3"
+
+/obj/structure/flora/bush/snow/style_4
+	icon_state = "snowbush4"
+
+/obj/structure/flora/bush/snow/style_5
+	icon_state = "snowbush5"
+
+/obj/structure/flora/bush/snow/style_6
+	icon_state = "snowbush6"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/snow/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "snowbush[rand(1, 6)]"
@@ -813,28 +1174,55 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/bush/jungle/a/style_2
 	icon_state = "busha2"
+<<<<<<< HEAD
 /obj/structure/flora/bush/jungle/a/style_3
 	icon_state = "busha3"
+=======
+
+/obj/structure/flora/bush/jungle/a/style_3
+	icon_state = "busha3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/jungle/a/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "busha[rand(1, 3)]"
 
 /obj/structure/flora/bush/jungle/b
 	icon_state = "bushb1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/jungle/b/style_2
 	icon_state = "bushb2"
 /obj/structure/flora/bush/jungle/b/style_3
 	icon_state = "bushb3"
+=======
+
+/obj/structure/flora/bush/jungle/b/style_2
+	icon_state = "bushb2"
+
+/obj/structure/flora/bush/jungle/b/style_3
+	icon_state = "bushb3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/jungle/b/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "bushb[rand(1, 3)]"
 
 /obj/structure/flora/bush/jungle/c
 	icon_state = "bushc1"
+<<<<<<< HEAD
 /obj/structure/flora/bush/jungle/c/style_2
 	icon_state = "bushc2"
 /obj/structure/flora/bush/jungle/c/style_3
 	icon_state = "bushc3"
+=======
+
+/obj/structure/flora/bush/jungle/c/style_2
+	icon_state = "bushc2"
+
+/obj/structure/flora/bush/jungle/c/style_3
+	icon_state = "bushc3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/jungle/c/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "bushc[rand(1, 3)]"
@@ -849,12 +1237,44 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/bush/large/style_2
 	icon_state = "bush2"
+<<<<<<< HEAD
 /obj/structure/flora/bush/large/style_3
 	icon_state = "bush3"
+=======
+
+/obj/structure/flora/bush/large/style_3
+	icon_state = "bush3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/bush/large/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "bush[rand(1, 3)]"
 
+<<<<<<< HEAD
+=======
+/obj/structure/flora/lunar_plant
+	name = "lunar plant"
+	desc= "This seemingly dead plant is actually quite alive, hibernating until sensing living things."
+	icon_state = "lunar_plant"
+	icon = 'icons/obj/flora/xenoflora.dmi'
+	density = FALSE
+	light_color = COLOR_WHITE
+	light_range = 2
+
+/obj/structure/flora/lunar_plant/Initialize(mapload)
+	. = ..()
+	icon_state = "lunar_plant[rand(1,3)]"
+
+/obj/structure/flora/lunar_plant/style_1
+	icon_state = "lunar_plant1"
+
+/obj/structure/flora/lunar_plant/style_2
+	icon_state = "lunar_plant2"
+
+/obj/structure/flora/lunar_plant/style_3
+	icon_state = "lunar_plant3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*********
  * Rocks *
  *********/
@@ -878,11 +1298,24 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/rock/style_2
 	icon_state = "basalt2"
+<<<<<<< HEAD
 /obj/structure/flora/rock/style_3
 	icon_state = "basalt3"
 /obj/structure/flora/rock/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "basalt[rand(1, 3)]"
+=======
+
+/obj/structure/flora/rock/style_3
+	icon_state = "basalt3"
+
+/obj/structure/flora/rock/style_4
+	icon_state = "basalt4"
+
+/obj/structure/flora/rock/style_random/Initialize(mapload)
+	. = ..()
+	icon_state = "basalt[rand(1, 4)]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/flora/rock/pile
 	name = "rock pile"
@@ -895,8 +1328,15 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/rock/pile/style_2
 	icon_state = "lavarocks2"
+<<<<<<< HEAD
 /obj/structure/flora/rock/pile/style_3
 	icon_state = "lavarocks3"
+=======
+
+/obj/structure/flora/rock/pile/style_3
+	icon_state = "lavarocks3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/rock/pile/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "lavarocks[rand(1, 3)]"
@@ -904,6 +1344,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/rock/pile/jungle
 	icon_state = "rock1"
 	icon = 'icons/obj/flora/jungleflora.dmi'
+<<<<<<< HEAD
 /obj/structure/flora/rock/pile/jungle/style_2
 	icon_state = "rock2"
 /obj/structure/flora/rock/pile/jungle/style_3
@@ -912,6 +1353,21 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "rock4"
 /obj/structure/flora/rock/pile/jungle/style_5
 	icon_state = "rock5"
+=======
+
+/obj/structure/flora/rock/pile/jungle/style_2
+	icon_state = "rock2"
+
+/obj/structure/flora/rock/pile/jungle/style_3
+	icon_state = "rock3"
+
+/obj/structure/flora/rock/pile/jungle/style_4
+	icon_state = "rock4"
+
+/obj/structure/flora/rock/pile/jungle/style_5
+	icon_state = "rock5"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/rock/pile/jungle/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "rock[rand(1, 5)]"
@@ -927,8 +1383,15 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/rock/pile/jungle/large/style_2
 	icon_state = "rocks2"
+<<<<<<< HEAD
 /obj/structure/flora/rock/pile/jungle/large/style_3
 	icon_state = "rocks3"
+=======
+
+/obj/structure/flora/rock/pile/jungle/large/style_3
+	icon_state = "rocks3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/rock/pile/jungle/large/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "rocks[rand(1, 3)]"
@@ -941,8 +1404,15 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/rock/icy/style_2
 	icon_state = "basalt2"
+<<<<<<< HEAD
 /obj/structure/flora/rock/icy/style_3
 	icon_state = "basalt3"
+=======
+
+/obj/structure/flora/rock/icy/style_3
+	icon_state = "basalt3"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/rock/icy/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "basalt[rand(1, 3)]"
@@ -954,8 +1424,19 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/rock/pile/icy/style_2
 	icon_state = "lavarocks2"
+<<<<<<< HEAD
 /obj/structure/flora/rock/pile/icy/style_3
 	icon_state = "lavarocks3"
 /obj/structure/flora/rock/pile/icy/style_random/Initialize(mapload)
 	. = ..()
 	icon_state = "lavarocks[rand(1, 3)]"
+=======
+
+/obj/structure/flora/rock/pile/icy/style_3
+	icon_state = "lavarocks3"
+
+/obj/structure/flora/rock/pile/icy/style_random/Initialize(mapload)
+	. = ..()
+	icon_state = "lavarocks[rand(1, 3)]"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

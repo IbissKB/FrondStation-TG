@@ -159,7 +159,11 @@ SUBSYSTEM_DEF(id_access)
 			"pdas" = list(),
 		),
 		"[ACCESS_HOP]" = list(
+<<<<<<< HEAD
 			"regions" = list(REGION_GENERAL, REGION_SUPPLY),
+=======
+			"regions" = list(REGION_GENERAL),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			"head" = JOB_HEAD_OF_PERSONNEL,
 			"templates" = list(),
 			"pdas" = list(),
@@ -257,6 +261,10 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_MEDICAL]"] = "Medical"
 	desc_by_access["[ACCESS_GENETICS]"] = "Genetics Lab"
 	desc_by_access["[ACCESS_MORGUE]"] = "Morgue"
+<<<<<<< HEAD
+=======
+	desc_by_access["[ACCESS_MORGUE_SECURE]"] = "Coroner"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc_by_access["[ACCESS_SCIENCE]"] = "R&D Lab"
 	desc_by_access["[ACCESS_ORDNANCE]"] = "Ordnance Lab"
 	desc_by_access["[ACCESS_ORDNANCE_STORAGE]"] = "Ordnance Storage"

@@ -13,7 +13,11 @@
 /datum/element/prevent_attacking_of_types/Attach(datum/target, list/typecache, alert_message)
 	. = ..()
 
+<<<<<<< HEAD
 	if (!ishostile(target))
+=======
+	if (!isanimal_or_basicmob(target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return ELEMENT_INCOMPATIBLE
 
 	src.alert_message = alert_message

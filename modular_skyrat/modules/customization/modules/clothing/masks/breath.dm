@@ -4,6 +4,7 @@
 	actions_types = list()
 	flags_cover = NONE
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/gas/glass
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
@@ -17,6 +18,8 @@
 	icon_state = "gas_alt2"
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/mask/balaclavaadjust
 	name = "adjustable balaclava"
 	desc = "Wider eyed and made of an elastic based material, this one seems like it can contort more."
@@ -71,6 +74,11 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "balaclavam"
 	inhand_icon_state = "balaclava"
+<<<<<<< HEAD
+=======
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_inv = HIDEHAIR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/mask/balaclava/threehole/green
 	name = "three hole green balaclava"
@@ -80,6 +88,7 @@
 	icon_state = "swatclavam"
 	inhand_icon_state = "balaclava"
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/gas/german
 	name = "black gas mask"
 	desc = "A black gas mask. Are you my Mummy?"
@@ -109,6 +118,8 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "gp5_mask"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/mask/muzzle/ball
 	name = "ballgag"
 	desc = "I'm pretty fuckin far from okay."
@@ -123,6 +134,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "ringgag"
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/gas/clown_colourable
 	name = "colourable clown mask"
 	desc = "The face of pure evil, now multicoloured."
@@ -171,6 +183,8 @@
 	greyscale_config_worn_vox = /datum/greyscale_config/respirator/worn/vox
 	greyscale_config_worn_teshari = /datum/greyscale_config/respirator/worn/teshari
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/mask/surgical/greyscale
 	icon = 'modular_skyrat/modules/GAGS/icons/masks.dmi'
 	worn_icon = 'modular_skyrat/modules/GAGS/icons/masks.dmi'

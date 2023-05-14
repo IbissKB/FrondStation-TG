@@ -153,14 +153,22 @@
 /obj/item/storage/box/mime
 	name = "invisible box"
 	desc = "Unfortunately not large enough to trap the mime."
+<<<<<<< HEAD
 	foldable = null
+=======
+	foldable_result = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "box"
 	inhand_icon_state = null
 	alpha = 0
 
 /obj/item/storage/box/mime/attack_hand(mob/user, list/modifiers)
 	..()
+<<<<<<< HEAD
 	if(user.mind.miming)
+=======
+	if(HAS_TRAIT(user, TRAIT_MIMING))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		alpha = 255
 
 /obj/item/storage/box/mime/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
@@ -173,7 +181,11 @@
 	desc = "A special box for sensitive people."
 	icon_state = "hugbox"
 	illustration = "heart"
+<<<<<<< HEAD
 	foldable = null
+=======
+	foldable_result = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/box/hug/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] clamps the box of hugs on [user.p_their()] jugular! Guess it wasn't such a hugbox after all.."))
@@ -230,7 +242,11 @@
 	desc = "A special box for sensitive people."
 	icon_state = "hugbox"
 	illustration = "heart"
+<<<<<<< HEAD
 	foldable = null
+=======
+	foldable_result = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mask_type = null
 
 //Mime survival box

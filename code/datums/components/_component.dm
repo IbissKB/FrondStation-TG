@@ -38,6 +38,12 @@
 	  */
 	var/can_transfer = FALSE
 
+<<<<<<< HEAD
+=======
+	/// A lazy list of the sources for this component
+	var/list/sources
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Create a new component.
  *
@@ -166,6 +172,30 @@
 	return
 
 /**
+<<<<<<< HEAD
+=======
+ * Called when the component has a new source registered
+ */
+/datum/component/proc/on_source_add(source)
+	SHOULD_CALL_PARENT(TRUE)
+	if(dupe_mode != COMPONENT_DUPE_SOURCES)
+		CRASH("Component '[type]' does not use sources but has been given a source")
+	LAZYOR(sources, source)
+
+/**
+ * Called when the component has a source removed.
+ * You probably want to call parent after you do your logic because at the end of this we qdel if we have no sources remaining!
+ */
+/datum/component/proc/on_source_remove(source)
+	SHOULD_CALL_PARENT(TRUE)
+	if(dupe_mode != COMPONENT_DUPE_SOURCES)
+		CRASH("Component '[type]' does not use sources but is trying to remove a source")
+	LAZYREMOVE(sources, source)
+	if(!LAZYLEN(sources))
+		qdel(src)
+
+/**
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * Register to listen for a signal from the passed in target
  *
  * This sets up a listening relationship such that when the target object emits a signal
@@ -201,7 +231,13 @@
 	var/list/lookup = (target.comp_lookup ||= list())
 
 	if(!override && target_procs[signal_type])
+<<<<<<< HEAD
 		log_signal("[signal_type] overridden. Use override = TRUE to suppress this warning.\nTarget: [target] ([target.type]) Proc: [proctype]")
+=======
+		var/override_message = "[signal_type] overridden. Use override = TRUE to suppress this warning.\nTarget: [target] ([target.type]) Proc: [proctype]"
+		log_signal(override_message)
+		stack_trace(override_message)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	target_procs[signal_type] = proctype
 	var/list/looked_up = lookup[signal_type]
@@ -218,7 +254,11 @@
 /// Registers multiple signals to the same proc.
 /datum/proc/RegisterSignals(datum/target, list/signal_types, proctype, override = FALSE)
 	for (var/signal_type in signal_types)
+<<<<<<< HEAD
 		RegisterSignal(target, signal_type, proctype)
+=======
+		RegisterSignal(target, signal_type, proctype, override)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Stop listening to a given signal from target
@@ -409,6 +449,7 @@
  *
  * Properly handles duplicate situations based on the `dupe_mode` var
  */
+<<<<<<< HEAD
 /datum/proc/_AddComponent(list/raw_args)
 	var/new_type = raw_args[1]
 	var/datum/component/nt = new_type
@@ -477,6 +518,102 @@
 		SEND_SIGNAL(src, COMSIG_COMPONENT_ADDED, new_comp)
 		return new_comp
 	return old_comp
+=======
+/datum/proc/_AddComponent(list/raw_args, source)
+	var/original_type = raw_args[1]
+	var/datum/component/component_type = original_type
+
+	if(QDELING(src))
+		CRASH("Attempted to add a new component of type \[[component_type]\] to a qdeleting parent of type \[[type]\]!")
+
+	var/dupe_mode = initial(component_type.dupe_mode)
+	var/dupe_type = initial(component_type.dupe_type)
+	var/uses_sources = (dupe_mode == COMPONENT_DUPE_SOURCES)
+	if(uses_sources && !source)
+		CRASH("Attempted to add a sourced component of type '[component_type]' to '[type]' without a source!")
+	else if(!uses_sources && source)
+		CRASH("Attempted to add a normal component of type '[component_type]' to '[type]' with a source!")
+
+	var/datum/component/old_component
+	var/datum/component/new_component
+
+	if(ispath(component_type))
+		if(component_type == /datum/component)
+			CRASH("[component_type] attempted instantiation!")
+	else
+		new_component = component_type
+		component_type = new_component.type
+
+	raw_args[1] = src
+	if(dupe_mode != COMPONENT_DUPE_ALLOWED && dupe_mode != COMPONENT_DUPE_SELECTIVE)
+		if(!dupe_type)
+			old_component = GetExactComponent(component_type)
+		else
+			old_component = GetComponent(dupe_type)
+
+		if(old_component)
+			switch(dupe_mode)
+				if(COMPONENT_DUPE_UNIQUE)
+					if(!new_component)
+						new_component = new component_type(raw_args)
+					if(!QDELETED(new_component))
+						old_component.InheritComponent(new_component, TRUE)
+						QDEL_NULL(new_component)
+
+				if(COMPONENT_DUPE_HIGHLANDER)
+					if(!new_component)
+						new_component = new component_type(raw_args)
+					if(!QDELETED(new_component))
+						new_component.InheritComponent(old_component, FALSE)
+						QDEL_NULL(old_component)
+
+				if(COMPONENT_DUPE_UNIQUE_PASSARGS)
+					if(!new_component)
+						var/list/arguments = raw_args.Copy(2)
+						arguments.Insert(1, null, TRUE)
+						old_component.InheritComponent(arglist(arguments))
+					else
+						old_component.InheritComponent(new_component, TRUE)
+
+				if(COMPONENT_DUPE_SOURCES)
+					if(source in old_component.sources)
+						return old_component // source already registered, no work to do
+					old_component.on_source_add(source)
+
+		else if(!new_component)
+			new_component = new component_type(raw_args) // There's a valid dupe mode but there's no old component, act like normal
+	else if(dupe_mode == COMPONENT_DUPE_SELECTIVE)
+		var/list/arguments = raw_args.Copy()
+		arguments[1] = new_component
+		var/make_new_component = TRUE
+		for(var/datum/component/existing_component as anything in GetComponents(original_type))
+			if(existing_component.CheckDupeComponent(arglist(arguments)))
+				make_new_component = FALSE
+				QDEL_NULL(new_component)
+				break
+		if(!new_component && make_new_component)
+			new_component = new component_type(raw_args)
+	else if(!new_component)
+		new_component = new component_type(raw_args) // Dupes are allowed, act like normal
+
+	if(!old_component && !QDELETED(new_component)) // Nothing related to duplicate components happened and the new component is healthy
+		if(uses_sources) // make sure they have the source added if they use sources
+			new_component.on_source_add(source)
+		SEND_SIGNAL(src, COMSIG_COMPONENT_ADDED, new_component)
+		return new_component
+
+	return old_component
+
+/**
+ * Removes a component source from this datum
+ */
+/datum/proc/RemoveComponentSource(source, datum/component/component_type)
+	if(ispath(component_type))
+		component_type = GetExactComponent(component_type)
+	if(!component_type)
+		CRASH("Attempted to remove a null or non-existent component '[component_type]' from '[type]'")
+	component_type.on_source_remove(source)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Get existing component of type, or create it and return a reference to it

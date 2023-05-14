@@ -135,8 +135,13 @@
 #define ui_borg_lamp "CENTER-3:16, SOUTH:5"
 #define ui_borg_tablet "CENTER-4:16, SOUTH:5"
 #define ui_inv1 "CENTER-2:16,SOUTH:5"
+<<<<<<< HEAD
 #define ui_inv2 "CENTER-1  :16,SOUTH:5"
 #define ui_inv3 "CENTER  :16,SOUTH:5"
+=======
+#define ui_inv2 "CENTER-1 :16,SOUTH:5"
+#define ui_inv3 "CENTER :16,SOUTH:5"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define ui_borg_module "CENTER+1:16,SOUTH:5"
 #define ui_borg_store "CENTER+2:16,SOUTH:5"
 #define ui_borg_camera "CENTER+3:21,SOUTH:5"

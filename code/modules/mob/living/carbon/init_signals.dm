@@ -27,6 +27,12 @@
 	clear_alert(ALERT_TOO_MUCH_CO2)
 	clear_alert(ALERT_NOT_ENOUGH_CO2)
 
+<<<<<<< HEAD
+=======
+	clear_alert(ALERT_TOO_MUCH_N2O)
+	clear_alert(ALERT_NOT_ENOUGH_N2O)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clear_mood_event("chemical_euphoria")
 	clear_mood_event("smell")
 	clear_mood_event("suffocation")

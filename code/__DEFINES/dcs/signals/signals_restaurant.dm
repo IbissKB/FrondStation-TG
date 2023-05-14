@@ -6,3 +6,12 @@
 
 ///(customer, container) venue signal sent when a venue sells an item. source is the thing sold, which can be a datum, so we send container for location checks
 #define COMSIG_ITEM_SOLD_TO_CUSTOMER "item_sold_to_customer"
+<<<<<<< HEAD
+=======
+///(customer, container) venue signal sent when a venue sells an reagent. source is the thing sold, which can be a datum, so we send container for location checks
+#define COMSIG_REAGENT_SOLD_TO_CUSTOMER "reagent_sold_to_customer"
+	/// Return from either above signal to denote the transaction completed successfully, so the venue can finish processing it
+	#define TRANSACTION_SUCCESS (1<<0)
+	/// Return from either above to stop the venue default processing, allowing you to handle cleanup / aftermath yourself
+	#define TRANSACTION_HANDLED (1<<1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

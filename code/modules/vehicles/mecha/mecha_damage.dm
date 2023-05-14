@@ -56,6 +56,11 @@
 			return "activating tank sealant..."
 		if(MECHA_INT_CONTROL_LOST)
 			return "recalibrating coordination system..."
+<<<<<<< HEAD
+=======
+		if(MECHA_INT_SHORT_CIRCUIT)
+			return "flushing internal capacitor..."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///gets the successful finish balloon alert flufftext
 /obj/vehicle/sealed/mecha/proc/get_int_repair_fluff_end(flag)
@@ -68,6 +73,11 @@
 			return "air tank sealed"
 		if(MECHA_INT_CONTROL_LOST)
 			return "coordination re-established"
+<<<<<<< HEAD
+=======
+		if(MECHA_INT_SHORT_CIRCUIT)
+			return "internal capacitor reset"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///gets the on-fail balloon alert flufftext
 /obj/vehicle/sealed/mecha/proc/get_int_repair_fluff_fail(flag)
@@ -80,6 +90,11 @@
 			return "sealant deactivated"
 		if(MECHA_INT_CONTROL_LOST)
 			return "recalibration failed"
+<<<<<<< HEAD
+=======
+		if(MECHA_INT_SHORT_CIRCUIT)
+			return "capacitor flush failure"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/vehicle/sealed/mecha/proc/set_internal_damage(int_dam_flag)
 	internal_damage |= int_dam_flag
@@ -96,5 +111,10 @@
 				to_chat(occupants, "[icon2html(src, occupants)][span_boldnotice("Internal fire extinguished.")]")
 			if(MECHA_INT_TANK_BREACH)
 				to_chat(occupants, "[icon2html(src, occupants)][span_boldnotice("Damaged internal tank has been sealed.")]")
+<<<<<<< HEAD
+=======
+			if(MECHA_INT_SHORT_CIRCUIT)
+				to_chat(occupants, "[icon2html(src, occupants)][span_boldnotice("Internal capacitor has been reset successfully.")]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	internal_damage &= ~int_dam_flag
 	diag_hud_set_mechstat()

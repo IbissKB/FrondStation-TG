@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 /datum/ai_planning_subtree/monkey_shenanigans/SelectBehaviors(datum/ai_controller/monkey/controller, delta_time)
+=======
+/datum/ai_planning_subtree/monkey_shenanigans/SelectBehaviors(datum/ai_controller/monkey/controller, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(prob(5))
 		controller.queue_behavior(/datum/ai_behavior/use_in_hand)
 
+<<<<<<< HEAD
 	if(!DT_PROB(MONKEY_SHENANIGAN_PROB, delta_time))
+=======
+	if(!SPT_PROB(MONKEY_SHENANIGAN_PROB, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(!controller.blackboard[BB_MONKEY_CURRENT_PRESS_TARGET])
@@ -24,7 +32,11 @@
 	controller.TryFindWeapon()
 
 ///monkey combat subtree.
+<<<<<<< HEAD
 /datum/ai_planning_subtree/monkey_combat/SelectBehaviors(datum/ai_controller/monkey/controller, delta_time)
+=======
+/datum/ai_planning_subtree/monkey_combat/SelectBehaviors(datum/ai_controller/monkey/controller, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/living_pawn = controller.pawn
 	var/list/enemies = controller.blackboard[BB_MONKEY_ENEMIES]
 
@@ -37,10 +49,16 @@
 		living_pawn.set_combat_mode(FALSE)
 		return SUBTREE_RETURN_FINISH_PLANNING
 
+<<<<<<< HEAD
 	var/datum/weakref/target_ref = controller.blackboard[BB_MONKEY_CURRENT_ATTACK_TARGET]
 	var/mob/living/selected_enemy = target_ref?.resolve()
 
 	if(!selected_enemy)
+=======
+	var/mob/living/selected_enemy = controller.blackboard[BB_MONKEY_CURRENT_ATTACK_TARGET]
+
+	if(QDELETED(selected_enemy))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		living_pawn.set_combat_mode(FALSE)
 		return
 

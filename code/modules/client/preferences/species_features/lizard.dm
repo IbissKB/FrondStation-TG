@@ -8,7 +8,11 @@
 	lizard.Blend(eyes, ICON_OVERLAY)
 
 	if (include_snout)
+<<<<<<< HEAD
 		lizard.Blend(icon('icons/mob/species/mutant_bodyparts.dmi', "m_snout_round_ADJ", EAST), ICON_OVERLAY)
+=======
+		lizard.Blend(icon('icons/mob/species/lizard/lizard_misc.dmi', "m_snout_round_ADJ", EAST), ICON_OVERLAY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	for (var/name in sprite_accessories)
 		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
@@ -47,7 +51,11 @@
 
 		if (sprite_accessory.icon_state != "none")
 			var/icon/body_markings_icon = icon(
+<<<<<<< HEAD
 				'icons/mob/species/mutant_bodyparts.dmi',
+=======
+				'icons/mob/species/lizard/lizard_misc.dmi',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				"m_body_markings_[sprite_accessory.icon_state]_ADJ",
 			)
 

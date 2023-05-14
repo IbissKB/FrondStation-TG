@@ -2,6 +2,7 @@
 	desc = "A secure crate."
 	name = "secure crate"
 	icon_state = "securecrate"
+<<<<<<< HEAD
 	secure = TRUE
 	locked = TRUE
 	max_integrity = 500
@@ -9,6 +10,25 @@
 	var/tamperproof = 0
 	damage_deflection = 25
 
+=======
+	base_icon_state = "securecrate"
+	secure = TRUE
+	locked = TRUE
+	max_integrity = 500
+	armor_type = /datum/armor/crate_secure
+	damage_deflection = 25
+
+	var/tamperproof = 0
+
+/datum/armor/crate_secure
+	melee = 30
+	bullet = 50
+	laser = 50
+	energy = 100
+	fire = 80
+	acid = 80
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/crate/secure/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NO_MISSING_ITEM_ERROR, TRAIT_GENERIC)
@@ -31,32 +51,58 @@
 	desc = "A secure weapons crate."
 	name = "weapons crate"
 	icon_state = "weaponcrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "weaponcrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/plasma
 	desc = "A secure plasma crate."
 	name = "plasma crate"
 	icon_state = "plasmacrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "plasmacrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/gear
 	desc = "A secure gear crate."
 	name = "gear crate"
 	icon_state = "secgearcrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "secgearcrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/hydroponics
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
 	name = "secure hydroponics crate"
 	icon_state = "hydrosecurecrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "hydrosecurecrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/freezer //for consistency with other "freezer" closets/crates
 	desc = "An insulated crate with a lock on it, used to secure perishables."
 	name = "secure kitchen crate"
 	icon_state = "kitchen_secure_crate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "kitchen_secure_crate"
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/freezer/pizza
 	name = "secure pizza crate"
 	desc = "An insulated crate with a lock on it, used to secure pizza."
+<<<<<<< HEAD
 	req_access = list(ACCESS_KITCHEN)
 	tamperproof = 10
+=======
+	tamperproof = 10
+	req_access = list(ACCESS_KITCHEN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/freezer/pizza/PopulateContents()
 	. = ..()
@@ -66,16 +112,28 @@
 	desc = "A crate with a lock on it, painted in the scheme of the station's engineers."
 	name = "secure engineering crate"
 	icon_state = "engi_secure_crate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "engi_secure_crate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/science
 	name = "secure science crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's scientists."
 	icon_state = "scisecurecrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "scisecurecrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/secure/owned
 	name = "private crate"
 	desc = "A crate cover designed to only open for who purchased its contents."
 	icon_state = "privatecrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "privatecrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Account of the person buying the crate if private purchasing.
 	var/datum/bank_account/buyer_account
 	///Department of the person buying the crate if buying via the NIRN app.

@@ -91,3 +91,17 @@
 		/obj/item/food/grown/cannabis/rainbow = 15,
 		/obj/item/food/grown/cannabis/ultimate = 1,
 	)
+<<<<<<< HEAD
+=======
+
+/obj/effect/spawner/random/contraband/landmine
+	name = "landmine spawner"
+	loot = list(
+		/obj/effect/mine/explosive/light = 10,
+		/obj/effect/mine/explosive/flame = 10,
+		/obj/effect/mine/explosive/flash = 15,
+		/obj/effect/mine/explosive = 2,
+		/obj/item/restraints/legcuffs/beartrap/prearmed = 5, //not really a landmine, but still a good threat
+		/obj/effect/mine/shrapnel = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

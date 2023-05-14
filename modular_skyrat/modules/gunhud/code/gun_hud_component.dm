@@ -62,6 +62,7 @@
 		var/oth_t
 		var/oth_h
 
+<<<<<<< HEAD
 		switch(pew.fire_select)
 			if(SELECT_SEMI_AUTOMATIC)
 				indicator = "semi"
@@ -73,6 +74,8 @@
 		if(pew.safety)
 			indicator = "safe"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		switch(length(rounds))
 			if(1)
 				oth_o = "o[rounds[1]]"

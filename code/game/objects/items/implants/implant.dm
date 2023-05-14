@@ -37,12 +37,19 @@
 	if(isslime(target))
 		return TRUE
 
+<<<<<<< HEAD
 	if(isanimal(target))
 		var/mob/living/simple_animal/animal = target
 		// Robots and most non-organics aren't healable.
 		return animal.healable
 
 	return TRUE
+=======
+	if(!isanimal_or_basicmob(target))
+		return TRUE
+
+	return !(target.mob_biotypes & (MOB_ROBOTIC|MOB_MINERAL|MOB_SPIRIT))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * What does the implant do upon injection?

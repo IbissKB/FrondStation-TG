@@ -1,6 +1,10 @@
 //Here are the procs used to modify status effects of a mob.
+<<<<<<< HEAD
 //The effects include: stun, knockdown, unconscious, sleeping, resting, jitteriness, dizziness,
 // eye damage, eye_blind, eye_blurry, druggy, TRAIT_BLIND trait, and TRAIT_NEARSIGHT trait.
+=======
+//The effects include: stun, knockdown, unconscious, sleeping, resting
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #define IS_STUN_IMMUNE(source, ignore_canstun) ((source.status_flags & GODMODE) || (!ignore_canstun && (!(source.status_flags & CANKNOCKDOWN) || HAS_TRAIT(source, TRAIT_STUNIMMUNE))))
 
@@ -483,6 +487,7 @@
 			priority_absorb_key["stuns_absorbed"] += amount
 		return TRUE
 
+<<<<<<< HEAD
 /mob/living/proc/add_quirk(quirktype) //separate proc due to the way these ones are handled
 	if(HAS_TRAIT(src, quirktype))
 		return
@@ -492,6 +497,26 @@
 		return
 	quirk = new quirktype()
 	if(quirk.add_to_holder(src))
+=======
+/**
+ * Adds the passed quirk to the mob
+ *
+ * Arguments
+ * * quirktype - Quirk typepath to add to the mob
+ * * override_client - optional, allows a client to be passed to the quirks on add procs.
+ * If not passed, defaults to this mob's client.
+ *
+ * Returns TRUE on success, FALSE on failure (already has the quirk, etc)
+ */
+/mob/living/proc/add_quirk(datum/quirk/quirktype, client/override_client)
+	if(has_quirk(quirktype))
+		return FALSE
+	var/qname = initial(quirktype.name)
+	if(!SSquirks || !SSquirks.quirks[qname])
+		return FALSE
+	var/datum/quirk/quirk = new quirktype()
+	if(quirk.add_to_holder(new_holder = src, client_source = override_client))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	qdel(quirk)
 	return FALSE
@@ -509,6 +534,7 @@
 			return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 /* TRAIT PROCS */
 /mob/living/proc/cure_blind(source)
 	if(source)
@@ -534,6 +560,21 @@
 	if(!HAS_TRAIT(src, TRAIT_NEARSIGHT))
 		overlay_fullscreen("nearsighted", /atom/movable/screen/fullscreen/impaired, 1)
 	ADD_TRAIT(src, TRAIT_NEARSIGHT, source)
+=======
+/**
+ * Getter function for a mob's quirk
+ *
+ * Arguments:
+ * * quirktype - the type of the quirk to acquire e.g. /datum/quirk/some_quirk
+ *
+ * Returns the mob's quirk datum if the mob this is called on has the quirk, null on failure
+ */
+/mob/living/proc/get_quirk(quirktype)
+	for(var/datum/quirk/quirk in quirks)
+		if(quirk.type == quirktype)
+			return quirk
+	return null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/proc/cure_husk(source)
 	REMOVE_TRAIT(src, TRAIT_HUSK, source)
@@ -551,8 +592,12 @@
 		ADD_TRAIT(src, TRAIT_HUSK, source)
 
 /mob/living/proc/cure_fakedeath(source)
+<<<<<<< HEAD
 	REMOVE_TRAIT(src, TRAIT_FAKEDEATH, source)
 	REMOVE_TRAIT(src, TRAIT_DEATHCOMA, source)
+=======
+	remove_traits(list(TRAIT_FAKEDEATH, TRAIT_DEATHCOMA), source)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(stat != DEAD)
 		tod = null
 
@@ -562,8 +607,12 @@
 		return
 	if(!silent)
 		emote("deathgasp")
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_FAKEDEATH, source)
 	ADD_TRAIT(src, TRAIT_DEATHCOMA, source)
+=======
+	add_traits(list(TRAIT_FAKEDEATH, TRAIT_DEATHCOMA), source)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tod = station_time_timestamp()
 
 
@@ -765,3 +814,8 @@
 /// Helper to check if we seem to be alive or not
 /mob/living/proc/appears_alive()
 	return health >= 0 && !HAS_TRAIT(src, TRAIT_FAKEDEATH)
+<<<<<<< HEAD
+=======
+
+#undef IS_STUN_IMMUNE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -11,6 +11,10 @@
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "camera"
 	icon_keyboard = null
+<<<<<<< HEAD
+=======
+	icon_screen = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/machinery/computer/camera_advanced/abductor/Destroy()

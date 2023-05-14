@@ -9,7 +9,11 @@
 	verb_say = "beeps"
 	verb_ask = "beeps"
 	verb_exclaim = "beeps"
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
+=======
+	armor_type = /datum/armor/machinery_newscaster
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 200
 	integrity_failure = 0.25
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON|INTERACT_MACHINE_SET_MACHINE|INTERACT_MACHINE_REQUIRES_LITERACY
@@ -19,6 +23,13 @@
 	var/newscaster_username
 	///How much paper is contained within the newscaster?
 	var/paper_remaining = 0
+<<<<<<< HEAD
+=======
+	///The access required to access D-notices.
+	var/admin_access = ACCESS_LIBRARY
+	///The access required to submit & remove wanted issues.
+	var/security_access = ACCESS_SECURITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///What newscaster channel is currently being viewed by the player?
 	var/datum/feed_channel/current_channel
@@ -54,6 +65,14 @@
 	///Text of the currently written bounty
 	var/bounty_text = ""
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_newscaster
+	melee = 50
+	fire = 50
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/newscaster/pai/ui_state(mob/user)
 	return GLOB.reverse_contained_state
 
@@ -80,7 +99,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 	if(machine_stat & (NOPOWER|BROKEN))
 		set_light(0)
 		return
+<<<<<<< HEAD
 	set_light(1.4,0.7,"#34D352") // green light
+=======
+	set_light(1.5, 0.7, "#34D352") // green light
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/newscaster/update_overlays()
 	. = ..()
@@ -153,7 +176,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 		data["user"]["job"] = "N/A"
 		data["user"]["department"] = "N/A"
 
+<<<<<<< HEAD
 	data["security_mode"] = (ACCESS_ARMORY in card?.GetAccess())
+=======
+	data["admin_mode"] = (admin_access in card?.GetAccess())
+	data["security_mode"] = (security_access in card?.GetAccess())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["photo_data"] = !isnull(current_image)
 	data["creating_channel"] = creating_channel
 	data["creating_comment"] = creating_comment
@@ -324,7 +352,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 			if(isliving(usr))
 				var/mob/living/living_user = usr
 				id_card = living_user.get_idcard(hand_first = TRUE)
+<<<<<<< HEAD
 			if(!(ACCESS_ARMORY in id_card?.GetAccess()))
+=======
+			if(!(admin_access in id_card?.GetAccess()))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				say("Clearance not found.")
 				return TRUE
 			var/questionable_message = params["messageID"]
@@ -338,7 +370,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 			if(isliving(usr))
 				var/mob/living/living_user = usr
 				id_card = living_user.get_idcard(hand_first = TRUE)
+<<<<<<< HEAD
 			if(!(ACCESS_ARMORY in id_card?.GetAccess()))
+=======
+			if(!(admin_access in id_card?.GetAccess()))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				say("Clearance not found.")
 				return TRUE
 			var/questionable_message = params["messageID"]
@@ -352,7 +388,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 			if(isliving(usr))
 				var/mob/living/living_user = usr
 				id_card = living_user.get_idcard(hand_first = TRUE)
+<<<<<<< HEAD
 			if(!(ACCESS_ARMORY in id_card?.GetAccess()))
+=======
+			if(!(admin_access in id_card?.GetAccess()))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				say("Clearance not found.")
 				return TRUE
 			var/prototype_channel = (params["channel"])
@@ -389,7 +429,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 		if("toggleWanted")
 			alert = FALSE
 			viewing_wanted = TRUE
+<<<<<<< HEAD
 			update_overlays()
+=======
+			update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return TRUE
 
 		if("setCriminalName")
@@ -568,7 +612,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 			targetcam = R.aicamera
 		else if(ispAI(user))
 			var/mob/living/silicon/pai/R = user
+<<<<<<< HEAD
 			targetcam = R.aicamera
+=======
+			targetcam = R.camera
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else if(iscyborg(user))
 			var/mob/living/silicon/robot/R = user
 			if(R.connected_ai)
@@ -611,7 +659,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
  */
 /obj/machinery/newscaster/proc/remove_alert()
 	alert = FALSE
+<<<<<<< HEAD
 	update_overlays()
+=======
+	update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * When a new feed message is made that will alert all newscasters, this causes the newscasters to sent out a spoken message as well as create a sound.
@@ -730,7 +782,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 	if(isliving(usr))
 		var/mob/living/living_user = usr
 		id_card = living_user.get_idcard(hand_first = TRUE)
+<<<<<<< HEAD
 	if(!(ACCESS_ARMORY in id_card?.GetAccess()))
+=======
+	if(!(security_access in id_card?.GetAccess()))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		say("Clearance not found.")
 		return TRUE
 	GLOB.news_network.wanted_issue.active = FALSE
@@ -801,7 +857,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 	name = "newscaster frame"
 	desc = "Used to build newscasters, just secure to the wall."
 	icon_state = "newscaster"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=14000, /datum/material/glass=8000)
+=======
+	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT * 7, /datum/material/glass= SHEET_MATERIAL_AMOUNT * 4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	result_path = /obj/machinery/newscaster
 	pixel_shift = 30
 

@@ -1,7 +1,11 @@
 import { useBackend, useLocalState } from 'tgui/backend';
 import { Button, NoticeBox, Section, Stack } from 'tgui/components';
 import { DOOR_JACK, HOST_SCAN, PHOTO_MODE, SOFTWARE_DESC } from './constants';
+<<<<<<< HEAD
 import { Data } from './types';
+=======
+import { PaiData } from './types';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Renders two sections: A section of buttons and
@@ -23,7 +27,11 @@ export const InstalledDisplay = (props, context) => {
 
 /** Iterates over installed software to render buttons. */
 const InstalledSoftware = (props, context) => {
+<<<<<<< HEAD
   const { data } = useBackend<Data>(context);
+=======
+  const { data } = useBackend<PaiData>(context);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const { installed = [] } = data;
   const [currentSelection, setCurrentSelection] = useLocalState(
     context,
@@ -50,11 +58,15 @@ const InstalledSoftware = (props, context) => {
 
 /** Software info for buttons clicked. */
 const InstalledInfo = (props, context) => {
+<<<<<<< HEAD
   const [currentSelection, setCurrentSelection] = useLocalState(
     context,
     'software',
     ''
   );
+=======
+  const [currentSelection] = useLocalState(context, 'software', '');
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const title = !currentSelection ? 'Select a Program' : currentSelection;
 
   return (
@@ -76,6 +88,7 @@ const InstalledInfo = (props, context) => {
  * power toggle.
  */
 const SoftwareButtons = (props, context) => {
+<<<<<<< HEAD
   const { act, data } = useBackend<Data>(context);
   const { door_jack, languages, master_name } = data;
   const [currentSelection, setCurrentSelection] = useLocalState(
@@ -83,6 +96,11 @@ const SoftwareButtons = (props, context) => {
     'software',
     ''
   );
+=======
+  const { act, data } = useBackend<PaiData>(context);
+  const { door_jack, languages, master_name } = data;
+  const [currentSelection] = useLocalState(context, 'software', '');
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
   switch (currentSelection) {
     case 'Door Jack':

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 //used for holding information about unique properties of maps
 //feed it json files that match the datum layout
 //defaults to box
 //  -Cyberboss
+=======
+//This file is used to contain unique properties of every map, and how we wish to alter them on a per-map basis.
+//Use JSON files that match the datum layout and you should be set from there.
+//Right now, we default to MetaStation to ensure something does indeed load by default.
+//  -san7890 (with regards to Cyberboss)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_config
 	// Metadata
@@ -19,8 +26,13 @@
 	var/map_file = "MetaStation.dmm"
 
 	var/traits = null
+<<<<<<< HEAD
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
+=======
+	var/space_ruin_levels = DEFAULT_SPACE_RUIN_LEVELS
+	var/space_empty_levels = DEFAULT_SPACE_EMPTY_LEVELS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Boolean that tells us if this is a planetary station. (like IceBoxStation)
 	var/planetary = FALSE
 
@@ -33,7 +45,11 @@
 	var/shuttles = list(
 		"cargo" = "cargo_skyrat",
 		"ferry" = "ferry_fancy",
+<<<<<<< HEAD
 		"whiteship" = "whiteship_box",
+=======
+		"whiteship" = "whiteship_meta",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"emergency" = "emergency_skyrat") //SKYRAT EDIT CHANGE
 
 	/// Dictionary of job sub-typepath to template changes dictionary
@@ -41,6 +57,12 @@
 	/// List of additional areas that count as a part of the library
 	var/library_areas = list()
 
+<<<<<<< HEAD
+=======
+	/// List of unit tests that are skipped when running this map
+	var/list/skipped_tests
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Proc that simply loads the default map config, which should always be functional.
  */
@@ -201,6 +223,19 @@
 				continue
 			library_areas += path
 
+<<<<<<< HEAD
+=======
+#ifdef UNIT_TESTS
+	// Check for unit tests to skip, no reason to check these if we're not running tests
+	for(var/path_as_text in json["ignored_unit_tests"])
+		var/path_real = text2path(path_as_text)
+		if(!ispath(path_real, /datum/unit_test))
+			stack_trace("Invalid path in mapping config for ignored unit tests: \[[path_as_text]\]")
+			continue
+		LAZYADD(skipped_tests, path_real)
+#endif
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	defaulted = FALSE
 	return TRUE
 #undef CHECK_EXISTS

@@ -306,7 +306,11 @@
 
 
 /datum/design/borg_upgrade_clamp
+<<<<<<< HEAD
 	name = "Cyborg Upgrade (Improved Integrated Hydraulic Clamp)"
+=======
+	name = "Improved Integrated Hydraulic Clamp Module"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	id = "borg_upgrade_clamp"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/better_clamp

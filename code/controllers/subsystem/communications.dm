@@ -8,7 +8,10 @@ SUBSYSTEM_DEF(communications)
 
 	COOLDOWN_DECLARE(silicon_message_cooldown)
 	COOLDOWN_DECLARE(nonsilicon_message_cooldown)
+<<<<<<< HEAD
 	COOLDOWN_DECLARE(emergency_meeting_cooldown)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// Are we trying to send a cross-station message that contains soft-filtered words? If so, flip to TRUE to extend the time admins have to cancel the message.
 	var/soft_filtering = FALSE
@@ -17,6 +20,13 @@ SUBSYSTEM_DEF(communications)
 	var/list/command_report_footnotes = list()
 	/// A counter of conditions that are blocking the command report from printing. Counter incremements up for every blocking condition, and de-incrememnts when it is complete.
 	var/block_command_report = 0
+<<<<<<< HEAD
+=======
+	/// Has a special xenomorph egg been delivered?
+	var/xenomorph_egg_delivered = FALSE
+	/// The location where the special xenomorph egg was planted
+	var/area/captivity_area
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/controller/subsystem/communications/proc/can_announce(mob/living/user, is_silicon)
 	if(is_silicon && COOLDOWN_FINISHED(src, silicon_message_cooldown))
@@ -38,6 +48,7 @@ SUBSYSTEM_DEF(communications)
 	user.log_talk(input, LOG_SAY, tag="priority announcement")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has made a priority announcement.")
 
+<<<<<<< HEAD
 /**
  * Check if a mob can call an emergency meeting
  *
@@ -70,6 +81,8 @@ SUBSYSTEM_DEF(communications)
 	COOLDOWN_START(src, emergency_meeting_cooldown, COMMUNICATION_COOLDOWN_MEETING)
 	message_admins("[ADMIN_LOOKUPFLW(user)] has called an emergency meeting.")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/subsystem/communications/proc/send_message(datum/comm_message/sending,print = TRUE,unique = FALSE)
 	for(var/obj/machinery/computer/communications/C in GLOB.shuttle_caller_list)
 		if(!(C.machine_stat & (BROKEN|NOPOWER)) && is_station_level(C.z))
@@ -86,3 +99,7 @@ SUBSYSTEM_DEF(communications)
 
 #undef COMMUNICATION_COOLDOWN
 #undef COMMUNICATION_COOLDOWN_AI
+<<<<<<< HEAD
+=======
+#undef COMMUNICATION_COOLDOWN_MEETING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

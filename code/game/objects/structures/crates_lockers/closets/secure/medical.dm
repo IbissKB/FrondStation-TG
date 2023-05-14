@@ -39,7 +39,11 @@
 	..()
 	new /obj/item/radio/headset/headset_med(src)
 	new /obj/item/defibrillator/loaded(src)
+<<<<<<< HEAD
 	new /obj/item/clothing/gloves/color/latex/nitrile(src)
+=======
+	new /obj/item/clothing/gloves/latex/nitrile(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/clothing/glasses/hud/health(src)
 	return

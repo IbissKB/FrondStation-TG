@@ -40,13 +40,20 @@ export const CHANGELOG_ENTRIES = [
 	],
 
 	[
+<<<<<<< HEAD
 		["soundadd"],
 		{
 			placeholders: ["added a new sound thingy"],
+=======
+		["sound"],
+		{
+			placeholders: ["added/modified/removed audio or sound effects"],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 	],
 
 	[
+<<<<<<< HEAD
 		["sounddel"],
 		{
 			placeholders: ["removed an old sound thingy"],
@@ -64,6 +71,11 @@ export const CHANGELOG_ENTRIES = [
 		["imagedel"],
 		{
 			placeholders: ["deleted some icons and images"],
+=======
+		["image"],
+		{
+			placeholders: ["added/modified/removed some icons or images"],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		},
 	],
 

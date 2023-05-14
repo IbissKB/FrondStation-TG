@@ -3,6 +3,10 @@
 	desc = "A wooden board with letters etched into it, used in seances."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "spirit_board"
+<<<<<<< HEAD
+=======
+	resistance_flags = FLAMMABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = TRUE
 	anchored = FALSE
 	var/virgin = TRUE //applies especially to admins

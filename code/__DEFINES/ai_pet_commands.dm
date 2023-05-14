@@ -1,5 +1,6 @@
 /// Blackboard field for the most recent command the pet was given
 #define BB_ACTIVE_PET_COMMAND "BB_active_pet_command"
+<<<<<<< HEAD
 /// Follow your normal behaviour
 #define PET_COMMAND_NONE "pet_command_none"
 /// Don't take any actions at all
@@ -10,6 +11,8 @@
 #define PET_COMMAND_FOLLOW "pet_commmand_follow"
 /// Use a targetted mob ability
 #define PET_COMMAND_USE_ABILITY "pet_command_use_ability"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Blackboard field for what we actually want the pet to target
 #define BB_CURRENT_PET_TARGET "BB_current_pet_target"

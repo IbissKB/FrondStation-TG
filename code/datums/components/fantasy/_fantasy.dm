@@ -104,7 +104,11 @@
 
 	master.force = max(0, master.force + quality)
 	master.throwforce = max(0, master.throwforce + quality)
+<<<<<<< HEAD
 	master.armor = master.armor?.modifyAllRatings(quality)
+=======
+	master.set_armor(master.get_armor().generate_new_with_modifiers(list(ARMOR_ALL = quality)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	master.wound_bonus += quality
 	master.bare_wound_bonus += quality
 
@@ -136,7 +140,11 @@
 
 	master.force = max(0, master.force - quality)
 	master.throwforce = max(0, master.throwforce - quality)
+<<<<<<< HEAD
 	master.armor = master.armor?.modifyAllRatings(-quality)
+=======
+	master.set_armor(master.get_armor().generate_new_with_modifiers(list(ARMOR_ALL = -quality)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	master.wound_bonus -= quality
 	master.bare_wound_bonus -= quality
 

@@ -6,7 +6,10 @@
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = SUPERVISOR_HOP
+<<<<<<< HEAD
 	selection_color = "#bbe291"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "JANITOR"
 
@@ -33,7 +36,10 @@
 
 	job_tone = "slip"
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/outfit/job/janitor
 	name = "Janitor"
 	jobtype = /datum/job/janitor
@@ -43,12 +49,28 @@
 	belt = /obj/item/modular_computer/pda/janitor
 	ears = /obj/item/radio/headset/headset_srv
 
+<<<<<<< HEAD
 /datum/outfit/job/janitor/pre_equip(mob/living/carbon/human/H, visualsOnly)
+=======
+/datum/outfit/job/janitor/pre_equip(mob/living/carbon/human/human_equipper, visuals_only)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(check_holidays(GARBAGEDAY))
 		backpack_contents += list(/obj/item/gun/ballistic/revolver)
 		r_pocket = /obj/item/ammo_box/a357
 
+<<<<<<< HEAD
+=======
+//SKYRAT EDIT REMOVAL BEGIN - JANITOR KEY - (Moved to modular_skyrat/master_files/code/modules/jobs/job_types/janitor.dm)
+/*
+	var/static/access_key_given = FALSE
+	if(!access_key_given && !visuals_only)
+		access_key_given = TRUE
+		backpack_contents += list(/obj/item/access_key)
+*/
+//SKYRAT EDIT REMOVAL END
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/outfit/job/janitor/get_types_to_preload()
 	. = ..()
 	if(check_holidays(GARBAGEDAY))

@@ -38,6 +38,10 @@
 		/obj/item/circuitboard/machine/griddle,
 		/obj/item/circuitboard/machine/reagentgrinder,
 		/obj/item/circuitboard/machine/oven,
+<<<<<<< HEAD
+=======
+		/obj/item/circuitboard/machine/stove,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/circuitboard/machine/processor,
 		/obj/item/circuitboard/machine/gibber,
 		/obj/item/circuitboard/machine/chem_dispenser/drinks,
@@ -121,4 +125,7 @@
 		/obj/item/circuitboard/computer/apc_control,
 		/obj/item/circuitboard/computer/robotics,
 	)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

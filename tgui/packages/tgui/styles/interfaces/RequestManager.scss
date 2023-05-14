@@ -12,6 +12,10 @@ $color-centcom: colors.bg(colors.$yellow) !default;
 $color-syndicate: colors.bg(colors.$red) !default;
 $color-nuke: colors.bg(colors.$yellow) !default;
 $color-fax: colors.bg(colors.$green) !default;
+<<<<<<< HEAD
+=======
+$color-music: colors.bg(colors.$teal) !default;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 $color-muted: colors.bg(colors.$label) !default;
 $color-header: colors.bg(colors.$label) !default;
 $background-color: base.$color-bg-section !default;
@@ -44,6 +48,13 @@ $text-color: base.$color-fg !default;
   color: $color-fax;
 }
 
+<<<<<<< HEAD
+=======
+.RequestManager__request_internet_sound {
+  color: $color-music;
+}
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 .RequestManager__header {
   line-height: 1.375rem;
   min-height: 1.375rem;

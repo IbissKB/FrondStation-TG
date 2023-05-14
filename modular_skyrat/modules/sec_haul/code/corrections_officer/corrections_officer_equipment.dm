@@ -4,11 +4,22 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "corrections_officer"
+<<<<<<< HEAD
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "fire" = 0, "acid" = 0)
+=======
+	armor_type = /datum/armor/security_corrections_officer
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_adjust = FALSE
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 
+<<<<<<< HEAD
+=======
+/datum/armor/security_corrections_officer
+	melee = 10
+	melee = 5
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/rank/security/corrections_officer/skirt
 	desc = "A white satin shirt with some bronze rank pins at the neck."
 	name = "corrections officer's skirt"
@@ -43,10 +54,22 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "co_coat"
 	body_parts_covered = CHEST|ARMS
+<<<<<<< HEAD
 	armor = list("melee" = 10, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "fire" = 0, "acid" = 0)
 
 
 // LOCKER
+=======
+	armor_type = /datum/armor/jacket_corrections_officer
+
+
+// LOCKER
+
+/datum/armor/jacket_corrections_officer
+	melee = 10
+	melee = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/secure_closet/corrections_officer
 	name = "corrections officer riot gear"
 	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'

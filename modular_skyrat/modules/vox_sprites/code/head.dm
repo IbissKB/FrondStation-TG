@@ -16,7 +16,14 @@
 /obj/item/clothing/head/beret
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
+<<<<<<< HEAD
 /obj/item/clothing/head/hos/beret
+=======
+/obj/item/clothing/head/beret/badge
+	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge/worn/vox
+
+/obj/item/clothing/head/hats/hos/beret
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge/worn/vox
 
 /obj/item/clothing/head/beret/sec

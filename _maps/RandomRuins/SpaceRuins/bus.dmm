@@ -18,36 +18,77 @@
 /area/ruin/space)
 "an" = (
 /obj/structure/fluff/bus/passable/seat,
+<<<<<<< HEAD
 /obj/item/food/meatball,
+=======
+/obj/item/toy/plush/pkplush{
+	pixel_z = 17
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
 /area/ruin/space)
 "ao" = (
+<<<<<<< HEAD
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
+=======
+/obj/machinery/telecomms/server{
+	pixel_z = 12;
+	layer = 2.91;
+	name = "tgsv3";
+	desc = "It's, uh... pending an upgrade."
+	},
+/turf/closed/mineral/ash_rock,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/space)
 "ap" = (
 /obj/structure/fluff/bus/passable/seat{
 	pixel_y = 15
 	},
+<<<<<<< HEAD
+=======
+/obj/item/toy/plush/lizard_plushie/green{
+	pixel_z = 17
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
 /area/ruin/space)
 "aq" = (
 /obj/structure/fluff/bus/passable/seat,
+<<<<<<< HEAD
 /obj/item/food/meatball,
 /obj/effect/decal/cleanable/dirt,
+=======
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/head/helmet/knight{
+	pixel_z = 16
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
 /area/ruin/space)
 "ar" = (
 /obj/structure/fluff/bus/passable/seat,
+<<<<<<< HEAD
 /obj/item/food/grown/cherry_bomb,
+=======
+/obj/item/grown/novaflower{
+	offset_at_init = 0;
+	pixel_z = 24;
+	pixel_y = 1
+	},
+/obj/item/food/grown/watermelon{
+	offset_at_init = 0;
+	pixel_z = 17
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
@@ -55,7 +96,22 @@
 "as" = (
 /obj/structure/fluff/bus/passable/seat/driver,
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
 /obj/item/food/grown/citrus/orange,
+=======
+/obj/item/toy/plush/moth{
+	pixel_z = 26;
+	pixel_y = 2
+	},
+/obj/item/food/grown/citrus/orange{
+	offset_at_init = 0;
+	pixel_z = 18;
+	pixel_y = 1
+	},
+/obj/item/toy/talking/ai{
+	pixel_z = 16
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
@@ -117,7 +173,18 @@
 "aU" = (
 /obj/structure/fluff/bus/passable/seat,
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
 /obj/item/food/meatball,
+=======
+/obj/item/bodypart/arm/right{
+	pixel_z = 25;
+	pixel_y = 1;
+	pixel_x = -4
+	},
+/obj/item/food/meat/slab/penguin{
+	pixel_z = 13
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
@@ -132,29 +199,61 @@
 "aW" = (
 /obj/structure/fluff/bus/passable/seat/driver,
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
+=======
+/obj/item/banhammer{
+	pixel_z = 22
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
 /area/ruin/space)
 "aZ" = (
 /obj/structure/fluff/bus/passable,
+<<<<<<< HEAD
 /obj/effect/decal/cleanable/dirt,
 /obj/item/food/meatball,
+=======
+/obj/structure/sacrificealtar,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
 /area/ruin/space)
 "ba" = (
+<<<<<<< HEAD
 /obj/structure/fluff/bus/passable,
 /obj/item/banhammer,
+=======
+/obj/structure/fluff/bus/passable/seat,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/food/grown/tomato{
+	offset_at_init = 0;
+	pixel_z = 23;
+	pixel_y = 2
+	},
+/obj/item/food/donut/plain{
+	pixel_z = 15;
+	pixel_y = 1;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/ants{
+	pixel_z = 8;
+	pixel_x = 9
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
 /area/ruin/space)
+<<<<<<< HEAD
 "dI" = (
 /obj/item/food/meatball,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "iE" = (
 /obj/structure/table,
 /obj/item/pai_card,
@@ -217,7 +316,11 @@
 /area/ruin/space)
 "Ds" = (
 /obj/item/stack/rods/fifty,
+<<<<<<< HEAD
 /obj/item/stock_parts/manipulator/femto,
+=======
+/obj/item/stock_parts/servo/femto,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "ER" = (
@@ -239,6 +342,25 @@
 	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space)
+<<<<<<< HEAD
+=======
+"FZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/toy/plush/awakenedplushie{
+	pixel_z = 26;
+	pixel_y = 1
+	},
+/obj/machinery/telecomms/server{
+	pixel_z = 12;
+	layer = 2.91;
+	name = "tgsv3";
+	desc = "It's, uh... pending an upgrade."
+	},
+/turf/open/floor/iron/dark/airless{
+	icon_state = "bus"
+	},
+/area/ruin/space)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Gf" = (
 /obj/effect/decal/remains/human,
 /obj/item/clothing/suit/space,
@@ -317,7 +439,19 @@
 "XA" = (
 /obj/structure/fluff/bus/passable/seat,
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
 /obj/item/toy/plush/awakenedplushie,
+=======
+/obj/item/toy/singlecard{
+	pixel_z = 24;
+	pixel_y = 1;
+	pixel_x = 0
+	},
+/obj/item/food/grown/potato{
+	offset_at_init = 0;
+	pixel_z = 15
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless{
 	icon_state = "bus"
 	},
@@ -379,10 +513,17 @@ ab
 yY
 Bw
 yY
+<<<<<<< HEAD
 dI
 Ne
 aU
 az
+=======
+yY
+Ne
+am
+aZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ER
 yY
 yY
@@ -402,7 +543,11 @@ yY
 yY
 Ne
 am
+<<<<<<< HEAD
 aZ
+=======
+ax
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xj
 yY
 yY
@@ -422,7 +567,11 @@ Bw
 yY
 Ne
 aV
+<<<<<<< HEAD
 ba
+=======
+az
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 IQ
 yY
 yY
@@ -436,12 +585,20 @@ ab
 Gt
 yY
 Ne
+<<<<<<< HEAD
 am
+=======
+FZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ax
 ER
 yY
 Ne
+<<<<<<< HEAD
 aU
+=======
+am
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 az
 KK
 yY
@@ -496,7 +653,11 @@ ab
 ab
 yY
 Ne
+<<<<<<< HEAD
 ao
+=======
+ba
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 aA
 KK
 uO
@@ -576,7 +737,11 @@ ab
 Ds
 yY
 Ne
+<<<<<<< HEAD
 am
+=======
+aU
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 aD
 KK
 yY
@@ -601,7 +766,11 @@ aE
 ud
 yY
 yY
+<<<<<<< HEAD
 dI
+=======
+yY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yY
 aa
 aa
@@ -697,7 +866,11 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 ab
+=======
+ao
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yY
 yY
 yY

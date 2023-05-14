@@ -12,7 +12,10 @@
 	extended_desc = "This program allows communication over NTNRC network"
 	size = 8
 	requires_ntnet = TRUE
+<<<<<<< HEAD
 	requires_ntnet_feature = NTNET_COMMUNICATION
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = TRUE
 	tgui_id = "NtosNetChat"
@@ -48,11 +51,15 @@
 	active_channel = new_converstaion.id
 	return new_converstaion
 
+<<<<<<< HEAD
 /datum/computer_file/program/chatclient/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
+=======
+/datum/computer_file/program/chatclient/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/ntnet_conversation/channel = SSmodular_computers.get_chat_channel_by_id(active_channel)
 	var/authed = FALSE
 	if(channel && ((channel.channel_operator == src) || netadmin_mode))
@@ -103,6 +110,7 @@
 			if(netadmin_mode)
 				netadmin_mode = FALSE
 				channel?.add_client(src)
+<<<<<<< HEAD
 				return UI_UPDATE
 			var/mob/living/user = usr
 			if(can_run(user, TRUE, ACCESS_NETWORK))
@@ -110,6 +118,15 @@
 					channels.remove_client(src)
 				netadmin_mode = TRUE
 				return UI_UPDATE
+=======
+				return TRUE
+			var/mob/living/user = usr
+			if(can_run(user, TRUE, list(ACCESS_NETWORK)))
+				for(var/datum/ntnet_conversation/channels as anything in SSmodular_computers.chat_channels)
+					channels.remove_client(src)
+				netadmin_mode = TRUE
+				return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("PRG_changename")
 			var/newname = reject_bad_chattext(params["new_name"], USERNAME_SIZE)
 			newname = replacetext(newname, " ", "_")
@@ -119,7 +136,11 @@
 				if(src in anychannel.active_clients)
 					anychannel.add_status_message("[username] is now known as [newname].")
 			username = newname
+<<<<<<< HEAD
 			return UI_UPDATE
+=======
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("PRG_savelog")
 			if(!channel)
 				return
@@ -178,10 +199,17 @@
 			COOLDOWN_START(src, ping_cooldown, PING_COOLDOWN_TIME)
 			return TRUE
 
+<<<<<<< HEAD
 /datum/computer_file/program/chatclient/process_tick(delta_time)
 	. = ..()
 	var/datum/ntnet_conversation/channel = SSmodular_computers.get_chat_channel_by_id(active_channel)
 	if(program_state != PROGRAM_STATE_KILLED)
+=======
+/datum/computer_file/program/chatclient/process_tick(seconds_per_tick)
+	. = ..()
+	var/datum/ntnet_conversation/channel = SSmodular_computers.get_chat_channel_by_id(active_channel)
+	if(src in computer.idle_threads)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ui_header = "ntnrc_idle.gif"
 		if(channel)
 			// Remember the last message. If there is no message in the channel remember null.
@@ -203,7 +231,11 @@
 			channel.offline_clients.Remove(src)
 			channel.active_clients.Add(src)
 
+<<<<<<< HEAD
 /datum/computer_file/program/chatclient/kill_program(forced = FALSE)
+=======
+/datum/computer_file/program/chatclient/kill_program()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/datum/ntnet_conversation/channel as anything in SSmodular_computers.chat_channels)
 		channel.go_offline(src)
 	active_channel = null
@@ -211,6 +243,7 @@
 
 /datum/computer_file/program/chatclient/ui_static_data(mob/user)
 	var/list/data = list()
+<<<<<<< HEAD
 	data["can_admin"] = can_run(user, FALSE, ACCESS_NETWORK)
 	data["selfref"] = REF(src) //used to verify who is you, as usernames can be copied.
 	data["username"] = username
@@ -221,6 +254,13 @@
 	var/list/data = get_header_data()
 	if(!SSmodular_computers.chat_channels)
 		return data
+=======
+	data["selfref"] = REF(src) //used to verify who is you, as usernames can be copied.
+	return data
+
+/datum/computer_file/program/chatclient/ui_data(mob/user)
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/list/all_channels = list()
 	for(var/datum/ntnet_conversation/conversations as anything in SSmodular_computers.chat_channels)
@@ -246,7 +286,12 @@
 				authed = TRUE
 			clients.Add(list(list(
 				"name" = channel_client.username,
+<<<<<<< HEAD
 				"status" = channel_client.program_state,
+=======
+				"online" = (channel_client == channel_client.computer.active_program),
+				"away" = (channel_client in channel_client.computer.idle_threads),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				"muted" = (channel_client in channel.muted_clients),
 				"operator" = (channel.channel_operator == channel_client),
 				"ref" = REF(channel_client),
@@ -263,6 +308,12 @@
 			data["messages"] = messages
 			data["is_operator"] = (channel.channel_operator == src) || netadmin_mode
 
+<<<<<<< HEAD
+=======
+	data["username"] = username
+	data["adminmode"] = netadmin_mode
+	data["can_admin"] = can_run(user, FALSE, list(ACCESS_NETWORK))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["authed"] = authed
 	return data
 

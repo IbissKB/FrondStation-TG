@@ -100,7 +100,11 @@ While we normally encourage (and in some cases, even require) bringing out of da
 ### RegisterSignal()
 
 #### PROC_REF Macros
+<<<<<<< HEAD
 When referencing procs in RegisterSignal, Callback and other procs you should use PROC_REF,TYPE_PROC_REF and GLOBAL_PROC_REF macros. 
+=======
+When referencing procs in RegisterSignal, Callback and other procs you should use PROC_REF, TYPE_PROC_REF and GLOBAL_PROC_REF macros. 
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 They ensure compilation fails if the reffered to procs change names or get removed.
 The macro to be used depends on how the proc you're in relates to the proc you want to use:
 
@@ -142,6 +146,10 @@ Example:
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(funny)), 100))
 ```
 
+<<<<<<< HEAD
+=======
+Note that the same rules go for verbs too! We have VERB_REF() and TYPE_VERB_REF() as you need it in these same cases. GLOBAL_VERB_REF() isn't a thing however, as verbs are not global.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #### Signal Handlers
 
@@ -213,7 +221,11 @@ In a lot of our older code, `process()` is frame dependent. Here's some example 
 	var/health = 100
 	var/health_loss = 4 //We want to lose 2 health per second, so 4 per SSmobs process
 
+<<<<<<< HEAD
 /mob/testmob/process(delta_time) //SSmobs runs once every 2 seconds
+=======
+/mob/testmob/process(seconds_per_tick) //SSmobs runs once every 2 seconds
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	health -= health_loss
 ```
 
@@ -228,11 +240,19 @@ How do we solve this? By using delta-time. Delta-time is the amount of seconds y
 	var/health = 100
 	var/health_loss = 2 //Health loss every second
 
+<<<<<<< HEAD
 /mob/testmob/process(delta_time) //SSmobs runs once every 2 seconds
 	health -= health_loss * delta_time
 ```
 
 In the above example, we made our health_loss variable a per second value rather than per process. In the actual process() proc we then make use of deltatime. Because SSmobs runs once every  2 seconds. Delta_time would have a value of 2. This means that by doing health_loss * delta_time, you end up with the correct amount of health_loss per process, but if for some reason the SSmobs subsystem gets changed to be faster or slower in a PR, your health_loss variable will work the same.
+=======
+/mob/testmob/process(seconds_per_tick) //SSmobs runs once every 2 seconds
+	health -= health_loss * seconds_per_tick
+```
+
+In the above example, we made our health_loss variable a per second value rather than per process. In the actual process() proc we then make use of deltatime. Because SSmobs runs once every  2 seconds. Delta_time would have a value of 2. This means that by doing health_loss * seconds_per_tick, you end up with the correct amount of health_loss per process, but if for some reason the SSmobs subsystem gets changed to be faster or slower in a PR, your health_loss variable will work the same.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 For example, if SSmobs is set to run once every 4 seconds, it would call process once every 4 seconds and multiply your health_loss var by 4 before subtracting it. Ensuring that your code is frame independent.
 

@@ -160,11 +160,19 @@
 
 		if(L.ckey && L.client)
 			var/failed = FALSE
+<<<<<<< HEAD
 			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2)) //Connected, but inactive (alt+tabbed or something)
 				msg += "<b>[L.name]</b> ([L.key]), the [L.job] (<font color='#ffcc00'><b>Connected, Inactive</b></font>)\n"
 				failed = TRUE //AFK client
 			if(!failed && L.stat)
 				if(L.suiciding) //Suicider
+=======
+			if(L.client.inactivity >= ROUNDSTART_LOGOUT_AFK_THRESHOLD) //Connected, but inactive (alt+tabbed or something)
+				msg += "<b>[L.name]</b> ([L.key]), the [L.job] (<font color='#ffcc00'><b>Connected, Inactive</b></font>)\n"
+				failed = TRUE //AFK client
+			if(!failed && L.stat)
+				if(HAS_TRAIT(L, TRAIT_SUICIDED)) //Suicider
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					msg += "<b>[L.name]</b> ([L.key]), the [L.job] ([span_boldannounce("Suicide")])\n"
 					failed = TRUE //Disconnected client
 				if(!failed && (L.stat == UNCONSCIOUS || L.stat == HARD_CRIT))
@@ -178,7 +186,11 @@
 		for(var/mob/dead/observer/D in GLOB.dead_mob_list)
 			if(D.mind && D.mind.current == L)
 				if(L.stat == DEAD)
+<<<<<<< HEAD
 					if(L.suiciding) //Suicider
+=======
+					if(HAS_TRAIT(L, TRAIT_SUICIDED)) //Suicider
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] ([span_boldannounce("Suicide")])\n"
 						continue //Disconnected client
 					else
@@ -191,14 +203,24 @@
 						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] ([span_boldannounce("Ghosted")])\n"
 						continue //Ghosted while alive
 
+<<<<<<< HEAD
 
 	for (var/C in GLOB.admins)
 		to_chat(C, msg.Join())
+=======
+	var/concatenated_message = msg.Join()
+	log_admin(concatenated_message)
+	to_chat(GLOB.admins, concatenated_message)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/game_mode/proc/generate_station_goals(greenshift)
 	var/goal_budget = greenshift ? INFINITY : CONFIG_GET(number/station_goal_budget)
 	var/list/possible = subtypesof(/datum/station_goal)
+<<<<<<< HEAD
 	if(!(SSmapping.empty_space))
+=======
+	if(SSmapping.is_planetary())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		for(var/datum/station_goal/goal in possible)
 			if(goal.requires_space)
 				///Removes all goals that require space if space is not present
@@ -212,6 +234,7 @@
 //Set result and news report here
 /datum/game_mode/proc/set_round_result()
 	SSticker.mode_result = "undefined"
+<<<<<<< HEAD
 	if(GLOB.station_was_nuked)
 		SSticker.news_report = STATION_DESTROYED_NUKE
 	if(EMERGENCY_ESCAPED_OR_ENDGAMED)
@@ -220,6 +243,16 @@
 			SSticker.news_report = SHUTTLE_HIJACK
 	if(SSsupermatter_cascade.cascade_initiated)
 		SSticker.news_report = SUPERMATTER_CASCADE
+=======
+	// Something nuked the station - it wasn't nuke ops (they set their own via their rulset)
+	if(GLOB.station_was_nuked)
+		SSticker.news_report = STATION_NUKED
+	if(SSsupermatter_cascade.cascade_initiated)
+		SSticker.news_report = SUPERMATTER_CASCADE
+	// Only show this one if we have nothing better to show
+	if(EMERGENCY_ESCAPED_OR_ENDGAMED && !SSticker.news_report)
+		SSticker.news_report = SSshuttle.emergency?.is_hijacked() ? SHUTTLE_HIJACK : STATION_EVACUATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Mode specific admin panel.
 /datum/game_mode/proc/admin_panel()

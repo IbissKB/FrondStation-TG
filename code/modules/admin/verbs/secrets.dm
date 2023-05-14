@@ -4,7 +4,11 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 	set name = "Secrets"
 	set desc = "Abuse harder than you ever have before with this handy dandy semi-misc stuff menu"
 	set category = "Admin.Game"
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Secrets Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Secrets Panel") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/secrets_menu/tgui = new(usr)//create the datum
 	tgui.ui_interact(usr)//datum has a tgui component, here we open the window
 
@@ -43,6 +47,10 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 	return data
 
 #define THUNDERDOME_TEMPLATE_FILE "admin_thunderdome.dmm"
+<<<<<<< HEAD
+=======
+#define HIGHLANDER_DELAY_TEXT "40 seconds (crush the hope of a normal shift)"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/secrets_menu/ui_act(action, params)
 	. = ..()
 	if(.)
@@ -54,9 +62,15 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 		//Generic Buttons anyone can use.
 		if("admin_log")
 			var/dat = "<meta charset='UTF-8'><B>Admin Log<HR></B>"
+<<<<<<< HEAD
 			for(var/l in GLOB.admin_log)
 				dat += "<li>[l]</li>"
 			if(!GLOB.admin_log.len)
+=======
+			for(var/l in GLOB.admin_activities)
+				dat += "<li>[l]</li>"
+			if(!GLOB.admin_activities.len)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				dat += "No-one has done anything this round!"
 			holder << browse(dat, "window=admin_log")
 		if("show_admins")
@@ -70,19 +84,33 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 		if("maint_access_engiebrig")
 			if(!is_debugger)
 				return
+<<<<<<< HEAD
 			for(var/obj/machinery/door/airlock/maintenance/M in GLOB.airlocks)
 				M.check_access()
 				if (ACCESS_MAINT_TUNNELS in M.req_access)
 					M.req_access = list()
 					M.req_one_access = list(ACCESS_BRIG, ACCESS_ENGINEERING)
+=======
+			for(var/obj/machinery/door/airlock/maintenance/doors in GLOB.airlocks)
+				if ((ACCESS_MAINT_TUNNELS in doors.req_access) || (ACCESS_MAINT_TUNNELS in doors.req_one_access))
+					doors.req_access = list()
+					doors.req_one_access = list(ACCESS_BRIG, ACCESS_ENGINEERING)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			message_admins("[key_name_admin(holder)] made all maint doors engineering and brig access-only.")
 		if("maint_access_brig")
 			if(!is_debugger)
 				return
+<<<<<<< HEAD
 			for(var/obj/machinery/door/airlock/maintenance/M in GLOB.airlocks)
 				M.check_access()
 				if (ACCESS_MAINT_TUNNELS in M.req_access)
 					M.req_access = list(ACCESS_BRIG)
+=======
+			for(var/obj/machinery/door/airlock/maintenance/doors in GLOB.airlocks)
+				if ((ACCESS_MAINT_TUNNELS in doors.req_access) || (ACCESS_MAINT_TUNNELS in doors.req_one_access))
+					doors.req_access = list(ACCESS_BRIG)
+					doors.req_one_access = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			message_admins("[key_name_admin(holder)] made all maint doors brig access-only.")
 		if("infinite_sec")
 			if(!is_debugger)
@@ -123,7 +151,11 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 			holder.list_fingerprints()
 
 		if("ctfbutton")
+<<<<<<< HEAD
 			toggle_id_ctf(holder, "centcom")
+=======
+			toggle_id_ctf(holder, CTF_GHOST_CTF_GAME_ID)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if("tdomereset")
 			var/delete_mobs = tgui_alert(usr, "Clear all mobs?", "Thunderdome Reset", list("Yes", "No", "Cancel"))
@@ -142,6 +174,10 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 					qdel(obj) //Clear objects
 
 			var/datum/map_template/thunderdome_template = SSmapping.map_templates[THUNDERDOME_TEMPLATE_FILE]
+<<<<<<< HEAD
+=======
+			thunderdome_template.should_place_on_top = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/turf/thunderdome_corner = locate(thunderdome.x - 3, thunderdome.y - 1, 1) // have to do a little bit of coord manipulation to get it in the right spot
 			thunderdome_template.load(thunderdome_corner)
 
@@ -170,6 +206,7 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 						SSnightshift.can_fire = TRUE
 						SSnightshift.fire()
 					else
+<<<<<<< HEAD
 						SSnightshift.update_nightshift(FALSE, TRUE)
 				if("On")
 					SSnightshift.can_fire = FALSE
@@ -177,6 +214,15 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 				if("Off")
 					SSnightshift.can_fire = FALSE
 					SSnightshift.update_nightshift(FALSE, TRUE)
+=======
+						SSnightshift.update_nightshift(active = FALSE, announce = TRUE, forced = TRUE)
+				if("On")
+					SSnightshift.can_fire = FALSE
+					SSnightshift.update_nightshift(active = TRUE, announce = TRUE, forced = TRUE)
+				if("Off")
+					SSnightshift.can_fire = FALSE
+					SSnightshift.update_nightshift(active = FALSE, announce = TRUE, forced = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("moveferry")
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send CentCom Ferry"))
 			if(!SSshuttle.toggleShuttle("ferry","ferry_home","ferry_away"))
@@ -206,12 +252,20 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 				if("Make Your Own")
 					AdminCreateVirus(holder)
 				if("Random")
+<<<<<<< HEAD
 					var/datum/round_event_control/disease_outbreak/DC = locate(/datum/round_event_control/disease_outbreak) in SSevents.control
 					E = DC.runEvent()
 				if("Choose")
 					var/virus = input("Choose the virus to spread", "BIOHAZARD") as null|anything in sort_list(typesof(/datum/disease), GLOBAL_PROC_REF(cmp_typepaths_asc))
 					var/datum/round_event_control/disease_outbreak/DC = locate(/datum/round_event_control/disease_outbreak) in SSevents.control
 					var/datum/round_event/disease_outbreak/DO = DC.runEvent()
+=======
+					force_event(/datum/round_event_control/disease_outbreak)
+				if("Choose")
+					var/virus = input("Choose the virus to spread", "BIOHAZARD") as null|anything in sort_list(typesof(/datum/disease), GLOBAL_PROC_REF(cmp_typepaths_asc))
+					var/datum/round_event_control/disease_outbreak/DC = locate(/datum/round_event_control/disease_outbreak) in SSevents.control
+					var/datum/round_event/disease_outbreak/DO = DC.run_event()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					DO.virus_type = virus
 					E = DO
 		if("allspecies")
@@ -260,11 +314,22 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 		if("onlyone")
 			if(!is_funmin)
 				return
+<<<<<<< HEAD
 			var/response = tgui_alert(usr,"Delay by 40 seconds?", "There can, in fact, only be one", list("Instant!", "40 seconds (crush the hope of a normal shift)"))
 			if(response == "Instant!")
 				holder.only_one()
 			else
 				holder.only_one_delayed()
+=======
+			var/response = tgui_alert(usr,"Delay by 40 seconds?", "There can, in fact, only be one", list("Instant!", HIGHLANDER_DELAY_TEXT))
+			switch(response)
+				if("Instant!")
+					holder.only_one()
+				if(HIGHLANDER_DELAY_TEXT)
+					holder.only_one_delayed()
+				else
+					return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("There Can Be Only One"))
 		if("guns")
 			if(!is_funmin)
@@ -277,7 +342,11 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 				if("All Antags!")
 					survivor_probability = 100
 
+<<<<<<< HEAD
 			summon_guns(holder, survivor_probability)
+=======
+			summon_guns(holder.mob, survivor_probability)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if("magic")
 			if(!is_funmin)
@@ -290,7 +359,11 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 				if("All Antags!")
 					survivor_probability = 100
 
+<<<<<<< HEAD
 			summon_magic(holder, survivor_probability)
+=======
+			summon_magic(holder.mob, survivor_probability)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if("towerOfBabel")
 			if(!is_funmin)
@@ -485,7 +558,11 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 			var/animetype = tgui_alert(usr,"Would you like to have the clothes be changed?",,list("Yes","No","Cancel"))
 
 			var/droptype
+<<<<<<< HEAD
 			if(animetype =="Yes")
+=======
+			if(animetype == "Yes")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				droptype = tgui_alert(usr,"Make the uniforms Nodrop?",,list("Yes","No","Cancel"))
 
 			if(animetype == "Cancel" || droptype == "Cancel")
@@ -573,6 +650,26 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 				teamsize--
 
 			return TRUE
+<<<<<<< HEAD
+=======
+		if("ctf_instagib")
+			if(!is_funmin)
+				return
+			if(GLOB.ctf_games.len <= 0)
+				tgui_alert(usr, "No CTF games are set up.")
+				return
+			var/selected_game = tgui_input_list(usr, "Select a CTF game to ruin.", "Instagib Mode", GLOB.ctf_games)
+			if(isnull(selected_game))
+				return
+			var/datum/ctf_controller/ctf_controller = GLOB.ctf_games[selected_game]
+			var/choice = tgui_alert(usr, "[ctf_controller.instagib_mode ? "Return to standard" : "Enable instagib"] mode?", "Instagib Mode", list("Yes", "No"))
+			if(choice == "No")
+				return
+			ctf_controller.toggle_instagib_mode()
+			message_admins("[key_name_admin(holder)] [ctf_controller.instagib_mode ? "enabled" : "disabled"] instagib mode in CTF game: [selected_game]")
+			log_admin("[key_name_admin(holder)] [ctf_controller.instagib_mode ? "enabled" : "disabled"] instagib mode in CTF game: [selected_game]")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(E)
 		E.processing = FALSE
 		if(E.announce_when>0)
@@ -588,6 +685,10 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 	if(holder)
 		log_admin("[key_name(holder)] used secret [action]")
 #undef THUNDERDOME_TEMPLATE_FILE
+<<<<<<< HEAD
+=======
+#undef HIGHLANDER_DELAY_TEXT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /proc/portalAnnounce(announcement, playlightning)
 	set waitfor = FALSE

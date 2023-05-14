@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #define FORWARD 1
 #define BACKWARD -1
 
@@ -5,6 +6,8 @@
 #define ITEM_MOVE_INSIDE "move_inside"
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/construction
 	var/list/steps
 	var/result
@@ -33,8 +36,14 @@
 
 /datum/component/construction/proc/action(datum/source, obj/item/I, mob/living/user)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 
 	return INVOKE_ASYNC(src, PROC_REF(check_step), I, user)
+=======
+	ASYNC //This proc will never actually sleep, it calls do_after with a time of 0.
+		. = check_step(I, user)
+	return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/construction/proc/update_index(diff)
 	index += diff

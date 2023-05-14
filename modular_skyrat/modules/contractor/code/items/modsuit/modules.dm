@@ -11,7 +11,11 @@
 	device = /obj/item/melee/baton/telescopic/contractor_baton
 	incompatible_modules = list(/obj/item/mod/module/baton_holster)
 	cooldown_time = 0.5 SECONDS
+<<<<<<< HEAD
 	allowed_inactive = TRUE
+=======
+	allow_flags = MODULE_ALLOW_INACTIVE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Have they sacrificed a baton to actually be able to use this?
 	var/eaten_baton = FALSE
 
@@ -37,18 +41,37 @@
 
 /obj/item/mod/module/baton_holster/preloaded
 	eaten_baton = TRUE
+<<<<<<< HEAD
+=======
+	device = /obj/item/melee/baton/telescopic/contractor_baton
+
+/obj/item/mod/module/baton_holster/preloaded/upgraded
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	device = /obj/item/melee/baton/telescopic/contractor_baton/upgraded
 
 /obj/item/mod/module/chameleon/contractor // zero complexity module to match pre-TGification
 	complexity = 0
 
 /obj/item/mod/module/armor_booster/contractor // Much flatter distribution because contractor suit gets a shitton of armor already
+<<<<<<< HEAD
 	armor_values = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20)
+=======
+	armor_mod = /datum/armor/contract_booster
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	speed_added = -0.5 //Bulky as shit
 	desc = "An embedded set of armor plates, allowing the suit's already extremely high protection \
 		to be increased further. However, the plating, while deployed, will slow down the user \
 		and make the suit unable to vacuum seal so this extra armor provides zero ability for extravehicular activity while deployed."
 
+<<<<<<< HEAD
+=======
+/datum/armor/contract_booster
+	melee = 20
+	bullet = 20
+	laser = 20
+	energy = 20
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/mod/module/springlock/contractor
 	name = "MOD magnetic deployment module"
 	desc = "A much more modern version of a springlock system. \

@@ -8,7 +8,16 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 95, ACID = 95)
+=======
+	armor_type = /datum/armor/color_plasmaman
+
+/datum/armor/color_plasmaman
+	bio = 100
+	fire = 95
+	acid = 95
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/gloves/color/plasmaman/black
 	name = "black envirogloves"

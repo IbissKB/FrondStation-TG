@@ -48,7 +48,11 @@
 	button_icon_state = "spell_default"
 	overlay_icon_state = "bg_spell_border"
 	active_overlay_icon_state = "bg_spell_border_active_red"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS
+=======
+	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	panel = "Spells"
 	melee_cooldown_time = 0 SECONDS
 
@@ -65,6 +69,11 @@
 	var/invocation
 	/// What is shown in chat when the user casts the spell, only matters for INVOCATION_EMOTE
 	var/invocation_self_message
+<<<<<<< HEAD
+=======
+	/// if true, doesn't garble the invocation sometimes with backticks
+	var/garbled_invocation_prob = 50
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// What type of invocation the spell is.
 	/// Can be "none", "whisper", "shout", "emote"
 	var/invocation_type = INVOCATION_NONE
@@ -98,7 +107,11 @@
 		return
 
 	// Register some signals so our button's icon stays up to date
+<<<<<<< HEAD
 	if(spell_requirements & SPELL_REQUIRES_OFF_CENTCOM)
+=======
+	if(spell_requirements & SPELL_REQUIRES_STATION)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		RegisterSignal(owner, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(update_status_on_signal))
 	if(spell_requirements & (SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_WIZARD_GARB))
 		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(update_status_on_signal))
@@ -137,6 +150,11 @@
 
 // Where the cast chain starts
 /datum/action/cooldown/spell/PreActivate(atom/target)
+<<<<<<< HEAD
+=======
+	if(SEND_SIGNAL(owner, COMSIG_MOB_ABILITY_STARTED, src) & COMPONENT_BLOCK_ABILITY_START)
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!is_valid_target(target))
 		return FALSE
 
@@ -150,7 +168,12 @@
 
 	// Certain spells are not allowed on the centcom zlevel
 	var/turf/caster_turf = get_turf(owner)
+<<<<<<< HEAD
 	if((spell_requirements & SPELL_REQUIRES_OFF_CENTCOM) && is_centcom_level(caster_turf.z))
+=======
+	// Spells which require being on the station
+	if((spell_requirements & SPELL_REQUIRES_STATION) && !is_station_level(caster_turf.z))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(feedback)
 			to_chat(owner, span_warning("You can't cast [src] here!"))
 		return FALSE
@@ -159,7 +182,11 @@
 		// No point in feedback here, as mindless mobs aren't players
 		return FALSE
 
+<<<<<<< HEAD
 	if((spell_requirements & SPELL_REQUIRES_MIME_VOW) && !owner.mind?.miming)
+=======
+	if((spell_requirements & SPELL_REQUIRES_MIME_VOW) && !HAS_TRAIT(owner, TRAIT_MIMING))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		// In the future this can be moved out of spell checks exactly
 		if(feedback)
 			to_chat(owner, span_warning("You must dedicate yourself to silence first!"))
@@ -187,7 +214,11 @@
 				if(feedback)
 					to_chat(owner, span_warning("You don't feel strong enough without your robe!"))
 				return FALSE
+<<<<<<< HEAD
 			if(!(human_owner.head?.clothing_flags & CASTING_CLOTHES))
+=======
+			if(!(human_owner.head?.clothing_flags & CASTING_CLOTHES) || (human_owner.glasses?.clothing_flags & CASTING_CLOTHES))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(feedback)
 					to_chat(owner, span_warning("You don't feel strong enough without your hat!"))
 				return FALSE
@@ -298,6 +329,7 @@
  */
 /datum/action/cooldown/spell/proc/after_cast(atom/cast_on)
 	SHOULD_CALL_PARENT(TRUE)
+<<<<<<< HEAD
 
 	SEND_SIGNAL(src, COMSIG_SPELL_AFTER_CAST, cast_on)
 	if(!owner)
@@ -309,23 +341,44 @@
 	if(sparks_amt)
 		do_sparks(sparks_amt, FALSE, get_turf(owner))
 
+=======
+	if(!owner) // Could have been destroyed by the effect of the spell
+		SEND_SIGNAL(src, COMSIG_SPELL_AFTER_CAST, cast_on)
+		return
+
+	if(sparks_amt)
+		do_sparks(sparks_amt, FALSE, get_turf(owner))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(ispath(smoke_type, /datum/effect_system/fluid_spread/smoke))
 		var/datum/effect_system/fluid_spread/smoke/smoke = new smoke_type()
 		smoke.set_up(smoke_amt, holder = owner, location = get_turf(owner))
 		smoke.start()
 
+<<<<<<< HEAD
+=======
+	// Send signals last in case they delete the spell
+	SEND_SIGNAL(owner, COMSIG_MOB_AFTER_SPELL_CAST, src, cast_on)
+	SEND_SIGNAL(src, COMSIG_SPELL_AFTER_CAST, cast_on)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Provides feedback after a spell cast occurs, in the form of a cast sound and/or invocation
 /datum/action/cooldown/spell/proc/spell_feedback()
 	if(!owner)
 		return
 
+<<<<<<< HEAD
 	if(invocation_type != INVOCATION_NONE)
 		invocation()
+=======
+	///even INVOCATION_NONE should go through this because the signal might change that
+	invocation()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(sound)
 		playsound(get_turf(owner), sound, 50, TRUE)
 
 /// The invocation that accompanies the spell, called from spell_feedback() before cast().
 /datum/action/cooldown/spell/proc/invocation()
+<<<<<<< HEAD
 	switch(invocation_type)
 		if(INVOCATION_SHOUT)
 			if(prob(50))
@@ -341,6 +394,30 @@
 
 		if(INVOCATION_EMOTE)
 			owner.visible_message(invocation, invocation_self_message)
+=======
+	//lists can be sent by reference, a string would be sent by value
+	var/list/invocation_list = list(invocation, invocation_type, garbled_invocation_prob)
+	SEND_SIGNAL(owner, COMSIG_MOB_PRE_INVOCATION, src, invocation_list)
+	var/used_invocation_message = invocation_list[INVOCATION_MESSAGE]
+	var/used_invocation_type = invocation_list[INVOCATION_TYPE]
+	var/used_invocation_garble_prob = invocation_list[INVOCATION_GARBLE_PROB]
+
+	switch(used_invocation_type)
+		if(INVOCATION_SHOUT)
+			if(prob(used_invocation_garble_prob))
+				owner.say(replacetext(used_invocation_message," ","`"), forced = "spell ([src])")
+			else
+				owner.say(used_invocation_message, forced = "spell ([src])")
+
+		if(INVOCATION_WHISPER)
+			if(prob(used_invocation_garble_prob))
+				owner.whisper(replacetext(used_invocation_message," ","`"), forced = "spell ([src])")
+			else
+				owner.whisper(used_invocation_message, forced = "spell ([src])")
+
+		if(INVOCATION_EMOTE)
+			owner.visible_message(used_invocation_message, invocation_self_message)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Checks if the current OWNER of the spell is in a valid state to say the spell's invocation
 /datum/action/cooldown/spell/proc/try_invoke(feedback = TRUE)

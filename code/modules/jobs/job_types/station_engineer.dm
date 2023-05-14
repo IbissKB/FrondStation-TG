@@ -7,7 +7,10 @@
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = SUPERVISOR_CE
+<<<<<<< HEAD
 	selection_color = "#fff5cc"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_requirements = 60
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
@@ -33,6 +36,10 @@
 		/obj/item/storage/box/lights/mixed = 20,
 		/obj/item/lightreplacer = 10,
 		/obj/item/holosign_creator/engineering = 8,
+<<<<<<< HEAD
+=======
+		/obj/item/wrench/bolter = 8,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/clothing/head/utility/hardhat/red/upgraded = 1
 	)
 	rpg_title = "Crystallomancer"

@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import { useBackend } from '../backend';
 import { Box, Button, Dimmer, Icon, Section, Stack } from '../components';
+=======
+import { useBackend, useLocalState } from '../backend';
+import { createSearch } from 'common/string';
+import { Box, Button, Dimmer, Icon, Section, Stack, Input } from '../components';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { NtosWindow } from '../layouts';
 
 const NoIDDimmer = (props, context) => {
@@ -50,6 +56,16 @@ const ContactsScreen = (props, context) => {
     virus_attach,
     sending_virus,
   } = data;
+<<<<<<< HEAD
+=======
+  const [searchUser, setSearchUser] = useLocalState(context, 'searchUser', '');
+  const search = createSearch(
+    searchUser,
+    (messengers) => messengers.name + messengers.job
+  );
+  let users =
+    searchUser.length > 0 ? data.messengers.filter(search) : messengers;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   return (
     <NtosWindow width={600} height={800}>
       <NtosWindow.Content scrollable>
@@ -96,6 +112,16 @@ const ContactsScreen = (props, context) => {
                 content={`Sort by: ${sortByJob ? 'Job' : 'Name'}`}
                 onClick={() => act('PDA_changeSortStyle')}
               />
+<<<<<<< HEAD
+=======
+              {!!isSilicon && (
+                <Button
+                  icon="camera"
+                  content="Attach Photo"
+                  onClick={() => act('PDA_selectPhoto')}
+                />
+              )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               {!!virus_attach && (
                 <Button
                   icon="bug"
@@ -124,12 +150,28 @@ const ContactsScreen = (props, context) => {
           <Section fill textAlign="center">
             <Icon name="address-card" mr={1} />
             Detected Messengers
+<<<<<<< HEAD
+=======
+            <Input
+              width="220px"
+              placeholder="Search by name or job..."
+              value={searchUser}
+              onInput={(e, value) => setSearchUser(value)}
+              mx={1}
+              ml={27}
+            />
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           </Section>
         </Stack>
         <Stack vertical mt={1}>
           <Section fill>
             <Stack vertical>
+<<<<<<< HEAD
               {messengers.map((messenger) => (
+=======
+              {users.length === 0 && 'No users found'}
+              {users.map((messenger) => (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                 <Button
                   key={messenger.ref}
                   fluid
@@ -186,7 +228,11 @@ const MessageListScreen = (props, context) => {
                   {message.outgoing ? '(OUTGOING)' : '(INCOMING)'}
                 </Box>
                 {message.outgoing ? (
+<<<<<<< HEAD
                   <Box bold>{message.name + ' (' + message.job + ')'}</Box>
+=======
+                  <Box bold>{message.target_details}</Box>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                 ) : (
                   <Button
                     transparent
@@ -203,7 +249,13 @@ const MessageListScreen = (props, context) => {
               </Section>
               <Section fill mt={-1}>
                 <Box italic>{message.contents}</Box>
+<<<<<<< HEAD
                 {!!message.photo && <Box as="img" src={message.photo} mt={1} />}
+=======
+                {!!message.photo && (
+                  <Box as="img" src={message.photo_path} mt={1} />
+                )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               </Section>
             </Stack>
           ))}

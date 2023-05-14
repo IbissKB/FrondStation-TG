@@ -17,11 +17,18 @@
 		new /obj/item/circuit_component/bci_core,
 	), SHELL_CAPACITY_SMALL, starting_circuit = circuit)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/cyberimp/bci/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
 	. = ..()
 
 	// Organs are put in nullspace, but this breaks circuit interactions
 	forceMove(reciever)
+=======
+/obj/item/organ/internal/cyberimp/bci/on_insert(mob/living/carbon/receiver)
+	. = ..()
+	// Organs are put in nullspace, but this breaks circuit interactions
+	forceMove(receiver)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/cyberimp/bci/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
 	if (owner)
@@ -275,7 +282,11 @@
 		to_chat(owner, span_info("[circuit_component.parent]'s [cell.name] has <b>[cell.percent()]%</b> charge left."))
 		to_chat(owner, span_info("You can recharge it by using a cyborg recharging station."))
 
+<<<<<<< HEAD
 /datum/action/innate/bci_charge_action/process(delta_time)
+=======
+/datum/action/innate/bci_charge_action/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 
 /datum/action/innate/bci_charge_action/update_button_status(atom/movable/screen/movable/action_button/button, force = FALSE)
@@ -293,7 +304,11 @@
 	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	density = TRUE
+<<<<<<< HEAD
 	obj_flags = NO_BUILD // Becomes undense when the door is open
+=======
+	obj_flags = BLOCKS_CONSTRUCTION // Becomes undense when the door is open
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/busy = FALSE
 	var/busy_icon_state
@@ -400,7 +415,11 @@
 		update_appearance()
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+<<<<<<< HEAD
 	if (default_pry_open(weapon))
+=======
+	if (default_pry_open(weapon, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	if (default_deconstruction_crowbar(weapon))
@@ -437,7 +456,11 @@
 
 	playsound(loc, 'sound/machines/ping.ogg', 30, FALSE)
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/cyberimp/bci/bci_organ = carbon_occupant.getorgan(/obj/item/organ/internal/cyberimp/bci)
+=======
+	var/obj/item/organ/internal/cyberimp/bci/bci_organ = carbon_occupant.get_organ_by_type(/obj/item/organ/internal/cyberimp/bci)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if (bci_organ)
 		bci_organ.Remove(carbon_occupant)
@@ -453,7 +476,11 @@
 		say("Occupant has been injected with [bci_to_implant].")
 		bci_to_implant.Insert(carbon_occupant)
 
+<<<<<<< HEAD
 /obj/machinery/bci_implanter/open_machine()
+=======
+/obj/machinery/bci_implanter/open_machine(drop = TRUE, density_to_set = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(state_open)
 		return FALSE
 
@@ -461,7 +488,11 @@
 
 	return TRUE
 
+<<<<<<< HEAD
 /obj/machinery/bci_implanter/close_machine(mob/living/carbon/user)
+=======
+/obj/machinery/bci_implanter/close_machine(mob/living/carbon/user, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!state_open)
 		return FALSE
 
@@ -469,7 +500,11 @@
 
 	var/mob/living/carbon/carbon_occupant = occupant
 	if (istype(occupant))
+<<<<<<< HEAD
 		var/obj/item/organ/internal/cyberimp/bci/bci_organ = carbon_occupant.getorgan(/obj/item/organ/internal/cyberimp/bci)
+=======
+		var/obj/item/organ/internal/cyberimp/bci/bci_organ = carbon_occupant.get_organ_by_type(/obj/item/organ/internal/cyberimp/bci)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if (isnull(bci_organ) && isnull(bci_to_implant))
 			say("No brain-computer interface inserted, and occupant does not have one. Insert a BCI to implant one.")
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
@@ -526,5 +561,9 @@
 	build_path = /obj/machinery/bci_implanter
 	req_components = list(
 		/obj/item/stock_parts/micro_laser = 2,
+<<<<<<< HEAD
 		/obj/item/stock_parts/manipulator = 1,
+=======
+		/obj/item/stock_parts/servo = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)

@@ -1,8 +1,22 @@
 
 /datum/chemical_reaction/slime
+<<<<<<< HEAD
 	var/deletes_extract = TRUE
 	reaction_flags = REACTION_INSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME
+=======
+	reaction_flags = REACTION_INSTANT
+	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME
+	required_other = TRUE
+	var/deletes_extract = TRUE
+
+/datum/chemical_reaction/slime/pre_reaction_other_checks(datum/reagents/holder)
+	var/obj/item/slime_extract/extract = holder.my_atom
+	if(!istype(extract))
+		return FALSE
+
+	return extract.Uses > 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	use_slime_core(holder)
@@ -21,7 +35,10 @@
 /datum/chemical_reaction/slime/slimespawn
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/grey
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimespawn/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/mob/living/simple_animal/slime/S = new(get_turf(holder.my_atom), "grey")
@@ -31,13 +48,19 @@
 /datum/chemical_reaction/slime/slimeinaprov
 	results = list(/datum/reagent/medicine/epinephrine = 3)
 	required_reagents = list(/datum/reagent/water = 5)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/grey
 
 /datum/chemical_reaction/slime/slimemonkey
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/grey
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimemonkey/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	for(var/i in 1 to 3)
@@ -48,26 +71,38 @@
 /datum/chemical_reaction/slime/slimemutate
 	results = list(/datum/reagent/mutationtoxin/jelly = 1)
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/green
 
 /datum/chemical_reaction/slime/slimehuman
 	results = list(/datum/reagent/mutationtoxin = 1)
 	required_reagents = list(/datum/reagent/blood = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/green
 
 /datum/chemical_reaction/slime/slimelizard
 	results = list(/datum/reagent/mutationtoxin/lizard = 1)
 	required_reagents = list(/datum/reagent/uranium/radium = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/green
 
 //Metal
 /datum/chemical_reaction/slime/slimemetal
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/metal
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimemetal/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/turf/location = get_turf(holder.my_atom)
@@ -78,7 +113,10 @@
 /datum/chemical_reaction/slime/slimeglass
 	required_reagents = list(/datum/reagent/water = 1)
 	required_container = /obj/item/slime_extract/metal
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimeglass/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/turf/location = get_turf(holder.my_atom)
@@ -90,7 +128,10 @@
 /datum/chemical_reaction/slime/slimemobspawn
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/gold
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	deletes_extract = FALSE //we do delete, but we don't do so instantly
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME | REACTION_TAG_DANGEROUS
 
@@ -111,14 +152,22 @@
 
 /datum/chemical_reaction/slime/slimemobspawn/lesser/summon_mobs(datum/reagents/holder, turf/T)
 	T.visible_message(span_danger("The slime extract begins to vibrate violently!"))
+<<<<<<< HEAD
 	addtimer(CALLBACK(src, PROC_REF(chemical_mob_spawn), holder, 3, "Lesser Gold Slime", HOSTILE_SPAWN, "neutral"), 50)
+=======
+	addtimer(CALLBACK(src, PROC_REF(chemical_mob_spawn), holder, 3, "Lesser Gold Slime", HOSTILE_SPAWN, FACTION_NEUTRAL), 50)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimemobspawn/friendly
 	required_reagents = list(/datum/reagent/water = 1)
 
 /datum/chemical_reaction/slime/slimemobspawn/friendly/summon_mobs(datum/reagents/holder, turf/T)
 	T.visible_message(span_danger("The slime extract begins to vibrate adorably!"))
+<<<<<<< HEAD
 	addtimer(CALLBACK(src, PROC_REF(chemical_mob_spawn), holder, 1, "Friendly Gold Slime", FRIENDLY_SPAWN, "neutral"), 50)
+=======
+	addtimer(CALLBACK(src, PROC_REF(chemical_mob_spawn), holder, 1, "Friendly Gold Slime", FRIENDLY_SPAWN, FACTION_NEUTRAL), 50)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimemobspawn/spider
 	required_reagents = list(/datum/reagent/spider_extract = 1)
@@ -126,14 +175,21 @@
 
 /datum/chemical_reaction/slime/slimemobspawn/spider/summon_mobs(datum/reagents/holder, turf/T)
 	T.visible_message(span_danger("The slime extract begins to vibrate crikey-ingly!"))
+<<<<<<< HEAD
 	addtimer(CALLBACK(src, PROC_REF(chemical_mob_spawn), holder, 3, "Traitor Spider Slime", /mob/living/simple_animal/hostile/giant_spider/midwife, "neutral", FALSE), 50)
+=======
+	addtimer(CALLBACK(src, PROC_REF(chemical_mob_spawn), holder, 3, "Traitor Spider Slime", /mob/living/basic/giant_spider/midwife, FACTION_NEUTRAL, FALSE), 50)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 //Silver
 /datum/chemical_reaction/slime/slimebork
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/silver
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimebork/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	//BORK BORK BORK
@@ -171,12 +227,18 @@
 	results = list(/datum/reagent/consumable/frostoil = 10)
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/blue
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimestabilizer
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/blue
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimestabilizer/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/slime/stabilizer(get_turf(holder.my_atom))
@@ -185,7 +247,10 @@
 /datum/chemical_reaction/slime/slimefoam
 	required_reagents = list(/datum/reagent/water = 5)
 	required_container = /obj/item/slime_extract/blue
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimefoam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	holder.create_foam(/datum/effect_system/fluid_spread/foam, 80, span_danger("[src] spews out foam!"), log = TRUE)
@@ -194,7 +259,10 @@
 /datum/chemical_reaction/slime/slimefreeze
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/darkblue
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	deletes_extract = FALSE
 
 /datum/chemical_reaction/slime/slimefreeze/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -216,7 +284,10 @@
 /datum/chemical_reaction/slime/slimefireproof
 	required_reagents = list(/datum/reagent/water = 1)
 	required_container = /obj/item/slime_extract/darkblue
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimefireproof/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/fireproof(get_turf(holder.my_atom))
@@ -227,12 +298,18 @@
 	results = list(/datum/reagent/consumable/capsaicin = 10)
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/orange
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimefire
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/orange
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	deletes_extract = FALSE
 
 /datum/chemical_reaction/slime/slimefire/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -255,13 +332,19 @@
 	results = list(/datum/reagent/phosphorus = 10, /datum/reagent/potassium = 10, /datum/reagent/consumable/sugar = 10)
 	required_reagents = list(/datum/reagent/water = 5)
 	required_container = /obj/item/slime_extract/orange
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Yellow
 /datum/chemical_reaction/slime/slimeoverload
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/yellow
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME | REACTION_TAG_DANGEROUS
 
 /datum/chemical_reaction/slime/slimeoverload/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -271,7 +354,10 @@
 /datum/chemical_reaction/slime/slimecell
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/yellow
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimecell/on_reaction(datum/reagents/holder, created_volume)
 	new /obj/item/stock_parts/cell/emproof/slime(get_turf(holder.my_atom))
@@ -280,7 +366,10 @@
 /datum/chemical_reaction/slime/slimeglow
 	required_reagents = list(/datum/reagent/water = 1)
 	required_container = /obj/item/slime_extract/yellow
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimeglow/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/turf/T = get_turf(holder.my_atom)
@@ -292,7 +381,10 @@
 /datum/chemical_reaction/slime/slimepsteroid
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/purple
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimepsteroid/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/slime/steroid(get_turf(holder.my_atom))
@@ -302,13 +394,19 @@
 	results = list(/datum/reagent/medicine/regen_jelly = 5)
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/purple
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Dark Purple
 /datum/chemical_reaction/slime/slimeplasma
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/darkpurple
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimeplasma/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/stack/sheet/mineral/plasma(get_turf(holder.my_atom), 3)
@@ -318,7 +416,10 @@
 /datum/chemical_reaction/slime/slimemutator
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/red
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimemutator/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/slime/mutator(get_turf(holder.my_atom))
@@ -327,7 +428,10 @@
 /datum/chemical_reaction/slime/slimebloodlust
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/red
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME | REACTION_TAG_DANGEROUS
 
 /datum/chemical_reaction/slime/slimebloodlust/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -344,7 +448,10 @@
 /datum/chemical_reaction/slime/slimespeed
 	required_reagents = list(/datum/reagent/water = 1)
 	required_container = /obj/item/slime_extract/red
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimespeed/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/speed(get_turf(holder.my_atom))
@@ -354,7 +461,10 @@
 /datum/chemical_reaction/slime/docility
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/pink
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/docility/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/slime/docility(get_turf(holder.my_atom))
@@ -363,7 +473,10 @@
 /datum/chemical_reaction/slime/gender
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/pink
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/gender/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/genderchange(get_turf(holder.my_atom))
@@ -373,14 +486,20 @@
 /datum/chemical_reaction/slime/slimemutate2
 	results = list(/datum/reagent/aslimetoxin = 1)
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/black
 
 //Oil
 /datum/chemical_reaction/slime/slimeexplosion
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/oil
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	deletes_extract = FALSE
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME | REACTION_TAG_DANGEROUS
 
@@ -410,13 +529,19 @@
 	results = list(/datum/reagent/consumable/cornoil = 10)
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/oil
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Light Pink
 /datum/chemical_reaction/slime/slimepotion2
 	required_container = /obj/item/slime_extract/lightpink
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimepotion2/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/slime/sentience(get_turf(holder.my_atom))
@@ -425,7 +550,10 @@
 /datum/chemical_reaction/slime/renaming
 	required_container = /obj/item/slime_extract/lightpink
 	required_reagents = list(/datum/reagent/water = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/renaming/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/slime/renaming(holder.my_atom.drop_location())
@@ -436,7 +564,10 @@
 /datum/chemical_reaction/slime/adamantine
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/adamantine
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/adamantine/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/stack/sheet/mineral/adamantine(get_turf(holder.my_atom))
@@ -446,7 +577,10 @@
 /datum/chemical_reaction/slime/slimefloor2
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/bluespace
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimefloor2/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/stack/tile/bluespace(get_turf(holder.my_atom), 25)
@@ -456,7 +590,10 @@
 /datum/chemical_reaction/slime/slimecrystal
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/bluespace
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimecrystal/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/obj/item/stack/ore/bluespace_crystal/BC = new (get_turf(holder.my_atom))
@@ -466,7 +603,10 @@
 /datum/chemical_reaction/slime/slimeradio
 	required_reagents = list(/datum/reagent/water = 1)
 	required_container = /obj/item/slime_extract/bluespace
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimeradio/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/slime/slimeradio(get_turf(holder.my_atom))
@@ -476,7 +616,10 @@
 /datum/chemical_reaction/slime/slimepsteroid2
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/cerulean
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimepsteroid2/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/slimepotion/enhancer(get_turf(holder.my_atom))
@@ -485,7 +628,10 @@
 /datum/chemical_reaction/slime/slime_territory
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/cerulean
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slime_territory/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/areaeditor/blueprints/slime(get_turf(holder.my_atom))
@@ -495,7 +641,10 @@
 /datum/chemical_reaction/slime/slimestop
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/sepia
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimestop/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	addtimer(CALLBACK(src, PROC_REF(slime_stop), holder), 5 SECONDS)
@@ -514,7 +663,10 @@
 /datum/chemical_reaction/slime/slimecamera
 	required_reagents = list(/datum/reagent/water = 1)
 	required_container = /obj/item/slime_extract/sepia
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimecamera/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/camera(get_turf(holder.my_atom))
@@ -524,7 +676,10 @@
 /datum/chemical_reaction/slime/slimefloor
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/sepia
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimefloor/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	new /obj/item/stack/tile/sepia(get_turf(holder.my_atom), 25)
@@ -534,7 +689,10 @@
 /datum/chemical_reaction/slime/slimepaint
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_container = /obj/item/slime_extract/pyrite
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimepaint/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/chosen = pick(subtypesof(/obj/item/paint))
@@ -544,7 +702,10 @@
 /datum/chemical_reaction/slime/slimecrayon
 	required_reagents = list(/datum/reagent/blood = 1)
 	required_container = /obj/item/slime_extract/pyrite
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chemical_reaction/slime/slimecrayon/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/chosen = pick(difflist(subtypesof(/obj/item/toy/crayon),typesof(/obj/item/toy/crayon/spraycan)))
@@ -554,7 +715,10 @@
 //Rainbow :o)
 /datum/chemical_reaction/slime/slime_rng
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/rainbow
 
 /datum/chemical_reaction/slime/slime_rng/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -571,7 +735,10 @@
 
 /datum/chemical_reaction/slime/slimebomb
 	required_reagents = list(/datum/reagent/toxin/slimejelly = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/rainbow
 
 /datum/chemical_reaction/slime/slimebomb/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -593,7 +760,10 @@
 
 /datum/chemical_reaction/slime/slime_transfer
 	required_reagents = list(/datum/reagent/blood = 1)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/rainbow
 
 /datum/chemical_reaction/slime/slime_transfer/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -602,7 +772,10 @@
 
 /datum/chemical_reaction/slime/flight_potion
 	required_reagents = list(/datum/reagent/water/holywater = 5, /datum/reagent/uranium = 5)
+<<<<<<< HEAD
 	required_other = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	required_container = /obj/item/slime_extract/rainbow
 
 /datum/chemical_reaction/slime/flight_potion/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)

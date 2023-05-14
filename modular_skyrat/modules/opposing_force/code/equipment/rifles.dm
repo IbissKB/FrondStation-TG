@@ -5,6 +5,7 @@
 	item_type = /obj/item/gun/ballistic/automatic/m16
 	admin_note = "WARNING: This weapon is extremely powerful, firing a 3 round burst of 35 damage bullets."
 
+<<<<<<< HEAD
 /datum/opposing_force_equipment/rifle/m16m
 	item_type = /obj/item/gun/ballistic/automatic/m16/modern
 	admin_note = "WARNING: This weapon is extremely powerful, firing a 3 round burst of 30 damage bullets. The modern version features a halfed spread and reduced fire delay."
@@ -29,6 +30,12 @@
 	item_type = /obj/item/gun/ballistic/automatic/mg34/mg42
 	admin_note = "WARNING: This weapon is extremely powerful, being a fully-automatic light machine gun firing 45 damage bullets."
 
+=======
+/datum/opposing_force_equipment/rifle/akm
+	item_type = /obj/item/gun/ballistic/automatic/akm/nri
+	admin_note = "WARNING: This weapon is extremely powerful, firing a 3 round burst of 38 damage bullets."
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/opposing_force_equipment/rifle/cfa
 	item_type = /obj/item/gun/ballistic/automatic/cfa_rifle
 	admin_note = "WARNING: This weapon is very powerful, firing single-shot 60 damage bullets."

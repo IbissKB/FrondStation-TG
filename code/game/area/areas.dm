@@ -32,8 +32,13 @@
 	var/list/firedoors
 	///A list of firelocks currently active. Used by fire alarms when setting their icons.
 	var/list/active_firelocks
+<<<<<<< HEAD
 	///A list of all fire alarms in this area. Used by fire locks and burglar alarms to tell the fire alarm to change its icon.
 	var/list/firealarms
+=======
+	///A list of all fire alarms in this area. Used by firelocks and burglar alarms to change icon state.
+	var/list/firealarms = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Alarm type to count of sources. Not usable for ^ because we handle fires differently
 	var/list/active_alarms = list()
 	///List of all lights in our area
@@ -107,11 +112,14 @@
 	///This datum, if set, allows terrain generation behavior to be ran on Initialize()
 	var/datum/map_generator/map_generator
 
+<<<<<<< HEAD
 	/// Default network root for this area aka station, lavaland, etc
 	var/network_root_id = null
 	/// Area network id when you want to find all devices hooked up to this area
 	var/network_area_id = null
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_ENVIRONMENT_NONE
 
@@ -177,9 +185,12 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!ambientsounds)
 		ambientsounds = GLOB.ambience_assoc[ambience_index]
 
+<<<<<<< HEAD
 	if(area_flags & AREA_USES_STARLIGHT)
 		static_lighting = CONFIG_GET(flag/starlight)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(requires_power)
 		luminosity = 0
 	else
@@ -197,11 +208,14 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 	reg_in_areas_in_z()
 
+<<<<<<< HEAD
 	if(!mapload)
 		if(!network_root_id)
 			network_root_id = STATION_NETWORK_ROOT // default to station root because this might be created with a blueprint
 		SSnetworks.assign_area_network_id(src)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_base_lighting()
 
 	return INITIALIZE_HINT_LATELOAD
@@ -275,11 +289,32 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/Destroy()
 	if(GLOB.areas_by_type[type] == src)
 		GLOB.areas_by_type[type] = null
+<<<<<<< HEAD
 	GLOB.sortedAreas -= src
 	GLOB.areas -= src
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(alarm_manager)
 	air_vents = null
+=======
+	//this is not initialized until get_sorted_areas() is called so we have to do a null check
+	if(!isnull(GLOB.sortedAreas))
+		GLOB.sortedAreas -= src
+	//just for sanity sake cause why not
+	if(!isnull(GLOB.areas))
+		GLOB.areas -= src
+	//machinery cleanup
+	STOP_PROCESSING(SSobj, src)
+	QDEL_NULL(alarm_manager)
+	firedoors = null
+	//atmos cleanup
+	firealarms = null
+	air_vents = null
+	air_scrubbers = null
+	//turf cleanup
+	contained_turfs = null
+	turfs_to_uncontain = null
+	//parent cleanup
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /**
@@ -535,3 +570,18 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /// Called when a living mob that spawned here, joining the round, receives the player client.
 /area/proc/on_joining_game(mob/living/boarder)
 	return
+<<<<<<< HEAD
+=======
+
+/**
+ * Returns the name of an area, with the original name if the area name has been changed.
+ *
+ * If an area has not been renamed, returns the area name. If it has been modified (by blueprints or other means)
+ * returns the current name, as well as the initial value, in the format of [Current Location Name (Original Name)]
+ */
+
+/area/proc/get_original_area_name()
+	if(name == initial(name))
+		return name
+	return "[name] ([initial(name)])"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

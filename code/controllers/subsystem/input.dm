@@ -38,7 +38,11 @@ VERB_MANAGER_SUBSYSTEM_DEF(input)
 	"Any+UP" = "\"KeyUp \[\[*\]\]\"",
 	"Back" = "\".winset \\\"input.text=\\\"\\\"\\\"\"",
 	"Tab" = "\".winset \\\"input.focus=true?map.focus=true:input.focus=true\\\"\"",
+<<<<<<< HEAD
 	"Escape" = "Reset-Held-Keys",
+=======
+	"Escape" = "Open-Escape-Menu",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 // Badmins just wanna have fun ♪

@@ -63,7 +63,11 @@
 		ui = new(user, src, "AirlockController", src)
 		ui.open()
 
+<<<<<<< HEAD
 /obj/machinery/airlock_controller/process(delta_time)
+=======
+/obj/machinery/airlock_controller/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/process_again = TRUE
 	while(process_again)
 		process_again = FALSE
@@ -110,10 +114,16 @@
 						if(pump.pump_direction == ATMOS_DIRECTION_SIPHONING)
 							pump.pressure_checks |= ATMOS_EXTERNAL_BOUND
 							pump.pump_direction = ATMOS_DIRECTION_RELEASING
+<<<<<<< HEAD
 						else if(pump.pump_direction == ATMOS_DIRECTION_RELEASING)
 							pump.on = TRUE
 
 						pump.update_appearance(UPDATE_ICON)
+=======
+						else if(!pump.on)
+							pump.on = TRUE
+							pump.update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				else
 					state = AIRLOCK_STATE_CLOSED
 					process_again = TRUE
@@ -181,6 +191,11 @@
 					if(pump.pump_direction == ATMOS_DIRECTION_RELEASING)
 						pump.pressure_checks &= ~ATMOS_EXTERNAL_BOUND
 						pump.pump_direction = ATMOS_DIRECTION_SIPHONING
+<<<<<<< HEAD
+=======
+					else if(!pump.on)
+						pump.on = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						pump.update_appearance(UPDATE_ICON)
 
 			if(AIRLOCK_STATE_OUTOPEN) //state 2
@@ -262,7 +277,11 @@
 
 /// Starts an airlock cycle
 /obj/machinery/airlock_controller/proc/cycle()
+<<<<<<< HEAD
 	if (state < AIRLOCK_STATE_CLOSED)
+=======
+	if (state == AIRLOCK_STATE_INOPEN || state == AIRLOCK_STATE_PRESSURIZE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		target_state = AIRLOCK_STATE_OUTOPEN
 	else
 		target_state = AIRLOCK_STATE_INOPEN
@@ -307,3 +326,12 @@
 /obj/machinery/airlock_controller/update_icon_state()
 	icon_state = "[base_icon_state]_[processing ? "process" : "standby"]"
 	return ..()
+<<<<<<< HEAD
+=======
+
+#undef AIRLOCK_STATE_CLOSED
+#undef AIRLOCK_STATE_DEPRESSURIZE
+#undef AIRLOCK_STATE_INOPEN
+#undef AIRLOCK_STATE_OUTOPEN
+#undef AIRLOCK_STATE_PRESSURIZE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

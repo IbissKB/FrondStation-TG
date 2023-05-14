@@ -45,6 +45,10 @@
  */
 /datum/computer_file/program/status/proc/post_message(upper, lower)
 	post_status("message", upper, lower)
+<<<<<<< HEAD
+=======
+	log_game("[key_name(usr)] has changed the station status display message to \"[upper] [lower]\" [loc_name(usr)]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Post a picture to status displays
@@ -59,11 +63,17 @@
 	else
 		post_status("alert", picture)
 
+<<<<<<< HEAD
 /datum/computer_file/program/status/ui_act(action, list/params, datum/tgui/ui)
 	. = ..()
 	if(.)
 		return
 
+=======
+	log_game("[key_name(usr)] has changed the station status display message to \"[picture]\" [loc_name(usr)]")
+
+/datum/computer_file/program/status/ui_act(action, list/params, datum/tgui/ui)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("setStatusMessage")
 			upper_text = reject_bad_text(params["upperText"] || "", MAX_STATUS_LINE_LENGTH)
@@ -76,11 +86,18 @@
 /datum/computer_file/program/status/ui_static_data(mob/user)
 	var/list/data = list()
 	data["maxStatusLineLength"] = MAX_STATUS_LINE_LENGTH
+<<<<<<< HEAD
 
 	return data
 
 /datum/computer_file/program/status/ui_data(mob/user)
 	var/list/data = get_header_data()
+=======
+	return data
+
+/datum/computer_file/program/status/ui_data(mob/user)
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	data["upperText"] = upper_text
 	data["lowerText"] = lower_text

@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+#define HULL_BREACH 1
+#define LINE_SPACE_MODE 2
+#define FIX_TILE 3
+#define AUTO_TILE 4
+#define PLACE_TILE 5
+#define REPLACE_TILE 6
+#define TILE_EMAG 7
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Floorbot
 /mob/living/simple_animal/bot/floorbot
 	name = "\improper Floorbot"
@@ -27,6 +38,7 @@
 	var/toolbox = /obj/item/storage/toolbox/mechanical
 	var/toolbox_color = ""
 
+<<<<<<< HEAD
 	#define HULL_BREACH 1
 	#define LINE_SPACE_MODE 2
 	#define FIX_TILE 3
@@ -35,6 +47,8 @@
 	#define REPLACE_TILE 6
 	#define TILE_EMAG 7
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/bot/floorbot/Initialize(mapload, new_toolbox_color)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
@@ -237,7 +251,11 @@
 				toggle_magnet()
 				mode = BOT_REPAIRING
 				if(isplatingturf(F))
+<<<<<<< HEAD
 					F.ReplaceWithLattice()
+=======
+					F.attempt_lattice_replacement()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				else
 					F.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 				audible_message(span_danger("[src] makes an excited booping sound."))
@@ -411,3 +429,14 @@
 			if(robot.mode == BOT_REPAIRING)
 				return TRUE
 	return FALSE
+<<<<<<< HEAD
+=======
+
+#undef HULL_BREACH
+#undef LINE_SPACE_MODE
+#undef FIX_TILE
+#undef AUTO_TILE
+#undef PLACE_TILE
+#undef REPLACE_TILE
+#undef TILE_EMAG
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

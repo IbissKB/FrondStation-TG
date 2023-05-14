@@ -13,6 +13,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	processing_flags = START_PROCESSING_MANUALLY
 	subsystem_type = /datum/controller/subsystem/processing/fastprocess
+<<<<<<< HEAD
 
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_OFFLINE
 
@@ -34,6 +35,41 @@
 	var/next_beep
 	var/detonation_timer
 	var/explode_now = FALSE
+=======
+	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_OFFLINE
+	use_power = NO_POWER_USE
+
+	/// What is the lowest amount of time we can set the timer to?
+	var/minimum_timer = SYNDIEBOMB_MIN_TIMER_SECONDS
+	/// What is the highest amount of time we can set the timer to?
+	var/maximum_timer = 100 MINUTES
+	/// What is the default amount of time we set the timer to?
+	var/timer_set = SYNDIEBOMB_MIN_TIMER_SECONDS
+	/// Can we be unanchored?
+	var/can_unanchor = TRUE
+	/// Are the wires exposed?
+	var/open_panel = FALSE
+	/// Is the bomb counting down?
+	var/active = FALSE
+	/// What sound do we make as we beep down the timer?
+	var/beepsound = 'sound/items/timer.ogg'
+	/// Is the delay wire pulsed?
+	var/delayedbig = FALSE
+	/// Is the activation wire pulsed?
+	var/delayedlittle = FALSE
+	/// Should we just tell the payload to explode now? Usually triggered by an event (like cutting the wrong wire)
+	var/explode_now = FALSE
+	/// The timer for the bomb.
+	var/detonation_timer
+	/// When do we beep next?
+	var/next_beep
+	/// Reference to the bomb core inside the bomb, which is the part that actually explodes.
+	var/obj/item/bombcore/payload = /obj/item/bombcore/syndicate
+	/// The countdown that'll show up to ghosts regarding the bomb's timer.
+	var/obj/effect/countdown/syndicatebomb/countdown
+	/// Whether the countdown is visible on examine
+	var/examinable_countdown = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/syndicatebomb/proc/try_detonate(ignore_active = FALSE)
 	. = (payload in src) && (active || ignore_active)
@@ -48,6 +84,12 @@
 	if(!try_detonate())
 		..()
 
+<<<<<<< HEAD
+=======
+/obj/machinery/syndicatebomb/ex_act(severity, target)
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/syndicatebomb/process()
 	if(!active)
 		end_processing()
@@ -63,8 +105,11 @@
 		switch(seconds_remaining())
 			if(0 to 5)
 				volume = 50
+<<<<<<< HEAD
 				for(var/i,i<3,i++)
 					addtimer(CALLBACK(src, PROC_REF(play_fearsome_ping)), i*5)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(5 to 10)
 				volume = 40
 			if(10 to 15)
@@ -84,9 +129,12 @@
 		update_appearance()
 		try_detonate(TRUE)
 
+<<<<<<< HEAD
 /obj/machinery/syndicatebomb/proc/play_fearsome_ping()
 	playsound(loc, beepsound, 80, FALSE)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/syndicatebomb/Initialize(mapload)
 	. = ..()
 	wires = new /datum/wires/syndicatebomb(src)
@@ -104,7 +152,19 @@
 
 /obj/machinery/syndicatebomb/examine(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	// . += {"A digital display on it reads "[seconds_remaining()]"."} SKYRAT EDIT : - commented out to make people fear it more.
+=======
+	. += "The patented external shell design is resistant to \"probably all\" forms of external explosive compression, protecting the electronically-trigged bomb core from accidental early detonation."
+	if(istype(payload))
+		. += "A small window reveals some information about the payload: [payload.desc]."
+	if(examinable_countdown)
+		. += span_notice("A digital display on it reads \"[seconds_remaining()]\".")
+		if(active)
+			balloon_alert(user, "[seconds_remaining()]")
+	else
+		. += span_notice({"The digital display on it is inactive."})
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/syndicatebomb/update_icon_state()
 	icon_state = "[initial(icon_state)][active ? "-active" : "-inactive"][open_panel ? "-wires" : ""]"
@@ -113,6 +173,10 @@
 /obj/machinery/syndicatebomb/proc/seconds_remaining()
 	if(active)
 		. = max(0, round((detonation_timer - world.time) / 10))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		. = timer_set
 
@@ -209,6 +273,7 @@
 	next_beep = world.time + 10
 	detonation_timer = world.time + (timer_set * 10)
 	playsound(loc, 'sound/machines/click.ogg', 30, TRUE)
+<<<<<<< HEAD
 	notify_ghosts("\A [src] has been activated at [get_area(src)]!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Bomb Planted")
 
 /obj/machinery/syndicatebomb/proc/settings(mob/user)
@@ -216,6 +281,15 @@
 		return
 	var/new_timer = tgui_input_number(user, "Set the timer", "Countdown", timer_set, maximum_timer, minimum_timer)
 	if(!new_timer || QDELETED(user) || QDELETED(src) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	update_appearance()
+
+/obj/machinery/syndicatebomb/proc/settings(mob/user)
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH) || !user.can_interact_with(src))
+		return
+	var/new_timer = tgui_input_number(user, "Set the timer", "Countdown", timer_set, maximum_timer, minimum_timer)
+	if(!new_timer || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	timer_set = new_timer
 	loc.visible_message(span_notice("[icon2html(src, viewers(src))] timer set for [timer_set] seconds."))
@@ -227,6 +301,7 @@
 		return
 	visible_message(span_danger("[icon2html(src, viewers(loc))] [timer_set] seconds until detonation, please clear the area."))
 	activate()
+<<<<<<< HEAD
 	user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_AMAZING)
 	update_appearance()
 	add_fingerprint(user)
@@ -234,6 +309,18 @@
 		log_bomber(user, "has primed a", src, "for detonation (Payload: [payload.name])")
 		payload.adminlog = "The [name] that [key_name(user)] had primed detonated!"
 		user.log_message("primed the [src]. (Payload: [payload.name])", LOG_GAME, log_globally = FALSE)
+=======
+	add_fingerprint(user)
+	// We don't really concern ourselves with duds or fakes after this
+	if(isnull(payload) || istype(payload, /obj/machinery/syndicatebomb/training))
+		return
+
+	notify_ghosts("\A [src] has been activated at [get_area(src)]!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Bomb Planted")
+	user.add_mob_memory(/datum/memory/bomb_planted/syndicate, antagonist = src)
+	log_bomber(user, "has primed a", src, "for detonation (Payload: [payload.name])")
+	payload.adminlog = "The [name] that [key_name(user)] had primed detonated!"
+	user.log_message("primed the [src]. (Payload: [payload.name])", LOG_GAME, log_globally = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Bomb Subtypes///
 
@@ -244,8 +331,13 @@
 	payload = /obj/item/bombcore/training
 
 /obj/machinery/syndicatebomb/emp
+<<<<<<< HEAD
 	//name = "EMP bomb" //SKYRAT EDIT: Makes the bomb look identical to its deadlier cousin
 	//desc = "A modified bomb designed to release a crippling electromagnetic pulse instead of explode" //SKYRAT EDIT: see above
+=======
+	name = "EMP Bomb"
+	desc = "A modified bomb designed to release a crippling electromagnetic pulse instead of explode"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	payload = /obj/item/bombcore/emp
 
 /obj/machinery/syndicatebomb/badmin
@@ -275,7 +367,11 @@
 /obj/machinery/syndicatebomb/self_destruct
 	name = "self-destruct device"
 	desc = "Do not taunt. Warranty invalid if exposed to high temperature. Not suitable for agents under 3 years of age."
+<<<<<<< HEAD
 	payload = /obj/item/bombcore/large
+=======
+	payload = /obj/item/bombcore/syndicate/large
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_unanchor = FALSE
 
 ///Bomb Cores///
@@ -292,12 +388,16 @@
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1 // We detonate upon being exploded.
 	resistance_flags = FLAMMABLE //Burnable (but the casing isn't)
 	var/adminlog = null
+<<<<<<< HEAD
 	//SKYRAT EDIT CHANGE BEGIN
 	/*
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/range_heavy = 3
 	var/range_medium = 9
 	var/range_light = 17
 	var/range_flame = 17
+<<<<<<< HEAD
 	*/
 	var/range_heavy = 2
 	var/range_medium = 6
@@ -308,6 +408,12 @@
 /obj/item/bombcore/ex_act(severity, target) // Little boom can chain a big boom.
 	detonate()
 
+=======
+
+/obj/item/bombcore/ex_act(severity, target) // Little boom can chain a big boom.
+	detonate()
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/bombcore/burn()
 	detonate()
@@ -327,6 +433,27 @@
 
 ///Bomb Core Subtypes///
 
+<<<<<<< HEAD
+=======
+/// Subtype for the bomb cores found inside syndicate bombs, which will not detonate due to explosion/burning.
+/obj/item/bombcore/syndicate
+	name = "Donk Co. Super-Stable Bomb Payload"
+	desc = "After a string of unwanted detonations, this payload has been specifically redesigned to not explode unless triggered electronically by a bomb shell."
+
+/obj/item/bombcore/syndicate/ex_act(severity, target)
+	return FALSE
+
+/obj/item/bombcore/syndicate/burn()
+	return ..()
+
+/obj/item/bombcore/syndicate/large
+	name = "Donk Co. Super-Stable Bomb Payload XL"
+	range_heavy = 5
+	range_medium = 10
+	range_light = 20
+	range_flame = 20
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bombcore/training
 	name = "dummy payload"
 	desc = "A Nanotrasen replica of a syndicate payload. It's not intended to explode but to announce that it WOULD have exploded, then rewire itself to allow for more training."
@@ -360,9 +487,13 @@
 		attempts++
 		defusals++
 		holder.loc.visible_message(span_notice("[icon2html(holder, viewers(holder))] Alert: Bomb has been defused. Your score is now [defusals] for [attempts]! Resetting wires in 5 seconds..."))
+<<<<<<< HEAD
 		sleep(5 SECONDS) //Just in case someone is trying to remove the bomb core this gives them a little window to crowbar it out
 		if(istype(holder))
 			reset()
+=======
+		addtimer(CALLBACK(src, PROC_REF(reset)), 5 SECONDS) //Just in case someone is trying to remove the bomb core this gives them a little window to crowbar it out
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/bombcore/badmin
 	name = "badmin payload"

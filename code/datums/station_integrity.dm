@@ -25,7 +25,11 @@
 	grille = 0
 	mach = 0
 	for(var/Z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+<<<<<<< HEAD
 		for(var/turf/T in block(locate(1,1,Z), locate(world.maxx,world.maxy,Z)))
+=======
+		for(var/turf/T as anything in Z_TURFS(Z))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			// don't count shuttles since they may have just left
 			if(istype(T.loc, /area/shuttle))
 				continue

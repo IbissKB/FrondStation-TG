@@ -188,13 +188,22 @@
 ///Calculate if two atoms are in sight, returns TRUE or FALSE
 /proc/inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
 	var/turf/T
+<<<<<<< HEAD
 	if(X1==X2)
 		if(Y1==Y2)
+=======
+	if(X1 == X2)
+		if(Y1 == Y2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return TRUE //Light cannot be blocked on same tile
 		else
 			var/s = SIGN(Y2-Y1)
 			Y1+=s
+<<<<<<< HEAD
 			while(Y1!=Y2)
+=======
+			while(Y1 != Y2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				T=locate(X1,Y1,Z)
 				if(IS_OPAQUE_TURF(T))
 					return FALSE
@@ -206,7 +215,11 @@
 		var/signY = SIGN(Y2-Y1)
 		if(X1<X2)
 			b+=m
+<<<<<<< HEAD
 		while(X1!=X2 || Y1!=Y2)
+=======
+		while(X1 != X2 || Y1 != Y2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(round(m*X1+b-Y1))
 				Y1+=signY //Line exits tile vertically
 			else
@@ -348,12 +361,17 @@
 
 ///Returns the open turf next to the center in a specific direction
 /proc/get_open_turf_in_dir(atom/center, dir)
+<<<<<<< HEAD
 	var/turf/open/get_turf = get_ranged_target_turf(center, dir, 1)
+=======
+	var/turf/open/get_turf = get_step(center, dir)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(istype(get_turf))
 		return get_turf
 
 ///Returns a list with all the adjacent open turfs. Clears the list of nulls in the end.
 /proc/get_adjacent_open_turfs(atom/center)
+<<<<<<< HEAD
 	. = list(
 		get_open_turf_in_dir(center, NORTH),
 		get_open_turf_in_dir(center, SOUTH),
@@ -361,6 +379,23 @@
 		get_open_turf_in_dir(center, WEST)
 		)
 	list_clear_nulls(.)
+=======
+	var/list/hand_back = list()
+	// Inlined get_open_turf_in_dir, just to be fast
+	var/turf/open/new_turf = get_step(center, NORTH)
+	if(istype(new_turf))
+		hand_back += new_turf
+	new_turf = get_step(center, SOUTH)
+	if(istype(new_turf))
+		hand_back += new_turf
+	new_turf = get_step(center, EAST)
+	if(istype(new_turf))
+		hand_back += new_turf
+	new_turf = get_step(center, WEST)
+	if(istype(new_turf))
+		hand_back += new_turf
+	return hand_back
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Returns a list with all the adjacent areas by getting the adjacent open turfs
 /proc/get_adjacent_open_areas(atom/center)

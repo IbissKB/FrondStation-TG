@@ -27,7 +27,11 @@
 	RemoveElement(/datum/element/footstep, FOOTSTEP_OBJ_MACHINE, 1, -6, sound_vary = TRUE)
 	return ..() //Run parent at end
 
+<<<<<<< HEAD
 /datum/ai_controller/vending_machine/SelectBehaviors(delta_time)
+=======
+/datum/ai_controller/vending_machine/SelectBehaviors(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	current_behaviors = list()
 	var/obj/machinery/vending/vendor_pawn = pawn
 
@@ -42,7 +46,14 @@
 		for(var/mob/living/living_target in oview(vision_range, pawn))
 			if(living_target.stat || living_target.incorporeal_move) //They're already fucked up or incorporeal
 				continue
+<<<<<<< HEAD
 			blackboard[BB_VENDING_CURRENT_TARGET] = living_target
 			queue_behavior(/datum/ai_behavior/vendor_crush, BB_VENDING_CURRENT_TARGET)
 			return
 		blackboard[BB_VENDING_TILT_COOLDOWN] = world.time + search_for_enemy_cooldown
+=======
+			set_blackboard_key(BB_VENDING_CURRENT_TARGET, living_target)
+			queue_behavior(/datum/ai_behavior/vendor_crush, BB_VENDING_CURRENT_TARGET)
+			return
+		set_blackboard_key(BB_VENDING_TILT_COOLDOWN, world.time + search_for_enemy_cooldown)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

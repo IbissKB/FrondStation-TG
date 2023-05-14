@@ -114,6 +114,10 @@ GLOBAL_PROTECT(href_token)
 		disassociate()
 		add_verb(client, /client/proc/readmin)
 		client.disable_combo_hud()
+<<<<<<< HEAD
+=======
+		client.update_special_keybinds()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/admins/proc/associate(client/client)
 	if(IsAdminAdvancedProcCall())
@@ -154,6 +158,10 @@ GLOBAL_PROTECT(href_token)
 	owner.add_admin_verbs()
 	remove_verb(owner, /client/proc/readmin)
 	owner.init_verbs() //re-initialize the verb list
+<<<<<<< HEAD
+=======
+	owner.update_special_keybinds()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	GLOB.admins |= client
 
 	try_give_profiling()

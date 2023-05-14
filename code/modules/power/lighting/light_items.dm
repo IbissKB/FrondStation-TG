@@ -7,7 +7,11 @@
 	force = 2
 	throwforce = 5
 	w_class = WEIGHT_CLASS_TINY
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=100)
+=======
+	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	grind_results = list(/datum/reagent/silicon = 5, /datum/reagent/nitrogen = 10) //Nitrogen is used as a cheaper alternative to argon in incandescent lighbulbs
 	///How much light it gives off
 	var/brightness = 2
@@ -18,6 +22,18 @@
 	///Number of times switched on and off
 	var/switchcount = 0
 
+<<<<<<< HEAD
+=======
+/obj/item/light/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+	AddComponent(/datum/component/golem_food, golem_food_key = /obj/item/light, extra_validation = CALLBACK(src, PROC_REF(is_intact)))
+
+/// Returns true if bulb is intact
+/obj/item/light/proc/is_intact()
+	return status == LIGHT_OK
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/light/suicide_act(mob/living/carbon/user)
 	if (status == LIGHT_BROKEN)
 		user.visible_message(span_suicide("[user] begins to stab [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -31,12 +47,30 @@
 	desc = "A replacement light tube."
 	icon_state = "ltube"
 	base_state = "ltube"
+<<<<<<< HEAD
 	inhand_icon_state = "c_tube"
 	brightness = 8
 	custom_price = PAYCHECK_CREW * 0.5
 
 /obj/item/light/tube/broken
 	status = LIGHT_BROKEN
+=======
+	inhand_icon_state = "ltube"
+	brightness = 8
+	custom_price = PAYCHECK_CREW * 0.5
+
+/obj/item/light/tube/update_icon_state()
+	. = ..()
+	switch(status)
+		if(LIGHT_BURNED)
+			inhand_icon_state = "[base_state]-burned"
+		if(LIGHT_BROKEN)
+			inhand_icon_state = "[base_state]-broken"
+
+/obj/item/light/tube/broken
+	status = LIGHT_BROKEN
+	sharpness = SHARP_POINTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/light/bulb
 	name = "light bulb"
@@ -51,6 +85,10 @@
 
 /obj/item/light/bulb/broken
 	status = LIGHT_BROKEN
+<<<<<<< HEAD
+=======
+	sharpness = SHARP_POINTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/light/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(!..()) //not caught by a mob
@@ -58,6 +96,7 @@
 
 // update the icon state and description of the light
 
+<<<<<<< HEAD
 /obj/item/light/proc/update()
 	switch(status)
 		if(LIGHT_OK)
@@ -68,13 +107,37 @@
 			desc = "A burnt-out [name]."
 		if(LIGHT_BROKEN)
 			icon_state = "[base_state]-broken"
+=======
+/obj/item/light/update_icon_state()
+	. = ..()
+	switch(status)
+		if(LIGHT_OK)
+			icon_state = base_state
+		if(LIGHT_BURNED)
+			icon_state = "[base_state]-burned"
+		if(LIGHT_BROKEN)
+			icon_state = "[base_state]-broken"
+
+/obj/item/light/update_desc()
+	. = ..()
+	switch(status)
+		if(LIGHT_OK)
+			desc = "A replacement [name]."
+		if(LIGHT_BURNED)
+			desc = "A burnt-out [name]."
+		if(LIGHT_BROKEN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			desc = "A broken [name]."
 
 /obj/item/light/Initialize(mapload)
 	. = ..()
 	create_reagents(LIGHT_REAGENT_CAPACITY, INJECTABLE | DRAINABLE | SEALED_CONTAINER | TRANSPARENT)
 	AddComponent(/datum/component/caltrop, min_damage = force)
+<<<<<<< HEAD
 	update()
+=======
+	update_icon_state()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
@@ -86,7 +149,11 @@
 		return
 	var/mob/living/moving_mob = moving_atom
 	if(!(moving_mob.movement_type & (FLYING|FLOATING)) || moving_mob.buckled)
+<<<<<<< HEAD
 		playsound(src, 'sound/effects/glass_step.ogg', HAS_TRAIT(moving_mob, TRAIT_LIGHT_STEP) ? 30 : 50, TRUE)
+=======
+		playsound(src, 'sound/effects/footstep/glass_step.ogg', HAS_TRAIT(moving_mob, TRAIT_LIGHT_STEP) ? 30 : 50, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(status == LIGHT_BURNED || status == LIGHT_OK)
 			shatter(moving_mob)
 
@@ -103,8 +170,16 @@
 		visible_message(span_danger("[src] shatters."),span_hear("You hear a small glass object shatter."))
 		status = LIGHT_BROKEN
 		force = 5
+<<<<<<< HEAD
+=======
+		sharpness = SHARP_POINTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(loc, 'sound/effects/glasshit.ogg', 75, TRUE)
 		if(length(reagents.reagent_list))
 			visible_message(span_danger("The contents of [src] splash onto you as you step on it!"),span_hear("You feel the contents of [src] splash onto you as you step on it!."))
 			reagents.expose(target, TOUCH)
+<<<<<<< HEAD
 		update()
+=======
+		update_appearance(UPDATE_DESC | UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

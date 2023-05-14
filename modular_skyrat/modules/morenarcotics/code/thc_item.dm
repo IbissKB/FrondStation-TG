@@ -23,7 +23,11 @@
 	icon_state = "hashbrick"
 	volume = 80
 	possible_transfer_amounts = list()
+<<<<<<< HEAD
 	list_reagents = list(/datum/reagent/drug/cocaine = 60, /datum/reagent/toxin/lipolicide = 20)
+=======
+	list_reagents = list(/datum/reagent/drug/thc = 60, /datum/reagent/toxin/lipolicide = 20)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /obj/item/reagent_containers/hashbrick/attack_self(mob/user)

@@ -71,7 +71,11 @@
 "r" = (
 /obj/effect/decal/cleanable/shreds,
 /obj/effect/decal/remains/human,
+<<<<<<< HEAD
 /obj/item/disk/design_disk/adv/cleric_mace,
+=======
+/obj/item/disk/design_disk/cleric_mace,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/trap/cult,
 /turf/open/floor/carpet/airless,
 /area/ruin/space)

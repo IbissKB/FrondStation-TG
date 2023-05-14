@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 /datum/ai_behavior/resist/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/resist/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/mob/living/living_pawn = controller.pawn
 	living_pawn.execute_resist()
@@ -9,7 +13,11 @@
 	///List of possible screeches the behavior has
 	var/list/screeches
 
+<<<<<<< HEAD
 /datum/ai_behavior/battle_screech/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/battle_screech/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/mob/living/living_pawn = controller.pawn
 	INVOKE_ASYNC(living_pawn, TYPE_PROC_REF(/mob, emote), pick(screeches))
@@ -19,7 +27,11 @@
 /datum/ai_behavior/move_to_target
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
 
+<<<<<<< HEAD
 /datum/ai_behavior/move_to_target/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/move_to_target/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	finish_action(controller, TRUE)
 
@@ -31,6 +43,7 @@
 
 /datum/ai_behavior/break_spine/setup(datum/ai_controller/controller, target_key)
 	. = ..()
+<<<<<<< HEAD
 	controller.set_movement_target(controller.blackboard[target_key])
 
 /datum/ai_behavior/break_spine/perform(delta_time, datum/ai_controller/controller, target_key)
@@ -45,6 +58,27 @@
 
 	big_guy.start_pulling(batman)
 	big_guy.setDir(get_dir(big_guy, batman))
+=======
+	var/atom/target = controller.blackboard[target_key]
+	if(QDELETED(target))
+		return FALSE
+	set_movement_target(controller, target)
+
+/datum/ai_behavior/break_spine/perform(seconds_per_tick, datum/ai_controller/controller, target_key)
+	var/mob/living/batman = controller.blackboard[target_key]
+	var/mob/living/big_guy = controller.pawn //he was molded by the darkness
+
+	if(QDELETED(batman) || get_dist(batman, big_guy) >= give_up_distance)
+		finish_action(controller, FALSE, target_key)
+		return
+
+	if(batman.stat != CONSCIOUS)
+		finish_action(controller, TRUE, target_key)
+		return
+
+	big_guy.start_pulling(batman)
+	big_guy.face_atom(batman)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	batman.visible_message(span_warning("[batman] gets a slightly too tight hug from [big_guy]!"), span_userdanger("You feel your body break as [big_guy] embraces you!"))
 
@@ -61,7 +95,13 @@
 
 /datum/ai_behavior/break_spine/finish_action(datum/ai_controller/controller, succeeded, target_key)
 	if(succeeded)
+<<<<<<< HEAD
 		controller.blackboard -= target_key
+=======
+		var/mob/living/bane = controller.pawn
+		bane.stop_pulling()
+		controller.clear_blackboard_key(target_key)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /// Use in hand the currently held item
@@ -69,7 +109,11 @@
 	behavior_flags = AI_BEHAVIOR_MOVE_AND_PERFORM
 
 
+<<<<<<< HEAD
 /datum/ai_behavior/use_in_hand/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/use_in_hand/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/mob/living/pawn = controller.pawn
 	var/obj/item/held = pawn.get_active_held_item()
@@ -86,6 +130,7 @@
 
 /datum/ai_behavior/use_on_object/setup(datum/ai_controller/controller, target_key)
 	. = ..()
+<<<<<<< HEAD
 	var/datum/weakref/target_ref = controller.blackboard[target_key]
 	var/target = target_ref?.resolve()
 	if(!target)
@@ -100,6 +145,19 @@
 	var/atom/target = target_ref?.resolve()
 
 	if(!target || !pawn.CanReach(target))
+=======
+	var/atom/target = controller.blackboard[target_key]
+	if(QDELETED(target))
+		return FALSE
+	set_movement_target(controller, target)
+
+/datum/ai_behavior/use_on_object/perform(seconds_per_tick, datum/ai_controller/controller, target_key)
+	. = ..()
+	var/mob/living/pawn = controller.pawn
+	var/obj/item/held_item = pawn.get_item_by_slot(pawn.get_active_hand())
+	var/atom/target = controller.blackboard[target_key]
+	if(QDELETED(target) || !pawn.CanReach(target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		finish_action(controller, FALSE)
 		return
 
@@ -118,6 +176,7 @@
 
 /datum/ai_behavior/give/setup(datum/ai_controller/controller, target_key)
 	. = ..()
+<<<<<<< HEAD
 	var/datum/weakref/target_ref = controller.blackboard[target_key]
 	controller.set_movement_target(target_ref?.resolve())
 
@@ -127,6 +186,15 @@
 	var/obj/item/held_item = pawn.get_active_held_item()
 	var/datum/weakref/target_ref = controller.blackboard[target_key]
 	var/atom/target = target_ref?.resolve()
+=======
+	set_movement_target(controller, controller.blackboard[target_key])
+
+/datum/ai_behavior/give/perform(seconds_per_tick, datum/ai_controller/controller, target_key)
+	. = ..()
+	var/mob/living/pawn = controller.pawn
+	var/obj/item/held_item = pawn.get_active_held_item()
+	var/atom/target = controller.blackboard[target_key]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!held_item) //if held_item is null, we pretend that action was succesful
 		finish_action(controller, TRUE)
@@ -145,7 +213,11 @@
 		span_info("[pawn] starts trying to give [held_item] to [living_target]!"),
 		span_warning("[pawn] tries to give you [held_item]!")
 	)
+<<<<<<< HEAD
 	if(!do_mob(pawn, living_target, 1 SECONDS))
+=======
+	if(!do_after(pawn, 1 SECONDS, living_target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	try_to_give_item(controller, living_target, held_item, actually_give = TRUE)
@@ -185,6 +257,7 @@
 
 /datum/ai_behavior/consume/setup(datum/ai_controller/controller, target_key)
 	. = ..()
+<<<<<<< HEAD
 	var/datum/weakref/target_ref = controller.blackboard[target_key]
 	controller.set_movement_target(target_ref?.resolve())
 
@@ -193,6 +266,16 @@
 	var/mob/living/living_pawn = controller.pawn
 	var/datum/weakref/target_ref = controller.blackboard[target_key]
 	var/obj/item/target = target_ref.resolve()
+=======
+	set_movement_target(controller, controller.blackboard[target_key])
+
+/datum/ai_behavior/consume/perform(seconds_per_tick, datum/ai_controller/controller, target_key, hunger_timer_key)
+	. = ..()
+	var/mob/living/living_pawn = controller.pawn
+	var/obj/item/target = controller.blackboard[target_key]
+	if(QDELETED(target))
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!(target in living_pawn.held_items))
 		if(!living_pawn.get_empty_held_indexes() || !living_pawn.put_in_hands(target))
@@ -207,14 +290,22 @@
 /datum/ai_behavior/consume/finish_action(datum/ai_controller/controller, succeeded, target_key, hunger_timer_key)
 	. = ..()
 	if(succeeded)
+<<<<<<< HEAD
 		controller.blackboard[hunger_timer_key] = world.time + rand(12 SECONDS, 60 SECONDS)
+=======
+		controller.set_blackboard_key(hunger_timer_key, world.time + rand(12 SECONDS, 60 SECONDS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Drops items in hands, very important for future behaviors that require the pawn to grab stuff
  */
 /datum/ai_behavior/drop_item
 
+<<<<<<< HEAD
 /datum/ai_behavior/drop_item/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/drop_item/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/mob/living/living_pawn = controller.pawn
 	var/obj/item/best_held = GetBestWeapon(controller, null, living_pawn.held_items)
@@ -228,15 +319,24 @@
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_MOVE_AND_PERFORM
 	required_distance = 1
 
+<<<<<<< HEAD
 /datum/ai_behavior/attack/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/attack/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/mob/living/living_pawn = controller.pawn
 	if(!istype(living_pawn) || !isturf(living_pawn.loc))
 		return
 
+<<<<<<< HEAD
 	var/datum/weakref/attack_ref = controller.blackboard[BB_ATTACK_TARGET]
 	var/atom/movable/attack_target = attack_ref?.resolve()
 	if(!attack_target || !can_see(living_pawn, attack_target, length=controller.blackboard[BB_VISION_RANGE]))
+=======
+	var/atom/movable/attack_target = controller.blackboard[BB_ATTACK_TARGET]
+	if(!attack_target || !can_see(living_pawn, attack_target, length = controller.blackboard[BB_VISION_RANGE]))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		finish_action(controller, FALSE)
 		return
 
@@ -245,12 +345,20 @@
 		finish_action(controller, TRUE)
 		return
 
+<<<<<<< HEAD
 	controller.set_movement_target(living_target)
+=======
+	set_movement_target(controller, living_target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attack(controller, living_target)
 
 /datum/ai_behavior/attack/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
+<<<<<<< HEAD
 	controller.blackboard[BB_ATTACK_TARGET] = null
+=======
+	controller.clear_blackboard_key(BB_ATTACK_TARGET)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// A proc representing when the mob is pushed to actually attack the target. Again, subtypes can be used to represent different attacks from different animals, or it can be some other generic behavior
 /datum/ai_behavior/attack/proc/attack(datum/ai_controller/controller, mob/living/living_target)
@@ -264,14 +372,22 @@
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_MOVE_AND_PERFORM
 	required_distance = 1
 
+<<<<<<< HEAD
 /datum/ai_behavior/follow/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/follow/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/mob/living/living_pawn = controller.pawn
 	if(!istype(living_pawn) || !isturf(living_pawn.loc))
 		return
 
+<<<<<<< HEAD
 	var/datum/weakref/follow_ref = controller.blackboard[BB_FOLLOW_TARGET]
 	var/atom/movable/follow_target = follow_ref?.resolve()
+=======
+	var/atom/movable/follow_target = controller.blackboard[BB_FOLLOW_TARGET]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!follow_target || get_dist(living_pawn, follow_target) > controller.blackboard[BB_VISION_RANGE])
 		finish_action(controller, FALSE)
 		return
@@ -281,17 +397,29 @@
 		finish_action(controller, TRUE)
 		return
 
+<<<<<<< HEAD
 	controller.set_movement_target(living_target)
 
 /datum/ai_behavior/follow/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
 	controller.blackboard[BB_FOLLOW_TARGET] = null
+=======
+	set_movement_target(controller, living_target)
+
+/datum/ai_behavior/follow/finish_action(datum/ai_controller/controller, succeeded)
+	. = ..()
+	controller.clear_blackboard_key(BB_FOLLOW_TARGET)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 
 /datum/ai_behavior/perform_emote
 
+<<<<<<< HEAD
 /datum/ai_behavior/perform_emote/perform(delta_time, datum/ai_controller/controller, emote)
+=======
+/datum/ai_behavior/perform_emote/perform(seconds_per_tick, datum/ai_controller/controller, emote)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/living_pawn = controller.pawn
 	if(!istype(living_pawn))
 		return
@@ -300,22 +428,38 @@
 
 /datum/ai_behavior/perform_speech
 
+<<<<<<< HEAD
 /datum/ai_behavior/perform_speech/perform(delta_time, datum/ai_controller/controller, speech)
+=======
+/datum/ai_behavior/perform_speech/perform(seconds_per_tick, datum/ai_controller/controller, speech, speech_sound)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/living_pawn = controller.pawn
 	if(!istype(living_pawn))
 		return
 	living_pawn.say(speech, forced = "AI Controller")
+<<<<<<< HEAD
+=======
+	if(speech_sound)
+		playsound(living_pawn, speech_sound, 80, vary = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	finish_action(controller, TRUE)
 
 //song behaviors
 
 /datum/ai_behavior/setup_instrument
 
+<<<<<<< HEAD
 /datum/ai_behavior/setup_instrument/perform(delta_time, datum/ai_controller/controller, song_instrument_key, song_lines_key)
 	. = ..()
 
 	var/datum/weakref/instrument_ref = controller.blackboard[song_instrument_key]
 	var/obj/item/instrument/song_instrument = instrument_ref.resolve()
+=======
+/datum/ai_behavior/setup_instrument/perform(seconds_per_tick, datum/ai_controller/controller, song_instrument_key, song_lines_key)
+	. = ..()
+
+	var/obj/item/instrument/song_instrument = controller.blackboard[song_instrument_key]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/song/song = song_instrument.song
 	var/song_lines = controller.blackboard[song_lines_key]
 
@@ -328,11 +472,18 @@
 
 /datum/ai_behavior/play_instrument
 
+<<<<<<< HEAD
 /datum/ai_behavior/play_instrument/perform(delta_time, datum/ai_controller/controller, song_instrument_key)
 	. = ..()
 
 	var/datum/weakref/instrument_ref = controller.blackboard[song_instrument_key]
 	var/obj/item/instrument/song_instrument = instrument_ref.resolve()
+=======
+/datum/ai_behavior/play_instrument/perform(seconds_per_tick, datum/ai_controller/controller, song_instrument_key)
+	. = ..()
+
+	var/obj/item/instrument/song_instrument = controller.blackboard[song_instrument_key]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/song/song = song_instrument.song
 
 	song.start_playing(controller.pawn)
@@ -340,7 +491,11 @@
 
 /datum/ai_behavior/find_nearby
 
+<<<<<<< HEAD
 /datum/ai_behavior/find_nearby/perform(delta_time, datum/ai_controller/controller, target_key)
+=======
+/datum/ai_behavior/find_nearby/perform(seconds_per_tick, datum/ai_controller/controller, target_key)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	var/list/possible_targets = list()
@@ -352,5 +507,9 @@
 		possible_targets += thing
 	if(!possible_targets.len)
 		finish_action(controller, FALSE)
+<<<<<<< HEAD
 	controller.blackboard[target_key] = WEAKREF(pick(possible_targets))
+=======
+	controller.set_blackboard_key(target_key, pick(possible_targets))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	finish_action(controller, TRUE)

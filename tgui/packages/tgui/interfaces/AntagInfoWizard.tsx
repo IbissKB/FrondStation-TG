@@ -31,6 +31,14 @@ const ritualstyle = {
   color: 'violet',
 };
 
+<<<<<<< HEAD
+=======
+const grandritualstyle = {
+  fontWeight: 'bold',
+  color: '#bd54e0',
+};
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 type Objective = {
   count: number;
   name: string;
@@ -40,13 +48,28 @@ type Objective = {
   reward: number;
 };
 
+<<<<<<< HEAD
 type Info = {
   objectives: Objective[];
+=======
+type GrandRitual = {
+  remaining: number;
+  next_area: string;
+};
+
+type Info = {
+  objectives: Objective[];
+  ritual: GrandRitual;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 export const AntagInfoWizard = (props, context) => {
   return (
+<<<<<<< HEAD
     <Window width={620} height={580} theme="wizard">
+=======
+    <Window width={620} height={620} theme="wizard">
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item grow>
@@ -134,7 +157,11 @@ export const AntagInfoWizard = (props, context) => {
 
 const ObjectivePrintout = (props, context) => {
   const { data } = useBackend<Info>(context);
+<<<<<<< HEAD
   const { objectives } = data;
+=======
+  const { objectives, ritual } = data;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   return (
     <Stack vertical>
       <Stack.Item bold>
@@ -148,6 +175,34 @@ const ObjectivePrintout = (props, context) => {
             </Stack.Item>
           ))}
       </Stack.Item>
+<<<<<<< HEAD
     </Stack>
   );
 };
+=======
+      <RitualPrintout />
+    </Stack>
+  );
+};
+
+const RitualPrintout = (props, context) => {
+  const { data } = useBackend<Info>(context);
+  const { objectives, ritual } = data;
+  if (!ritual.next_area) {
+    return <Stack.Item />;
+  }
+  return (
+    <Stack.Item>
+      Alternately, complete the{' '}
+      <span style={grandritualstyle}>Grand Ritual </span>
+      by invoking a ritual circle at several nexuses of power.
+      <br />
+      You must complete the ritual
+      <span style={grandritualstyle}> {ritual.remaining}</span> more times.
+      <br />
+      Your next ritual location is the
+      <span style={grandritualstyle}> {ritual.next_area}</span>.
+    </Stack.Item>
+  );
+};
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

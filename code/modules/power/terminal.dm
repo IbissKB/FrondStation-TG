@@ -6,7 +6,11 @@
 /obj/machinery/power/terminal
 	name = "terminal"
 	icon_state = "term"
+<<<<<<< HEAD
 	desc = "It's an underfloor wiring terminal for power equipment."
+=======
+	desc = "It's an underfloor wiring terminal, used to draw power from the grid."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = WIRE_TERMINAL_LAYER //a bit above wires
 	var/obj/machinery/power/master = null
 
@@ -61,9 +65,15 @@
 			do_sparks(5, TRUE, master)
 			return
 
+<<<<<<< HEAD
 		new /obj/item/stack/cable_coil(drop_location(), 10)
 		balloon_alert(user, "cable terminal dismantled")
 		qdel(src)
+=======
+		var/obj/item/stack/cable_coil/cable = new (drop_location(), 10)
+		qdel(src)
+		cable.balloon_alert(user, "cable terminal dismantled")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/power/terminal/wirecutter_act(mob/living/user, obj/item/I)
 	..()

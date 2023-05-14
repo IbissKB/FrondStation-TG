@@ -41,4 +41,9 @@
 /obj/item/stock_parts/cell/lead/Initialize(mapload)
 	AddElement(/datum/element/update_icon_blocker)
 	. = ..()
+<<<<<<< HEAD
 	charge = rand(0.2,0.8) * maxcharge
+=======
+	var/initial_percent = rand(20, 80) / 100
+	charge = initial_percent * maxcharge
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

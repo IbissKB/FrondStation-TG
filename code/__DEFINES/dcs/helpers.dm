@@ -18,5 +18,12 @@
 /// A wrapper for _AddComponent that allows us to pretend we're using normal named arguments
 #define AddComponent(arguments...) _AddComponent(list(##arguments))
 
+<<<<<<< HEAD
+=======
+/// A wrapper for _AddComonent that passes in a source.
+/// Necessary if dupe_mode is set to COMPONENT_DUPE_SOURCES.
+#define AddComponentFrom(source, arguments...) _AddComponent(list(##arguments), source)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// A wrapper for _LoadComponent that allows us to pretend we're using normal named arguments
 #define LoadComponent(arguments...) _LoadComponent(list(##arguments))

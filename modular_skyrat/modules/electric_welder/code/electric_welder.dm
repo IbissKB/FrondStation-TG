@@ -54,7 +54,11 @@
 	update_appearance()
 	STOP_PROCESSING(SSobj, src)
 
+<<<<<<< HEAD
 /obj/item/weldingtool/electric/process(delta_time)
+=======
+/obj/item/weldingtool/electric/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!powered)
 		switched_off()
 		return

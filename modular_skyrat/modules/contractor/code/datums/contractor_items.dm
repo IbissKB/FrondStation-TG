@@ -169,7 +169,11 @@
 	if(!.)
 		return
 	var/datum/round_event_control/event = locate(/datum/round_event_control/communications_blackout) in SSevents.control
+<<<<<<< HEAD
 	event.runEvent()
+=======
+	event.run_event()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/contractor_item/mod_baton_holster
 	name = "Baton Holster Module"

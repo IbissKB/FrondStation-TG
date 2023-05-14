@@ -6,7 +6,11 @@
 	explosion_block = 3
 	heat_proof = TRUE
 	max_integrity = 600
+<<<<<<< HEAD
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/door_password
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	damage_deflection = 70
 	var/password = "Swordfish"
@@ -17,6 +21,19 @@
 	voice_activated = TRUE
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/door_password
+	melee = 100
+	bullet = 100
+	laser = 100
+	energy = 100
+	bomb = 100
+	bio = 100
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/password/Initialize(mapload)
 	. = ..()
 	if(voice_activated)
@@ -50,10 +67,17 @@
 	switch(animation)
 		if("opening")
 			flick("opening", src)
+<<<<<<< HEAD
 			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
 		if("closing")
 			flick("closing", src)
 			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
+=======
+			playsound(src, 'sound/machines/blastdoor.ogg', 50, TRUE)
+		if("closing")
+			flick("closing", src)
+			playsound(src, 'sound/machines/blastdoor.ogg', 50, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("deny")
 			//Deny animation would be nice to have.
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)

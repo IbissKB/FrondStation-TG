@@ -40,7 +40,11 @@
 	. = ..()
 	if(!istype(user))
 		return
+<<<<<<< HEAD
 	var/obj/item/organ/external/genital/breasts/user_breast = user.getorganslot(ORGAN_SLOT_BREASTS)
+=======
+	var/obj/item/organ/external/genital/breasts/user_breast = user.get_organ_slot(ORGAN_SLOT_BREASTS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(src == user.nipples)
 		if(user_breast)
@@ -67,6 +71,7 @@
 	breast_type = null
 	breast_size = null
 
+<<<<<<< HEAD
 /obj/item/clothing/sextoy/nipple_clamps/process(delta_time)
 	. = ..()
 	var/mob/living/carbon/human/target = loc
@@ -79,6 +84,20 @@
 
 	if(target.arousal < 15)
 		target.adjust_arousal(1 * delta_time)
+=======
+/obj/item/clothing/sextoy/nipple_clamps/process(seconds_per_tick)
+	. = ..()
+	var/mob/living/carbon/human/target = loc
+	var/obj/item/organ/external/genital/breasts/target_breast = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+	if(!target || !target_breast)
+		return
+	target.adjust_arousal(1 * seconds_per_tick)
+	if(target.pain < 27.5) //To prevent maxing pain by just pair of clamps.
+		target.adjust_pain(1 * seconds_per_tick)
+
+	if(target.arousal < 15)
+		target.adjust_arousal(1 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(target_breast.aroused != AROUSAL_CANT)
 		target_breast.aroused = AROUSAL_FULL //Clamps keeping nipples aroused

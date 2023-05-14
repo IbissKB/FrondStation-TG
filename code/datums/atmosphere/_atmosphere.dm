@@ -49,7 +49,11 @@
 		amount *= pressure_scalar // If we pick a really small target pressure we want roughly the same mix but less of it all
 		amount = CEILING(amount, 0.1)
 
+<<<<<<< HEAD
 		ASSERT_GAS(gastype, gasmix)
+=======
+		ASSERT_GAS_IN_LIST(gastype, gaslist)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		gaslist[gastype][MOLES] += amount
 
 	// That last one put us over the limit, remove some of it

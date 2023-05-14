@@ -10,5 +10,9 @@
 // Investigate
 #define INVESTIGATE_CIRCUIT			"circuit"
 
+<<<<<<< HEAD
 GLOBAL_VAR(event_vote_log)
 GLOBAL_PROTECT(event_vote_log)
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -6,7 +6,11 @@
 //Child of carpplushie because this should do everything the toy does and more
 /obj/item/toy/plush/carpplushie/dehy_carp
 	var/mob/owner = null //Carp doesn't attack owner, set when using in hand
+<<<<<<< HEAD
 	var/mobtype = /mob/living/simple_animal/hostile/carp //So admins can change what mob spawns via var fuckery
+=======
+	var/mobtype = /mob/living/basic/carp //So admins can change what mob spawns via var fuckery
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/swelling = FALSE
 
 //Attack self
@@ -63,7 +67,11 @@
 	if(owner)
 		spawned_mob.faction = list("[REF(owner)]")
 	for(var/mob/living/viewer in viewers(5, get_turf(src)))
+<<<<<<< HEAD
 		to_chat(viewer, viewer == owner ? span_warning("You have a bad feeling about this.") : span_notice("The newly grown [spawned_mob.name] looks up at you with friendly eyes."))
+=======
+		to_chat(viewer, viewer == owner ? span_notice("The newly grown [spawned_mob.name] looks up at you with friendly eyes.") : span_warning("You have a bad feeling about this."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	qdel(src)
 
 /obj/item/toy/plush/carpplushie/dehy_carp/proc/owner_deleted(datum/source)

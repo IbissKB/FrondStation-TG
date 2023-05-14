@@ -19,6 +19,10 @@
 	if(candidates.len < 2)
 		return NOT_ENOUGH_PLAYERS
 
+<<<<<<< HEAD
+=======
+	SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_ABDUCTOR_SHIPS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/human/agent = make_body(pick_n_take(candidates))
 	var/mob/living/carbon/human/scientist = make_body(pick_n_take(candidates))
 

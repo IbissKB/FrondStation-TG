@@ -55,8 +55,13 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 /obj/machinery/chem_mass_spec/RefreshParts()
 	. = ..()
 	cms_coefficient = 1
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
 		cms_coefficient /= laser.rating
+=======
+	for(var/datum/stock_part/micro_laser/laser in component_parts)
+		cms_coefficient /= laser.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/chem_mass_spec/deconstruct(disassembled)
 	if(beaker1)
@@ -126,7 +131,11 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 	if(processing_reagents)
 		to_chat(user, "<span class='notice'> The [src] is currently processing a batch!")
 		return
+<<<<<<< HEAD
 	if(!can_interact(user) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!can_interact(user) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return ..()
 	replace_beaker(user, BEAKER1)
 
@@ -135,7 +144,11 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 	if(processing_reagents)
 		to_chat(user, "<span class='notice'> The [src] is currently processing a batch!")
 		return
+<<<<<<< HEAD
 	if(!can_interact(user) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!can_interact(user) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	replace_beaker(user, BEAKER2)
 
@@ -219,13 +232,21 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 				var/datum/reagent/inverse_reagent = GLOB.chemical_reagents_list[reagent.inverse_chem]
 				if(inverse_reagent.mass < lower_mass_range || inverse_reagent.mass > upper_mass_range)
 					in_range = FALSE
+<<<<<<< HEAD
 				beakerContents.Add(list(list("name" = inverse_reagent.name, "volume" = round(reagent.volume, 0.01), "mass" = inverse_reagent.mass, "purity" = round(reagent.get_inverse_purity(), 0.01)*100, "selected" = in_range, "color" = "#b60046", "type" = "Inverted")))
+=======
+				beakerContents.Add(list(list("name" = inverse_reagent.name, "volume" = round(reagent.volume, 0.01), "mass" = inverse_reagent.mass, "purity" = round(reagent.get_inverse_purity(), 0.000001)*100, "selected" = in_range, "color" = "#b60046", "type" = "Inverted")))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				data["peakHeight"] = max(data["peakHeight"], reagent.volume)
 				continue
 			if(reagent.mass < lower_mass_range || reagent.mass > upper_mass_range)
 				in_range = FALSE
 			///We want to be sure that the impure chem appears after the parent chem in the list so that it always overshadows pure reagents
+<<<<<<< HEAD
 			beakerContents.Add(list(list("name" = reagent.name, "volume" = round(reagent.volume, 0.01), "mass" = reagent.mass, "purity" = round(reagent.purity, 0.01)*100, "selected" = in_range, "color" = "#3cf096", "type" = "Clean")))
+=======
+			beakerContents.Add(list(list("name" = reagent.name, "volume" = round(reagent.volume, 0.01), "mass" = reagent.mass, "purity" = round(reagent.purity, 0.000001)*100, "selected" = in_range, "color" = "#3cf096", "type" = "Clean")))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			data["peakHeight"] = max(data["peakHeight"], reagent.volume)
 
 		data["beaker1CurrentVolume"] = beaker1.reagents.total_volume
@@ -237,7 +258,11 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 	if(beaker2 && beaker2.reagents)
 		for(var/datum/reagent/reagent in beaker2.reagents.reagent_list)
 			///Normal stuff
+<<<<<<< HEAD
 			beakerContents.Add(list(list("name" = reagent.name, "volume" = round(reagent.volume, 0.01), "mass" = reagent.mass, "purity" = round(reagent.purity, 0.01)*100, "color" = "#3cf096", "type" = "Clean", log = log[reagent.type])))
+=======
+			beakerContents.Add(list(list("name" = reagent.name, "volume" = round(reagent.volume, 0.01), "mass" = reagent.mass, "purity" = round(reagent.purity, 0.000001)*100, "color" = "#3cf096", "type" = "Clean", log = log[reagent.type])))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		data["beaker2CurrentVolume"] = beaker2.reagents.total_volume
 		data["beaker2MaxVolume"] = beaker2.reagents.maximum_volume
 	data["beaker2Contents"] = beakerContents
@@ -299,7 +324,11 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 /*				processing procs				*/
 
 ///Increments time if it's progressing - if it's past time then it purifies and stops processing
+<<<<<<< HEAD
 /obj/machinery/chem_mass_spec/process(delta_time)
+=======
+/obj/machinery/chem_mass_spec/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!is_operational)
 		return FALSE
@@ -313,7 +342,11 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 		end_processing()
 		update_appearance()
 		return TRUE
+<<<<<<< HEAD
 	progress_time += delta_time
+=======
+	progress_time += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /*
@@ -401,3 +434,9 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 		time += (((reagent.mass * reagent.volume) + (reagent.mass * reagent.get_inverse_purity() * 0.1)) * 0.0035) + 10 ///Roughly 10 - 30s?
 	delay_time = (time * cms_coefficient)
 	return delay_time
+<<<<<<< HEAD
+=======
+
+#undef BEAKER1
+#undef BEAKER2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

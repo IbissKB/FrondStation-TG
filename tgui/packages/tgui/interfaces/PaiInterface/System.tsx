@@ -1,7 +1,11 @@
 import { useBackend } from 'tgui/backend';
 import { Box, Button, LabeledList, Section, Stack } from 'tgui/components';
 import { ICON_MAP } from './constants';
+<<<<<<< HEAD
 import { Data } from './types';
+=======
+import { PaiData } from './types';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 export const SystemDisplay = (props, context) => {
   return (
@@ -18,7 +22,11 @@ export const SystemDisplay = (props, context) => {
 
 /** Renders some ASCII art. Changes to red on emag. */
 const SystemWallpaper = (props, context) => {
+<<<<<<< HEAD
   const { data } = useBackend<Data>(context);
+=======
+  const { data } = useBackend<PaiData>(context);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const { emagged } = data;
 
   const owner = !emagged ? 'NANOTRASEN' : ' SYNDICATE';
@@ -63,7 +71,11 @@ const SystemWallpaper = (props, context) => {
  * You can check their DNA and change your image here.
  */
 const SystemInfo = (props, context) => {
+<<<<<<< HEAD
   const { act, data } = useBackend<Data>(context);
+=======
+  const { act, data } = useBackend<PaiData>(context);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const { image, master_dna, master_name } = data;
 
   return (

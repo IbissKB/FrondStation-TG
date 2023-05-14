@@ -15,10 +15,16 @@
 /datum/round_event_control/cme
 	name = "Coronal Mass Ejection: Random"
 	typepath = /datum/round_event/cme
+<<<<<<< HEAD
 	weight = 4
 	min_players = 60
 	max_occurrences = 1
 	earliest_start = 30 MINUTES
+=======
+	weight = 0
+	max_occurrences = 0
+	earliest_start = 45 MINUTES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = EVENT_CATEGORY_SPACE
 
 /datum/round_event/cme
@@ -33,8 +39,14 @@
 /datum/round_event_control/cme/unknown
 	name = "Coronal Mass Ejection: Unknown"
 	typepath = /datum/round_event/cme/unknown
+<<<<<<< HEAD
 	weight = 0
 	max_occurrences = 0
+=======
+	weight = 15
+	min_players = 75
+	max_occurrences = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/cme/unknown
 	cme_intensity = CME_UNKNOWN
@@ -61,6 +73,10 @@
 	name = "Coronal Mass Ejection: Extreme"
 	typepath = /datum/round_event/cme/extreme
 	weight = 0
+<<<<<<< HEAD
+=======
+	min_players = 75
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_occurrences = 0
 
 /datum/round_event/cme/extreme
@@ -83,7 +99,11 @@
 			cme_frequency_lower = CME_MODERATE_FREQUENCY_LOWER
 			cme_frequency_upper = CME_MODERATE_FREQUENCY_UPPER
 			start_when = rand(CME_MODERATE_START_LOWER, CME_MODERATE_START_UPPER)
+<<<<<<< HEAD
 			end_when = start_when + rand(CME_MINIMAL_END, CME_EXTREME_END)
+=======
+			end_when = start_when + CME_MODERATE_END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(CME_MINIMAL)
 			cme_frequency_lower = CME_MINIMAL_FREQUENCY_LOWER
 			cme_frequency_upper = CME_MINIMAL_FREQUENCY_UPPER
@@ -133,12 +153,20 @@
 				All synthetic and non-organic lifeforms should seek shelter immediately! \
 				Neutralize magnetic field bubbles at all costs.", "Solar Event", sound('modular_skyrat/modules/cme/sound/cme_warning.ogg'))
 			if(CME_EXTREME)
+<<<<<<< HEAD
 				SSsecurity_level.set_level(SEC_LEVEL_RED)
+=======
+				addtimer(CALLBACK(src, PROC_REF(cme_level_callback), SEC_LEVEL_ORANGE, TRUE, FALSE), (round((start_when * SSevents.wait) * 0.1, 0.1)) SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				priority_announce("Critical Coronal mass ejection detected! Expected intensity: [uppertext(cme_intensity)]. Impact in: [round((start_when * SSevents.wait) * 0.1, 0.1)] seconds. \
 				All synthetic and non-organic lifeforms should seek shelter immediately! \
 				Neutralize magnetic field bubbles at all costs.", "Solar Event", sound('modular_skyrat/modules/cme/sound/cme_warning.ogg'))
 			if(CME_ARMAGEDDON)
+<<<<<<< HEAD
 				SSsecurity_level.set_level(SEC_LEVEL_GAMMA)
+=======
+				addtimer(CALLBACK(src, PROC_REF(cme_level_callback), SEC_LEVEL_GAMMA, TRUE, TRUE), (round((start_when * SSevents.wait) * 0.1, 0.1)) SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				priority_announce("Neutron Mass Ejection Detected! Expected intensity: [uppertext(cme_intensity)]. Impact in: [round((start_when * SSevents.wait) * 0.1, 0.1)] seconds. \
 				All personnel should proceed to their nearest warpgate for evacuation, the Solar Federation has issued this mandatory alert.", "Solar Event", sound('modular_skyrat/modules/cme/sound/cme_warning.ogg'))
 
@@ -147,9 +175,21 @@
 		var/turf/spawnpoint = pick(cme_start_locs)
 		spawn_cme(spawnpoint, cme_intensity)
 
+<<<<<<< HEAD
 /datum/round_event/cme/proc/spawn_cme(turf/spawnpoint, intensity)
 	if(intensity == CME_UNKNOWN)
 		intensity = pick(CME_MINIMAL, CME_MODERATE, CME_EXTREME)
+=======
+/datum/round_event/cme/proc/cme_level_callback(sec_level = SEC_LEVEL_ORANGE, engi = TRUE, maint = FALSE)
+	INVOKE_ASYNC(SSsecurity_level, TYPE_PROC_REF(/datum/controller/subsystem/security_level/, minimum_security_level), sec_level, engi, maint)
+
+/datum/round_event/cme/proc/spawn_cme(turf/spawnpoint, intensity)
+	if(intensity == CME_UNKNOWN)
+		intensity = pick(CME_MINIMAL, CME_MODERATE, CME_EXTREME)
+		if(intensity == CME_EXTREME)
+			INVOKE_ASYNC(SSsecurity_level, TYPE_PROC_REF(/datum/controller/subsystem/security_level/, minimum_security_level), SEC_LEVEL_ORANGE, TRUE, FALSE)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/area/loc_area_name = get_area(spawnpoint)
 	minor_announce("WARNING! [uppertext(intensity)] PULSE EXPECTED IN: [loc_area_name.name]", "Solar Flare Log:")
 	switch(intensity)

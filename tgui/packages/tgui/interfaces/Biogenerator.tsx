@@ -213,11 +213,15 @@ const ItemList = (props, context) => {
         <Button
           fluid
           align="right"
+<<<<<<< HEAD
           content={
             parseFloat(
               ((item.cost * item.amount) / props.efficiency).toFixed(2)
             ) + ' BIO'
           }
+=======
+          content={parseFloat((item.cost * item.amount).toFixed(2)) + ' BIO'}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           disabled={item.disabled}
           onClick={() =>
             act('create', {

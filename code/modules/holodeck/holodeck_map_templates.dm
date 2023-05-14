@@ -125,6 +125,15 @@
 	description = "benis"
 	mappath = "_maps/templates/holodeck_baseball.dmm"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/holodeck/card_battle
+	name = "Holodeck - TGC Battle Arena"
+	template_id = "holodeck_card_battle"
+	description = "An arena for playing Tactical Game Cards."
+	mappath = "_maps/templates/holodeck_card_battle.dmm"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //bad evil no good programs
 
 /datum/map_template/holodeck/medicalsim

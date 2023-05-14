@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+#define MILKING_PUMP_MODE_OFF "off"
+#define MILKING_PUMP_MODE_LOW "low"
+#define MILKING_PUMP_MODE_MEDIUM "medium"
+#define MILKING_PUMP_MODE_HARD "hard"
+
+#define MILKING_PUMP_STATE_OFF "off"
+#define MILKING_PUMP_STATE_ON "on"
+
+#define CLIMAX_RETRIVE_MULTIPLIER 2
+#define MILKING_PUMP_MAX_CAPACITY 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/chair/milking_machine
 	name = "milking machine"
 	desc = "A stationary device for milking... things."
@@ -7,6 +21,7 @@
 	item_chair = null
 	flags_1 = NODECONSTRUCT_1
 	max_integrity = 75
+<<<<<<< HEAD
 	var/color_changed = FALSE // Variable to track the color change of the machine by the user. So that you can change it once.
 	var/static/list/milkingmachine_designs
 
@@ -49,12 +64,26 @@
 	var/girlcum_retrive_amount = list("off" = 0, "low" = 1, "medium" = 2, "hard" = 3)
 	var/semen_retrive_amount = list("off" = 0, "low" = 1, "medium" = 2, "hard" = 3)
 	var/climax_retrive_multiplier = 2 // Climax intake volume multiplier
+=======
+	var/static/list/milkingmachine_designs
+
+/*
+*	OPERATING MODES
+*/
+	///What state is the pump currently on? This is either `MLIKING_PUMP_STATE_OFF` or `MLIKING_PUMP_STATE_ON`
+	var/pump_state = MILKING_PUMP_STATE_OFF
+	///What mode is the pump currently on?
+	var/current_mode = MILKING_PUMP_MODE_OFF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	VESSELS
 */
 
+<<<<<<< HEAD
 	var/max_vessel_capacity = 100 // Limits a max capacity of any internal vessel in machine
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/reagent_containers/milk_vessel
 	var/obj/item/reagent_containers/girlcum_vessel
 	var/obj/item/reagent_containers/semen_vessel
@@ -64,6 +93,7 @@
 *	WORKED OBJECT
 */
 
+<<<<<<< HEAD
 	var/obj/item/organ/external/genital/current_selected_organ = null // Organ selected in UI
 	var/obj/item/reagent_containers/cup/beaker = null // Beaker inserted in machine
 	var/mob/living/carbon/human/current_mob = null // Mob buckled to the machine
@@ -97,6 +127,23 @@
 	var/current_selected_organ_size = null
 
 	var/lock_state = "open"
+=======
+	/// What organ is fluid being extracted from?
+	var/obj/item/organ/external/genital/current_selected_organ = null
+	/// What beaker is liquid being outputted to?
+	var/obj/item/reagent_containers/cup/beaker = null
+	/// What human mob is currently buckled to the machine?
+	var/mob/living/carbon/human/current_mob = null
+	/// What is the current breast organ of the buckled mob?
+	var/obj/item/organ/external/genital/breasts/current_breasts = null
+	/// What is the current testicles organ of the buckled mob?
+	var/obj/item/organ/external/genital/testicles/current_testicles = null
+	/// What is the current vagina organ of the buckled mob?
+	var/obj/item/organ/external/genital/vagina/current_vagina = null
+
+	/// What color is the machine currently set to?
+	var/machine_color = "pink"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	OVERLAYS
@@ -105,30 +152,57 @@
 	var/mutable_appearance/vessel_overlay
 	var/mutable_appearance/indicator_overlay
 	var/mutable_appearance/locks_overlay
+<<<<<<< HEAD
 	var/mutable_appearance/panel_overlay
 	var/mutable_appearance/cell_overlay
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mutable_appearance/organ_overlay
 	var/organ_overlay_new_icon_state = "" // Organ overlay update optimization
 
 // Additional examine text
 /obj/structure/chair/milking_machine/examine(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	. +=span_notice("What are these metal mounts on the armrests for...?")
 
 /obj/structure/chair/milking_machine/Destroy()
 	. = ..()
+=======
+	. += span_notice("What are these metal mounts on the armrests for...?")
+
+/obj/structure/chair/milking_machine/Destroy()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(current_mob)
 		if(current_mob.handcuffed)
 			current_mob.handcuffed.dropped(current_mob)
 		current_mob.set_handcuffed(null)
 		current_mob.update_abstract_handcuffed()
 		current_mob.layer = initial(current_mob.layer)
+<<<<<<< HEAD
 	STOP_PROCESSING(SSobj, src)
 	unbuckle_all_mobs()
+=======
+
+	if(beaker)
+		qdel(beaker)
+		beaker = null
+
+	current_selected_organ = null
+	current_mob = null
+	current_breasts = null
+	current_testicles = null
+	current_vagina = null
+
+	STOP_PROCESSING(SSobj, src)
+	unbuckle_all_mobs()
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Object initialization
 /obj/structure/chair/milking_machine/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	machine_color = machine_color_list[1]
 
 	pump_state = pump_state_list[1]
@@ -145,6 +219,17 @@
 	semen_vessel = new()
 	semen_vessel.name = "SemenContainer"
 	semen_vessel.reagents.maximum_volume = max_vessel_capacity
+=======
+	milk_vessel = new()
+	milk_vessel.name = "MilkContainer"
+	milk_vessel.reagents.maximum_volume = MILKING_PUMP_MAX_CAPACITY
+	girlcum_vessel = new()
+	girlcum_vessel.name = "GirlcumContainer"
+	girlcum_vessel.reagents.maximum_volume = MILKING_PUMP_MAX_CAPACITY
+	semen_vessel = new()
+	semen_vessel.name = "SemenContainer"
+	semen_vessel.reagents.maximum_volume = MILKING_PUMP_MAX_CAPACITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	current_vessel = milk_vessel
 
 	vessel_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "liquid_empty", LYING_MOB_LAYER)
@@ -153,10 +238,13 @@
 	indicator_overlay.name = "indicator_overlay"
 	locks_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "locks_open", BELOW_MOB_LAYER)
 	locks_overlay.name = "locks_overlay"
+<<<<<<< HEAD
 	panel_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "milking_panel_closed", LYING_MOB_LAYER)
 	panel_overlay.name = "panel_overlay"
 	cell_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "milking_cell_empty", ABOVE_MOB_LAYER)
 	cell_overlay.name = "cell_overlay"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	organ_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "none", ABOVE_MOB_LAYER)
 	organ_overlay.name = "organ_overlay"
 
@@ -187,7 +275,10 @@
 		return TRUE
 	machine_color = choice
 	update_icon()
+<<<<<<< HEAD
 	color_changed = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(user, span_notice("You change the color of the milking machine."))
 	return TRUE
 
@@ -207,6 +298,7 @@
 /obj/structure/chair/milking_machine/post_buckle_mob(mob/living/affected_mob)
 	current_mob = affected_mob
 
+<<<<<<< HEAD
 	current_breasts = affected_mob.getorganslot(ORGAN_SLOT_BREASTS)
 	if(current_breasts)
 		breasts_size = current_breasts.genital_size
@@ -218,6 +310,11 @@
 	current_vagina = affected_mob.getorganslot(ORGAN_SLOT_VAGINA)
 	if(current_vagina)
 		vagina_size = current_vagina.genital_size
+=======
+	current_breasts = affected_mob.get_organ_slot(ORGAN_SLOT_BREASTS)
+	current_testicles = affected_mob.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	current_vagina = affected_mob.get_organ_slot(ORGAN_SLOT_VAGINA)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	cut_overlay(locks_overlay)
 	locks_overlay.icon_state = "locks_closed"
@@ -230,8 +327,15 @@
 			current_mob.handcuffed.dropped(current_mob)
 			current_mob.set_handcuffed(null)
 			current_mob.update_handcuffed()
+<<<<<<< HEAD
 		current_mob.set_handcuffed(new /obj/item/restraints/handcuffs/milker(victim))
 		current_mob.handcuffed.parented_struct = src
+=======
+
+		var/obj/item/restraints/handcuffs/milker/cuffs = new (victim)
+		current_mob.set_handcuffed(cuffs)
+		cuffs.parent_chair = WEAKREF(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		current_mob.update_abstract_handcuffed()
 
 	update_overlays()
@@ -253,8 +357,13 @@
 	locks_overlay.layer = BELOW_MOB_LAYER
 	add_overlay(locks_overlay)
 
+<<<<<<< HEAD
 	current_mode = mode_list[1]
 	pump_state = pump_state_list[1]
+=======
+	current_mode = MILKING_PUMP_MODE_OFF
+	pump_state = MILKING_PUMP_STATE_OFF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	current_mob.layer = initial(current_mob.layer)
 	update_all_visuals()
@@ -270,6 +379,7 @@
 	current_testicles = null
 	current_vagina = null
 
+<<<<<<< HEAD
 	breasts_size = null
 	breasts_count = null
 	vagina_size = null
@@ -319,6 +429,14 @@
 
 	//If buckling is not human, cancel. fuck you
 	if(!ishuman(target))
+=======
+	return
+
+/obj/structure/chair/milking_machine/is_buckle_possible(mob/living/target, force, check_loc)
+	. = ..()
+
+	if(!. || !ishuman(target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	return TRUE
@@ -332,13 +450,20 @@
 		add_mood_event("handcuffed", /datum/mood_event/handcuffed)
 	else
 		clear_mood_event("handcuffed")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_mob_action_buttons() //some of our action buttons might be unusable when we're handcuffed.
 	update_worn_handcuffs()
 	update_hud_handcuffed()
 
+<<<<<<< HEAD
 /obj/item
 	var/obj/structure/parented_struct = null
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/restraints/handcuffs/milker
 	name = "chair cuffs"
 	desc = "A thick metal cuff for restraining hands."
@@ -347,6 +472,7 @@
 	breakouttime = 45 SECONDS
 	flags_1 = NONE
 	item_flags = DROPDEL | ABSTRACT
+<<<<<<< HEAD
 
 /obj/item/restraints/handcuffs/milker/Destroy()
 	. = ..()
@@ -382,6 +508,40 @@
 		. = ..()
 		return
 
+=======
+	///The chair that the handcuffs are parented to.
+	var/datum/weakref/parent_chair
+
+/obj/item/restraints/handcuffs/milker/Destroy()
+	unbuckle_parent()
+	parent_chair = null
+	return ..()
+
+/obj/item/restraints/handcuffs/milker/proc/unbuckle_parent()
+	if(!parent_chair)
+		return FALSE
+
+	var/obj/structure/chair = parent_chair.resolve()
+	if(!chair)
+		return FALSE
+
+	chair.unbuckle_all_mobs()
+	return TRUE
+
+/obj/structure/chair/milking_machine/user_unbuckle_mob(mob/living/carbon/human/affected_mob, mob/user)
+	if(!affected_mob || affected_mob != user)
+		return ..()
+
+	if(affected_mob.arousal >= 60 && (current_mode != MILKING_PUMP_MODE_OFF) && (current_mode != MILKING_PUMP_MODE_LOW))
+		to_chat(affected_mob, span_purple("You are too horny to try to get out!"))
+		return FALSE
+
+	affected_mob.visible_message(span_notice("[affected_mob] unbuckles [affected_mob.p_them()]self from [src]."),\
+		span_notice("You unbuckle yourself from [src]."),\
+		span_hear("You hear metal clanking."))
+	unbuckle_mob(affected_mob)
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	MAIN LOGIC
@@ -389,6 +549,7 @@
 
 // Empty Hand Attack Handler
 /obj/structure/chair/milking_machine/attack_hand(mob/user)
+<<<<<<< HEAD
 	// If the panel is open and the hand is empty, then we take out the battery, otherwise standard processing
 	if(panel_open && cell)
 		user.put_in_hands(cell)
@@ -476,17 +637,58 @@
 /obj/structure/chair/milking_machine/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)
 	if(!user)
 		return FALSE
+=======
+	if(!LAZYLEN(buckled_mobs) || !(user in buckled_mobs))
+		return ..()
+
+	user_unbuckle_mob(user, user)
+	return FALSE
+
+// Attack handler for various item
+/obj/structure/chair/milking_machine/attackby(obj/item/used_item, mob/user)
+	if(!istype(used_item, /obj/item/reagent_containers) || (used_item.item_flags & ABSTRACT) || !used_item.is_open_container())
+		return ..()
+
+	var/obj/item/reagent_containers/used_container = used_item
+	if(!user.transferItemToLoc(used_container, src))
+		return FALSE
+
+	replace_beaker(user, used_container)
+	updateUsrDialog()
+	return TRUE
+
+// Beaker change handler
+/obj/structure/chair/milking_machine/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)
+	if(!user || (!beaker && !new_beaker))
+		return FALSE
+
+	if(beaker && new_beaker)
+		try_put_in_hand(beaker, user)
+		beaker = new_beaker
+		to_chat(user, span_notice("You swap out the current beaker with a new one in a single uninterrupted motion."))
+		return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(beaker)
 		try_put_in_hand(beaker, user)
 		beaker = null
 		to_chat(user, span_notice("You take the beaker out of [src]"))
+<<<<<<< HEAD
 	if(new_beaker)
 		beaker = new_beaker
 		to_chat(user, span_notice("You put the beaker in [src]"))
+=======
+
+	if(new_beaker)
+		beaker = new_beaker
+		to_chat(user, span_notice("You put the beaker in [src]"))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 // We will try to take the item in our hand, if it doesn’t work, then drop it into the car tile
 /obj/structure/chair/milking_machine/proc/try_put_in_hand(obj/object, mob/living/user)
+<<<<<<< HEAD
 	if(!issilicon(user) && in_range(src, user))
 		user.put_in_hands(object)
 	else
@@ -662,6 +864,90 @@
 			deconstruct(TRUE)
 			to_chat(user, span_notice("You disassemble [src]."))
 		return TRUE
+=======
+	if(issilicon(user) || !in_range(src, user))
+		object.forceMove(drop_location())
+		return FALSE
+
+	user.put_in_hands(object)
+	return TRUE
+
+// Machine Workflow Processor
+/obj/structure/chair/milking_machine/process(seconds_per_tick)
+	if(!current_mob || !current_selected_organ || current_mode == MILKING_PUMP_MODE_OFF)
+		if(pump_state != MILKING_PUMP_STATE_OFF)
+			pump_state = MILKING_PUMP_STATE_OFF
+
+		update_all_visuals()
+		return FALSE
+
+	if((istype(current_selected_organ, /obj/item/organ/external/genital/testicles) && (semen_vessel.reagents.total_volume == MILKING_PUMP_MAX_CAPACITY)) || (istype(current_selected_organ, /obj/item/organ/external/genital/vagina) && (girlcum_vessel.reagents.total_volume == MILKING_PUMP_MAX_CAPACITY)) || (istype(current_selected_organ, /obj/item/organ/external/genital/breasts) && (milk_vessel.reagents.total_volume == MILKING_PUMP_MAX_CAPACITY)))
+		current_mode = MILKING_PUMP_MODE_OFF
+		pump_state = MILKING_PUMP_STATE_OFF
+		update_all_visuals()
+		return FALSE
+
+
+	if(pump_state != MILKING_PUMP_STATE_ON)
+		pump_state = MILKING_PUMP_STATE_ON
+
+	retrive_liquids_from_selected_organ(seconds_per_tick)
+	increase_current_mob_arousal(seconds_per_tick)
+
+	update_all_visuals()
+	return TRUE
+
+// Liquid intake handler
+
+/obj/structure/chair/milking_machine/proc/retrive_liquids_from_selected_organ(seconds_per_tick)
+	if(!current_mob || !current_selected_organ)
+		return FALSE
+
+	var/fluid_multiplier = 1
+	var/static/list/fluid_retrive_amount = list("off" = 0, "low" = 1, "medium" = 2, "hard" = 3)
+
+	if(current_mob.has_status_effect(/datum/status_effect/climax))
+		fluid_multiplier = CLIMAX_RETRIVE_MULTIPLIER
+
+	var/obj/item/reagent_containers/target_container
+
+	switch(current_selected_organ.type)
+		if(/obj/item/organ/external/genital/breasts)
+			target_container = milk_vessel
+		if(/obj/item/organ/external/genital/vagina)
+			target_container = girlcum_vessel
+		if(/obj/item/organ/external/genital/testicles)
+			target_container = semen_vessel
+
+	if(!target_container || current_selected_organ.reagents.total_volume <= 0)
+		return FALSE
+
+	current_selected_organ.transfer_internal_fluid(target_container.reagents, fluid_retrive_amount[current_mode] * fluid_multiplier * seconds_per_tick)
+	return TRUE
+
+// Handling the process of the impact of the machine on the organs of the mob
+/obj/structure/chair/milking_machine/proc/increase_current_mob_arousal(seconds_per_tick)
+	var/static/list/arousal_amounts = list("off" = 0, "low" = 1, "medium" = 2, "hard" = 3)
+	var/static/list/pleasure_amounts = list("off" = 0, "low" = 0.2, "medium" = 1, "hard" = 1.5)
+	var/static/list/pain_amounts = list("off" = 0, "low" = 0, "medium" = 0.2, "hard" = 0.5)
+
+	current_mob.adjust_arousal(arousal_amounts[current_mode] * seconds_per_tick)
+	current_mob.adjust_pleasure(pleasure_amounts[current_mode] * seconds_per_tick)
+	current_mob.adjust_pain(pain_amounts[current_mode] * seconds_per_tick)
+
+/obj/structure/chair/milking_machine/CtrlShiftClick(mob/user)
+	. = ..()
+	if(. == FALSE)
+		return FALSE
+
+	to_chat(user, span_notice("You begin to disassemble [src]..."))
+	if(!do_after(user, 8 SECONDS, src))
+		to_chat(user, span_warning("You fail to disassemble [src]!"))
+		return FALSE
+
+	deconstruct(TRUE)
+	to_chat(user, span_notice("You disassemble [src]."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 // Machine deconstruction process handler
@@ -672,6 +958,7 @@
 		beaker = null
 		update_all_visuals()
 
+<<<<<<< HEAD
 	if(cell)
 		cell.forceMove(drop_location())
 		adjust_item_drop_location(cell)
@@ -679,6 +966,9 @@
 		update_all_visuals()
 
 	var/obj/item/milking_machine/constructionkit/construction_kit = new(src.loc)
+=======
+	var/obj/item/construction_kit/milker/construction_kit = new(src.loc)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	construction_kit.current_color = machine_color
 	construction_kit.update_icon_state()
 	construction_kit.update_icon()
@@ -686,6 +976,7 @@
 	return ..()
 
 // Handler of the process of dispensing a glass from a machine to a tile
+<<<<<<< HEAD
 /obj/structure/chair/milking_machine/proc/adjust_item_drop_location(atom/movable/AM)
 	if (AM == beaker)
 		AM.pixel_x = AM.base_pixel_x - 8
@@ -716,6 +1007,33 @@
 			if(current_selected_organ.genital_type == "quad")
 				current_selected_organ_type = "quad_breast"
 				// Optimization needed
+=======
+/obj/structure/chair/milking_machine/proc/adjust_item_drop_location(atom/movable/dropped_atom)
+	if(dropped_atom != beaker)
+		return FALSE
+
+	dropped_atom.pixel_x = dropped_atom.base_pixel_x - 8
+	dropped_atom.pixel_y = dropped_atom.base_pixel_y + 8
+	return null
+
+// General handler for calling redrawing of the current state of the machine
+/obj/structure/chair/milking_machine/proc/update_all_visuals()
+	if(current_selected_organ != null)
+		var/current_selected_organ_type = null
+		var/current_selected_organ_size = current_selected_organ.genital_size
+		cut_overlay(organ_overlay)
+
+		if(istype(current_selected_organ, /obj/item/organ/external/genital/breasts))
+			switch(current_selected_organ.genital_type)
+				if("pair")
+					current_selected_organ_type = "double_breast"
+				if("quad")
+					current_selected_organ_type = "quad_breast"
+				if("sextuple")
+					current_selected_organ_type = "six_breast"
+
+			if((current_selected_organ.genital_type == "sextuple") || (current_selected_organ.genital_type == "quad"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				switch(current_selected_organ.genital_size)
 					if(0 to 2)
 						current_selected_organ_size = "0"
@@ -729,6 +1047,7 @@
 						current_selected_organ_size = "4"
 					else
 						current_selected_organ_size = "5"
+<<<<<<< HEAD
 			if(current_selected_organ.genital_type == "sextuple")
 				current_selected_organ_type = "six_breast"
 				switch(current_selected_organ.genital_size)
@@ -782,6 +1101,28 @@
 				organ_overlay_new_icon_state = "[current_selected_organ_type]_[pump_state]_[current_mode]"
 				if(organ_overlay.icon_state != organ_overlay_new_icon_state)
 					organ_overlay.icon_state = organ_overlay_new_icon_state
+=======
+
+		if(istype(current_selected_organ, /obj/item/organ/external/genital/testicles))
+			current_selected_organ_type = ORGAN_SLOT_PENIS
+
+		if(istype(current_selected_organ, /obj/item/organ/external/genital/vagina))
+			current_selected_organ_type = ORGAN_SLOT_VAGINA
+
+		organ_overlay_new_icon_state = "[current_selected_organ_type]_pump_[pump_state]"
+		if(istype(current_selected_organ, /obj/item/organ/external/genital/breasts))
+			organ_overlay_new_icon_state += "_[current_selected_organ_size]"
+
+		if(current_mode == MILKING_PUMP_MODE_OFF)
+			pump_state = MILKING_PUMP_STATE_OFF
+		else
+			pump_state = MILKING_PUMP_STATE_ON
+			organ_overlay_new_icon_state += "_[current_mode]"
+
+		if(organ_overlay.icon_state != organ_overlay_new_icon_state)
+			organ_overlay.icon_state = organ_overlay_new_icon_state
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		add_overlay(organ_overlay)
 	else
 		cut_overlay(organ_overlay)
@@ -790,6 +1131,7 @@
 	// Processing changes in the capacity overlay
 	cut_overlay(vessel_overlay)
 	var/total_reagents_volume = (milk_vessel.reagents.total_volume + girlcum_vessel.reagents.total_volume + semen_vessel.reagents.total_volume)
+<<<<<<< HEAD
 	if(total_reagents_volume == 0 && total_reagents_volume < 1)
 		if(vessel_state != vessel_state_list[1])
 			vessel_overlay.icon_state = vessel_state_list[1]
@@ -835,6 +1177,25 @@
 					add_overlay(indicator_overlay)
 	else
 		cut_overlay(indicator_overlay)
+=======
+	var/static/list/vessel_state_list = list("liquid_empty", "liquid_low", "liquid_medium", "liquid_high", "liquid_full")
+
+	var/state_to_use = 1
+	switch(total_reagents_volume)
+		if(MILKING_PUMP_MAX_CAPACITY)
+			state_to_use = 5
+		if((MILKING_PUMP_MAX_CAPACITY / 1.5) to MILKING_PUMP_MAX_CAPACITY)
+			state_to_use = 4
+		if((MILKING_PUMP_MAX_CAPACITY / 3) to (MILKING_PUMP_MAX_CAPACITY / 1.5))
+			state_to_use = 3
+		if(1 to (MILKING_PUMP_MAX_CAPACITY / 3))
+			state_to_use = 2
+		if(0 to 1)
+			state_to_use = 1
+
+	vessel_overlay.icon_state = vessel_state_list[state_to_use]
+	add_overlay(vessel_overlay)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	icon_state = "milking_[machine_color]_[current_mode]"
 
@@ -871,19 +1232,30 @@
 
 	data["mobName"] = current_mob ? current_mob.name : null
 	data["mobCanLactate"] = current_breasts ? current_breasts.lactates : null
+<<<<<<< HEAD
 	data["cellName"] = cell ? cell.name : null
 	data["cellMaxCharge"] = cell ? cell.maxcharge : null
 	data["cellCurrentCharge"] = cell ? cell.charge : null
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["beaker"] = beaker ? beaker : null
 	data["BeakerName"] = beaker ? beaker.name : null
 	data["beakerMaxVolume"] = beaker ? beaker.volume : null
 	data["beakerCurrentVolume"] = beaker ? beaker.reagents.total_volume : null
 	data["mode"] = current_mode
+<<<<<<< HEAD
 	data["milkTankMaxVolume"] = max_vessel_capacity
 	data["milkTankCurrentVolume"] = milk_vessel ? milk_vessel.reagents.total_volume : null
 	data["girlcumTankMaxVolume"] = max_vessel_capacity
 	data["girlcumTankCurrentVolume"] = girlcum_vessel ? girlcum_vessel.reagents.total_volume : null
 	data["semenTankMaxVolume"] = max_vessel_capacity
+=======
+	data["milkTankMaxVolume"] = MILKING_PUMP_MAX_CAPACITY
+	data["milkTankCurrentVolume"] = milk_vessel ? milk_vessel.reagents.total_volume : null
+	data["girlcumTankMaxVolume"] = MILKING_PUMP_MAX_CAPACITY
+	data["girlcumTankCurrentVolume"] = girlcum_vessel ? girlcum_vessel.reagents.total_volume : null
+	data["semenTankMaxVolume"] = MILKING_PUMP_MAX_CAPACITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["semenTankCurrentVolume"] = semen_vessel ? semen_vessel.reagents.total_volume : null
 	data["current_vessel"] = current_vessel ? current_vessel : null
 	data["current_selected_organ"] = current_selected_organ ? current_selected_organ : null
@@ -923,37 +1295,62 @@
 		return TRUE
 
 	if(action == "setOffMode")
+<<<<<<< HEAD
 		current_mode = mode_list[1]
 		pump_state = pump_state_list[1]
+=======
+		current_mode = MILKING_PUMP_MODE_OFF
+		pump_state = MILKING_PUMP_STATE_OFF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_all_visuals()
 		to_chat(usr, span_notice("You turn off [src]"))
 		return TRUE
 
 	if(action == "setLowMode")
+<<<<<<< HEAD
 		current_mode = mode_list[2]
 		pump_state = pump_state_list[2]
+=======
+		current_mode = MILKING_PUMP_MODE_LOW
+		pump_state = MILKING_PUMP_STATE_ON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_all_visuals()
 		to_chat(usr, span_notice("You switch [src] onto low mode"))
 		return TRUE
 
 	if(action == "setMediumMode")
+<<<<<<< HEAD
 		current_mode = mode_list[3]
 		pump_state = pump_state_list[2]
+=======
+		current_mode = MILKING_PUMP_MODE_MEDIUM
+		pump_state = MILKING_PUMP_STATE_ON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_all_visuals()
 		to_chat(usr, span_notice("You switch [src] onto medium mode"))
 		return TRUE
 
 	if(action == "setHardMode")
+<<<<<<< HEAD
 		current_mode = mode_list[4]
 		pump_state = pump_state_list[2]
+=======
+		current_mode = MILKING_PUMP_MODE_HARD
+		pump_state = MILKING_PUMP_STATE_ON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_all_visuals()
 		to_chat(usr, span_notice("You switch [src] onto hard mode"))
 		return TRUE
 
 	if(action == "unplug")
 		cut_overlay(organ_overlay)
+<<<<<<< HEAD
 		current_mode = mode_list[1]
 		pump_state = pump_state_list[1]
+=======
+		current_mode = MILKING_PUMP_MODE_OFF
+		pump_state = MILKING_PUMP_STATE_OFF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		current_selected_organ = null
 		update_all_visuals()
 		to_chat(usr, span_notice("You detach the liner."))
@@ -1003,6 +1400,7 @@
 		to_chat(usr, span_notice("You transfer [amount] of [current_vessel.reagents?.reagent_list[1].name] to [beaker.name]"))
 		return TRUE
 
+<<<<<<< HEAD
 // Milking machine construction kit
 /obj/item/milking_machine/constructionkit
 	name = "milking machine construction parts"
@@ -1043,3 +1441,19 @@
 			qdel(src)
 			to_chat(user, span_notice("You assemble the milking machine."))
 			return
+=======
+/obj/structure/chair/milking_machine/examine(mob/user)
+	. = ..()
+	. += span_purple("[src] can be disassembled by using Ctrl+Shift+Click")
+
+#undef MILKING_PUMP_MODE_OFF
+#undef MILKING_PUMP_MODE_LOW
+#undef MILKING_PUMP_MODE_MEDIUM
+#undef MILKING_PUMP_MODE_HARD
+
+#undef MILKING_PUMP_STATE_OFF
+#undef MILKING_PUMP_STATE_ON
+
+#undef CLIMAX_RETRIVE_MULTIPLIER
+#undef MILKING_PUMP_MAX_CAPACITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

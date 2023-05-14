@@ -25,18 +25,33 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	block_chance = 45 //SKYRAT EDIT - Lowered ORIGINAL:75
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 70)
+=======
+	armor_type = /datum/armor/item_dualsaber
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 	wound_bonus = -10
 	bare_wound_bonus = 20
 	special_desc_requirement = EXAMINE_CHECK_SYNDICATE_TOY // Skyrat edit
 	special_desc = "A double bladed energy sword employed by the Syndicate in raids" // Skyrat edit
+<<<<<<< HEAD
+=======
+	item_flags = NO_BLOOD_ON_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/w_class_on = WEIGHT_CLASS_BULKY
 	var/saber_color = "green"
 	var/two_hand_force = 34
 	var/hacked = FALSE
 	var/list/possible_colors = list("red", "blue", "green", "purple")
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_dualsaber
+	fire = 100
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/dualsaber/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, \
@@ -60,7 +75,10 @@
 	START_PROCESSING(SSobj, src)
 	set_light_on(TRUE)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Triggered on unwield of two handed item
 /// switch hitsounds
 /obj/item/dualsaber/proc/on_unwield(obj/item/source, mob/living/carbon/user)
@@ -69,7 +87,10 @@
 	STOP_PROCESSING(SSobj, src)
 	set_light_on(FALSE)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/dualsaber/get_sharpness()
 	return HAS_TRAIT(src, TRAIT_WIELDED) && sharpness
 
@@ -82,7 +103,11 @@
 		user.visible_message(span_suicide("[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!"))
 
 		var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)//stole from chainsaw code
+<<<<<<< HEAD
 		var/obj/item/organ/internal/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+		var/obj/item/organ/internal/brain/B = user.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		B.organ_flags &= ~ORGAN_VITAL //this cant possibly be a good idea
 		var/randdir
 		for(var/i in 1 to 24)//like a headless chicken!

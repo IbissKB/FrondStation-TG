@@ -1,9 +1,14 @@
 /obj/projectile/magic
 	name = "bolt"
 	icon_state = "energy"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = OXY
 	nodamage = TRUE
+=======
+	damage = 0 // MOST magic projectiles pass the "not a hostile projectile" test, despite many having negative effects
+	damage_type = OXY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	armour_penetration = 100
 	armor_flag = NONE
 	/// determines what type of antimagic can block the spell projectile
@@ -57,9 +62,12 @@
 /obj/projectile/magic/resurrection
 	name = "bolt of resurrection"
 	icon_state = "ion"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = OXY
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/magic/resurrection/on_hit(atom/target)
 	. = ..()
@@ -86,9 +94,12 @@
 /obj/projectile/magic/teleport
 	name = "bolt of teleportation"
 	icon_state = "bluespace"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = OXY
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/inner_tele_radius = 0
 	var/outer_tele_radius = 6
 
@@ -110,9 +121,12 @@
 /obj/projectile/magic/safety
 	name = "bolt of safety"
 	icon_state = "bluespace"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = OXY
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/magic/safety/on_hit(atom/target)
 	. = ..()
@@ -131,9 +145,12 @@
 /obj/projectile/magic/door
 	name = "bolt of door creation"
 	icon_state = "energy"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = OXY
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/door_types = list(/obj/structure/mineral_door/wood, /obj/structure/mineral_door/iron, /obj/structure/mineral_door/silver, /obj/structure/mineral_door/gold, /obj/structure/mineral_door/uranium, /obj/structure/mineral_door/sandstone, /obj/structure/mineral_door/transparent/plasma, /obj/structure/mineral_door/transparent/diamond)
 
 /obj/projectile/magic/door/on_hit(atom/target)
@@ -160,9 +177,13 @@
 /obj/projectile/magic/change
 	name = "bolt of change"
 	icon_state = "ice_1"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = BURN
 	nodamage = TRUE
+=======
+	damage_type = BURN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// If set, this projectile will only do a certain wabbajack effect
 	var/set_wabbajack_effect
 	/// If set, this projectile will only pass certain changeflags to wabbajack
@@ -184,21 +205,33 @@
 /obj/projectile/magic/animate
 	name = "bolt of animation"
 	icon_state = "red_1"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = BURN
 	nodamage = TRUE
+=======
+	damage_type = BURN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/magic/animate/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	target.animate_atom_living(firer)
 
 /atom/proc/animate_atom_living(mob/living/owner = null)
+<<<<<<< HEAD
 	if((isitem(src) || isstructure(src)) && !is_type_in_list(src, GLOB.mimic_blacklist))
+=======
+	if((isitem(src) || isstructure(src)) && !is_type_in_list(src, GLOB.animatable_blacklist))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(istype(src, /obj/structure/statue/petrified))
 			var/obj/structure/statue/petrified/P = src
 			if(P.petrified_mob)
 				var/mob/living/L = P.petrified_mob
+<<<<<<< HEAD
 				var/mob/living/simple_animal/hostile/netherworld/statue/S = new(P.loc, owner)
+=======
+				var/mob/living/basic/statue/S = new(P.loc, owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				S.name = "statue of [L.name]"
 				if(owner)
 					S.faction = list("[REF(owner)]")
@@ -232,20 +265,29 @@
 	damage = 15
 	damage_type = BURN
 	dismemberment = 50
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/magic/arcane_barrage
 	name = "arcane bolt"
 	icon_state = "arcane_barrage"
 	damage = 20
 	damage_type = BURN
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hitsound = 'sound/weapons/barragespellhit.ogg'
 
 /obj/projectile/magic/locker
 	name = "locker bolt"
 	icon_state = "locker"
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/weld = TRUE
 	var/created = FALSE //prevents creation of more then one locker if it has multiple hits
 	var/locker_suck = TRUE
@@ -296,6 +338,10 @@
 	breakout_time = 600
 	icon_welded = null
 	icon_state = "cursed"
+<<<<<<< HEAD
+=======
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/weakened_icon = "decursed"
 	var/auto_destroy = TRUE
 
@@ -304,15 +350,25 @@
 	if(auto_destroy)
 		addtimer(CALLBACK(src, PROC_REF(bust_open)), 5 MINUTES)
 
+<<<<<<< HEAD
+=======
+/obj/structure/closet/decay/after_open(mob/living/user, force)
+	. = ..()
+	unmagify()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/decay/after_weld(weld_state)
 	if(weld_state)
 		unmagify()
 
+<<<<<<< HEAD
 /obj/structure/closet/decay/open(mob/living/user, force = FALSE)
 	. = ..()
 	if(.)
 		unmagify()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Give it the lesser magic icon and tell it to delete itself
 /obj/structure/closet/decay/proc/unmagify()
 	icon_state = weakened_icon
@@ -498,7 +554,10 @@
 	icon_state = "tesla_projectile" //Better sprites are REALLY needed and appreciated!~
 	damage = 15
 	damage_type = BURN
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	speed = 0.3
 
 	/// The power of the zap itself when it electrocutes someone
@@ -533,7 +592,10 @@
 	icon_state = "fireball"
 	damage = 10
 	damage_type = BRUTE
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// Heavy explosion range of the fireball
 	var/exp_heavy = 0
@@ -573,7 +635,10 @@
 	pixel_speed_multiplier = 0.2
 	trigger_range = 0
 	can_only_hit_target = TRUE
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	paralyze = 6 SECONDS
 	hitsound = 'sound/magic/mm_hit.ogg'
 
@@ -595,12 +660,20 @@
 	hitsound = 'sound/weapons/punch3.ogg'
 	trigger_range = 0
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
+<<<<<<< HEAD
 	ignored_factions = list("cult")
+=======
+	ignored_factions = list(FACTION_CULT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	range = 105
 	speed = 1
 	pixel_speed_multiplier = 1/7
 
+<<<<<<< HEAD
 /obj/projectile/magic/spell/juggernaut/on_hit(atom/target, blocked)
+=======
+/obj/projectile/magic/aoe/juggernaut/on_hit(atom/target, blocked)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/turf/target_turf = get_turf(src)
 	playsound(target_turf, 'sound/weapons/resonator_blast.ogg', 100, FALSE)
@@ -619,9 +692,13 @@
 /obj/projectile/temp/chill
 	name = "bolt of chills"
 	icon_state = "ice_2"
+<<<<<<< HEAD
 	damage = 0
 	damage_type = BURN
 	nodamage = FALSE
+=======
+	damage_type = BURN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	armour_penetration = 100
 	temperature = -200 // Cools you down greatly per hit
 
@@ -634,5 +711,8 @@
 	icon_state = "spellcard"
 	damage_type = BURN
 	damage = 2
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	antimagic_charge_cost = 0 // since the cards gets spammed like a shotgun

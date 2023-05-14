@@ -15,7 +15,11 @@
 		to_chat(burrower, span_warning("Couldn't burrow anywhere near the target!"))
 		if(burrower.ai_controller?.ai_status == AI_STATUS_ON)
 			//this is a valid reason to give up on a target
+<<<<<<< HEAD
 			burrower.ai_controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET] = null
+=======
+			burrower.ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	playsound(burrower, 'sound/effects/break_stone.ogg', 50, TRUE)
 	new /obj/effect/temp_visual/mook_dust(get_turf(burrower))
@@ -23,7 +27,11 @@
 	burrower.invisibility = INVISIBILITY_MAXIMUM
 	burrower.forceMove(unburrow_turf)
 	//not that it's gonna die with godmode but still
+<<<<<<< HEAD
 	SLEEP_CHECK_DEATH(rand(0.75 SECONDS, 1.25 SECONDS), burrower)
+=======
+	SLEEP_CHECK_DEATH(rand(0.7 SECONDS, 1.2 SECONDS), burrower)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(burrower, 'sound/effects/break_stone.ogg', 50, TRUE)
 	new /obj/effect/temp_visual/mook_dust(unburrow_turf)
 	burrower.status_flags &= ~GODMODE
@@ -108,7 +116,11 @@
 	devourer.invisibility = INVISIBILITY_MAXIMUM
 	devourer.forceMove(devour_turf)
 	//not that it's gonna die with godmode but still
+<<<<<<< HEAD
 	SLEEP_CHECK_DEATH(rand(0.75 SECONDS, 1.25 SECONDS), devourer)
+=======
+	SLEEP_CHECK_DEATH(rand(0.7 SECONDS, 1.2 SECONDS), devourer)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(devourer, 'sound/effects/break_stone.ogg', 50, TRUE)
 	new /obj/effect/temp_visual/mook_dust(devour_turf)
 	devourer.status_flags &= ~GODMODE

@@ -22,7 +22,11 @@
 	QDEL_NULL(id_card)
 	return ..() //Run parent at end
 
+<<<<<<< HEAD
 /datum/ai_controller/mod/SelectBehaviors(delta_time)
+=======
+/datum/ai_controller/mod/SelectBehaviors(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	current_behaviors = list()
 	if(blackboard[BB_MOD_TARGET] && blackboard[BB_MOD_IMPLANT])
 		queue_behavior(/datum/ai_behavior/mod_attach)
@@ -33,7 +37,11 @@
 /datum/ai_behavior/mod_attach
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT|AI_BEHAVIOR_MOVE_AND_PERFORM
 
+<<<<<<< HEAD
 /datum/ai_behavior/mod_attach/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/mod_attach/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!controller.pawn.Adjacent(controller.blackboard[BB_MOD_TARGET]))
 		return
@@ -43,6 +51,10 @@
 
 /datum/ai_behavior/mod_attach/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
+<<<<<<< HEAD
 	controller.blackboard[BB_MOD_TARGET] = null
+=======
+	controller.clear_blackboard_key(BB_MOD_TARGET)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/implant/mod/implant = controller.blackboard[BB_MOD_IMPLANT]
 	implant.end_recall(succeeded)

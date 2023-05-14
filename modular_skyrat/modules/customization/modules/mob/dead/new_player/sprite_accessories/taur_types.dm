@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+=======
+/**
+ * Get a human's taur mode in a standardized way.
+ *
+ * Returns STYLE_TAUR_* or NONE.
+ */
+/mob/living/carbon/human/proc/get_taur_mode()
+	var/taur_mutant_bodypart = dna.species.mutant_bodyparts["taur"]
+	if(!taur_mutant_bodypart)
+		return NONE
+
+	var/bodypart_name = taur_mutant_bodypart[MUTANT_INDEX_NAME]
+	var/datum/sprite_accessory/taur/taur = GLOB.sprite_accessories["taur"][bodypart_name]
+	if(!taur)
+		return NONE
+
+	return taur.taur_mode
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/taur
 	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/taur.dmi'
 	key = "taur"
@@ -14,9 +34,15 @@
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target, obj/item/bodypart/limb)
 	var/obj/item/clothing/suit/worn_suit = target.wear_suit
 	if(istype(worn_suit) && (worn_suit.flags_inv & HIDEJUMPSUIT) && !worn_suit.gets_cropped_on_taurs)
+=======
+/datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
+	var/obj/item/clothing/suit/worn_suit = target.wear_suit
+	if(istype(worn_suit) && (worn_suit.flags_inv & HIDETAIL) && !worn_suit.gets_cropped_on_taurs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	if(target.owned_turf)
 		var/list/used_in_turf = list("tail")
@@ -25,6 +51,7 @@
 	return FALSE
 
 
+<<<<<<< HEAD
 /obj/item/organ/external/taur_body
 	name = "taur body"
 	zone = BODY_ZONE_CHEST
@@ -93,6 +120,8 @@
 
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/taur/none
 	name = "None"
 	dimension_x = 32
@@ -157,10 +186,13 @@
 	name = "Scolipede"
 	icon_state = "pede"
 	taur_mode = STYLE_TAUR_PAW
+<<<<<<< HEAD
 	extra = TRUE
 	extra2 = TRUE
 	extra_color_src = MUTCOLORS2
 	extra2_color_src = MUTCOLORS3
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
@@ -177,3 +209,18 @@
 	name = "Feline"
 	icon_state = "feline"
 	taur_mode = STYLE_TAUR_PAW
+<<<<<<< HEAD
+=======
+
+/datum/sprite_accessory/taur/goop
+	name = "Goop"
+	icon_state = "goop"
+	taur_mode = STYLE_TAUR_SNAKE
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/taur/slime
+	name = "Slime"
+	icon_state = "slime"
+	taur_mode = STYLE_TAUR_SNAKE
+	color_src = USE_ONE_COLOR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

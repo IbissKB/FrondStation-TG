@@ -1,7 +1,11 @@
 import { classes } from 'common/react';
 import { useBackend } from '../../backend';
 import { BlockQuote, Box, Button, Divider, Icon, Section, Stack, Tooltip } from '../../components';
+<<<<<<< HEAD
 import { CharacterPreview } from './CharacterPreview';
+=======
+import { CharacterPreview } from '../common/CharacterPreview';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { createSetPreference, Food, Perk, PreferencesMenuData, ServerData, Species } from './data';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 
@@ -19,6 +23,10 @@ const FOOD_ICONS = {
   [Food.Nuts]: 'seedling',
   [Food.Raw]: 'drumstick-bite',
   [Food.Seafood]: 'fish',
+<<<<<<< HEAD
+=======
+  [Food.Stone]: 'gem',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   [Food.Sugar]: 'candy-cane',
   [Food.Toxic]: 'biohazard',
   [Food.Vegetables]: 'carrot',
@@ -38,6 +46,10 @@ const FOOD_NAMES: Record<keyof typeof FOOD_ICONS, string> = {
   [Food.Nuts]: 'Nuts',
   [Food.Raw]: 'Raw',
   [Food.Seafood]: 'Seafood',
+<<<<<<< HEAD
+=======
+  [Food.Stone]: 'Rocks',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   [Food.Sugar]: 'Sugar',
   [Food.Toxic]: 'Toxic food',
   [Food.Vegetables]: 'Vegetables',
@@ -310,7 +322,11 @@ const SpeciesPageInner = (
                         /* SKYRAT EDIT START - Scrollable description */
                         title="Description"
                         maxHeight="14vh"
+<<<<<<< HEAD
                         overflowY="auto"
+=======
+                        scrollable:true
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                         /* SKYRAT EDIT END*/
                       >
                         {currentSpecies.desc}

@@ -276,6 +276,10 @@ function tag_pr($payload, $opened) {
 
 	check_tag_and_replace($payload, '[dnm]', 'Do Not Merge', $tags);
 	check_tag_and_replace($payload, '[no gbp]', 'GBP: No Update', $tags);
+<<<<<<< HEAD
+=======
+	check_tag_and_replace($payload, '[april fools]', 'April Fools', $tags);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return array($tags, $remove);
 }
@@ -707,6 +711,7 @@ function checkchangelog($payload) {
 					$tags[] = 'Quality of Life';
 				}
 				break;
+<<<<<<< HEAD
 			case 'soundadd':
 				if($item != 'added a new sound thingy') {
 					$tags[] = 'Sound';
@@ -718,6 +723,13 @@ function checkchangelog($payload) {
 					$tags[] = 'Removal';
 				}
 				break;
+=======
+			case 'sound':
+				if($item != 'added/modified/removed audio or sound effects') {
+					$tags[] = 'Sound';
+				}
+				break;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			case 'add':
 			case 'adds':
 			case 'rscadd':
@@ -732,6 +744,7 @@ function checkchangelog($payload) {
 					$tags[] = 'Removal';
 				}
 				break;
+<<<<<<< HEAD
 			case 'imageadd':
 				if($item != 'added some icons and images') {
 					$tags[] = 'Sprites';
@@ -743,6 +756,13 @@ function checkchangelog($payload) {
 					$tags[] = 'Removal';
 				}
 				break;
+=======
+			case 'image':
+				if($item != 'added/modified/removed some icons or images') {
+					$tags[] = 'Sprites';
+				}
+				break;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			case 'typo':
 			case 'spellcheck':
 				if($item != 'fixed a few typos') {

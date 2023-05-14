@@ -6,7 +6,14 @@
 	name = "muffin"
 	desc = "A delicious and spongy little cake."
 	icon_state = "muffin"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("muffin" = 1)
 	foodtypes = GRAIN | SUGAR | BREAKFAST
 	food_flags = FOOD_FINGER_FOOD
@@ -57,7 +64,14 @@
 	desc = "Mmm, waffles."
 	icon_state = "waffles"
 	trash_type = /obj/item/trash/waffles
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 8,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("waffles" = 1)
 	foodtypes = GRAIN | SUGAR | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
@@ -67,7 +81,15 @@
 	desc = "Not made of people. Honest." //Totally people.
 	icon_state = "soylent_green"
 	trash_type = /obj/item/trash/waffles
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 4)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 10,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+		/datum/reagent/consumable/nutriment/protein = 4,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("waffles" = 7, "people" = 1)
 	foodtypes = GRAIN | MEAT
 	w_class = WEIGHT_CLASS_SMALL
@@ -77,7 +99,15 @@
 	desc = "Not made of people. Honest." //Actually honest for once.
 	icon_state = "soylent_yellow"
 	trash_type = /obj/item/trash/waffles
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 10,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+		/datum/reagent/consumable/nutriment/protein = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("waffles" = 7, "the colour green" = 1)
 	foodtypes = GRAIN
 	w_class = WEIGHT_CLASS_SMALL
@@ -88,7 +118,15 @@
 	icon_state = "rofflewaffles"
 	trash_type = /obj/item/trash/waffles
 	bite_consumption = 4
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/drug/mushroomhallucinogen = 2, /datum/reagent/consumable/nutriment/vitamin = 4)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 8,
+		/datum/reagent/drug/mushroomhallucinogen = 2,
+		/datum/reagent/consumable/nutriment/vitamin = 4,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("waffles" = 1, "mushrooms" = 1)
 	foodtypes = GRAIN | VEGETABLES | SUGAR | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
@@ -117,7 +155,11 @@
 	name = "fortune cookie"
 	desc = "A true prophecy in each cookie!"
 	icon_state = "fortune_cookie"
+<<<<<<< HEAD
 	trash_type = /obj/item/paperslip
+=======
+	trash_type = /obj/item/paper/paperslip
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("cookie" = 1)
 	foodtypes = GRAIN | SUGAR
@@ -134,6 +176,7 @@
 		return fortune
 
 	// Otherwise, use a generic one
+<<<<<<< HEAD
 	var/obj/item/paperslip/fortune_slip = new trash_type(drop_location)
 	fortune_slip.name = "fortune slip"
 	// if someone adds lottery tickets in the future, be sure to add random numbers to this
@@ -145,11 +188,83 @@
 	if(trash_type)
 		AddElement(/datum/element/food_trash, trash_type, food_flags, TYPE_PROC_REF(/obj/item/food/fortunecookie, get_fortune))
 
+=======
+	var/obj/item/paper/paperslip/fortune_slip = new trash_type(drop_location)
+	fortune_slip.name = "fortune slip"
+	// if someone adds lottery tickets in the future, be sure to add random numbers to this
+	fortune_slip.default_raw_text = pick(GLOB.wisdoms)
+
+	return fortune_slip
+
+/obj/item/food/fortunecookie/make_leave_trash()
+	if(trash_type)
+		AddElement(/datum/element/food_trash, trash_type, food_flags, TYPE_PROC_REF(/obj/item/food/fortunecookie, get_fortune))
+
+/obj/item/food/cookie/sugar
+	name = "sugar cookie"
+	desc = "Just like your little sister used to make."
+	icon_state = "sugarcookie"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/sugar = 6,
+	)
+	tastes = list("sweetness" = 1)
+	foodtypes = GRAIN | JUNKFOOD | SUGAR
+
+/obj/item/food/cookie/sugar/Initialize(mapload)
+	. = ..()
+	if(check_holidays(FESTIVE_SEASON))
+		var/shape = pick("tree", "bear", "santa", "stocking", "present", "cane")
+		desc = "A sugar cookie in the shape of a [shape]. I hope Santa likes it!"
+		icon_state = "sugarcookie_[shape]"
+
+/obj/item/food/chococornet
+	name = "chocolate cornet"
+	desc = "Which side's the head, the fat end or the thin end?"
+	icon_state = "chococornet"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+	tastes = list("biscuit" = 3, "chocolate" = 1)
+	foodtypes = GRAIN | JUNKFOOD
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/food/cookie/oatmeal
+	name = "oatmeal cookie"
+	desc = "The best of both cookie and oat."
+	icon_state = "oatmealcookie"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+	tastes = list("cookie" = 2, "oat" = 1)
+	foodtypes = GRAIN
+
+/obj/item/food/cookie/raisin
+	name = "raisin cookie"
+	desc = "Why would you put raisins on a cookie?"
+	icon_state = "raisincookie"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+	tastes = list("cookie" = 1, "raisins" = 1)
+	foodtypes = GRAIN | FRUIT
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/food/poppypretzel
 	name = "poppy pretzel"
 	desc = "It's all twisted up!"
 	icon_state = "poppypretzel"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("pretzel" = 1)
 	foodtypes = GRAIN | SUGAR
 	food_flags = FOOD_FINGER_FOOD
@@ -159,7 +274,14 @@
 	name = "plump helmet biscuit"
 	desc = "This is a finely-prepared plump helmet biscuit. The ingredients are exceptionally minced plump helmet, and well-minced dwarven wheat flour."
 	icon_state = "phelmbiscuit"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("mushroom" = 1, "biscuit" = 1)
 	foodtypes = GRAIN | VEGETABLES
 	food_flags = FOOD_FINGER_FOOD
@@ -170,7 +292,15 @@
 	if(fey)
 		name = "exceptional plump helmet biscuit"
 		desc = "Microwave is taken by a fey mood! It has cooked an exceptional plump helmet biscuit!"
+<<<<<<< HEAD
 		food_reagents = list(/datum/reagent/medicine/omnizine = 5, /datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+		food_reagents = list(
+			/datum/reagent/medicine/omnizine = 5,
+			/datum/reagent/consumable/nutriment = 1,
+			/datum/reagent/consumable/nutriment/vitamin = 1,
+		)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(fey)
 		reagents.add_reagent(/datum/reagent/medicine/omnizine, 5)
@@ -190,11 +320,20 @@
 	name = "khachapuri"
 	desc = "Bread with egg and cheese?"
 	icon_state = "khachapuri"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 11,
+		/datum/reagent/consumable/nutriment/protein = 3,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("bread" = 1, "egg" = 1, "cheese" = 1)
 	foodtypes = GRAIN | MEAT | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 
+<<<<<<< HEAD
 /obj/item/food/cookie/sugar
 	name = "sugar cookie"
 	desc = "Just like your little sister used to make."
@@ -235,11 +374,20 @@
 	tastes = list("cookie" = 1, "raisins" = 1)
 	foodtypes = GRAIN | FRUIT
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/food/cherrycupcake
 	name = "cherry cupcake"
 	desc = "A sweet cupcake with cherry bits."
 	icon_state = "cherrycupcake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 3, "cherry" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
 	food_flags = FOOD_FINGER_FOOD
@@ -249,14 +397,24 @@
 	name = "blue cherry cupcake"
 	desc = "Blue cherries inside a delicious cupcake."
 	icon_state = "bluecherrycupcake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 4)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 3, "blue cherry" = 1)
 
 /obj/item/food/honeybun
 	name = "honey bun"
 	desc = "A sticky pastry bun glazed with honey."
 	icon_state = "honeybun"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/honey = 6)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/honey = 6,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("pastry" = 1, "sweetness" = 1)
 	foodtypes = GRAIN | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
@@ -265,7 +423,14 @@
 	name = "cannoli"
 	desc = "A sicilian treat that makes you into a wise guy."
 	icon_state = "cannoli"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("pastry" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	w_class = WEIGHT_CLASS_TINY
@@ -283,7 +448,14 @@
 	food_flags = FOOD_FINGER_FOOD
 	max_volume = 10 //The max volumes scales up with the number of scoops of ice cream served.
 	/// These two variables are used by the ice cream vat. Latter is the one that shows on the UI.
+<<<<<<< HEAD
 	var/list/ingredients = list(/datum/reagent/consumable/flour, /datum/reagent/consumable/sugar)
+=======
+	var/list/ingredients = list(
+		/datum/reagent/consumable/flour,
+		/datum/reagent/consumable/sugar,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/ingredients_text
 	/*
 	 * Assoc list var used to prefill the cone with ice cream.
@@ -297,7 +469,11 @@
 		src.prefill_flavours = prefill_flavours
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/food/icecream/MakeEdible()
+=======
+/obj/item/food/icecream/make_edible()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	AddComponent(/datum/component/ice_cream_holder, filled_name = "ice cream", change_desc = TRUE, prefill_flavours = prefill_flavours)
 
@@ -305,14 +481,33 @@
 	name = "chocolate cone"
 	desc = "Delicious chocolate cone, but no ice cream."
 	icon_state = "icecream_cone_chocolate"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/coco = 1)
 	ingredients = list(/datum/reagent/consumable/flour, /datum/reagent/consumable/sugar, /datum/reagent/consumable/coco)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/coco = 1,
+	)
+	ingredients = list(
+		/datum/reagent/consumable/flour,
+		/datum/reagent/consumable/sugar,
+		/datum/reagent/consumable/coco,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/food/cookie/peanut_butter
 	name = "peanut butter cookie"
 	desc = "A tasty, chewy peanut butter cookie."
 	icon_state = "peanut_butter_cookie"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/peanut_butter = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 2,
+		/datum/reagent/consumable/peanut_butter = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("peanut butter" = 2, "cookie" = 1)
 	foodtypes = GRAIN | JUNKFOOD | NUTS
 
@@ -321,11 +516,22 @@
 	desc = "A sticky mixture of raw brownie batter, cook it in the oven!"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "raw_brownie_batter"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("raw brownie batter" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR | BREAKFAST
 
 /obj/item/food/raw_brownie_batter/MakeBakeable()
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 4,
+	)
+	tastes = list("raw brownie batter" = 1)
+	foodtypes = GRAIN | JUNKFOOD | SUGAR | BREAKFAST
+
+/obj/item/food/raw_brownie_batter/make_bakeable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/bakeable, /obj/item/food/brownie_sheet, rand(20 SECONDS, 30 SECONDS), TRUE, TRUE)
 
 /obj/item/food/brownie_sheet
@@ -333,13 +539,24 @@
 	desc = "An uncut sheet of cooked brownie, use a knife to cut it!."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "brownie_sheet"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/sugar = 12)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/sugar = 12,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("brownie" = 1, "chocolatey goodness" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 	burns_in_oven = TRUE
 
+<<<<<<< HEAD
 /obj/item/food/brownie_sheet/MakeProcessable()
+=======
+/obj/item/food/brownie_sheet/make_processable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/brownie, 4, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice")
 
 /obj/item/food/brownie
@@ -347,7 +564,14 @@
 	desc = "A square slice of delicious, chewy brownie. Often the target of potheads."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "brownie"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/sugar = 3)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 5,
+		/datum/reagent/consumable/sugar = 3,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("brownie" = 1, "chocolatey goodness" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
@@ -357,25 +581,52 @@
 	desc = "A sticky mixture of raw peanut butter brownie batter, cook it in the oven!"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "peanut_butter_brownie_batter"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/peanut_butter = 4)
 	tastes = list("raw brownie batter" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR | NUTS
 
 /obj/item/food/peanut_butter_brownie_batter/MakeBakeable()
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 4,
+		/datum/reagent/consumable/peanut_butter = 4,
+	)
+	tastes = list("raw brownie batter" = 1)
+	foodtypes = GRAIN | JUNKFOOD | SUGAR | NUTS
+
+/obj/item/food/peanut_butter_brownie_batter/make_bakeable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/bakeable, /obj/item/food/peanut_butter_brownie_sheet, rand(20 SECONDS, 30 SECONDS), TRUE, TRUE)
 
 /obj/item/food/peanut_butter_brownie_sheet
 	name = "peanut butter brownie sheet"
+<<<<<<< HEAD
 	desc = "An uncut sheet of cooked peanut butter brownie, use a knife to cut it!."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "peanut_butter_brownie_sheet"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 24, /datum/reagent/consumable/sugar = 16, /datum/reagent/consumable/peanut_butter = 20)
+=======
+	desc = "An uncut sheet of cooked peanut butter brownie, use a knife to cut it!"
+	icon = 'icons/obj/food/food.dmi'
+	icon_state = "peanut_butter_brownie_sheet"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 24,
+		/datum/reagent/consumable/sugar = 16,
+		/datum/reagent/consumable/peanut_butter = 20,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("brownie" = 1, "chocolatey goodness" = 1, "peanut butter" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR | NUTS
 	w_class = WEIGHT_CLASS_SMALL
 	burns_in_oven = TRUE
 
+<<<<<<< HEAD
 /obj/item/food/peanut_butter_brownie_sheet/MakeProcessable()
+=======
+/obj/item/food/peanut_butter_brownie_sheet/make_processable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/peanut_butter_brownie, 4, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice")
 
 /obj/item/food/peanut_butter_brownie
@@ -383,7 +634,15 @@
 	desc = "A square slice of delicious, chewy peanut butter brownie. Often the target of potheads."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "peanut_butter_brownie"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/sugar = 4, /datum/reagent/consumable/peanut_butter = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/sugar = 4,
+		/datum/reagent/consumable/peanut_butter = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("brownie" = 1, "chocolatey goodness" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
@@ -393,7 +652,15 @@
 	desc = "A miniature pie with a peanut butter filling, creamy icing, and topping of chopped nuts."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "crunchy_peanut_butter_tart"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/sugar = 6, /datum/reagent/consumable/peanut_butter = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 8,
+		/datum/reagent/consumable/sugar = 6,
+		/datum/reagent/consumable/peanut_butter = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("peanut butter" = 1, "peanuts" = 1, "cream" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR | NUTS
 	w_class = WEIGHT_CLASS_SMALL

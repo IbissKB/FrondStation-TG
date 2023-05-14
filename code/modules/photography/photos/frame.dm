@@ -4,7 +4,12 @@
 	name = "picture frame"
 	desc = "The perfect showcase for your favorite deathtrap memories."
 	icon = 'icons/obj/signs.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/wood = 2000)
+=======
+	custom_materials = list(/datum/material/wood =SHEET_MATERIAL_AMOUNT)
+	resistance_flags = FLAMMABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_1 = 0
 	icon_state = "frame-overlay"
 	result_path = /obj/structure/sign/picture_frame
@@ -65,7 +70,12 @@
 	desc = "Every time you look it makes you laugh."
 	icon = 'icons/obj/signs.dmi'
 	icon_state = "frame-overlay"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/wood = 2000)
+=======
+	custom_materials = list(/datum/material/wood =SHEET_MATERIAL_AMOUNT)
+	resistance_flags = FLAMMABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/photo/framed
 	var/persistence_id
 	var/del_id_on_destroy = FALSE

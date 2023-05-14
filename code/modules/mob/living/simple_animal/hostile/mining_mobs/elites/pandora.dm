@@ -95,7 +95,11 @@
 		if(AOE_SQUARES)
 			aoe_squares(target)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/asteroid/elite/pandora/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/simple_animal/hostile/asteroid/elite/pandora/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(health >= maxHealth * 0.5)
 		cooldown_time = 2 SECONDS
@@ -193,3 +197,11 @@
 	var/mob/living/L = user
 	if(L?.mind)
 		L.clear_mood_event("hope_lavaland")
+<<<<<<< HEAD
+=======
+
+#undef SINGULAR_SHOT
+#undef MAGIC_BOX
+#undef PANDORA_TELEPORT
+#undef AOE_SQUARES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

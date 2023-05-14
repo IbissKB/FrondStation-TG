@@ -10,6 +10,10 @@
 /datum/symptom/voice_change
 	name = "Voice Change"
 	desc = "The virus alters the pitch and tone of the host's vocal cords, changing how their voice sounds."
+<<<<<<< HEAD
+=======
+	illness = "Mime Crisis"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -1
 	resistance = -2
 	stage_speed = -2

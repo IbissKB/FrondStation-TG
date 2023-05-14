@@ -52,22 +52,37 @@
 				user.allowed_turfs += "holoseat"
 
 		//wings
+<<<<<<< HEAD
 		if((istype(user.getorganslot(ORGAN_SLOT_WINGS), /obj/item/organ/external/wings/moth)) || HAS_TRAIT(user, TRAIT_SPARKLE_ASPECT))
 			user.allowed_turfs += "dust" //moth's dust ✨
 
 		//body parts
 		if(istype(user.getorganslot(ORGAN_SLOT_EXTERNAL_TAIL), /obj/item/organ/external/tail))
+=======
+		if((istype(user.get_organ_slot(ORGAN_SLOT_WINGS), /obj/item/organ/external/wings/moth)) || HAS_TRAIT(user, TRAIT_SPARKLE_ASPECT))
+			user.allowed_turfs += "dust" //moth's dust ✨
+
+		//body parts
+		if(istype(user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL), /obj/item/organ/external/tail))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/name = human_user.dna.species.mutant_bodyparts["tail"][MUTANT_INDEX_NAME]
 			var/datum/sprite_accessory/tails/tail = GLOB.sprite_accessories["tail"][name]
 			if(tail.fluffy)
 				user.allowed_turfs += "tails"
 
+<<<<<<< HEAD
 		if(human_user.dna.species.mutant_bodyparts["taur"])
 			var/name = human_user.dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]
 			var/datum/sprite_accessory/taur/taur = GLOB.sprite_accessories["taur"][name]
 			if(taur.taur_mode & STYLE_TAUR_SNAKE)
 				user.allowed_turfs -= list("pawprint", "hoofprint", "clawprint")
 				user.allowed_turfs += "constrict"
+=======
+		var/taur_mode = human_user.get_taur_mode()
+		if(taur_mode & STYLE_TAUR_SNAKE)
+			user.allowed_turfs -= list("pawprint", "hoofprint", "clawprint")
+			user.allowed_turfs += "constrict"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		//clothing
 		var/obj/item/shoes = user.get_item_by_slot(ITEM_SLOT_FEET)

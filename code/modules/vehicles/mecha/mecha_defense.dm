@@ -243,7 +243,11 @@
 	if(istype(W, /obj/item/stock_parts/scanning_module))
 		if(construction_state == MECHA_OPEN_HATCH)
 			if(!scanmod)
+<<<<<<< HEAD
 				if(!user.transferItemToLoc(W, src))
+=======
+				if(!user.transferItemToLoc(W, src, silent = FALSE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				to_chat(user, span_notice("You install the scanning module."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
@@ -257,7 +261,11 @@
 	if(istype(W, /obj/item/stock_parts/capacitor))
 		if(construction_state == MECHA_OPEN_HATCH)
 			if(!capacitor)
+<<<<<<< HEAD
 				if(!user.transferItemToLoc(W, src))
+=======
+				if(!user.transferItemToLoc(W, src, silent = FALSE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				to_chat(user, span_notice("You install the capacitor."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
@@ -293,31 +301,73 @@
 	log_combat(user, src, "attacked", attacking_item)
 	log_message("Attacked by [user]. Item - [attacking_item], Damage - [damage_taken]", LOG_MECHA)
 
+<<<<<<< HEAD
 /obj/vehicle/sealed/mecha/wrench_act(mob/living/user, obj/item/I)
+=======
+/obj/vehicle/sealed/mecha/attack_generic(mob/user, damage_amount, damage_type, damage_flag, effects, armor_penetration)
+	. = ..()
+	if(.)
+		try_damage_component(., user.zone_selected)
+
+/obj/vehicle/sealed/mecha/examine(mob/user)
+	.=..()
+	if(construction_state > MECHA_LOCKED)
+		switch(construction_state)
+			if(MECHA_SECURE_BOLTS)
+				. += span_notice("Use a <b>wrench</b> to adjust bolts securing the cover.")
+			if(MECHA_LOOSE_BOLTS)
+				. += span_notice("Use a <b>crowbar</b> to unlock the hatch to the power unit.")
+			if(MECHA_OPEN_HATCH)
+				. += span_notice("Use <b>interface</b> to eject stock parts from the mech.")
+
+/obj/vehicle/sealed/mecha/wrench_act(mob/living/user, obj/item/tool)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	. = TRUE
 	if(construction_state == MECHA_SECURE_BOLTS)
 		construction_state = MECHA_LOOSE_BOLTS
 		to_chat(user, span_notice("You undo the securing bolts."))
+<<<<<<< HEAD
+=======
+		tool.play_tool_sound(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_SECURE_BOLTS
 		to_chat(user, span_notice("You tighten the securing bolts."))
+<<<<<<< HEAD
 
 /obj/vehicle/sealed/mecha/crowbar_act(mob/living/user, obj/item/I)
 	..()
 	. = TRUE
 	if(istype(I, /obj/item/crowbar/mechremoval))
 		var/obj/item/crowbar/mechremoval/remover = I
+=======
+		tool.play_tool_sound(src)
+
+/obj/vehicle/sealed/mecha/crowbar_act(mob/living/user, obj/item/tool)
+	..()
+	. = TRUE
+	if(istype(tool, /obj/item/crowbar/mechremoval))
+		var/obj/item/crowbar/mechremoval/remover = tool
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		remover.empty_mech(src, user)
 		return
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_OPEN_HATCH
 		to_chat(user, span_notice("You open the hatch to the power unit."))
+<<<<<<< HEAD
+=======
+		tool.play_tool_sound(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(construction_state == MECHA_OPEN_HATCH)
 		construction_state = MECHA_LOOSE_BOLTS
 		to_chat(user, span_notice("You close the hatch to the power unit."))
+<<<<<<< HEAD
+=======
+		tool.play_tool_sound(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/vehicle/sealed/mecha/welder_act(mob/living/user, obj/item/W)
 	if(user.combat_mode)
@@ -408,7 +458,11 @@
 				var/list/new_material_content = list()
 				for(var/datum/material/current_material in A.custom_materials)
 					if(istype(current_material, /datum/material/iron))	//we can flatten an empty ammo box into a sheet of iron (2000 units) so we have to make sure the box always has this amount at minimum
+<<<<<<< HEAD
 						new_material_content[current_material] = (A.custom_materials[current_material] - 2000) * (A.rounds / initial(A.rounds)) + 2000
+=======
+						new_material_content[current_material] = (A.custom_materials[current_material] - SHEET_MATERIAL_AMOUNT) * (A.rounds / initial(A.rounds)) + SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					else
 						new_material_content[current_material] = A.custom_materials[current_material] * (A.rounds / initial(A.rounds))
 				A.set_custom_materials(new_material_content)
@@ -425,7 +479,11 @@
 			qdel(A)
 			return TRUE
 		A.rounds = 0
+<<<<<<< HEAD
 		A.set_custom_materials(list(/datum/material/iron=2000))
+=======
+		A.set_custom_materials(list(/datum/material/iron=SHEET_MATERIAL_AMOUNT))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		A.update_appearance()
 		return TRUE
 	if(!fail_chat_override)

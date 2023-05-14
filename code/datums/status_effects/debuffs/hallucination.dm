@@ -5,8 +5,13 @@
 	alert_type = null
 	tick_interval = 2 SECONDS
 	remove_on_fullheal = TRUE
+<<<<<<< HEAD
 	/// Can this hallucination apply to silicons?
 	var/affects_silicons = FALSE
+=======
+	/// Biotypes which cannot hallucinate.
+	var/barred_biotypes = NO_HALLUCINATION_BIOTYPES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// The lower range of when the next hallucination will trigger after one occurs.
 	var/lower_tick_interval = 10 SECONDS
 	/// The upper range of when the next hallucination will trigger after one occurs.
@@ -14,6 +19,7 @@
 	/// The cooldown for when the next hallucination can occur
 	COOLDOWN_DECLARE(hallucination_cooldown)
 
+<<<<<<< HEAD
 /datum/status_effect/hallucination/on_creation(
 	mob/living/new_owner,
 	duration,
@@ -27,6 +33,15 @@
 
 /datum/status_effect/hallucination/on_apply()
 	if(!affects_silicons && issilicon(owner))
+=======
+/datum/status_effect/hallucination/on_creation(mob/living/new_owner, duration)
+	if(isnum(duration))
+		src.duration = duration
+	return ..()
+
+/datum/status_effect/hallucination/on_apply()
+	if(owner.mob_biotypes & barred_biotypes)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	RegisterSignal(owner, COMSIG_LIVING_HEALTHSCAN,  PROC_REF(on_health_scan))
@@ -74,7 +89,11 @@
 	source.cause_hallucination(/datum/hallucination/shock, "hallucinated shock from [bumped]",)
 	return STOP_BUMP
 
+<<<<<<< HEAD
 /datum/status_effect/hallucination/tick(delta_time, times_fired)
+=======
+/datum/status_effect/hallucination/tick(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(owner.stat == DEAD)
 		return
 	if(!COOLDOWN_FINISHED(src, hallucination_cooldown))
@@ -100,7 +119,11 @@
 /datum/status_effect/hallucination/sanity/refresh(...)
 	update_intervals()
 
+<<<<<<< HEAD
 /datum/status_effect/hallucination/sanity/tick(delta_time, times_fired)
+=======
+/datum/status_effect/hallucination/sanity/tick(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Using psicodine / happiness / whatever to become fearless will stop sanity based hallucinations
 	if(HAS_TRAIT(owner, TRAIT_FEARLESS))
 		return

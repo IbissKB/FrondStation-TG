@@ -82,6 +82,7 @@
 			var/newamt
 			switch(Text)
 				if("brute")
+<<<<<<< HEAD
 					L.adjustBruteLoss(amount)
 					newamt = L.getBruteLoss()
 				if("fire")
@@ -101,6 +102,27 @@
 					newamt = L.getCloneLoss()
 				if("stamina")
 					L.adjustStaminaLoss(amount)
+=======
+					L.adjustBruteLoss(amount, forced = TRUE)
+					newamt = L.getBruteLoss()
+				if("fire")
+					L.adjustFireLoss(amount, forced = TRUE)
+					newamt = L.getFireLoss()
+				if("toxin")
+					L.adjustToxLoss(amount, forced = TRUE)
+					newamt = L.getToxLoss()
+				if("oxygen")
+					L.adjustOxyLoss(amount, forced = TRUE)
+					newamt = L.getOxyLoss()
+				if("brain")
+					L.adjustOrganLoss(ORGAN_SLOT_BRAIN, amount)
+					newamt = L.get_organ_loss(ORGAN_SLOT_BRAIN)
+				if("clone")
+					L.adjustCloneLoss(amount, forced = TRUE)
+					newamt = L.getCloneLoss()
+				if("stamina")
+					L.adjustStaminaLoss(amount, forced = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					newamt = L.getStaminaLoss()
 				else
 					to_chat(usr, "You caused an error. DEBUG: Text:[Text] Mob:[L]", confidential = TRUE)

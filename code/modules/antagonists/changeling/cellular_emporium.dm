@@ -87,7 +87,11 @@
 
 /datum/action/innate/cellular_emporium
 	name = "Cellular Emporium"
+<<<<<<< HEAD
 	button_icon = 'icons/obj/drinks.dmi'
+=======
+	button_icon = 'icons/obj/drinks/soda.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	button_icon_state = "changelingsting"
 	background_icon_state = "bg_changeling"
 	overlay_icon_state = "bg_changeling_border"

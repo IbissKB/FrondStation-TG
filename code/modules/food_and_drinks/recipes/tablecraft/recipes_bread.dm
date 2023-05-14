@@ -11,7 +11,11 @@
 		/obj/item/food/cheese/wedge = 3
 	)
 	result = /obj/item/food/bread/meat
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/xenomeatbread
 	name = "Xenomeat bread"
@@ -21,7 +25,11 @@
 		/obj/item/food/cheese/wedge = 3
 	)
 	result = /obj/item/food/bread/xenomeat
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/spidermeatbread
 	name = "Spidermeat bread"
@@ -31,7 +39,11 @@
 		/obj/item/food/cheese/wedge = 3
 	)
 	result = /obj/item/food/bread/spidermeat
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/sausagebread
 	name = "Sausage bread"
@@ -40,7 +52,11 @@
 		/obj/item/food/sausage = 2,
 	)
 	result = /obj/item/food/bread/sausage
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/banananutbread
 	name = "Banana nut bread"
@@ -51,7 +67,11 @@
 		/obj/item/food/grown/banana = 1
 	)
 	result = /obj/item/food/bread/banana
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/tofubread
 	name = "Tofu bread"
@@ -61,7 +81,11 @@
 		/obj/item/food/cheese/wedge = 3
 	)
 	result = /obj/item/food/bread/tofu
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/creamcheesebread
 	name = "Cream cheese bread"
@@ -71,7 +95,11 @@
 		/obj/item/food/cheese/wedge = 2
 	)
 	result = /obj/item/food/bread/creamcheese
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mimanabread
 	name = "Mimana bread"
@@ -82,7 +110,11 @@
 		/obj/item/food/grown/banana/mime = 1
 	)
 	result = /obj/item/food/bread/mimana
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/garlicbread
 	name = "Garlic Bread"
@@ -92,7 +124,11 @@
 				/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/garlicbread
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/butterbiscuit
 	name = "Butter Biscuit"
@@ -101,7 +137,11 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/butterbiscuit
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/butterdog
 	name = "Butterdog"
@@ -110,7 +150,11 @@
 		/obj/item/food/butter = 3,
 		)
 	result = /obj/item/food/butterdog
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/baguette
 	name = "Baguette"
@@ -120,7 +164,11 @@
 		/obj/item/food/pastrybase = 2
 	)
 	result = /obj/item/food/baguette
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/raw_breadstick
 	name = "Raw breadstick"
@@ -130,20 +178,52 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/raw_breadstick
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+
+/datum/crafting_recipe/food/raw_croissant
+	name = "Raw croissant"
+	reqs = list(
+		/obj/item/food/doughslice = 1,
+		/datum/reagent/consumable/sugar = 1,
+		/obj/item/food/butter = 1
+	)
+	result = /obj/item/food/raw_croissant
+	category = CAT_BREAD
+
+/datum/crafting_recipe/food/throwing_croissant
+	name = "Throwing croissant"
+	reqs = list(
+		/obj/item/food/croissant = 1,
+		/obj/item/stack/rods = 1,
+	)
+	result = /obj/item/food/croissant/throwing
+	category = CAT_BREAD
+	always_available = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/breaddog
 	name = "Living dog/bread hybrid"
 	reqs = list(
 		/obj/item/organ/internal/brain = 1,
 		/obj/item/organ/internal/heart = 1,
+<<<<<<< HEAD
 		/obj/item/food/bread = 2,
+=======
+		/obj/item/food/bread/plain = 2,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/food/meat/slab = 3,
 		/datum/reagent/blood = 30,
 		/datum/reagent/teslium = 1 //To shock the whole thing into life
 	)
 	result = /mob/living/basic/pet/dog/breaddog
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ////////////////////////////////////////////////TOAST////////////////////////////////////////////////
 
@@ -154,7 +234,11 @@
 		/obj/item/food/breadslice/plain = 1
 	)
 	result = /obj/item/food/jelliedtoast/slime
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/jelliedyoast
 	name = "Jellied toast"
@@ -163,7 +247,11 @@
 		/obj/item/food/breadslice/plain = 1
 	)
 	result = /obj/item/food/jelliedtoast/cherry
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/butteredtoast
 	name = "Buttered Toast"
@@ -172,7 +260,11 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/butteredtoast
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/twobread
 	name = "Two bread"
@@ -181,7 +273,11 @@
 		/obj/item/food/breadslice/plain = 2
 	)
 	result = /obj/item/food/twobread
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/moldybread // why would you make this?
 	name = "Moldy Bread"
@@ -190,7 +286,11 @@
 		/obj/item/food/grown/mushroom/amanita = 1
 		)
 	result = /obj/item/food/breadslice/moldy
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/breadcat
 	name = "Bread cat/bread hybrid"
@@ -203,7 +303,11 @@
 		/datum/reagent/medicine/strange_reagent = 5
 	)
 	result = /mob/living/simple_animal/pet/cat/breadcat
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/frenchtoast
 	name = "Raw french toast"
@@ -213,4 +317,8 @@
 		/datum/reagent/consumable/milk = 5
 	)
 	result = /obj/item/food/raw_frenchtoast
+<<<<<<< HEAD
 	subcategory = CAT_BREAD
+=======
+	category = CAT_BREAD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

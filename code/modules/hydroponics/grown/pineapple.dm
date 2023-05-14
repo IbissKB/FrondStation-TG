@@ -35,5 +35,9 @@
 	wine_power = 40
 
 
+<<<<<<< HEAD
 /obj/item/food/grown/pineapple/MakeProcessable()
+=======
+/obj/item/food/grown/pineapple/make_processable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pineappleslice, 3, 15, screentip_verb = "Cut")

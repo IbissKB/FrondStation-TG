@@ -574,7 +574,11 @@
 
 	var/static/list/potential_easy_items = list(
 		/obj/item/shard,
+<<<<<<< HEAD
 		/obj/item/candle,
+=======
+		/obj/item/flashlight/flare/candle,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/book,
 		/obj/item/pen,
 		/obj/item/paper,
@@ -634,6 +638,10 @@
 	to_chat(user, span_hypnophrase(span_big("[drain_message]")))
 	desc += " (Completed!)"
 	log_heretic_knowledge("[key_name(user)] completed a [name] at [worldtime2text()].")
+<<<<<<< HEAD
+=======
+	user.add_mob_memory(/datum/memory/heretic_knowlege_ritual)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 #undef KNOWLEDGE_RITUAL_POINTS
@@ -702,6 +710,10 @@
 
 	SSblackbox.record_feedback("tally", "heretic_ascended", 1, route)
 	log_heretic_knowledge("[key_name(user)] completed their final ritual at [worldtime2text()].")
+<<<<<<< HEAD
+=======
+	notify_ghosts("[user] has completed an ascension ritual!", source = user, action = NOTIFY_ORBIT, header = "A Heretic is Ascending!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /datum/heretic_knowledge/ultimate/cleanup_atoms(list/selected_atoms)

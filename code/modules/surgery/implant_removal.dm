@@ -51,7 +51,11 @@
 			span_notice("[user] successfully removes [implant] from [target]'s [target_zone]!"),
 			span_notice("[user] successfully removes something from [target]'s [target_zone]!"),
 		)
+<<<<<<< HEAD
 		display_pain(target, "You can feel your [implant] pulled out of you!")
+=======
+		display_pain(target, "You can feel your [implant.name] pulled out of you!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		implant.removed(target)
 
 		var/obj/item/implantcase/case

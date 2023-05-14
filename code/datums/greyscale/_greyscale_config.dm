@@ -63,7 +63,11 @@
 	*/ // ORIGINAL END - SKYART EDIT BEGIN:
 	var/static/regex/skyrat_gags_regex = regex("(modular_skyrat/modules/GAGS/.*json_configs/)")
 	if(findtext(string_json_config, "code/datums/greyscale/json_configs/") != 1 && skyrat_gags_regex.Find(string_json_config) != 1)
+<<<<<<< HEAD
 		stack_trace("All greyscale json configuration files should be located within 'code/datums/greyscale/json_configs/' or 'modular_skyrat/modules/GAGS/json_configs/'.")
+=======
+		stack_trace("All greyscale json configuration files should be located within '/greyscale/json_configs/' or 'modular_skyrat/modules/GAGS/json_configs/'.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// SKYRAT EDIT END
 	if(!icon_file)
 		stack_trace("Greyscale config object [DebugName()] is missing an icon file, make sure `icon_file` has been assigned a value.")
@@ -76,7 +80,11 @@
 		return QDEL_HINT_LETMELIVE
 	return ..()
 
+<<<<<<< HEAD
 /datum/greyscale_config/process(delta_time)
+=======
+/datum/greyscale_config/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!Refresh(loadFromDisk=TRUE))
 		return
 	if(!live_edit_types)

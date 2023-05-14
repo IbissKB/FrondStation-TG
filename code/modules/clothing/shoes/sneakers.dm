@@ -30,7 +30,14 @@
 /obj/item/clothing/shoes/sneakers/blue
 	name = "blue shoes"
 	greyscale_colors = "#4f88df#ffffff"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 95, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/sneakers_blue
+
+/datum/armor/sneakers_blue
+	bio = 95
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/shoes/sneakers/green
 	name = "green shoes"
@@ -52,7 +59,16 @@
 /obj/item/clothing/shoes/sneakers/white
 	name = "white shoes"
 	greyscale_colors = "#ffffff#ffffff"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 95, FIRE = 0, ACID = 0)
+=======
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "shoes_cloth"
+	armor_type = /datum/armor/sneakers_white
+
+/datum/armor/sneakers_white
+	bio = 95
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/shoes/sneakers/rainbow
 	name = "rainbow shoes"
@@ -69,6 +85,11 @@
 
 /obj/item/clothing/shoes/sneakers/orange
 	name = "orange shoes"
+<<<<<<< HEAD
+=======
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "prisonshoes"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	greyscale_colors = "#d15b1b#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers_orange
 	greyscale_config_worn = /datum/greyscale_config/sneakers_orange_worn
@@ -80,7 +101,11 @@
 
 /obj/item/clothing/shoes/sneakers/orange/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, (slot_flags|ITEM_SLOT_HANDCUFFED))
+=======
+	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDCUFFED)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/shoes/sneakers/orange/handle_atom_del(atom/deleting_atom)
 	if(deleting_atom == attached_cuffs)
@@ -159,10 +184,16 @@
 /obj/item/clothing/shoes/sneakers/marisa
 	desc = "A pair of magic black shoes."
 	name = "magic shoes"
+<<<<<<< HEAD
 	worn_icon_state = "marisa"
 	greyscale_colors = "#2d2d33#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers_marisa
 	greyscale_config_worn = null
+=======
+	greyscale_colors = "#2d2d33#ffffff"
+	greyscale_config = /datum/greyscale_config/sneakers_marisa
+	greyscale_config_worn = /datum/greyscale_config/sneakers_marisa/worn
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	strip_delay = 5
 	equip_delay_other = 50
 	can_be_tied = FALSE

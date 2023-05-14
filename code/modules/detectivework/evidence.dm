@@ -13,6 +13,10 @@
 	if(!proximity || loc == I)
 		return
 	evidencebagEquip(I, user)
+<<<<<<< HEAD
+=======
+	return . | AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/evidencebag/attackby(obj/item/I, mob/user, params)
 	if(evidencebagEquip(I, user))
@@ -54,7 +58,11 @@
 
 	if(!isturf(I.loc)) //If it isn't on the floor. Do some checks to see if it's in our hands or a box. Otherwise give up.
 		if(I.loc.atom_storage) //in a container.
+<<<<<<< HEAD
 			I.loc.atom_storage.attempt_remove(I, src)
+=======
+			I.loc.atom_storage.remove_single(user, I, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(!user.dropItemToGround(I))
 			return
 

@@ -5,10 +5,18 @@
 	icon = 'icons/effects/spacevines.dmi'
 	icon_state = "bud0"
 	mob_type = /mob/living/simple_animal/hostile/venus_human_trap
+<<<<<<< HEAD
 	prompt_name = "venus human trap"
 	you_are_text = "You are a venus human trap."
 	flavour_text = "You are a venus human trap!  Protect the kudzu at all costs, and feast on those who oppose you!"
 	faction = list("hostile","vines","plants")
+=======
+	density = FALSE
+	prompt_name = "venus human trap"
+	you_are_text = "You are a venus human trap."
+	flavour_text = "You are a venus human trap!  Protect the kudzu at all costs, and feast on those who oppose you!"
+	faction = list(FACTION_HOSTILE,FACTION_VINES,FACTION_PLANTS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	spawner_job_path = /datum/job/venus_human_trap
 	/// Physical structure housing the spawner
 	var/obj/structure/alien/resin/flower_bud/flower_bud

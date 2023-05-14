@@ -6,12 +6,20 @@
 /turf/open/floor/holofloor/grass,
 /area/template_noop)
 "f" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/banner/red,
 /turf/open/floor/holofloor/asteroid,
 /area/template_noop)
 "g" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/banner/blue,
 /turf/open/floor/holofloor/asteroid,
 /area/template_noop)
@@ -70,7 +78,11 @@
 /turf/open/floor/holofloor/grass,
 /area/template_noop)
 "E" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor/asteroid,
 /area/template_noop)
 "H" = (
@@ -78,7 +90,11 @@
 /turf/open/floor/holofloor/grass,
 /area/template_noop)
 "J" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor/grass,
 /area/template_noop)
 "N" = (

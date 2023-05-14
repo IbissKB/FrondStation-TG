@@ -149,8 +149,13 @@
 	if(!silent && activate_message)
 		to_chat(user, activate_message)
 
+<<<<<<< HEAD
 	for(var/trait in auto_traits)
 		ADD_TRAIT(user, trait, SKILLCHIP_TRAIT)
+=======
+	if(length(auto_traits))
+		user.add_traits(auto_traits, SKILLCHIP_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	active = TRUE
 
@@ -183,8 +188,13 @@
 	if(!silent && deactivate_message)
 		to_chat(user, deactivate_message)
 
+<<<<<<< HEAD
 	for(var/trait in auto_traits)
 		REMOVE_TRAIT(user, trait, SKILLCHIP_TRAIT)
+=======
+	if(length(auto_traits))
+		user.remove_traits(auto_traits, SKILLCHIP_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	active = FALSE
 
@@ -248,7 +258,11 @@
 		return "Incompatible lifeform detected."
 
 	// No brain
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/brain = target.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(QDELETED(brain))
 		return "No brain detected."
 

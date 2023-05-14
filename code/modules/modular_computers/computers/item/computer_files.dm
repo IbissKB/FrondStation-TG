@@ -35,10 +35,17 @@
 		return FALSE
 	if(istype(file_removing, /datum/computer_file/program))
 		var/datum/computer_file/program/program_file = file_removing
+<<<<<<< HEAD
 		if(program_file.program_state != PROGRAM_STATE_KILLED)
 			program_file.kill_program(TRUE)
 		if(program_file.program_state == PROGRAM_STATE_ACTIVE)
 			active_program = null
+=======
+		if(program_file == active_program)
+			active_program.kill_program()
+		for(var/datum/computer_file/program/programs as anything in idle_threads)
+			programs.kill_program()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	SEND_SIGNAL(file_removing, COMSIG_MODULAR_COMPUTER_FILE_DELETING)
 	stored_files.Remove(file_removing)
@@ -65,6 +72,11 @@
 		return FALSE
 	if((used_capacity + file.size) > max_capacity)
 		return FALSE
+<<<<<<< HEAD
+=======
+	if(!file.can_store_file(src))
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return TRUE
 

@@ -49,9 +49,15 @@
 		return FALSE
 	if(user.combat_mode)
 		return FALSE
+<<<<<<< HEAD
 	balloon_alert(user, "You start repairing the crack...")
 	if(tool.use_tool(src, user, 10 SECONDS, volume=30, amount=5))
 		balloon_alert(user, "You repaired the crack.")
+=======
+	balloon_alert(user, "repairing...")
+	if(tool.use_tool(src, user, 10 SECONDS, volume=30, amount=5))
+		balloon_alert(user, "repaired")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		cracked = FALSE
 		update_appearance()
 

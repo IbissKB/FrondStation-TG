@@ -9,6 +9,11 @@
 	icon = 'icons/obj/clothing/head/beanie.dmi'
 	worn_icon = 'icons/mob/clothing/head/beanie.dmi'
 	icon_state = "beanie"
+<<<<<<< HEAD
+=======
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "beanie_cloth"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	custom_price = PAYCHECK_CREW * 1.2
 	greyscale_colors = "#EEEEEE#EEEEEE"
 	greyscale_config = /datum/greyscale_config/beanie
@@ -42,8 +47,15 @@
 /obj/item/clothing/head/beanie/durathread
 	name = "durathread beanie"
 	desc = "A beanie made from durathread, its resilient fibres provide some protection to the wearer."
+<<<<<<< HEAD
 	greyscale_colors = "#8291A1#8291A1"
 	armor = list(MELEE = 15, BULLET = 5, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, FIRE = 30, ACID = 5)
+=======
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "beanie_durathread"
+	greyscale_colors = "#8291A1#8291A1"
+	armor_type = /datum/armor/beanie_durathread
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/rasta
 	name = "rastacap"
@@ -67,6 +79,18 @@
 	/// Used for the extra flavor text the d-boy himself sees
 	var/datum/weakref/beanie_owner = null
 
+<<<<<<< HEAD
+=======
+/datum/armor/beanie_durathread
+	melee = 15
+	bullet = 5
+	laser = 15
+	energy = 25
+	bomb = 10
+	fire = 30
+	acid = 5
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/beanie/black/dboy/equipped(mob/user, slot)
 	. = ..()
 	if(iscarbon(user) && !beanie_owner)

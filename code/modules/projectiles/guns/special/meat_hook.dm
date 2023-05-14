@@ -19,7 +19,13 @@
 /obj/item/gun/magic/hook/shoot_with_empty_chamber(mob/living/user)
 	balloon_alert(user, "not ready yet!")
 
+<<<<<<< HEAD
 /obj/item/gun/magic/hook/can_trigger_gun(mob/living/user) // This isn't really a gun, so it shouldn't be checking for TRAIT_NOGUNS, a firing pin (pinless), or a trigger guard (guardless)
+=======
+/obj/item/gun/magic/hook/can_trigger_gun(mob/living/user, akimbo_usage) // This isn't really a gun, so it shouldn't be checking for TRAIT_NOGUNS, a firing pin (pinless), or a trigger guard (guardless)
+	if(akimbo_usage)
+		return FALSE //this would be kinda weird while shooting someone down.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/item/ammo_casing/magic/hook

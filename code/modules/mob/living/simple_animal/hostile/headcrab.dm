@@ -15,14 +15,25 @@
 	attack_verb_simple = "chomp"
 	attack_sound = 'sound/weapons/bite.ogg'
 	attack_vis_effect = ATTACK_EFFECT_BITE
+<<<<<<< HEAD
 	faction = list("creature")
+=======
+	faction = list(FACTION_CREATURE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	robust_searching = 1
 	stat_attack = DEAD
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	speak_emote = list("squeaks")
+<<<<<<< HEAD
 	var/datum/mind/origin
 	var/egg_lain = 0
+=======
+	/// The mind to transfer to our egg when it hatches
+	var/datum/mind/origin
+	/// Set to true once we've implanted our egg
+	var/egg_lain = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/headcrab/Initialize(mapload)
 	. = ..()
@@ -39,6 +50,7 @@
 		I.forceMove(egg)
 	visible_message(span_warning("[src] plants something in [victim]'s flesh!"), \
 					span_danger("We inject our egg into [victim]'s body!"))
+<<<<<<< HEAD
 	egg_lain = 1
 
 /mob/living/simple_animal/hostile/headcrab/AttackingTarget()
@@ -53,6 +65,23 @@
 			Infect(target)
 			to_chat(src, span_userdanger("With our egg laid, our death approaches rapidly..."))
 			addtimer(CALLBACK(src, PROC_REF(death)), 100)
+=======
+	egg_lain = TRUE
+
+/mob/living/simple_animal/hostile/headcrab/AttackingTarget()
+	. = ..()
+	if (!. || egg_lain || !iscarbon(target) || ismonkey(target))
+		return
+	var/mob/living/carbon/victim = target
+	if(victim.stat != DEAD)
+		return
+	if(HAS_TRAIT(victim, TRAIT_XENO_HOST))
+		target.balloon_alert(src, "already pregnant!") // Maybe the worst balloon alert in the codebase
+		return
+	Infect(target)
+	to_chat(src, span_userdanger("With our egg laid, our death approaches rapidly..."))
+	addtimer(CALLBACK(src, PROC_REF(death)), 10 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/body_egg/changeling_egg
 	name = "changeling egg"
@@ -60,9 +89,15 @@
 	var/datum/mind/origin
 	var/time = 0
 
+<<<<<<< HEAD
 /obj/item/organ/internal/body_egg/changeling_egg/egg_process(delta_time, times_fired)
 	// Changeling eggs grow in dead people
 	time += delta_time * 10
+=======
+/obj/item/organ/internal/body_egg/changeling_egg/egg_process(seconds_per_tick, times_fired)
+	// Changeling eggs grow in dead people
+	time += seconds_per_tick * 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(time >= EGG_INCUBATION_TIME)
 		Pop()
 		Remove(owner)
@@ -100,12 +135,18 @@
 		if(changeling_datum.can_absorb_dna(owner))
 			changeling_datum.add_new_profile(owner)
 
+<<<<<<< HEAD
 		// SKYRAT EDIT START
 		var/datum/action/changeling/humanform/hf = new()
 		changeling_datum.purchased_powers += hf
 		hf.Grant(origin.current)
 		changeling_datum.regain_powers()
 		// SKYRAT EDIT END
+=======
+		var/datum/action/changeling/lesserform/transform = new()
+		changeling_datum.purchased_powers[transform.type] = transform
+		changeling_datum.regain_powers()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	owner.investigate_log("has been gibbed by a changeling egg burst.", INVESTIGATE_DEATHS)
 	owner.gib()

@@ -23,7 +23,11 @@
 	maximum_pressure = LAVALAND_EQUIPMENT_EFFECT_PRESSURE - 1
 
 	minimum_temp = BODYTEMP_COLD_DAMAGE_LIMIT + 1
+<<<<<<< HEAD
 	maximum_temp = 350
+=======
+	maximum_temp = LAVALAND_MAX_TEMPERATURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/atmosphere/icemoon
 	id = ICEMOON_DEFAULT_ATMOS
@@ -47,6 +51,11 @@
 	minimum_pressure = HAZARD_LOW_PRESSURE + 10
 	maximum_pressure = LAVALAND_EQUIPMENT_EFFECT_PRESSURE - 1
 
+<<<<<<< HEAD
 	minimum_temp = 180
 	maximum_temp = 180
+=======
+	minimum_temp = ICEBOX_MIN_TEMPERATURE
+	maximum_temp = ICEBOX_MIN_TEMPERATURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 

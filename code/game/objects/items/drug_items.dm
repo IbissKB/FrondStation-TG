@@ -50,7 +50,11 @@
 		icon_state = base_icon_state
 
 /obj/item/reagent_containers/cup/blastoff_ampoule/attack_self(mob/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE) || spillable)
+=======
+	if(!user.can_perform_action(src, NEED_DEXTERITY) || spillable)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return ..()
 	reagent_flags |= OPENCONTAINER
 	spillable = TRUE

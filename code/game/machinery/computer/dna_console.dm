@@ -215,7 +215,11 @@
 	. = ..()
 	if(!can_interact(user))
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, !issilicon(user)))
+=======
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	eject_disk(user)
@@ -237,7 +241,11 @@
 
 	// Link machine with research techweb. Used for discovering and accessing
 	// already discovered mutations
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !stored_research)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		stored_research = SSresearch.science_tech
 
 /obj/machinery/computer/scan_consolenew/ui_interact(mob/user, datum/tgui/ui)
@@ -334,8 +342,13 @@
 		data["subjectUF"] = scanner_occupant.dna.unique_features
 		data["storage"]["occupant"] = tgui_occupant_mutations
 
+<<<<<<< HEAD
 		var/datum/component/genetic_damage/genetic_damage = scanner_occupant.GetComponent(/datum/component/genetic_damage)
 		data["subjectDamage"] = genetic_damage ? round((genetic_damage.total_damage / genetic_damage.minimum_before_damage) * 100, 0.1) : 0
+=======
+		var/datum/status_effect/genetic_damage/genetic_damage = scanner_occupant.has_status_effect(/datum/status_effect/genetic_damage)
+		data["subjectDamage"] = genetic_damage ? round((genetic_damage.total_damage / genetic_damage.minimum_before_tox_damage) * 100, 0.1) : 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		data["subjectName"] = null
 		data["subjectStatus"] = null
@@ -436,7 +449,11 @@
 			scanner_occupant.dna.generate_dna_blocks()
 			scramble_ready = world.time + SCRAMBLE_TIMEOUT
 			to_chat(usr,span_notice("DNA scrambled."))
+<<<<<<< HEAD
 			scanner_occupant.AddComponent(/datum/component/genetic_damage, GENETIC_DAMAGE_STRENGTH_MULTIPLIER*50/(connected_scanner.damage_coeff ** 2))
+=======
+			scanner_occupant.apply_status_effect(/datum/status_effect/genetic_damage, GENETIC_DAMAGE_STRENGTH_MULTIPLIER*50/(connected_scanner.damage_coeff ** 2))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(connected_scanner)
 				connected_scanner.use_power(connected_scanner.active_power_usage)
 			else
@@ -560,7 +577,11 @@
 			// Copy genome to scanner occupant and do some basic mutation checks as
 			//  we've increased the occupant genetic damage
 			scanner_occupant.dna.mutation_index[path] = copytext(sequence, 1, genepos) + newgene + copytext(sequence, genepos + 1)
+<<<<<<< HEAD
 			scanner_occupant.AddComponent(/datum/component/genetic_damage, GENETIC_DAMAGE_STRENGTH_MULTIPLIER/connected_scanner.damage_coeff)
+=======
+			scanner_occupant.apply_status_effect(/datum/status_effect/genetic_damage, GENETIC_DAMAGE_STRENGTH_MULTIPLIER/connected_scanner.damage_coeff)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			scanner_occupant.domutcheck()
 
 			// GUARD CHECK - Modifying genetics can lead to edge cases where the
@@ -692,7 +713,11 @@
 				new_pair = (pair_str ? char + (pair_str[1] == char ? pair_str[2] : pair_str[1]) : null)
 				// every second letter in the sequence represents a valid pair of the new sequence, otherwise it belongs to old
 				if(new_pair)
+<<<<<<< HEAD
 					if(i%2==0)
+=======
+					if(i%2 == 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						new_sequence+=new_pair
 					else
 						old_sequence+=new_pair
@@ -708,6 +733,14 @@
 				var/datum/mutation/human/matched_mutation = null
 				//Go through all sequences for matching gene, and set the mutation
 				for (var/M in subtypesof(/datum/mutation/human))
+<<<<<<< HEAD
+=======
+					// SKYRAT EDIT ADDITION
+					var/datum/mutation/human/iterating_mutation = M
+					if(iterating_mutation.disabled)
+						continue
+					// SKYRAT EDIT END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					var/true_sequence = GET_SEQUENCE(M)
 					if (new_sequence == true_sequence)
 						matched_mutation = M
@@ -1692,7 +1725,11 @@
 			COOLDOWN_START(src, enzyme_copy_timer, ENZYME_COPY_BASE_COOLDOWN)
 			scanner_occupant.dna.unique_identity = buffer_slot["UI"]
 			scanner_occupant.updateappearance(mutations_overlay_update=1)
+<<<<<<< HEAD
 			scanner_occupant.AddComponent(/datum/component/genetic_damage, damage_increase)
+=======
+			scanner_occupant.apply_status_effect(/datum/status_effect/genetic_damage, damage_increase)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			scanner_occupant.domutcheck()
 			return TRUE
 		if("uf")
@@ -1705,7 +1742,11 @@
 			COOLDOWN_START(src, enzyme_copy_timer, ENZYME_COPY_BASE_COOLDOWN)
 			scanner_occupant.dna.unique_features = buffer_slot["UF"]
 			scanner_occupant.updateappearance(mutcolor_update=1, mutations_overlay_update=1)
+<<<<<<< HEAD
 			scanner_occupant.AddComponent(/datum/component/genetic_damage, damage_increase)
+=======
+			scanner_occupant.apply_status_effect(/datum/status_effect/genetic_damage, damage_increase)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			scanner_occupant.domutcheck()
 			return TRUE
 		if("ue")
@@ -1720,7 +1761,11 @@
 			scanner_occupant.name = buffer_slot["name"]
 			scanner_occupant.dna.unique_enzymes = buffer_slot["UE"]
 			scanner_occupant.dna.blood_type = buffer_slot["blood_type"]
+<<<<<<< HEAD
 			scanner_occupant.AddComponent(/datum/component/genetic_damage, damage_increase)
+=======
+			scanner_occupant.apply_status_effect(/datum/status_effect/genetic_damage, damage_increase)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			scanner_occupant.domutcheck()
 			return TRUE
 		if("mixed")
@@ -1738,7 +1783,11 @@
 			scanner_occupant.name = buffer_slot["name"]
 			scanner_occupant.dna.unique_enzymes = buffer_slot["UE"]
 			scanner_occupant.dna.blood_type = buffer_slot["blood_type"]
+<<<<<<< HEAD
 			scanner_occupant.AddComponent(/datum/component/genetic_damage, damage_increase)
+=======
+			scanner_occupant.apply_status_effect(/datum/status_effect/genetic_damage, damage_increase)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			scanner_occupant.domutcheck()
 			return TRUE
 
@@ -2302,6 +2351,12 @@
 	SIGNAL_HANDLER
 	set_connected_scanner(null)
 
+<<<<<<< HEAD
+=======
+#undef GENETIC_DAMAGE_PULSE_UNIQUE_IDENTITY
+#undef GENETIC_DAMAGE_PULSE_UNIQUE_FEATURES
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef ENZYME_COPY_BASE_COOLDOWN
 #undef INJECTOR_TIMEOUT
 #undef NUMBER_OF_BUFFERS

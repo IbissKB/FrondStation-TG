@@ -85,6 +85,10 @@
 		var/obj/item/raw_anomaly_core/raw_core = tool
 		if(!get_required_radius(raw_core.anomaly_type))
 			say("Unfortunately, due to diminishing supplies of condensed anomalous matter, [raw_core] and any cores of its type are no longer of a sufficient quality level to be compressed into a working core.")
+<<<<<<< HEAD
+=======
+			return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		inserted_core = raw_core
 		to_chat(user, span_notice("You insert [raw_core] into [src]."))
 		return
@@ -125,7 +129,11 @@
 /obj/machinery/research/anomaly_refinery/emag_act(mob/user, obj/item/card/emag/emag_card)
 	. = ..()
 	if (obj_flags & EMAGGED)
+<<<<<<< HEAD
 		balloon_alert(user, span_warning("already hacked!"))
+=======
+		balloon_alert(user, "already hacked!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	obj_flags |= EMAGGED
@@ -355,3 +363,7 @@
 
 #undef MAX_RADIUS_REQUIRED
 #undef MIN_RADIUS_REQUIRED
+<<<<<<< HEAD
+=======
+#undef COMPRESSION_TEST_TIME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

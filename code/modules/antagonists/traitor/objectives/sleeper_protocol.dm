@@ -12,7 +12,11 @@
 	progression_minimum = 0 MINUTES
 
 	progression_reward = list(8 MINUTES, 15 MINUTES)
+<<<<<<< HEAD
 	telecrystal_reward = 0
+=======
+	telecrystal_reward = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/list/limited_to = list(
 		JOB_CHIEF_MEDICAL_OFFICER,
@@ -88,7 +92,11 @@
 	. = ..()
 	if(!.)
 		return FALSE
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/target_brain = target.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!target_brain)
 		return FALSE
 	return TRUE
@@ -125,9 +133,15 @@
 	target.gain_trauma(new /datum/brain_trauma/mild/phobia/conspiracies(), TRAUMA_RESILIENCE_LOBOTOMY)
 
 /datum/traitor_objective/sleeper_protocol/everybody //Much harder for non-med and non-robo
+<<<<<<< HEAD
 
 	progression_minimum = 30 MINUTES
 	progression_reward = list(15 MINUTES, 20 MINUTES)
 	telecrystal_reward = list(2, 3)
+=======
+	progression_minimum = 30 MINUTES
+	progression_reward = list(8 MINUTES, 15 MINUTES)
+	telecrystal_reward = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	inverted_limitation = TRUE

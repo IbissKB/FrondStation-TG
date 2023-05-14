@@ -30,7 +30,11 @@
 	return ..()
 
 /mob/living/carbon/alien/adult/skyrat/runner/create_internal_organs()
+<<<<<<< HEAD
 	internal_organs += new /obj/item/organ/internal/alien/plasmavessel/small/tiny
+=======
+	organs += new /obj/item/organ/internal/alien/plasmavessel/small/tiny
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 /datum/action/cooldown/alien/skyrat/evade
@@ -79,7 +83,11 @@
 	owner.visible_message(span_danger("[owner] effortlessly dodges the projectile!"), span_userdanger("You dodge the projectile!"))
 	playsound(get_turf(owner), pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 	owner.add_filter(RUNNER_BLUR_EFFECT, 2, gauss_blur_filter(5))
+<<<<<<< HEAD
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/atom, remove_filter), RUNNER_BLUR_EFFECT), 0.5 SECONDS)
+=======
+	addtimer(CALLBACK(owner, TYPE_PROC_REF(/datum, remove_filter), RUNNER_BLUR_EFFECT), 0.5 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return BULLET_ACT_FORCE_PIERCE
 
 /mob/living/carbon/alien/adult/skyrat/runner/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)

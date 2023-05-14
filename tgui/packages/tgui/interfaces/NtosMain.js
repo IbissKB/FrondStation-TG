@@ -5,7 +5,11 @@ import { NtosWindow } from '../layouts';
 export const NtosMain = (props, context) => {
   const { act, data } = useBackend(context);
   const {
+<<<<<<< HEAD
     device_theme,
+=======
+    PC_device_theme,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     show_imprint,
     programs = [],
     has_light,
@@ -16,6 +20,7 @@ export const NtosMain = (props, context) => {
     proposed_login = [],
     pai,
   } = data;
+<<<<<<< HEAD
   return (
     <NtosWindow
       title={
@@ -45,6 +50,43 @@ export const NtosMain = (props, context) => {
               )}
               {removable_media.map((device) => (
                 <Stack.Item key={device}>
+=======
+  const filtered_programs = programs.filter(
+    (program) => program.header_program
+  );
+  return (
+    <NtosWindow
+      title={
+        (PC_device_theme === 'syndicate' && 'Syndix Main Menu') ||
+        'NtOS Main Menu'
+      }
+      width={400}
+      height={500}>
+      <NtosWindow.Content scrollable>
+        {Boolean(
+          removable_media.length ||
+            programs.some((program) => program.header_program)
+        ) && (
+          <Section>
+            <Stack>
+              {filtered_programs.map((app) => (
+                <Stack.Item key={filtered_programs}>
+                  <Button
+                    content={app.desc}
+                    icon={app.icon}
+                    onClick={() =>
+                      act('PC_runprogram', {
+                        name: app.name,
+                      })
+                    }
+                  />
+                </Stack.Item>
+              ))}
+            </Stack>
+            <Stack>
+              {removable_media.map((device) => (
+                <Stack.Item key={device} mt={1}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                   <Button
                     fluid
                     icon="eject"
@@ -58,9 +100,28 @@ export const NtosMain = (props, context) => {
           </Section>
         )}
         <Section
+<<<<<<< HEAD
           title="User Login"
           buttons={
             <>
+=======
+          title="Details"
+          buttons={
+            <>
+              {!!has_light && (
+                <>
+                  <Button onClick={() => act('PC_light_color')}>
+                    <ColorBox color={comp_light_color} />
+                  </Button>
+                  <Button
+                    icon="lightbulb"
+                    color={light_on ? 'good' : 'bad'}
+                    selected={light_on}
+                    onClick={() => act('PC_toggle_light')}
+                  />
+                </>
+              )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               <Button
                 icon="eject"
                 content="Eject ID"
@@ -136,6 +197,7 @@ export const NtosMain = (props, context) => {
             </Table>
           </Section>
         )}
+<<<<<<< HEAD
         <Section title="Programs">
           <Table>
             {programs.map((program) => (
@@ -172,7 +234,61 @@ export const NtosMain = (props, context) => {
             ))}
           </Table>
         </Section>
+=======
+        <ProgramsTable />
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       </NtosWindow.Content>
     </NtosWindow>
   );
 };
+<<<<<<< HEAD
+=======
+
+const ProgramsTable = (props, context) => {
+  const { act, data } = useBackend(context);
+  const { programs = [] } = data;
+  // add the program filename to this list to have it excluded from the main menu program list table
+  const filtered_programs = programs.filter(
+    (program) => !program.header_program
+  );
+
+  return (
+    <Section title="Programs">
+      <Table>
+        {filtered_programs.map((program) => (
+          <Table.Row key={program.name}>
+            <Table.Cell>
+              <Button
+                fluid
+                color={program.alert ? 'yellow' : 'transparent'}
+                icon={program.icon}
+                content={program.desc}
+                onClick={() =>
+                  act('PC_runprogram', {
+                    name: program.name,
+                  })
+                }
+              />
+            </Table.Cell>
+            <Table.Cell collapsing width="18px">
+              {!!program.running && (
+                <Button
+                  color="transparent"
+                  icon="times"
+                  tooltip="Close program"
+                  tooltipPosition="left"
+                  onClick={() =>
+                    act('PC_killprogram', {
+                      name: program.name,
+                    })
+                  }
+                />
+              )}
+            </Table.Cell>
+          </Table.Row>
+        ))}
+      </Table>
+    </Section>
+  );
+};
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

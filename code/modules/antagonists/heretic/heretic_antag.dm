@@ -58,6 +58,19 @@
 		PATH_ASH = "white",
 		PATH_VOID = "blue",
 		PATH_BLADE = "label", // my favorite color is label
+<<<<<<< HEAD
+=======
+		PATH_COSMIC = "purple",
+	)
+	var/static/list/path_to_rune_color = list(
+		PATH_START = COLOR_LIME,
+		PATH_RUST = COLOR_CARGO_BROWN,
+		PATH_FLESH = COLOR_SOFT_RED,
+		PATH_ASH = COLOR_VIVID_RED,
+		PATH_VOID = COLOR_CYAN,
+		PATH_BLADE = COLOR_SILVER,
+		PATH_COSMIC = COLOR_PURPLE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /datum/antagonist/heretic/Destroy()
@@ -159,12 +172,15 @@
 
 	return finish_preview_icon(icon)
 
+<<<<<<< HEAD
 /datum/antagonist/heretic/greet()
 	. = ..()
 	var/policy = get_policy(ROLE_HERETIC)
 	if(policy)
 		to_chat(owner, policy)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/antagonist/heretic/farewell()
 	if(!silent)
 		to_chat(owner.current, span_userdanger("Your mind begins to flare as the otherwordly knowledge escapes your grasp!"))
@@ -308,6 +324,7 @@
 /datum/antagonist/heretic/proc/draw_rune(mob/living/user, turf/target_turf, drawing_time = 30 SECONDS, additional_checks)
 	drawing_rune = TRUE
 
+<<<<<<< HEAD
 	target_turf.balloon_alert(user, "drawing rune...")
 	if(!do_after(user, drawing_time, target_turf, extra_checks = additional_checks))
 		target_turf.balloon_alert(user, "interrupted!")
@@ -316,6 +333,26 @@
 
 	target_turf.balloon_alert(user, "rune created")
 	new /obj/effect/heretic_rune/big(target_turf)
+=======
+	var/rune_colour = path_to_rune_color[heretic_path]
+	target_turf.balloon_alert(user, "drawing rune...")
+	var/obj/effect/temp_visual/drawing_heretic_rune/drawing_effect
+	if (drawing_time >= (30 SECONDS))
+		drawing_effect = new(target_turf, rune_colour)
+	else
+		drawing_effect = new /obj/effect/temp_visual/drawing_heretic_rune/fast(target_turf, rune_colour)
+
+	if(!do_after(user, drawing_time, target_turf, extra_checks = additional_checks))
+		target_turf.balloon_alert(user, "interrupted!")
+		new /obj/effect/temp_visual/drawing_heretic_rune/fail(target_turf, rune_colour)
+		qdel(drawing_effect)
+		drawing_rune = FALSE
+		return
+
+	qdel(drawing_effect)
+	target_turf.balloon_alert(user, "rune created")
+	new /obj/effect/heretic_rune/big(target_turf, rune_colour)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	drawing_rune = FALSE
 
 /**
@@ -664,7 +701,11 @@
  * and returns HERETIC_HAS_LIVING_HEART if they have a living heart
  */
 /datum/antagonist/heretic/proc/has_living_heart()
+<<<<<<< HEAD
 	var/obj/item/organ/our_living_heart = owner.current?.getorganslot(living_heart_organ_slot)
+=======
+	var/obj/item/organ/our_living_heart = owner.current?.get_organ_slot(living_heart_organ_slot)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!our_living_heart)
 		return HERETIC_NO_HEART_ORGAN
 
@@ -756,8 +797,11 @@
 
 	suit = /obj/item/clothing/suit/hooded/cultrobes/eldritch
 	r_hand = /obj/item/melee/touch_attack/mansus_fist
+<<<<<<< HEAD
 
 /datum/outfit/heretic/post_equip(mob/living/carbon/human/equipper, visualsOnly)
 	var/obj/item/clothing/suit/hooded/hooded = locate() in equipper
 	hooded.MakeHood() // This is usually created on Initialize, but we run before atoms
 	hooded.ToggleHood()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

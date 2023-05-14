@@ -16,32 +16,56 @@
 		reject_implant(implant)
 		return
 
+<<<<<<< HEAD
 	for(var/organ in owner.internal_organs)
+=======
+	for(var/organ in owner.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(istype(organ, /obj/item/organ/internal/cyberimp))
 			reject_cyberimp(organ)
 			return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/appendix/appendix = owner.getorganslot(ORGAN_SLOT_APPENDIX)
+=======
+	var/obj/item/organ/internal/appendix/appendix = owner.get_organ_slot(ORGAN_SLOT_APPENDIX)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((!appendix && !HAS_TRAIT(owner, TRAIT_NOHUNGER)) || (appendix && ((appendix.organ_flags & ORGAN_FAILING) || (appendix.organ_flags & ORGAN_SYNTHETIC))))
 		replace_appendix(appendix)
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/liver/liver = owner.getorganslot(ORGAN_SLOT_LIVER)
+=======
+	var/obj/item/organ/internal/liver/liver = owner.get_organ_slot(ORGAN_SLOT_LIVER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((!liver && !HAS_TRAIT(owner, TRAIT_NOMETABOLISM)) || (liver && ((liver.damage > liver.high_threshold) || (liver.organ_flags & ORGAN_SYNTHETIC))))
 		replace_liver(liver)
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/lungs/lungs = owner.getorganslot(ORGAN_SLOT_LUNGS)
+=======
+	var/obj/item/organ/internal/lungs/lungs = owner.get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((!lungs && !HAS_TRAIT(owner, TRAIT_NOBREATH)) || (lungs && ((lungs.damage > lungs.high_threshold) || (lungs.organ_flags & ORGAN_SYNTHETIC))))
 		replace_lungs(lungs)
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/stomach = owner.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/stomach = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((!stomach && !HAS_TRAIT(owner, TRAIT_NOHUNGER)) || (stomach && ((stomach.damage > stomach.high_threshold) || (stomach.organ_flags & ORGAN_SYNTHETIC))))
 		replace_stomach(stomach)
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
+=======
+	var/obj/item/organ/internal/eyes/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!eyes || (eyes && ((eyes.damage > eyes.low_threshold) || (eyes.organ_flags & ORGAN_SYNTHETIC))))
 		replace_eyes(eyes)
 		return

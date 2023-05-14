@@ -46,9 +46,16 @@
 		. += "It is set to [rotation_angle] degrees, and the rotation is [can_rotate ? "unlocked" : "locked"]."
 		if(!admin)
 			if(can_rotate)
+<<<<<<< HEAD
 				. += span_notice("Alt-click to adjust its direction.")
 			else
 				. += span_notice("Use screwdriver to unlock the rotation.")
+=======
+				. += span_notice("Use your <b>hand</b> to adjust its direction.")
+				. += span_notice("Use a <b>screwdriver</b> to lock the rotation.")
+			else
+				. += span_notice("Use <b>screwdriver</b> to unlock the rotation.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/reflector/proc/set_angle(new_angle)
 	if(can_rotate)
@@ -165,11 +172,16 @@
 		to_chat(user, span_warning("The rotation is locked!"))
 		return FALSE
 	var/new_angle = tgui_input_number(user, "New angle for primary reflection face", "Reflector Angle", rotation_angle, 360)
+<<<<<<< HEAD
 	if(isnull(new_angle) || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(isnull(new_angle) || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	set_angle(SIMPLIFY_DEGREES(new_angle))
 	return TRUE
 
+<<<<<<< HEAD
 /obj/structure/reflector/AltClick(mob/user)
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = !iscyborg(user)))
 		return
@@ -177,6 +189,8 @@
 		rotate(user)
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //TYPES OF REFLECTORS, SINGLE, DOUBLE, BOX
 
 //SINGLE
@@ -288,3 +302,54 @@
 
 /obj/item/circuit_component/reflector/input_received(datum/port/input/port)
 	attached_reflector?.set_angle(angle.value)
+<<<<<<< HEAD
+=======
+
+// tgui menu
+
+/obj/structure/reflector/ui_interact(mob/user, datum/tgui/ui)
+	if(!finished)
+		user.balloon_alert(user, "nothing to rotate!")
+		return
+	if(!can_rotate)
+		user.balloon_alert(user, "can't rotate!")
+		return
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Reflector")
+		ui.open()
+
+/obj/structure/reflector/attack_robot(mob/user)
+	ui_interact(user)
+	return
+
+/obj/structure/reflector/ui_state(mob/user)
+	return GLOB.physical_state //Prevents borgs from adjusting this at range
+
+/obj/structure/reflector/ui_data(mob/user)
+	var/list/data = list()
+	data["rotation_angle"] = rotation_angle
+	data["reflector_name"] = name
+
+	return data
+
+/obj/structure/reflector/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("rotate")
+			if (!can_rotate || admin)
+				return FALSE
+			var/new_angle = params["rotation_angle"]
+			if(!isnull(new_angle))
+				set_angle(SIMPLIFY_DEGREES(new_angle))
+			return TRUE
+		if("calculate")
+			if (!can_rotate || admin)
+				return FALSE
+			var/new_angle = rotation_angle + params["rotation_angle"]
+			if(!isnull(new_angle))
+				set_angle(SIMPLIFY_DEGREES(new_angle))
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

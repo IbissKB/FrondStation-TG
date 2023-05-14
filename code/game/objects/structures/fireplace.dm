@@ -104,7 +104,11 @@
 		if(80000 to MAXIMUM_BURN_TIMER) //SKYRAT EDIT original: if(2000 to MAXIMUM_BURN_TIMER)
 			set_light(6)
 
+<<<<<<< HEAD
 /obj/structure/fireplace/process(delta_time)
+=======
+/obj/structure/fireplace/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!lit)
 		return
 	if(world.time > flame_expiry_timer)
@@ -113,17 +117,28 @@
 
 	playsound(src, 'sound/effects/comfyfire.ogg',50,FALSE, FALSE, TRUE)
 	var/turf/T = get_turf(src)
+<<<<<<< HEAD
 	T.hotspot_expose(700, 2.5 * delta_time)
+=======
+	T.hotspot_expose(700, 2.5 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 	adjust_light()
 
 /obj/structure/fireplace/extinguish()
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(lit)
 		var/fuel = burn_time_remaining()
 		flame_expiry_timer = 0
 		put_out()
 		adjust_fuel_timer(fuel)
+<<<<<<< HEAD
 	. = ..()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/fireplace/proc/adjust_fuel_timer(amount)
 	if(lit)
@@ -152,3 +167,10 @@
 	update_appearance()
 	adjust_light()
 	desc = initial(desc)
+<<<<<<< HEAD
+=======
+
+#undef LOG_BURN_TIMER
+#undef PAPER_BURN_TIMER
+#undef MAXIMUM_BURN_TIMER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -1,7 +1,11 @@
 // Clickable stat() button.
 /obj/effect/statclick
 	name = "Initializing..."
+<<<<<<< HEAD
 	blocks_emissive = NONE
+=======
+	blocks_emissive = EMISSIVE_BLOCK_NONE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/target
 
 INITIALIZE_IMMEDIATE(/obj/effect/statclick)

@@ -1,14 +1,21 @@
+<<<<<<< HEAD
 /mob/living/silicon/ai/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/silicon/ai/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (stat == DEAD)
 		return
 	//Being dead doesn't mean your temperature never changes
 
+<<<<<<< HEAD
 	update_gravity(has_gravity())
 
 	handle_status_effects(delta_time, times_fired)
 
 	handle_traits(delta_time, times_fired)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(malfhack?.aidisabled)
 		deltimer(malfhacking)
 		// This proc handles cleanup of screen notifications and
@@ -37,7 +44,11 @@
 	if(!lacks_power())
 		var/area/home = get_area(src)
 		if(home.powered(AREA_USAGE_EQUIP))
+<<<<<<< HEAD
 			home.use_power(500 * delta_time, AREA_USAGE_EQUIP)
+=======
+			home.use_power(500 * seconds_per_tick, AREA_USAGE_EQUIP)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(aiRestorePowerRoutine >= POWER_RESTORATION_SEARCH_APC)
 			ai_restore_power()
@@ -58,10 +69,25 @@
 /mob/living/silicon/ai/updatehealth()
 	if(status_flags & GODMODE)
 		return
+<<<<<<< HEAD
 	set_health(maxHealth - getOxyLoss() - getToxLoss() - getBruteLoss() - getFireLoss())
 	update_stat()
 	diag_hud_set_health()
 	disconnect_shell()
+=======
+
+	var/old_health = health
+	set_health(maxHealth - getOxyLoss() - getToxLoss() - getBruteLoss() - getFireLoss())
+
+	var/old_stat = stat
+	update_stat()
+
+	diag_hud_set_health()
+
+	if(old_health > health || old_stat != stat) // only disconnect if we lose health or change stat
+		disconnect_shell()
+	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/silicon/ai/update_stat()
 	if(status_flags & GODMODE)
@@ -76,11 +102,17 @@
 
 /mob/living/silicon/ai/update_sight()
 	set_invis_see(initial(see_invisible))
+<<<<<<< HEAD
 	set_see_in_dark(initial(see_in_dark))
 	set_sight(initial(sight))
 	if(aiRestorePowerRoutine)
 		clear_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_in_dark(0)
+=======
+	set_sight(initial(sight))
+	if(aiRestorePowerRoutine)
+		clear_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(see_override)
 		set_invis_see(see_override)
@@ -111,7 +143,11 @@
 	var/obj/machinery/power/apc/theAPC = null
 
 	var/PRP //like ERP with the code, at least this stuff is no more 4x sametext
+<<<<<<< HEAD
 	for (PRP=1, PRP<=4, PRP++)
+=======
+	for (PRP=1, PRP <= 4, PRP++)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		T = get_turf(src)
 		AIarea = get_area(src)
 		if(AIarea)
@@ -156,14 +192,22 @@
 		else
 			to_chat(src, span_notice("Alert cancelled. Power has been restored without our assistance."))
 		setAiRestorePowerRoutine(POWER_RESTORATION_OFF)
+<<<<<<< HEAD
 		set_blindness(0)
+=======
+		remove_status_effect(/datum/status_effect/temporary_blindness)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		apc_override = null
 		update_sight()
 
 /mob/living/silicon/ai/proc/ai_lose_power()
 	disconnect_shell()
 	setAiRestorePowerRoutine(POWER_RESTORATION_START)
+<<<<<<< HEAD
 	adjust_blindness(1)
+=======
+	adjust_temp_blindness(2 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_sight()
 	to_chat(src, span_alert("You've lost power!"))
 	addtimer(CALLBACK(src, PROC_REF(start_RestorePowerRoutine)), 20)

@@ -19,11 +19,19 @@
 		else
 			msg = "Its tracking indicator is blank."
 	. += msg
+<<<<<<< HEAD
 	for(var/obj/machinery/nuclearbomb/bomb in GLOB.machines)
 		if(bomb.timing)
 			. += "Extreme danger. Arming signal detected. Time remaining: [bomb.get_time_left()]."
 
 /obj/item/pinpointer/nuke/process(delta_time)
+=======
+	for(var/obj/machinery/nuclearbomb/bomb as anything in GLOB.nuke_list)
+		if(bomb.timing)
+			. += "Extreme danger. Arming signal detected. Time remaining: [bomb.get_time_left()]."
+
+/obj/item/pinpointer/nuke/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	if(!active || alert)
 		return

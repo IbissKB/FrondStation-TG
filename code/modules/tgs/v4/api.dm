@@ -256,33 +256,57 @@
 /datum/tgs_api/v4/Revision()
 	return cached_revision
 
+<<<<<<< HEAD
 /datum/tgs_api/v4/ChatBroadcast(message, list/channels)
+=======
+/datum/tgs_api/v4/ChatBroadcast(datum/tgs_message_content/message, list/channels)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/ids
 	if(length(channels))
 		ids = list()
 		for(var/I in channels)
 			var/datum/tgs_chat_channel/channel = I
 			ids += channel.id
+<<<<<<< HEAD
 	message = list("message" = message, "channelIds" = ids)
+=======
+	message = UpgradeDeprecatedChatMessage(message)
+	message = list("message" = message.text, "channelIds" = ids)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(intercepted_message_queue)
 		intercepted_message_queue += list(message)
 	else
 		Export(TGS4_COMM_CHAT, message)
 
+<<<<<<< HEAD
 /datum/tgs_api/v4/ChatTargetedBroadcast(message, admin_only)
+=======
+/datum/tgs_api/v4/ChatTargetedBroadcast(datum/tgs_message_content/message, admin_only)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/channels = list()
 	for(var/I in ChatChannelInfo())
 		var/datum/tgs_chat_channel/channel = I
 		if (!channel.is_private_channel && ((channel.is_admin_channel && admin_only) || (!channel.is_admin_channel && !admin_only)))
 			channels += channel.id
+<<<<<<< HEAD
 	message = list("message" = message, "channelIds" = channels)
+=======
+	message = UpgradeDeprecatedChatMessage(message)
+	message = list("message" = message.text, "channelIds" = channels)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(intercepted_message_queue)
 		intercepted_message_queue += list(message)
 	else
 		Export(TGS4_COMM_CHAT, message)
 
+<<<<<<< HEAD
 /datum/tgs_api/v4/ChatPrivateMessage(message, datum/tgs_chat_user/user)
 	message = list("message" = message, "channelIds" = list(user.channel.id))
+=======
+/datum/tgs_api/v4/ChatPrivateMessage(datum/tgs_message_content/message, datum/tgs_chat_user/user)
+	message = UpgradeDeprecatedChatMessage(message)
+	message = list("message" = message.text, "channelIds" = list(user.channel.id))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(intercepted_message_queue)
 		intercepted_message_queue += list(message)
 	else

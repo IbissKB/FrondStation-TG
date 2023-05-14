@@ -100,3 +100,9 @@
 	background_icon = 'icons/mob/actions/actions_items.dmi'
 	background_icon_state = "storage_gather_switch"
 	overlay_icon_state = "bg_tech_border"
+<<<<<<< HEAD
+=======
+
+/datum/action/item_action/flip
+	name = "Flip"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

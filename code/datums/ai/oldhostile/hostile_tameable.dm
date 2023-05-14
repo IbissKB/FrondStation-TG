@@ -16,7 +16,11 @@
 
 	COOLDOWN_DECLARE(command_cooldown)
 
+<<<<<<< HEAD
 /datum/ai_controller/hostile_friend/process(delta_time)
+=======
+/datum/ai_controller/hostile_friend/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(isliving(pawn))
 		var/mob/living/living_pawn = pawn
 		movement_delay = living_pawn.cached_multiplicative_slowdown
@@ -47,7 +51,11 @@
 	SIGNAL_HANDLER
 	if(force || ai_status == AI_STATUS_OFF)
 		return
+<<<<<<< HEAD
 	if(WEAKREF(buckler) != blackboard[BB_HOSTILE_FRIEND])
+=======
+	if(buckler != blackboard[BB_HOSTILE_FRIEND])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return COMPONENT_BLOCK_BUCKLE
 
 /datum/ai_controller/hostile_friend/able_to_run()
@@ -70,6 +78,7 @@
 
 /// Befriends someone
 /datum/ai_controller/hostile_friend/proc/befriend(mob/living/new_friend)
+<<<<<<< HEAD
 	var/datum/weakref/current_ref = blackboard[BB_HOSTILE_FRIEND]
 	var/datum/weakref/friend_ref = WEAKREF(new_friend)
 	var/mob/living/old_friend = current_ref?.resolve()
@@ -81,25 +90,50 @@
 	if(in_range(pawn, new_friend))
 		new_friend.visible_message("<b>[pawn]</b> looks at [new_friend] in a friendly manner!", span_notice("[pawn] looks at you in a friendly manner!"))
 	blackboard[BB_HOSTILE_FRIEND] = friend_ref
+=======
+	var/mob/living/old_friend = blackboard[BB_HOSTILE_FRIEND]
+	if(old_friend)
+		unfriend(old_friend)
+
+	if(in_range(pawn, new_friend))
+		new_friend.visible_message("<b>[pawn]</b> looks at [new_friend] in a friendly manner!", span_notice("[pawn] looks at you in a friendly manner!"))
+	set_blackboard_key(BB_HOSTILE_FRIEND, new_friend)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(new_friend, COMSIG_MOB_POINTED, PROC_REF(check_point))
 	RegisterSignal(new_friend, COMSIG_MOB_SAY, PROC_REF(check_verbal_command))
 
 /// Someone is being mean to us, take them off our friends (add actual enemies behavior later)
 /datum/ai_controller/hostile_friend/proc/unfriend()
+<<<<<<< HEAD
 	var/datum/weakref/friend_ref = blackboard[BB_HOSTILE_FRIEND]
 	var/mob/living/old_friend = friend_ref?.resolve()
 	if(old_friend)
 		UnregisterSignal(old_friend, list(COMSIG_MOB_POINTED, COMSIG_MOB_SAY))
 	blackboard[BB_HOSTILE_FRIEND] = null
+=======
+	var/mob/living/old_friend = blackboard[BB_HOSTILE_FRIEND]
+	if(old_friend)
+		UnregisterSignal(old_friend, list(COMSIG_MOB_POINTED, COMSIG_MOB_SAY))
+	clear_blackboard_key(BB_HOSTILE_FRIEND)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Someone is looking at us, if we're currently carrying something then show what it is, and include a message if they're our friend
 /datum/ai_controller/hostile_friend/proc/on_examined(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(blackboard[BB_HOSTILE_FRIEND] == WEAKREF(user))
 		var/mob/living/living_pawn = pawn
 		if(!IS_DEAD_OR_INCAP(living_pawn))
 			examine_text += span_notice("[pawn.p_they(TRUE)] seem[pawn.p_s()] happy to see you!")
+=======
+	if(blackboard[BB_HOSTILE_FRIEND] != user)
+		return
+
+	var/mob/living/living_pawn = pawn
+	if(!IS_DEAD_OR_INCAP(living_pawn))
+		examine_text += span_notice("[pawn.p_they(TRUE)] seem[pawn.p_s()] happy to see you!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // next section is regarding commands
 
@@ -109,7 +143,11 @@
 
 	if(!COOLDOWN_FINISHED(src, command_cooldown))
 		return
+<<<<<<< HEAD
 	if(!istype(clicker) || blackboard[BB_HOSTILE_FRIEND] == WEAKREF(clicker))
+=======
+	if(!istype(clicker) || blackboard[BB_HOSTILE_FRIEND] != clicker)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	. = COMPONENT_CANCEL_CLICK_ALT
 	INVOKE_ASYNC(src, PROC_REF(command_radial), clicker)
@@ -139,7 +177,11 @@
 /datum/ai_controller/hostile_friend/proc/check_verbal_command(mob/speaker, speech_args)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(blackboard[BB_HOSTILE_FRIEND] != WEAKREF(speaker))
+=======
+	if(blackboard[BB_HOSTILE_FRIEND] != speaker)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(!COOLDOWN_FINISHED(src, command_cooldown))
@@ -172,15 +214,25 @@
 		// heel: stop what you're doing, relax and try not to do anything for a little bit
 		if(COMMAND_STOP)
 			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] at [commander]'s command, and [pawn.p_they()] stop[pawn.p_s()] obediently, awaiting further orders."))
+<<<<<<< HEAD
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_NONE
+=======
+			set_blackboard_key(BB_HOSTILE_ORDER_MODE, HOSTILE_COMMAND_NONE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			CancelActions()
 		// follow: whatever the commander points to, try and bring it back
 		if(COMMAND_FOLLOW)
 			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] at [commander]'s command, and [pawn.p_they()] follow[pawn.p_s()] slightly in anticipation."))
 			CancelActions()
+<<<<<<< HEAD
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_FOLLOW
 			blackboard[BB_FOLLOW_TARGET] = WEAKREF(commander)
 			set_movement_target(commander)
+=======
+			set_blackboard_key(BB_HOSTILE_ORDER_MODE, HOSTILE_COMMAND_FOLLOW)
+			set_blackboard_key(BB_FOLLOW_TARGET, commander)
+			set_movement_target(type, commander)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/mob/living/living_pawn = pawn
 			if(living_pawn.buckled)
 				queue_behavior(/datum/ai_behavior/resist)//in case they are in bed or something
@@ -189,7 +241,11 @@
 		if(COMMAND_ATTACK)
 			pawn.visible_message(span_danger("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] at [commander]'s command, and [pawn.p_they()] growl[pawn.p_s()] intensely.")) // imagine getting intimidated by a corgi
 			CancelActions()
+<<<<<<< HEAD
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_ATTACK
+=======
+			set_blackboard_key(BB_HOSTILE_ORDER_MODE, HOSTILE_COMMAND_ATTACK)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Someone we like is pointing at something, see if it's something we might want to interact with (like if they might want us to fetch something for them)
 /datum/ai_controller/hostile_friend/proc/check_point(mob/pointing_friend, atom/movable/pointed_movable)
@@ -201,7 +257,14 @@
 
 	if(!COOLDOWN_FINISHED(src, command_cooldown))
 		return
+<<<<<<< HEAD
 	if(blackboard[BB_HOSTILE_FRIEND] == WEAKREF(pointed_movable) || pointed_movable == pawn || !istype(pointed_movable) || blackboard[BB_HOSTILE_ORDER_MODE] == HOSTILE_COMMAND_NONE) // busy or no command
+=======
+	if(blackboard[BB_HOSTILE_FRIEND] == pointed_movable \
+		|| pointed_movable == pawn \
+		|| !istype(pointed_movable) \
+		|| blackboard[BB_HOSTILE_ORDER_MODE] == HOSTILE_COMMAND_NONE) // busy or no command
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!can_see(pawn, pointing_friend, length=blackboard[BB_VISION_RANGE]) || !can_see(pawn, pointed_movable, length=blackboard[BB_VISION_RANGE]))
 		return
@@ -211,8 +274,13 @@
 
 	if(blackboard[BB_HOSTILE_ORDER_MODE] == HOSTILE_COMMAND_ATTACK)
 		pawn.visible_message(span_notice("[pawn] follows [pointing_friend]'s gesture towards [pointed_movable] and [blackboard[BB_HOSTILE_ATTACK_WORD]] intensely!"))
+<<<<<<< HEAD
 		set_movement_target(pointed_movable)
 		blackboard[BB_ATTACK_TARGET] = WEAKREF(pointed_movable)
+=======
+		set_movement_target(type, pointed_movable)
+		set_blackboard_key(BB_ATTACK_TARGET, pointed_movable)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(living_pawn.buckled)
 			queue_behavior(/datum/ai_behavior/resist)//in case they are in bed or something
 		queue_behavior(/datum/ai_behavior/attack)

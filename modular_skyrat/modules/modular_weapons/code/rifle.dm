@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
 *	IMPROVISED RIFLE
 *	There was an improvised rifle on Cit/Skyrat, it's pretty cool so here it is too.
 *	We're using a slightly modified sprite designed around a Short Magazine Lee Enfield (SMLE) Mk.III
@@ -109,6 +110,8 @@
 	slot_flags = ITEM_SLOT_BELT
 
 /*
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 *	CFA RIFLE
 */
 
@@ -122,26 +125,48 @@
 	inhand_y_dimension = 64
 	lefthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/inhands/weapons/64x_guns_left.dmi'
 	righthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/inhands/weapons/64x_guns_right.dmi'
+<<<<<<< HEAD
 	worn_icon_state = null
 	mag_type = /obj/item/ammo_box/magazine/cm68
 	fire_delay = 5
 	can_suppress = FALSE
 	burst_size = 0
 	fire_select_modes = list(SELECT_SEMI_AUTOMATIC)
+=======
+	worn_icon_state = "gun"
+	mag_type = /obj/item/ammo_box/magazine/cm68
+	fire_delay = 5
+	can_suppress = FALSE
+	burst_size = 1
+	actions_types = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mag_display = FALSE
 	mag_display_ammo = FALSE
 	empty_indicator = FALSE
 	recoil = 1
 	weapon_weight = WEAPON_HEAVY
 	pixel_x = -8
+<<<<<<< HEAD
 	has_gun_safety = FALSE
 	w_class = WEIGHT_CLASS_BULKY
 	company_flag = COMPANY_CANTALAN
+=======
+	w_class = WEIGHT_CLASS_BULKY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/automatic/cfa_rifle/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 1.5)
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/automatic/cfa_rifle/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_CANTALAN)
+
+/obj/item/gun/ballistic/automatic/cfa_rifle/give_gun_safeties()
+	return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/automatic/cfa_rifle/empty
 	spawnwithmagazine = FALSE
 

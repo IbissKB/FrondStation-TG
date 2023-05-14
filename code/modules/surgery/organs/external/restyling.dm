@@ -5,7 +5,11 @@
 	var/list/valid_restyles
 
 	valid_restyles = list()
+<<<<<<< HEAD
 	var/list/feature_list = get_global_feature_list()
+=======
+	var/list/feature_list = bodypart_overlay.get_global_feature_list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/accessory in feature_list)
 		var/datum/sprite_accessory/accessory_datum = feature_list[accessory]
 		if(initial(accessory_datum.locked)) //locked is for stuff that shouldn't appear here
@@ -31,7 +35,11 @@
 ///Asks the external organs inside the limb if they can restyle
 /obj/item/bodypart/proc/attempt_feature_restyle(atom/source, mob/living/trimmer, atom/movable/original_target, body_zone, restyle_type, style_speed)
 	var/list/valid_features = list()
+<<<<<<< HEAD
 	for(var/obj/item/organ/external/feature as anything in external_organs)
+=======
+	for(var/obj/item/organ/external/feature in external_organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(feature.restyle_flags & restyle_type)
 			valid_features.Add(feature)
 

@@ -24,7 +24,11 @@
 		return
 	COOLDOWN_START(src, surge_cooldown, 1 MINUTES)
 	surged.balloon_alert(surged, "you refuse to give up!")//breaks balloon alert conventions by using a "!" for a fail message but that's okay because it's a pretty awesome moment
+<<<<<<< HEAD
 	surged.heal_overall_damage(15, 15, BODYTYPE_ORGANIC)
+=======
+	surged.heal_overall_damage(brute = 15, burn = 15, required_bodytype = BODYTYPE_ORGANIC)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(surged.reagents.get_reagent_amount(/datum/reagent/medicine/ephedrine) < 20)
 		surged.reagents.add_reagent(/datum/reagent/medicine/ephedrine, 10)
 	if(surged.reagents.get_reagent_amount(/datum/reagent/medicine/epinephrine) < 20)

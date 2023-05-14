@@ -10,7 +10,11 @@
 	usage_flags = PROGRAM_TABLET // Must be a handheld device to read read your chakras or whatever
 
 /datum/computer_file/program/skill_tracker/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/list/skills = list()
 	data["skills"] = skills
@@ -51,10 +55,13 @@
 	return null
 
 /datum/computer_file/program/skill_tracker/ui_act(action, params, datum/tgui/ui)
+<<<<<<< HEAD
 	. = ..()
 	if(.)
 		return
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("PRG_reward")
 			var/skill_type = find_skilltype(params["skill"])

@@ -2,10 +2,13 @@
 	name = "Steal %ITEM% and destroy it"
 	description = "Find %ITEM% and destroy it using any means necessary. We can't allow the crew to have %ITEM% as it conflicts with our interests."
 
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
 	progression_reward = 5 MINUTES
 	telecrystal_reward = 0
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/possible_items = list()
 	/// The current target item that we are stealing.
 	var/datum/objective_item/steal/target_item
@@ -23,9 +26,16 @@
 	telecrystal_reward = 1
 
 	possible_items = list(
+<<<<<<< HEAD
 		/datum/objective_item/steal/low_risk/bartender_shotgun,
 		/datum/objective_item/steal/low_risk/fireaxe,
 		/datum/objective_item/steal/low_risk/nullrod,
+=======
+		/datum/objective_item/steal/traitor/bartender_shotgun,
+		/datum/objective_item/steal/traitor/fireaxe,
+		/datum/objective_item/steal/traitor/nullrod,
+		/datum/objective_item/steal/traitor/big_crowbar,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /datum/traitor_objective/destroy_item/very_risky
@@ -38,12 +48,16 @@
 	)
 
 /datum/traitor_objective/destroy_item/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+<<<<<<< HEAD
 	var/datum/job/role = generating_for.assigned_role
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/datum/traitor_objective/destroy_item/objective as anything in possible_duplicates)
 		possible_items -= objective.target_item.type
 	while(length(possible_items))
 		var/datum/objective_item/steal/target = pick_n_take(possible_items)
 		target = new target()
+<<<<<<< HEAD
 		if(!target.TargetExists())
 			qdel(target)
 			continue
@@ -54,6 +68,11 @@
 			var/list/items = GLOB.steal_item_handler.objectives_by_path[target.targetitem]
 			if(!length(items))
 				continue
+=======
+		if(!target.valid_objective_for(list(generating_for), require_owner = TRUE))
+			qdel(target)
+			continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		target_item = target
 		break
 	if(!target_item)

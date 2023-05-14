@@ -82,7 +82,11 @@
 	wound_falloff_tile = -2.5 // low damage + additional dropoff will already curb wounding potential anything past point blank
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
+<<<<<<< HEAD
 	name = "rubbershot pellet"
+=======
+	name = "rubber shot pellet"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 3
 	stamina = 11
 	sharpness = NONE

@@ -131,6 +131,11 @@
 #define FIRE_MINIMUM_TEMPERATURE_TO_SPREAD (150+T0C)
 ///Minimum temperature for fire to exist on a turf (100 °C or 373 K)
 #define FIRE_MINIMUM_TEMPERATURE_TO_EXIST (100+T0C)
+<<<<<<< HEAD
+=======
+///Minimum temperature for items on fire
+#define BURNING_ITEM_MINIMUM_TEMPERATURE (150+T0C)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Multiplier for the temperature shared to other turfs
 #define FIRE_SPREAD_RADIOSITY_SCALE 0.85
 ///Helper for small fires to grow

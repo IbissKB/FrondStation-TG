@@ -18,6 +18,7 @@
 	projectilesound = 'sound/effects/hit_on_shattered_glass.ogg'
 	ranged = 1
 	range = 13
+<<<<<<< HEAD
 	playstyle_string = "<span class='holoparasite'>As a <b>ranged</b> type, you have only light damage resistance, but are capable of spraying shards of crystal at incredibly high speed. You can also deploy surveillance snares to monitor enemy movement. Finally, you can switch to scout mode, in which you can't attack, but can move without limit.</span>"
 	magic_fluff_string = "<span class='holoparasite'>..And draw the Sentinel, an alien master of ranged combat.</span>"
 	tech_fluff_string = "<span class='holoparasite'>Boot sequence complete. Ranged combat modules active. Holoparasite swarm online.</span>"
@@ -78,12 +79,98 @@
 			msg = "You deactivate your night vision."
 
 	to_chat(src, span_notice("[msg]"))
+=======
+	playstyle_string = span_holoparasite("As a <b>ranged</b> type, you have only light damage resistance, but are capable of spraying shards of crystal at incredibly high speed. You can also deploy surveillance snares to monitor enemy movement. Finally, you can switch to scout mode, in which you can't attack, but can move without limit.")
+	magic_fluff_string = span_holoparasite("..And draw the Sentinel, an alien master of ranged combat.")
+	tech_fluff_string = span_holoparasite("Boot sequence complete. Ranged combat modules active. Holoparasite swarm online.")
+	carp_fluff_string = span_holoparasite("CARP CARP CARP! Caught one, it's a ranged carp. This fishy can watch people pee in the ocean.")
+	miner_fluff_string = span_holoparasite("You encounter... Diamond, a powerful projectile thrower.")
+	creator_name = "Ranged"
+	creator_desc = "Has two modes. Ranged; which fires a constant stream of weak, armor-ignoring projectiles. Scout; where it cannot attack, but can move through walls and is quite hard to see. Can lay surveillance snares, which alert it when crossed, in either mode."
+	creator_icon = "ranged"
+	see_invisible = SEE_INVISIBLE_LIVING
+	toggle_button_type = /atom/movable/screen/guardian/toggle_mode
+	/// List of all deployed snares.
+	var/list/snares = list()
+	/// Is it in scouting mode?
+	var/toggle = FALSE
+	/// Maximum snares deployed at once.
+	var/max_snares = 6
+	/// Lower damage before scouting.
+	var/previous_lower_damage = 0
+	/// Upper damage before scouting.
+	var/previous_upper_damage = 0
+
+/mob/living/simple_animal/hostile/guardian/ranged/toggle_modes()
+	if(is_deployed() && summoner)
+		to_chat(src, span_bolddanger("You have to be recalled to toggle modes!"))
+		return
+	if(toggle)
+		ranged = initial(ranged)
+		melee_damage_lower = previous_lower_damage
+		melee_damage_upper = previous_upper_damage
+		previous_lower_damage = 0
+		previous_upper_damage = 0
+		obj_damage = initial(obj_damage)
+		environment_smash = initial(environment_smash)
+		alpha = 255
+		range = initial(range)
+		to_chat(src, span_bolddanger("You switch to combat mode."))
+		toggle = FALSE
+	else
+		ranged = 0
+		previous_lower_damage = melee_damage_lower
+		melee_damage_lower = 0
+		previous_upper_damage = melee_damage_upper
+		melee_damage_upper = 0
+		obj_damage = 0
+		environment_smash = ENVIRONMENT_SMASH_NONE
+		alpha = 45
+		range = 255
+		to_chat(src, span_bolddanger("You switch to scout mode."))
+		toggle = TRUE
+
+
+/mob/living/simple_animal/hostile/guardian/ranged/Shoot(atom/targeted_atom)
+	. = ..()
+	if(!istype(., /obj/projectile))
+		return
+	var/obj/projectile/shot_projectile = .
+	shot_projectile.color = guardian_color
+
+/mob/living/simple_animal/hostile/guardian/ranged/toggle_light()
+	var/msg
+	switch(lighting_cutoff)
+		if (LIGHTING_CUTOFF_VISIBLE)
+			lighting_cutoff_red = 10
+			lighting_cutoff_green = 10
+			lighting_cutoff_blue = 15
+			msg = "You activate your night vision."
+		if (LIGHTING_CUTOFF_MEDIUM)
+			lighting_cutoff_red = 25
+			lighting_cutoff_green = 25
+			lighting_cutoff_blue = 35
+			msg = "You increase your night vision."
+		if (LIGHTING_CUTOFF_HIGH)
+			lighting_cutoff_red = 35
+			lighting_cutoff_green = 35
+			lighting_cutoff_blue = 50
+			msg = "You maximize your night vision."
+		else
+			lighting_cutoff_red = 0
+			lighting_cutoff_green = 0
+			lighting_cutoff_blue = 0
+			msg = "You deactivate your night vision."
+	sync_lighting_plane_cutoff()
+	to_chat(src, span_notice(msg))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /mob/living/simple_animal/hostile/guardian/ranged/verb/Snare()
 	set name = "Set Surveillance Snare"
 	set category = "Guardian"
 	set desc = "Set an invisible snare that will alert you when living creatures walk over it. Max of 5"
+<<<<<<< HEAD
 	if(length(snares) < 6)
 		var/turf/snare_loc = get_turf(loc)
 		var/obj/effect/snare/S = new /obj/effect/snare(snare_loc)
@@ -93,31 +180,59 @@
 		to_chat(src, "[span_danger("<B>Surveillance snare deployed!")]</B>")
 	else
 		to_chat(src, "[span_danger("<B>You have too many snares deployed. Remove some first.")]</B>")
+=======
+	if(length(snares) < max_snares)
+		var/turf/snare_loc = get_turf(src)
+		var/obj/effect/snare/new_snare = new /obj/effect/snare(snare_loc, src)
+		new_snare.name = "[get_area(snare_loc)] snare ([rand(1, 1000)])"
+		snares += new_snare
+		to_chat(src, span_bolddanger("Surveillance snare deployed!"))
+	else
+		to_chat(src, span_bolddanger("You have too many snares deployed. Remove some first."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/guardian/ranged/verb/DisarmSnare()
 	set name = "Remove Surveillance Snare"
 	set category = "Guardian"
 	set desc = "Disarm unwanted surveillance snares."
+<<<<<<< HEAD
 	var/picked_snare = tgui_input_list(src, "Pick which snare to remove", "Remove Snare", sort_names(snares))
 	if(isnull(picked_snare))
 		return
 	snares -= picked_snare
 	qdel(picked_snare)
 	to_chat(src, "[span_danger("<B>Snare disarmed.")]</B>")
+=======
+	var/picked_snare = tgui_input_list(src, "Pick which snare to remove.", "Remove Snare", sort_names(snares))
+	if(isnull(picked_snare))
+		return
+	qdel(picked_snare)
+	to_chat(src, span_bolddanger("Snare disarmed."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/snare
 	name = "snare"
 	desc = "You shouldn't be seeing this!"
+<<<<<<< HEAD
 	var/mob/living/simple_animal/hostile/guardian/spawner
 	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/effect/snare/Initialize(mapload)
 	. = ..()
+=======
+	invisibility = INVISIBILITY_ABSTRACT
+	var/datum/weakref/guardian_ref
+
+/obj/effect/snare/Initialize(mapload, spawning_guardian)
+	. = ..()
+	guardian_ref = WEAKREF(spawning_guardian)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+<<<<<<< HEAD
 /obj/effect/snare/proc/on_entered(datum/source, AM as mob|obj)
 	SIGNAL_HANDLER
 	if(isliving(AM) && spawner && spawner.summoner && AM != spawner && !spawner.hasmatchingsummoner(AM))
@@ -125,6 +240,29 @@
 		var/list/guardians = spawner.summoner.get_all_linked_holoparasites()
 		for(var/para in guardians)
 			to_chat(para, "[span_danger("<B>[AM] has crossed surveillance snare, [name].")]</B>")
+=======
+/obj/effect/snare/Destroy(force)
+	var/mob/living/simple_animal/hostile/guardian/ranged/spawning_guardian = guardian_ref?.resolve()
+	if(spawning_guardian)
+		spawning_guardian.snares -= src
+	return ..()
+
+/obj/effect/snare/proc/on_entered(datum/source, crossed_object)
+	SIGNAL_HANDLER
+	var/mob/living/simple_animal/hostile/guardian/ranged/spawning_guardian = guardian_ref?.resolve()
+	if(!spawning_guardian)
+		qdel(src)
+		return
+	if(!isliving(crossed_object) || crossed_object == spawning_guardian || spawning_guardian.hasmatchingsummoner(crossed_object))
+		return
+	send_message(spawning_guardian.summoner || spawning_guardian, crossed_object)
+
+/obj/effect/snare/proc/send_message(mob/living/recipient, crossed_object)
+	to_chat(recipient, span_bolddanger("[crossed_object] has crossed [name]."))
+	var/list/guardians = recipient.get_all_linked_holoparasites()
+	for(var/guardian in guardians)
+		send_message(guardian, crossed_object)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/snare/singularity_act()
 	return
@@ -132,6 +270,7 @@
 /obj/effect/snare/singularity_pull()
 	return
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/guardian/ranged/Manifest(forced)
 	if (toggle)
 		incorporeal_move = INCORPOREAL_MOVE_BASIC
@@ -146,3 +285,17 @@
 	if(toggle)
 		return
 	..()
+=======
+/mob/living/simple_animal/hostile/guardian/ranged/manifest_effects()
+	if(toggle)
+		incorporeal_move = INCORPOREAL_MOVE_BASIC
+
+/mob/living/simple_animal/hostile/guardian/ranged/recall_effects()
+	// To stop scout mode from moving when recalled
+	incorporeal_move = FALSE
+
+/mob/living/simple_animal/hostile/guardian/ranged/AttackingTarget(atom/attacked_target)
+	if(toggle)
+		return
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

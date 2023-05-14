@@ -65,8 +65,13 @@
 	var/IO = 0
 	var/MC = 0
 	var/C
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/capacitor/CP in component_parts)
 		IO += CP.rating
+=======
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		IO += capacitor.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	input_level_max = initial(input_level_max) * IO
 	output_level_max = initial(output_level_max) * IO
 	for(var/obj/item/stock_parts/cell/PC in component_parts)

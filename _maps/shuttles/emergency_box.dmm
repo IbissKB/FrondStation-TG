@@ -79,6 +79,12 @@
 /area/shuttle/escape)
 "as" = (
 /obj/item/radio/intercom/directional/south,
+<<<<<<< HEAD
+=======
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "at" = (
@@ -105,7 +111,11 @@
 /area/shuttle/escape)
 "aA" = (
 /obj/structure/chair/comfy/shuttle,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aB" = (
 /obj/machinery/flasher/directional/north{
@@ -141,10 +151,17 @@
 /obj/machinery/flasher/directional/west{
 	id = "shuttle_flasher"
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "aG" = (
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"aG" = (
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aH" = (
 /obj/machinery/door/airlock/public/glass{
@@ -158,13 +175,21 @@
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aJ" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aK" = (
 /obj/structure/chair/comfy/shuttle,
@@ -196,18 +221,26 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "aT" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "aV" = (
@@ -264,9 +297,13 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "bi" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)
@@ -305,15 +342,48 @@
 /area/shuttle/escape)
 "br" = (
 /obj/machinery/light/small/directional/east,
+<<<<<<< HEAD
+=======
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "bs" = (
 /obj/machinery/light/small/directional/west,
+<<<<<<< HEAD
+=======
+/obj/machinery/camera/autoname{
+	dir = 10
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
 "ga" = (
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
+<<<<<<< HEAD
+=======
+"jA" = (
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
+"oY" = (
+/obj/machinery/camera/autoname{
+	dir = 6
+	},
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/escape)
+"pW" = (
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Dk" = (
 /obj/machinery/vending/wallmed/directional/north{
 	use_power = 0
@@ -361,7 +431,11 @@ ad
 ad
 aA
 aF
+<<<<<<< HEAD
 aG
+=======
+pW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ad
 bn
 ao
@@ -441,7 +515,11 @@ aT
 aT
 aT
 aT
+<<<<<<< HEAD
 aC
+=======
+jA
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ad
 bc
 br
@@ -554,7 +632,11 @@ ad
 aE
 bl
 an
+<<<<<<< HEAD
 an
+=======
+oY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 aR
 am
 am

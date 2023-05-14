@@ -3,6 +3,10 @@
 	desc = "A slim Type I armored vest that provides decent protection against most types of damage."
 	item = /obj/item/clothing/suit/armor/vest
 	cost = 1
+<<<<<<< HEAD
+=======
+	illegal_tech = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	progression_minimum = 10 MINUTES
 
 /datum/uplink_item/suits/bulletproof_armor
@@ -10,6 +14,10 @@
 	desc = "A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
 	item = /obj/item/clothing/suit/armor/bulletproof
 	cost = 3
+<<<<<<< HEAD
+=======
+	illegal_tech = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	progression_minimum = 15 MINUTES
 
 /datum/uplink_item/suits/swathelmet_traitor
@@ -17,4 +25,8 @@
 	desc = "An extremely robust, space-worthy helmet in a nefarious red and black stripe pattern."
 	item = /obj/item/clothing/head/helmet/swat
 	cost = 2
+<<<<<<< HEAD
+=======
+	illegal_tech = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	progression_minimum = 10 MINUTES

@@ -35,7 +35,11 @@
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 
+<<<<<<< HEAD
 	if(!can_interact(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!can_interact(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	set_anchored(!anchored)
@@ -152,5 +156,9 @@
 	poor_target.Paralyze(5 SECONDS)
 	poor_target.emote("scream")
 	playsound(poor_target, 'sound/magic/clockwork/fellowship_armory.ogg', 50, TRUE)
+<<<<<<< HEAD
 	add_memory_in_range(poor_target, 7, MEMORY_VENDING_CRUSHED, list(DETAIL_PROTAGONIST = poor_target, DETAIL_WHAT_BY = src), story_value = STORY_VALUE_AMAZING, memory_flags = MEMORY_CHECK_BLINDNESS, protagonist_memory_flags = MEMORY_SKIP_UNCONSCIOUS)
+=======
+	add_memory_in_range(poor_target, 7, /datum/memory/witness_vendor_crush, protagonist = poor_target, antognist = src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE

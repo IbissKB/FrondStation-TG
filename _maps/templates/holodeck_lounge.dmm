@@ -61,8 +61,12 @@
 	},
 /area/template_noop)
 "j" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/holofloor{
@@ -80,8 +84,12 @@
 /area/template_noop)
 "l" = (
 /obj/structure/chair/stool/bar/directional/south,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/holofloor{
@@ -178,9 +186,13 @@
 	},
 /area/template_noop)
 "G" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table/wood/shuttle_bar,
 /obj/item/storage/box/cups,
 /turf/open/floor/holofloor{
@@ -251,7 +263,11 @@
 	},
 /area/template_noop)
 "R" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor{
 	dir = 9;
 	icon_state = "wood"
@@ -289,8 +305,12 @@
 /area/template_noop)
 "Y" = (
 /obj/structure/table/wood/shuttle_bar,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/holofloor{

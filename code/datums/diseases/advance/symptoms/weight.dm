@@ -8,6 +8,10 @@
 /datum/symptom/weight_loss
 	name = "Weight Loss"
 	desc = "The virus mutates the host's metabolism, making it almost unable to gain nutrition from food."
+<<<<<<< HEAD
+=======
+	illness = "Placid Reflux"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -2
 	resistance = 2
 	stage_speed = -2

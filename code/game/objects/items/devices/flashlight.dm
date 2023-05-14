@@ -1,8 +1,20 @@
+<<<<<<< HEAD
+=======
+#define FAILURE 0
+#define SUCCESS 1
+#define NO_FUEL 2
+#define ALREADY_LIT 3
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."
 	custom_price = PAYCHECK_CREW
 	icon = 'icons/obj/lighting.dmi'
+<<<<<<< HEAD
+=======
+	dir = WEST
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "flashlight"
 	inhand_icon_state = "flashlight"
 	worn_icon_state = "flashlight"
@@ -11,7 +23,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
+=======
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass= SMALL_MATERIAL_AMOUNT * 0.2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	actions_types = list(/datum/action/item_action/toggle_light)
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 	light_range = 4
@@ -49,6 +65,7 @@
 
 	return NONE
 
+<<<<<<< HEAD
 // SKYRAT EDIT REMOVAL BEGIN - MOVED TO MODUALR FLASHLIGHT.DM
 /*
 /obj/item/flashlight/proc/update_brightness(mob/user)
@@ -56,10 +73,22 @@
 		icon_state = "[initial(icon_state)]-on"
 	else
 		icon_state = initial(icon_state)
+=======
+/obj/item/flashlight/proc/update_brightness()
+	if(on)
+		icon_state = "[initial(icon_state)]-on"
+		if(!isnull(inhand_icon_state))
+			inhand_icon_state = "[initial(inhand_icon_state)]-on"
+	else
+		icon_state = initial(icon_state)
+		if(!isnull(inhand_icon_state))
+			inhand_icon_state = initial(inhand_icon_state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_light_on(on)
 	if(light_system == STATIC_LIGHT)
 		update_light()
 
+<<<<<<< HEAD
 /obj/item/flashlight/proc/toggle_light(mob/user)
 	on = !on
 	playsound(user, on ? sound_on : sound_off, 40, TRUE)
@@ -68,6 +97,19 @@
 
 /obj/item/flashlight/attack_self(mob/user)
 	toggle_light(user)
+=======
+// SKYRAT EDIT REMOVAL BEGIN - MOVED TO MODUALR FLASHLIGHT.DM
+/*
+/obj/item/flashlight/proc/toggle_light()
+	on = !on
+	playsound(src, on ? sound_on : sound_off, 40, TRUE)
+	update_brightness()
+	update_item_action_buttons()
+	return TRUE
+
+/obj/item/flashlight/attack_self(mob/user)
+	toggle_light()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 */
 // SKYRAT EDIT REMOVAL END
 
@@ -107,7 +149,11 @@
 					to_chat(user, span_warning("You're going to need to remove that [(M.head && M.head.flags_cover & HEADCOVERSEYES) ? "helmet" : (M.wear_mask && M.wear_mask.flags_cover & MASKCOVERSEYES) ? "mask": "glasses"] first!"))
 					return
 
+<<<<<<< HEAD
 				var/obj/item/organ/internal/eyes/E = M.getorganslot(ORGAN_SLOT_EYES)
+=======
+				var/obj/item/organ/internal/eyes/E = M.get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(!E)
 					to_chat(user, span_warning("[M] doesn't have any eyes!"))
 					return
@@ -136,7 +182,11 @@
 				var/their = M.p_their()
 
 				var/list/mouth_organs = new
+<<<<<<< HEAD
 				for(var/obj/item/organ/organ as anything in M.internal_organs)
+=======
+				for(var/obj/item/organ/organ as anything in M.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					if(organ.zone == BODY_ZONE_PRECISE_MOUTH)
 						mouth_organs.Add(organ)
 				var/organ_list = ""
@@ -195,9 +245,28 @@
 	else
 		return ..()
 
+<<<<<<< HEAD
 /obj/item/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff. It can also be used to create a hologram to alert people of incoming medical assistance."
+=======
+/// for directional sprites - so we get the same sprite in the inventory each time we pick one up
+/obj/item/flashlight/equipped(mob/user, slot, initial)
+	. = ..()
+	setDir(initial(dir))
+	SEND_SIGNAL(user, COMSIG_ATOM_DIR_CHANGE, user.dir, user.dir) // This is dumb, but if we don't do this then the lighting overlay may be facing the wrong direction depending on how it is picked up
+
+/// for directional sprites - so when we drop the flashlight, it drops facing the same way the user is facing
+/obj/item/flashlight/dropped(mob/user, silent = FALSE)
+	. = ..()
+	if(istype(user) && dir != user.dir)
+		setDir(user.dir)
+
+/obj/item/flashlight/pen
+	name = "penlight"
+	desc = "A pen-sized light, used by medical staff. It can also be used to create a hologram to alert people of incoming medical assistance."
+	dir = EAST
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "penlight"
 	inhand_icon_state = ""
 	worn_icon_state = "pen"
@@ -245,6 +314,10 @@
 /obj/item/flashlight/seclite
 	name = "seclite"
 	desc = "A robust flashlight used by security."
+<<<<<<< HEAD
+=======
+	dir = EAST
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "seclite"
 	inhand_icon_state = "seclite"
 	worn_icon_state = "seclite"
@@ -263,8 +336,14 @@
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	force = 10
+<<<<<<< HEAD
 	light_range = 5
 	light_system = STATIC_LIGHT
+=======
+	light_range = 3.5
+	light_system = STATIC_LIGHT
+	light_color = LIGHT_COLOR_FAINT_BLUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_BULKY
 	flags_1 = CONDUCT_1
 	custom_materials = null
@@ -275,6 +354,10 @@
 	desc = "A classic green-shaded desk lamp."
 	icon_state = "lampgreen"
 	inhand_icon_state = "lampgreen"
+<<<<<<< HEAD
+=======
+	light_color = LIGHT_COLOR_TUNGSTEN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Bananalamp
 /obj/item/flashlight/lamp/bananalamp
@@ -282,12 +365,19 @@
 	desc = "Only a clown would think to make a ghetto banana-shaped lamp. Even has a goofy pullstring."
 	icon_state = "bananalamp"
 	inhand_icon_state = null
+<<<<<<< HEAD
+=======
+	light_color = LIGHT_COLOR_BRIGHT_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // FLARES
 /obj/item/flashlight/flare
 	name = "flare"
 	desc = "A red Nanotrasen issued flare. There are instructions on the side, it reads 'pull cord, make light'."
+<<<<<<< HEAD
 	w_class = WEIGHT_CLASS_SMALL
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_range = 7 // Pretty bright.
 	icon_state = "flare"
 	inhand_icon_state = "flare"
@@ -301,6 +391,7 @@
 	toggle_context = FALSE
 	/// How many seconds of fuel we have left
 	var/fuel = 0
+<<<<<<< HEAD
 	var/on_damage = 7
 	var/produce_heat = 1500
 
@@ -356,14 +447,249 @@
 		force = on_damage
 		damtype = BURN
 		START_PROCESSING(SSobj, src)
+=======
+	/// Do we randomize the fuel when initialized
+	var/randomize_fuel = TRUE
+	/// How much damage it does when turned on
+	var/on_damage = 7
+	/// Type of atom thats spawns after fuel is used up
+	var/trash_type = /obj/item/trash/flare
+	/// If the light source can be extinguished
+	var/can_be_extinguished = FALSE
+	custom_materials = list(/datum/material/plastic= SMALL_MATERIAL_AMOUNT * 0.5)
+
+/obj/item/flashlight/flare/Initialize(mapload)
+	. = ..()
+	if(randomize_fuel)
+		fuel = rand(25 MINUTES, 35 MINUTES)
+	if(on)
+		attack_verb_continuous = string_list(list("burns", "singes"))
+		attack_verb_simple = string_list(list("burn", "singe"))
+		hitsound = 'sound/items/welder.ogg'
+		force = on_damage
+		damtype = BURN
+		update_brightness()
+
+/obj/item/flashlight/flare/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/item/flashlight/flare/attack(mob/living/carbon/victim, mob/living/carbon/user)
+	if(!isliving(victim))
+		return ..()
+
+	if(on && victim.ignite_mob())
+		message_admins("[ADMIN_LOOKUPFLW(user)] set [key_name_admin(victim)] on fire with [src] at [AREACOORD(user)]")
+		user.log_message("set [key_name(victim)] on fire with [src]", LOG_ATTACK)
+
+	return ..()
+
+/obj/item/flashlight/flare/toggle_light()
+	if(on || !fuel)
+		return FALSE
+
+	name = "lit [initial(name)]"
+	attack_verb_continuous = string_list(list("burns", "singes"))
+	attack_verb_simple = string_list(list("burn", "singe"))
+	hitsound = 'sound/items/welder.ogg'
+	force = on_damage
+	damtype = BURN
+	. = ..()
+
+/obj/item/flashlight/flare/turn_off() //SKYRAT EDIT CHANGE
+	//on = FALSE SKYRAT EDIT REMOVAL
+	name = initial(name)
+	attack_verb_continuous = initial(attack_verb_continuous)
+	attack_verb_simple = initial(attack_verb_simple)
+	hitsound = initial(hitsound)
+	force = initial(force)
+	damtype = initial(damtype)
+	//update_brightness() - SKYRAT EDIT MOVED TO PARENT
+	. = ..() //SKYRAT EDIT - MODULAR PARENT PROC
+
+/obj/item/flashlight/flare/extinguish()
+	. = ..()
+	if((fuel != INFINITY) && can_be_extinguished)
+		turn_off()
+
+/obj/item/flashlight/flare/update_brightness()
+	..()
+	inhand_icon_state = "[initial(inhand_icon_state)]" + (on ? "-on" : "")
+	update_appearance()
+
+/obj/item/flashlight/flare/process(seconds_per_tick)
+	open_flame(heat)
+	fuel = max(fuel - seconds_per_tick * (1 SECONDS), 0)
+
+	if(!fuel || !on)
+		turn_off()
+		STOP_PROCESSING(SSobj, src)
+
+		if(!fuel && trash_type)
+			new trash_type(loc)
+			qdel(src)
+
+/obj/item/flashlight/flare/proc/ignition(mob/user)
+	if(!fuel)
+		if(user)
+			balloon_alert(user, "out of fuel!")
+		return NO_FUEL
+	if(on)
+		if(user)
+			balloon_alert(user, "already lit!")
+		return ALREADY_LIT
+	if(!toggle_light())
+		return FAILURE
+
+	if(fuel != INFINITY)
+		START_PROCESSING(SSobj, src)
+
+	return SUCCESS
+
+/obj/item/flashlight/flare/fire_act(exposed_temperature, exposed_volume)
+	ignition()
+	return ..()
+
+/obj/item/flashlight/flare/attack_self(mob/user)
+	if(ignition(user) == SUCCESS)
+		user.visible_message(span_notice("[user] lights \the [src]."), span_notice("You light \the [initial(src.name)]!"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/flashlight/flare/get_temperature()
 	return on * heat
 
+<<<<<<< HEAD
 /obj/item/flashlight/flare/torch
 	name = "torch"
 	desc = "A torch fashioned from some leaves and a log."
 	w_class = WEIGHT_CLASS_SMALL
+=======
+/obj/item/flashlight/flare/candle
+	name = "red candle"
+	desc = "In Greek myth, Prometheus stole fire from the Gods and gave it to \
+		humankind. The jewelry he kept for himself."
+	icon = 'icons/obj/candle.dmi'
+	icon_state = "candle1"
+	inhand_icon_state = "candle"
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	w_class = WEIGHT_CLASS_TINY
+	heat = 1000
+	light_color = LIGHT_COLOR_FIRE
+	light_range = 2
+	fuel = 35 MINUTES
+	randomize_fuel = FALSE
+	trash_type = /obj/item/trash/candle
+	can_be_extinguished = TRUE
+	var/scented_type //SKYRAT EDIT ADDITION /// Pollutant type for scented candles
+	/// The current wax level, used for drawing the correct icon
+	var/current_wax_level = 1
+	/// The previous wax level, remembered so we only have to make 3 update_appearance calls total as opposed to every tick
+	var/last_wax_level = 1
+
+/obj/item/flashlight/flare/candle/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/**
+ * Just checks the wax level of the candle for displaying the correct sprite.
+ *
+ * This gets called in process() every tick. If the wax level has changed, then we call our update.
+ */
+/obj/item/flashlight/flare/candle/proc/check_wax_level()
+	switch(fuel)
+		if(25 MINUTES to INFINITY)
+			current_wax_level = 1
+		if(15 MINUTES to 25 MINUTES)
+			current_wax_level = 2
+		if(0 to 15 MINUTES)
+			current_wax_level = 3
+
+	if(last_wax_level != current_wax_level)
+		last_wax_level = current_wax_level
+		update_appearance(UPDATE_ICON | UPDATE_NAME)
+
+/obj/item/flashlight/flare/candle/update_icon_state()
+	. = ..()
+	icon_state = "candle[current_wax_level][on ? "_lit" : ""]"
+	inhand_icon_state = "candle[on ? "_lit" : ""]"
+
+/**
+ * Try to ignite the candle.
+ *
+ * Candles are ignited a bit differently from flares, in that they must be manually lit from other fire sources.
+ * This will perform all the necessary checks to ensure that can happen, and display a message if it worked.
+ *
+ * Arguments:
+ * * obj/item/fire_starter - the item being used to ignite the candle.
+ * * mob/user - the user to display a message to.
+ * * quiet - suppresses the to_chat message.
+ * * silent - suppresses the balloon alerts as well as the to_chat message.
+ */
+/obj/item/flashlight/flare/candle/proc/try_light_candle(obj/item/fire_starter, mob/user, quiet, silent)
+	if(!istype(fire_starter))
+		return
+	if(!istype(user))
+		return
+
+	var/success_msg = fire_starter.ignition_effect(src, user)
+	var/ignition_result
+
+	if(success_msg)
+		ignition_result = ignition()
+
+	switch(ignition_result)
+		if(SUCCESS)
+			update_appearance(UPDATE_ICON | UPDATE_NAME)
+			if(!quiet && !silent)
+				user.visible_message(success_msg)
+			return SUCCESS
+		if(ALREADY_LIT)
+			if(!silent)
+				balloon_alert(user, "already lit!")
+			return ALREADY_LIT
+		if(NO_FUEL)
+			if(!silent)
+				balloon_alert(user, "out of fuel!")
+			return NO_FUEL
+
+/// allows lighting an unlit candle from some fire source by left clicking the candle with the source
+/obj/item/flashlight/flare/candle/attackby(obj/item/attacking_item, mob/user, params)
+	if(try_light_candle(attacking_item, user, silent = istype(attacking_item, src.type))) // so we don't double balloon alerts when a candle is used to light another candle
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	else
+		return ..()
+
+// allows lighting an unlit candle from some fire source by left clicking the source with the candle
+/obj/item/flashlight/flare/candle/pre_attack(atom/target, mob/living/user, params)
+	if(ismob(target))
+		return ..()
+
+	if(try_light_candle(target, user, quiet = TRUE))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
+	return ..()
+
+/obj/item/flashlight/flare/candle/attack_self(mob/user)
+	if(on && (fuel != INFINITY || !can_be_extinguished)) // can't extinguish eternal candles
+		turn_off()
+		user.visible_message(span_notice("[user] snuffs [src]."))
+
+/obj/item/flashlight/flare/candle/process(seconds_per_tick)
+	. = ..()
+	check_wax_level()
+
+/obj/item/flashlight/flare/candle/infinite
+	name = "eternal candle"
+	fuel = INFINITY
+	on = TRUE
+	randomize_fuel = FALSE
+	can_be_extinguished = FALSE
+
+/obj/item/flashlight/flare/torch
+	name = "torch"
+	desc = "A torch fashioned from some leaves and a log."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_range = 4
 	icon_state = "torch"
 	inhand_icon_state = "torch"
@@ -372,6 +698,11 @@
 	light_color = LIGHT_COLOR_ORANGE
 	on_damage = 10
 	slot_flags = null
+<<<<<<< HEAD
+=======
+	trash_type = /obj/effect/decal/cleanable/ash
+	can_be_extinguished = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/flashlight/lantern
 	name = "lantern"
@@ -392,7 +723,11 @@
 	name = "suspicious lantern"
 	desc = "A suspicious looking lantern."
 	icon_state = "syndilantern"
+<<<<<<< HEAD
 	inhand_icon_state = null
+=======
+	inhand_icon_state = "syndilantern"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_range = 10
 
 /obj/item/flashlight/lantern/jade
@@ -429,10 +764,17 @@
 
 /obj/item/flashlight/emp/Destroy()
 	STOP_PROCESSING(SSobj, src)
+<<<<<<< HEAD
 	. = ..()
 
 /obj/item/flashlight/emp/process(delta_time)
 	charge_timer += delta_time
+=======
+	return ..()
+
+/obj/item/flashlight/emp/process(seconds_per_tick)
+	charge_timer += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(charge_timer < charge_delay)
 		return FALSE
 	charge_timer -= charge_delay
@@ -491,7 +833,11 @@
 	var/fuel = 0
 
 /obj/item/flashlight/glowstick/Initialize(mapload)
+<<<<<<< HEAD
 	fuel = rand(3200, 4000)
+=======
+	fuel = rand(50 MINUTES, 60 MINUTES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_light_color(color)
 	return ..()
 
@@ -499,17 +845,29 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/flashlight/glowstick/process(delta_time)
 	fuel = max(fuel - delta_time, 0)
 	if(fuel <= 0)
 		turn_off()
 		STOP_PROCESSING(SSobj, src)
 		update_appearance()
+=======
+/obj/item/flashlight/glowstick/process(seconds_per_tick)
+	fuel = max(fuel - seconds_per_tick * (1 SECONDS), 0)
+	if(fuel <= 0)
+		turn_off()
+		STOP_PROCESSING(SSobj, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /* SKYRAT EDIT REMOVAL
 /obj/item/flashlight/glowstick/proc/turn_off()
 	on = FALSE
+<<<<<<< HEAD
 	update_appearance()
+=======
+	update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 */
 
 /obj/item/flashlight/glowstick/update_appearance(updates=ALL)
@@ -537,10 +895,17 @@
 
 /obj/item/flashlight/glowstick/attack_self(mob/user)
 	if(fuel <= 0)
+<<<<<<< HEAD
 		to_chat(user, span_notice("[src] is spent."))
 		return
 	if(on)
 		to_chat(user, span_warning("[src] is already lit!"))
+=======
+		balloon_alert(user, "glowstick is spent!")
+		return
+	if(on)
+		balloon_alert(user, "already lit!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	. = ..()
@@ -552,7 +917,11 @@
 	if(!fuel)
 		user.visible_message(span_suicide("[user] is trying to squirt [src]'s fluids into [user.p_their()] eyes... but it's empty!"))
 		return SHAME
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
+=======
+	var/obj/item/organ/internal/eyes/eyes = user.get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!eyes)
 		user.visible_message(span_suicide("[user] is trying to squirt [src]'s fluids into [user.p_their()] eyes... but [user.p_they()] don't have any!"))
 		return SHAME
@@ -578,7 +947,11 @@
 
 /obj/item/flashlight/glowstick/yellow
 	name = "yellow glowstick"
+<<<<<<< HEAD
 	color = LIGHT_COLOR_YELLOW
+=======
+	color = LIGHT_COLOR_DIM_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/flashlight/glowstick/pink
 	name = "pink glowstick"
@@ -623,7 +996,11 @@
 	///Variable to preserve old lighting behavior in flashlights, to handle darkness.
 	var/dark_light_power = -3
 
+<<<<<<< HEAD
 /obj/item/flashlight/flashdark/update_brightness(mob/user)
+=======
+/obj/item/flashlight/flashdark/update_brightness()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(on)
 		set_light(dark_light_range, dark_light_power)
@@ -648,3 +1025,16 @@
 	human emit the smallest amount of light possible. Thanks for reading :)"
 	light_range = 1
 	light_power = 0.07
+<<<<<<< HEAD
+=======
+
+/obj/item/flashlight/eyelight/glow
+	light_system = MOVABLE_LIGHT_BEAM
+	light_range = 4
+	light_power = 2
+
+#undef FAILURE
+#undef SUCCESS
+#undef NO_FUEL
+#undef ALREADY_LIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

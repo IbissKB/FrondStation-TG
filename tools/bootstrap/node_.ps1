@@ -20,7 +20,12 @@ function Download-Node {
 	Write-Output "Downloading Node v$NodeVersion (may take a while)"
 	New-Item $NodeTargetDir -ItemType Directory -ErrorAction silentlyContinue | Out-Null
 	$WebClient = New-Object Net.WebClient
+<<<<<<< HEAD
 	$WebClient.DownloadFile($NodeSource, $NodeTarget)
+=======
+	$WebClient.DownloadFile($NodeSource, "$NodeTarget.downloading")
+	Rename-Item "$NodeTarget.downloading" $NodeTarget
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 }
 
 ## Convenience variables

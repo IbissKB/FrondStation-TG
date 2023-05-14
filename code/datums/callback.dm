@@ -67,6 +67,7 @@
 		arguments = args.Copy(3)
 	if(usr)
 		user = WEAKREF(usr)
+<<<<<<< HEAD
 /**
  * Immediately Invoke proctocall on thingtocall, with waitfor set to false
  *
@@ -87,6 +88,8 @@
 		call(proctocall)(arglist(calling_arguments))
 	else
 		call(thingtocall, proctocall)(arglist(calling_arguments))
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Invoke this callback

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!-- This should be copy-pasted into the root of your module folder as readme.md>
+=======
+<!-- This should be copy-pasted into the root of your module folder as readme.md -->
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 https://github.com/Skyrat-SS13/Skyrat-tg/pull/<!--PR Number-->
 

@@ -56,7 +56,12 @@ const Buttons = (props, context) => {
         <Button
           icon="flask"
           content="Create culture bottle"
+<<<<<<< HEAD
           disabled={!is_ready}
+=======
+          disabled={!is_ready || !virus}
+          tooltip={virus ? '' : 'No virus culture found.'}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           onClick={() =>
             act('create_culture_bottle', {
               index: virus.index,

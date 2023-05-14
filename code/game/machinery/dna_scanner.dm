@@ -5,7 +5,11 @@
 	icon_state = "scanner"
 	base_icon_state = "scanner"
 	density = TRUE
+<<<<<<< HEAD
 	obj_flags = NO_BUILD // Becomes undense when the door is open
+=======
+	obj_flags = BLOCKS_CONSTRUCTION // Becomes undense when the door is open
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	occupant_typecache = list(/mob/living, /obj/item/bodypart/head, /obj/item/organ/internal/brain)
 	circuit = /obj/item/circuitboard/machine/dnascanner
 	var/locked = FALSE
@@ -23,10 +27,17 @@
 	precision_coeff = 0
 	for(var/datum/stock_part/scanning_module/scanning_module in component_parts)
 		scan_level += scanning_module.tier
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
 		precision_coeff = M.rating
 	for(var/obj/item/stock_parts/micro_laser/P in component_parts)
 		damage_coeff = P.rating
+=======
+	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
+		precision_coeff = matter_bin.tier
+	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
+		damage_coeff = micro_laser.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/dna_scannernew/examine(mob/user)
 	. = ..()
@@ -91,7 +102,11 @@
 			return C
 	return null
 
+<<<<<<< HEAD
 /obj/machinery/dna_scannernew/close_machine(mob/living/carbon/user)
+=======
+/obj/machinery/dna_scannernew/close_machine(mob/living/carbon/user, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!state_open)
 		return FALSE
 
@@ -104,7 +119,11 @@
 
 	return TRUE
 
+<<<<<<< HEAD
 /obj/machinery/dna_scannernew/open_machine()
+=======
+/obj/machinery/dna_scannernew/open_machine(drop = TRUE, density_to_set = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(state_open)
 		return FALSE
 
@@ -115,6 +134,10 @@
 
 	return TRUE
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/dna_scannernew/relaymove(mob/living/user, direction)
 	if(user.stat || locked)
 		if(message_cooldown <= world.time)
@@ -129,7 +152,11 @@
 		update_appearance()//..since we're updating the icon here, since the scanner can be unpowered when opened/closed
 		return
 
+<<<<<<< HEAD
 	if(default_pry_open(I))
+=======
+	if(default_pry_open(I, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(default_deconstruction_crowbar(I))

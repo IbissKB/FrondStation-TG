@@ -12,6 +12,7 @@
 	. = ..()
 	if (!proximity)
 		return
+<<<<<<< HEAD
 	var/obj/item/organ/internal/monster_core/target_core = target_organ
 	if (!istype(target_core, /obj/item/organ/internal/monster_core))
 		balloon_alert(user, "invalid target!")
@@ -23,6 +24,22 @@
 
 	balloon_alert(user, "organ stabilized")
 	qdel(src)
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+	var/obj/item/organ/internal/monster_core/target_core = target_organ
+	if (!istype(target_core, /obj/item/organ/internal/monster_core))
+		balloon_alert(user, "invalid target!")
+		return .
+
+	if (!target_core.preserve())
+		balloon_alert(user, "organ decayed!")
+		return .
+
+	balloon_alert(user, "organ stabilized")
+	qdel(src)
+	return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Useful organs which drop as loot from a mining creature.
@@ -66,18 +83,31 @@
 	deltimer(decay_timer)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/organ/internal/monster_core/Insert(mob/living/carbon/target_carbon, special = 0, drop_if_replaced = TRUE)
 	. = ..()
 	if (!.)
 		return
 	if (inert)
 		to_chat(owner, span_notice("[src] breaks down as you try to insert it."))
+=======
+/obj/item/organ/internal/monster_core/Insert(mob/living/carbon/target_carbon, special = FALSE, drop_if_replaced = TRUE)
+	. = ..()
+	if(!.)
+		return
+	if (inert)
+		to_chat(target_carbon, span_notice("[src] breaks down as you try to insert it."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		qdel(src)
 		return FALSE
 	if (!decay_timer)
 		return TRUE
 	preserve(TRUE)
+<<<<<<< HEAD
 	owner.visible_message(span_notice("[src] stabilizes as it's inserted."))
+=======
+	target_carbon.visible_message(span_notice("[src] stabilizes as it's inserted."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/item/organ/internal/monster_core/Remove(mob/living/carbon/target_carbon, special = 0)
@@ -137,9 +167,16 @@
 	if (!proximity_flag)
 		return
 	try_apply(target, user)
+<<<<<<< HEAD
 
 /obj/item/organ/internal/monster_core/attack_self(mob/user)
 	if (!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	return . | AFTERATTACK_PROCESSED_ITEM
+
+/obj/item/organ/internal/monster_core/attack_self(mob/user)
+	if (!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	try_apply(user, user)
 

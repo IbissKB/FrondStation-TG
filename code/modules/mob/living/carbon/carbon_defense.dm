@@ -4,6 +4,7 @@
 
 /mob/living/carbon/get_eye_protection()
 	. = ..()
+<<<<<<< HEAD
 	if(HAS_TRAIT_NOT_FROM(src, TRAIT_BLIND, list(UNCONSCIOUS_TRAIT, HYPNOCHAIR_TRAIT)))
 		return INFINITY //For all my homies that can not see in the world
 	var/obj/item/organ/internal/eyes/E = getorganslot(ORGAN_SLOT_EYES)
@@ -11,6 +12,15 @@
 		return INFINITY //Can't get flashed without eyes
 	else
 		. += E.flash_protect
+=======
+	if(is_blind() && !is_blind_from(list(UNCONSCIOUS_TRAIT, HYPNOCHAIR_TRAIT)))
+		return INFINITY //For all my homies that can not see in the world
+	var/obj/item/organ/internal/eyes/eyes = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eyes)
+		. += eyes.flash_protect
+	else
+		return INFINITY //Can't get flashed without eyes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(isclothing(head)) //Adds head protection
 		. += head.flash_protect
 	if(isclothing(glasses)) //Glasses
@@ -22,12 +32,17 @@
 	. = ..()
 	if(HAS_TRAIT(src, TRAIT_DEAF))
 		return INFINITY //For all my homies that can not hear in the world
+<<<<<<< HEAD
 	var/obj/item/organ/internal/ears/E = getorganslot(ORGAN_SLOT_EARS)
+=======
+	var/obj/item/organ/internal/ears/E = get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!E)
 		return INFINITY
 	else
 		. += E.bang_protect
 
+<<<<<<< HEAD
 /mob/living/carbon/is_mouth_covered(head_only = FALSE, mask_only = FALSE)
 	if( (!mask_only && head && (head.flags_cover & HEADCOVERSMOUTH)) || (!head_only && wear_mask && (wear_mask.flags_cover & MASKCOVERSMOUTH)) )
 		return TRUE
@@ -50,6 +65,43 @@
 	var/obj/item/bodypart/affecting = get_bodypart(def_zone)
 	if(affecting && affecting.dismemberable && affecting.get_damage() >= (affecting.max_damage - P.dismemberment))
 		affecting.dismember(P.damtype)
+=======
+/mob/living/carbon/is_mouth_covered(check_flags = ALL)
+	if((check_flags & ITEM_SLOT_HEAD) && head && (head.flags_cover & HEADCOVERSMOUTH))
+		return head
+	if((check_flags & ITEM_SLOT_MASK) && wear_mask && (wear_mask.flags_cover & HEADCOVERSMOUTH))
+		return wear_mask
+
+	return null
+
+/mob/living/carbon/is_eyes_covered(check_flags = ALL)
+	if((check_flags & ITEM_SLOT_HEAD) && head && (head.flags_cover & HEADCOVERSEYES))
+		return head
+	if((check_flags & ITEM_SLOT_MASK) && wear_mask && (wear_mask.flags_cover & MASKCOVERSEYES))
+		return wear_mask
+	if((check_flags & ITEM_SLOT_EYES) && glasses && (glasses.flags_cover & GLASSESCOVERSEYES))
+		return glasses
+
+	return null
+
+/mob/living/carbon/is_pepper_proof(check_flags = ALL)
+	var/obj/item/organ/internal/eyes/eyes = get_organ_by_type(/obj/item/organ/internal/eyes)
+	if(eyes && eyes.pepperspray_protect)
+		return eyes
+	if((check_flags & ITEM_SLOT_HEAD) && head && (head.flags_cover & PEPPERPROOF))
+		return head
+	if((check_flags & ITEM_SLOT_MASK) && wear_mask && (wear_mask.flags_cover & PEPPERPROOF))
+		return wear_mask
+
+	return null
+
+/mob/living/carbon/check_projectile_dismemberment(obj/projectile/P, def_zone)
+	var/obj/item/bodypart/affecting = get_bodypart(def_zone)
+	if(affecting && !(affecting.bodypart_flags & BODYPART_UNREMOVABLE) && affecting.get_damage() >= (affecting.max_damage - P.dismemberment))
+		affecting.dismember(P.damtype)
+		if(P.catastropic_dismemberment)
+			apply_damage(P.damage, P.damtype, BODY_ZONE_CHEST, wound_bonus = P.wound_bonus) //stops a projectile blowing off a limb effectively doing no damage. Mostly relevant for sniper rifles.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/proc/can_catch_item(skip_throw_mode_check)
 	. = FALSE
@@ -88,7 +140,11 @@
 	send_item_attack_message(I, user, affecting.plaintext_zone, affecting)
 	if(I.force)
 		var/attack_direction = get_dir(user, src)
+<<<<<<< HEAD
 		apply_damage(I.force, I.damtype, affecting, wound_bonus = I.wound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction)
+=======
+		apply_damage(I.force, I.damtype, affecting, wound_bonus = I.wound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction, attacking_item = I)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(I.damtype == BRUTE && IS_ORGANIC_LIMB(affecting))
 			if(prob(33))
 				I.add_mob_blood(src)
@@ -129,12 +185,21 @@
 	var/extra_wound_details = ""
 	if(I.damtype == BRUTE && hit_bodypart.can_dismember())
 		var/mangled_state = hit_bodypart.get_mangled_state()
+<<<<<<< HEAD
 		var/bio_state = get_biological_state()
 		if(mangled_state == BODYPART_MANGLED_BOTH)
 			extra_wound_details = ", threatening to sever it entirely"
 		else if((mangled_state == BODYPART_MANGLED_FLESH && I.get_sharpness()) || (mangled_state & BODYPART_MANGLED_BONE && bio_state == BIO_JUST_BONE))
 			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] through to the bone"
 		else if((mangled_state == BODYPART_MANGLED_BONE && I.get_sharpness()) || (mangled_state & BODYPART_MANGLED_FLESH && bio_state == BIO_JUST_FLESH))
+=======
+		var/bio_state = hit_bodypart.biological_state
+		if((mangled_state & BODYPART_MANGLED_FLESH) && (mangled_state & BODYPART_MANGLED_BONE))
+			extra_wound_details = ", threatening to sever it entirely"
+		else if((mangled_state & BODYPART_MANGLED_FLESH && I.get_sharpness()) || ((mangled_state & BODYPART_MANGLED_BONE) && (bio_state & BIO_BONE) && !(bio_state & BIO_FLESH)))
+			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] through to the bone"
+		else if((mangled_state & BODYPART_MANGLED_BONE && I.get_sharpness()) || ((mangled_state & BODYPART_MANGLED_FLESH) && (bio_state & BIO_FLESH) && !(bio_state & BIO_BONE)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] at the remaining tissue"
 
 	var/message_hit_area = ""
@@ -412,8 +477,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_CONTENTS)
 		return
+<<<<<<< HEAD
 	for(var/obj/item/organ/internal_organ as anything in internal_organs)
 		internal_organ.emp_act(severity)
+=======
+	for(var/obj/item/organ/organ as anything in organs)
+		organ.emp_act(severity)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Adds to the parent by also adding functionality to propagate shocks through pulling and doing some fluff effects.
 /mob/living/carbon/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
@@ -502,11 +572,20 @@
 			to_chat(helper, span_warning("[src] looks visibly upset as you pat [p_them()] on the head."))
 		//SKYRAT EDIT ADDITION BEGIN - EMOTES
 		if(HAS_TRAIT(src, TRAIT_EXCITABLE))
+<<<<<<< HEAD
 			var/obj/item/organ/external/tail/src_tail = getorganslot(ORGAN_SLOT_EXTERNAL_TAIL)
 			if(src_tail && !(src_tail.wag_flags & WAG_WAGGING))
 				emote("wag")
 		//SKYRAT EDIT ADDITION END
 	else if ((helper.zone_selected == BODY_ZONE_PRECISE_GROIN) && !isnull(src.getorgan(/obj/item/organ/external/tail)))
+=======
+			var/obj/item/organ/external/tail/src_tail = get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+			if(src_tail && !(src_tail.wag_flags & WAG_WAGGING))
+				emote("wag")
+		//SKYRAT EDIT ADDITION END
+
+	else if ((helper.zone_selected == BODY_ZONE_PRECISE_GROIN) && !isnull(src.get_organ_by_type(/obj/item/organ/external/tail)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		helper.visible_message(span_notice("[helper] pulls on [src]'s tail!"), \
 					null, span_hear("You hear a soft patter."), DEFAULT_MESSAGE_RANGE, list(helper, src))
 		to_chat(helper, span_notice("You pull on [src]'s tail!"))
@@ -619,7 +698,11 @@
 
 
 /mob/living/carbon/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash, length = 25)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+=======
+	var/obj/item/organ/internal/eyes/eyes = get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!eyes) //can't flash what can't see!
 		return
 
@@ -630,6 +713,7 @@
 		if(visual)
 			return
 
+<<<<<<< HEAD
 		if (damage == 1)
 			to_chat(src, span_warning("Your eyes sting a little."))
 			if(prob(40))
@@ -664,6 +748,41 @@
 	else if(damage == 0) // just enough protection
 		if(prob(20))
 			to_chat(src, span_notice("Something bright flashes in the corner of your vision!"))
+=======
+		switch(damage)
+			if(1)
+				to_chat(src, span_warning("Your eyes sting a little."))
+				if(prob(40))
+					eyes.apply_organ_damage(1)
+
+			if(2)
+				to_chat(src, span_warning("Your eyes burn."))
+				eyes.apply_organ_damage(rand(2, 4))
+
+			if(3 to INFINITY)
+				to_chat(src, span_warning("Your eyes itch and burn severely!"))
+				eyes.apply_organ_damage(rand(12, 16))
+
+		if(eyes.damage > 10)
+			adjust_temp_blindness(damage * 2 SECONDS)
+			set_eye_blur_if_lower(damage * rand(6 SECONDS, 12 SECONDS))
+
+			if(eyes.damage > eyes.low_threshold)
+				if(!is_nearsighted_from(EYE_DAMAGE) && prob(eyes.damage - eyes.low_threshold))
+					to_chat(src, span_warning("Your eyes start to burn badly!"))
+					eyes.apply_organ_damage(eyes.low_threshold)
+
+				else if(!is_blind() && prob(eyes.damage - eyes.high_threshold))
+					to_chat(src, span_warning("You can't see anything!"))
+					eyes.apply_organ_damage(eyes.maxHealth)
+
+			else
+				to_chat(src, span_warning("Your eyes are really starting to hurt. This can't be good for you!"))
+		return TRUE
+
+	else if(damage == 0 && prob(20)) // just enough protection
+		to_chat(src, span_notice("Something bright flashes in the corner of your vision!"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /mob/living/carbon/soundbang_act(intensity = 1, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15)
@@ -671,7 +790,11 @@
 	SEND_SIGNAL(src, COMSIG_CARBON_SOUNDBANG, reflist)
 	intensity = reflist[1]
 	var/ear_safety = get_ear_protection()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/ears/ears = getorganslot(ORGAN_SLOT_EARS)
+=======
+	var/obj/item/organ/internal/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/effect_amount = intensity - ear_safety
 	if(effect_amount > 0)
 		if(stun_pwr)
@@ -689,7 +812,11 @@
 					to_chat(src, span_userdanger("You can't hear anything!"))
 					// Makes you deaf, enough that you need a proper source of healing, it won't self heal
 					// you need earmuffs, inacusiate, or replacement
+<<<<<<< HEAD
 					ears.setOrganDamage(ears.maxHealth)
+=======
+					ears.set_organ_damage(ears.maxHealth)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else if(ears.damage >= 5)
 				to_chat(src, span_warning("Your ears start to ring!"))
 			SEND_SOUND(src, sound('sound/weapons/flash_ring.ogg',0,1,0,250))
@@ -713,14 +840,22 @@
 
 /mob/living/carbon/can_hear()
 	. = FALSE
+<<<<<<< HEAD
 	var/obj/item/organ/internal/ears/ears = getorganslot(ORGAN_SLOT_EARS)
+=======
+	var/obj/item/organ/internal/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(ears && !HAS_TRAIT(src, TRAIT_DEAF))
 		. = TRUE
 	if(health <= hardcrit_threshold && !HAS_TRAIT(src, TRAIT_NOHARDCRIT))
 		. = FALSE
 
 
+<<<<<<< HEAD
 /mob/living/carbon/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype)
+=======
+/mob/living/carbon/adjustOxyLoss(amount, updating_health = TRUE, forced, required_biotype, required_respiration_type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	check_passout(.)
 
@@ -729,7 +864,11 @@
 	if(!limb)
 		return
 
+<<<<<<< HEAD
 /mob/living/carbon/setOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype)
+=======
+/mob/living/carbon/setOxyLoss(amount, updating_health = TRUE, forced, required_biotype, required_respiration_type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	check_passout(.)
 
@@ -785,7 +924,11 @@
 /obj/item/hand_item/self_grasp
 	name = "self-grasp"
 	desc = "Sometimes all you can do is slow the bleeding."
+<<<<<<< HEAD
 	icon_state = "latexballon"
+=======
+	icon_state = "latexballoon"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = "nothing"
 	slowdown = 0.5
 	item_flags = DROPDEL | ABSTRACT | NOBLUDGEON | SLOWS_WHILE_IN_HAND | HAND_ITEM
@@ -829,6 +972,57 @@
 	playsound(get_turf(src), 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	return TRUE
 
+<<<<<<< HEAD
+=======
+/// Randomise a body part and organ of this mob
+/mob/living/carbon/proc/bioscramble(scramble_source)
+	if (run_armor_check(attack_flag = BIO, absorb_text = "Your armor protects you from [scramble_source]!") >= 100)
+		return FALSE
+
+	if (!length(GLOB.bioscrambler_valid_organs) || !length(GLOB.bioscrambler_valid_parts))
+		init_bioscrambler_lists()
+
+	var/changed_something = FALSE
+	var/obj/item/organ/new_organ = pick(GLOB.bioscrambler_valid_organs)
+	var/obj/item/organ/replaced = get_organ_slot(initial(new_organ.slot))
+	if (!(replaced?.organ_flags & ORGAN_SYNTHETIC))
+		changed_something = TRUE
+		new_organ = new new_organ()
+		new_organ.replace_into(src)
+
+	var/obj/item/bodypart/new_part = pick(GLOB.bioscrambler_valid_parts)
+	var/obj/item/bodypart/picked_user_part = get_bodypart(initial(new_part.body_zone))
+	if (picked_user_part && BODYTYPE_CAN_BE_BIOSCRAMBLED(picked_user_part.bodytype))
+		changed_something = TRUE
+		new_part = new new_part()
+		new_part.replace_limb(src, special = TRUE)
+		if (picked_user_part)
+			qdel(picked_user_part)
+
+	if (!changed_something)
+		to_chat(src, span_notice("Your augmented body protects you from [scramble_source]!"))
+		return FALSE
+	update_body(TRUE)
+	balloon_alert(src, "something has changed about you")
+	return TRUE
+
+/// Fill in the lists of things we can bioscramble into people
+/mob/living/carbon/proc/init_bioscrambler_lists()
+	var/list/body_parts = typesof(/obj/item/bodypart/chest) + typesof(/obj/item/bodypart/head) + subtypesof(/obj/item/bodypart/arm) + subtypesof(/obj/item/bodypart/leg)
+	for (var/obj/item/bodypart/part as anything in body_parts)
+		if (!is_type_in_typecache(part, GLOB.bioscrambler_parts_blacklist) && BODYTYPE_CAN_BE_BIOSCRAMBLED(initial(part.bodytype)))
+			continue
+		body_parts -= part
+	GLOB.bioscrambler_valid_parts = body_parts
+
+	var/list/organs = subtypesof(/obj/item/organ/internal) + subtypesof(/obj/item/organ/external)
+	for (var/obj/item/organ/organ_type as anything in organs)
+		if (!is_type_in_typecache(organ_type, GLOB.bioscrambler_organs_blacklist) && !(initial(organ_type.organ_flags) & ORGAN_SYNTHETIC))
+			continue
+		organs -= organ_type
+	GLOB.bioscrambler_valid_organs = organs
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef SHAKE_ANIMATION_OFFSET
 #undef PERSONAL_SPACE_DAMAGE
 #undef ASS_SLAP_EXTRA_RANGE

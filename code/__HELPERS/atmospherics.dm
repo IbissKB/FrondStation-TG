@@ -156,3 +156,21 @@ GLOBAL_LIST_EMPTY(gas_handbook)
 /// For UIs, simply do data += return_atmos_handbooks() to use.
 /proc/return_atmos_handbooks()
 	return list("gasInfo" = GLOB.gas_handbook, "reactionInfo" = GLOB.reaction_handbook)
+<<<<<<< HEAD
+=======
+
+/proc/extract_id_tags(list/objects)
+	var/list/tags = list()
+
+	for (var/obj/object as anything in objects)
+		tags += object.id_tag
+
+	return tags
+
+/proc/find_by_id_tag(list/objects, id_tag)
+	for (var/obj/object as anything in objects)
+		if (object.id_tag == id_tag)
+			return object
+
+	return null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

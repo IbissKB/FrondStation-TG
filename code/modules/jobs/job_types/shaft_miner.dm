@@ -7,7 +7,10 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = SUPERVISOR_QM
+<<<<<<< HEAD
 	selection_color = "#dcba97"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "SHAFT_MINER"
 
@@ -74,6 +77,7 @@
 	mask = /obj/item/clothing/mask/gas/explorer
 	internals_slot = ITEM_SLOT_SUITSTORE
 
+<<<<<<< HEAD
 /datum/outfit/job/miner/equipped/post_equip(mob/living/carbon/human/miner, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
@@ -82,6 +86,8 @@
 		var/obj/item/clothing/suit/hooded/explorer_suit = miner.wear_suit
 		explorer_suit.ToggleHood()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/outfit/job/miner/equipped/mod
 	name = "Shaft Miner (Equipment + MODsuit)"
 	back = /obj/item/mod/control/pre_equipped/mining

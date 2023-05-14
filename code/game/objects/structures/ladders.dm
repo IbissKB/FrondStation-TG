@@ -94,6 +94,12 @@
 	if(going_up ? !up : !down)
 		balloon_alert(user, "can't go any further [going_up ? "up" : "down"]")
 		return
+<<<<<<< HEAD
+=======
+	if(user.buckled && user.buckled.anchored)
+		balloon_alert(user, "buckled to something anchored!")
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(travel_time)
 		INVOKE_ASYNC(src, PROC_REF(start_travelling), user, going_up)
 	else

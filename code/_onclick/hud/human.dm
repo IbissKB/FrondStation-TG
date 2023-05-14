@@ -287,6 +287,10 @@
 	rest_icon.icon = ui_style
 	rest_icon.screen_loc = ui_above_movement
 	rest_icon.hud = src
+<<<<<<< HEAD
+=======
+	rest_icon.update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	static_inventory += rest_icon
 
 	spacesuit = new /atom/movable/screen/spacesuit
@@ -307,9 +311,15 @@
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = ui_style
+<<<<<<< HEAD
 	pull_icon.update_appearance()
 	pull_icon.screen_loc = ui_above_intent
 	pull_icon.hud = src
+=======
+	pull_icon.screen_loc = ui_above_intent
+	pull_icon.hud = src
+	pull_icon.update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	static_inventory += pull_icon
 
 	zone_select = new /atom/movable/screen/zone_sel()

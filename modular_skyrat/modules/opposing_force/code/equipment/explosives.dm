@@ -12,6 +12,10 @@
 /datum/opposing_force_equipment/bomb/radnade
 	item_type = /obj/item/grenade/gluon
 	description = "A prototype grenade that freezes the target area and unleashes a wave of deadly radiation."
+<<<<<<< HEAD
+=======
+	admin_note = "WARNING: Makes a giant square of ice, and also, does rad damage in the same AOE."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/bomb/c4
 	item_type = /obj/item/grenade/c4
@@ -60,6 +64,10 @@
 	item_type = /obj/item/grenade/spawnergrenade/buzzkill
 	description = "A grenade that release a swarm of angry bees upon activation. These bees indiscriminately attack friend or foe \
 			with random toxins. Courtesy of the BLF and Tiger Cooperative."
+<<<<<<< HEAD
+=======
+	admin_note = "WARNING: The bee's from this grenade can have almost anything chem-wise into them, and just a few can make a massive swarm of bees(10 bees per!!)"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/bomb/bonebang
 	name = "Bonebang"

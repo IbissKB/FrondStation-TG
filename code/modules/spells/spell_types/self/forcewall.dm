@@ -49,7 +49,11 @@
 	overlay_icon_state = "bg_mime_border"
 	button_icon = 'icons/mob/actions/actions_mime.dmi'
 	button_icon_state = "invisible_blockade"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED
+=======
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	panel = "Mime"
 	sound = null
 

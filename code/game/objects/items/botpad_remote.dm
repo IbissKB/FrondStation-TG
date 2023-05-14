@@ -1,6 +1,11 @@
 /obj/item/botpad_remote
 	name = "Bot pad controller"
+<<<<<<< HEAD
 	desc = "Use this device to control the connected bot pad. Left-click for launch, right-click for recall."
+=======
+	desc = "Use this device to control the connected bot pad."
+	desc_controls = "Left-click for launch, right-click for recall."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/device.dmi'
 	icon_state = "botpad_controller"
 	w_class = WEIGHT_CLASS_SMALL
@@ -24,7 +29,11 @@
 	if(connected_botpad)
 		connected_botpad.recall(user)
 		return
+<<<<<<< HEAD
 	user?.balloon_alert(user, "Controller has no connected pad!")
+=======
+	user?.balloon_alert(user, "no connected pad!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 /obj/item/botpad_remote/multitool_act(mob/living/user, obj/item/tool)
@@ -46,6 +55,7 @@
 
 /obj/item/botpad_remote/proc/try_launch(mob/living/user)
 	if(!connected_botpad)
+<<<<<<< HEAD
 		user?.balloon_alert(user, "Controller has no connected pad!")
 		return
 	if(connected_botpad.panel_open)
@@ -53,5 +63,14 @@
 		return
 	if(!(locate(/mob/living/simple_animal/bot) in get_turf(connected_botpad)))
 		user?.balloon_alert(user, "No bots detected on the pad!")
+=======
+		user?.balloon_alert(user, "no connected pad!")
+		return
+	if(connected_botpad.panel_open)
+		user?.balloon_alert(user, "close the panel!")
+		return
+	if(!(locate(/mob/living/simple_animal/bot) in get_turf(connected_botpad)))
+		user?.balloon_alert(user, "no bots detected on the pad!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	connected_botpad.launch(user)

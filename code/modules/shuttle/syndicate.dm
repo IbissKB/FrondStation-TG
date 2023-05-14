@@ -13,11 +13,14 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	flags_1 = NODECONSTRUCT_1
 
+<<<<<<< HEAD
 /obj/machinery/computer/shuttle/syndicate/allowed(mob/M)
 	if(issilicon(M) && !(ROLE_SYNDICATE in M.faction))
 		return FALSE
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/shuttle/syndicate/launch_check(mob/user)
 	. = ..()
 	if(!.)
@@ -38,8 +41,14 @@
 	name = "syndicate assault pod control"
 	desc = "Controls the drop pod's launch system."
 	icon = 'icons/obj/terminals.dmi'
+<<<<<<< HEAD
 	icon_state = "dorm_available"
 	icon_keyboard = null
+=======
+	icon_state = "pod_off"
+	icon_keyboard = null
+	icon_screen = "pod_on"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_color = LIGHT_COLOR_BLUE
 	req_access = list(ACCESS_SYNDICATE)
 	shuttleId = "steel_rain"
@@ -49,7 +58,11 @@
 	. = ..()
 	if(!.)
 		return FALSE
+<<<<<<< HEAD
 	if(!is_centcom_level(z))
+=======
+	if(!is_reserved_level(z))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_warning("Pods are one way!"))
 		return FALSE
 	return TRUE

@@ -194,6 +194,7 @@ GLOBAL_LIST_EMPTY(movespeed_modification_cache)
 	for(var/id in movespeed_mod_immunities)
 		. -= id
 
+<<<<<<< HEAD
 /// Calculate the total slowdown of all movespeed modifiers
 /mob/proc/total_multiplicative_slowdown()
 	. = 0
@@ -201,6 +202,8 @@ GLOBAL_LIST_EMPTY(movespeed_modification_cache)
 		var/datum/movespeed_modifier/M = movespeed_modification[id]
 		. += M.multiplicative_slowdown
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Checks if a move speed modifier is valid and not missing any data
 /proc/movespeed_data_null_check(datum/movespeed_modifier/M) //Determines if a data list is not meaningful and should be discarded.
 	. = TRUE

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // File ordered based on progression
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_category/stealthy_tools
 	name = "Stealth Gadgets"
 	weight = 4
@@ -7,7 +10,10 @@
 /datum/uplink_item/stealthy_tools
 	category = /datum/uplink_category/stealthy_tools
 
+<<<<<<< HEAD
 // No progression cost
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/uplink_item/stealthy_tools/agent_card
 	name = "Agent Identification Card"
@@ -35,6 +41,17 @@
 	cost = 2
 	purchasable_from = ~UPLINK_NUKE_OPS //clown ops are allowed to buy this kit, since it's basically a costume
 
+<<<<<<< HEAD
+=======
+/datum/uplink_item/stealthy_tools/syndigaloshes
+	name = "No-Slip Chameleon Shoes"
+	desc = "These shoes will allow the wearer to run on wet floors and slippery objects without falling down. \
+			They do not work on heavily lubricated surfaces."
+	item = /obj/item/clothing/shoes/chameleon/noslip
+	cost = 2
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/stealthy_tools/chameleon_proj
 	name = "Chameleon Projector"
 	desc = "Projects an image across a user, disguising them as an object scanned with it, as long as they don't \
@@ -87,6 +104,7 @@
 	surplus = 30
 	illegal_tech = FALSE
 
+<<<<<<< HEAD
 // Medium progression cost
 
 /datum/uplink_item/stealthy_tools/syndigaloshes
@@ -100,20 +118,30 @@
 
 // High progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/stealthy_tools/telecomm_blackout
 	name = "Disable Telecomms"
 	desc = "When purchased, a virus will be uploaded to the telecommunication processing servers to temporarily disable themselves."
 	item = /obj/effect/gibspawner/generic
 	surplus = 0
+<<<<<<< HEAD
 	progression_minimum = 30 MINUTES
+=======
+	progression_minimum = 15 MINUTES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	limited_stock = 1
 	cost = 4
 	restricted = TRUE
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/stealthy_tools/telecomm_blackout/spawn_item(spawn_path, mob/user, datum/uplink_handler/uplink_handler, atom/movable/source)
+<<<<<<< HEAD
 	var/datum/round_event_control/event = locate(/datum/round_event_control/communications_blackout) in SSevents.control
 	event.runEvent()
+=======
+	force_event(/datum/round_event_control/communications_blackout, "a syndicate virus")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return source //For log icon
 
 /datum/uplink_item/stealthy_tools/blackout
@@ -121,13 +149,21 @@
 	desc = "When purchased, a virus will be uploaded to the engineering processing servers to force a routine power grid check, forcing all APCs on the station to be temporarily disabled."
 	item = /obj/effect/gibspawner/generic
 	surplus = 0
+<<<<<<< HEAD
 	progression_minimum = 40 MINUTES
+=======
+	progression_minimum = 20 MINUTES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	limited_stock = 1
 	cost = 6
 	restricted = TRUE
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/stealthy_tools/blackout/spawn_item(spawn_path, mob/user, datum/uplink_handler/uplink_handler, atom/movable/source)
+<<<<<<< HEAD
 	var/datum/round_event_control/event = locate(/datum/round_event_control/grid_check) in SSevents.control
 	event.runEvent()
+=======
+	force_event(/datum/round_event_control/grid_check, "a syndicate virus")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return source //For log icon

@@ -14,4 +14,8 @@
 		/obj/item/stack/sheet/mineral/wood = 1,
 		/obj/item/glassblowing/glass_lens = 1,
 	)
+<<<<<<< HEAD
 	category = CAT_PRIMAL
+=======
+	category = CAT_EQUIPMENT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

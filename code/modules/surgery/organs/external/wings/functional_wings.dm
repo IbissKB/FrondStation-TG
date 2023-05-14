@@ -1,13 +1,21 @@
 ///hud action for starting and stopping flight
 /datum/action/innate/flight
 	name = "Toggle Flight"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
+=======
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE|AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "flight"
 
 /datum/action/innate/flight/Activate()
 	var/mob/living/carbon/human/human = owner
+<<<<<<< HEAD
 	var/obj/item/organ/external/wings/functional/wings = human.getorganslot(ORGAN_SLOT_EXTERNAL_WINGS)
+=======
+	var/obj/item/organ/external/wings/functional/wings = human.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(wings && wings.can_fly(human))
 		wings.toggle_flight(human)
 		if(!(human.movement_type & FLYING))
@@ -21,10 +29,14 @@
 	///The flight action object
 	var/datum/action/innate/flight/fly
 
+<<<<<<< HEAD
 	///The preference type for opened wings
 	var/wings_open_feature_key = "wingsopen"
 	///The preference type for closed wings
 	var/wings_closed_feature_key = "wings"
+=======
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///Are our wings open or closed?
 	var/wings_open = FALSE
@@ -34,6 +46,7 @@
 	return TRUE
 // SKYRAT EDIT END
 
+<<<<<<< HEAD
 /obj/item/organ/external/wings/functional/get_global_feature_list()
 	// SKYRAT EDIT TODO: Add support for wings_open
 	return GLOB.sprite_accessories["wings"] // SKYRAT EDIT - Goof's port of species stuff from a missed upstream PR
@@ -44,6 +57,13 @@
 	if(isnull(fly))
 		fly = new
 		fly.Grant(reciever)
+=======
+/obj/item/organ/external/wings/functional/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
+	. = ..()
+	if(. && isnull(fly))
+		fly = new
+		fly.Grant(receiver)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/external/wings/functional/Remove(mob/living/carbon/organ_owner, special, moving)
 	. = ..()
@@ -53,7 +73,11 @@
 	if(wings_open)
 		toggle_flight(organ_owner)
 
+<<<<<<< HEAD
 /obj/item/organ/external/wings/functional/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/external/wings/functional/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	handle_flight(owner)
@@ -114,12 +138,17 @@
 /obj/item/organ/external/wings/functional/proc/toggle_flight(mob/living/carbon/human/human)
 	if(!HAS_TRAIT_FROM(human, TRAIT_MOVE_FLYING, SPECIES_FLIGHT_TRAIT))
 		human.physiology.stun_mod *= 2
+<<<<<<< HEAD
 		ADD_TRAIT(human, TRAIT_NO_FLOATING_ANIM, SPECIES_FLIGHT_TRAIT)
 		ADD_TRAIT(human, TRAIT_MOVE_FLYING, SPECIES_FLIGHT_TRAIT)
+=======
+		human.add_traits(list(TRAIT_NO_FLOATING_ANIM, TRAIT_MOVE_FLYING), SPECIES_FLIGHT_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		passtable_on(human, SPECIES_TRAIT)
 		open_wings()
 	else
 		human.physiology.stun_mod *= 0.5
+<<<<<<< HEAD
 		REMOVE_TRAIT(human, TRAIT_NO_FLOATING_ANIM, SPECIES_FLIGHT_TRAIT)
 		REMOVE_TRAIT(human, TRAIT_MOVE_FLYING, SPECIES_FLIGHT_TRAIT)
 		passtable_off(human, SPECIES_TRAIT)
@@ -140,15 +169,77 @@
 
 	cache_key = generate_icon_cache()
 	owner.update_body_parts()
+=======
+		human.remove_traits(list(TRAIT_NO_FLOATING_ANIM, TRAIT_MOVE_FLYING), SPECIES_FLIGHT_TRAIT)
+		passtable_off(human, SPECIES_TRAIT)
+		close_wings()
+	human.update_body_parts()
+
+///SPREAD OUR WINGS AND FLLLLLYYYYYY
+/obj/item/organ/external/wings/functional/proc/open_wings()
+	var/datum/bodypart_overlay/mutant/wings/functional/overlay = bodypart_overlay
+	overlay.open_wings()
+	wings_open = TRUE
+
+///close our wings
+/obj/item/organ/external/wings/functional/proc/close_wings()
+	var/datum/bodypart_overlay/mutant/wings/functional/overlay = bodypart_overlay
+	wings_open = FALSE
+	overlay.close_wings()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(isturf(owner?.loc))
 		var/turf/location = loc
 		location.Entered(src, NONE)
 
+<<<<<<< HEAD
+=======
+///Bodypart overlay of function wings, including open and close functionality!
+/datum/bodypart_overlay/mutant/wings/functional
+	///Are our wings currently open? Change through open_wings or close_wings()
+	VAR_PRIVATE/wings_open = FALSE
+	///Feature render key for opened wings
+	var/open_feature_key = "wingsopen"
+
+/datum/bodypart_overlay/mutant/wings/functional/get_global_feature_list()
+	/* SKYRAT EDIT - CUSTOMIZATION - ORIGINAL:
+	if(wings_open)
+		return GLOB.wings_open_list
+	else
+		return GLOB.wings_list
+	*/ // ORIGINAL END - SKYRAT EDIT START - CUSTOMIZATION - TODO: Add support for wings_open
+	if(wings_open)
+		return GLOB.sprite_accessories["wings_open"]
+
+	return GLOB.sprite_accessories["wings"]
+	// SKYRAT EDIT END
+
+///Update our wingsprite to the open wings variant
+/datum/bodypart_overlay/mutant/wings/functional/proc/open_wings()
+	wings_open = TRUE
+	feature_key = open_feature_key
+	set_appearance_from_name(sprite_datum.name) //It'll look for the same name again, but this time from the open wings list
+
+///Update our wingsprite to the closed wings variant
+/datum/bodypart_overlay/mutant/wings/functional/proc/close_wings()
+	wings_open = FALSE
+	feature_key = initial(feature_key)
+	set_appearance_from_name(sprite_datum.name)
+
+/datum/bodypart_overlay/mutant/wings/functional/generate_icon_cache()
+	. = ..()
+	. += wings_open ? "open" : "closed"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///angel wings, which relate to humans. comes with holiness.
 /obj/item/organ/external/wings/functional/angel
 	name = "angel wings"
 	desc = "Holier-than-thou attitude not included."
+<<<<<<< HEAD
 	stored_feature_id = "Angel"
+=======
+	sprite_accessory_override = /datum/sprite_accessory/wings_open/angel
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	organ_traits = list(TRAIT_HOLY)
 
@@ -156,18 +247,27 @@
 /obj/item/organ/external/wings/functional/dragon
 	name = "dragon wings"
 	desc = "Hey, HEY- NOT lizard wings. Dragon wings. Mighty dragon wings."
+<<<<<<< HEAD
 	stored_feature_id = "Dragon"
+=======
+	sprite_accessory_override = /datum/sprite_accessory/wings/dragon
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///robotic wings, which relate to androids.
 /obj/item/organ/external/wings/functional/robotic
 	name = "robotic wings"
 	desc = "Using microscopic hover-engines, or \"microwings,\" as they're known in the trade, these tiny devices are able to lift a few grams at a time. Gathering enough of them, and you can lift impressively large things."
+<<<<<<< HEAD
 	stored_feature_id = "Robotic"
+=======
+	sprite_accessory_override = /datum/sprite_accessory/wings/robotic
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///skeletal wings, which relate to skeletal races.
 /obj/item/organ/external/wings/functional/skeleton
 	name = "skeletal wings"
 	desc = "Powered by pure edgy-teenager-notebook-scribblings. Just kidding. But seriously, how do these keep you flying?!"
+<<<<<<< HEAD
 	stored_feature_id = "Skeleton"
 
 	///Are we burned?
@@ -176,15 +276,26 @@
 	var/original_sprite_datum
 ///Prototype for moth wings, so in the future we can add burn off behavior.
 /obj/item/organ/external/wings/functional/moth
+=======
+	sprite_accessory_override = /datum/sprite_accessory/wings/skeleton
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///mothra wings, which relate to moths.
 /obj/item/organ/external/wings/functional/moth/mothra
 	name = "mothra wings"
 	desc = "Fly like the mighty mothra of legend once did."
+<<<<<<< HEAD
 	stored_feature_id = "Mothra"
+=======
+	sprite_accessory_override = /datum/sprite_accessory/wings/mothra
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///megamoth wings, which relate to moths as an alternate choice. they're both pretty cool.
 /obj/item/organ/external/wings/functional/moth/megamoth
 	name = "megamoth wings"
 	desc = "Don't get murderous."
+<<<<<<< HEAD
 	stored_feature_id = "Megamoth"
+=======
+	sprite_accessory_override = /datum/sprite_accessory/wings/megamoth
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

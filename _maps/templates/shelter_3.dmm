@@ -166,6 +166,7 @@
 /turf/closed/wall/mineral/titanium/survival/nodiagonal,
 /area/misc/survivalpod)
 "C" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 8
 	},
@@ -176,6 +177,12 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced/survival_pod,
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/grille,
 /turf/open/floor/pod/dark,
 /area/misc/survivalpod)

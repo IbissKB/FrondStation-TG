@@ -11,6 +11,7 @@
 /turf/open/floor/carpet/airless,
 /area/ruin/space/has_grav)
 "bU" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
@@ -18,6 +19,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow,
+=======
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/has_grav)
 "cD" = (
@@ -90,10 +96,17 @@
 /turf/template_noop,
 /area/template_noop)
 "iB" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
 /obj/item/shard,
+=======
+/obj/item/shard,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/has_grav)
 "jk" = (
@@ -126,6 +139,7 @@
 /turf/template_noop,
 /area/template_noop)
 "oy" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
@@ -133,6 +147,12 @@
 	dir = 8
 	},
 /obj/structure/table_frame,
+=======
+/obj/structure/table_frame,
+/obj/effect/turf_decal/tile/yellow/opposingcorners{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/checker/airless,
 /area/ruin/space/has_grav)
 "oP" = (
@@ -258,10 +278,17 @@
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/has_grav)
 "Cc" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/machinery/light/broken/directional/west,
+=======
+/obj/machinery/light/broken/directional/west,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/corner/airless{
 	dir = 8
 	},
@@ -465,10 +492,17 @@
 /turf/open/floor/carpet/airless,
 /area/ruin/space/has_grav)
 "Si" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
+=======
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/corner/airless{
 	dir = 8
 	},

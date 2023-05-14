@@ -30,14 +30,22 @@
 	if(M == user)
 		M.visible_message(span_notice("[user] attempts to [apply_method] [src]."))
 		if(self_delay)
+<<<<<<< HEAD
 			if(!do_mob(user, M, self_delay))
+=======
+			if(!do_after(user, self_delay, M))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return FALSE
 		to_chat(M, span_notice("You [apply_method] [src]."))
 
 	else
 		M.visible_message(span_danger("[user] attempts to force [M] to [apply_method] [src]."), \
 							span_userdanger("[user] attempts to force you to [apply_method] [src]."))
+<<<<<<< HEAD
 		if(!do_mob(user, M, CHEM_INTERACT_DELAY(3 SECONDS, user)))
+=======
+		if(!do_after(user, CHEM_INTERACT_DELAY(3 SECONDS, user), M))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 		M.visible_message(span_danger("[user] forces [M] to [apply_method] [src]."), \
 							span_userdanger("[user] forces you to [apply_method] [src]."))
@@ -59,6 +67,10 @@
 	. = ..()
 	if(!proximity)
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!dissolvable || !target.is_refillable())
 		return
 	if(target.is_drainable() && !target.reagents.total_volume)

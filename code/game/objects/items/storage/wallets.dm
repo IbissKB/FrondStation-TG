@@ -12,6 +12,10 @@
 
 /obj/item/storage/wallet/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
+=======
+	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	atom_storage.max_slots = 4
 	atom_storage.set_holdable(list(
 		/obj/item/stack/spacecash,
@@ -24,6 +28,10 @@
 		/obj/item/stack/medical,
 		/obj/item/toy/crayon,
 		/obj/item/coin,
+<<<<<<< HEAD
+=======
+		/obj/item/food/chococoin,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/dice,
 		/obj/item/disk,
 		/obj/item/implanter,
@@ -154,6 +162,10 @@
 
 /obj/item/storage/wallet/random
 	icon_state = "random_wallet" // for mapping purposes
+<<<<<<< HEAD
+=======
+	worn_icon_state = "wallet"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/wallet/random/Initialize(mapload)
 	. = ..()

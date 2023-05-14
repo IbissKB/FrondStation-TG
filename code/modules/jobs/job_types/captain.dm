@@ -9,7 +9,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "Nanotrasen officials and Space Law"
+<<<<<<< HEAD
 	selection_color = "#ccccff"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 180
@@ -68,7 +71,11 @@
 	belt = /obj/item/modular_computer/pda/heads/captain
 	ears = /obj/item/radio/headset/heads/captain/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/captain
+=======
+	gloves = /obj/item/clothing/gloves/captain
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	head = /obj/item/clothing/head/hats/caphat
 	shoes = /obj/item/clothing/shoes/laceup
 
@@ -80,7 +87,11 @@
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 	chameleon_extras = list(
 		/obj/item/gun/energy/e_gun,
+<<<<<<< HEAD
 		/obj/item/stamp/captain,
+=======
+		/obj/item/stamp/head/captain,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 	implants = list(/obj/item/implant/mindshield)
 	skillchips = list(/obj/item/skillchip/disk_verifier)
@@ -89,6 +100,7 @@
 
 /datum/outfit/job/captain/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
+<<<<<<< HEAD
 	var/list/job_changes = SSmapping.config.job_changes
 	if(!length(job_changes))
 		return
@@ -106,6 +118,29 @@
 	var/obj/item/station_charter/banner/celestial_charter = equipped.held_items[LEFT_HANDS]
 	if(!celestial_charter)
 		return
+=======
+	special_charter = CHECK_MAP_JOB_CHANGE(JOB_CAPTAIN, "special_charter")
+	if(!special_charter)
+		return
+
+	backpack_contents -= /obj/item/station_charter
+
+	if(!l_hand)
+		l_hand = /obj/item/station_charter/banner
+	else if(!r_hand)
+		r_hand = /obj/item/station_charter/banner
+
+/datum/outfit/job/captain/post_equip(mob/living/carbon/human/equipped, visualsOnly)
+	. = ..()
+	if(visualsOnly || !special_charter)
+		return
+
+	var/obj/item/station_charter/banner/celestial_charter = locate() in equipped.held_items
+	if(isnull(celestial_charter))
+		// failed to give out the unique charter, plop on the ground
+		celestial_charter = new(get_turf(equipped))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	celestial_charter.name_type = special_charter
 
 /datum/outfit/job/captain/mod

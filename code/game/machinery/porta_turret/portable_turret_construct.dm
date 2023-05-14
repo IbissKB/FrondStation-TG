@@ -185,7 +185,11 @@
 		var/choice = tgui_input_text(user, "Enter a new turret name", "Turret Classification", finish_name, MAX_NAME_LEN)
 		if(!choice)
 			return
+<<<<<<< HEAD
 		if(!user.canUseTopic(src, be_close = TRUE))
+=======
+		if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 
 		finish_name = choice
@@ -212,3 +216,16 @@
 
 /obj/machinery/porta_turret_construct/attack_ai()
 	return
+<<<<<<< HEAD
+=======
+
+#undef PTURRET_BOLTED
+#undef PTURRET_CLOSED
+#undef PTURRET_EXTERNAL_ARMOUR_ON
+#undef PTURRET_GUN_EQUIPPED
+#undef PTURRET_INTERNAL_ARMOUR_ON
+#undef PTURRET_SENSORS_ON
+#undef PTURRET_START_EXTERNAL_ARMOUR
+#undef PTURRET_START_INTERNAL_ARMOUR
+#undef PTURRET_UNSECURED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

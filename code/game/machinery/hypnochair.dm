@@ -91,7 +91,11 @@
 		playsound(get_turf(src), 'sound/machines/buzz-sigh.ogg', 25, TRUE)
 		return
 	victim = C
+<<<<<<< HEAD
 	if(!(C.get_eye_protection() > 0))
+=======
+	if(C.get_eye_protection() <= 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(C, span_warning("Strobing coloured lights assault you relentlessly! You're losing your ability to think straight!"))
 		C.become_blind(HYPNOCHAIR_TRAIT)
 		ADD_TRAIT(C, TRAIT_DEAF, HYPNOCHAIR_TRAIT)
@@ -101,12 +105,20 @@
 	update_appearance()
 	timerid = addtimer(CALLBACK(src, PROC_REF(finish_interrogation)), 450, TIMER_STOPPABLE)
 
+<<<<<<< HEAD
 /obj/machinery/hypnochair/process(delta_time)
+=======
+/obj/machinery/hypnochair/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/carbon/C = occupant
 	if(!istype(C) || C != victim)
 		interrupt_interrogation()
 		return
+<<<<<<< HEAD
 	if(DT_PROB(5, delta_time) && !(C.get_eye_protection() > 0))
+=======
+	if(SPT_PROB(5, seconds_per_tick) && !(C.get_eye_protection() > 0))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(C, "<span class='hypnophrase'>[pick(\
 			"...blue... red... green... blue, red, green, blueredgreen[span_small("blueredgreen")]",\
 			"...pretty colors...",\
@@ -115,7 +127,11 @@
 			"...an annoying buzz in your ears..."\
 		)]</span>")
 
+<<<<<<< HEAD
 	use_power(active_power_usage * delta_time)
+=======
+	use_power(active_power_usage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/hypnochair/proc/finish_interrogation()
 	interrogating = FALSE
@@ -148,7 +164,11 @@
 	if(QDELETED(victim))
 		victim = null
 		return
+<<<<<<< HEAD
 	victim.cure_blind("hypnochair")
+=======
+	victim.cure_blind(HYPNOCHAIR_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	REMOVE_TRAIT(victim, TRAIT_DEAF, HYPNOCHAIR_TRAIT)
 	if(!(victim.get_eye_protection() > 0))
 		var/time_diff = world.time - start_time
@@ -156,17 +176,29 @@
 			if(0 to 100)
 				victim.adjust_confusion(10 SECONDS)
 				victim.set_dizzy_if_lower(200 SECONDS)
+<<<<<<< HEAD
 				victim.blur_eyes(5)
 			if(101 to 200)
 				victim.adjust_confusion(15 SECONDS)
 				victim.set_dizzy_if_lower(400 SECONDS)
 				victim.blur_eyes(10)
+=======
+				victim.set_eye_blur_if_lower(10 SECONDS)
+			if(101 to 200)
+				victim.adjust_confusion(15 SECONDS)
+				victim.set_dizzy_if_lower(400 SECONDS)
+				victim.set_eye_blur_if_lower(20 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(prob(25))
 					victim.apply_status_effect(/datum/status_effect/trance, rand(50,150), FALSE)
 			if(201 to INFINITY)
 				victim.adjust_confusion(20 SECONDS)
 				victim.set_dizzy_if_lower(600 SECONDS)
+<<<<<<< HEAD
 				victim.blur_eyes(15)
+=======
+				victim.set_eye_blur_if_lower(30 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(prob(65))
 					victim.apply_status_effect(/datum/status_effect/trance, rand(50,150), FALSE)
 	victim = null

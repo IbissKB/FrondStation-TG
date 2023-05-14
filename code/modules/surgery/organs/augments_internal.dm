@@ -7,7 +7,10 @@
 	organ_flags = ORGAN_SYNTHETIC
 	var/implant_color = "#FFFFFF"
 	var/implant_overlay
+<<<<<<< HEAD
 	var/syndicate_implant = FALSE //Makes the implant invisible to health analyzers and medical HUDs.
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/cyberimp/New(mob/implanted_mob = null)
 	if(iscarbon(implanted_mob))
@@ -114,6 +117,7 @@
 
 	var/stun_cap_amount = 40
 
+<<<<<<< HEAD
 /obj/item/organ/internal/cyberimp/brain/anti_stun/Remove(mob/living/carbon/implant_owner, special = FALSE)
 	. = ..()
 	UnregisterSignal(implant_owner, signalCache)
@@ -121,6 +125,15 @@
 /obj/item/organ/internal/cyberimp/brain/anti_stun/Insert(special = FALSE, drop_if_replaced = TRUE)
 	. = ..()
 	RegisterSignal(owner, signalCache, PROC_REF(on_signal))
+=======
+/obj/item/organ/internal/cyberimp/brain/anti_stun/on_remove(mob/living/carbon/implant_owner)
+	. = ..()
+	UnregisterSignal(implant_owner, signalCache)
+
+/obj/item/organ/internal/cyberimp/brain/anti_stun/on_insert(mob/living/carbon/receiver)
+	. = ..()
+	RegisterSignals(receiver, signalCache, PROC_REF(on_signal))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/cyberimp/brain/anti_stun/proc/on_signal(datum/source, amount)
 	SIGNAL_HANDLER

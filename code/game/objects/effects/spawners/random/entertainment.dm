@@ -60,6 +60,10 @@
 		/obj/item/coin/adamantine = 2,
 		/obj/item/coin/mythril = 2,
 		/obj/item/coin/runite = 2,
+<<<<<<< HEAD
+=======
+		/obj/item/food/chococoin = 2,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/coin/twoheaded = 1,
 		/obj/item/coin/antagtoken = 1,
 	)

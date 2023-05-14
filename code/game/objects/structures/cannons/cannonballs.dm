@@ -8,7 +8,11 @@
 	merge_type = /obj/item/stack/cannonball
 	throwforce = 10
 	flags_1 = CONDUCT_1
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/alloy/plasteel=MINERAL_MATERIAL_AMOUNT)
+=======
+	custom_materials = list(/datum/material/alloy/plasteel=SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 	throw_speed = 5
 	throw_range = 3

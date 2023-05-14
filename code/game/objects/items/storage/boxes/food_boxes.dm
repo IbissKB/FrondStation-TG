@@ -2,7 +2,11 @@
 
 /obj/item/storage/box/donkpockets
 	name = "box of donk-pockets"
+<<<<<<< HEAD
 	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will stay perpetually warmed with cutting edge Donk Co. technology.</I>"
+=======
+	desc = "Instructions: Heat in microwave. Product will stay perpetually warmed with cutting edge Donk Co. technology."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "donkpocketbox"
 	illustration = null
 	/// What type of donk pocket are we gonna cram into this box?
@@ -54,7 +58,11 @@
 	inhand_icon_state = null
 	illustration = null
 	resistance_flags = FLAMMABLE
+<<<<<<< HEAD
 	foldable = null
+=======
+	foldable_result = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// A list of all available papersack reskins
 	var/list/papersack_designs = list()
 	///What design from papersack_designs we are currently using.
@@ -325,7 +333,11 @@
 	icon_state = "bubblegum_generic"
 	w_class = WEIGHT_CLASS_TINY
 	illustration = null
+<<<<<<< HEAD
 	foldable = null
+=======
+	foldable_result = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	custom_price = PAYCHECK_CREW
 
 /obj/item/storage/box/gum/Initialize(mapload)
@@ -421,9 +433,15 @@
 /obj/item/storage/box/tiziran_cans/PopulateContents()
 	for(var/i in 1 to 8)
 		var/random_food = pick_weight(list(
+<<<<<<< HEAD
 			/obj/item/food/canned_jellyfish = 5,
 			/obj/item/food/desert_snails = 5,
 			/obj/item/food/larvae = 5,
+=======
+			/obj/item/food/canned/jellyfish = 5,
+			/obj/item/food/canned/desert_snails = 5,
+			/obj/item/food/canned/larvae = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			))
 		new random_food(src)
 

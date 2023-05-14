@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ///Maximum settable pressure
 #define PUMP_MAX_PRESSURE (ONE_ATMOSPHERE * 25)
 ///Minimum settable pressure
@@ -8,6 +9,8 @@
 #define PUMP_IN TRUE
 #define PUMP_OUT FALSE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/portable_atmospherics/pump //SKYRAT EDIT - ICON OVERRIDEN IN SCRUBBER.DM AESTHETICS
 	name = "portable air pump"
 	icon_state = "siphon"

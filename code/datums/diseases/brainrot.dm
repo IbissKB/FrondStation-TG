@@ -13,13 +13,18 @@
 	severity = DISEASE_SEVERITY_HARMFUL
 
 
+<<<<<<< HEAD
 /datum/disease/brainrot/stage_act(delta_time, times_fired) //Removed toxloss because damaging diseases are pretty horrible. Last round it killed the entire station because the cure didn't work -- Urist -ACTUALLY Removed rather than commented out, I don't see it returning - RR
+=======
+/datum/disease/brainrot/stage_act(seconds_per_tick, times_fired) //Removed toxloss because damaging diseases are pretty horrible. Last round it killed the entire station because the cure didn't work -- Urist -ACTUALLY Removed rather than commented out, I don't see it returning - RR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
 
 	switch(stage)
 		if(2)
+<<<<<<< HEAD
 			if(DT_PROB(1, delta_time))
 				affected_mob.emote("blink")
 			if(DT_PROB(1, delta_time))
@@ -34,11 +39,28 @@
 			if(DT_PROB(1, delta_time))
 				affected_mob.emote("drool")
 			if(DT_PROB(5, delta_time))
+=======
+			if(SPT_PROB(1, seconds_per_tick))
+				affected_mob.emote("blink")
+			if(SPT_PROB(1, seconds_per_tick))
+				affected_mob.emote("yawn")
+			if(SPT_PROB(1, seconds_per_tick))
+				to_chat(affected_mob, span_danger("You don't feel like yourself."))
+			if(SPT_PROB(2.5, seconds_per_tick))
+				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1, 170)
+		if(3)
+			if(SPT_PROB(1, seconds_per_tick))
+				affected_mob.emote("stare")
+			if(SPT_PROB(1, seconds_per_tick))
+				affected_mob.emote("drool")
+			if(SPT_PROB(5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2, 170)
 				if(prob(2))
 					to_chat(affected_mob, span_danger("Your try to remember something important...but can't."))
 
 		if(4)
+<<<<<<< HEAD
 			if(DT_PROB(1, delta_time))
 				affected_mob.emote("stare")
 			if(DT_PROB(1, delta_time))
@@ -48,11 +70,26 @@
 				if(prob(2))
 					to_chat(affected_mob, span_danger("Strange buzzing fills your head, removing all thoughts."))
 			if(DT_PROB(1.5, delta_time))
+=======
+			if(SPT_PROB(1, seconds_per_tick))
+				affected_mob.emote("stare")
+			if(SPT_PROB(1, seconds_per_tick))
+				affected_mob.emote("drool")
+			if(SPT_PROB(7.5, seconds_per_tick))
+				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 170)
+				if(prob(2))
+					to_chat(affected_mob, span_danger("Strange buzzing fills your head, removing all thoughts."))
+			if(SPT_PROB(1.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(affected_mob, span_danger("You lose consciousness..."))
 				affected_mob.visible_message(span_warning("[affected_mob] suddenly collapses!"), \
 											span_userdanger("You suddenly collapse!"))
 				affected_mob.Unconscious(rand(100, 200))
 				if(prob(1))
 					affected_mob.emote("snore")
+<<<<<<< HEAD
 			if(DT_PROB(7.5, delta_time))
+=======
+			if(SPT_PROB(7.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				affected_mob.adjust_stutter(6 SECONDS)

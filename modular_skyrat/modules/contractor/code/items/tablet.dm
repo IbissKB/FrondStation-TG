@@ -25,7 +25,10 @@
 	var/datum/computer_file/program/contract_uplink/uplink = locate() in stored_files
 
 	active_program = uplink
+<<<<<<< HEAD
 	uplink.program_state = PROGRAM_STATE_ACTIVE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/datum/computer_file/program/messenger/msg = locate() in stored_files
 	if(msg)

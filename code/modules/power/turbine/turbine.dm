@@ -95,13 +95,21 @@
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
 	tool.play_tool_sound(src, 50)
+<<<<<<< HEAD
 	panel_open = !panel_open
+=======
+	toggle_panel_open()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(panel_open)
 		disable_parts(user)
 	else
 		enable_parts(user)
+<<<<<<< HEAD
 	var/descriptor = panel_open ? "open" : "close"
 	balloon_alert(user, "you [descriptor] the maintenance hatch of [src]")
+=======
+	balloon_alert(user, "you [panel_open ? "open" : "close"] the maintenance hatch of [src]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 

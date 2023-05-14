@@ -6,10 +6,17 @@
 	inhand_icon_state = "welding"
 	lefthand_file = 'icons/mob/inhands/clothing/masks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/masks_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=1750, /datum/material/glass=400)
 	flash_protect = FLASH_PROTECTION_WELDER
 	tint = 2
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 60)
+=======
+	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.75, /datum/material/glass=SMALL_MATERIAL_AMOUNT * 4)
+	flash_protect = FLASH_PROTECTION_WELDER
+	tint = 2
+	armor_type = /datum/armor/utility_welding
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDESNOUT
 	actions_types = list(/datum/action/item_action/toggle)
 	visor_flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDESNOUT
@@ -17,6 +24,14 @@
 	resistance_flags = FIRE_PROOF
 	clothing_flags = SNUG_FIT | PLASMAMAN_HELMET_EXEMPT
 
+<<<<<<< HEAD
+=======
+/datum/armor/utility_welding
+	melee = 10
+	fire = 100
+	acid = 60
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/utility/welding/attack_self(mob/user)
 	weldingvisortoggle(user)
 

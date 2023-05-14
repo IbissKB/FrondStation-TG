@@ -1,8 +1,44 @@
+<<<<<<< HEAD
 ///Sends an announcement to all players and formats it accordingly. Use this for big bad shit.
 /proc/priority_announce(text, title = "", sound, type , sender_override, has_important_message, players)
 	if(!text)
 		return
 
+=======
+/**
+ * Make a big red text announcement to
+ *
+ * Formatted like:
+ *
+ * " Message from sender "
+ *
+ * " Title "
+ *
+ * " Text "
+ *
+ * Arguments
+ * * text - required, the text to announce
+ * * title - optional, the title of the announcement.
+ * * sound - optional, the sound played accompanying the announcement
+ * * type - optional, the type of the announcement, for some "preset" announcement templates. "Priority", "Captain", "Syndicate Captain"
+ * * sender_override - optional, modifies the sender of the announcement
+ * * has_important_message - is this message critical to the game (and should not be overridden by station traits), or not
+ * * players - a list of all players to send the message to. defaults to all players (not including new players)
+ * * encode_title - if TRUE, the title will be HTML encoded
+ * * encode_text - if TRUE, the text will be HTML encoded
+ */
+/proc/priority_announce(text, title = "", sound, type, sender_override, has_important_message = FALSE, list/mob/players, encode_title = TRUE, encode_text = TRUE)
+	if(!text)
+		return
+
+	if(encode_title && title && length(title) > 0)
+		title = html_encode(title)
+	if(encode_text)
+		text = html_encode(text)
+		if(!length(text))
+			return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/announcement
 
 	if(!sound)
@@ -14,10 +50,17 @@
 	if(type == "Priority")
 		announcement += "<h1 class='alert'>Priority Announcement</h1>"
 		if (title && length(title) > 0)
+<<<<<<< HEAD
 			announcement += "<br><h2 class='alert'>[html_encode(title)]</h2>"
 	else if(type == JOB_CAPTAIN)
 		announcement += "<h1 class='alert'>Captain Announces</h1>"
 		GLOB.news_network.submit_article(html_encode(text), "Captain's Announcement", "Station Announcements", null)
+=======
+			announcement += "<br><h2 class='alert'>[title]</h2>"
+	else if(type == JOB_CAPTAIN)
+		announcement += "<h1 class='alert'>Captain Announces</h1>"
+		GLOB.news_network.submit_article(text, "Captain's Announcement", "Station Announcements", null)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(type == "Syndicate Captain")
 		announcement += "<h1 class='alert'>Syndicate Captain Announces</h1>"
 
@@ -27,7 +70,11 @@
 		else
 			announcement += "<h1 class='alert'>[sender_override]</h1>"
 		if (title && length(title) > 0)
+<<<<<<< HEAD
 			announcement += "<br><h2 class='alert'>[html_encode(title)]</h2>"
+=======
+			announcement += "<br><h2 class='alert'>[title]</h2>"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(!sender_override)
 			if(title == "")
@@ -39,7 +86,11 @@
 	if(SSstation.announcer.custom_alert_message && !has_important_message)
 		announcement +=  SSstation.announcer.custom_alert_message
 	else
+<<<<<<< HEAD
 		announcement += "<br><span class='alert'>[html_encode(text)]</span><br>"
+=======
+		announcement += "<br><span class='alert'>[text]</span><br>"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	announcement += "<br>"
 
 	if(!players)
@@ -109,6 +160,7 @@
 		alert_sound_to_playing(sound('sound/misc/notice2.ogg'), players = players)
 
 
+<<<<<<< HEAD
 /**
  * Summon the crew for an emergency meeting
  *
@@ -140,3 +192,5 @@
 					target = null
 					continue
 				mob_to_teleport.forceMove(target)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -75,6 +75,11 @@
 #define ACCESS_MEDICAL "medical"
 /// Access to the Morgue.
 #define ACCESS_MORGUE "morgue"
+<<<<<<< HEAD
+=======
+/// Access to the secure morgue area.
+#define ACCESS_MORGUE_SECURE "morgue_secure"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Access to the Pharmacy, or the smaller room in medical with the multiple chem dispensers and pill pressers. The Chemist's main position.
 #define ACCESS_PHARMACY "pharmacy"
 /// Access to the surgery rooms.
@@ -304,6 +309,10 @@
 	ACCESS_MINERAL_STOREROOM, \
 	ACCESS_MINING, \
 	ACCESS_MINING_STATION, \
+<<<<<<< HEAD
+=======
+	ACCESS_MORGUE_SECURE, \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ACCESS_MORGUE, \
 	ACCESS_NETWORK, \
 	ACCESS_ORDNANCE, \
@@ -441,6 +450,10 @@
 	ACCESS_MECH_MEDICAL, \
 	ACCESS_MEDICAL, \
 	ACCESS_MORGUE, \
+<<<<<<< HEAD
+=======
+	ACCESS_MORGUE_SECURE, \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ACCESS_PHARMACY, \
 	ACCESS_PLUMBING, \
 	ACCESS_PSYCHOLOGY, \
@@ -527,6 +540,10 @@
 	/obj/item/modular_computer/pda/mime = list(REGION_GENERAL), \
 	/obj/item/modular_computer/pda/medical = list(REGION_MEDBAY), \
 	/obj/item/modular_computer/pda/viro = list(REGION_MEDBAY), \
+<<<<<<< HEAD
+=======
+	/obj/item/modular_computer/pda/coroner = list(REGION_MEDBAY), \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/obj/item/modular_computer/pda/engineering = list(REGION_ENGINEERING), \
 	/obj/item/modular_computer/pda/security = list(REGION_SECURITY), \
 	/obj/item/modular_computer/pda/detective = list(REGION_SECURITY), \
@@ -543,7 +560,11 @@
 	/obj/item/modular_computer/pda/cargo = list(REGION_SUPPLY), \
 	/obj/item/modular_computer/pda/shaftminer = list(REGION_SUPPLY), \
 	/obj/item/modular_computer/pda/chaplain = list(REGION_GENERAL), \
+<<<<<<< HEAD
 	/obj/item/modular_computer/pda/lawyer = list(REGION_GENERAL, REGION_SECURITY), \
+=======
+	/obj/item/modular_computer/pda/lawyer = list(REGION_GENERAL), \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/obj/item/modular_computer/pda/botanist = list(REGION_GENERAL), \
 	/obj/item/modular_computer/pda/roboticist = list(REGION_RESEARCH), \
 	/obj/item/modular_computer/pda/curator = list(REGION_GENERAL), \

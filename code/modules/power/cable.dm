@@ -17,6 +17,10 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	icon = 'icons/obj/power_cond/layer_cable.dmi'
 	icon_state = "l2-1-2-4-8-node"
 	color = CABLE_HEX_COLOR_YELLOW
+<<<<<<< HEAD
+=======
+	plane = FLOOR_PLANE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = WIRE_LAYER //Above hidden pipes, GAS_PIPE_HIDDEN_LAYER
 	anchored = TRUE
 	obj_flags = CAN_BE_HIT
@@ -151,6 +155,10 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		icon_state = "l[cable_layer]-noconnection"
 		return ..()
 
+<<<<<<< HEAD
+=======
+	// TODO: stop doing this shit in update_icon_state, this should be event based for the love of all that is holy
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/dir_icon_list = list()
 	for(var/check_dir in GLOB.cardinals)
 		if(linked_dirs & check_dir)
@@ -459,7 +467,11 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	pixel_x = base_pixel_x + rand(-2, 2)
 	pixel_y = base_pixel_y + rand(-2, 2)
 
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, slot_flags)
+=======
+	AddElement(/datum/element/update_icon_updates_onmob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	update_appearance()
 
@@ -577,7 +589,11 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		if(user == H)
 			user.visible_message(span_notice("[user] starts to fix some of the wires in [H]'s [affecting.name]."), span_notice("You start fixing some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name]."))
 			/* SKYRAT EDIT START - ORIGINAL:
+<<<<<<< HEAD
 			if(!do_mob(user, H, 50))
+=======
+			if(!do_after(user, 50, H))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			*/
 		// SKYRAT EDIT CHANGE START

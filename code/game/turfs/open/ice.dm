@@ -29,8 +29,13 @@
 	icon_state = "ice_turf-255"
 	base_icon_state = "ice_turf"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_ICE)
 	canSmoothWith = list(SMOOTH_GROUP_FLOOR_ICE)
+=======
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_ICE
+	canSmoothWith = SMOOTH_GROUP_FLOOR_ICE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/misc/ice/icemoon
 	baseturfs = /turf/open/openspace/icemoon

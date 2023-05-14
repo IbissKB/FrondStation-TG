@@ -96,7 +96,11 @@
 		new_turf = new new_turf(gen_turf)
 
 		if(gen_turf.turf_flags & NO_RUINS)
+<<<<<<< HEAD
 			new_turf.flags_1 |= NO_RUINS
+=======
+			new_turf.turf_flags |= NO_RUINS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(closed)//Open turfs have some special behavior related to spawning flora and mobs.
 			CHECK_TICK

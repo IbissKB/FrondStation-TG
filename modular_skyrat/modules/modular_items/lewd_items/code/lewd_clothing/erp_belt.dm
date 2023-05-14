@@ -43,12 +43,20 @@
 						/obj/item/clothing/mask/ballgag,
 						/obj/item/clothing/mask/ballgag/choking,
 						/obj/item/clothing/head/domina_cap,
+<<<<<<< HEAD
 						/obj/item/clothing/head/costume/maid,
+=======
+						/obj/item/clothing/head/costume/skyrat/maid,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						/obj/item/clothing/glasses/blindfold/kinky,
 						/obj/item/clothing/ears/kinky_headphones,
 						/obj/item/clothing/suit/straight_jacket/latex_straight_jacket,
 						/obj/item/clothing/mask/gas/bdsm_mask,
+<<<<<<< HEAD
 						/obj/item/clothing/head/helmet/space/deprivation_helmet,
+=======
+						/obj/item/clothing/head/deprivation_helmet,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						/obj/item/clothing/glasses/hypno,
 
 						//neck

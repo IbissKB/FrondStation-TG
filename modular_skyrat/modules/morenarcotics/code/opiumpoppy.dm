@@ -18,7 +18,14 @@
 	desc = "The seedpod of the opium poppy plant, which contain opium latex."
 	icon = 'modular_skyrat/master_files/icons/obj/hydroponics/harvest.dmi'
 	icon_state = "opiumpoppy"
+<<<<<<< HEAD
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
+=======
+	worn_icon_state = "map_flower"
+	greyscale_config = null
+	greyscale_config_worn = /datum/greyscale_config/flower_simple_worn
+	greyscale_colors = "#01690f"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	distill_reagent = /datum/reagent/consumable/ethanol/turbo //How can a slow drug make fast drink? Don't question it.

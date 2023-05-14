@@ -16,7 +16,10 @@
 
 /** Mob related */
 #define ALERT_SUCCUMB "succumb"
+<<<<<<< HEAD
 #define ALERT_BLIND "blind"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define ALERT_BUCKLED "buckled"
 #define ALERT_HANDCUFFED "handcuffed"
 #define ALERT_LEGCUFFED "legcuffed"

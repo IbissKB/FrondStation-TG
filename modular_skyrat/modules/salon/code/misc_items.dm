@@ -20,6 +20,12 @@
 		to_chat(user, span_warning("Where are the lips on that?"))
 		return
 
+<<<<<<< HEAD
+=======
+	INVOKE_ASYNC(src, PROC_REF(async_set_color), attacked_mob, user)
+
+/obj/item/lipstick/quantum/proc/async_set_color(mob/attacked_mob, mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/new_color = input(
 			user,
 			"Select lipstick color",

@@ -33,6 +33,18 @@
 /proc/_cos(X)
 	return cos(X)
 
+<<<<<<< HEAD
+=======
+/proc/_findtext(Haystack, Needle, Start = 1, End = 0)
+	return findtext(Haystack, Needle, Start, End)
+
+/proc/_findtextEx(Haystack, Needle, Start = 1, End = 0)
+	return findtextEx(Haystack, Needle, Start, End)
+
+/proc/_flick(Icon, Object)
+	flick(Icon, Object)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /proc/_get_dir(Loc1, Loc2)
 	return get_dir(Loc1, Loc2)
 
@@ -145,6 +157,12 @@
 /proc/_range(Dist, Center = usr)
 	return range(Dist, Center)
 
+<<<<<<< HEAD
+=======
+/proc/_rect_turfs(H_Radius = 0, V_Radius = 0, atom/Center)
+	return RECT_TURFS(H_Radius, V_Radius, Center)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /proc/_regex(pattern, flags)
 	return regex(pattern, flags)
 
@@ -263,6 +281,15 @@
 /proc/_turn(dir, angle)
 	return turn(dir, angle)
 
+<<<<<<< HEAD
+=======
+/proc/_view(Dist, Center = usr)
+	return view(Dist, Center)
+
+/proc/_viewers(Dist, Center = usr)
+	return viewers(Dist, Center)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Auxtools REALLY doesn't know how to handle filters as values;
 /// when passed as arguments to auxtools-called procs, they aren't simply treated as nulls -
 /// they don't even count towards the length of args.

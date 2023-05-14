@@ -76,7 +76,11 @@
 	// This works even with the species picks since we're only accessing the name
 
 	var/obj/item/master = comp.parent
+<<<<<<< HEAD
 	master.AddElement(/datum/element/bane, picked_mobtype)
+=======
+	master.AddElement(/datum/element/bane, target_type = picked_mobtype)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target_types_by_comp[comp] = picked_mobtype
 	return "[newName] of [initial(picked_mobtype.name)] slaying"
 
@@ -104,7 +108,10 @@
 			/datum/species = TRUE,
 			// Some types to remove them and their subtypes
 			/mob/living/carbon/human/species = FALSE,
+<<<<<<< HEAD
 			/mob/living/simple_animal/hostile/syndicate/mecha_pilot = FALSE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			/mob/living/simple_animal/hostile/asteroid/elite = FALSE,
 			/mob/living/simple_animal/hostile/megafauna = FALSE,
 		))

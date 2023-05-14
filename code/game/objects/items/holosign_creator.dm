@@ -36,12 +36,19 @@
 	. = ..()
 	if(!proximity_flag)
 		return
+<<<<<<< HEAD
 	if(!check_allowed_items(target, not_inside = TRUE))
 		return
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+	if(!check_allowed_items(target, not_inside = TRUE))
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/turf/target_turf = get_turf(target)
 	var/obj/structure/holosign/target_holosign = locate(holosign_type) in target_turf
 	if(target_holosign)
 		qdel(target_holosign)
+<<<<<<< HEAD
 		return
 	if(target_turf.is_blocked_turf(TRUE)) //can't put holograms on a tile that has dense stuff
 		return
@@ -51,11 +58,23 @@
 	if(LAZYLEN(signs) >= max_signs)
 		balloon_alert(user, "max capacity!")
 		return
+=======
+		return .
+	if(target_turf.is_blocked_turf(TRUE)) //can't put holograms on a tile that has dense stuff
+		return .
+	if(holocreator_busy)
+		to_chat(user, span_notice("[src] is busy creating a hologram."))
+		return .
+	if(LAZYLEN(signs) >= max_signs)
+		balloon_alert(user, "max capacity!")
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(loc, 'sound/machines/click.ogg', 20, TRUE)
 	if(creation_time)
 		holocreator_busy = TRUE
 		if(!do_after(user, creation_time, target = target))
 			holocreator_busy = FALSE
+<<<<<<< HEAD
 			return
 		holocreator_busy = FALSE
 		if(LAZYLEN(signs) >= max_signs)
@@ -63,6 +82,16 @@
 		if(target_turf.is_blocked_turf(TRUE)) //don't try to sneak dense stuff on our tile during the wait.
 			return
 	target_holosign = new holosign_type(get_turf(target), src)
+=======
+			return .
+		holocreator_busy = FALSE
+		if(LAZYLEN(signs) >= max_signs)
+			return .
+		if(target_turf.is_blocked_turf(TRUE)) //don't try to sneak dense stuff on our tile during the wait.
+			return .
+	target_holosign = new holosign_type(get_turf(target), src)
+	return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/holosign_creator/attack(mob/living/carbon/human/M, mob/user)
 	return
@@ -139,7 +168,11 @@
 				qdel(sign)
 			shock = 0
 			return
+<<<<<<< HEAD
 		if(R.emagged&&!shock)
+=======
+		if(R.emagged && !shock)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_warning("You clear all active holograms, and overload your energy projector!"))
 			holosign_type = /obj/structure/holosign/barrier/cyborg/hacked
 			creation_time = 30

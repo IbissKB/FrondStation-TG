@@ -40,10 +40,21 @@
 /datum/lua_editor/ui_static_data(mob/user)
 	var/list/data = list()
 	data["documentation"] = file2text('code/modules/admin/verbs/lua/README.md')
+<<<<<<< HEAD
+=======
+	data["auxtools_enabled"] = CONFIG_GET(flag/auxtools_enabled)
+	data["ss_lua_init"] = SSlua.initialized
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return data
 
 /datum/lua_editor/ui_data(mob/user)
 	var/list/data = list()
+<<<<<<< HEAD
+=======
+	if(!CONFIG_GET(flag/auxtools_enabled) || !SSlua.initialized)
+		return data
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["noStateYet"] = !current_state
 	data["showGlobalTable"] = show_global_table
 	if(current_state)
@@ -227,8 +238,11 @@
 	set category = "Debug"
 	if(!check_rights_for(src, R_DEBUG))
 		return
+<<<<<<< HEAD
 	if(SSlua.initialized != TRUE)
 		to_chat(usr, span_warning("SSlua is not initialized!"))
 		return
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/lua_editor/editor = new()
 	editor.ui_interact(usr)

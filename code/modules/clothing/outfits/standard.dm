@@ -104,6 +104,32 @@
 	head = /obj/item/clothing/head/helmet/redtaghelm
 	shoes = /obj/item/clothing/shoes/sneakers/red
 
+<<<<<<< HEAD
+=======
+/datum/outfit/traitor_cutout
+	name = "Traitor Cutout"
+
+	uniform = /obj/item/clothing/under/color/grey
+	suit = /obj/item/clothing/suit/armor/vest
+	gloves = /obj/item/clothing/gloves/chief_engineer
+	mask = /obj/item/clothing/mask/gas
+	belt = /obj/item/storage/belt
+	l_hand = /obj/item/melee/energy/sword/saber/red
+	r_hand = /obj/item/gun/energy/recharge/ebow
+	shoes = /obj/item/clothing/shoes/magboots/advance
+
+/datum/outfit/rev_cutout
+	name = "Revolutionary Cutout"
+
+	uniform = /obj/item/clothing/under/color/grey
+	back = /obj/item/storage/backpack
+	gloves = /obj/item/clothing/gloves/color/yellow
+	mask = /obj/item/clothing/mask/gas
+	belt = /obj/item/storage/belt
+	l_hand = /obj/item/melee/baton/security/cattleprod
+	shoes = /obj/item/clothing/shoes/sneakers/black
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/outfit/laser_tag/blue
 	name = "Laser Tag Blue"
 
@@ -227,7 +253,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	ears = /obj/item/radio/headset
 	glasses = /obj/item/clothing/glasses/thermal/monocle
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/latex
+=======
+	gloves = /obj/item/clothing/gloves/latex
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	head = /obj/item/clothing/head/utility/welding
 	mask = /obj/item/clothing/mask/surgical
 	l_pocket = /obj/item/knife/kitchen
@@ -329,6 +359,18 @@
 	shoes = /obj/item/clothing/shoes/cult/alt/ghost
 	l_hand = /obj/item/melee/cultblade/ghost
 
+<<<<<<< HEAD
+=======
+/datum/outfit/cult_cutout
+	name = "Cultist Cutout"
+
+	uniform = /obj/item/clothing/under/rank/civilian/chaplain
+	suit = /obj/item/clothing/suit/hooded/cultrobes/hardened
+	shoes = /obj/item/clothing/shoes/cult/alt
+	back = /obj/item/storage/backpack/cultpack
+	r_hand = /obj/item/melee/cultblade/dagger
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/outfit/wizard
 	name = "Blue Wizard"
 
@@ -336,9 +378,15 @@
 	suit = /obj/item/clothing/suit/wizrobe
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
+<<<<<<< HEAD
 		/obj/item/storage/box/survival = 1,
 		/obj/item/spellbook = 1,
 )
+=======
+		/obj/item/spellbook = 1,
+	)
+	box = /obj/item/storage/box/survival
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ears = /obj/item/radio/headset
 	head = /obj/item/clothing/head/wizard
 	shoes = /obj/item/clothing/shoes/sandal/magic
@@ -353,13 +401,27 @@
 	if(new_spellbook)
 		new_spellbook.owner = wizard.mind
 
+<<<<<<< HEAD
+=======
+/datum/outfit/wizard/bookless
+	name = "Wizard - Bookless"
+	backpack_contents = list()
+
+/datum/outfit/wizard/bookless/post_equip(mob/living/carbon/human/wizard, visualsOnly)
+	return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/outfit/wizard/apprentice
 	name = "Wizard Apprentice"
 
 	r_pocket = /obj/item/teleportation_scroll/apprentice
 	r_hand = null
 	l_hand = null
+<<<<<<< HEAD
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
+=======
+	backpack_contents = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/wizard/red
 	name = "Red Wizard"
@@ -380,7 +442,11 @@
 	r_hand = null
 	suit = /obj/item/clothing/suit/wizrobe/red
 	head = /obj/item/clothing/head/wizard/red
+<<<<<<< HEAD
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
+=======
+	backpack_contents = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/centcom/soviet
 	name = "Soviet Admiral"

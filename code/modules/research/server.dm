@@ -27,9 +27,14 @@
 
 /obj/machinery/rnd/server/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	if(CONFIG_GET(flag/no_default_techweb_link))
 		stored_research = new /datum/techweb
 	SSresearch.servers |= src
+=======
+	if(CONFIG_GET(flag/no_default_techweb_link) && !stored_research)
+		stored_research = new /datum/techweb
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stored_research.techweb_servers |= src
 	name += " [num2hex(rand(1,65535), -1)]" //gives us a random four-digit hex number as part of the name. Y'know, for fluff.
 
@@ -38,7 +43,10 @@
 		stored_research.techweb_servers -= src
 	if(CONFIG_GET(flag/no_default_techweb_link))
 		QDEL_NULL(stored_research)
+<<<<<<< HEAD
 	SSresearch.servers -= src
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/machinery/rnd/server/update_icon_state()
@@ -121,7 +129,11 @@
 
 /obj/machinery/computer/rdservercontrol/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !stored_research)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		stored_research = SSresearch.science_tech
 
 /obj/machinery/computer/rdservercontrol/Topic(href, href_list)
@@ -131,7 +143,11 @@
 	add_fingerprint(usr)
 	if (href_list["toggle"])
 		if(allowed(usr) || obj_flags & EMAGGED)
+<<<<<<< HEAD
 			var/obj/machinery/rnd/server/S = locate(href_list["toggle"]) in SSresearch.servers
+=======
+			var/obj/machinery/rnd/server/S = locate(href_list["toggle"]) in stored_research.techweb_servers
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			S.toggle_disable(usr)
 		else
 			to_chat(usr, span_danger("Access Denied."))
@@ -145,9 +161,13 @@
 
 	dat += "<b>Connected Servers:</b>"
 	dat += "<table><tr><td style='width:25%'><b>Server</b></td><td style='width:25%'><b>Status</b></td><td style='width:25%'><b>Control</b></td>"
+<<<<<<< HEAD
 	for(var/obj/machinery/rnd/server/server as anything in SSresearch.servers)
 		if(server.stored_research != stored_research) //not on our servers
 			continue
+=======
+	for(var/obj/machinery/rnd/server/server as anything in stored_research.techweb_servers)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/server_info = ""
 
 		var/status_text = server.get_status_text()
@@ -204,16 +224,23 @@
 	name = "\improper Master " + name
 	desc += "\nIt looks incredibly resistant to damage!"
 	source_code_hdd = new(src)
+<<<<<<< HEAD
 	SSresearch.master_servers += src
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	add_overlay("RD-server-objective-stripes")
 
 /obj/machinery/rnd/server/master/Destroy()
+<<<<<<< HEAD
 	if (source_code_hdd && (deconstruction_state == HDD_OVERLOADED))
 		QDEL_NULL(source_code_hdd)
 
 	SSresearch.master_servers -= src
 
+=======
+	QDEL_NULL(source_code_hdd)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/machinery/rnd/server/master/get_status_text()
@@ -307,7 +334,11 @@
 			to_chat(user, span_notice("You cut the final wire and remove [source_code_hdd]."))
 			try_put_in_hand(source_code_hdd, user)
 			source_code_hdd = null
+<<<<<<< HEAD
 			SSresearch.income_modifier *= 0.5
+=======
+			stored_research.income_modifier *= 0.5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return TRUE
 		to_chat(user, span_notice("You delicately cut the wire. [hdd_wires] wire\s left..."))
 	return TRUE
@@ -315,6 +346,11 @@
 /obj/machinery/rnd/server/master/on_deconstruction()
 	// If the machine contains a source code HDD, destroying it will negatively impact research speed. Safest to log this.
 	if(source_code_hdd)
+<<<<<<< HEAD
+=======
+		// Destroyed with a hard drive inside = harm income
+		stored_research.income_modifier *= 0.5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		// If there's a usr, this was likely a direct deconstruction of some sort. Extra logging info!
 		if(usr)
 			var/mob/user = usr
@@ -332,6 +368,11 @@
 /obj/machinery/rnd/server/master/proc/overload_source_code_hdd()
 	if(source_code_hdd)
 		QDEL_NULL(source_code_hdd)
+<<<<<<< HEAD
+=======
+		// Overloaded = harm income
+		stored_research.income_modifier *= 0.5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(deconstruction_state == HDD_PANEL_CLOSED)
 		add_overlay("RD-server-hdd-panel-open")
@@ -340,7 +381,16 @@
 	hdd_wires = 0
 	deconstruction_state = HDD_OVERLOADED
 
+<<<<<<< HEAD
 #undef HDD_PANEL_CLOSED
 #undef HDD_PANEL_OPEN
 #undef HDD_PRIED
 #undef HDD_CUT_LOOSE
+=======
+#undef HDD_CUT_LOOSE
+#undef HDD_OVERLOADED
+#undef HDD_PANEL_CLOSED
+#undef HDD_PANEL_OPEN
+#undef HDD_PRIED
+#undef SERVER_NOMINAL_TEXT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

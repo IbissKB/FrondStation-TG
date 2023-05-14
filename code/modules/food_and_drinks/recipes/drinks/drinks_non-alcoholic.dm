@@ -172,3 +172,10 @@
 	results = list(/datum/reagent/consumable/cucumberlemonade = 5)
 	required_reagents = list(/datum/reagent/consumable/lemon_lime = 3, /datum/reagent/consumable/cucumberjuice = 2, /datum/reagent/consumable/ice = 1)
 
+<<<<<<< HEAD
+=======
+/datum/chemical_reaction/drink/mississippi_queen
+	results = list(/datum/reagent/consumable/mississippi_queen = 50)
+	required_reagents = list(/datum/reagent/consumable/tomatojuice = 15, /datum/reagent/consumable/mayonnaise = 10, /datum/reagent/consumable/soysauce = 5, /datum/reagent/consumable/vinegar = 2, /datum/reagent/consumable/capsaicin = 10, /datum/reagent/consumable/coco = 2)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

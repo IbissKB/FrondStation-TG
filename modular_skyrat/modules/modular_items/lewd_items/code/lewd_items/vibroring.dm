@@ -1,7 +1,12 @@
 /obj/item/clothing/sextoy/vibroring
 	name = "vibrating ring"
 	desc = "A ring toy used to keep your erection going strong."
+<<<<<<< HEAD
 	icon_state = "vibroring"
+=======
+	icon_state = "vibroring_pink_off"
+	base_icon_state = "vibroring"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	/// If the toy is currently on or not
 	var/toy_on = FALSE
@@ -63,8 +68,13 @@
 
 /obj/item/clothing/sextoy/vibroring/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)]_[current_color]_[toy_on? "on" : "off"]"
 	inhand_icon_state = "[initial(icon_state)]_[current_color]"
+=======
+	icon_state = "[base_icon_state]_[current_color]_[toy_on? "on" : "off"]"
+	inhand_icon_state = "[base_icon_state]_[current_color]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/sextoy/vibroring/equipped(mob/living/carbon/human/user, slot, initial)
 	. = ..()
@@ -77,6 +87,7 @@
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
 
+<<<<<<< HEAD
 /obj/item/clothing/sextoy/vibroring/process(delta_time)
 	var/mob/living/carbon/human/user = loc
 	if(!user || !istype(user))
@@ -86,5 +97,16 @@
 		return
 	user.adjust_arousal(1 * delta_time)
 	user.adjust_pleasure(1 * delta_time)
+=======
+/obj/item/clothing/sextoy/vibroring/process(seconds_per_tick)
+	var/mob/living/carbon/human/user = loc
+	if(!user || !istype(user))
+		return PROCESS_KILL
+	var/obj/item/organ/external/genital/testicles/balls = user.get_organ_slot(ORGAN_SLOT_PENIS)
+	if(!toy_on || !balls)
+		return
+	user.adjust_arousal(1 * seconds_per_tick)
+	user.adjust_pleasure(1 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(balls.aroused != AROUSAL_CANT)
 		balls.aroused = AROUSAL_FULL //Vibroring keep penis erected.

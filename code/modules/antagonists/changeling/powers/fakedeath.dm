@@ -20,7 +20,11 @@
 		build_all_button_icons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_ICON)
 	else
 		to_chat(user, span_notice("We begin our stasis, preparing energy to arise once more."))
+<<<<<<< HEAD
 		user.fakedeath("changeling") //play dead
+=======
+		user.fakedeath(CHANGELING_TRAIT) //play dead
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		addtimer(CALLBACK(src, PROC_REF(ready_to_regenerate), user), LING_FAKEDEATH_TIME, TIMER_UNIQUE)
 	return TRUE
 
@@ -28,7 +32,11 @@
 	if(!istype(user))
 		return
 
+<<<<<<< HEAD
 	user.cure_fakedeath("changeling")
+=======
+	user.cure_fakedeath(CHANGELING_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Heal all damage and some minor afflictions,
 	var/flags_to_heal = (HEAL_DAMAGE|HEAL_BODY|HEAL_STATUS|HEAL_CC_STATUS)
 	// but leave out limbs so we can do it specially
@@ -57,6 +65,7 @@
 		return
 
 	to_chat(user, span_notice("We are ready to revive."))
+<<<<<<< HEAD
 	build_all_button_icons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_ICON)
 	chemical_cost = 0
 	revive_ready = TRUE
@@ -71,6 +80,31 @@
 				return
 	return ..()
 
+=======
+	chemical_cost = 0
+	revive_ready = TRUE
+	build_all_button_icons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_ICON)
+
+/datum/action/changeling/fakedeath/can_sting(mob/living/user)
+	if(HAS_TRAIT_FROM(user, TRAIT_DEATHCOMA, "changeling") && !revive_ready)
+		user.balloon_alert(user, "already reviving!")
+		return
+	//Confirmation for living changelings if they want to fake their death
+	if(user.stat != DEAD)
+		if(tgui_alert(user, "Are we sure we wish to fake our own death?", "Feign Death", list("Yes", "No")) != "Yes")
+			return
+		if(QDELETED(user) || QDELETED(src) || !can_enter_stasis(user))
+			return
+
+	return ..()
+
+/datum/action/changeling/fakedeath/proc/can_enter_stasis(mob/living/user)
+	if(HAS_TRAIT_FROM(user, TRAIT_DEATHCOMA, CHANGELING_TRAIT))
+		user.balloon_alert(user, "already reviving!")
+		return FALSE
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/action/changeling/fakedeath/update_button_name(atom/movable/screen/movable/action_button/button, force)
 	if(revive_ready)
 		name = "Revive"

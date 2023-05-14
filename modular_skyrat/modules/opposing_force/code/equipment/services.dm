@@ -37,7 +37,11 @@
 
 /datum/opposing_force_equipment/service/power_outage/on_issue()
 	var/datum/round_event_control/event = locate(/datum/round_event_control/grid_check) in SSevents.control
+<<<<<<< HEAD
 	event.runEvent()
+=======
+	event.run_event()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/service/telecom_outage
 	name = "Telecomms Outage"
@@ -48,7 +52,11 @@
 
 /datum/opposing_force_equipment/service/telecom_outage/on_issue()
 	var/datum/round_event_control/event = locate(/datum/round_event_control/communications_blackout) in SSevents.control
+<<<<<<< HEAD
 	event.runEvent()
+=======
+	event.run_event()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/service/market_crash
 	name = "Market Crash"
@@ -59,7 +67,11 @@
 
 /datum/opposing_force_equipment/service/market_crash/on_issue()
 	var/datum/round_event_control/event = locate(/datum/round_event_control/market_crash) in SSevents.control
+<<<<<<< HEAD
 	event.runEvent()
+=======
+	event.run_event()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/service/give_exploitables
 	name = "Exploitables Access"

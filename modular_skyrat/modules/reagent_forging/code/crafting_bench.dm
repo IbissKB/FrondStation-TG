@@ -180,9 +180,19 @@
 			return TOOL_ACT_TOOLTYPE_SUCCESS
 
 		var/list/things_to_use = can_we_craft_this(wood_required_for_weapons, TRUE)
+<<<<<<< HEAD
 		create_thing_from_requirements(things_to_use, user = user, skill_to_grant = /datum/skill/smithing, skill_amount = 30, completing_a_weapon = TRUE)
 
 		balloon_alert_to_viewers("[contents[1]] created")
+=======
+		var/obj/thing_just_made = create_thing_from_requirements(things_to_use, user = user, skill_to_grant = /datum/skill/smithing, skill_amount = 30, completing_a_weapon = TRUE)
+
+		if(!thing_just_made)
+			message_admins("[src] just tried to finish a weapon but somehow created nothing! This is not working as intended!")
+			return TOOL_ACT_TOOLTYPE_SUCCESS
+
+		balloon_alert_to_viewers("[thing_just_made] created")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_appearance()
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
@@ -262,6 +272,7 @@
 
 	if(!recipe_to_follow && !completing_a_weapon)
 		message_admins("[src] just tried to complete a recipe without having a recipe, and without it being the completion of a forging weapon!")
+<<<<<<< HEAD
 		return
 
 	if(completing_a_weapon && (!length(contents) || !istype(contents[1], /obj/item/forging/complete)))
@@ -270,6 +281,17 @@
 
 	if(!length(things_to_use))
 		message_admins("[src] just tried to craft something from requirements, but was not given a list of requirements!")
+=======
+		return FALSE
+
+	if(completing_a_weapon && (!length(contents) || !istype(contents[1], /obj/item/forging/complete)))
+		message_admins("[src] just tried to complete a forge weapon without there being a weapon head inside it to complete!")
+		return FALSE
+
+	if(!length(things_to_use))
+		message_admins("[src] just tried to craft something from requirements, but was not given a list of requirements!")
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(completing_a_weapon)
 		recipe_to_follow = new /datum/crafting_bench_recipe/weapon_completion_recipe
@@ -294,7 +316,11 @@
 
 	if(!newly_created_thing)
 		message_admins("[src] just failed to create something while crafting!")
+<<<<<<< HEAD
 		return
+=======
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(recipe_to_follow.transfers_materials)
 		newly_created_thing.set_custom_materials(materials_to_transfer, multiplier = 1)
@@ -303,6 +329,10 @@
 
 	clear_recipe()
 	update_appearance()
+<<<<<<< HEAD
+=======
+	return newly_created_thing
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Takes the given list, things_to_use, compares it to recipe_to_follow's requirements, then either uses items from a stack, or deletes them otherwise. Returns custom material of forge items in the end.
 /obj/structure/reagent_crafting_bench/proc/use_or_delete_recipe_requirements(list/things_to_use, datum/crafting_bench_recipe/recipe_to_follow)

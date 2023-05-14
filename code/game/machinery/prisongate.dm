@@ -8,7 +8,11 @@
 	/// roughly the same health/armor as an airlock
 	max_integrity = 450
 	damage_deflection = 30
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 0, FIRE = 80, ACID = 70)
+=======
+	armor_type = /datum/armor/machinery_prisongate
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	use_power = IDLE_POWER_USE
 	power_channel = AREA_USAGE_EQUIP
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.05
@@ -18,6 +22,18 @@
 	var/gate_active = TRUE
 	COOLDOWN_DECLARE(spam_cooldown_time)
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_prisongate
+	melee = 30
+	bullet = 30
+	laser = 20
+	energy = 20
+	bomb = 10
+	fire = 80
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/prisongate/power_change()
 	. = ..()
 	if(!powered())

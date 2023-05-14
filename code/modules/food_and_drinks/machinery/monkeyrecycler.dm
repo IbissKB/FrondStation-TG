@@ -28,11 +28,18 @@ GLOBAL_LIST_EMPTY(monkey_recyclers)
 /obj/machinery/monkey_recycler/RefreshParts() //Ranges from 0.2 to 0.8 per monkey recycled
 	. = ..()
 	cube_production = 0
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/B in component_parts)
 		//cube_production += B.rating * 0.1 //ORIGINAL
 		cube_production += B.rating * 0.2 //SKYRAT EDIT CHANGE - buffs to allow 1.2 cubes per monkey at T4
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
 		cube_production += M.rating * 0.1
+=======
+	for(var/datum/stock_part/servo/servo in component_parts)
+		cube_production += servo.tier * 0.2 // SKYRAT EDIT CHANGE - buffs to allow 1.2 cubes per monkey at T4 - ORIGINAL: cube_production += manipulator.tier * 0.1
+	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
+		cube_production += matter_bin.tier * 0.2 // SKYRAT EDIT CHANGE - buffs to allow 1.2 cubes per monkey at T4 - ORIGINAL: cube_production += matter_bin.tier * 0.1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/monkey_recycler/examine(mob/user)
 	. = ..()
@@ -49,7 +56,11 @@ GLOBAL_LIST_EMPTY(monkey_recyclers)
 	if(default_deconstruction_screwdriver(user, "grinder_open", "grinder", O))
 		return
 
+<<<<<<< HEAD
 	if(default_pry_open(O))
+=======
+	if(default_pry_open(O, close_after_pry = TRUE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(default_deconstruction_crowbar(O))

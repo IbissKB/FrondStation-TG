@@ -73,6 +73,12 @@
 @include meta.load-css('./interfaces/RequestManager.scss');
 @include meta.load-css('./interfaces/UtilityModulesPane.scss');
 @include meta.load-css('./interfaces/Fabricator.scss');
+<<<<<<< HEAD
+=======
+// SKYRAT ADDITION START
+@include meta.load-css('./interfaces/ClockworkSlab.scss');
+// SKYRAT ADDITION END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 @include meta.load-css('./interfaces/Emojipedia.scss');
 @include meta.load-css('./interfaces/NtosNotepad.scss');
 

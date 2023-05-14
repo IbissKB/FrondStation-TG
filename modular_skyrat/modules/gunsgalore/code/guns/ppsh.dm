@@ -13,7 +13,10 @@
 	mag_type = /obj/item/ammo_box/magazine/ppsh
 	can_suppress = FALSE
 	spread = 20
+<<<<<<< HEAD
 	burst_size = 6
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fire_delay = 0.5
 	fire_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/fire/ppsh_fire.ogg'
 	fire_sound_volume = 80
@@ -22,7 +25,18 @@
 	load_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/smg_magin.ogg'
 	load_empty_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/smg_magin.ogg'
 	eject_sound = 'modular_skyrat/modules/gunsgalore/sound/guns/interact/smg_magout.ogg'
+<<<<<<< HEAD
 	company_flag = COMPANY_OLDARMS
+=======
+
+/obj/item/gun/ballistic/automatic/ppsh/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+/obj/item/gun/ballistic/automatic/ppsh/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_OLDARMS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/magazine/ppsh
 	name = "Asha 76 magazine (7.62x25mm)"

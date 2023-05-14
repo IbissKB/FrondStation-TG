@@ -54,8 +54,16 @@
 	resurface.Grant(src)
 	var/datum/action/cooldown/mob_cooldown/devour/devour = new(src)
 	devour.Grant(src)
+<<<<<<< HEAD
 	var/datum/action/adjust_vision/adjust_vision = new(src)
 	adjust_vision.Grant(src)
 	ai_controller.blackboard[BB_BILEWORM_SPEW_BILE] = spew_bile
 	ai_controller.blackboard[BB_BILEWORM_RESURFACE] = resurface
 	ai_controller.blackboard[BB_BILEWORM_DEVOUR] = devour
+=======
+	var/datum/action/adjust_vision/bileworm/adjust_vision = new(src)
+	adjust_vision.Grant(src)
+	ai_controller.set_blackboard_key(BB_BILEWORM_SPEW_BILE, spew_bile)
+	ai_controller.set_blackboard_key(BB_BILEWORM_RESURFACE, resurface)
+	ai_controller.set_blackboard_key(BB_BILEWORM_DEVOUR, devour)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

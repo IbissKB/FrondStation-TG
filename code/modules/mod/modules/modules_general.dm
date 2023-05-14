@@ -260,7 +260,11 @@
 	set_light_flags(light_flags & ~LIGHT_ATTACHED)
 	set_light_on(active)
 
+<<<<<<< HEAD
 /obj/item/mod/module/flashlight/on_process(delta_time)
+=======
+/obj/item/mod/module/flashlight/on_process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	active_power_cost = base_power * light_range
 	return ..()
 
@@ -378,8 +382,13 @@
 		if("temperature_setting")
 			temperature_setting = clamp(value + T0C, min_temp, max_temp)
 
+<<<<<<< HEAD
 /obj/item/mod/module/thermal_regulator/on_active_process(delta_time)
 	mod.wearer.adjust_bodytemperature(get_temp_change_amount((temperature_setting - mod.wearer.bodytemperature), 0.08 * delta_time))
+=======
+/obj/item/mod/module/thermal_regulator/on_active_process(seconds_per_tick)
+	mod.wearer.adjust_bodytemperature(get_temp_change_amount((temperature_setting - mod.wearer.bodytemperature), 0.08 * seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///DNA Lock - Prevents people without the set DNA from activating the suit.
 /obj/item/mod/module/dna_lock
@@ -520,6 +529,10 @@
 			/obj/item/clothing/head/utility/chefhat,
 			/obj/item/clothing/head/costume/papersack,
 			/obj/item/clothing/head/caphat/beret,
+<<<<<<< HEAD
+=======
+			/obj/item/clothing/head/helmet/space/beret,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			))
 
 /obj/item/mod/module/hat_stabilizer/on_suit_activation()

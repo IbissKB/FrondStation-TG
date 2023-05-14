@@ -16,6 +16,10 @@
 
 	for(var/datum/opposing_force_equipment/opfor_item as anything in compiled_subtypes)
 		if(!initial(opfor_item.item_type))
+<<<<<<< HEAD
 			Fail("Opposing Force equipment datum [opfor_item] lacks an `item_type`.")
+=======
+			TEST_FAIL("Opposing Force equipment datum [opfor_item] lacks an `item_type`.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef DATUM_PATH_LEN

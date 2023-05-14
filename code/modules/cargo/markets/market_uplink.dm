@@ -158,12 +158,21 @@
 	time = 30
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)
 	reqs = list(
+<<<<<<< HEAD
 		/obj/item/stock_parts/subspace/amplifier = 1,
+=======
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/assembly/signaler = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/stack/cable_coil = 15,
 		/obj/item/radio = 1,
 		/obj/item/analyzer = 1
 	)
+<<<<<<< HEAD
 	category = CAT_MISC
+=======
+	category = CAT_EQUIPMENT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/blackmarket_uplink/New()
 	..()

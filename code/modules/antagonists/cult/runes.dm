@@ -89,6 +89,12 @@ Runes can either be invoked by one's self or with many different cultists. Each 
 		if(req_keyword && keyword)
 			. += "<b>Keyword:</b> [keyword]"
 
+<<<<<<< HEAD
+=======
+/obj/effect/rune/attack_paw(mob/living/user, list/modifiers)
+	return attack_hand(user, modifiers)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/rune/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(.)
@@ -238,7 +244,11 @@ structure_check() searches for nearby cultist structures required for the invoca
 		invocation = "Mah'weyh pleggh at e'ntrath!"
 		..()
 		if(is_convertable)
+<<<<<<< HEAD
 			do_convert(L, invokers)
+=======
+			do_convert(L, invokers, Cult_team)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		invocation = "Barhah hra zar'garis!"
 		..()
@@ -248,22 +258,37 @@ structure_check() searches for nearby cultist structures required for the invoca
 	Cult_team.check_size() // Triggers the eye glow or aura effects if the cult has grown large enough relative to the crew
 	rune_in_use = FALSE
 
+<<<<<<< HEAD
 /obj/effect/rune/convert/proc/do_convert(mob/living/convertee, list/invokers)
+=======
+/obj/effect/rune/convert/proc/do_convert(mob/living/convertee, list/invokers, datum/team/cult/cult_team)
+	ASSERT(convertee.mind)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(length(invokers) < 2)
 		for(var/M in invokers)
 			to_chat(M, span_warning("You need at least two invokers to convert [convertee]!"))
 		log_game("Offer rune with [convertee] on it failed - tried conversion with one invoker.")
 		return FALSE
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(convertee.can_block_magic(MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, charge_cost = 0)) //No charge_cost because it can be spammed
 		for(var/M in invokers)
 			to_chat(M, span_warning("Something is shielding [convertee]'s mind!"))
 		log_game("Offer rune with [convertee] on it failed - convertee had anti-magic.")
 		return FALSE
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/brutedamage = convertee.getBruteLoss()
 	var/burndamage = convertee.getFireLoss()
 	if(brutedamage || burndamage)
 		convertee.adjustBruteLoss(-(brutedamage * 0.75))
 		convertee.adjustFireLoss(-(burndamage * 0.75))
+<<<<<<< HEAD
 	convertee.visible_message("<span class='warning'>[convertee] writhes in pain \
 	[brutedamage || burndamage ? "even as [convertee.p_their()] wounds heal and close" : "as the markings below [convertee.p_them()] glow a bloody red"]!</span>", \
 	span_cultlarge("<i>AAAAAAAAAAAAAA-</i>"))
@@ -283,6 +308,42 @@ structure_check() searches for nearby cultist structures required for the invoca
 
 		if(prob(1) || check_holidays(APRIL_FOOLS))
 			H.say("You son of a bitch! I'm in.", forced = "That son of a bitch! They're in.")
+=======
+
+	convertee.visible_message(
+		span_warning("[convertee] writhes in pain [(brutedamage || burndamage) \
+			? "even as [convertee.p_their()] wounds heal and close" \
+			: "as the markings below [convertee.p_them()] glow a bloody red"]!"),
+		span_cultlarge("<i>AAAAAAAAAAAAAA-</i>"),
+	)
+
+	// We're not guaranteed to be a human but we'll cast here since we use it in a few branches
+	var/mob/living/carbon/human/human_convertee = convertee
+
+	if(check_holidays(APRIL_FOOLS) && prob(10))
+		convertee.Paralyze(10 SECONDS)
+		if(istype(human_convertee))
+			human_convertee.force_say()
+		convertee.say("You son of a bitch! I'm in.", forced = "That son of a bitch! They're in. (April Fools)")
+
+	else
+		convertee.Unconscious(10 SECONDS)
+
+	new /obj/item/melee/cultblade/dagger(get_turf(src))
+	convertee.mind.special_role = ROLE_CULTIST
+	convertee.mind.add_antag_datum(/datum/antagonist/cult, cult_team)
+
+	to_chat(convertee, span_cultitalic("<b>Your blood pulses. Your head throbs. The world goes red. \
+		All at once you are aware of a horrible, horrible, truth. The veil of reality has been ripped away \
+		and something evil takes root.</b>"))
+	to_chat(convertee, span_cultitalic("<b>Assist your new compatriots in their dark dealings. \
+		Your goal is theirs, and theirs is yours. You serve the Geometer above all else. Bring it back.</b>"))
+
+	if(istype(human_convertee))
+		human_convertee.uncuff()
+		human_convertee.remove_status_effect(/datum/status_effect/speech/slurring/cult)
+		human_convertee.remove_status_effect(/datum/status_effect/speech/stutter)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(isshade(convertee))
 		convertee.icon_state = "shade_cult"
 		convertee.name = convertee.real_name
@@ -342,7 +403,11 @@ structure_check() searches for nearby cultist structures required for the invoca
 		qdel(sacrificial)
 		return TRUE
 	var/obj/item/soulstone/stone = new /obj/item/soulstone(get_turf(src))
+<<<<<<< HEAD
 	if(sacrificial.mind && !sacrificial.suiciding)
+=======
+	if(sacrificial.mind && !HAS_TRAIT(sacrificial, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		stone.capture_soul(sacrificial, first_invoker, TRUE)
 
 	if(sacrificial)
@@ -552,6 +617,11 @@ structure_check() searches for nearby cultist structures required for the invoca
 	..()
 	sound_to_playing_players('sound/effects/dimensional_rend.ogg')
 	var/turf/rune_turf = get_turf(src)
+<<<<<<< HEAD
+=======
+	for(var/datum/mind/cult_mind as anything in cult_team.members)
+		cult_team.true_cultists += cult_mind
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	sleep(4 SECONDS)
 	if(src)
 		color = RUNE_COLOR_RED
@@ -869,7 +939,12 @@ structure_check() searches for nearby cultist structures required for the invoca
 		to_chat(user, span_cultitalic("Your blood begins flowing into [src]. You must remain in place and conscious to maintain the forms of those summoned. This will hurt you slowly but surely..."))
 		var/obj/structure/emergency_shield/cult/weak/N = new(T)
 		new_human.key = ghost_to_spawn.key
+<<<<<<< HEAD
 		new_human.mind?.add_antag_datum(/datum/antagonist/cult)
+=======
+		var/datum/antagonist/cult/created_cultist = new_human.mind?.add_antag_datum(/datum/antagonist/cult)
+		created_cultist?.silent = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(new_human, span_cultitalic("<b>You are a servant of the Geometer. You have been made semi-corporeal by the cult of Nar'Sie, and you are to serve them at all costs.</b>"))
 
 		while(!QDELETED(src) && !QDELETED(user) && !QDELETED(new_human) && (user in T))
@@ -885,7 +960,13 @@ structure_check() searches for nearby cultist structures required for the invoca
 					span_cultlarge("Your link to the world fades. Your form breaks apart."))
 			for(var/obj/I in new_human)
 				new_human.dropItemToGround(I, TRUE)
+<<<<<<< HEAD
 			new_human.dust()
+=======
+			new_human.mind?.remove_antag_datum(/datum/antagonist/cult)
+			new_human.dust()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(choice == "Ascend as a Dark Spirit")
 		affecting = user
 		affecting.add_atom_colour(RUNE_COLOR_DARKRED, ADMIN_COLOUR_PRIORITY)
@@ -923,7 +1004,11 @@ structure_check() searches for nearby cultist structures required for the invoca
 	no_brain = TRUE
 	. = ..()
 
+<<<<<<< HEAD
 /mob/living/carbon/human/cult_ghost/getorganszone(zone, include_children)
+=======
+/mob/living/carbon/human/cult_ghost/get_organs_for_zone(zone, include_children)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	for(var/obj/item/organ/internal/brain/B in .) //they're not that smart, really
 		. -= B
@@ -1008,6 +1093,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 			to_chat(M, span_cultlarge("An Apocalypse Rune was invoked in the [place.name], it is no longer available as a summoning site!"))
 			SEND_SOUND(M, 'sound/effects/pope_entry.ogg')
 	image_handler(images, duration)
+<<<<<<< HEAD
 	if(intensity>=285) // Based on the prior formula, this means the cult makes up <15% of current players
 		var/outcome = rand(1,100)
 		switch(outcome)
@@ -1058,6 +1144,43 @@ structure_check() searches for nearby cultist structures required for the invoca
 			if(81 to 100)
 				var/datum/round_event_control/portal_storm_narsie/total_not_a_xen_storm_event = locate() in SSevents.control
 				INVOKE_ASYNC(total_not_a_xen_storm_event, TYPE_PROC_REF(/datum/round_event_control, runEvent))
+=======
+	if(intensity >= 285) // Based on the prior formula, this means the cult makes up <15% of current players
+		var/outcome = rand(1,100)
+		switch(outcome)
+			if(1 to 10)
+				force_event_async(/datum/round_event_control/disease_outbreak, "an apocalypse rune")
+				force_event_async(/datum/round_event_control/mice_migration, "an apocalypse rune")
+			if(11 to 20)
+				force_event_async(/datum/round_event_control/radiation_storm, "an apocalypse rune")
+
+			if(21 to 30)
+				force_event_async(/datum/round_event_control/brand_intelligence, "an apocalypse rune")
+
+			if(31 to 40)
+				force_event_async(/datum/round_event_control/immovable_rod, "an apocalypse rune")
+				force_event_async(/datum/round_event_control/immovable_rod, "an apocalypse rune")
+				force_event_async(/datum/round_event_control/immovable_rod, "an apocalypse rune")
+
+			if(41 to 50)
+				force_event_async(/datum/round_event_control/meteor_wave, "an apocalypse rune")
+
+			if(51 to 60)
+				force_event_async(/datum/round_event_control/spider_infestation, "an apocalypse rune")
+
+			if(61 to 70)
+				force_event_async(/datum/round_event_control/anomaly/anomaly_flux, "an apocalypse rune")
+				force_event_async(/datum/round_event_control/anomaly/anomaly_grav, "an apocalypse rune")
+				force_event_async(/datum/round_event_control/anomaly/anomaly_pyro, "an apocalypse rune")
+				force_event_async(/datum/round_event_control/anomaly/anomaly_vortex, "an apocalypse rune")
+
+			if(71 to 80)
+				force_event_async(/datum/round_event_control/spacevine, "an apocalypse rune")
+				force_event_async(/datum/round_event_control/grey_tide, "an apocalypse rune")
+
+			if(81 to 100)
+				force_event_async(/datum/round_event_control/portal_storm_narsie, "an apocalypse rune")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	qdel(src)
 

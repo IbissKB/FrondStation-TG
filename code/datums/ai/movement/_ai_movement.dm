@@ -9,7 +9,11 @@
 /datum/ai_movement/proc/start_moving_towards(datum/ai_controller/controller, atom/current_movement_target, min_distance)
 	SHOULD_CALL_PARENT(TRUE)
 	controller.pathing_attempts = 0
+<<<<<<< HEAD
 	controller.blackboard[BB_CURRENT_MIN_MOVE_DISTANCE] = min_distance
+=======
+	controller.set_blackboard_key(BB_CURRENT_MIN_MOVE_DISTANCE, min_distance)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	moving_controllers[controller] = current_movement_target
 
 /datum/ai_movement/proc/stop_moving_towards(datum/ai_controller/controller)
@@ -58,7 +62,11 @@
 //Anything to do post movement
 /datum/ai_movement/proc/post_move(datum/move_loop/source, succeeded)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	if(succeeded)
+=======
+	if(succeeded != FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/datum/ai_controller/controller = source.extra_info
 	increment_pathing_failures(controller)

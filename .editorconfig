@@ -3,7 +3,10 @@ root = true
 
 [*]
 indent_style = tab
+<<<<<<< HEAD
 indent_size = 4
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true

@@ -148,6 +148,11 @@
 		return FALSE
 	if (is_station_level(destination_turf.z))
 		return TRUE
+<<<<<<< HEAD
+=======
+	if(atom_to_check.onSyndieBase())
+		return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/area/destination_area = destination_turf.loc
 	if (is_centcom_level(destination_turf.z))

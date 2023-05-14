@@ -10,7 +10,11 @@
 	value_per_unit = 0.05
 	beauty_modifier = -0.3
 	strength_modifier = 0.7
+<<<<<<< HEAD
 	armor_modifiers = list(MELEE = 0.3, BULLET = 0.3, LASER = 1.2, ENERGY = 1.2, BOMB = 0.3, BIO = 0, FIRE = 1, ACID = 1)
+=======
+	armor_modifiers = list(MELEE = 0.3, BULLET = 0.3, LASER = 1.2, ENERGY = 1.2, BOMB = 0.3, FIRE = 1, ACID = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	item_sound_override = 'sound/effects/meatslap.ogg'
 	turf_sound_override = FOOTSTEP_MEAT
 	texture_layer_icon_state = "meat"
@@ -28,8 +32,13 @@
 	make_edible(T, amount, material_flags)
 
 /datum/material/meat/proc/make_edible(atom/source, amount, material_flags)
+<<<<<<< HEAD
 	var/nutriment_count = 3 * (amount / MINERAL_MATERIAL_AMOUNT)
 	var/oil_count = 2 * (amount / MINERAL_MATERIAL_AMOUNT)
+=======
+	var/nutriment_count = 3 * (amount / SHEET_MATERIAL_AMOUNT)
+	var/oil_count = 2 * (amount / SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	source.AddComponent(/datum/component/edible, \
 		initial_reagents = list(/datum/reagent/consumable/nutriment = nutriment_count, /datum/reagent/consumable/cooking_oil = oil_count), \
 		foodtypes = RAW | MEAT | GROSS, \

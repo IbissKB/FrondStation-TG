@@ -4,6 +4,7 @@
 /turf/open/floor/holofloor,
 /area/template_noop)
 "b" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
@@ -58,11 +59,33 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/structure/hoop{
+	dir = 1;
+	layer = 4.1
+	},
+/obj/effect/turf_decal/tile/green/half/contrasted,
+/turf/open/floor/holofloor,
+/area/template_noop)
+"c" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted,
+/turf/open/floor/holofloor,
+/area/template_noop)
+"e" = (
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 8
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"h" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /turf/open/floor/holofloor,
 /area/template_noop)
 "j" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -80,19 +103,36 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"k" = (
+/obj/structure/hoop{
+	layer = 3.9
+	},
+/obj/effect/turf_decal/tile/red/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /turf/open/floor/holofloor,
 /area/template_noop)
 "l" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /turf/open/floor/holofloor,
 /area/template_noop)
+<<<<<<< HEAD
 "m" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -112,16 +152,22 @@
 	},
 /turf/open/floor/holofloor,
 /area/template_noop)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "q" = (
 /obj/structure/table,
 /obj/item/storage/box/cups,
 /turf/open/floor/holofloor,
 /area/template_noop)
 "r" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/holofloor,
@@ -133,8 +179,12 @@
 /turf/open/floor/holofloor,
 /area/template_noop)
 "u" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /turf/open/floor/holofloor,
@@ -143,6 +193,7 @@
 /turf/open/floor/holofloor,
 /area/template_noop)
 "x" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -205,11 +256,32 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/turf/open/floor/holofloor,
+/area/template_noop)
+"y" = (
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 1
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"F" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"J" = (
+/obj/item/toy/basketball,
+/obj/effect/turf_decal/tile/green/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /turf/open/floor/holofloor,
 /area/template_noop)
 "M" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
@@ -226,6 +298,17 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 4
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"R" = (
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 "T" = (
@@ -235,6 +318,7 @@
 /turf/open/floor/holofloor,
 /area/template_noop)
 "U" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -276,6 +360,25 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/red/anticorner/contrasted,
+/turf/open/floor/holofloor,
+/area/template_noop)
+"V" = (
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"W" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+	dir = 4
+	},
+/turf/open/floor/holofloor,
+/area/template_noop)
+"Y" = (
+/obj/effect/turf_decal/tile/green/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor,
 /area/template_noop)
 
@@ -316,16 +419,26 @@ e
 F
 "}
 (4,1,1) = {"
+<<<<<<< HEAD
 n
 L
+=======
+y
+r
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 l
 w
 x
 R
 w
 Y
+<<<<<<< HEAD
 B
 Z
+=======
+e
+F
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (5,1,1) = {"
 k
@@ -335,24 +448,40 @@ w
 x
 J
 w
+<<<<<<< HEAD
 f
+=======
+Y
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 w
 b
 "}
 (6,1,1) = {"
 M
+<<<<<<< HEAD
 m
+=======
+u
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 l
 w
 x
 R
 w
+<<<<<<< HEAD
 f
+=======
+Y
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 V
 c
 "}
 (7,1,1) = {"
+<<<<<<< HEAD
 i
+=======
+M
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 u
 u
 u
@@ -361,7 +490,11 @@ W
 V
 V
 V
+<<<<<<< HEAD
 E
+=======
+c
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (8,1,1) = {"
 q

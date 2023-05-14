@@ -81,13 +81,21 @@
 // Status effect process. Handles adjusting its duration and ticks.
 // If you're adding processed effects, put them in [proc/tick]
 // instead of extending / overriding the process() proc.
+<<<<<<< HEAD
 /datum/status_effect/process(delta_time, times_fired)
+=======
+/datum/status_effect/process(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SHOULD_NOT_OVERRIDE(TRUE)
 	if(QDELETED(owner))
 		qdel(src)
 		return
 	if(tick_interval < world.time)
+<<<<<<< HEAD
 		tick(delta_time, times_fired)
+=======
+		tick(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		tick_interval = world.time + initial(tick_interval)
 	if(duration != -1 && duration < world.time)
 		qdel(src)
@@ -103,7 +111,11 @@
 	return null
 
 /// Called every tick from process().
+<<<<<<< HEAD
 /datum/status_effect/proc/tick(delta_time, times_fired)
+=======
+/datum/status_effect/proc/tick(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 /// Called whenever the buff expires or is removed (qdeleted)
@@ -154,6 +166,21 @@
 	if(!heal_flag_necessary || (heal_flags & heal_flag_necessary))
 		qdel(src)
 
+<<<<<<< HEAD
+=======
+/// Remove [seconds] of duration from the status effect, qdeling / ending if we eclipse the current world time.
+/datum/status_effect/proc/remove_duration(seconds)
+	if(duration == -1) // Infinite duration
+		return FALSE
+
+	duration -= seconds
+	if(duration <= world.time)
+		qdel(src)
+		return TRUE
+
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Alert base type for status effect alerts
 /atom/movable/screen/alert/status_effect
 	name = "Curse of Mundanity"

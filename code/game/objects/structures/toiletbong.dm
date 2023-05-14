@@ -3,7 +3,11 @@
 	desc = "A repurposed toilet with re-arranged piping and an attached flamethrower. Why would anyone build this?"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "toiletbong"
+<<<<<<< HEAD
 	density = TRUE
+=======
+	density = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	anchored = TRUE
 	var/emagged = FALSE
 	var/smokeradius = 1
@@ -28,10 +32,17 @@
 /obj/structure/toiletbong/attack_hand(mob/living/carbon/user)
 	. = ..()
 	if (!anchored)
+<<<<<<< HEAD
 		user.balloon_alert(user, "Secure it first!")
 		return
 	if (!LAZYLEN(contents))
 		user.balloon_alert(user, "It's empty!")
+=======
+		user.balloon_alert(user, "secure it first!")
+		return
+	if (!LAZYLEN(contents))
+		user.balloon_alert(user, "it's empty!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	user.visible_message(span_boldnotice("[user] takes a huge drag on the [src]."))
 	if (do_after(user, 2 SECONDS, target = src))
@@ -47,8 +58,12 @@
 			puff.start()
 			if (prob(5) && !emagged)
 				if(islizard(user))
+<<<<<<< HEAD
 					to_chat(user, span_boldnotice("A hidden treat in the pipes!"))
 					user.balloon_alert(user, "A hidden treat in the pipes!")
+=======
+					user.balloon_alert(user, "a hidden treat!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					user.visible_message(span_danger("[user] fishes a mouse out of the pipes."))
 				else
 					to_chat(user, span_userdanger("There was something disgusting in the pipes!"))
@@ -98,7 +113,11 @@
 
 /obj/structure/toiletbong/emag_act(mob/user, obj/item/card/emag/emag_card)
 	playsound(src, 'sound/effects/fish_splash.ogg', 50)
+<<<<<<< HEAD
 	user.balloon_alert(user, "Whoops!")
+=======
+	user.balloon_alert(user, "whoops!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!emagged)
 		emagged = TRUE
 		smokeradius = 2

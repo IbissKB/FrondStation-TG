@@ -26,7 +26,11 @@
 	base_icon_state = "[base_icon_state][rand(1, number_of_variants)]"
 	icon_state = base_icon_state
 
+<<<<<<< HEAD
 /obj/structure/flora/ash/harvest(user)
+=======
+/obj/structure/flora/ash/harvest(user, product_amount_multiplier)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!..())
 		return FALSE
 	icon_state = "[base_icon_state]p"
@@ -310,7 +314,11 @@
 	product = /obj/item/food/grown/ash_flora/shavings
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/fire_resistance)
 	growing_icon = 'icons/obj/hydroponics/growing_mushrooms.dmi'
+<<<<<<< HEAD
 	reagents_add = list(/datum/reagent/consumable/sugar = 0.06, /datum/reagent/consumable/ethanol = 0.04, /datum/reagent/stabilizing_agent = 0.06, /datum/reagent/toxin/minttoxin = 0.02)
+=======
+	reagents_add = list(/datum/reagent/consumable/sugar = 0.06, /datum/reagent/consumable/ethanol = 0.04, /datum/reagent/stabilizing_agent = 0.06, /datum/reagent/consumable/mintextract = 0.02)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/seeds/lavaland/porcini
 	name = "pack of porcini mycelium"
@@ -375,13 +383,18 @@
 	result = /obj/item/reagent_containers/cup/bowl/mushroom_bowl
 	reqs = list(/obj/item/food/grown/ash_flora/shavings = 5)
 	time = 30
+<<<<<<< HEAD
 	category = CAT_PRIMAL
+=======
+	category = CAT_CONTAINERS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/cup/bowl/mushroom_bowl
 	name = "mushroom bowl"
 	desc = "A bowl made out of mushrooms. Not food, though it might have contained some at some point."
 	icon = 'icons/obj/lavaland/ash_flora.dmi'
 	icon_state = "mushroom_bowl"
+<<<<<<< HEAD
 
 /obj/item/reagent_containers/cup/bowl/mushroom_bowl/update_overlays()
 	. = ..()
@@ -393,5 +406,12 @@
 
 /obj/item/reagent_containers/cup/bowl/mushroom_bowl/update_icon_state()
 	if(!reagents || !reagents.total_volume)
+=======
+	fill_icon_state = "fullbowl"
+	fill_icon = 'icons/obj/lavaland/ash_flora.dmi'
+
+/obj/item/reagent_containers/cup/bowl/mushroom_bowl/update_icon_state()
+	if(!reagents.total_volume)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		icon_state = "mushroom_bowl"
 	return ..()

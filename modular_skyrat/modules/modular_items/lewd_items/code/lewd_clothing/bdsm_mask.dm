@@ -12,7 +12,12 @@
 	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
 	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/mask_muzzled.dmi'
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
+<<<<<<< HEAD
 	icon_state = "mask"
+=======
+	icon_state = "mask_pink_off"
+	base_icon_state = "mask"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	slot_flags = ITEM_SLOT_MASK
 	var/mask_on = FALSE
 	var/current_mask_color = "pink"
@@ -31,16 +36,23 @@
 	var/list/moans_alt = list("Mhgm...", "Hmmmp!...", "Gmmmhp!") // Power probability phrases to be said when talking.
 	var/moans_alt_probability = 5 // Probability for alternative sounds to play.
 	var/temp_check = TRUE //Used to check if user unconsious to prevent choking him until he wakes up
+<<<<<<< HEAD
 
 // We can only moan with that thing on
 /obj/item/clothing/mask/gas/bdsm_mask
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_SMALL
 	modifies_speech = TRUE
 	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/gas/bdsm_mask/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/small/bdsm_mask)
+=======
+	create_storage(storage_type = /datum/storage/pockets/small/bdsm_mask)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/mask/gas/bdsm_mask/proc/update_mob_action_buttonss()
 	var/datum/action/item_action/button
@@ -104,8 +116,13 @@
 // To update icon state properly
 /obj/item/clothing/mask/gas/bdsm_mask/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)]_[current_mask_color]_[mask_on? "on" : "off"]"
 	inhand_icon_state = "[initial(icon_state)]_[current_mask_color]_[mask_on? "on" : "off"]"
+=======
+	icon_state = "[base_icon_state]_[current_mask_color]_[mask_on? "on" : "off"]"
+	inhand_icon_state = "[base_icon_state]_[current_mask_color]_[mask_on? "on" : "off"]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // To make in unremovable without helping when mask is on
 /obj/item/clothing/mask/gas/bdsm_mask/attack_hand(mob/user)
@@ -231,7 +248,11 @@
 		STOP_PROCESSING(SSobj, src)
 
 // Mask choke processor
+<<<<<<< HEAD
 /obj/item/clothing/mask/gas/bdsm_mask/process(delta_time)
+=======
+/obj/item/clothing/mask/gas/bdsm_mask/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/affected_mob = loc
 	var/mob/living/carbon/affected_carbon = affected_mob
 
@@ -262,9 +283,15 @@
 				breath_status = TRUE
 				temp_check = FALSE
 		else
+<<<<<<< HEAD
 			tt -= delta_time
 	else
 		time_to_choke_left -= delta_time
+=======
+			tt -= seconds_per_tick
+	else
+		time_to_choke_left -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	FILTERS
@@ -301,7 +328,11 @@
 // I just wanted to add 2th color variation. Because.
 /obj/item/reagent_containers/cup/lewd_filter/AltClick(mob/user)
 	// Catch first AltClick and open reskin menu
+<<<<<<< HEAD
 	if(unique_reskin && !current_skin && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(unique_reskin && !current_skin && user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskin_obj(user)
 		return
 	// After reskin all clicks go normal, but we can't change the flow rate if mask on and equipped

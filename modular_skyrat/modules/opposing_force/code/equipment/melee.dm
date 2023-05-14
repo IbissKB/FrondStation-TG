@@ -7,6 +7,10 @@
 /datum/opposing_force_equipment/melee/metalbat
 	item_type = /obj/item/melee/baseball_bat/ablative
 	description = "A highly reflective baseball bat for when you need to crack skulls and run away from security in the same night. Can reflect lasers."
+<<<<<<< HEAD
+=======
+	admin_note = "WARNING: Notably strong on sec not using ballistics."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/melee/esword
 	item_type = /obj/item/melee/energy/sword
@@ -28,10 +32,18 @@
 /datum/opposing_force_equipment/melee/claymore
 	item_type = /obj/item/claymore
 	description = "An extremely sharp and robust sword perfect to cleave through any opposition. Also highly illegal."
+<<<<<<< HEAD
+=======
+	admin_note = "WARNING: 30 force, 35 armor pen."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/melee/katana
 	item_type = /obj/item/katana
 	description = "An extremely sharp and robust sword folded over nine thousand times until perfection. Highly lethal and illegal."
+<<<<<<< HEAD
+=======
+	admin_note = "WARNING: 40 force, 50% blockchance, very powerful."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/melee/ekatana
 	item_type = /obj/item/energy_katana
@@ -49,11 +61,15 @@
 /datum/opposing_force_equipment/melee/northstar
 	item_type = /obj/item/clothing/gloves/rapid
 	description = "By putting on these gloves, you will find you can punch things at vastly increased speed."
+<<<<<<< HEAD
 
 /datum/opposing_force_equipment/melee/hfblade
 	item_type = /obj/item/highfrequencyblade
 	admin_note = "This can gib corpses, and has chance to block.\
 	It also has very good AP and a very low attack delay. Hand this out with caution."
+=======
+	admin_note = "WARNING: Be very mindful if passing these out with sleeping-carp, as the duo are extremely strong together."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/opposing_force_equipment/melee/meathook
 	name = "Butcher's Meat Hook"

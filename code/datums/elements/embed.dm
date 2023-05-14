@@ -70,6 +70,7 @@
 /datum/element/embed/proc/checkEmbed(obj/item/weapon, mob/living/carbon/victim, hit_zone, blocked, datum/thrownthing/throwingdatum, forced=FALSE)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if((!forced && blocked) || !istype(victim) || HAS_TRAIT(victim, TRAIT_PIERCEIMMUNE))
 		return
 
@@ -99,6 +100,28 @@
 	if(!prob(actual_chance))
 		return
 
+=======
+	if(forced)
+		embed_object(weapon, victim, hit_zone, throwingdatum)
+		return TRUE
+
+	if(blocked || !istype(victim) || HAS_TRAIT(victim, TRAIT_PIERCEIMMUNE))
+		return FALSE
+
+	var/flying_speed = throwingdatum?.speed || weapon.throw_speed
+
+	if(flying_speed < EMBED_THROWSPEED_THRESHOLD && !ignore_throwspeed_threshold)
+		return FALSE
+
+	if(!roll_embed_chance(weapon, victim, hit_zone, throwingdatum))
+		return FALSE
+
+	embed_object(weapon, victim, hit_zone, throwingdatum)
+	return TRUE
+
+/// Actually sticks the object to a victim
+/datum/element/embed/proc/embed_object(obj/item/weapon, mob/living/carbon/victim, hit_zone, datum/thrownthing/throwingdatum)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/bodypart/limb = victim.get_bodypart(hit_zone) || pick(victim.bodyparts)
 	victim.AddComponent(/datum/component/embedded,\
 		weapon,\
@@ -115,8 +138,11 @@
 		jostle_pain_mult = jostle_pain_mult,\
 		pain_stam_pct = pain_stam_pct)
 
+<<<<<<< HEAD
 	return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///A different embed element has been attached, so we'll detach and let them handle things
 /datum/element/embed/proc/severancePackage(obj/weapon, datum/element/E)
 	SIGNAL_HANDLER
@@ -148,7 +174,11 @@
 /datum/element/embed/proc/checkEmbedProjectile(obj/projectile/P, atom/movable/firer, atom/hit, angle, hit_zone)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(!iscarbon(hit))
+=======
+	if(!iscarbon(hit) || HAS_TRAIT(hit, TRAIT_PIERCEIMMUNE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		Detach(P)
 		return // we don't care
 
@@ -172,11 +202,16 @@
  * AGAIN if we actually embed. This way, we save on at least one message.
  *
  * Arguments:
+<<<<<<< HEAD
  * * I- the item we're trying to insert into the target
+=======
+ * * embedding_item- the item we're trying to insert into the target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * * target- what we're trying to shish-kabob, either a bodypart or a carbon
  * * hit_zone- if our target is a carbon, try to hit them in this zone, if we don't have one, pick a random one. If our target is a bodypart, we already know where we're hitting.
  * * forced- if we want this to succeed 100%
  */
+<<<<<<< HEAD
 /datum/element/embed/proc/tryForceEmbed(obj/item/I, atom/target, hit_zone, forced=FALSE)
 	SIGNAL_HANDLER
 
@@ -190,10 +225,55 @@
 		C = target
 		if(!hit_zone)
 			limb = pick(C.bodyparts)
+=======
+/datum/element/embed/proc/tryForceEmbed(obj/item/embedding_item, atom/target, hit_zone, forced=FALSE)
+	SIGNAL_HANDLER
+
+	var/obj/item/bodypart/limb
+	var/mob/living/carbon/victim
+
+	if(iscarbon(target))
+		victim = target
+		if(!hit_zone)
+			limb = pick(victim.bodyparts)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			hit_zone = limb.body_zone
 	else if(isbodypart(target))
 		limb = target
 		hit_zone = limb.body_zone
+<<<<<<< HEAD
 		C = limb.owner
 
 	return checkEmbed(I, C, hit_zone, forced=TRUE)
+=======
+		victim = limb.owner
+
+	if(!forced && !roll_embed_chance(embedding_item, victim, hit_zone))
+		return
+
+	return checkEmbed(embedding_item, victim, hit_zone, forced=TRUE) // Don't repeat the embed roll, we already did it
+
+/// Calculates the actual chance to embed based on armour penetration and throwing speed, then returns true if we pass that probability check
+/datum/element/embed/proc/roll_embed_chance(obj/item/embedding_item, mob/living/victim, hit_zone, datum/thrownthing/throwingdatum)
+	var/actual_chance = embed_chance
+
+	if(throwingdatum?.speed > embedding_item.throw_speed)
+		actual_chance += (throwingdatum.speed - embedding_item.throw_speed) * EMBED_CHANCE_SPEED_BONUS
+
+	if(embedding_item.isEmbedHarmless()) // all the armor in the world won't save you from a kick me sign
+		return prob(actual_chance)
+
+	var/armor = max(victim.run_armor_check(hit_zone, BULLET, silent=TRUE), victim.run_armor_check(hit_zone, BOMB, silent=TRUE)) * 0.5 // we'll be nice and take the better of bullet and bomb armor, halved
+	if(!armor) // we only care about armor penetration if there's actually armor to penetrate
+		return prob(actual_chance)
+
+	//Keep this above 1, as it is a multiplier for the pen_mod for determining actual embed chance.
+	var/penetrative_behaviour = embedding_item.weak_against_armour ? ARMOR_WEAKENED_MULTIPLIER : 1
+	var/pen_mod = -(armor * penetrative_behaviour) // if our shrapnel is weak into armor, then we restore our armor to the full value.
+	actual_chance += pen_mod // doing the armor pen as a separate calc just in case this ever gets expanded on
+	if(actual_chance <= 0)
+		victim.visible_message(span_danger("[embedding_item] bounces off [victim]'s armor, unable to embed!"), span_notice("[embedding_item] bounces off your armor, unable to embed!"), vision_distance = COMBAT_MESSAGE_RANGE)
+		return FALSE
+
+	return prob(actual_chance)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

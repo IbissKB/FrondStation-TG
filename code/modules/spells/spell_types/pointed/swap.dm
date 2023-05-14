@@ -13,7 +13,11 @@
 	cast_range = 9
 	invocation = "FRO' BRT'TRO, DA!"
 	invocation_type = INVOCATION_SHOUT
+<<<<<<< HEAD
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_OFF_CENTCOM
+=======
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_STATION
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	active_msg = "You prepare to swap locations with a target..."
 
 	smoke_type = /datum/effect_system/fluid_spread/smoke

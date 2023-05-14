@@ -22,7 +22,11 @@ Reproductive extracts:
 
 /obj/item/slimecross/reproductive/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/extract_inventory)
+=======
+	create_storage(storage_type = /datum/storage/extract_inventory)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/slimecross/reproductive/attackby(obj/item/O, mob/user)
 	var/datum/storage/extract_inventory/slime_storage = atom_storage

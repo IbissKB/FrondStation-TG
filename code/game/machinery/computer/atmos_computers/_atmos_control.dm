@@ -11,11 +11,26 @@
 	/// Assoc of list[chamber_id] = readable_chamber_name
 	var/list/atmos_chambers
 
+<<<<<<< HEAD
+=======
+	/// Used when control = FALSE to store the original atmos chambers so they dont get lost when reconnecting
+	var/list/always_displayed_chambers
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Whether we can actually adjust the chambers or not.
 	var/control = TRUE
 	/// Whether we are allowed to reconnect.
 	var/reconnecting = TRUE
 
+<<<<<<< HEAD
+=======
+/obj/machinery/computer/atmos_control/Initialize(mapload, obj/item/circuitboard/C)
+	. = ..()
+	//special case for the station monitering console. We dont want to loose these chambers during reconnecting
+	if(!control && !isnull(atmos_chambers))
+		always_displayed_chambers = atmos_chambers.Copy()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Reconnect only works for station based chambers.
 /obj/machinery/computer/atmos_control/proc/reconnect(mob/user)
 	if(!reconnecting)
@@ -38,6 +53,13 @@
 		return FALSE
 
 	atmos_chambers = list()
+<<<<<<< HEAD
+=======
+	//these are chambers we always want to display even after reconnecting
+	if(always_displayed_chambers)
+		for(var/chamber_id in always_displayed_chambers)
+			atmos_chambers[chamber_id] = always_displayed_chambers[chamber_id]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	atmos_chambers[new_id] = new_name
 
 	name = new_name + (control ? " Control" : " Monitor")
@@ -69,7 +91,11 @@
 		chamber_info["id"] = chamber_id
 		chamber_info["name"] = atmos_chambers[chamber_id]
 
+<<<<<<< HEAD
 		var/obj/machinery/sensor = GLOB.objects_by_id_tag["[chamber_id]_sensor"]
+=======
+		var/obj/machinery/sensor = GLOB.objects_by_id_tag[CHAMBER_SENSOR_FROM_ID(chamber_id)]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if (!isnull(sensor))
 			chamber_info["gasmix"] = gas_mixture_parser(sensor.return_air())
 

@@ -11,6 +11,10 @@
 /datum/symptom/fever
 	name = "Fever"
 	desc = "The virus causes a febrile response from the host, raising its body temperature."
+<<<<<<< HEAD
+=======
+	illness = "Burning Desire"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = 0
 	resistance = 3
 	stage_speed = 3

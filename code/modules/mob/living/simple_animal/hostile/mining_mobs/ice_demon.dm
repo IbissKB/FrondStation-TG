@@ -53,7 +53,10 @@
 	speed = 1
 	pixel_speed_multiplier = 0.25
 	range = 200
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	temperature = -75
 	slowdown = FALSE
 

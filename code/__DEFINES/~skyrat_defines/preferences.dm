@@ -14,3 +14,10 @@
 #define ORGAN_PREF_POSI_BRAIN "Positronic Brain"
 #define ORGAN_PREF_MMI_BRAIN "Man-Machine Interface"
 #define ORGAN_PREF_CIRCUIT_BRAIN "Circuitboard"
+<<<<<<< HEAD
+=======
+
+// Playtime is tracked in minutes
+/// Have any less hours than listed below and you get access to a pin indicating you're new
+#define PLAYTIME_GREEN 6000 // 100 hours
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

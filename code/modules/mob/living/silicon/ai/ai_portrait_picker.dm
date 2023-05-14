@@ -51,6 +51,12 @@
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
+=======
+	if(!isAI(holder.mob))
+		qdel(src)
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("search")
 			if(search_string != params["to_search"])

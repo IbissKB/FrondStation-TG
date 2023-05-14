@@ -120,22 +120,36 @@
 		on_overlay.color = overlay_color
 		. += on_overlay
 
+<<<<<<< HEAD
 /obj/machinery/atmospherics/miner/process(delta_time)
+=======
+/obj/machinery/atmospherics/miner/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_power()
 	check_operation()
 	if(active && !broken)
 		if(isnull(spawn_id))
 			return FALSE
 		if(do_use_power(active_power_usage))
+<<<<<<< HEAD
 			mine_gas(delta_time)
 
 /obj/machinery/atmospherics/miner/proc/mine_gas(delta_time = 2)
+=======
+			mine_gas(seconds_per_tick)
+
+/obj/machinery/atmospherics/miner/proc/mine_gas(seconds_per_tick = 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/turf/open/O = get_turf(src)
 	if(!isopenturf(O))
 		return FALSE
 	var/datum/gas_mixture/merger = new
 	merger.assert_gas(spawn_id)
+<<<<<<< HEAD
 	merger.gases[spawn_id][MOLES] = spawn_mol * delta_time
+=======
+	merger.gases[spawn_id][MOLES] = spawn_mol * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	merger.temperature = spawn_temp
 	O.assume_air(merger)
 
@@ -243,3 +257,12 @@
 	name = "\improper Antinoblium Gas Miner"
 	overlay_color = "#022e00"
 	spawn_id = /datum/gas/antinoblium
+<<<<<<< HEAD
+=======
+
+#undef GASMINER_POWER_NONE
+#undef GASMINER_POWER_STATIC
+#undef GASMINER_POWER_MOLES
+#undef GASMINER_POWER_KPA
+#undef GASMINER_POWER_FULLSCALE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -13,14 +13,24 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	icon_state = "marker"
 	mouse_opacity = MOUSE_OPACITY_ICON
 	move_on_shuttle = 1
+<<<<<<< HEAD
 	see_in_dark = NIGHTVISION_FOV_RANGE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	invisibility = INVISIBILITY_OBSERVER
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
 	see_invisible = SEE_INVISIBLE_LIVING
 	pass_flags = PASSBLOB
 	faction = list(ROLE_BLOB)
+<<<<<<< HEAD
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+=======
+	// Vivid blue green, would be cool to make this change with strain
+	lighting_cutoff_red = 0
+	lighting_cutoff_green = 35
+	lighting_cutoff_blue = 20
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hud_type = /datum/hud/blob_overmind
 	var/obj/structure/blob/special/core/blob_core = null // The blob overmind's core
 	var/blob_points = 0
@@ -93,6 +103,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	forceMove(T)
 
 /mob/camera/blob/proc/set_strain(datum/blobstrain/new_strain)
+<<<<<<< HEAD
 	if (ispath(new_strain))
 		var/hadstrain = FALSE
 		if (istype(blobstrain))
@@ -106,6 +117,25 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			to_chat(src, "The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.description]")
 			if(blobstrain.effectdesc)
 				to_chat(src, "The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.effectdesc]")
+=======
+	if (!ispath(new_strain))
+		return FALSE
+
+	var/had_strain = FALSE
+	if (istype(blobstrain))
+		blobstrain.on_lose()
+		qdel(blobstrain)
+		had_strain = TRUE
+
+	blobstrain = new new_strain(src)
+	blobstrain.on_gain()
+
+	if (had_strain)
+		to_chat(src, span_notice("Your strain is now: <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font>!"))
+		to_chat(src, span_notice("The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.description]"))
+		if(blobstrain.effectdesc)
+			to_chat(src, span_notice("The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.effectdesc]"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/camera/blob/can_z_move(direction, turf/start, turf/destination, z_move_flags = NONE, mob/living/rider)
 	if(placed) // The blob can't expand vertically (yet)
@@ -116,12 +146,21 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	var/turf/target_turf = .
 	if(!is_valid_turf(target_turf)) // Allows unplaced blobs to travel through station z-levels
 		if(z_move_flags & ZMOVE_FEEDBACK)
+<<<<<<< HEAD
 			to_chat(src, "Your destination is invalid. Move somewhere else and try again.")
 		return null
 
 /mob/camera/blob/proc/is_valid_turf(turf/T)
 	var/area/A = get_area(T)
 	if((A && !(A.area_flags & BLOBS_ALLOWED)) || !T || !is_station_level(T.z) || isgroundlessturf(T))
+=======
+			to_chat(src, span_warning("Your destination is invalid. Move somewhere else and try again."))
+		return null
+
+/mob/camera/blob/proc/is_valid_turf(turf/tile)
+	var/area/area = get_area(tile)
+	if((area && !(area.area_flags & BLOBS_ALLOWED)) || !tile || !is_station_level(tile.z) || isgroundlessturf(tile))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return TRUE
 
@@ -129,12 +168,22 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	if(!blob_core)
 		if(!placed)
 			if(manualplace_min_time && world.time >= manualplace_min_time)
+<<<<<<< HEAD
 				to_chat(src, "<b>[span_big("<font color=\"#EE4000\">You may now place your blob core.</font>")]</b>")
 				to_chat(src, span_big("<font color=\"#EE4000\">You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)].</font>"))
+=======
+				to_chat(src, span_boldnotice("You may now place your blob core."))
+				to_chat(src, span_boldannounce("You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)]."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				manualplace_min_time = 0
 			if(autoplace_max_time && world.time >= autoplace_max_time)
 				place_blob_core(BLOB_RANDOM_PLACEMENT)
 		else
+<<<<<<< HEAD
+=======
+			// If we get here, it means yes: the blob is kill
+			SSticker.news_report = BLOB_DESTROYED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			qdel(src)
 	else if(!victory_in_progress && (blobs_legit.len >= blobwincount))
 		victory_in_progress = TRUE
@@ -144,7 +193,11 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		blob_points = INFINITY
 		addtimer(CALLBACK(src, PROC_REF(victory)), 450)
 	else if(!free_strain_rerolls && (last_reroll_time + BLOB_POWER_REROLL_FREE_TIME<world.time))
+<<<<<<< HEAD
 		to_chat(src, "<b>[span_big("<font color=\"#EE4000\">You have gained another free strain re-roll.</font>")]</b>")
+=======
+		to_chat(src, span_boldnotice("You have gained another free strain re-roll."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		free_strain_rerolls = 1
 
 	if(!victory_in_progress && max_count < blobs_legit.len)
@@ -197,7 +250,11 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		var/datum/objective/blob_takeover/main_objective = locate() in B.objectives
 		if(main_objective)
 			main_objective.completed = TRUE
+<<<<<<< HEAD
 	to_chat(world, "<B>[real_name] consumed the station in an unstoppable tide!</B>")
+=======
+	to_chat(world, span_blob("[real_name] consumed the station in an unstoppable tide!"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SSticker.news_report = BLOB_WIN
 	SSticker.force_ending = TRUE
 
@@ -232,8 +289,15 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	. = ..()
 	if(!. || !client)
 		return FALSE
+<<<<<<< HEAD
 	to_chat(src, span_big("You are the overmind!"))
 	blob_help()
+=======
+	to_chat(src, span_blob("You are the overmind!"))
+	if(!placed && autoplace_max_time <= world.time)
+		to_chat(src, span_boldannounce("You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)]."))
+		to_chat(src, span_boldannounce("You [manualplace_min_time ? "will be able to":"can"] manually place your blob core by pressing the Place Blob Core button in the bottom right corner of the screen."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_health_hud()
 	add_points(0)
 
@@ -243,12 +307,22 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		. += "Its strain is <font color=\"[blobstrain.color]\">[blobstrain.name]</font>."
 
 /mob/camera/blob/update_health_hud()
+<<<<<<< HEAD
 	if(blob_core)
 		var/current_health = round((blob_core.get_integrity() / blob_core.max_integrity) * 100)
 		hud_used.healths.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>")
 		for(var/mob/living/simple_animal/hostile/blob/blobbernaut/B in blob_mobs)
 			if(B.hud_used && B.hud_used.blobpwrdisplay)
 				B.hud_used.blobpwrdisplay.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>")
+=======
+	if(!blob_core)
+		return FALSE
+	var/current_health = round((blob_core.get_integrity() / blob_core.max_integrity) * 100)
+	hud_used.healths.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>")
+	for(var/mob/living/simple_animal/hostile/blob/blobbernaut/blobbernaut in blob_mobs)
+		if(blobbernaut.hud_used && blobbernaut.hud_used.blobpwrdisplay)
+			blobbernaut.hud_used.blobpwrdisplay.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/camera/blob/proc/add_points(points)
 	blob_points = clamp(blob_points + points, 0, max_blob_points)
@@ -321,6 +395,11 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 /mob/camera/blob/mind_initialize()
 	. = ..()
+<<<<<<< HEAD
 	var/datum/antagonist/blob/B = mind.has_antag_datum(/datum/antagonist/blob)
 	if(!B)
+=======
+	var/datum/antagonist/blob/blob = mind.has_antag_datum(/datum/antagonist/blob)
+	if(!blob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		mind.add_antag_datum(/datum/antagonist/blob)

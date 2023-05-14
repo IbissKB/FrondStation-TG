@@ -200,6 +200,10 @@ GLOBAL_LIST_EMPTY(radial_menus)
 
 /datum/radial_menu/proc/HideElement(atom/movable/screen/radial/slice/E)
 	E.cut_overlays()
+<<<<<<< HEAD
+=======
+	E.vis_contents.Cut()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	E.alpha = 0
 	E.name = "None"
 	E.maptext = null
@@ -394,3 +398,9 @@ GLOBAL_LIST_EMPTY(radial_menus)
 /datum/radial_menu_choice/Destroy(force, ...)
 	. = ..()
 	QDEL_NULL(image)
+<<<<<<< HEAD
+=======
+
+#undef NEXT_PAGE_ID
+#undef DEFAULT_CHECK_DELAY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

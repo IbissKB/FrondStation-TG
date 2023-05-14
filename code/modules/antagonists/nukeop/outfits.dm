@@ -28,6 +28,12 @@
 /datum/outfit/syndicate/post_equip(mob/living/carbon/human/nukie, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
+<<<<<<< HEAD
+=======
+
+	// We don't require the nukiebase be loaded to function, but lets go ahead and kick off loading just in case
+	INVOKE_ASYNC(SSmapping, TYPE_PROC_REF(/datum/controller/subsystem/mapping, lazy_load_template), LAZY_TEMPLATE_KEY_NUKIEBASE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/radio/radio = nukie.ears
 	radio.set_frequency(FREQ_SYNDICATE)
 	radio.freqlock = RADIO_FREQENCY_LOCKED
@@ -115,7 +121,11 @@
 	uniform = /obj/item/clothing/under/syndicate/scrubs
 	suit = /obj/item/clothing/suit/toggle/labcoat/interdyne
 	head = /obj/item/clothing/head/beret/medical
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/latex
+=======
+	gloves = /obj/item/clothing/gloves/latex
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	neck = /obj/item/clothing/neck/stethoscope
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/breath/medical

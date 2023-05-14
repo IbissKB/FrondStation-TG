@@ -24,14 +24,22 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "aF" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
 "bU" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -82,9 +90,13 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "dC" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -124,6 +136,7 @@
 /turf/open/space,
 /area/space/nearstation)
 "fy" = (
+<<<<<<< HEAD
 /obj/docking_port/stationary{
 	dwidth = 1;
 	height = 4;
@@ -131,6 +144,9 @@
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
+=======
+/obj/docking_port/stationary/escape_pod,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/space/basic,
 /area/space)
 "fV" = (
@@ -143,7 +159,11 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "fY" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -195,9 +215,13 @@
 /turf/open/floor/iron/smooth,
 /area/station/hallway/secondary/entry)
 "iR" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -335,7 +359,11 @@
 /turf/open/space,
 /area/space/nearstation)
 "mT" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -434,9 +462,13 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "ri" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -624,6 +656,7 @@
 	},
 /area/station/hallway/secondary/entry)
 "zX" = (
+<<<<<<< HEAD
 /obj/docking_port/stationary{
 	dwidth = 3;
 	height = 5;
@@ -632,6 +665,9 @@
 	roundstart_template = /datum/map_template/shuttle/mining_common/meta;
 	width = 7
 	},
+=======
+/obj/docking_port/stationary/public_mining_dock,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/space/basic,
 /area/space)
 "Af" = (
@@ -835,14 +871,22 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "Fr" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/lattice,
 /turf/open/space,
 /area/space/nearstation)
 "FK" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -878,7 +922,10 @@
 	height = 13;
 	shuttle_id = "arrivals_stationary";
 	name = "arrivals";
+<<<<<<< HEAD
 	roundstart_template = null;
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	width = 5
 	},
 /turf/open/space/basic,
@@ -1137,7 +1184,11 @@
 /turf/open/space/basic,
 /area/space)
 "Yy" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/lattice,
 /turf/open/space,
 /area/space/nearstation)

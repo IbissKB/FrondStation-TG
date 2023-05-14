@@ -72,12 +72,21 @@
 	name = "soup spawner"
 	icon_state = "soup"
 	loot = list(
+<<<<<<< HEAD
 		/obj/item/food/soup/beet,
 		/obj/item/food/soup/sweetpotato,
 		/obj/item/food/soup/stew,
 		/obj/item/food/soup/hotchili,
 		/obj/item/food/soup/nettle,
 		/obj/item/food/soup/meatball,
+=======
+		/obj/item/reagent_containers/cup/bowl/soup/hotchili,
+		/obj/item/reagent_containers/cup/bowl/soup/meatball_soup,
+		/obj/item/reagent_containers/cup/bowl/soup/nettle,
+		/obj/item/reagent_containers/cup/bowl/soup/stew,
+		/obj/item/reagent_containers/cup/bowl/soup/sweetpotato,
+		/obj/item/reagent_containers/cup/bowl/soup/white_beet,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /obj/effect/spawner/random/food_or_drink/salad
@@ -223,7 +232,11 @@
 		/obj/item/food/breadslice/root = 5,
 		/obj/item/food/kebab/candied_mushrooms = 5,
 		/obj/item/food/steeped_mushrooms = 5,
+<<<<<<< HEAD
 		/obj/item/food/larvae = 5,
+=======
+		/obj/item/food/canned/larvae = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/food/emperor_roll = 5,
 		/obj/item/food/honey_roll = 5,
 	)
@@ -254,3 +267,23 @@
 		/obj/item/storage/box/cups,
 		/obj/item/storage/box/condimentbottles,
 	)
+<<<<<<< HEAD
+=======
+
+///Used for the employee birthday station trait
+/obj/effect/spawner/random/food_or_drink/cake_ingredients
+	name = "cake ingredients spawner"
+	icon_state = "cake"
+	spawn_all_loot = TRUE
+	loot = list(
+		/obj/item/food/cakebatter,
+		/obj/item/flashlight/flare/candle,
+		/obj/item/reagent_containers/condiment/sugar,
+		/obj/item/reagent_containers/cup/bottle/caramel,
+	)
+
+/obj/effect/spawner/random/food_or_drink/cake_ingredients/Initialize(mapload)
+	if(!HAS_TRAIT(SSstation, STATION_TRAIT_BIRTHDAY))
+		spawn_loot_chance = 0
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -29,7 +29,11 @@ Ask Mothblocks if they're around
 #define RAD_NO_INSULATION 1.0 // For things that shouldn't become irradiated for whatever reason
 #define RAD_VERY_LIGHT_INSULATION 0.9 // What girders have
 #define RAD_LIGHT_INSULATION 0.8
+<<<<<<< HEAD
 #define RAD_MEDIUM_INSULATION  0.7 // What common walls have
+=======
+#define RAD_MEDIUM_INSULATION 0.7 // What common walls have
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define RAD_HEAVY_INSULATION 0.6 // What reinforced walls have
 #define RAD_EXTREME_INSULATION 0.5 // What rad collectors have
 #define RAD_FULL_INSULATION 0 // Completely stops radiation from coming through

@@ -98,7 +98,14 @@
 	name = "botanist's jumpsuit"
 	icon_state = "hydroponics"
 	inhand_icon_state = "g_suit"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/civilian_hydroponics
+
+/datum/armor/civilian_hydroponics
+	bio = 50
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/rank/civilian/hydroponics/skirt
 	name = "botanist's jumpskirt"
@@ -115,7 +122,14 @@
 	name = "janitor's jumpsuit"
 	icon_state = "janitor"
 	inhand_icon_state = "janitor"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/civilian_janitor
+
+/datum/armor/civilian_janitor
+	bio = 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/rank/civilian/janitor/skirt
 	name = "janitor's jumpskirt"
@@ -142,9 +156,18 @@
 
 /obj/item/clothing/under/rank/civilian/lawyer/dye_item(dye_color, dye_key_override)
 	if(dye_color == DYE_COSMIC || dye_color == DYE_SYNDICATE)
+<<<<<<< HEAD
 		..(dye_color, DYE_LAWYER_SPECIAL)
 	else
 		..()
+=======
+		if(dying_key == DYE_REGISTRY_JUMPSKIRT)
+			return ..(dye_color, DYE_LAWYER_SPECIAL_SKIRT)
+		else
+			return ..(dye_color, DYE_LAWYER_SPECIAL)
+	else
+		return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/rank/civilian/lawyer/black
 	name = "lawyer black suit"
@@ -244,11 +267,31 @@
 	icon_state = "lawyer_galaxy_blue"
 	inhand_icon_state = "b_suit"
 
+<<<<<<< HEAD
+=======
+/obj/item/clothing/under/rank/civilian/lawyer/galaxy/skirt
+	name = "blue galaxy suitskirt"
+	icon_state = "lawyer_galaxy_blue_skirt"
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/rank/civilian/lawyer/galaxy/red
 	name = "red galaxy suit"
 	icon_state = "lawyer_galaxy_red"
 	inhand_icon_state = "r_suit"
 
+<<<<<<< HEAD
+=======
+/obj/item/clothing/under/rank/civilian/lawyer/galaxy/red/skirt
+	name = "red galaxy suitskirt"
+	icon_state = "lawyer_galaxy_red_skirt"
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/rank/civilian/cookjorts
 	name = "grilling shorts"
 	desc = "For when all you want in life is to grill for god's sake!"

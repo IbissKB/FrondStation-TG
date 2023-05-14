@@ -7,12 +7,27 @@
 		/obj/item/food/cakeslice/birthday = TRUE
 	)
 
+<<<<<<< HEAD
 /datum/bounty/item/chef/soup
 	name = "Soup"
 	description = "To quell the homeless uprising, Nanotrasen will be serving soup to all underpaid workers. Ship any type of soup."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 3
 	wanted_types = list(/obj/item/food/soup = TRUE)
+=======
+/datum/bounty/reagent/chef/soup
+	name = "Soup"
+	description = "To quell the homeless uprising, Nanotrasen will be serving soup to all underpaid workers."
+
+/datum/bounty/reagent/chef/soup/New()
+	. = ..()
+	required_volume = pick(10, 15, 20, 25)
+	wanted_reagent = pick(subtypesof(/datum/reagent/consumable/nutriment/soup))
+	reward = CARGO_CRATE_VALUE * round(required_volume / 3)
+	// In the future there could be tiers of soup bounty corresponding to soup difficulty
+	// (IE, stew is harder to make than tomato soup, so it should reward more)
+	description += " Send us [required_volume] units of [initial(wanted_reagent.name)]."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/bounty/item/chef/popcorn
 	name = "Popcorn Bags"

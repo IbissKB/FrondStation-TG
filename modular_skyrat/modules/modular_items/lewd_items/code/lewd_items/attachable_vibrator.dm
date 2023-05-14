@@ -5,8 +5,14 @@
 /obj/item/clothing/sextoy/eggvib
 	name = "vibrating egg"
 	desc = "A simple, vibrating sex toy."
+<<<<<<< HEAD
 	icon_state = "eggvib"
 	inhand_icon_state = "eggvib_teal"
+=======
+	icon_state = "eggvib_pink_off"
+	base_icon_state = "eggvib"
+	inhand_icon_state = "eggvib_pink"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
@@ -83,8 +89,13 @@
 
 /obj/item/clothing/sextoy/eggvib/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)]_[current_color]_[vibration_mode][(istype(src, /obj/item/clothing/sextoy/eggvib/signalvib)) ? (toy_on ? "_on" : "_off") : ""]"
 	inhand_icon_state = "[initial(icon_state)]_[current_color]"
+=======
+	icon_state = "[base_icon_state]_[current_color]_[vibration_mode]"
+	inhand_icon_state = "[base_icon_state]_[current_color]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Toggles between vibration modes seuentially
 /obj/item/clothing/sextoy/eggvib/proc/toggle_mode()
@@ -120,13 +131,18 @@
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
 
+<<<<<<< HEAD
 /obj/item/clothing/sextoy/eggvib/process(delta_time)
+=======
+/obj/item/clothing/sextoy/eggvib/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!toy_on)
 		return
 	var/mob/living/carbon/human/target = loc
 	if(!istype(target))
 		return
 	if(vibration_mode == "low")
+<<<<<<< HEAD
 		target.adjust_arousal(0.5 * delta_time)
 		target.adjust_pleasure(0.5 * delta_time)
 	if(vibration_mode == "medium")
@@ -135,6 +151,16 @@
 	if(vibration_mode == "high")
 		target.adjust_arousal(0.7 * delta_time)
 		target.adjust_pleasure(0.7 * delta_time)
+=======
+		target.adjust_arousal(0.5 * seconds_per_tick)
+		target.adjust_pleasure(0.5 * seconds_per_tick)
+	if(vibration_mode == "medium")
+		target.adjust_arousal(0.6 * seconds_per_tick)
+		target.adjust_pleasure(0.6 * seconds_per_tick)
+	if(vibration_mode == "high")
+		target.adjust_arousal(0.7 * seconds_per_tick)
+		target.adjust_pleasure(0.7 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	SIGNALLER CONTROLLED EGG
@@ -143,8 +169,14 @@
 /obj/item/clothing/sextoy/eggvib/signalvib
 	name = "signal vibrating egg"
 	desc = "A vibrating sex toy with remote control capability. Use a signaller to turn it on."
+<<<<<<< HEAD
 	icon_state = "signalvib"
 	inhand_icon_state = "signalvib_teal"
+=======
+	icon_state = "signalvib_pink_low_off"
+	base_icon_state = "signalvib"
+	inhand_icon_state = "signalvib_pink"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	modes = list("low" = "medium", "medium" = "high", "high" = "low")
 	vibration_mode = "low"
 	/// If TRUE, the code and frequency will be random on initialize()
@@ -175,8 +207,13 @@
 
 /obj/item/clothing/sextoy/eggvib/signalvib/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)]_[current_color]_[vibration_mode == "off" ? "low_off" : (toy_on ? "[vibration_mode]_on" : "[vibration_mode]_off")]"
 	inhand_icon_state = "[initial(icon_state)]_[current_color]"
+=======
+	icon_state = "[base_icon_state]_[current_color]_[vibration_mode == "off" ? "low_off" : (toy_on ? "[vibration_mode]_on" : "[vibration_mode]_off")]"
+	inhand_icon_state = "[base_icon_state]_[current_color]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/sextoy/eggvib/signalvib/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)

@@ -6,7 +6,11 @@
 	movedelay = 3
 	max_integrity = 140
 	force = 30
+<<<<<<< HEAD
 	armor = list(MELEE = -20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/mecha_honker
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_temperature = 25000
 	destruction_sleep_duration = 40
 	exit_delay = 40
@@ -22,6 +26,14 @@
 	)
 	var/squeak = TRUE
 
+<<<<<<< HEAD
+=======
+/datum/armor/mecha_honker
+	melee = -20
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/mecha/honker/play_stepsound()
 	if(squeak)
 		playsound(src, SFX_CLOWN_STEP, 70, 1)
@@ -35,7 +47,11 @@
 	name = "\improper Dark H.O.N.K"
 	icon_state = "darkhonker"
 	max_integrity = 300
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 40, LASER = 50, ENERGY = 35, BOMB = 20, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/honker_dark
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_temperature = 35000
 	operation_req_access = list(ACCESS_SYNDICATE)
 	internals_req_access = list(ACCESS_SYNDICATE)
@@ -55,6 +71,7 @@
 		MECHA_ARMOR = list(),
 	)
 
+<<<<<<< HEAD
 /obj/vehicle/sealed/mecha/honker/dark/add_cell(obj/item/stock_parts/cell/C)
 	if(C)
 		C.forceMove(src)
@@ -62,6 +79,26 @@
 		return
 	cell = new /obj/item/stock_parts/cell/hyper(src)
 
+=======
+/datum/armor/honker_dark
+	melee = 40
+	bullet = 40
+	laser = 50
+	energy = 35
+	bomb = 20
+	fire = 100
+	acid = 100
+
+/obj/vehicle/sealed/mecha/honker/dark/add_cell()
+	cell = new /obj/item/stock_parts/cell/hyper(src)
+
+/obj/vehicle/sealed/mecha/honker/dark/add_scanmod()
+	scanmod = new /obj/item/stock_parts/scanning_module/phasic(src)
+
+/obj/vehicle/sealed/mecha/honker/dark/add_capacitor()
+	capacitor = new /obj/item/stock_parts/capacitor/super(src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/mecha_wreckage/honker/dark
 	name = "\improper Dark H.O.N.K wreckage"
 	icon_state = "darkhonker-broken"

@@ -6,7 +6,11 @@
 	icon_state = "stasis"
 	base_icon_state = "stasis"
 	density = FALSE
+<<<<<<< HEAD
 	obj_flags = NO_BUILD
+=======
+	obj_flags = BLOCKS_CONSTRUCTION
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_buckle = TRUE
 	buckle_lying = 90
 	circuit = /obj/item/circuitboard/machine/stasis
@@ -39,7 +43,11 @@
 	. = ..()
 	if(!can_interact(user))
 		return
+<<<<<<< HEAD
 	if(world.time >= stasis_can_toggle && user.canUseTopic(src, !issilicon(user)))
+=======
+	if(world.time >= stasis_can_toggle && user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)

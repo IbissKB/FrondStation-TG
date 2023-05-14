@@ -5,8 +5,11 @@
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		HAIR,
 		FACEHAIR,
 	)
@@ -44,12 +47,21 @@
 
 /datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/lizard, lizard_color = "#009999")
 	lizard.dna.features["mcolor"] = lizard_color
+<<<<<<< HEAD
 	lizard.dna.species.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.species.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.species.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.species.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Aquatic", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.features["legs"] = "Normal Legs"
 	lizard.update_mutant_bodyparts(TRUE)
+=======
+	lizard.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Aquatic", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.features["legs"] = "Normal Legs"
+	regenerate_organs(lizard, src, visual_only = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	lizard.update_body(TRUE)
 
 /datum/species/lizard/ashwalker
@@ -57,8 +69,11 @@
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		NO_UNDERWEAR,
 		HAIR,
 		FACEHAIR

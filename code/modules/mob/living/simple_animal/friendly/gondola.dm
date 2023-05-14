@@ -15,7 +15,11 @@
 	response_disarm_simple = "bop"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
+<<<<<<< HEAD
 	faction = list("gondola")
+=======
+	faction = list(FACTION_GONDOLA)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	turns_per_move = 10
 	icon = 'icons/mob/simple/gondolas.dmi'
 	icon_state = "gondola"

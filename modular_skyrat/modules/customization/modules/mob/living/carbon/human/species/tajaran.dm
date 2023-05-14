@@ -5,8 +5,11 @@
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		HAIR
 	)
 	inherent_traits = list(
@@ -14,6 +17,10 @@
 		TRAIT_CAN_STRIP,
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_LITERATE,
+<<<<<<< HEAD
+=======
+		TRAIT_HATED_BY_DOGS,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	mutanttongue = /obj/item/organ/internal/tongue/cat
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -27,6 +34,10 @@
 	disliked_food = CLOTH
 	liked_food = GRAIN | MEAT
 	payday_modifier = 0.75
+<<<<<<< HEAD
+=======
+	species_language_holder = /datum/language_holder/tajaran
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_MAMMAL
 	bodypart_overrides = list(
@@ -71,6 +82,10 @@
 		markings = assemble_body_markings_from_set(BMS, passed_features, src)
 	return markings
 
+<<<<<<< HEAD
+=======
+/*	Runtime in tajaran.dm,76: pick() from empty list
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/species/tajaran/random_name(gender,unique,lastname)
 	var/randname
 	if(gender == MALE)
@@ -84,9 +99,29 @@
 		randname += " [pick(GLOB.last_names_taj)]"
 
 	return randname
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/species/tajaran/get_species_description()
 	return placeholder_description
 
 /datum/species/tajaran/get_species_lore()
 	return list(placeholder_lore)
+<<<<<<< HEAD
+=======
+
+/datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/cat)
+	var/main_color = "#AA9988"
+	var/second_color = "#AAAA99"
+
+	cat.dna.features["mcolor"] = main_color
+	cat.dna.features["mcolor2"] = second_color
+	cat.dna.features["mcolor3"] = second_color
+	cat.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Mammal, Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	cat.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
+	cat.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat, normal", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	regenerate_organs(cat, src, visual_only = TRUE)
+	cat.update_body(TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

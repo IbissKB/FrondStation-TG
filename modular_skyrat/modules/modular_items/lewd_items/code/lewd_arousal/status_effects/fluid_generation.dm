@@ -1,6 +1,10 @@
 // These are effectively magic numbers.
 #define AROUSAL_MULTIPLIER 25
+<<<<<<< HEAD
 #define BALLS_MULTIPLIER 235
+=======
+#define TESTES_MULTIPLIER 235
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define NUTRITION_MULTIPLIER 100
 #define NUTRITION_COST_MULTIPLIER 2
 // Breasts have ungodly scaling at larger sizes, so the massive multiplier to ensure there's no runaway production makes sense here.
@@ -15,6 +19,7 @@
 	duration = -1
 	alert_type = null
 
+<<<<<<< HEAD
 /datum/status_effect/body_fluid_regen/tick()
 	if(owner.stat >= DEAD || !owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy))
 		return
@@ -45,6 +50,60 @@
 
 #undef AROUSAL_MULTIPLIER
 #undef BALLS_MULTIPLIER
+=======
+/datum/status_effect/body_fluid_regen/vagina
+	id = "vagina fluid regen"
+
+/datum/status_effect/body_fluid_regen/vagina/tick()
+	var/mob/living/carbon/human/affected_human = owner
+	if(owner.stat >= DEAD || !owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy) || !istype(affected_human))
+		return FALSE
+
+	var/obj/item/organ/external/genital/vagina/vagina = owner.get_organ_slot(ORGAN_SLOT_VAGINA)
+	if(!vagina)
+		return FALSE
+
+	if(affected_human.arousal > AROUSAL_LOW)
+		var/regen = (affected_human.arousal / AROUSAL_MULTIPLIER) * (vagina.internal_fluid_maximum / VAGINA_MULTIPLIER) * BASE_MULTIPLIER
+		vagina.adjust_internal_fluid(regen)
+	else
+		vagina.adjust_internal_fluid(VAGINA_FLUID_REMOVAL_AMOUNT)
+
+/datum/status_effect/body_fluid_regen/testes
+	id = "testes fluid regen"
+
+/datum/status_effect/body_fluid_regen/testes/tick()
+	var/mob/living/carbon/human/affected_human = owner
+	if(owner.stat >= DEAD || !owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy) || !istype(affected_human))
+		return FALSE
+
+	var/obj/item/organ/external/genital/testicles/testes = owner.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	if(!testes || (affected_human.arousal < AROUSAL_LOW))
+		return FALSE
+
+	var/regen = (affected_human.arousal / AROUSAL_MULTIPLIER) * (testes.internal_fluid_maximum / TESTES_MULTIPLIER) * BASE_MULTIPLIER
+	testes.internal_fluid_count += regen
+
+/datum/status_effect/body_fluid_regen/breasts
+	id = " breast milk regen"
+
+/datum/status_effect/body_fluid_regen/breasts/tick()
+	var/mob/living/carbon/human/affected_human = owner
+	if(owner.stat >= DEAD || !owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy) || !istype(affected_human))
+		return FALSE
+
+	var/obj/item/organ/external/genital/breasts/breasts = owner.get_organ_slot(ORGAN_SLOT_BREASTS)
+	if(!breasts || !breasts.lactates)
+		return FALSE
+
+	var/regen = ((owner.nutrition / (NUTRITION_LEVEL_WELL_FED / NUTRITION_MULTIPLIER)) / NUTRITION_MULTIPLIER) * (breasts.internal_fluid_maximum / BREASTS_MULTIPLIER) * BASE_MULTIPLIER
+	if(!breasts.internal_fluid_full())
+		owner.adjust_nutrition(-regen / NUTRITION_COST_MULTIPLIER)
+		breasts.adjust_internal_fluid(regen)
+
+#undef AROUSAL_MULTIPLIER
+#undef TESTES_MULTIPLIER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef NUTRITION_MULTIPLIER
 #undef NUTRITION_COST_MULTIPLIER
 #undef BREASTS_MULTIPLIER

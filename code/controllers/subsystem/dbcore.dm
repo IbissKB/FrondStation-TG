@@ -2,7 +2,11 @@ SUBSYSTEM_DEF(dbcore)
 	name = "Database"
 	flags = SS_TICKER
 	wait = 10 // Not seconds because we're running on SS_TICKER
+<<<<<<< HEAD
 	runlevels = RUNLEVEL_INIT|RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
+=======
+	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	init_order = INIT_ORDER_DBCORE
 	priority = FIRE_PRIORITY_DATABASE
 
@@ -31,12 +35,18 @@ SUBSYSTEM_DEF(dbcore)
 
 	/// Queries currently being handled by database driver
 	var/list/datum/db_query/queries_active = list()
+<<<<<<< HEAD
 	/// Queries pending execution that will be handled this controller firing
 	var/list/datum/db_query/queries_new
 	/// Queries pending execution, mapped to complete arguments
 	var/list/datum/db_query/queries_standby = list()
 	/// Queries left to handle during controller firing
 	var/list/datum/db_query/queries_current
+=======
+	/// Queries pending execution, mapped to complete arguments
+	var/list/datum/db_query/queries_standby = list()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/connection  // Arbitrary handle returned from rust_g.
 
@@ -51,6 +61,37 @@ SUBSYSTEM_DEF(dbcore)
 
 	return SS_INIT_SUCCESS
 
+<<<<<<< HEAD
+=======
+/datum/controller/subsystem/dbcore/OnConfigLoad()
+	. = ..()
+	var/datum/config_entry/min_config_datum = config.entries_by_type[/datum/config_entry/number/pooling_min_sql_connections]
+	var/datum/config_entry/max_config_datum = config.entries_by_type[/datum/config_entry/number/pooling_max_sql_connections]
+
+	var/min_sql_connections = min_config_datum.config_entry_value
+	var/max_sql_connections = max_config_datum.config_entry_value
+
+	if (max_sql_connections < min_sql_connections)
+		if (min_config_datum.modified && max_config_datum.modified)
+			log_config("ERROR: POOLING_MAX_SQL_CONNECTIONS ([max_sql_connections]) is set lower than POOLING_MIN_SQL_CONNECTIONS ([min_sql_connections]), the values will be swapped.")
+
+			CONFIG_SET(number/pooling_min_sql_connections, min_sql_connections)
+			CONFIG_SET(number/pooling_max_sql_connections, max_sql_connections)
+
+		else if (min_config_datum.modified)
+			log_config("ERROR: POOLING_MIN_SQL_CONNECTIONS ([min_sql_connections]) is set higher than POOLING_MAX_SQL_CONNECTIONS's default ([max_sql_connections]), POOLING_MAX_SQL_CONNECTIONS will be updated to match.")
+
+			CONFIG_SET(number/pooling_max_sql_connections, min_sql_connections)
+
+		else //the defaults are wrong?!?!?!
+			stack_trace("The config defaults for sql database pooling don't make sense.")
+			CONFIG_SET(number/pooling_min_sql_connections, min(min_sql_connections, max_sql_connections))
+			CONFIG_SET(number/pooling_max_sql_connections,  max(min_sql_connections, max_sql_connections))
+			log_config("ERROR: POOLING_MAX_SQL_CONNECTIONS ([max_sql_connections]) is set lower than POOLING_MIN_SQL_CONNECTIONS ([min_sql_connections]). Please check your config or the code defaults for sanity")
+
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/subsystem/dbcore/stat_entry(msg)
 	msg = "P:[length(all_queries)]|Active:[length(queries_active)]|Standby:[length(queries_standby)]"
 	return ..()
@@ -66,6 +107,7 @@ SUBSYSTEM_DEF(dbcore)
 		return
 
 	if(!resumed)
+<<<<<<< HEAD
 		queries_new = null
 		if(!length(queries_active) && !length(queries_standby) && !length(all_queries))
 			processing_queries = null
@@ -74,6 +116,27 @@ SUBSYSTEM_DEF(dbcore)
 		queries_current = queries_active.Copy()
 		processing_queries = all_queries.Copy()
 
+=======
+		if(!length(queries_active) && !length(queries_standby) && !length(all_queries))
+			processing_queries = null
+			return
+		processing_queries = all_queries.Copy()
+
+	// First handle the already running queries
+	for (var/datum/db_query/query in queries_active)
+		if(!process_query(query))
+			queries_active -= query
+
+	// Now lets pull in standby queries if we have room.
+	if (length(queries_standby) > 0 && length(queries_active) < max_concurrent_queries)
+		var/list/queries_to_activate = queries_standby.Copy(1, min(length(queries_standby), max_concurrent_queries) + 1)
+
+		for (var/datum/db_query/query in queries_to_activate)
+			queries_standby.Remove(query)
+			create_active_query(query)
+
+	// And finally, let check queries for undeleted queries, check ticking if there is a lot of work to do.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	while(length(processing_queries))
 		var/datum/db_query/query = popleft(processing_queries)
 		if(world.time - query.last_activity_time > (5 MINUTES))
@@ -83,6 +146,7 @@ SUBSYSTEM_DEF(dbcore)
 		if(MC_TICK_CHECK)
 			return
 
+<<<<<<< HEAD
 	// First handle the already running queries
 	while(length(queries_current))
 		var/datum/db_query/query = popleft(queries_current)
@@ -105,6 +169,10 @@ SUBSYSTEM_DEF(dbcore)
 			return
 
 /// Helper proc for handling queued new queries
+=======
+
+/// Helper proc for handling activating queued queries
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/subsystem/dbcore/proc/create_active_query(datum/db_query/query)
 	PRIVATE_PROC(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -122,7 +190,11 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE
 	if(QDELETED(query))
 		return FALSE
+<<<<<<< HEAD
 	if(query.process(wait))
+=======
+	if(query.process((TICKS2DS(wait)) / 10))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		queries_active -= query
 		return FALSE
 	return TRUE
@@ -142,6 +214,14 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/proc/queue_query(datum/db_query/query)
 	if(IsAdminAdvancedProcCall())
 		return
+<<<<<<< HEAD
+=======
+
+	if (!length(queries_standby) && length(queries_active) < max_concurrent_queries)
+		create_active_query(query)
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	queries_standby_num++
 	queries_standby |= query
 
@@ -151,7 +231,11 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/Shutdown()
 	//This is as close as we can get to the true round end before Disconnect() without changing where it's called, defeating the reason this is a subsystem
 	if(SSdbcore.Connect())
+<<<<<<< HEAD
 		for(var/datum/db_query/query in queries_current)
+=======
+		for(var/datum/db_query/query in queries_standby)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			run_query(query)
 
 		// SKYRAT EDIT START - SQL-based logging
@@ -176,11 +260,17 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE
 	if(var_name == NAMEOF(src, queries_active))
 		return FALSE
+<<<<<<< HEAD
 	if(var_name == NAMEOF(src, queries_new))
 		return FALSE
 	if(var_name == NAMEOF(src, queries_standby))
 		return FALSE
 	if(var_name == NAMEOF(src, queries_active))
+=======
+	if(var_name == NAMEOF(src, queries_standby))
+		return FALSE
+	if(var_name == NAMEOF(src, processing_queries))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	return ..()
@@ -192,11 +282,17 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE
 	if(var_name == NAMEOF(src, queries_active))
 		return FALSE
+<<<<<<< HEAD
 	if(var_name == NAMEOF(src, queries_new))
 		return FALSE
 	if(var_name == NAMEOF(src, queries_standby))
 		return FALSE
 	if(var_name == NAMEOF(src, queries_active))
+=======
+	if(var_name == NAMEOF(src, queries_standby))
+		return FALSE
+	if(var_name == NAMEOF(src, processing_queries))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return ..()
 
@@ -220,9 +316,14 @@ SUBSYSTEM_DEF(dbcore)
 	var/address = CONFIG_GET(string/address)
 	var/port = CONFIG_GET(number/port)
 	var/timeout = max(CONFIG_GET(number/async_query_timeout), CONFIG_GET(number/blocking_query_timeout))
+<<<<<<< HEAD
 	var/thread_limit = CONFIG_GET(number/bsql_thread_limit)
 
 	max_concurrent_queries = CONFIG_GET(number/max_concurrent_queries)
+=======
+	var/min_sql_connections = CONFIG_GET(number/pooling_min_sql_connections)
+	var/max_sql_connections = CONFIG_GET(number/pooling_max_sql_connections)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/result = json_decode(rustg_sql_connect_pool(json_encode(list(
 		"host" = address,
@@ -232,7 +333,12 @@ SUBSYSTEM_DEF(dbcore)
 		"db_name" = db,
 		"read_timeout" = timeout,
 		"write_timeout" = timeout,
+<<<<<<< HEAD
 		"max_threads" = thread_limit,
+=======
+		"min_threads" = min_sql_connections,
+		"max_threads" = max_sql_connections,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	))))
 	. = (result["status"] == "ok")
 	if (.)
@@ -264,7 +370,13 @@ SUBSYSTEM_DEF(dbcore)
 	else
 		log_sql("Database is not enabled in configuration.")
 
+<<<<<<< HEAD
 /datum/controller/subsystem/dbcore/proc/SetRoundID()
+=======
+/datum/controller/subsystem/dbcore/proc/InitializeRound()
+	CheckSchemaVersion()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!Connect())
 		return
 	var/datum/db_query/query_round_initialize = SSdbcore.NewQuery(/* SKYRAT EDIT CHANGE - MULTISERVER */
@@ -524,7 +636,11 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	while(status < DB_QUERY_FINISHED)
 		stoplag()
 
+<<<<<<< HEAD
 /datum/db_query/process(delta_time)
+=======
+/datum/db_query/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(status >= DB_QUERY_FINISHED)
 		return
 

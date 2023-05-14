@@ -166,7 +166,11 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "iP" = (
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "iZ" = (
@@ -212,7 +216,11 @@
 	dir = 1
 	},
 /obj/structure/stone_tile/cracked,
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/boss,
 /area/ruin/unpowered/ash_walkers)
 "ky" = (
@@ -317,7 +325,11 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/boss,
 /area/ruin/unpowered/ash_walkers)
 "nI" = (
@@ -445,7 +457,11 @@
 /area/ruin/unpowered/ash_walkers)
 "qW" = (
 /obj/structure/stone_tile/surrounding_tile,
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "rE" = (
@@ -665,7 +681,11 @@
 /area/ruin/unpowered/ash_walkers)
 "zV" = (
 /obj/structure/table/wood,
+<<<<<<< HEAD
 /obj/item/candle/infinite{
+=======
+/obj/item/flashlight/flare/candle/infinite{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = 5;
 	pixel_y = -2
 	},
@@ -749,7 +769,11 @@
 /area/ruin/unpowered/ash_walkers)
 "Ch" = (
 /obj/structure/stone_tile/slab/cracked,
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/boss,
 /area/ruin/unpowered/ash_walkers)
 "Cl" = (
@@ -875,7 +899,11 @@
 /obj/structure/stone_tile/surrounding_tile/cracked{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/indestructible/boss,
 /area/ruin/unpowered/ash_walkers)
 "HF" = (
@@ -1273,7 +1301,11 @@
 /area/ruin/unpowered/ash_walkers)
 "SX" = (
 /obj/structure/table/wood,
+<<<<<<< HEAD
 /obj/item/candle/infinite{
+=======
+/obj/item/flashlight/flare/candle/infinite{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = 11;
 	pixel_y = 12
 	},

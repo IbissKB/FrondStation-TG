@@ -10,8 +10,12 @@
 	give_equipment()
 	give_objective()
 
+<<<<<<< HEAD
 	ADD_TRAIT(owner, TRAIT_CANNOT_OPEN_PRESENTS, TRAIT_SANTA)
 	ADD_TRAIT(owner, TRAIT_PRESENT_VISION, TRAIT_SANTA)
+=======
+	owner.add_traits(list(TRAIT_CANNOT_OPEN_PRESENTS, TRAIT_PRESENT_VISION), TRAIT_SANTA)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/antagonist/santa/greet()
 	. = ..()

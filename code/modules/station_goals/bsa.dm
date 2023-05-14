@@ -48,6 +48,13 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 	desc = "Generates cannon pulse. Needs to be linked with a fusor."
 	icon_state = "power_box"
 
+<<<<<<< HEAD
+=======
+/obj/machinery/bsa/back/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/bsa/back/multitool_act(mob/living/user, obj/item/I)
 	if(!multitool_check_buffer(user, I)) //make sure it has a data buffer
 		return
@@ -61,6 +68,13 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 	desc = "Do not stand in front of cannon during operation. Needs to be linked with a fusor."
 	icon_state = "emitter_center"
 
+<<<<<<< HEAD
+=======
+/obj/machinery/bsa/front/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/bsa/front/multitool_act(mob/living/user, obj/item/I)
 	if(!multitool_check_buffer(user, I)) //make sure it has a data buffer
 		return
@@ -76,6 +90,13 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 	var/datum/weakref/back_ref
 	var/datum/weakref/front_ref
 
+<<<<<<< HEAD
+=======
+/obj/machinery/bsa/middle/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/bsa/middle/multitool_act(mob/living/user, obj/item/I)
 	if(!multitool_check_buffer(user, I))
 		return
@@ -107,6 +128,7 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 
 /obj/machinery/bsa/middle/proc/has_space()
 	var/cannon_dir = get_cannon_direction()
+<<<<<<< HEAD
 	var/x_min
 	var/x_max
 	switch(cannon_dir)
@@ -118,6 +140,20 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 			x_max = x - 6
 
 	for(var/turf/T in block(locate(x_min,y-1,z),locate(x_max,y+1,z)))
+=======
+	var/width = 10
+	var/offset
+	switch(cannon_dir)
+		if(EAST)
+			offset = -4
+		if(WEST)
+			offset = -6
+		else
+			return FALSE
+
+	var/turf/base = get_turf(src)
+	for(var/turf/T as anything in CORNER_BLOCK_OFFSET(base, width, 3, offset, -1))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(T.density || isspaceturf(T))
 			return FALSE
 	return TRUE
@@ -230,6 +266,10 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 	point.Beam(target, icon_state = "bsa_beam", time = 5 SECONDS, maxdistance = world.maxx) //ZZZAP
 	new /obj/effect/temp_visual/bsa_splash(point, dir)
 
+<<<<<<< HEAD
+=======
+	notify_ghosts("The Bluespace Artillery has been fired!", source = bullseye, header = "KABOOM!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!blocker)
 		message_admins("[ADMIN_LOOKUPFLW(user)] has launched an artillery strike targeting [ADMIN_VERBOSEJMP(bullseye)].")
 		user.log_message("has launched an artillery strike targeting [AREACOORD(bullseye)].", LOG_GAME)
@@ -263,7 +303,12 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 	circuit = /obj/item/circuitboard/computer/bsa_control
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	icon_state = "control_boxp"
+<<<<<<< HEAD
 	icon_keyboard = ""
+=======
+	icon_keyboard = null
+	icon_screen = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/datum/weakref/cannon_ref
 	var/notice
@@ -336,7 +381,13 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 		return G.gpstag
 
 /obj/machinery/computer/bsa_control/proc/get_impact_turf()
+<<<<<<< HEAD
 	if(istype(target, /area))
+=======
+	if(obj_flags & EMAGGED)
+		return get_turf(src)
+	else if(istype(target, /area))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return pick(get_area_turfs(target))
 	else if(istype(target, /datum/component/gps))
 		var/datum/component/gps/G = target
@@ -351,7 +402,12 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 		notice = "Cannon unpowered!"
 		return
 	notice = null
+<<<<<<< HEAD
 	cannon.fire(user, get_impact_turf())
+=======
+	var/turf/target_turf = get_impact_turf()
+	cannon.fire(user, target_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/computer/bsa_control/proc/deploy(force=FALSE)
 	var/obj/machinery/bsa/full/prebuilt = locate() in range(7) //In case of adminspawn
@@ -374,4 +430,13 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 	QDEL_NULL(centerpiece.back_ref)
 	qdel(centerpiece)
 	return cannon
+<<<<<<< HEAD
+=======
+
+/obj/machinery/computer/bsa_control/emag_act(mob/user, obj/item/card/emag/emag_card)
+	if(obj_flags & EMAGGED)
+		return
+	obj_flags |= EMAGGED
+	to_chat(user, span_warning("You emag [src] and hear the focusing crystal short out."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 */

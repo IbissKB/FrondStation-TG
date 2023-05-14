@@ -26,9 +26,12 @@ const MilkingMachineContent = (props, context) => {
   const {
     mobName,
     mobCanLactate,
+<<<<<<< HEAD
     cellName,
     cellMaxCharge,
     cellCurrentCharge,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     beaker,
     BeakerName,
     beakerMaxVolume,
@@ -91,6 +94,7 @@ const MilkingMachineContent = (props, context) => {
         <Stack>
           <Stack.Item grow>
             <Stack vertical>
+<<<<<<< HEAD
               <Stack.Item>
                 {cellName && (
                   <Section
@@ -107,6 +111,8 @@ const MilkingMachineContent = (props, context) => {
                   </Section>
                 )}
               </Stack.Item>
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               <Stack.Item grow={1}>
                 <Section
                   bold
@@ -338,6 +344,7 @@ const MilkingMachineContent = (props, context) => {
           </Stack.Item>
           <Stack.Item grow>
             <Stack vertical>
+<<<<<<< HEAD
               <Stack>
                 <Stack.Item grow>
                   {cellCurrentCharge !== null && cellMaxCharge !== null && (
@@ -357,6 +364,8 @@ const MilkingMachineContent = (props, context) => {
                   )}
                 </Stack.Item>
               </Stack>
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               <Stack.Item grow>
                 {beaker !== null && (
                   <Section
@@ -588,7 +597,10 @@ const modeButtonStates = (Name, data, palette, context) => {
   if (
     data.mobName !== null &&
     ModeNameCapital !== Name &&
+<<<<<<< HEAD
     data.cellName !== null &&
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     data.current_selected_organ !== null
   ) {
     return (
@@ -607,7 +619,11 @@ const modeButtonStates = (Name, data, palette, context) => {
   } else if (
     data.mobName !== null &&
     ModeNameCapital === Name &&
+<<<<<<< HEAD
     (data.cellName !== null || data.current_selected_organ !== null)
+=======
+    data.current_selected_organ !== null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   ) {
     return (
       <Box as="div" m={1}>
@@ -623,7 +639,11 @@ const modeButtonStates = (Name, data, palette, context) => {
     );
   } else if (
     ModeNameCapital !== Name &&
+<<<<<<< HEAD
     (data.current_selected_organ === null || data.cellName === null) === true
+=======
+    (data.current_selected_organ === null) === true
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   ) {
     return (
       <Box as="div" m={1}>
@@ -638,10 +658,14 @@ const modeButtonStates = (Name, data, palette, context) => {
         />
       </Box>
     );
+<<<<<<< HEAD
   } else if (
     ModeNameCapital === Name &&
     (data.cellName === null || data.current_selected_organ === null)
   ) {
+=======
+  } else if (ModeNameCapital === Name && data.current_selected_organ === null) {
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     return (
       <Box as="div" m={1}>
         <Button

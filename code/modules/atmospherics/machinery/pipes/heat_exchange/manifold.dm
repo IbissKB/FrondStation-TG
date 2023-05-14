@@ -3,6 +3,10 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold
 	icon = 'icons/obj/atmospherics/pipes/he-manifold.dmi'
 	icon_state = "manifold-3"
+<<<<<<< HEAD
+=======
+	base_icon_state = "manifold"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	name = "pipe manifold"
 	desc = "A manifold composed of regular pipes."
@@ -19,6 +23,12 @@
 	initialize_directions = ALL_CARDINALS
 	initialize_directions &= ~dir
 
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/update_pipe_icon()
+	icon_state = "[base_icon_state]-[piping_layer]"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold/update_overlays()
 	. = ..()
 	var/mutable_appearance/center = mutable_appearance(icon, "manifold_center")

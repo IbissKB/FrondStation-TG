@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
 Tooltips v1.1 - 22/10/15
 Developed by Wire (#goonstation on irc.synirc.net)
 - Added support for screen_loc pixel offsets. Should work. Maybe.
@@ -11,6 +12,8 @@ Configuration:
 	/client/New()
 		src.tooltips = new /datum/tooltip(src)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Usage:
 - Define mouse event procs on your (probably HUD) object and simply call the show and hide procs respectively:
 	/atom/movable/screen/hud
@@ -26,8 +29,11 @@ Customization:
 
 Notes:
 - You may have noticed 90% of the work is done via javascript on the client. Gotta save those cycles man.
+<<<<<<< HEAD
 - This is entirely untested in any other codebase besides goonstation so I have no idea if it will port nicely. Good luck!
 	- After testing and discussion (Wire, Remie, MrPerson, AnturK) ToolTips are ok and work for /tg/station13
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 */
 
 
@@ -37,6 +43,10 @@ Notes:
 	var/showing = 0
 	var/queueHide = 0
 	var/init = 0
+<<<<<<< HEAD
+=======
+	var/atom/last_target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /datum/tooltip/New(client/C)
@@ -52,6 +62,17 @@ Notes:
 /datum/tooltip/proc/show(atom/movable/thing, params = null, title = null, content = null, theme = "default", special = "none")
 	if (!thing || !params || (!title && !content) || !owner || !isnum(world.icon_size))
 		return FALSE
+<<<<<<< HEAD
+=======
+
+	if (!isnull(last_target))
+		UnregisterSignal(last_target, COMSIG_PARENT_QDELETING)
+
+	RegisterSignal(thing, COMSIG_PARENT_QDELETING, PROC_REF(on_target_qdel))
+
+	last_target = thing
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (!init)
 		//Initialize some vars
 		init = 1
@@ -96,11 +117,26 @@ Notes:
 
 	return TRUE
 
+<<<<<<< HEAD
 /datum/tooltip/proc/do_hide()
 	winshow(owner, control, FALSE)
 
 /* TG SPECIFIC CODE */
 
+=======
+/datum/tooltip/proc/on_target_qdel()
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(hide))
+	last_target = null
+
+/datum/tooltip/proc/do_hide()
+	winshow(owner, control, FALSE)
+
+/datum/tooltip/Destroy(force, ...)
+	last_target = null
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Open a tooltip for user, at a location based on params
 //Theme is a CSS class in tooltip.html, by default this wrapper chooses a CSS class based on the user's UI_style (Midnight, Plasmafire, Retro, etc)

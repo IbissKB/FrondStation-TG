@@ -24,14 +24,23 @@
 	tracer_type = /obj/effect/projectile/tracer/laser
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	impact_type = /obj/effect/projectile/impact/laser
+<<<<<<< HEAD
 	wound_bonus = -30
+=======
+	wound_bonus = -20
+	damage = 25
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	bare_wound_bonus = 40
 
 //overclocked laser, does a bit more damage but has much higher wound power (-0 vs -20)
 /obj/projectile/beam/laser/hellfire
 	name = "hellfire laser"
 	wound_bonus = 0
+<<<<<<< HEAD
 	damage = 25
+=======
+	damage = 30
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	speed = 0.6 // higher power = faster, that's how light works right
 
 /obj/projectile/beam/laser/hellfire/Initialize(mapload)
@@ -63,7 +72,10 @@
 /obj/projectile/beam/practice
 	name = "practice laser"
 	damage = 0
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/beam/scatter
 	name = "laser pellet"
@@ -90,7 +102,11 @@
 	damage = 30
 	damage_type = STAMINA
 	armor_flag = ENERGY
+<<<<<<< HEAD
 	hitsound = 'sound/weapons/tap.ogg'
+=======
+	hitsound = 'sound/weapons/sear_disabler.ogg'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	eyeblur = 0
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	light_color = LIGHT_COLOR_BLUE
@@ -98,6 +114,12 @@
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
 	impact_type = /obj/effect/projectile/impact/disabler
 
+<<<<<<< HEAD
+=======
+/obj/projectile/beam/disabler/weak
+	damage = 15
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/projectile/beam/pulse
 	name = "pulse"
 	icon_state = "u_laser"
@@ -217,3 +239,9 @@
 	if(isopenturf(target) || isindestructiblewall(target))//shrunk floors wouldnt do anything except look weird, i-walls shouldn't be bypassable
 		return
 	target.AddComponent(/datum/component/shrink, shrink_time)
+<<<<<<< HEAD
+=======
+
+/obj/projectile/beam/shrink/is_hostile_projectile()
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

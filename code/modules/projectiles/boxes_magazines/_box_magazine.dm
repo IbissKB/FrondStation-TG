@@ -9,7 +9,11 @@
 	worn_icon_state = "ammobox"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 30000)
+=======
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*15)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	throwforce = 2
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 3
@@ -36,6 +40,16 @@
 	///cost of the materials in the magazine/box itself
 	var/list/base_cost
 
+<<<<<<< HEAD
+=======
+	/// If this and ammo_band_icon aren't null, run update_ammo_band(). Is the color of the band, such as blue on the detective's Iceblox.
+	var/ammo_band_color
+	/// If this and ammo_band_color aren't null, run update_ammo_band() Is the greyscale icon used for the ammo band.
+	var/ammo_band_icon
+	/// Is the greyscale icon used for the ammo band when it's empty of bullets, only if it's not null.
+	var/ammo_band_icon_empty
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/ammo_box/Initialize(mapload)
 	. = ..()
 	if(!bullet_cost)
@@ -43,6 +57,10 @@
 		bullet_cost = SSmaterials.FindOrCreateMaterialCombo(custom_materials, 0.9 / max_ammo)
 	if(!start_empty)
 		top_off(starting=TRUE)
+<<<<<<< HEAD
+=======
+	update_icon_state()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = PROC_REF(add_notes_box))
@@ -177,6 +195,7 @@
 		if(AMMO_BOX_PER_BULLET)
 			icon_state = "[multiple_sprite_use_base ? base_icon_state : initial(icon_state)]-[shells_left]"
 		if(AMMO_BOX_FULL_EMPTY)
+<<<<<<< HEAD
 			icon_state = "[multiple_sprite_use_base ? base_icon_state : initial(icon_state)]-[shells_left ? "[max_ammo]" : "0"]"
 		//SKYRAT EDIT ADDITION BEGIN - SEC_HAUL
 		if(AMMO_BOX_FULL_EMPTY_BASIC)
@@ -184,6 +203,25 @@
 		//SKYRAT EDIT END
 	return ..()
 
+=======
+			icon_state = "[multiple_sprite_use_base ? base_icon_state : initial(icon_state)]-[shells_left ? "full" : "empty"]"
+
+	if(ammo_band_color && ammo_band_icon)
+		update_ammo_band()
+
+	return ..()
+
+/obj/item/ammo_box/proc/update_ammo_band()
+	overlays.Cut()
+	var/band_icon = ammo_band_icon
+	if(!(length(stored_ammo)) && ammo_band_icon_empty)
+		band_icon = ammo_band_icon_empty
+	var/image/ammo_band_image = image(icon, src, band_icon)
+	ammo_band_image.color = ammo_band_color
+	ammo_band_image.appearance_flags = RESET_COLOR|KEEP_APART
+	overlays += ammo_band_image
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Updates the amount of material in this ammo box according to how many bullets are left in it.
 /obj/item/ammo_box/proc/update_custom_materials()
 	var/temp_materials = custom_materials.Copy()

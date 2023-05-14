@@ -277,7 +277,11 @@ world
 	if(text2ascii(rgb) == 35) ++start // skip opening #
 	var/ch,which=0,r=0,g=0,b=0,alpha=0,usealpha
 	var/digits=0
+<<<<<<< HEAD
 	for(i=start, i<=length(rgb), ++i)
+=======
+	for(i=start, i <= length(rgb), ++i)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ch = text2ascii(rgb, i)
 		if(ch < 48 || (ch > 57 && ch < 65) || (ch > 70 && ch < 97) || ch > 102)
 			break
@@ -342,7 +346,11 @@ world
 		++start // skip opening #
 	var/ch,which=0,hue=0,sat=0,val=0,alpha=0,usealpha
 	var/digits=0
+<<<<<<< HEAD
 	for(i=start, i<=length(hsv), ++i)
+=======
+	for(i=start, i <= length(hsv), ++i)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ch = text2ascii(hsv, i)
 		if(ch < 48 || (ch > 57 && ch < 65) || (ch > 70 && ch < 97) || ch > 102)
 			break
@@ -658,7 +666,11 @@ world
 	var/lo3 = text2ascii(hex, 7) // B
 	var/hi4 = text2ascii(hex, 8) // A
 	var/lo4 = text2ascii(hex, 9) // A
+<<<<<<< HEAD
 	return list(((hi1>= 65 ? hi1-55 : hi1-48)<<4) | (lo1 >= 65 ? lo1-55 : lo1-48),
+=======
+	return list(((hi1 >= 65 ? hi1-55 : hi1-48)<<4) | (lo1 >= 65 ? lo1-55 : lo1-48),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		((hi2 >= 65 ? hi2-55 : hi2-48)<<4) | (lo2 >= 65 ? lo2-55 : lo2-48),
 		((hi3 >= 65 ? hi3-55 : hi3-48)<<4) | (lo3 >= 65 ? lo3-55 : lo3-48),
 		((hi4 >= 65 ? hi4-55 : hi4-48)<<4) | (lo4 >= 65 ? lo4-55 : lo4-48))
@@ -1013,7 +1025,11 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 	var/static/list/humanoid_icon_cache = list()
 	if(icon_id && humanoid_icon_cache[icon_id])
 		return humanoid_icon_cache[icon_id]
+<<<<<<< HEAD
 	var/mob/living/carbon/human/dummy/body = generate_dummy_lookalike() //SKYRAT EDIT: original = generate_or_wait_for_human_dummy(dummy_key)
+=======
+	var/mob/living/carbon/human/dummy/body = generate_or_wait_for_human_dummy(dummy_key)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(prefs)
 		prefs.apply_prefs_to(body, TRUE)
 
@@ -1402,6 +1418,7 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 	sleep(duration)
 	cut_overlay(overlay_image)
 
+<<<<<<< HEAD
 ///Perform a shake on an atom, resets its position afterwards
 /atom/proc/Shake(pixelshiftx = 15, pixelshifty = 15, duration = 250)
 	var/initialpixelx = pixel_x
@@ -1411,6 +1428,16 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 	animate(src, pixel_x = pixel_x + shiftx, pixel_y = pixel_y + shifty, time = 0.2, loop = duration)
 	pixel_x = initialpixelx
 	pixel_y = initialpixely
+=======
+/// Perform a shake on an atom, resets its position afterwards
+/atom/proc/Shake(pixelshiftx = 2, pixelshifty = 2, duration = 2.5 SECONDS, shake_interval = 0.02 SECONDS)
+	var/initialpixelx = pixel_x
+	var/initialpixely = pixel_y
+	animate(src, pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixelx + rand(-pixelshifty,pixelshifty), time = shake_interval, flags = ANIMATION_PARALLEL)
+	for (var/i in 3 to ((duration / shake_interval))) // Start at 3 because we already applied one, and need another to reset
+		animate(pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixely + rand(-pixelshifty,pixelshifty), time = shake_interval)
+	animate(pixel_x = initialpixelx, pixel_y = initialpixely, time = shake_interval)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Checks if the given iconstate exists in the given file, caching the result. Setting scream to TRUE will print a stack trace ONCE.
 /proc/icon_exists(file, state, scream)

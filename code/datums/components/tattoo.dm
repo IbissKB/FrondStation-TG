@@ -26,11 +26,20 @@
 		setup_tatted_owner(tatted_limb.owner)
 
 /datum/component/tattoo/Destroy(force, silent)
+<<<<<<< HEAD
 	. = ..()
+=======
+	if(!parent)
+		return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/bodypart/tatted_limb = parent
 	if(tatted_limb.owner)
 		clear_tatted_owner(tatted_limb.owner)
 	parent.RemoveElement(/datum/element/art/commoner)
+<<<<<<< HEAD
+=======
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/tattoo/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))

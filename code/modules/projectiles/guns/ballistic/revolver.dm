@@ -182,6 +182,14 @@
 	A.update_appearance()
 	return
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/revolver/russian/can_trigger_gun(mob/living/user, akimbo_usage)
+	if(akimbo_usage)
+		return FALSE
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/revolver/russian/attack_self(mob/user)
 	if(!spun)
 		spin()
@@ -221,6 +229,7 @@
 		var/loaded_rounds = get_ammo(FALSE, FALSE) // check before it is fired
 
 		if(loaded_rounds && is_target_face)
+<<<<<<< HEAD
 			add_memory_in_range(
 				user,
 				7,
@@ -237,6 +246,19 @@
 			)
 
 		if(chambered)
+=======
+			add_memory_in_range(user, 7, /datum/memory/witnessed_russian_roulette, \
+				protagonist = user, \
+				antagonist = src, \
+				rounds_loaded = loaded_rounds, \
+				aimed_at =  affecting.name, \
+				result = (chambered ? "lost" : "won"))
+
+		if(chambered)
+			if(HAS_TRAIT(user, TRAIT_CURSED)) // I cannot live, I cannot die, trapped in myself, body my holding cell.
+				to_chat(user, span_warning("What a horrible night... To have a curse!"))
+				return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/obj/item/ammo_casing/AC = chambered
 			if(AC.fire_casing(user, user, params, distro = 0, quiet = 0, zone_override = null, spread = 0, fired_from = src))
 				playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
@@ -271,9 +293,19 @@
 	user.visible_message(span_danger("[user.name]'s soul is captured by \the [src]!"), span_userdanger("You've lost the gamble! Your soul is forfeit!"))
 
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
+<<<<<<< HEAD
 	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/revolver/reverse/can_trigger_gun(mob/living/user)
+=======
+	name = "\improper Syndicate Revolver"
+	clumsy_check = FALSE
+	icon_state = "revolversyndie"
+
+/obj/item/gun/ballistic/revolver/reverse/can_trigger_gun(mob/living/user, akimbo_usage)
+	if(akimbo_usage)
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(HAS_TRAIT(user, TRAIT_CLUMSY) || is_clown_job(user.mind?.assigned_role))
 		return ..()
 	if(process_fire(user, user, FALSE, null, BODY_ZONE_HEAD))

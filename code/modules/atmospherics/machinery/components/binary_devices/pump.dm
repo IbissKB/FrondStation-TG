@@ -27,10 +27,24 @@
 	AddComponent(/datum/component/usb_port, list(
 		/obj/item/circuit_component/atmos_pump,
 	))
+<<<<<<< HEAD
+=======
+	register_context()
+
+/obj/machinery/atmospherics/components/binary/pump/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Turn [on ? "off" : "on"]"
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Maximize target pressure"
+	return CONTEXTUAL_SCREENTIP_SET
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/atmospherics/components/binary/pump/CtrlClick(mob/user)
 	if(can_interact(user))
 		set_on(!on)
+<<<<<<< HEAD
+=======
+		balloon_alert(user, "turned [on ? "on" : "off"]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		investigate_log("was turned [on ? "on" : "off"] by [key_name(user)]", INVESTIGATE_ATMOS)
 		update_appearance()
 	return ..()

@@ -38,16 +38,42 @@
 	var/list/discovered_mutations = list()
 	/// Assoc list, id = number, 1 is available, 2 is all reqs are 1, so on
 	var/list/tiers = list()
+<<<<<<< HEAD
 	/// Available experiments
 	var/list/available_experiments = list()
 	/// Completed experiments
 	var/list/completed_experiments = list()
+=======
+	/// This is a list of all incomplete experiment datums that are accessible for scientists to complete
+	var/list/datum/experiment/available_experiments = list()
+	/// A list of all experiment datums that have been complete
+	var/list/datum/experiment/completed_experiments = list()
+	/// Assoc list of all experiment datums that have been skipped, to tech point reward for completing them -
+	/// That is, upon researching a node without completing its associated discounts, their experiments go here.
+	/// Completing these experiments will have a refund.
+	var/list/datum/experiment/skipped_experiment_types = list()
+
+	/// If science researches something without completing its discount experiments,
+	/// they have the option to complete them later for a refund
+	/// This ratio determines how much of the original discount is refunded
+	var/skipped_experiment_refund_ratio = 0.66
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///All RD consoles connected to this individual techweb.
 	var/list/obj/machinery/computer/rdconsole/consoles_accessing = list()
 	///All research servers connected to this individual techweb.
 	var/list/obj/machinery/rnd/server/techweb_servers = list()
 
+<<<<<<< HEAD
+=======
+	///Boolean on whether the techweb should generate research points overtime.
+	var/should_generate_points = FALSE
+	///A multiplier applied to all research gain, cut in half if the Master server was sabotaged.
+	var/income_modifier = 1
+	///The amount of research points generated the techweb generated the latest time it generated.
+	var/last_income
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/**
 	 * Assoc list of relationships with various partners
 	 * scientific_cooperation[partner_typepath] = relationship
@@ -69,6 +95,7 @@
 	initialize_published_papers()
 	return ..()
 
+<<<<<<< HEAD
 /datum/techweb/admin
 	id = "ADMIN"
 	organization = "CentCom"
@@ -93,6 +120,8 @@
 		SSresearch.techweb_nodes_experimental -= bepis_id
 		log_research("[BN.display_name] has been removed from experimental nodes through the BEPIS techweb's \"remove tech\" feature.")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/techweb/Destroy()
 	researched_nodes = null
 	researched_designs = null
@@ -151,12 +180,20 @@
 		l[i] = amount
 	modify_point_list(l)
 
+<<<<<<< HEAD
 /datum/techweb/proc/copy_research_to(datum/techweb/receiver, unlock_hidden = TRUE) //Adds any missing research to theirs.
 	if(unlock_hidden)
 		for(var/i in receiver.hidden_nodes)
 			CHECK_TICK
 			if(available_nodes[i] || researched_nodes[i] || visible_nodes[i])
 				receiver.hidden_nodes -= i //We can see it so let them see it too.
+=======
+/datum/techweb/proc/copy_research_to(datum/techweb/receiver) //Adds any missing research to theirs.
+	for(var/i in receiver.hidden_nodes)
+		CHECK_TICK
+		if(available_nodes[i] || researched_nodes[i] || visible_nodes[i])
+			receiver.hidden_nodes -= i //We can see it so let them see it too.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/i in researched_nodes)
 		CHECK_TICK
 		receiver.research_node_id(i, TRUE, FALSE, FALSE)
@@ -201,6 +238,7 @@
 	research_points[type] = max(0, research_points[type] - amount)
 	return TRUE
 
+<<<<<<< HEAD
 /datum/techweb/proc/add_design_by_id(id, custom = FALSE)
 	return add_design(SSresearch.techweb_design_by_id(id), custom)
 
@@ -211,6 +249,34 @@
 	researched_designs[design.id] = TRUE
 	if(custom)
 		custom_designs[design.id] = TRUE
+=======
+/**
+ * add_design_by_id
+ * The main way to add add designs to techweb
+ * Uses the techweb node's ID
+ * Args:
+ * id - the ID of the techweb node to research
+ * custom - Boolean on whether the node should also be added to custom_designs
+ * add_to - A custom list to add the node to, overwriting research_designs.
+ */
+/datum/techweb/proc/add_design_by_id(id, custom = FALSE, list/add_to)
+	return add_design(SSresearch.techweb_design_by_id(id), custom, add_to)
+
+/datum/techweb/proc/add_design(datum/design/design, custom = FALSE, list/add_to)
+	if(!istype(design))
+		return FALSE
+	SEND_SIGNAL(src, COMSIG_TECHWEB_ADD_DESIGN, design, custom)
+	if(custom)
+		custom_designs[design.id] = TRUE
+
+	if(add_to)
+		add_to[design.id] = TRUE
+	else
+		researched_designs[design.id] = TRUE
+
+	hidden_nodes -= design.id
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /datum/techweb/proc/remove_design_by_id(id, custom = FALSE)
@@ -297,7 +363,23 @@
 /datum/techweb/proc/complete_experiment(datum/experiment/completed_experiment)
 	available_experiments -= completed_experiment
 	completed_experiments[completed_experiment.type] = completed_experiment
+<<<<<<< HEAD
 	log_research("[completed_experiment.name] ([completed_experiment.type]) has been completed on techweb [id]/[organization]")
+=======
+
+	var/result_text = "[completed_experiment] has been completed"
+	var/refund = skipped_experiment_types[completed_experiment.type] || 0
+	if(refund > 0)
+		add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = refund))
+		result_text += ", refunding [refund] points."
+		// Nothing more to gain here, but we keep it in the list to prevent double dipping
+		skipped_experiment_types[completed_experiment.type] = -1
+	else
+		result_text += "!"
+
+	log_research("[completed_experiment.name] ([completed_experiment.type]) has been completed on techweb [id]/[organization][refund ? ", refunding [refund] points" : ""].")
+	return result_text
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/techweb/proc/printout_points()
 	return techweb_point_display_generic(research_points)
@@ -314,10 +396,27 @@
 			return FALSE
 	var/log_message = "[id]/[organization] researched node [node.id]"
 	if(auto_adjust_cost)
+<<<<<<< HEAD
 		var/node_cost = node.get_price(src)
 		remove_point_list(node_cost)
 		log_message += " at the cost of [node_cost]"
 	researched_nodes[node.id] = TRUE //Add to our researched list
+=======
+		var/list/node_cost = node.get_price(src)
+		remove_point_list(node_cost)
+		log_message += " at the cost of [json_encode(node_cost)]"
+
+	//Add to our researched list
+	researched_nodes[node.id] = TRUE
+
+	// Track any experiments we skipped relating to this
+	for(var/missed_experiment in node.discount_experiments)
+		if(completed_experiments[missed_experiment] || skipped_experiment_types[missed_experiment])
+			continue
+		skipped_experiment_types[missed_experiment] = node.discount_experiments[missed_experiment] * skipped_experiment_refund_ratio
+
+	// Gain the experiments from the new node
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/id in node.unlock_ids)
 		visible_nodes[id] = TRUE
 		var/datum/techweb_node/unlocked_node = SSresearch.techweb_node_by_id(id)
@@ -326,6 +425,11 @@
 		if (unlocked_node.discount_experiments.len > 0)
 			add_experiments(unlocked_node.discount_experiments)
 		update_node_status(unlocked_node)
+<<<<<<< HEAD
+=======
+
+	// Unlock what the research actually unlocks
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/id in node.design_ids)
 		add_design_by_id(id)
 	update_node_status(node)
@@ -449,6 +553,7 @@
 /datum/techweb/proc/isNodeAvailableID(id)
 	return available_nodes[id]? SSresearch.techweb_node_by_id(id) : FALSE
 
+<<<<<<< HEAD
 /datum/techweb/specialized
 	var/allowed_buildtypes = ALL
 
@@ -489,6 +594,8 @@
 /datum/techweb/specialized/autounlocking/exofab
 	allowed_buildtypes = MECHFAB
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Fill published_papers with nulls.
 /datum/techweb/proc/initialize_published_papers()
 	published_papers = list()
@@ -520,6 +627,7 @@
 			continue
 
 		experiment.completed = TRUE
+<<<<<<< HEAD
 		complete_experiment(experiment)
 		if(length(GLOB.experiment_handlers))
 			var/datum/component/experiment_handler/handler = GLOB.experiment_handlers[1]
@@ -539,3 +647,11 @@
 /datum/techweb/bepis //Should contain only 1 BEPIS tech selected at random.
 	id = "EXPERIMENTAL"
 	organization = "Nanotrasen R&D"
+=======
+		var/announcetext = complete_experiment(experiment)
+		if(length(GLOB.experiment_handlers))
+			var/datum/component/experiment_handler/handler = GLOB.experiment_handlers[1]
+			handler.announce_message_to_all(announcetext)
+
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -39,6 +39,11 @@
 			fold_in(force = 1)
 			Paralyze(200)
 
+<<<<<<< HEAD
+=======
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/silicon/pai/attack_hand(mob/living/carbon/human/user, list/modifiers)
 	if(!user.combat_mode)
 		visible_message(span_notice("[user] gently pats [src] on the head, eliciting an off-putting buzzing from its holographic field."))
@@ -61,7 +66,11 @@
 		src.visible_message(span_warning("The electrically-charged projectile disrupts [src]'s holomatrix, forcing [src] to fold in!"))
 	. = ..(Proj)
 
+<<<<<<< HEAD
 /mob/living/silicon/pai/ignite_mob()
+=======
+/mob/living/silicon/pai/ignite_mob(silent)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /mob/living/silicon/pai/proc/take_holo_damage(amount)

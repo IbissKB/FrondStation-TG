@@ -125,7 +125,11 @@
 
 	//We are now going to move
 	var/add_delay = mob.cached_multiplicative_slowdown
+<<<<<<< HEAD
 	var/new_glide_size = DELAY_TO_GLIDE_SIZE(add_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? SQRT_2 : 1 ) )
+=======
+	var/new_glide_size = DELAY_TO_GLIDE_SIZE(add_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mob.set_glide_size(new_glide_size) // set it now in case of pulled objects
 	//If the move was recent, count using old_move_delay
 	//We want fractional behavior and all
@@ -143,7 +147,11 @@
 	. = ..()
 
 	if((direct & (direct - 1)) && mob.loc == new_loc) //moved diagonally successfully
+<<<<<<< HEAD
 		add_delay *= SQRT_2
+=======
+		add_delay *= sqrt(2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/after_glide = 0
 	if(visual_delay)
@@ -244,7 +252,11 @@
 					for(var/turf/T in get_line(mobloc, L.loc))
 						new /obj/effect/temp_visual/dir_setting/ninja/shadow(T, L.dir)
 						limit--
+<<<<<<< HEAD
 						if(limit<=0)
+=======
+						if(limit <= 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 							break
 			else
 				new /obj/effect/temp_visual/dir_setting/ninja/shadow(mobloc, L.dir)
@@ -359,6 +371,7 @@
  * Does this mob ignore gravity
  */
 /mob/proc/mob_negates_gravity()
+<<<<<<< HEAD
 	var/turf/turf = get_turf(src)
 	return !isgroundlessturf(turf) && HAS_TRAIT(src, TRAIT_NEGATES_GRAVITY)
 
@@ -376,6 +389,21 @@
 	else if(gravity_slowdown != speed_change)
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/gravity, multiplicative_slowdown=speed_change)
 		gravity_slowdown = speed_change
+=======
+	return FALSE
+
+/**
+ * Called when this mob slips over, override as needed
+ *
+ * knockdown_amount - time (in deciseconds) the slip leaves them on the ground
+ * slipped_on - optional, what'd we slip on? if not set, we assume they just fell over
+ * lube - bitflag of "lube flags", see [mobs.dm] for more information
+ * paralyze - time (in deciseconds) the slip leaves them paralyzed / unable to move
+ * force_drop = the slip forces them to drop held items
+ */
+/mob/proc/slip(knockdown_amount, obj/slipped_on, lube_flags, paralyze, force_drop = FALSE)
+	add_mob_memory(/datum/memory/was_slipped, antagonist = slipped_on)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //bodypart selection verbs - Cyberboss
 //8: repeated presses toggles through head - eyes - mouth

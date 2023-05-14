@@ -17,8 +17,17 @@
 	cell_type = /obj/item/stock_parts/cell/mini_egun
 	ammo_x_offset = 2
 	charge_sections = 3
+<<<<<<< HEAD
 	has_gun_safety = FALSE
 	company_flag = COMPANY_BOLT
+=======
+
+/obj/item/gun/energy/disabler/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_BOLT)
+
+/obj/item/gun/energy/disabler/bolt_disabler/give_gun_safeties()
+	return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/energy/disabler/bolt_disabler/add_seclight_point()
 	return
@@ -39,9 +48,19 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler/bounce, /obj/item/ammo_casing/energy/laser/bounce, /obj/item/ammo_casing/energy/electrode/knockdown)
 	ammo_x_offset = 1
 	charge_sections = 5
+<<<<<<< HEAD
 	has_gun_safety = FALSE
 	cell_type = /obj/item/stock_parts/cell/hos_gun
 	company_flag = COMPANY_CANTALAN
+=======
+	cell_type = /obj/item/stock_parts/cell/hos_gun
+
+/obj/item/gun/energy/e_gun/cfa_phalanx/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_CANTALAN)
+
+/obj/item/gun/energy/e_gun/cfa_phalanx/give_gun_safeties()
+	return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	CFA PALADIN
@@ -57,8 +76,17 @@
 	force = 10
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/double)
 	charge_sections = 5
+<<<<<<< HEAD
 	has_gun_safety = FALSE
 	company_flag = COMPANY_CANTALAN
+=======
+
+/obj/item/gun/energy/laser/cfa_paladin/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_CANTALAN)
+
+/obj/item/gun/energy/laser/cfa_paladin/give_gun_safeties()
+	return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	BOUNCE DISABLER

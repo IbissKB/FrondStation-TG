@@ -12,10 +12,19 @@
 	flags_1 = CONDUCT_1
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_NORMAL
+<<<<<<< HEAD
 	force = 25 //SKYRAT EDIT - ORIGINAL: 17
 	armour_penetration = 15 // SKYRAT EDIT - ADDITION
 	throwforce = 10
 	hitsound = 'sound/weapons/bladeslice.ogg'
+=======
+	force = 20
+	throwforce = 10
+	toolspeed = 0.375
+	demolition_mod = 0.8
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	armour_penetration = 35
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "rend")
 	var/after_use_message = ""
@@ -75,6 +84,10 @@
 	icon_state = "ash_blade"
 	inhand_icon_state = "ash_blade"
 	after_use_message = "The Nightwatcher hears your call..."
+<<<<<<< HEAD
+=======
+	resistance_flags = FIRE_PROOF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Path of Flesh's blade
 /obj/item/melee/sickly_blade/flesh
@@ -103,3 +116,15 @@
 	icon_state = "dark_blade"
 	inhand_icon_state = "dark_blade"
 	after_use_message = "The Torn Champion hears your call..."
+<<<<<<< HEAD
+=======
+
+// Path of Cosmos's blade
+/obj/item/melee/sickly_blade/cosmic
+	name = "\improper cosmic blade"
+	desc = "A mote of celestial resonance, shaped into a star-woven blade. \
+		An iridescent exile, carving radiant trails, desperately seeking unification."
+	icon_state = "cosmic_blade"
+	inhand_icon_state = "cosmic_blade"
+	after_use_message = "The Stargazer hears your call..."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

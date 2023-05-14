@@ -14,10 +14,19 @@
 	var/order_id = 0
 	var/errors = 0
 
+<<<<<<< HEAD
 /obj/item/paper/fluff/jobs/cargo/manifest/Initialize(mapload, id, cost)
 	. = ..()
 	order_id = id
 	order_cost = cost
+=======
+/obj/item/paper/fluff/jobs/cargo/manifest/Initialize(mapload, id, cost, manifest_can_fail = TRUE)
+	. = ..()
+	order_id = id
+	order_cost = cost
+	if(!manifest_can_fail)
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(prob(MANIFEST_ERROR_CHANCE))
 		errors |= MANIFEST_ERROR_NAME
@@ -37,6 +46,10 @@
 
 /datum/supply_order
 	var/id
+<<<<<<< HEAD
+=======
+	var/cost_type
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/orderer
 	var/orderer_rank
 	var/orderer_ckey
@@ -49,6 +62,13 @@
 	var/datum/supply_pack/pack
 	var/datum/bank_account/paying_account
 	var/obj/item/coupon/applied_coupon
+<<<<<<< HEAD
+=======
+	///Boolean on whether the manifest can fail or not.
+	var/manifest_can_fail = TRUE
+	///Boolean on whether the manifest can be cancelled through cargo consoles.
+	var/can_be_cancelled = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/supply_order/New(
 	datum/supply_pack/pack,
@@ -59,9 +79,19 @@
 	paying_account,
 	department_destination,
 	coupon,
+<<<<<<< HEAD
 	charge_on_purchase,
 )
 	id = SSshuttle.order_number++
+=======
+	charge_on_purchase = TRUE,
+	manifest_can_fail = TRUE,
+	cost_type = "cr",
+	can_be_cancelled = TRUE,
+)
+	id = SSshuttle.order_number++
+	src.cost_type = cost_type
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	src.pack = pack
 	src.orderer = orderer
 	src.orderer_rank = orderer_rank
@@ -71,6 +101,20 @@
 	src.department_destination = department_destination
 	src.applied_coupon = coupon
 	src.charge_on_purchase = charge_on_purchase
+<<<<<<< HEAD
+=======
+	src.manifest_can_fail = manifest_can_fail
+	src.can_be_cancelled = can_be_cancelled
+
+//returns the total cost of this order. Its not the total price paid by cargo but the total value of this order
+/datum/supply_order/proc/get_final_cost()
+	var/cost = pack.get_cost()
+	if(applied_coupon) //apply discount price
+		cost -= (cost * applied_coupon.discount_pct_off)
+	if(!isnull(paying_account)) //privately purchased means 1.1x the cost
+		cost *= 1.1
+	return cost
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/supply_order/proc/generateRequisition(turf/T)
 	var/obj/item/paper/requisition_paper = new(T)
@@ -93,7 +137,11 @@
 	return requisition_paper
 
 /datum/supply_order/proc/generateManifest(obj/container, owner, packname, cost) //generates-the-manifests.
+<<<<<<< HEAD
 	var/obj/item/paper/fluff/jobs/cargo/manifest/manifest_paper = new(null, id, cost)
+=======
+	var/obj/item/paper/fluff/jobs/cargo/manifest/manifest_paper = new(null, id, cost, manifest_can_fail)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/station_name = (manifest_paper.errors & MANIFEST_ERROR_NAME) ? new_station_name() : station_name()
 

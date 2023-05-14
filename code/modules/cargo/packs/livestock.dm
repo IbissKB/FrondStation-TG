@@ -146,6 +146,16 @@
 	contains = list(/mob/living/simple_animal/hostile/retaliate/goat)
 	crate_name = "goat crate"
 
+<<<<<<< HEAD
+=======
+/datum/supply_pack/critter/rabbit
+	name = "Rabbit Crate"
+	desc = "What noise do rabbits even make? Contains one rabbit."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/mob/living/basic/rabbit)
+	crate_name = "rabbit crate"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/supply_pack/critter/mothroach
 	name = "Mothroach Crate"
 	desc = "Put the mothroach on your head and find out what true cuteness looks like. \
@@ -184,12 +194,30 @@
 /datum/supply_pack/critter/snake
 	name = "Snake Crate"
 	desc = "Tired of these MOTHER FUCKING snakes on this MOTHER FUCKING space station? \
+<<<<<<< HEAD
 		Then this isn't the crate for you. Contains three poisonous snakes."
+=======
+		Then this isn't the crate for you. Contains three venomous snakes."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 6
 	access_view = ACCESS_SECURITY
 	contains = list(/mob/living/simple_animal/hostile/retaliate/snake = 3)
 	crate_name = "snake crate"
 
+<<<<<<< HEAD
+=======
+/datum/supply_pack/critter/amphibians
+	name = "Amphibian Friends Crate"
+	desc = "Two disgustingly cute slimey friends. Cytologists love them! \
+		Contains one frog and one axolotl. Warning: Frog may have hallucinogenic properties."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(
+		/mob/living/basic/axolotl,
+		/mob/living/basic/frog,
+	)
+	crate_name = "amphibian crate"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/supply_pack/critter/lizard
 	name = "Lizard Crate"
 	desc = "Hisss! Containssss a friendly lizard. Not to be confusssed with a lizardperssson."
@@ -197,3 +225,19 @@
 	access_view = ACCESS_JANITOR
 	contains = list(/mob/living/simple_animal/hostile/lizard)
 	crate_name = "lizard crate"
+<<<<<<< HEAD
+=======
+
+/datum/supply_pack/critter/garden_gnome
+	name = "Garden Gnome Crate"
+	desc = "Collect them all for your garden. Comes with three!"
+	hidden = TRUE
+	cost = CARGO_CRATE_VALUE * 20
+	contains = list(/mob/living/basic/garden_gnome)
+	crate_name = "garden gnome crate"
+
+/datum/supply_pack/critter/garden_gnome/generate()
+	. = ..()
+	for(var/i in 1 to 2)
+		new /mob/living/basic/garden_gnome(.)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

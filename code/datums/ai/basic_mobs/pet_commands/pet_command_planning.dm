@@ -7,6 +7,7 @@
  */
 /datum/ai_planning_subtree/pet_planning
 
+<<<<<<< HEAD
 /datum/ai_planning_subtree/pet_planning/SelectBehaviors(datum/ai_controller/controller, delta_time)
 	var/active_command_key = controller.blackboard[BB_ACTIVE_PET_COMMAND]
 	if (!active_command_key)
@@ -15,4 +16,10 @@
 	var/datum/pet_command/command = weak_command?.resolve()
 	if (!command)
 		return // We forgot this command at some point
+=======
+/datum/ai_planning_subtree/pet_planning/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
+	var/datum/pet_command/command = controller.blackboard[BB_ACTIVE_PET_COMMAND]
+	if (!command)
+		return // Do something else
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return command.execute_action(controller)

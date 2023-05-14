@@ -295,8 +295,28 @@
 			.["value"] = newguy
 
 		if(VV_NEW_LIST)
+<<<<<<< HEAD
 			.["value"] = list()
 			.["type"] = /list
+=======
+			.["type"] = /list
+			var/list/value = list()
+
+			var/expectation = alert("Would you like to populate the list", "Populate List?", "Yes", "No")
+			if(!expectation || expectation == "No")
+				.["value"] = value
+				return .
+
+			var/list/insert = null
+			while(TRUE)
+				insert = vv_get_value(restricted_classes = list(VV_RESTORE_DEFAULT))
+				if(!insert["class"])
+					break
+				value += LIST_VALUE_WRAP_LISTS(insert["value"])
+
+
+			.["value"] = value
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(VV_TEXT_LOCATE)
 			var/datum/D

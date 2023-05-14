@@ -27,6 +27,10 @@
 /obj/item/clothing/head/wig/update_icon_state()
 	var/datum/sprite_accessory/hair_style = GLOB.hairstyles_list[hairstyle]
 	if(hair_style)
+<<<<<<< HEAD
+=======
+		icon = hair_style.icon
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		icon_state = hair_style.icon_state
 	return ..()
 
@@ -50,7 +54,11 @@
 /obj/item/clothing/head/wig/attack_self(mob/user)
 	var/new_style = tgui_input_list(user, "Select a hairstyle", "Wig Styling", GLOB.hairstyles_list - "Bald")
 	var/newcolor = adjustablecolor ? input(usr,"","Choose Color",color) as color|null : null
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(new_style && new_style != hairstyle)
 		hairstyle = new_style

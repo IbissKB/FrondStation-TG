@@ -14,7 +14,11 @@
 				/obj/item/clothing/head/wig/natural = 4,
 				/obj/item/clothing/head/costume/fancy = 4,
 				/obj/item/clothing/head/beanie = 8,
+<<<<<<< HEAD
 				/obj/item/clothing/head/beret/black = 3,
+=======
+				/obj/item/clothing/head/beret = 10,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				/obj/item/clothing/mask/bandana = 3,
 				/obj/item/clothing/mask/bandana/striped = 3,
 				/obj/item/clothing/mask/bandana/skull = 3,

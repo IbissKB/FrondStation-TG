@@ -128,6 +128,16 @@
 	if (cell)
 		QDEL_NULL(cell)
 	STOP_PROCESSING(SSobj, src)
+<<<<<<< HEAD
+=======
+
+	// Intentional cast.
+	// Sometimes ammo_type has paths, sometimes it has atom.
+	for (var/atom/item in ammo_type)
+		qdel(item)
+	ammo_type = null
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/gun/energy/handle_atom_del(atom/A)
@@ -136,9 +146,15 @@
 		update_appearance()
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/gun/energy/process(delta_time)
 	if(selfcharge && cell && cell.percent() < 100)
 		charge_timer += delta_time
+=======
+/obj/item/gun/energy/process(seconds_per_tick)
+	if(selfcharge && cell && cell.percent() < 100)
+		charge_timer += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(charge_timer < charge_delay)
 			return
 		charge_timer = 0
@@ -296,7 +312,11 @@
 		var/obj/projectile/energy/loaded_projectile = E.loaded_projectile
 		if(!loaded_projectile)
 			. = ""
+<<<<<<< HEAD
 		else if(loaded_projectile.nodamage || !loaded_projectile.damage || loaded_projectile.damage_type == STAMINA)
+=======
+		else if(loaded_projectile.damage <= 0 || loaded_projectile.damage_type == STAMINA)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			user.visible_message(span_danger("[user] tries to light [A.loc == user ? "[user.p_their()] [A.name]" : A] with [src], but it doesn't do anything. Dumbass."))
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, loaded_projectile.hitsound, 50, TRUE)

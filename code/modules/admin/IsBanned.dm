@@ -32,26 +32,64 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
+<<<<<<< HEAD
+=======
+	/* SKYRAT EDIT REMOVAL START - We have the panic bunker on 24/7, this just makes our method unusable.
+	if(!real_bans_only && !admin && CONFIG_GET(flag/panic_bunker) && !CONFIG_GET(flag/panic_bunker_interview))
+		var/datum/db_query/query_client_in_db = SSdbcore.NewQuery(
+			"SELECT 1 FROM [format_table_name("player")] WHERE ckey = :ckey",
+			list("ckey" = ckey)
+		)
+		if(!query_client_in_db.Execute())
+			qdel(query_client_in_db)
+			return
+
+		var/client_is_in_db = query_client_in_db.NextRow()
+		if(!client_is_in_db)
+
+			var/reject_message = "Failed Login: [ckey] [address]-[computer_id] - New Account attempting to connect during panic bunker, but was rejected due to no prior connections to game servers (no database entry)"
+			log_access(reject_message)
+			if (message)
+				message_admins(span_adminnotice("[reject_message]"))
+			return list("reason"="panicbunker", "desc" = "Sorry but the server is currently not accepting connections from never before seen players")
+	*/ // SKYRAT EDIT REMOVAL END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//Whitelist
 	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
 		if(!check_whitelist(ckey))
 			if (admin)
+<<<<<<< HEAD
 				log_admin("The admin [key] has been allowed to bypass the whitelist")
 				if (message)
 					message_admins(span_adminnotice("The admin [key] has been allowed to bypass the whitelist"))
 					addclientmessage(ckey,span_adminnotice("You have been allowed to bypass the whitelist"))
 			else
 				log_access("Failed Login: [key] - Not on whitelist")
+=======
+				log_admin("The admin [ckey] has been allowed to bypass the whitelist")
+				if (message)
+					message_admins(span_adminnotice("The admin [ckey] has been allowed to bypass the whitelist"))
+					addclientmessage(ckey,span_adminnotice("You have been allowed to bypass the whitelist"))
+			else
+				log_access("Failed Login: [ckey] - Not on whitelist")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
 
 	//Guest Checking
 	if(!real_bans_only && !C && is_guest_key(key))
 		if (CONFIG_GET(flag/guest_ban))
+<<<<<<< HEAD
 			log_access("Failed Login: [key] - Guests not allowed")
 			return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 		if (CONFIG_GET(flag/panic_bunker) && SSdbcore.Connect())
 			log_access("Failed Login: [key] - Guests not allowed during panic bunker")
+=======
+			log_access("Failed Login: [ckey] - Guests not allowed")
+			return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
+		if (CONFIG_GET(flag/panic_bunker) && SSdbcore.Connect())
+			log_access("Failed Login: [ckey] - Guests not allowed during panic bunker")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return list("reason"="guest", "desc"="\nReason: Sorry but the server is currently not accepting connections from never before seen players or guests. If you have played on this server with a byond account before, please log in to the byond account you have played from.")
 
 	//Population Cap Checking
@@ -60,7 +98,11 @@
 		var/popcap_value = GLOB.clients.len
 		if(popcap_value >= extreme_popcap && !GLOB.joined_player_list.Find(ckey))
 			if(!CONFIG_GET(flag/byond_member_bypass_popcap) || !world.IsSubscribed(ckey, "BYOND"))
+<<<<<<< HEAD
 				log_access("Failed Login: [key] - Population cap reached")
+=======
+				log_access("Failed Login: [ckey] - Population cap reached")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return list("reason"="popcap", "desc"= "\nReason: [CONFIG_GET(string/extreme_popcap_message)]")
 
 	if(CONFIG_GET(flag/sql_enabled))
@@ -74,16 +116,28 @@
 			for(var/i in ban_details)
 				if(admin)
 					if(text2num(i["applies_to_admins"]))
+<<<<<<< HEAD
 						var/msg = "Admin [key] is admin banned, and has been disallowed access."
+=======
+						var/msg = "Admin [ckey] is admin banned, and has been disallowed access."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						log_admin(msg)
 						if (message)
 							message_admins(msg)
 					else
+<<<<<<< HEAD
 						var/msg = "Admin [key] has been allowed to bypass a matching non-admin ban on [i["key"]] [i["ip"]]-[i["computerid"]]."
 						log_admin(msg)
 						if (message)
 							message_admins(msg)
 							addclientmessage(ckey,span_adminnotice("Admin [key] has been allowed to bypass a matching non-admin ban on [i["key"]] [i["ip"]]-[i["computerid"]]."))
+=======
+						var/msg = "Admin [ckey] has been allowed to bypass a matching non-admin ban on [ckey(i["key"])] [i["ip"]]-[i["computerid"]]."
+						log_admin(msg)
+						if (message)
+							message_admins(msg)
+							addclientmessage(ckey,span_adminnotice("Admin [ckey] has been allowed to bypass a matching non-admin ban on [i["key"]] [i["ip"]]-[i["computerid"]]."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						continue
 				var/expires = "This is a permanent ban."
 				var/global_ban = "This is a global ban from all of our servers." //SKYRAT EDIT ADDITION - MULTISERVER
@@ -96,7 +150,11 @@
 				This ban (BanID #[i["id"]]) was applied by [i["admin_key"]] on [i["bantime"]] during round ID [i["round_id"]].
 				[global_ban]
 				[expires]"}
+<<<<<<< HEAD
 				log_suspicious_login("Failed Login: [key] [computer_id] [address] - Banned (#[i["id"]]) [text2num(i["global_ban"]) ? "globally" : "locally"]") //SKYRAT EDIT CHANGE - MULTISERVER
+=======
+				log_suspicious_login("Failed Login: [ckey] [computer_id] [address] - Banned (#[i["id"]]) [text2num(i["global_ban"]) ? "globally" : "locally"]") //SKYRAT EDIT CHANGE - MULTISERVER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return list("reason"="Banned","desc"="[desc]")
 	if (admin)
 		if (GLOB.directory[ckey])
@@ -219,9 +277,15 @@
 		//ie, ones where the "apply to this game only" checkbox is not checked (defaults to not checked)
 		//So it's safe to let admins walk thru host/sticky bans here
 		if (admin)
+<<<<<<< HEAD
 			log_admin("The admin [key] has been allowed to bypass a matching host/sticky ban on [bannedckey]")
 			if (message)
 				message_admins(span_adminnotice("The admin [key] has been allowed to bypass a matching host/sticky ban on [bannedckey]"))
+=======
+			log_admin("The admin [ckey] has been allowed to bypass a matching host/sticky ban on [bannedckey]")
+			if (message)
+				message_admins(span_adminnotice("The admin [ckey] has been allowed to bypass a matching host/sticky ban on [bannedckey]"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				addclientmessage(ckey,span_adminnotice("You have been allowed to bypass a matching host/sticky ban on [bannedckey]"))
 			return null
 
@@ -230,7 +294,11 @@
 
 		var/desc = "\nReason:(StickyBan) You, or another user of this computer or connection ([bannedckey]) is banned from playing here. The ban reason is:\n[ban["message"]]\nThis ban was applied by [ban["admin"]]\nThis is a BanEvasion Detection System ban, if you think this ban is a mistake, please wait EXACTLY 6 seconds, then try again before filing an appeal.\n"
 		. = list("reason" = "Stickyban", "desc" = desc)
+<<<<<<< HEAD
 		log_suspicious_login("Failed Login: [key] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
+=======
+		log_suspicious_login("Failed Login: [ckey] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return .
 

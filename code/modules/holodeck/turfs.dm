@@ -70,11 +70,16 @@
 	gender = PLURAL
 	name = "sand"
 	desc = "This is better than a vacation, since you're still getting paid."
+<<<<<<< HEAD
 	icon = 'icons/misc/beach.dmi'
+=======
+	icon = 'icons/turf/sand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "sand"
 	bullet_bounce_sound = null
 	tiled_dirt = FALSE
 
+<<<<<<< HEAD
 /turf/open/floor/holofloor/beach/coast_t
 	gender = NEUTER
 	name = "coastline"
@@ -84,10 +89,24 @@
 	gender = NEUTER
 	name = "coastline"
 	icon_state = "sandwater_b"
+=======
+/turf/open/floor/holofloor/beach/coast
+	gender = NEUTER
+	name = "coastline"
+	icon = 'icons/turf/beach.dmi'
+	icon_state = "beach"
+
+/turf/open/floor/holofloor/beach/coast/corner
+	icon_state = "beach-corner"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/floor/holofloor/beach/water
 	name = "water"
 	desc = "Gives the impression you can walk on water. Chaplains love it."
+<<<<<<< HEAD
+=======
+	icon = 'icons/turf/beach.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "water"
 	bullet_sizzle = TRUE
 
@@ -146,8 +165,13 @@
 	base_icon_state = "carpet"
 	floor_tile = /obj/item/stack/tile/carpet
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET)
 	canSmoothWith = list(SMOOTH_GROUP_CARPET)
+=======
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET
+	canSmoothWith = SMOOTH_GROUP_CARPET
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	bullet_bounce_sound = null
 	tiled_dirt = FALSE
 
@@ -182,3 +206,28 @@
 /turf/open/floor/holofloor/dark
 	icon_state = "darkfull"
 	desc = "The surrounding enviroment is so dark you can hardly see yourself."
+<<<<<<< HEAD
+=======
+
+/turf/open/floor/holofloor/stairs
+	name = "stairs"
+	icon_state = "stairs"
+	tiled_dirt = FALSE
+
+/turf/open/floor/holofloor/stairs/left
+	icon_state = "stairs-l"
+
+/turf/open/floor/holofloor/stairs/medium
+	icon_state = "stairs-m"
+
+/turf/open/floor/holofloor/stairs/right
+	icon_state = "stairs-r"
+
+/turf/open/floor/holofloor/chess_white
+	icon_state = "white_large"
+	color = "#eeeed2"
+
+/turf/open/floor/holofloor/chess_black
+	icon_state = "white_large"
+	color = "#93b570"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

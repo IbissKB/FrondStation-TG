@@ -296,7 +296,11 @@
 "By" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Orbital Drop Pod Loading";
+<<<<<<< HEAD
 	req_access_txt = "106"
+=======
+	req_access = list("cent_storage")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)

@@ -96,7 +96,10 @@
 	. = ..()
 	var/datum/computer_file/program/chatclient/chatprogram = cpu.find_file_by_name("ntnrc_client")
 	chatprogram.username = "[lowertext(console_department)]_department"
+<<<<<<< HEAD
 	chatprogram.program_state = PROGRAM_STATE_ACTIVE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cpu.active_program = chatprogram
 
 /obj/machinery/modular_computer/console/preset/cargochat/service

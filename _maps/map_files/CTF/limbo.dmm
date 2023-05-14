@@ -60,11 +60,16 @@
 /turf/open/floor/carpet/blue,
 /area/centcom/ctf)
 "ef" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/fulltile{
 	color = "#008000";
 	max_integrity = 5000;
 	name = "hardened window";
 	atom_integrity = 5000
+=======
+/obj/structure/window/reinforced/fulltile/indestructible{
+	color = "#008000"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/plating,
 /area/centcom/ctf)
@@ -76,6 +81,7 @@
 /area/centcom/ctf)
 "ep" = (
 /obj/structure/barricade/security/ctf,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -99,6 +105,13 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
+=======
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/cult,
+/area/centcom/ctf)
+"fs" = (
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/centcom/ctf)
 "fH" = (
@@ -108,6 +121,7 @@
 	},
 /turf/open/floor/carpet/red,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "fK" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -121,6 +135,8 @@
 	},
 /turf/open/floor/cult,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "gq" = (
 /obj/structure/barricade/security/ctf,
 /turf/open/floor/carpet/orange,
@@ -161,6 +177,7 @@
 /turf/open/floor/carpet/red,
 /area/centcom/ctf)
 "iv" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -173,6 +190,13 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted,
+/turf/open/floor/cult,
+/area/centcom/ctf)
+"iN" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -197,11 +221,15 @@
 /turf/open/floor/carpet/red,
 /area/centcom/ctf)
 "lt" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /turf/open/floor/cult,
@@ -225,6 +253,7 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "ny" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -238,6 +267,8 @@
 	},
 /turf/open/floor/cult,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "nB" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -275,7 +306,11 @@
 /turf/open/floor/carpet/blue,
 /area/centcom/ctf)
 "oy" = (
+<<<<<<< HEAD
 /obj/machinery/control_point,
+=======
+/obj/machinery/ctf/control_point,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "oK" = (
@@ -311,6 +346,7 @@
 /turf/open/floor/wood,
 /area/centcom/ctf)
 "pD" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
@@ -320,6 +356,11 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/centcom/ctf)
 "pF" = (
@@ -372,7 +413,11 @@
 /turf/open/floor/carpet/red,
 /area/centcom/ctf)
 "rm" = (
+<<<<<<< HEAD
 /obj/machinery/capture_the_flag/blue,
+=======
+/obj/machinery/ctf/spawner/blue,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "rB" = (
@@ -396,8 +441,12 @@
 /turf/open/floor/cult,
 /area/centcom/ctf)
 "st" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /turf/open/floor/cult,
@@ -447,10 +496,14 @@
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "wE" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -476,6 +529,7 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "xC" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -489,6 +543,8 @@
 	},
 /turf/open/floor/cult,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "yo" = (
 /turf/closed/indestructible/wood,
 /area/centcom/ctf)
@@ -515,6 +571,7 @@
 	},
 /turf/open/floor/carpet/red,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "Ah" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -528,6 +585,8 @@
 	},
 /turf/open/floor/cult,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "AD" = (
 /obj/structure/ladder/unbreakable/rune{
 	id = "blue_team"
@@ -567,6 +626,7 @@
 /obj/structure/trap/ctf/blue,
 /turf/open/floor/carpet/red,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "BK" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -580,6 +640,8 @@
 	},
 /turf/open/floor/cult,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Cf" = (
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 8
@@ -660,10 +722,14 @@
 /turf/open/floor/carpet/orange,
 /area/centcom/ctf)
 "Fo" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -765,6 +831,7 @@
 /turf/open/floor/carpet/orange,
 /area/centcom/ctf)
 "KY" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -778,6 +845,15 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/turf/open/floor/cult,
+/area/centcom/ctf)
+"Ly" = (
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/centcom/ctf)
 "LC" = (
@@ -787,7 +863,11 @@
 /turf/open/floor/cult,
 /area/centcom/ctf)
 "LX" = (
+<<<<<<< HEAD
 /obj/machinery/capture_the_flag/yellow,
+=======
+/obj/machinery/ctf/spawner/yellow,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "Mc" = (
@@ -896,10 +976,16 @@
 /turf/open/floor/carpet/orange,
 /area/centcom/ctf)
 "PO" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/centcom/ctf)
 "QJ" = (
@@ -923,6 +1009,7 @@
 "Rm" = (
 /turf/open/floor/carpet/blue,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "RI" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -936,6 +1023,8 @@
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/cult,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Sh" = (
 /obj/structure/trap/ctf/yellow,
 /obj/effect/turf_decal/siding/yellow{
@@ -1042,6 +1131,7 @@
 /turf/open/floor/carpet/orange,
 /area/centcom/ctf)
 "YT" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -1058,6 +1148,15 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/cult,
+/area/centcom/ctf)
+"Zi" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/centcom/ctf)
 "Zr" = (
@@ -1581,7 +1680,11 @@ Tw
 Tw
 Tw
 Tw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 Nw
 Nw
@@ -1648,6 +1751,7 @@ Tw
 mP
 Tw
 KY
+<<<<<<< HEAD
 BK
 fK
 fK
@@ -1655,6 +1759,15 @@ fK
 fK
 fK
 fK
+=======
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -1715,13 +1828,21 @@ Tw
 Tw
 Tw
 Tw
+<<<<<<< HEAD
 Ah
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 Nw
 Nw
 Nw
 Nw
+<<<<<<< HEAD
 fK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -1788,7 +1909,11 @@ hB
 hB
 hB
 Nw
+<<<<<<< HEAD
 fK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -1824,9 +1949,15 @@ uh
 uh
 uh
 yo
+<<<<<<< HEAD
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 yo
 uh
 uh
@@ -1855,7 +1986,11 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 fK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -1891,9 +2026,15 @@ Xl
 Xl
 Xl
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 Xl
 Xl
@@ -1922,7 +2063,11 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 fK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -1957,6 +2102,7 @@ Xl
 SL
 Hs
 wW
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -1965,6 +2111,16 @@ Xl
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 Xl
 uh
@@ -1989,7 +2145,11 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 fK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -2024,6 +2184,7 @@ SL
 FH
 Rm
 Oq
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2033,6 +2194,17 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 uh
 uh
@@ -2056,7 +2228,11 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 fK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -2091,6 +2267,7 @@ jz
 Rm
 om
 hW
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2100,6 +2277,17 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 Xl
 Xl
@@ -2158,6 +2346,7 @@ jz
 pb
 wu
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2167,6 +2356,17 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Ez
 Ez
 Ez
@@ -2193,9 +2393,15 @@ Tw
 wE
 Tw
 Ch
+<<<<<<< HEAD
 RI
 RI
 RI
+=======
+sl
+sl
+sl
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sl
 sl
 sl
@@ -2225,6 +2431,7 @@ jz
 pb
 wu
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2234,6 +2441,17 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Xl
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Ez
 Ez
 Ez
@@ -2292,6 +2510,7 @@ FH
 pb
 wu
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2301,6 +2520,17 @@ ny
 ep
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Ez
+Ez
+ep
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 ef
 ef
@@ -2359,6 +2589,7 @@ Rm
 Rm
 wu
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2368,6 +2599,17 @@ ep
 ep
 ep
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Ez
+ep
+ep
+ep
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 uh
 uh
@@ -2426,6 +2668,7 @@ ai
 pb
 wu
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2435,6 +2678,17 @@ ny
 ep
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Ez
+Ez
+ep
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 ef
 ef
@@ -2493,6 +2747,7 @@ jz
 pb
 wu
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2502,6 +2757,17 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Xl
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Ez
 Ez
 Ez
@@ -2560,6 +2826,7 @@ jz
 pb
 wu
 Xl
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2569,6 +2836,17 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Ez
 Ez
 Ez
@@ -2595,9 +2873,15 @@ Tw
 Tw
 Tw
 HU
+<<<<<<< HEAD
 xC
 xC
 xC
+=======
+sl
+sl
+sl
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sl
 sl
 sl
@@ -2627,6 +2911,7 @@ jz
 Rm
 Cf
 wW
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2636,13 +2921,30 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 Xl
 Xl
 hB
+<<<<<<< HEAD
 BK
 BK
 BK
+=======
+fs
+fs
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 hB
 Xl
 Xl
@@ -2694,6 +2996,7 @@ Nh
 ai
 Rm
 Oq
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2703,12 +3006,27 @@ ny
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -2761,6 +3079,7 @@ Xl
 Nh
 VE
 hW
+<<<<<<< HEAD
 ny
 ny
 ny
@@ -2769,13 +3088,27 @@ Xl
 ny
 ny
 ny
+=======
+Ez
+Ez
+Ez
+Ez
+Xl
+Ez
+Ez
+Ez
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Xl
 Xl
 uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -2842,7 +3175,11 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -2909,7 +3246,11 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 uh
@@ -2976,7 +3317,11 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 hB
 hB
@@ -3043,13 +3388,21 @@ uh
 uh
 hB
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Nw
 Nw
 Nw
 Nw
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Tw
 Tw
 Tw
@@ -3110,6 +3463,7 @@ yo
 uh
 hB
 Nw
+<<<<<<< HEAD
 BK
 BK
 BK
@@ -3117,6 +3471,15 @@ BK
 BK
 BK
 BK
+=======
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 YT
 Tw
 mP
@@ -3183,7 +3546,11 @@ Nw
 Nw
 Nw
 Nw
+<<<<<<< HEAD
 BK
+=======
+fs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Tw
 Tw
 Tw

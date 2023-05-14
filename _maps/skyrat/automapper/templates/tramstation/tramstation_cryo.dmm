@@ -18,6 +18,7 @@
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "d" = (
+<<<<<<< HEAD
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -26,6 +27,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
+=======
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron,
+/area/station/common/cryopods)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "e" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -41,6 +48,7 @@
 /turf/open/floor/grass,
 /area/station/common/cryopods)
 "g" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
@@ -52,6 +60,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
+=======
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/cafeteria,
+/area/station/commons/dorms/laundry)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "j" = (
 /obj/structure/window/spawner,
 /obj/structure/flora/bush/flowers_br/style_random,
@@ -70,7 +90,11 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "l" = (
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+=======
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/station/common/cryopods)
 "m" = (
@@ -78,6 +102,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -85,11 +110,18 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
+=======
+/obj/machinery/bluespace_vendor/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "n" = (
 /turf/closed/wall,
+<<<<<<< HEAD
 /area/station/security/checkpoint)
+=======
+/area/station/security/checkpoint/arrivals)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "o" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -150,9 +182,12 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/vending/autodrobe/all_access,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
@@ -170,9 +205,12 @@
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -181,11 +219,15 @@
 "x" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
+<<<<<<< HEAD
 /obj/structure/disposalpipe/junction/flip{
 	dir = 8
 	},
 /obj/item/radio/intercom/directional/north,
 /obj/structure/cable,
+=======
+/obj/item/radio/intercom/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
@@ -202,9 +244,12 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
@@ -228,11 +273,15 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "F" = (
+<<<<<<< HEAD
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+=======
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
@@ -243,9 +292,12 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+<<<<<<< HEAD
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "I" = (
@@ -268,13 +320,20 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/cryopod{
 	dir = 4
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/camera/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/time_clock/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "M" = (
@@ -294,10 +353,14 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/computer/cryopod{
 	dir = 4;
 	pixel_x = -32
 	},
+=======
+/obj/machinery/computer/cryopod/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "O" = (
@@ -415,7 +478,11 @@ n
 f
 Y
 l
+<<<<<<< HEAD
 l
+=======
+d
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 B
 M
 w
@@ -424,11 +491,19 @@ w
 n
 S
 j
+<<<<<<< HEAD
 g
 U
 c
 I
 d
+=======
+U
+U
+c
+I
+F
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (5,1,1) = {"
 n
@@ -455,7 +530,11 @@ n
 V
 k
 v
+<<<<<<< HEAD
 v
+=======
+g
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 o
 X
 H

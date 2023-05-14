@@ -80,7 +80,11 @@
 	animate(filter)
 	living_parent.remove_filter(REGENERATION_FILTER)
 
+<<<<<<< HEAD
 /datum/component/regenerator/process(delta_time = SSMOBS_DT)
+=======
+/datum/component/regenerator/process(seconds_per_tick = SSMOBS_DT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/living_parent = parent
 	if (living_parent.stat == DEAD)
 		stop_regenerating()
@@ -88,6 +92,10 @@
 	if (living_parent.health == living_parent.maxHealth)
 		stop_regenerating()
 		return
+<<<<<<< HEAD
 	living_parent.heal_overall_damage(health_per_second * delta_time)
+=======
+	living_parent.heal_overall_damage(health_per_second * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef REGENERATION_FILTER

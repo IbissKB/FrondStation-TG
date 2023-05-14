@@ -11,7 +11,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 
 /datum/outfit/pirate/post_equip(mob/living/carbon/human/equipped)
+<<<<<<< HEAD
 	equipped.faction |= "pirate"
+=======
+	equipped.faction |= FACTION_PIRATE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/obj/item/radio/outfit_radio = equipped.ears
 	if(outfit_radio)
@@ -68,6 +72,7 @@
 	head = /obj/item/clothing/head/costume/crown
 	mask = /obj/item/clothing/mask/cigarette/cigar/havana
 	l_pocket = /obj/item/lighter
+<<<<<<< HEAD
 
 /datum/outfit/pirate/psyker
 	name = "Psyker-gang Member"
@@ -93,3 +98,5 @@
 	id_trim = /datum/id_trim/pirate/captain/psykers
 	suit = /obj/item/clothing/suit/armor/reactive/psykerboost
 	uniform = /obj/item/clothing/under/pants/camo
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -5,7 +5,11 @@
 /datum/asset/simple/body_zones
 
 /datum/asset/simple/body_zones/register()
+<<<<<<< HEAD
 	assets["body_zones.base.png"] = icon('icons/hud/screen_midnight.dmi', "zone_sel")
+=======
+	assets["body_zones.base_midnight.png"] = icon('icons/hud/screen_midnight.dmi', "zone_sel")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	add_limb(BODY_ZONE_HEAD)
 	add_limb(BODY_ZONE_CHEST)

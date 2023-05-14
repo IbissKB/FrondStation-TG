@@ -151,7 +151,11 @@ at the cost of risking a vicious bite.**/
 	switch(altar_result)
 		if("Change Color")
 			var/chosen_color = input(user, "", "Choose Color", pants_color) as color|null
+<<<<<<< HEAD
 			if(!isnull(chosen_color) && user.canUseTopic(src, be_close = TRUE))
+=======
+			if(!isnull(chosen_color) && user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				pants_color = chosen_color
 		if("Create Artefact")
 			if(!COOLDOWN_FINISHED(src, use_cooldown) || status != ALTAR_INACTIVE)
@@ -198,7 +202,11 @@ at the cost of risking a vicious bite.**/
 	update_icon()
 	visible_message(span_warning("You start feeling nauseous..."))
 	for(var/mob/living/viewing_mob in viewers(7, src))
+<<<<<<< HEAD
 		viewing_mob.blur_eyes(10)
+=======
+		viewing_mob.set_eye_blur_if_lower(20 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		viewing_mob.adjust_confusion(10 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(pants_stagethree)), ALTAR_TIME)
 

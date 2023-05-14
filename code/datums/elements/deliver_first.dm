@@ -85,7 +85,11 @@
 	return BLOCK_OPEN
 
 ///signal called by successfully opening target
+<<<<<<< HEAD
 /datum/element/deliver_first/proc/on_post_open(obj/structure/closet/target, force)
+=======
+/datum/element/deliver_first/proc/on_post_open(obj/structure/closet/target, mob/living/user, force)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 	if(area_check(target))
 		//noice, delivered!

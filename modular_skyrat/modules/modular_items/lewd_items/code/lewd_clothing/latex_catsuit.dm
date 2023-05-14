@@ -32,6 +32,7 @@
 /obj/item/clothing/under/misc/latex_catsuit/equipped(mob/living/affected_mob, slot)
 	. = ..()
 	var/mob/living/carbon/human/affected_human = affected_mob
+<<<<<<< HEAD
 	var/obj/item/organ/external/genital/breasts/affected_breasts = affected_human.getorganslot(ORGAN_SLOT_BREASTS)
 	if(src == affected_human.w_uniform)
 		if(affected_mob.gender == FEMALE)
@@ -49,6 +50,19 @@
 	else
 		breasts_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform.dmi', "none")
 		update_overlays()
+=======
+	var/obj/item/organ/external/genital/breasts/affected_breasts = affected_human.get_organ_slot(ORGAN_SLOT_BREASTS)
+	if(src == affected_human.w_uniform)
+		if(affected_mob.gender == FEMALE)
+			icon_state = "latex_catsuit_female"
+		else
+			icon_state = "latex_catsuit_male"
+
+		affected_mob.update_worn_undersuit()
+
+	breasts_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform.dmi', "none")
+	update_overlays()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//Breasts overlay for catsuit
 	if(affected_breasts?.genital_size >= 6 || affected_breasts?.genital_type == "pair")
@@ -70,21 +84,30 @@
 		add_overlay(breasts_icon_overlay)
 		update_overlays()
 
+<<<<<<< HEAD
 	if(affected_human.dna.species.mutant_bodyparts["taur"] && src == affected_human.w_uniform)
 		affected_human.remove_overlay(BODY_BEHIND_LAYER)
 		affected_human.remove_overlay(BODY_FRONT_LAYER)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	affected_human.regenerate_icons()
 
 /obj/item/clothing/under/misc/latex_catsuit/dropped(mob/living/affected_mob)
 	. = ..()
+<<<<<<< HEAD
 	var/mob/living/carbon/human/affected_human = affected_mob
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	accessory_overlay = null
 	breasts_overlay.icon_state = "none"
 	cut_overlay(breasts_icon_overlay)
 	breasts_icon_overlay.icon_state = "none"
+<<<<<<< HEAD
 	if(affected_human.dna.species.mutant_bodyparts["taur"] && src == affected_human.w_uniform)
 		affected_human.apply_overlay(BODY_BEHIND_LAYER)
 		affected_human.apply_overlay(BODY_FRONT_LAYER)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Plug to bypass the bug with instant suit equip/drop
 /obj/item/clothing/under/misc/latex_catsuit/MouseDrop(atom/over_object)

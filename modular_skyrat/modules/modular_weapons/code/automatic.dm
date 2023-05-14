@@ -11,7 +11,11 @@
 	ammo_type = /obj/item/ammo_casing/c34
 	caliber = "c34acp"
 	max_ammo = 30
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_wildcat/ap
 	ammo_type = /obj/item/ammo_casing/c34/ap
@@ -43,7 +47,10 @@
 	selector_switch_icon = TRUE
 	mag_type = /obj/item/ammo_box/magazine/multi_sprite/cfa_wildcat
 	can_suppress = FALSE
+<<<<<<< HEAD
 	burst_size = 3
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fire_delay = 1.25
 	spread = 5
 	mag_display = TRUE
@@ -51,7 +58,18 @@
 	fire_sound = 'sound/weapons/gun/smg/shot_alt.ogg'
 	weapon_weight = WEAPON_MEDIUM
 	w_class = WEIGHT_CLASS_BULKY
+<<<<<<< HEAD
 	company_flag = COMPANY_CANTALAN
+=======
+
+/obj/item/gun/ballistic/automatic/cfa_wildcat/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+/obj/item/gun/ballistic/automatic/cfa_wildcat/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_CANTALAN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/automatic/cfa_wildcat/no_mag
 	spawnwithmagazine = FALSE
@@ -69,7 +87,10 @@
 	selector_switch_icon = FALSE
 	mag_type = /obj/item/ammo_box/magazine/multi_sprite/cfa_lynx
 	can_suppress = FALSE
+<<<<<<< HEAD
 	burst_size = 3
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fire_delay = 1.90 //Previously 0.5. Changed due to it being the Blueshield's default firearm.
 	spread = 2
 	mag_display = TRUE
@@ -77,7 +98,18 @@
 	fire_sound = 'sound/weapons/gun/smg/shot_alt.ogg'
 	weapon_weight = WEAPON_MEDIUM
 	w_class = WEIGHT_CLASS_BULKY
+<<<<<<< HEAD
 	company_flag = COMPANY_CANTALAN
+=======
+
+/obj/item/gun/ballistic/automatic/cfa_lynx/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+/obj/item/gun/ballistic/automatic/cfa_lynx/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_CANTALAN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/automatic/cfa_lynx/no_mag
 	spawnwithmagazine = FALSE
@@ -91,7 +123,11 @@
 	ammo_type = /obj/item/ammo_casing/c42x30mm
 	caliber = CALIBER_42X30MM
 	max_ammo = 40
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_lynx/ap
 	ammo_type = /obj/item/ammo_casing/c42x30mm/ap

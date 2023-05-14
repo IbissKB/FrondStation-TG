@@ -5,14 +5,21 @@
 	mob_biotypes = MOB_ROBOTIC
 	blood_volume = 0
 	unique_pet = TRUE
+<<<<<<< HEAD
 	ai_controller = /datum/ai_controller/dog
+=======
+	ai_controller = /datum/ai_controller/basic_controller/dog
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "It's a Cybersun MiniVix robotic model wearing a microsized syndicate MODsuit and a cute little cap. Quite pretty."
 	icon = 'modular_skyrat/master_files/icons/mob/pets.dmi'
 	icon_state = "syndifox"
 	icon_living = "syndifox"
 	icon_dead = "syndifox_dead"
 	speak_emote = list("geckers", "barks")
+<<<<<<< HEAD
 	see_in_dark = 6
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_be_held = FALSE
 	butcher_results = list(/obj/item/food/meat/slab = 3)
 	attack_verb_continuous = "bites"

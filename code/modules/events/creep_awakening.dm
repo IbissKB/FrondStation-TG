@@ -19,7 +19,11 @@
 			continue
 		if(H.mind.has_antag_datum(/datum/antagonist/obsessed))
 			continue
+<<<<<<< HEAD
 		if(!H.getorgan(/obj/item/organ/internal/brain))
+=======
+		if(!H.get_organ_by_type(/obj/item/organ/internal/brain))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		H.gain_trauma(/datum/brain_trauma/special/obsessed)
 		announce_to_ghosts(H)

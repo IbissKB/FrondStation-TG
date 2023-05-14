@@ -40,7 +40,11 @@
 	inserted_key = I
 
 /obj/vehicle/ridden/AltClick(mob/user)
+<<<<<<< HEAD
 	if(!inserted_key || !user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = !issilicon(user)))
+=======
+	if(!inserted_key || !user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return ..()
 	if(!is_occupant(user))
 		to_chat(user, span_warning("You must be riding the [src] to remove [src]'s key!"))

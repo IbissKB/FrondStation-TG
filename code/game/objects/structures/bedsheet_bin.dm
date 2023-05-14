@@ -135,7 +135,11 @@ LINEN BINS
 
 /obj/item/bedsheet/AltClick(mob/living/user)
 	// double check the canUseTopic args to make sure it's correct
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = !iscyborg(user)))
+=======
+	if(!istype(user) || !user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	dir = turn(dir, 180)
 
@@ -309,6 +313,24 @@ LINEN BINS
 	inhand_icon_state = "sheetwiz"
 	dream_messages = list("a book", "an explosion", "lightning", "a staff", "a skeleton", "a robe", "magic")
 
+<<<<<<< HEAD
+=======
+/obj/item/bedsheet/rev
+	name = "revolutionary's bedsheet"
+	desc = "A bedsheet stolen from a Central Command official's bedroom, used a symbol of triumph against Nanotrasen's tyranny. The golden emblem on the front has been scribbled out."
+	icon_state = "sheetrev"
+	inhand_icon_state = "sheetrev"
+	dream_messages = list(
+		"the people",
+		"liberation",
+		"collaboration",
+		"heads rolling",
+		"so, so many baseball bats",
+		"blinding light",
+		"your brothers in arms"
+	)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bedsheet/nanotrasen
 	name = "\improper Nanotrasen bedsheet"
 	desc = "It has the Nanotrasen logo on it and has an aura of duty."
@@ -335,6 +357,10 @@ LINEN BINS
 	name = "random bedsheet"
 	desc = "If you're reading this description ingame, something has gone wrong! Honk!"
 	bedsheet_type = BEDSHEET_ABSTRACT
+<<<<<<< HEAD
+=======
+	item_flags = ABSTRACT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/static/list/bedsheet_list
 	var/spawn_type = BEDSHEET_SINGLE
 
@@ -360,6 +386,10 @@ LINEN BINS
 	name = "random dorms bedsheet"
 	desc = "If you're reading this description ingame, something has gone wrong! Honk!"
 	bedsheet_type = BEDSHEET_DOUBLE
+<<<<<<< HEAD
+=======
+	item_flags = ABSTRACT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	slot_flags = null
 
 /obj/item/bedsheet/dorms/Initialize(mapload)
@@ -524,6 +554,14 @@ LINEN BINS
 	worn_icon_state = "sheetwiz"
 	bedsheet_type = BEDSHEET_DOUBLE
 
+<<<<<<< HEAD
+=======
+/obj/item/bedsheet/rev/double
+	icon_state = "double_sheetrev"
+	worn_icon_state = "sheetrev"
+	bedsheet_type = BEDSHEET_DOUBLE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bedsheet/nanotrasen/double
 	icon_state = "double_sheetNT"
 	worn_icon_state = "sheetNT"
@@ -541,6 +579,10 @@ LINEN BINS
 
 /obj/item/bedsheet/dorms_double
 	icon_state = "random_bedsheet"
+<<<<<<< HEAD
+=======
+	item_flags = ABSTRACT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	bedsheet_type = BEDSHEET_ABSTRACT
 
 /obj/item/bedsheet/dorms_double/Initialize(mapload)

@@ -8,12 +8,23 @@
 	var/alternative_mode = FALSE
 	///Whether the hood is flipped up
 	var/hood_up = FALSE
+<<<<<<< HEAD
+=======
+	/// What should be added to the end of the icon state when the hood is up? Set to "" for the suit sprite to not change at all
+	var/hood_up_affix = "_t"
+	/// Are we zipped? Mostly relevant for wintercoats, leaving this here to simplify logic and so someone else can extend it if they ever wish to.
+	var/zipped = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/hooded/Initialize(mapload)
 	. = ..()
 	if(!alternative_mode)
 		MakeHood()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/Destroy()
 	. = ..()
 	QDEL_NULL(hood)
@@ -28,6 +39,7 @@
 	ToggleHood()
 
 /obj/item/clothing/suit/hooded/item_action_slot_check(slot, mob/user)
+<<<<<<< HEAD
 	if(slot & ITEM_SLOT_OCLOTHING)
 		return TRUE
 
@@ -38,6 +50,25 @@
 
 /obj/item/clothing/suit/hooded/proc/RemoveHood()
 	src.icon_state = "[initial(icon_state)]"
+=======
+	if(slot & ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK)
+		return TRUE
+
+/obj/item/clothing/suit/hooded/equipped(mob/user, slot)
+	if(!(slot & ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK))
+		RemoveHood()
+	return ..()
+
+/obj/item/clothing/suit/hooded/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)
+	if(visuals_only)
+		MakeHood()
+	ToggleHood()
+
+/obj/item/clothing/suit/hooded/proc/RemoveHood()
+	icon_state = "[initial(icon_state)]"
+	worn_icon_state = icon_state
+	zipped = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hood_up = FALSE
 
 	if(hood)
@@ -62,7 +93,11 @@
 		if(!ishuman(loc))
 			return
 		var/mob/living/carbon/human/H = loc
+<<<<<<< HEAD
 		if(H.wear_suit != src)
+=======
+		if(H.is_holding(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(H, span_warning("You must be wearing [src] to put up the hood!"))
 			return
 		if(H.head)
@@ -76,7 +111,13 @@
 					RemoveHood()
 				return
 			hood_up = TRUE
+<<<<<<< HEAD
 			icon_state = "[initial(icon_state)]_t"
+=======
+			icon_state = "[initial(icon_state)][hood_up_affix]"
+			worn_icon_state = icon_state
+			zipped = TRUE // Just to maintain the same behavior, and so we avoid any bugs that otherwise relied on this behavior of zipping the jacket when bringing up the hood
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			H.update_worn_oversuit()
 			H.update_mob_action_buttons()
 	else

@@ -42,3 +42,12 @@ export const ghost_roles_as_admin: FeatureToggle = {
 `,
   component: CheckboxInput,
 };
+<<<<<<< HEAD
+=======
+
+export const comms_notification: FeatureToggle = {
+  name: 'Enable comms console sound',
+  category: 'ADMIN',
+  component: CheckboxInput,
+};
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

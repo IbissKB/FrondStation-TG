@@ -9,7 +9,10 @@
 /obj/item/clothing/glasses/hud/gun_permit/sunglasses
 	name = "permit HUD sunglasses"
 	desc = "A pair of sunglasses with a heads-up display that scans humanoids in view, and displays if their current ID possesses a firearms permit or not."
+<<<<<<< HEAD
 	darkness_view = 1
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flash_protect = FLASH_PROTECTION_FLASH
 	tint = 1
 
@@ -20,5 +23,11 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/clothing/glasses/hud/gun_permit
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_EQUIPMENT)
+=======
+	category = list(
+		RND_CATEGORY_EQUIPMENT
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO

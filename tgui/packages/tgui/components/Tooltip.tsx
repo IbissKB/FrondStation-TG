@@ -20,13 +20,23 @@ const DEFAULT_OPTIONS = {
   ],
 };
 
+<<<<<<< HEAD
 const NULL_RECT = {
+=======
+const NULL_RECT: DOMRect = {
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   width: 0,
   height: 0,
   top: 0,
   right: 0,
   bottom: 0,
   left: 0,
+<<<<<<< HEAD
+=======
+  x: 0,
+  y: 0,
+  toJSON: () => null,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 export class Tooltip extends Component<TooltipProps, TooltipState> {

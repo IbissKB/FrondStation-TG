@@ -9,6 +9,10 @@
 	open_sound_volume = 25
 	close_sound_volume = 50
 	door_anim_time = 0 // no animation
+<<<<<<< HEAD
+=======
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/bar/PopulateContents()
 	..()

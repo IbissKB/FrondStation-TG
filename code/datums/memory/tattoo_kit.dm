@@ -38,7 +38,11 @@
 	if(!uses)
 		balloon_alert(tattoo_artist, "not enough ink!")
 		return
+<<<<<<< HEAD
 	if(!tattoo_artist.mind.memories)
+=======
+	if(!length(tattoo_artist.mind.memories))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		balloon_alert(tattoo_artist, "nothing memorable to engrave!")
 		return
 	var/selected_zone = tattoo_artist.zone_selected

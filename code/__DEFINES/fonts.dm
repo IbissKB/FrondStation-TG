@@ -12,6 +12,7 @@
 /// Font used when signing on paper.
 #define SIGNATURE_FONT "Segoe Script"
 
+<<<<<<< HEAD
 //pda fonts
 #define MONO "Monospaced"
 #define VT "VT323"
@@ -20,5 +21,7 @@
 
 GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Emoji icon set
 #define EMOJI_SET 'modular_skyrat/master_files/icons/emoji.dmi' // SKYRAT EDIT - ORIGINAL: 'icons/ui_icons/emoji/emoji.dmi'

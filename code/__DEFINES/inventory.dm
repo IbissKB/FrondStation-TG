@@ -205,7 +205,11 @@ GLOBAL_LIST_INIT(detective_vest_allowed, list(
 	/obj/item/tank/internals/plasmaman,
 	/obj/item/storage/belt/holster/detective,
 	/obj/item/storage/belt/holster/nukie,
+<<<<<<< HEAD
 	/obj/item/storage/belt/holster/thermal,
+=======
+	/obj/item/storage/belt/holster/energy,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/obj/item/gun/microfusion, //SKYRAT EDIT ADDITION
 ))
 
@@ -223,7 +227,11 @@ GLOBAL_LIST_INIT(security_vest_allowed, list(
 	/obj/item/tank/internals/plasmaman,
 	/obj/item/storage/belt/holster/detective,
 	/obj/item/storage/belt/holster/nukie,
+<<<<<<< HEAD
 	/obj/item/storage/belt/holster/thermal,
+=======
+	/obj/item/storage/belt/holster/energy,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/obj/item/gun/microfusion, //SKYRAT EDIT ADDITION
 ))
 
@@ -237,7 +245,11 @@ GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
 	/obj/item/restraints/handcuffs,
 	/obj/item/storage/belt/holster/detective,
 	/obj/item/storage/belt/holster/nukie,
+<<<<<<< HEAD
 	/obj/item/storage/belt/holster/thermal,
+=======
+	/obj/item/storage/belt/holster/energy,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/obj/item/gun/microfusion, //SKYRAT EDIT ADDITION
 ))
 

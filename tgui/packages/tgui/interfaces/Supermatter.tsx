@@ -132,16 +132,31 @@ export const SupermatterContent = (props: SupermatterProps, context) => {
                     good: [0.9, Infinity],
                     average: [0.5, 0.9],
                     bad: [-Infinity, 0.5],
+<<<<<<< HEAD
                   }}
                 />
+=======
+                  }}>
+                  {toFixed(integrity, 2) + ' %'}
+                </ProgressBar>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               }
               detail={
                 !!integrity_factors.length && (
                   <LabeledList>
                     {integrity_factors.map(({ name, amount }) => (
+<<<<<<< HEAD
                       <LabeledList.Item key={name} label={name} labelWrap>
                         <Box color={amount > 0 ? 'green' : 'red'}>
                           {toFixed(amount, 2)}
+=======
+                      <LabeledList.Item
+                        key={name}
+                        label={name + ' (∆)'}
+                        labelWrap>
+                        <Box color={amount > 0 ? 'green' : 'red'}>
+                          {toFixed(amount, 2) + ' %'}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                         </Box>
                       </LabeledList.Item>
                     ))}
@@ -169,7 +184,14 @@ export const SupermatterContent = (props: SupermatterProps, context) => {
                 !!internal_energy_factors.length && (
                   <LabeledList>
                     {internal_energy_factors.map(({ name, amount }) => (
+<<<<<<< HEAD
                       <LabeledList.Item key={name} label={name} labelWrap>
+=======
+                      <LabeledList.Item
+                        key={name}
+                        label={name + ' (∆)'}
+                        labelWrap>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                         <Box color={amount > 0 ? 'green' : 'red'}>
                           {toFixed(amount, 2) + ' MeV/cm3'}
                         </Box>

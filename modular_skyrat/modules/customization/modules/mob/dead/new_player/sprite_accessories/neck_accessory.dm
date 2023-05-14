@@ -4,6 +4,10 @@
 	generic = "Neck Accessory"
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
+<<<<<<< HEAD
+=======
+	organ_type = /obj/item/organ/external/neck_accessory
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/neck_accessory/none
 	name = "None"
@@ -11,7 +15,11 @@
 	color_src = null
 	factual = FALSE
 
+<<<<<<< HEAD
 /datum/sprite_accessory/neck_accessory/is_hidden(mob/living/carbon/human/wearer, obj/item/bodypart/HD)
+=======
+/datum/sprite_accessory/neck_accessory/is_hidden(mob/living/carbon/human/wearer)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(wearer.w_uniform)
 		if(key in wearer.try_hide_mutant_parts)
 			return TRUE

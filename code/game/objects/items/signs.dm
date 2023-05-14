@@ -1,4 +1,8 @@
 /obj/item/picket_sign
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/objects.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "picket"
 	inhand_icon_state = "picket"
 	name = "blank picket sign"
@@ -23,7 +27,11 @@
 	if(!user.can_write(writing_instrument))
 		return
 	var/txt = tgui_input_text(user, "What would you like to write on the sign?", "Sign Label", max_length = 30)
+<<<<<<< HEAD
 	if(txt && user.canUseTopic(src, be_close = TRUE))
+=======
+	if(txt && user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		label = txt
 		name = "[label] sign"
 		desc = "It reads: [label]"
@@ -72,4 +80,8 @@
 	reqs = list(/obj/item/stack/rods = 1,
 				/obj/item/stack/sheet/cardboard = 2)
 	time = 80
+<<<<<<< HEAD
 	category = CAT_MISC
+=======
+	category = CAT_ENTERTAINMENT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

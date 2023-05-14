@@ -7,7 +7,11 @@
 		/datum/reagent/consumable/salt = 2
 	)
 	result = /obj/item/food/raw_tiziran_sausage
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/headcheese
 	name = "Raw headcheese"
@@ -17,11 +21,16 @@
 		/datum/reagent/consumable/blackpepper = 5
 	)
 	result = /obj/item/food/raw_headcheese
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/shredded_lungs
 	name = "Crispy shredded lung stirfry"
 	reqs = list(
+<<<<<<< HEAD
 		/obj/item/organ/internal/lungs = 1,
 		/obj/item/food/grown/onion = 1,
 		/obj/item/food/grown/carrot = 1,
@@ -29,6 +38,20 @@
 	)
 	result = /obj/item/food/shredded_lungs
 	subcategory = CAT_LIZARD
+=======
+		/obj/item/food/grown/carrot = 1,
+		/obj/item/food/grown/chili = 1,
+		/obj/item/food/grown/onion = 1,
+		/obj/item/organ/internal/lungs = 1,
+		/obj/item/reagent_containers/cup/bowl = 1,
+	)
+	blacklist = list(
+		/obj/item/organ/internal/lungs/cybernetic,
+	)
+
+	result = /obj/item/food/shredded_lungs
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/tsatsikh
 	name = "Tsatsikh"
@@ -41,7 +64,11 @@
 		/datum/reagent/consumable/blackpepper = 2
 	)
 	result = /obj/item/food/tsatsikh
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/liver_pate
 	name = "Liver pate"
@@ -51,7 +78,11 @@
 		/obj/item/food/grown/onion = 1
 	)
 	result = /obj/item/food/liver_pate
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/moonfish_caviar
 	name = "Moonfish caviar paste"
@@ -60,19 +91,31 @@
 		/datum/reagent/consumable/salt = 2
 	)
 	result = /obj/item/food/moonfish_caviar
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/lizard_escargot
 	name = "Desert snail cocleas"
 	reqs = list(
+<<<<<<< HEAD
 		/obj/item/food/desert_snails = 1,
+=======
+		/obj/item/food/canned/desert_snails = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/food/grown/garlic = 1,
 		/datum/reagent/consumable/lemonjuice = 3,
 		/datum/reagent/consumable/blackpepper = 2,
 		/datum/reagent/consumable/quality_oil = 3
 	)
 	result = /obj/item/food/lizard_escargot
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/fried_blood_sausage
 	name = "Fried blood sausage"
@@ -82,7 +125,11 @@
 		/datum/reagent/water = 5
 	)
 	result = /obj/item/food/fried_blood_sausage
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/lizard_fries
 	name = "Loaded poms-franzisks"
@@ -92,7 +139,11 @@
 		/datum/reagent/consumable/bbqsauce = 5
 	)
 	result = /obj/item/food/lizard_fries
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/brain_pate
 	name = "Eyeball-and-brain pate"
@@ -103,7 +154,11 @@
 		/datum/reagent/consumable/salt = 3
 	)
 	result = /obj/item/food/brain_pate
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/crispy_headcheese
 	name = "Crispy breaded headcheese"
@@ -112,7 +167,11 @@
 		/obj/item/food/breadslice/root = 1
 	)
 	result = /obj/item/food/crispy_headcheese
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/picoss_skewers
 	name = "Picoss skewers"
@@ -124,18 +183,30 @@
 		/datum/reagent/consumable/vinegar = 5
 	)
 	result = /obj/item/food/kebab/picoss_skewers
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/nectar_larvae
 	name = "Nectar larvae"
 	reqs = list(
+<<<<<<< HEAD
 		/obj/item/food/larvae = 1,
+=======
+		/obj/item/food/canned/larvae = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/food/grown/tomato = 1,
 		/obj/item/food/grown/chili = 1,
 		/datum/reagent/consumable/korta_nectar = 5
 	)
 	result = /obj/item/food/nectar_larvae
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mushroomy_stirfry
 	name = "Mushroomy Stirfry"
@@ -146,7 +217,11 @@
 		/datum/reagent/consumable/quality_oil = 5
 	)
 	result = /obj/item/food/mushroomy_stirfry
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/moonfish_demiglace
 	name = "Moonfish demiglace"
@@ -158,7 +233,11 @@
 		/datum/reagent/consumable/ethanol/wine = 5
 	)
 	result = /obj/item/food/moonfish_demiglace
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/lizard_surf_n_turf
 	name = "Zagosk surf n turf smorgasbord"
@@ -169,7 +248,11 @@
 		/obj/item/food/bbqribs = 1
 	)
 	result = /obj/item/food/lizard_surf_n_turf
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/rootdough
 	name = "Rootdough"
@@ -180,18 +263,30 @@
 		/datum/reagent/water = 10
 	)
 	result = /obj/item/food/rootdough
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/snail_nizaya
 	name = "Desert snail nizaya"
 	reqs = list(
+<<<<<<< HEAD
 		/obj/item/food/desert_snails = 1,
+=======
+		/obj/item/food/canned/desert_snails = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/food/spaghetti/nizaya = 1,
 		/obj/item/food/grown/garlic = 1,
 		/datum/reagent/consumable/ethanol/wine = 5
 	)
 	result = /obj/item/food/spaghetti/snail_nizaya
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/garlic_nizaya
 	name = "Garlic nizaya"
@@ -202,7 +297,11 @@
 		/datum/reagent/consumable/quality_oil = 5
 	)
 	result = /obj/item/food/spaghetti/garlic_nizaya
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/demit_nizaya
 	name = "Demit nizaya"
@@ -215,7 +314,11 @@
 		/datum/reagent/consumable/korta_nectar = 5
 	)
 	result = /obj/item/food/spaghetti/demit_nizaya
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mushroom_nizaya
 	name = "Mushroom nizaya"
@@ -226,7 +329,11 @@
 		/datum/reagent/consumable/quality_oil = 5
 	)
 	result = /obj/item/food/spaghetti/mushroom_nizaya
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/rustic_flatbread
 	name = "Rustic flatbread"
@@ -237,7 +344,11 @@
 		/datum/reagent/consumable/quality_oil = 3
 	)
 	result = /obj/item/food/pizza/flatbread/rustic
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/italic_flatbread
 	name = "Italic flatbread"
@@ -249,7 +360,11 @@
 		/datum/reagent/consumable/quality_oil = 3
 	)
 	result = /obj/item/food/pizza/flatbread/italic
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/imperial_flatbread
 	name = "Imperial flatbread"
@@ -260,7 +375,11 @@
 		/obj/item/food/headcheese = 1
 	)
 	result = /obj/item/food/pizza/flatbread/imperial
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/rawmeat_flatbread
 	name = "Meatlovers flatbread"
@@ -269,17 +388,29 @@
 		/obj/item/food/meat/slab = 1
 	)
 	result = /obj/item/food/pizza/flatbread/rawmeat
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/stinging_flatbread
 	name = "Stinging flatbread"
 	reqs = list(
 		/obj/item/food/root_flatbread = 1,
+<<<<<<< HEAD
 		/obj/item/food/larvae = 1,
 		/obj/item/food/canned_jellyfish = 1
 	)
 	result = /obj/item/food/pizza/flatbread/stinging
 	subcategory = CAT_LIZARD
+=======
+		/obj/item/food/canned/larvae = 1,
+		/obj/item/food/canned/jellyfish = 1
+	)
+	result = /obj/item/food/pizza/flatbread/stinging
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/zmorgast_flatbread
 	name = "Zmorgast flatbread"
@@ -290,7 +421,11 @@
 		/obj/item/organ/internal/liver = 1
 	)
 	result = /obj/item/food/pizza/flatbread/zmorgast
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/fish_flatbread
 	name = "BBQ fish flatbread"
@@ -300,7 +435,11 @@
 		/datum/reagent/consumable/bbqsauce = 5
 	)
 	result = /obj/item/food/pizza/flatbread/fish
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mushroom_flatbread
 	name = "Mushroom and tomato flatbread"
@@ -311,7 +450,11 @@
 		/datum/reagent/consumable/quality_oil = 3
 	)
 	result = /obj/item/food/pizza/flatbread/mushroom
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/nutty_flatbread
 	name = "Nut paste flatbread"
@@ -321,7 +464,11 @@
 		/datum/reagent/consumable/korta_milk = 5
 	)
 	result = /obj/item/food/pizza/flatbread/nutty
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/emperor_roll
 	name = "Emperor roll"
@@ -332,7 +479,11 @@
 		/obj/item/food/moonfish_caviar = 1
 	)
 	result = /obj/item/food/emperor_roll
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/honey_sweetroll
 	name = "Honey sweetroll"
@@ -343,6 +494,7 @@
 		/datum/reagent/consumable/honey = 5
 	)
 	result = /obj/item/food/honey_roll
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
 
 /datum/crafting_recipe/food/atrakor_dumplings
@@ -408,6 +560,9 @@
 	)
 	result = /obj/item/food/soup/rootbread_soup
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/black_eggs
 	name = "Black scrambled eggs"
@@ -417,7 +572,11 @@
 		/datum/reagent/consumable/vinegar = 2
 	)
 	result = /obj/item/food/black_eggs
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/patzikula
 	name = "Patzikula"
@@ -428,7 +587,11 @@
 		/obj/item/food/egg = 2
 	)
 	result = /obj/item/food/patzikula
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/korta_brittle
 	name = "Korta brittle slab"
@@ -440,7 +603,11 @@
 		/datum/reagent/consumable/salt = 2
 	)
 	result = /obj/item/food/cake/korta_brittle
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/korta_ice
 	name = "Korta ice"
@@ -451,7 +618,11 @@
 		/obj/item/food/grown/berries = 1
 	)
 	result = /obj/item/food/snowcones/korta_ice
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/candied_mushrooms
 	name = "Candied mushrooms"
@@ -462,7 +633,11 @@
 		/datum/reagent/consumable/salt = 1
 	)
 	result = /obj/item/food/kebab/candied_mushrooms
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/sauerkraut
 	name = "Sauerkraut"
@@ -471,7 +646,11 @@
 		/datum/reagent/consumable/salt = 10
 	)
 	result = /obj/item/food/sauerkraut
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/lizard_dumplings
 	name = "Tiziran dumplings"
@@ -480,7 +659,11 @@
 		/datum/reagent/consumable/korta_flour = 5
 	)
 	result = /obj/item/food/lizard_dumplings
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/steeped_mushrooms
 	name = "Steeped mushrooms"
@@ -489,4 +672,30 @@
 		/datum/reagent/lye = 5
 	)
 	result = /obj/item/food/steeped_mushrooms
+<<<<<<< HEAD
 	subcategory = CAT_LIZARD
+=======
+	category = CAT_LIZARD
+
+// Soups
+
+/datum/crafting_recipe/food/reaction/soup/atrakor_dumplings
+	reaction = /datum/chemical_reaction/food/soup/atrakor_dumplings
+	category = CAT_LIZARD
+
+/datum/crafting_recipe/food/reaction/soup/meatball_noodles
+	reaction = /datum/chemical_reaction/food/soup/meatball_noodles
+	category = CAT_LIZARD
+
+/datum/crafting_recipe/food/reaction/soup/black_broth
+	reaction = /datum/chemical_reaction/food/soup/black_broth
+	category = CAT_LIZARD
+
+/datum/crafting_recipe/food/reaction/soup/jellyfish_stew
+	reaction = /datum/chemical_reaction/food/soup/jellyfish_stew
+	category = CAT_LIZARD
+
+/datum/crafting_recipe/food/reaction/soup/rootbread_soup
+	reaction = /datum/chemical_reaction/food/soup/rootbread_soup
+	category = CAT_LIZARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

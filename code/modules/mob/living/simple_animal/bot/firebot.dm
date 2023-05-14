@@ -8,7 +8,11 @@
 	name = "\improper Firebot"
 	desc = "A little fire extinguishing bot. He looks rather anxious."
 	icon = 'icons/mob/silicon/aibots.dmi'
+<<<<<<< HEAD
 	icon_state = "firebot"
+=======
+	icon_state = "firebot1"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = FALSE
 	anchored = FALSE
 	health = 25
@@ -49,6 +53,13 @@
 	create_extinguisher()
 	AddElement(/datum/element/atmos_sensitive, mapload)
 
+<<<<<<< HEAD
+=======
+/mob/living/simple_animal/bot/firebot/Destroy()
+	QDEL_NULL(internal_ext)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/bot/firebot/bot_reset()
 	create_extinguisher()
 
@@ -249,8 +260,11 @@
 
 //Look for burning people or turfs around the bot
 /mob/living/simple_animal/bot/firebot/process_scan(atom/scan_target)
+<<<<<<< HEAD
 	if(scan_target == src)
 		return src
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!is_burning(scan_target))
 		return null
 

@@ -6,7 +6,11 @@
 	base_icon_state = "igniter"
 	plane = FLOOR_PLANE
 	max_integrity = 300
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 30, LASER = 70, ENERGY = 50, BOMB = 20, BIO = 0, FIRE = 100, ACID = 70)
+=======
+	armor_type = /datum/armor/machinery_igniter
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 	var/id = null
 	var/on = FALSE
@@ -24,6 +28,18 @@
 	on = TRUE
 	icon_state = "igniter1"
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_igniter
+	melee = 50
+	bullet = 30
+	laser = 70
+	energy = 50
+	bomb = 20
+	fire = 100
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/igniter/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)

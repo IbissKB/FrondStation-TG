@@ -8,6 +8,12 @@ GLOBAL_LIST_INIT(loadout_toys, generate_loadout_items(/datum/loadout_item/toys))
 *	PLUSHIES
 */
 
+<<<<<<< HEAD
+=======
+/datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/loadout_item/toys/bee
 	name = "Bee Plushie"
 	item_path = /obj/item/toy/plush/beeplushie
@@ -186,6 +192,13 @@ GLOBAL_LIST_INIT(loadout_toys, generate_loadout_items(/datum/loadout_item/toys))
 	name = "Commanding Teshari Plushy"
 	item_path = /obj/item/toy/plush/skyrat/commanding_teshari
 
+<<<<<<< HEAD
+=======
+/datum/loadout_item/toys/snow_owl
+	name = "Snowy Owl Plush"
+	item_path = /obj/item/toy/plush/skyrat/snow_owl
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/loadout_item/toys/breakdancing_bird
 	name = "Breakdancing Bird Plushie"
 	item_path = /obj/item/toy/plush/skyrat/breakdancing_bird
@@ -234,6 +247,25 @@ GLOBAL_LIST_INIT(loadout_toys, generate_loadout_items(/datum/loadout_item/toys))
 	name = "Huggable Bee Plushie"
 	item_path = /obj/item/toy/plush/skyrat/rubi
 
+<<<<<<< HEAD
+=======
+/datum/loadout_item/toys/derg_plushie
+	name = "Wingless Dragon Plushie"
+	item_path = /obj/item/toy/plush/skyrat/derg_plushie
+
+/datum/loadout_item/toys/tracy
+	name = "Creature Plushie"
+	item_path = /obj/item/toy/plush/skyrat/tracy
+
+/datum/loadout_item/toys/dog_plushie
+	name = "Black Dog Plushie"
+	item_path = /obj/item/toy/plush/skyrat/dog
+
+/datum/loadout_item/toys/adventurous_synth
+	name = "Adventurous Synth Plushie"
+	item_path = /obj/item/toy/plush/skyrat/plushie_synthia
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*
 *	CARDS
 */

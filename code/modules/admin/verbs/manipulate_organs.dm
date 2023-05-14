@@ -40,7 +40,11 @@
 			message_admins("[key_name_admin(usr)] has added implant [organ.type] to [ADMIN_LOOKUPFLW(C)]")
 
 		if("drop organ/implant", "remove organ/implant")
+<<<<<<< HEAD
 			for(var/obj/item/organ/user_organs as anything in C.internal_organs)
+=======
+			for(var/obj/item/organ/user_organs as anything in C.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				organs["[user_organs.name] ([user_organs.type])"] = user_organs
 
 			for(var/obj/item/implant/user_implants as anything in C.implants)

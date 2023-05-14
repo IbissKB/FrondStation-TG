@@ -5,7 +5,11 @@
 	base_icon_state = "marauder"
 	movedelay = 5
 	max_integrity = 500
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 55, LASER = 40, ENERGY = 30, BOMB = 30, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/mecha_marauder
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_temperature = 60000
 	destruction_sleep_duration = 40
 	exit_delay = 40
@@ -23,6 +27,18 @@
 	)
 	bumpsmash = TRUE
 
+<<<<<<< HEAD
+=======
+/datum/armor/mecha_marauder
+	melee = 50
+	bullet = 55
+	laser = 40
+	energy = 30
+	bomb = 30
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/mecha/marauder/generate_actions()
 	. = ..()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_smoke)
@@ -128,3 +144,15 @@
 		MECHA_POWER = list(),
 		MECHA_ARMOR = list(/obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster),
 	)
+<<<<<<< HEAD
+=======
+
+/obj/vehicle/sealed/mecha/marauder/add_cell()
+	cell = new /obj/item/stock_parts/cell/bluespace(src)
+
+/obj/vehicle/sealed/mecha/marauder/add_scanmod()
+	scanmod = new /obj/item/stock_parts/scanning_module/triphasic(src)
+
+/obj/vehicle/sealed/mecha/marauder/add_capacitor()
+	capacitor = new /obj/item/stock_parts/capacitor/quadratic(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

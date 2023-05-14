@@ -90,7 +90,11 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/east,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating/airless,
 /area/shuttle/blackmarket_chevvy)
@@ -98,8 +102,13 @@
 /obj/machinery/button/door/directional/north{
 	id = "skiffextb";
 	name = "External Airlock Bolt Control";
+<<<<<<< HEAD
 	specialfunctions = 4;
 	normaldoorcontrol = 1
+=======
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/catwalk_floor,
@@ -121,8 +130,13 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
+<<<<<<< HEAD
 	name = "Blast Door Control";
 	id = "skiffcargo"
+=======
+	id = "skiffcargo";
+	name = "Blast Door Control"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/cargo,
@@ -147,8 +161,13 @@
 /obj/machinery/button/door/directional/north{
 	id = "skiffexts";
 	name = "External Airlock Bolt Control";
+<<<<<<< HEAD
 	specialfunctions = 4;
 	normaldoorcontrol = 1
+=======
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -199,7 +218,11 @@
 "Hj" = (
 /obj/machinery/computer/shuttle/caravan/blackmarket_chevvy,
 /obj/effect/turf_decal/bot_white,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/north,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/blackmarket_chevvy)
@@ -213,8 +236,13 @@
 /obj/structure/table/survival_pod,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/north{
+<<<<<<< HEAD
 	name = "Window Shutter Control";
 	id = "skiffwinds"
+=======
+	id = "skiffwinds";
+	name = "Window Shutter Control"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
@@ -257,7 +285,11 @@
 "RN" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/blackmarket_chevvy,
 /obj/effect/turf_decal/bot_white,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/north,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
@@ -268,8 +300,13 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
+<<<<<<< HEAD
 	name = "Window Shutter Control";
 	id = "skiffwindf"
+=======
+	id = "skiffwindf";
+	name = "Window Shutter Control"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/radio/intercom/directional/north,
@@ -347,11 +384,19 @@
 /area/shuttle/blackmarket_chevvy)
 "ZW" = (
 /obj/docking_port/mobile{
+<<<<<<< HEAD
 	shuttle_id = "blackmarket_chevvy";
 	launch_status = 0;
 	name = "Chevvy";
 	port_direction = 8;
 	preferred_direction = 4
+=======
+	launch_status = 0;
+	name = "Chevvy";
+	port_direction = 4;
+	preferred_direction = 8;
+	shuttle_id = "blackmarket_chevvy"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/machinery/door/airlock/external{
 	id_tag = "skiffexts"

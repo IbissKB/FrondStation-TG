@@ -4,7 +4,11 @@
 	inhand_icon_state = null
 	singular_name = "hot ice piece"
 	icon = 'icons/obj/stack_objects.dmi'
+<<<<<<< HEAD
 	mats_per_unit = list(/datum/material/hot_ice=MINERAL_MATERIAL_AMOUNT)
+=======
+	mats_per_unit = list(/datum/material/hot_ice=SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	grind_results = list(/datum/reagent/toxin/hot_ice = 25)
 	material_type = /datum/material/hot_ice
 	merge_type = /obj/item/stack/sheet/hot_ice

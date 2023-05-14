@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /mob/living/carbon/slip(knockdown_amount, obj/O, lube, paralyze, force_drop)
 	if(movement_type & (FLYING | FLOATING))
 		return FALSE
@@ -5,6 +6,15 @@
 		log_combat(src, (O ? O : get_turf(src)), "slipped on the", null, ((lube & SLIDE) ? "(LUBE)" : null))
 	..()
 	return loc.handle_slip(src, knockdown_amount, O, lube, paralyze, force_drop)
+=======
+/mob/living/carbon/slip(knockdown_amount, obj/slipped_on, lube_flags, paralyze, force_drop = FALSE)
+	if(movement_type & (FLYING | FLOATING))
+		return FALSE
+	if(!(lube_flags & SLIDE_ICE))
+		log_combat(src, (slipped_on || get_turf(src)), "slipped on the", null, ((lube_flags & SLIDE) ? "(SLIDING)" : null))
+	..()
+	return loc.handle_slip(src, knockdown_amount, slipped_on, lube_flags, paralyze, force_drop)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
@@ -48,8 +58,12 @@
 	. = ..()
 	if(movement_type & (FLYING | FLOATING) && !(old_movement_type & (FLYING | FLOATING)))
 		remove_movespeed_modifier(/datum/movespeed_modifier/limbless)
+<<<<<<< HEAD
 		REMOVE_TRAIT(src, TRAIT_FLOORED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
+=======
+		remove_traits(list(TRAIT_FLOORED, TRAIT_IMMOBILIZED), LACKING_LOCOMOTION_APPENDAGES_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/on_movement_type_flag_disabled(datum/source, flag, old_movement_type)
 	. = ..()

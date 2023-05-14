@@ -19,6 +19,7 @@
 	inhand_y_dimension = 64
 	lefthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/inhands/weapons/64x_guns_left.dmi'
 	righthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/inhands/weapons/64x_guns_right.dmi'
+<<<<<<< HEAD
 	pixel_x = -8
 	inhand_icon_state = "revolving"
 	company_flag = COMPANY_IZHEVSK
@@ -32,6 +33,12 @@
 	recoil = 1
 	company_flag = null
 
+=======
+	inhand_icon_state = "revolving"
+
+/obj/item/gun/ballistic/revolver/rifle/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_IZHEVSK)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/revolver/rifle/gold
 	name = "\improper .45 revolving rifle"
 	desc = "A gold trimmed revolving rifle! It fires .45 bullets."

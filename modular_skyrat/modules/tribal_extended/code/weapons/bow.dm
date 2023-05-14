@@ -19,7 +19,13 @@
 	casing_ejector = FALSE
 	internal_magazine = TRUE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL //so ashwalkers can use it
+<<<<<<< HEAD
 	has_gun_safety = FALSE
+=======
+
+/obj/item/gun/ballistic/tribalbow/give_gun_safeties()
+	return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/tribalbow/shoot_with_empty_chamber()
 	return
@@ -40,7 +46,11 @@
 		to_chat(user, span_notice("You gently release the bowstring, removing the arrow."))
 	else if (get_ammo())
 		var/obj/item/I = user.get_active_held_item()
+<<<<<<< HEAD
 		if (do_mob(user,I,10))
+=======
+		if (do_after(user, 1 SECONDS, I))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_notice("You draw back the bowstring."))
 			playsound(src, 'modular_skyrat/modules/tribal_extended/sound/sound_weapons_bowdraw.ogg', 75, 0) //gets way too high pitched if the freq varies
 			chamber_round()

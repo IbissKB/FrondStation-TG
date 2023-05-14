@@ -5,13 +5,21 @@
 	icon_state = "cordon"
 	invisibility = INVISIBILITY_ABSTRACT
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+<<<<<<< HEAD
 	explosion_block = INFINITY
+=======
+	explosive_resistance = INFINITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	rad_insulation = RAD_FULL_INSULATION
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
 	init_air = FALSE
+<<<<<<< HEAD
 	always_lit = TRUE
+=======
+	space_lit = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	bullet_bounce_sound = null
 	turf_flags = NOJAUNT
 	baseturfs = /turf/cordon

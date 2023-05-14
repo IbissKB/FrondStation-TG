@@ -106,7 +106,11 @@
 	complexity = 2
 	incompatible_modules = list(/obj/item/mod/module/holster)
 	cooldown_time = 0.5 SECONDS
+<<<<<<< HEAD
 	allowed_inactive = TRUE
+=======
+	allow_flags = MODULE_ALLOW_INACTIVE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Gun we have holstered.
 	var/obj/item/gun/holstered
 
@@ -199,7 +203,11 @@
 	/// Our linked bodybag.
 	var/obj/structure/closet/body_bag/linked_bodybag
 
+<<<<<<< HEAD
 /obj/item/mod/module/criminalcapture/on_process(delta_time)
+=======
+/obj/item/mod/module/criminalcapture/on_process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	idle_power_cost = linked_bodybag ? (DEFAULT_CHARGE_DRAIN * 3) : 0
 	return ..()
 

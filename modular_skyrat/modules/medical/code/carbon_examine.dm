@@ -8,7 +8,11 @@
 	var/any_bodypart_damage = FALSE
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/LB = X
+<<<<<<< HEAD
 		if(LB.is_pseudopart)
+=======
+		if(LB.bodypart_flags & BODYPART_PSEUDOPART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		var/limb_max_damage = LB.max_damage
 		var/status = ""

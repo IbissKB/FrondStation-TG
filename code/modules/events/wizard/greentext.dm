@@ -5,6 +5,11 @@
 	max_occurrences = 1
 	earliest_start = 0 MINUTES
 	description = "The Green Text appears on the station, tempting people to try and pick it up."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 5
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/wizard/greentext/start()
 

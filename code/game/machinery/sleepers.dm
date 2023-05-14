@@ -5,7 +5,11 @@
 	icon_state = "sleeper"
 	base_icon_state = "sleeper"
 	density = FALSE
+<<<<<<< HEAD
 	obj_flags = NO_BUILD
+=======
+	obj_flags = BLOCKS_CONSTRUCTION
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	state_open = TRUE
 	circuit = /obj/item/circuitboard/machine/sleeper
 
@@ -64,14 +68,24 @@
 /obj/machinery/sleeper/RefreshParts()
 	. = ..()
 	var/matterbin_rating
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/matter_bin/matterbins in component_parts)
 		matterbin_rating += matterbins.rating
+=======
+	for(var/datum/stock_part/matter_bin/matterbins in component_parts)
+		matterbin_rating += matterbins.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	efficiency = initial(efficiency) * matterbin_rating
 	min_health = initial(min_health) * matterbin_rating
 
 	available_chems.Cut()
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/manipulators in component_parts)
 		for(var/i in 1 to manipulators.rating)
+=======
+	for(var/datum/stock_part/servo/servos in component_parts)
+		for(var/i in 1 to servos.tier)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			available_chems |= possible_chems[i]
 
 	reset_chem_buttons()
@@ -94,12 +108,20 @@
 	if (!state_open)
 		container_resist_act(user)
 
+<<<<<<< HEAD
 /obj/machinery/sleeper/open_machine()
+=======
+/obj/machinery/sleeper/open_machine(drop = TRUE, density_to_set = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!state_open && !panel_open)
 		flick("[initial(icon_state)]-anim", src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/machinery/sleeper/close_machine(mob/user)
+=======
+/obj/machinery/sleeper/close_machine(mob/user, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((isnull(user) || istype(user)) && state_open && !panel_open)
 		flick("[initial(icon_state)]-anim", src)
 		..()
@@ -166,7 +188,11 @@
 
 /obj/machinery/sleeper/AltClick(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, !issilicon(user)))
+=======
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(state_open)
 		close_machine()
@@ -226,7 +252,11 @@
 		data["occupant"]["toxLoss"] = mob_occupant.getToxLoss()
 		data["occupant"]["fireLoss"] = mob_occupant.getFireLoss()
 		data["occupant"]["cloneLoss"] = mob_occupant.getCloneLoss()
+<<<<<<< HEAD
 		data["occupant"]["brainLoss"] = mob_occupant.getOrganLoss(ORGAN_SLOT_BRAIN)
+=======
+		data["occupant"]["brainLoss"] = mob_occupant.get_organ_loss(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		data["occupant"]["reagents"] = list()
 		if(mob_occupant.reagents && mob_occupant.reagents.reagent_list.len)
 			for(var/datum/reagent/R in mob_occupant.reagents.reagent_list)

@@ -163,6 +163,23 @@
 	icon = 'icons/obj/doors/airlocks/station/gold.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_gold
 
+<<<<<<< HEAD
+=======
+/obj/machinery/door/airlock/gold/discoinferno
+	heat_proof = TRUE
+	resistance_flags = FIRE_PROOF
+	armor_type = /datum/armor/discoinferno_airlock
+
+/datum/armor/discoinferno_airlock
+	melee = 30
+	bullet = 30
+	laser = 20
+	energy = 20
+	bomb = 10
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock/gold/glass
 	opacity = FALSE
 	glass = TRUE
@@ -231,7 +248,11 @@
 	material_modifier = 0.25
 
 /obj/machinery/door/airlock/plasma/Initialize(mapload)
+<<<<<<< HEAD
 	custom_materials = custom_materials ? custom_materials : list(/datum/material/plasma = 20000)
+=======
+	custom_materials = custom_materials ? custom_materials : list(/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 10)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 /obj/machinery/door/airlock/plasma/block_superconductivity() //we don't stop the heat~
@@ -335,7 +356,11 @@
 
 /obj/machinery/door/airlock/external/Initialize(mapload, ...)
 	// default setting is for mapping only, let overrides work
+<<<<<<< HEAD
 	if(!mapload || req_access_txt || req_one_access_txt)
+=======
+	if(!mapload)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		req_access = null
 
 	return ..()
@@ -503,8 +528,12 @@
 	return (IS_CULTIST(user) && !isAllPowerCut())
 
 /obj/machinery/door/airlock/cult/on_break()
+<<<<<<< HEAD
 	if(!panel_open)
 		panel_open = TRUE
+=======
+	set_panel_open(TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/door/airlock/cult/isElectrified()
 	return FALSE
@@ -583,7 +612,11 @@
 	desc = "An airlock hastily corrupted by blood magic, it is unusually brittle in this state."
 	normal_integrity = 150
 	damage_deflection = 5
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 //////////////////////////////////
@@ -629,3 +662,25 @@
 
 /obj/machinery/door/airlock/glass_large/narsie_act()
 	return
+<<<<<<< HEAD
+=======
+
+/// Subtype used in unit tests to ensure instant airlock opening/closing. Pretty much just excises everything that would delay the process or is un-needed for the sake of the test (sleeps, icon animations).
+/obj/machinery/door/airlock/instant
+
+// set_density on both open and close procs has a check and return builtin.
+
+/obj/machinery/door/airlock/instant/open(forced = DEFAULT_DOOR_CHECKS)
+	operating = TRUE
+	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN, forced)
+	set_density(FALSE)
+	operating = FALSE
+	return TRUE
+
+/obj/machinery/door/airlock/instant/close(forced = DEFAULT_DOOR_CHECKS, force_crush = FALSE)
+	operating = TRUE
+	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, forced)
+	set_density(TRUE)
+	operating = FALSE
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

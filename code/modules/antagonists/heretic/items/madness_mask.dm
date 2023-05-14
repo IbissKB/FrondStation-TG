@@ -1,7 +1,11 @@
 // The spooky "void" / "abyssal" / "madness" mask for heretics.
 /obj/item/clothing/mask/madness_mask
 	name = "Abyssal Mask"
+<<<<<<< HEAD
 	desc = "A mask created from the suffering of existance. Looking down it's eyes, you notice something gazing back at you."
+=======
+	desc = "A mask created from the suffering of existence. Looking down it's eyes, you notice something gazing back at you."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "mad_mask"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_SMALL
@@ -45,7 +49,11 @@
 	REMOVE_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/madness_mask/process(delta_time)
+=======
+/obj/item/clothing/mask/madness_mask/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!local_user)
 		return PROCESS_KILL
 
@@ -53,6 +61,7 @@
 		REMOVE_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 	for(var/mob/living/carbon/human/human_in_range in view(local_user))
+<<<<<<< HEAD
 		if(IS_HERETIC_OR_MONSTER(human_in_range))
 			continue
 		if(human_in_range.is_blind())
@@ -71,4 +80,22 @@
 			human_in_range.adjustStaminaLoss(10)
 
 		if(DT_PROB(25, delta_time))
+=======
+		if(IS_HERETIC_OR_MONSTER(human_in_range) || human_in_range.is_blind())
+			continue
+
+		human_in_range.mob_mood.direct_sanity_drain(rand(-2, -20) * seconds_per_tick)
+
+		if(SPT_PROB(60, seconds_per_tick))
+			human_in_range.adjust_hallucinations_up_to(10 SECONDS, 240 SECONDS)
+
+		if(SPT_PROB(40, seconds_per_tick))
+			human_in_range.set_jitter_if_lower(10 SECONDS)
+
+		if(human_in_range.getStaminaLoss() <= 85 && SPT_PROB(30, seconds_per_tick))
+			human_in_range.emote(pick("giggle", "laugh"))
+			human_in_range.adjustStaminaLoss(10)
+
+		if(SPT_PROB(25, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			human_in_range.set_dizzy_if_lower(10 SECONDS)

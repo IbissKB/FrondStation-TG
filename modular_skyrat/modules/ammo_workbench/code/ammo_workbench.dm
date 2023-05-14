@@ -1,12 +1,20 @@
 /obj/machinery/ammo_workbench
 	name = "ammunitions workbench"
+<<<<<<< HEAD
 	desc = "A machine, somewhat akin to a lathe, made specifically for manufacturing ammunition. It has a slot for magazines."
+=======
+	desc = "A machine, somewhat akin to a lathe, made specifically for manufacturing ammunition. It has a slot for magazines, ammo boxes, clips... anything that holds ammo."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'modular_skyrat/modules/ammo_workbench/icons/ammo_workbench.dmi'
 	icon_state = "ammobench"
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	circuit = /obj/item/circuitboard/machine/ammo_workbench
 	var/busy = FALSE
+<<<<<<< HEAD
+=======
+	/// this does nothing. no, really.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/hacked = FALSE
 	var/disabled = FALSE
 	var/shocked = FALSE
@@ -23,10 +31,23 @@
 	var/obj/item/disk/ammo_workbench/loaded_datadisk = null
 	/// A list of all currently allowed ammo types.
 	var/list/allowed_ammo_types = list()
+<<<<<<< HEAD
 	var/list/allowed_harmful = FALSE
 	var/list/loaded_datadisks = list()
 	var/time_per_round = 20
 	var/creation_efficiency = 1.6
+=======
+	/// can it print ammunition flagged as harmful (e.g. most ammo)
+	var/allowed_harmful = FALSE
+	var/list/loaded_datadisks = list()
+	/// a list of how many deciseconds it takes to assemble a round
+	var/time_per_round = 20
+	/// at the time of writing: this does nothing. literally nothing
+	var/creation_efficiency = 1.6
+	/// can this print any round of any caliber given a correct ammo_box? (you varedit this at your own risk, especially if used in a player-facing context.)
+	/// does not force ammo to load in. just makes it able to print wacky ammotypes e.g. lionhunter 7.62, techshells
+	var/adminbus = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/ammo_workbench/unlocked
 	allowed_harmful = TRUE
@@ -36,6 +57,7 @@
 	icon_state = "circuit_map"
 	build_path = /obj/machinery/ammo_workbench
 	req_components = list(
+<<<<<<< HEAD
 		/obj/item/stock_parts/manipulator = 2,
 		/obj/item/stock_parts/matter_bin = 2,
 		/obj/item/stock_parts/micro_laser = 2
@@ -43,6 +65,15 @@
 
 /obj/machinery/ammo_workbench/Initialize(mapload)
 	AddComponent(/datum/component/material_container, SSmaterials.materials_by_category[MAT_CATEGORY_ITEM_MATERIAL], 0, MATCONTAINER_EXAMINE, allowed_items = /obj/item/stack, _after_insert = CALLBACK(src, PROC_REF(AfterMaterialInsert)))
+=======
+		/datum/stock_part/servo = 2,
+		/datum/stock_part/matter_bin = 2,
+		/datum/stock_part/micro_laser = 2
+	)
+
+/obj/machinery/ammo_workbench/Initialize(mapload)
+	AddComponent(/datum/component/material_container, SSmaterials.materials_by_category[MAT_CATEGORY_ITEM_MATERIAL], 200000, MATCONTAINER_EXAMINE, allowed_items = /obj/item/stack, _after_insert = CALLBACK(src, PROC_REF(AfterMaterialInsert)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	wires = new /datum/wires/ammo_workbench(src)
 
@@ -91,7 +122,11 @@
 		for(var/mat in mat_container.materials)
 			var/datum/material/M = mat
 			var/amount = mat_container.materials[M]
+<<<<<<< HEAD
 			var/sheet_amount = amount / MINERAL_MATERIAL_AMOUNT
+=======
+			var/sheet_amount = amount / SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/ref = REF(M)
 			data["materials"] += list(list("name" = M.name, "id" = ref, "amount" = sheet_amount))
 
@@ -111,12 +146,31 @@
 
 	data["available_rounds"] = list()
 	var/obj/item/ammo_casing/ammo_type = loaded_magazine.ammo_type
+<<<<<<< HEAD
 
 	var/list/round_types = typesof(ammo_type)
 	for(var/casing as anything in round_types)
 		var/obj/item/ammo_casing/our_casing = casing
 		if(initial(our_casing.harmful) && !allowed_harmful)
 			continue
+=======
+	var/ammo_caliber = initial(ammo_type.caliber)
+	var/obj/item/ammo_casing/ammo_parent_type = type2parent(ammo_type)
+
+	if("multitype" in loaded_magazine.vars)
+		if(loaded_magazine:multitype && ammo_caliber == initial(ammo_parent_type.caliber) && ammo_caliber != null)
+			ammo_type = ammo_parent_type
+
+	allowed_ammo_types = typesof(ammo_type)
+
+	for(var/casing as anything in allowed_ammo_types)
+		var/obj/item/ammo_casing/our_casing = casing
+		if(!adminbus)
+			if(initial(our_casing.harmful) && !allowed_harmful)
+				continue
+			if(!(initial(our_casing.can_be_printed)))
+				continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		data["available_rounds"] += list(list(
 			"name" = initial(our_casing.name),
 			"typepath" = our_casing
@@ -155,7 +209,11 @@
 			if(!amount)
 				return
 
+<<<<<<< HEAD
 			var/stored_amount = CEILING(amount / MINERAL_MATERIAL_AMOUNT, 0.1)
+=======
+			var/stored_amount = CEILING(amount / SHEET_MATERIAL_AMOUNT, 0.1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			if(!stored_amount)
 				return
@@ -211,9 +269,13 @@
 		error_message = ""
 		error_type = ""
 
+<<<<<<< HEAD
 	var/list/allowed_types = typecacheof(loaded_magazine.ammo_type)
 
 	if(!(casing_type in allowed_types))
+=======
+	if(!(casing_type in allowed_ammo_types))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		error_message = "AMMUNITION MISSMATCH"
 		error_type = "bad"
 		return
@@ -266,7 +328,11 @@
 		qdel(new_casing)
 		return
 
+<<<<<<< HEAD
 	if(istype(new_casing, loaded_magazine.ammo_type))
+=======
+	if(new_casing.type in allowed_ammo_types)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(!loaded_magazine.give_round(new_casing))
 			error_message = "AMMUNITION MISSMATCH"
 			error_type = "bad"
@@ -343,6 +409,7 @@
 
 /obj/machinery/ammo_workbench/RefreshParts()
 	. = ..()
+<<<<<<< HEAD
 	var/time_efficiency = 20
 	for(var/obj/item/stock_parts/micro_laser/new_laser in component_parts)
 		time_efficiency -= new_laser.rating * 2
@@ -356,6 +423,24 @@
 	var/mat_capacity = 0
 	for(var/obj/item/stock_parts/matter_bin/new_matter_bin in component_parts)
 		mat_capacity += new_matter_bin.rating * 75000
+=======
+
+	var/time_efficiency = 20
+	for(var/datum/stock_part/micro_laser/new_laser in component_parts)
+		time_efficiency -= new_laser.tier * 2
+	time_per_round = clamp(time_efficiency, 1, 20)
+
+	var/efficiency = 1.8
+	for(var/datum/stock_part/servo/new_servo in component_parts)
+		efficiency -= new_servo.tier * 0.2
+
+	creation_efficiency = max(1, efficiency) // creation_efficiency goes 1.6 -> 1.4 -> 1.2 -> 1 per level of servo efficiency
+
+	var/mat_capacity = 0
+	for(var/datum/stock_part/matter_bin/new_matter_bin in component_parts)
+		mat_capacity += new_matter_bin.tier * 75000
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	materials.max_amount = mat_capacity
 
@@ -366,7 +451,11 @@
 
 /obj/machinery/ammo_workbench/proc/AfterMaterialInsert(obj/item/item_inserted, id_inserted, amount_inserted)
 	if(istype(item_inserted, /obj/item/stack/ore/bluespace_crystal))
+<<<<<<< HEAD
 		use_power(MINERAL_MATERIAL_AMOUNT / 10)
+=======
+		use_power(SHEET_MATERIAL_AMOUNT / 10)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(item_inserted.has_material_type(/datum/material/glass))
 		flick("autolathe_r", src)//plays glass insertion animation by default otherwise
 	else

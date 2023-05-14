@@ -7,6 +7,7 @@
  *
  **/
 
+<<<<<<< HEAD
 //Init the debugger datum first so we can debug Master
 //You might wonder why not just create the debugger datum global in its own file, since its loaded way earlier than this DM file
 //Well for whatever reason then the Master gets created first and then the debugger when doing that
@@ -20,6 +21,10 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 //Master -> SSPreInit -> GLOB -> world -> config -> SSInit -> Failsafe
 //GOT IT MEMORIZED?
 
+=======
+// See initialization order in /code/game/world.dm
+GLOBAL_REAL(Master, /datum/controller/master)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/master
 	name = "Master"
 
@@ -88,7 +93,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 	if(!random_seed)
 		#ifdef UNIT_TESTS
+<<<<<<< HEAD
 		random_seed = 29051994
+=======
+		random_seed = 29051994 // How about 22475?
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		#else
 		random_seed = rand(1, 1e9)
 		#endif
@@ -205,7 +214,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		StartProcessing(10)
 	else
 		to_chat(world, span_boldannounce("The Master Controller is having some issues, we will need to re-initialize EVERYTHING"))
+<<<<<<< HEAD
 		Initialize(20, TRUE)
+=======
+		Initialize(20, TRUE, FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Please don't stuff random bullshit here,
 // Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
@@ -252,7 +265,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		if (!mc_started)
 			mc_started = TRUE
 			if (!current_runlevel)
+<<<<<<< HEAD
 				SetRunLevel(1)
+=======
+				SetRunLevel(1) // Intentionally not using the defines here because the MC doesn't care about them
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			// Loop.
 			Master.StartProcessing(0)
 			add_startup_message("Clearing clutter...") //SKYRAT EDIT ADDITION
@@ -267,6 +284,12 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	log_world(msg)
 
 
+<<<<<<< HEAD
+=======
+	if(world.system_type == MS_WINDOWS && CONFIG_GET(flag/toast_notification_on_init) && !length(GLOB.clients))
+		world.shelleo("start /min powershell -ExecutionPolicy Bypass -File tools/initToast/initToast.ps1 -name \"[world.name]\" -icon %CD%\\icons\\ui_icons\\common\\tg_16.png -port [world.port]")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Set world options.
 	world.change_fps(CONFIG_GET(number/fps))
 	var/initialized_tod = REALTIMEOFDAY
@@ -359,12 +382,20 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)
 	var/old_runlevel = current_runlevel
+<<<<<<< HEAD
 	if(isnull(old_runlevel))
 		old_runlevel = "NULL"
 
 	testing("MC: Runlevel changed from [old_runlevel] to [new_runlevel]")
 	current_runlevel = log(2, new_runlevel) + 1
 	if(current_runlevel < 1)
+=======
+
+	testing("MC: Runlevel changed from [isnull(old_runlevel) ? "NULL" : old_runlevel] to [new_runlevel]")
+	current_runlevel = log(2, new_runlevel) + 1
+	if(current_runlevel < 1)
+		current_runlevel = old_runlevel
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		CRASH("Attempted to set invalid runlevel: [new_runlevel]")
 
 // Starts the mc, and sticks around to restart it if the loop ever ends.

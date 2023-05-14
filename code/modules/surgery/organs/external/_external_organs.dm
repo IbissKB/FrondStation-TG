@@ -10,6 +10,7 @@
 	organ_flags = ORGAN_EDIBLE
 	visual = TRUE
 
+<<<<<<< HEAD
 	///Sometimes we need multiple layers, for like the back, middle and front of the person
 	var/layers
 	///Convert the bitflag define into the actual layer define
@@ -42,6 +43,23 @@
 	///Where does this organ inherit it's color from?
 	var/color_source = ORGAN_COLOR_INHERIT
 
+=======
+	///The overlay datum that actually draws stuff on the limb
+	var/datum/bodypart_overlay/mutant/bodypart_overlay
+	///Reference to the limb we're inside of
+	var/obj/item/bodypart/ownerlimb
+	///If not null, overrides the appearance with this sprite accessory datum
+	var/sprite_accessory_override
+
+	/// The savefile_key of the preference this relates to. Used for the preferences UI.
+	var/preference
+	///With what DNA block do we mutate in mutate_feature() ? For genetics
+	var/dna_block
+
+	///Set to EXTERNAL_BEHIND, EXTERNAL_FRONT or EXTERNAL_ADJACENT if you want to draw one of those layers as the object sprite. FALSE to use your own
+	///This will not work if it doesn't have a limb to generate it's icon with
+	var/use_mob_sprite_as_obj_sprite = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Does this organ have any bodytypes to pass to it's ownerlimb?
 	var/external_bodytypes = NONE
 	///Which flags does a 'modification tool' need to have to restyle us, if it all possible (located in code/_DEFINES/mobs)
@@ -51,18 +69,40 @@
 * For _mob_sprite we make a distinction between "Round Snout" and "round". Round Snout is the name of the sprite datum, while "round" would be part of the sprite
 * I'm sorry
 */
+<<<<<<< HEAD
 /obj/item/organ/external/Initialize(mapload, mob_sprite)
 	. = ..()
 
 	if(mob_sprite)
 		set_sprite(mob_sprite)
+=======
+/obj/item/organ/external/Initialize(mapload, accessory_type)
+	. = ..()
+
+	bodypart_overlay = new bodypart_overlay()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// cache_key = jointext(generate_icon_cache(), "_") // SKYRAT EDIT - Species stuff that Goofball ported from /tg/, apparently. Commented for now, to see if I can make it work without it.
 	// SKYRAT EDIT: we have like 145+ fucking dna blocks lmao
 	dna_block = GLOB.dna_mutant_bodypart_blocks[preference]
 
+<<<<<<< HEAD
 	if(!(organ_flags & ORGAN_UNREMOVABLE))
 		color = "#[random_color()]" //A temporary random color that gets overwritten on insertion.
+=======
+	accessory_type = accessory_type ? accessory_type : sprite_accessory_override
+	var/update_overlays = TRUE
+	if(accessory_type)
+		bodypart_overlay.set_appearance(accessory_type)
+		bodypart_overlay.imprint_on_next_insertion = FALSE
+	else if(loc) //we've been spawned into the world, and not in nullspace to be added to a limb (yes its fucking scuffed)
+		bodypart_overlay.randomize_appearance()
+	else
+		update_overlays = FALSE
+
+	if(use_mob_sprite_as_obj_sprite && update_overlays)
+		update_appearance(UPDATE_OVERLAYS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(restyle_flags)
 		RegisterSignal(src, COMSIG_ATOM_RESTYLE, PROC_REF(on_attempt_feature_restyle))
@@ -75,6 +115,7 @@
 
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/organ/external/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
 	var/obj/item/bodypart/limb = reciever.get_bodypart(deprecise_zone(zone))
 
@@ -93,25 +134,61 @@
 	reciever.external_organs.Add(src)
 	if(slot)
 		reciever.external_organs_slot[slot] = src
+=======
+/obj/item/organ/external/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
+	var/obj/item/bodypart/limb = receiver.get_bodypart(deprecise_zone(zone))
+
+	if(!limb)
+		return FALSE
+
+	. = ..()
+
+	if(!.)
+		return
+
+	if(bodypart_overlay.imprint_on_next_insertion) //We only want this set *once*
+
+		// SKYRAT EDIT - Customization - ORIGINAL: bodypart_overlay.set_appearance_from_name(receiver.dna.features[bodypart_overlay.feature_key])
+		if(receiver.dna.features[bodypart_overlay.feature_key])
+			bodypart_overlay.set_appearance_from_name(receiver.dna.features[bodypart_overlay.feature_key])
+
+		else
+			bodypart_overlay.set_appearance_from_dna(receiver.dna)
+		// SKYRAT EDIT END
+		bodypart_overlay.imprint_on_next_insertion = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	ownerlimb = limb
 	add_to_limb(ownerlimb)
 
 	if(external_bodytypes)
+<<<<<<< HEAD
 		limb.synchronize_bodytypes(reciever)
 
 	reciever.update_body_parts()
+=======
+		limb.synchronize_bodytypes(receiver)
+
+	receiver.update_body_parts()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/external/Remove(mob/living/carbon/organ_owner, special, moving)
 	. = ..()
 
 	if(ownerlimb)
 		remove_from_limb()
+<<<<<<< HEAD
 
 	if(organ_owner)
 		if(slot)
 			organ_owner.external_organs_slot.Remove(slot)
 		organ_owner.external_organs.Remove(src)
+=======
+		if(!moving && use_mob_sprite_as_obj_sprite) //so we're being taken out and dropped
+			update_appearance(UPDATE_OVERLAYS)
+
+	if(organ_owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		organ_owner.update_body_parts()
 
 ///Transfers the organ to the limb, and to the limb's owner, if it has one.
@@ -127,18 +204,29 @@
 		add_to_limb(bodypart)
 
 /obj/item/organ/external/add_to_limb(obj/item/bodypart/bodypart)
+<<<<<<< HEAD
 	ownerlimb = bodypart
 	ownerlimb.external_organs |= src
 	inherit_color()
+=======
+	bodypart.external_organs += src
+	ownerlimb = bodypart
+	ownerlimb.add_bodypart_overlay(bodypart_overlay)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/organ/external/remove_from_limb()
 	ownerlimb.external_organs -= src
+<<<<<<< HEAD
+=======
+	ownerlimb.remove_bodypart_overlay(bodypart_overlay)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(ownerlimb.owner && external_bodytypes)
 		ownerlimb.synchronize_bodytypes(ownerlimb.owner)
 	ownerlimb = null
 	return ..()
 
+<<<<<<< HEAD
 ///Add the overlays we need to draw on a person. Called from _bodyparts.dm
 /obj/item/organ/external/proc/generate_and_retrieve_overlays(list/overlay_list, image_dir = SOUTH, image_layer, physique)
 	set_sprite(stored_feature_id)
@@ -168,17 +256,32 @@
 		center_image(appearance, sprite_datum.dimension_x, sprite_datum.dimension_y)
 
 	overlay_list += appearance
+=======
+///Update our features after something changed our appearance
+/obj/item/organ/external/proc/mutate_feature(features, mob/living/carbon/human/human)
+	if(!dna_block)
+		return
+
+	var/list/feature_list = bodypart_overlay.get_global_feature_list()
+
+	bodypart_overlay.set_appearance_from_name(feature_list[deconstruct_block(get_uni_feature_block(features, dna_block), feature_list.len)])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///If you need to change an external_organ for simple one-offs, use this. Pass the accessory type : /datum/accessory/something
 /obj/item/organ/external/proc/simple_change_sprite(accessory_type)
 	var/datum/sprite_accessory/typed_accessory = accessory_type //we only take types for maintainability
 
+<<<<<<< HEAD
 	set_sprite(initial(typed_accessory.name))
+=======
+	bodypart_overlay.set_appearance(typed_accessory)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(owner) //are we in a person?
 		owner.update_body_parts()
 	else if(ownerlimb) //are we in a limb?
 		ownerlimb.update_icon_dropped()
+<<<<<<< HEAD
 	else if(use_mob_sprite_as_obj_sprite) //are we out in the world, unprotected by flesh?
 		generate_and_retrieve_overlays(list(), image_layer = use_mob_sprite_as_obj_sprite) //both fetches and updates our organ sprite, although we only update
 
@@ -270,6 +373,23 @@
 ///Colorizes the limb it's inserted to, if required.
 /obj/item/organ/external/proc/override_color(rgb_value)
 	CRASH("External organ color set to override with no override proc.")
+=======
+	//else if(use_mob_sprite_as_obj_sprite) //are we out in the world, unprotected by flesh?
+
+/obj/item/organ/external/on_life(seconds_per_tick, times_fired)
+	return
+
+/obj/item/organ/external/update_overlays()
+	. = ..()
+
+	if(!use_mob_sprite_as_obj_sprite)
+		return
+
+	//Build the mob sprite and use it as our overlay
+	for(var/external_layer in bodypart_overlay.all_layers)
+		if(bodypart_overlay.layers & external_layer)
+			. += bodypart_overlay.get_overlay(external_layer, ownerlimb)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///The horns of a lizard!
 /obj/item/organ/external/horns
@@ -279,6 +399,7 @@
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_HORNS
+<<<<<<< HEAD
 	layers = EXTERNAL_ADJACENT
 
 	feature_key = "horns"
@@ -292,6 +413,27 @@
 
 /obj/item/organ/external/horns/get_global_feature_list()
 	return GLOB.sprite_accessories["horns"] // SKYRAT EDIT - Goof's port of species stuff from a missed upstream PR
+=======
+
+	preference = "feature_lizard_horns"
+	//dna_block = DNA_HORNS_BLOCK // SKYRAT EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	restyle_flags = EXTERNAL_RESTYLE_ENAMEL
+
+	bodypart_overlay = /datum/bodypart_overlay/mutant/horns
+
+/datum/bodypart_overlay/mutant/horns
+	layers = EXTERNAL_ADJACENT
+	feature_key = "horns"
+
+/datum/bodypart_overlay/mutant/horns/can_draw_on_bodypart(mob/living/carbon/human/human)
+	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
+		return FALSE
+
+	return TRUE
+
+/datum/bodypart_overlay/mutant/horns/get_global_feature_list()
+	return GLOB.sprite_accessories["horns"] // SKYRAT EDIT - Customization - ORIGINAL: return GLOB.horns_list
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///The frills of a lizard (like weird fin ears)
 /obj/item/organ/external/frills
@@ -301,6 +443,7 @@
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_FRILLS
+<<<<<<< HEAD
 	layers = EXTERNAL_ADJACENT
 
 	feature_key = "frills"
@@ -310,13 +453,32 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /obj/item/organ/external/frills/can_draw_on_bodypart(mob/living/carbon/human/human)
+=======
+
+	preference = "feature_lizard_frills"
+	//dna_block = DNA_FRILLS_BLOCK // SKYRAT EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	restyle_flags = EXTERNAL_RESTYLE_FLESH
+
+	bodypart_overlay = /datum/bodypart_overlay/mutant/frills
+
+/datum/bodypart_overlay/mutant/frills
+	layers = EXTERNAL_ADJACENT
+	feature_key = "frills"
+
+/datum/bodypart_overlay/mutant/frills/can_draw_on_bodypart(mob/living/carbon/human/human)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!(human.head?.flags_inv & HIDEEARS))
 		return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 
 /obj/item/organ/external/frills/get_global_feature_list()
 	return GLOB.sprite_accessories["frills"] // SKYRAT EDIT - Goof's port of species stuff from a missed upstream PR
+=======
+/datum/bodypart_overlay/mutant/frills/get_global_feature_list()
+	return GLOB.sprite_accessories["frills"] // SKYRAT EDIT - Customization - ORIGINAL: return GLOB.frills_list
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Guess what part of the lizard this is?
 /obj/item/organ/external/snout
@@ -326,22 +488,41 @@
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SNOUT
+<<<<<<< HEAD
 	layers = EXTERNAL_ADJACENT
 
 	feature_key = "snout"
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	preference = "feature_lizard_snout"
 	external_bodytypes = BODYTYPE_SNOUTED
 
 	//dna_block = DNA_SNOUT_BLOCK // SKYRAT EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
+<<<<<<< HEAD
 /obj/item/organ/external/snout/can_draw_on_bodypart(mob/living/carbon/human/human)
+=======
+	bodypart_overlay = /datum/bodypart_overlay/mutant/snout
+
+/datum/bodypart_overlay/mutant/snout
+	layers = EXTERNAL_ADJACENT
+	feature_key = "snout"
+
+/datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(mob/living/carbon/human/human)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!(human.wear_mask?.flags_inv & HIDESNOUT) && !(human.head?.flags_inv & HIDESNOUT))
 		return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 /obj/item/organ/external/snout/get_global_feature_list()
 	return GLOB.sprite_accessories["snout"] // SKYRAT EDIT - Customization
+=======
+/datum/bodypart_overlay/mutant/snout/get_global_feature_list()
+	return GLOB.sprite_accessories["snout"] // SKYRAT EDIT - Customization - ORIGINAL : return GLOB.snouts_list
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///A moth's antennae
 /obj/item/organ/external/antennae
@@ -351,6 +532,7 @@
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_ANTENNAE
+<<<<<<< HEAD
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 
 	feature_key = "moth_antennae"
@@ -359,11 +541,21 @@
 	//dna_block = DNA_MOTH_ANTENNAE_BLOCK // SKYRAT EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
+=======
+
+	preference = "feature_moth_antennae"
+	//dna_block = DNA_MOTH_ANTENNAE_BLOCK // SKYRAT EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	restyle_flags = EXTERNAL_RESTYLE_FLESH
+
+	bodypart_overlay = /datum/bodypart_overlay/mutant/antennae
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Are we burned?
 	var/burnt = FALSE
 	///Store our old datum here for if our antennae are healed
 	var/original_sprite_datum
 
+<<<<<<< HEAD
 /obj/item/organ/external/antennae/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
 	. = ..()
 
@@ -383,6 +575,19 @@
 		return TRUE
 	return FALSE
 
+=======
+/obj/item/organ/external/antennae/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
+	. = ..()
+	if(!.)
+		return
+	RegisterSignal(receiver, COMSIG_HUMAN_BURNING, PROC_REF(try_burn_antennae))
+	RegisterSignal(receiver, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(heal_antennae))
+
+/obj/item/organ/external/antennae/Remove(mob/living/carbon/organ_owner, special, moving)
+	. = ..()
+	UnregisterSignal(organ_owner, list(COMSIG_HUMAN_BURNING, COMSIG_LIVING_POST_FULLY_HEAL))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///check if our antennae can burn off ;_;
 /obj/item/organ/external/antennae/proc/try_burn_antennae(mob/living/carbon/human/human)
 	SIGNAL_HANDLER
@@ -393,10 +598,18 @@
 		burn_antennae()
 		human.update_body_parts()
 
+<<<<<<< HEAD
 /obj/item/organ/external/antennae/proc/burn_antennae()
 	burnt = TRUE
 	original_sprite_datum = sprite_datum.name
 	simple_change_sprite(/datum/sprite_accessory/moth_antennae/burnt_off)
+=======
+///Burn our antennae off ;_;
+/obj/item/organ/external/antennae/proc/burn_antennae()
+	var/datum/bodypart_overlay/mutant/antennae/antennae = bodypart_overlay
+	antennae.burnt = TRUE
+	burnt = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///heal our antennae back up!!
 /obj/item/organ/external/antennae/proc/heal_antennae(datum/source, heal_flags)
@@ -406,8 +619,34 @@
 		return
 
 	if(heal_flags & (HEAL_LIMBS|HEAL_ORGANS))
+<<<<<<< HEAD
 		burnt = FALSE
 		simple_change_sprite(original_sprite_datum)
+=======
+		var/datum/bodypart_overlay/mutant/antennae/antennae = bodypart_overlay
+		antennae.burnt = FALSE
+		burnt = FALSE
+
+///Moth antennae datum, with full burning functionality
+/datum/bodypart_overlay/mutant/antennae
+	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+	feature_key = "moth_antennae"
+	///Accessory datum of the burn sprite
+	var/datum/sprite_accessory/burn_datum = /datum/sprite_accessory/moth_antennae/burnt_off
+	///Are we burned? If so we draw differently
+	var/burnt = FALSE
+
+/datum/bodypart_overlay/mutant/antennae/New()
+	. = ..()
+
+	burn_datum = fetch_sprite_datum(burn_datum) //turn the path into the singleton instance
+
+/datum/bodypart_overlay/mutant/antennae/get_global_feature_list()
+	return GLOB.sprite_accessories["moth_antennae"] // SKYRAT EDIT - Customization - ORIGINAL: return GLOB.moth_antennae_list
+
+/datum/bodypart_overlay/mutant/antennae/get_base_icon_state()
+	return burnt ? burn_datum.icon_state : sprite_datum.icon_state
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///The leafy hair of a podperson
 /obj/item/organ/external/pod_hair
@@ -416,15 +655,22 @@
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_POD_HAIR
+<<<<<<< HEAD
 	layers = EXTERNAL_FRONT|EXTERNAL_ADJACENT
 
 	feature_key = "pod_hair"
 	preference = "feature_pod_hair"
 	use_mob_sprite_as_obj_sprite = BODY_ADJ_LAYER
+=======
+
+	preference = "feature_pod_hair"
+	use_mob_sprite_as_obj_sprite = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	dna_block = DNA_POD_HAIR_BLOCK
 	restyle_flags = EXTERNAL_RESTYLE_PLANT
 
+<<<<<<< HEAD
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /obj/item/organ/external/pod_hair/get_global_feature_list()
@@ -445,3 +691,35 @@
 	// SKYRAT EDIT END
 	var/list/rgb_list = rgb2num(rgb_value)
 	return rgb(255 - rgb_list[1], 255 - rgb_list[2], 255 - rgb_list[3])
+=======
+	bodypart_overlay = /datum/bodypart_overlay/mutant/pod_hair
+
+///Podperson bodypart overlay, with special coloring functionality to render the flowers in the inverse color
+/datum/bodypart_overlay/mutant/pod_hair
+	layers = EXTERNAL_FRONT|EXTERNAL_ADJACENT
+	feature_key = "pod_hair"
+
+	///This layer will be colored differently than the rest of the organ. So we can get differently colored flowers or something
+	var/color_swapped_layer = EXTERNAL_FRONT
+	///The individual rgb colors are subtracted from this to get the color shifted layer
+	var/color_inverse_base = 255
+
+/datum/bodypart_overlay/mutant/pod_hair/get_global_feature_list()
+	return GLOB.pod_hair_list
+
+/datum/bodypart_overlay/mutant/pod_hair/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+	if(draw_layer != bitflag_to_layer(color_swapped_layer))
+		return ..()
+
+	if(draw_color) // can someone explain to me why draw_color is allowed to EVER BE AN EMPTY STRING
+		var/list/rgb_list = rgb2num(draw_color)
+		overlay.color = rgb(color_inverse_base - rgb_list[1], color_inverse_base - rgb_list[2], color_inverse_base - rgb_list[3]) //inversa da color
+	else
+		overlay.color = null
+
+/datum/bodypart_overlay/mutant/pod_hair/can_draw_on_bodypart(mob/living/carbon/human/human)
+	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
+		return FALSE
+
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

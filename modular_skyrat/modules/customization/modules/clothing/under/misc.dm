@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /obj/item/clothing/under/misc/bluetracksuit //ORION TODO: sort out a recolorable solution to this? (Upstream? They have trackpants already...)
+=======
+/obj/item/clothing/under/misc/bluetracksuit
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "blue tracksuit"
 	desc = "Found on a dead homeless man squatting in an alleyway, the classic design has been mass produced to bring terror to the galaxy."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/uniforms.dmi'
@@ -41,6 +45,7 @@
 	icon_state = "doug_dimmadome"
 	supports_variations_flags = NONE
 
+<<<<<<< HEAD
 /obj/item/clothing/under/rank/security/peacekeeper/trousers
 	name = "peacekeeper's trousers"
 	desc = "Some light blue combat trousers, however you get protected by these, I have no idea."
@@ -58,3 +63,11 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "workpants_red"
+=======
+/obj/item/clothing/under/pants/tactical
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	name = "tactical pants"
+	desc = "A pair of tactical pants, designed for military use."
+	icon_state = "tactical_pants"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -17,6 +17,7 @@
 
 /obj/item/door_remote/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	init_network_id(NETWORK_DOOR_REMOTES)
 	access_list = SSid_access.get_region_access_list(list(region_access))
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_NAK, PROC_REF(bad_signal))
@@ -29,6 +30,9 @@
 		to_chat(data.user, span_notice("This remote is not authorized to modify this door."))
 	else
 		to_chat(data.user, span_notice("Error: [error_code]"))
+=======
+	access_list = SSid_access.get_region_access_list(list(region_access))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/door_remote/attack_self(mob/user)
 	var/static/list/desc = list(WAND_OPEN = "Open Door", WAND_BOLT = "Toggle Bolts", WAND_EMERGENCY = "Toggle Emergency Access")
@@ -42,6 +46,7 @@
 	balloon_alert(user, "mode: [desc[mode]]")
 
 // Airlock remote works by sending NTNet packets to whatever it's pointed at.
+<<<<<<< HEAD
 /obj/item/door_remote/afterattack(atom/A, mob/user)
 	. = ..()
 	var/datum/component/ntnet_interface/target_interface = A.GetComponent(/datum/component/ntnet_interface)
@@ -63,6 +68,59 @@
 	data.user = user // for responce message
 
 	ntnet_send(data)
+=======
+/obj/item/door_remote/afterattack(atom/target, mob/user)
+	. = ..()
+
+	var/obj/machinery/door/door
+
+	if (istype(target, /obj/machinery/door))
+		door = target
+
+		if (!door.opens_with_door_remote)
+			return
+	else
+		for (var/obj/machinery/door/door_on_turf in get_turf(target))
+			if (door_on_turf.opens_with_door_remote)
+				door = door_on_turf
+				break
+
+		if (isnull(door))
+			return
+
+	if (!door.check_access_list(access_list) || !door.requiresID())
+		target.balloon_alert(user, "can't access!")
+		return
+
+	var/obj/machinery/door/airlock/airlock = door
+
+	if (!door.hasPower() || (istype(airlock) && !airlock.canAIControl()))
+		target.balloon_alert(user, mode == WAND_OPEN ? "it won't budge!" : "nothing happens!")
+		return
+
+	switch (mode)
+		if (WAND_OPEN)
+			if (door.density)
+				door.open()
+			else
+				door.close()
+		if (WAND_BOLT)
+			if (!istype(airlock))
+				target.balloon_alert(user, "only airlocks!")
+				return
+
+			if (airlock.locked)
+				airlock.unbolt()
+			else
+				airlock.bolt()
+		if (WAND_EMERGENCY)
+			if (!istype(airlock))
+				target.balloon_alert(user, "only airlocks!")
+				return
+
+			airlock.emergency = !airlock.emergency
+			airlock.update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/door_remote/omni
 	name = "omni door remote"

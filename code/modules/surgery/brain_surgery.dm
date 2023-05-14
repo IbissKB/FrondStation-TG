@@ -24,7 +24,11 @@
 	failure_sound = 'sound/surgery/organ2.ogg'
 
 /datum/surgery/brain_surgery/can_start(mob/user, mob/living/carbon/target)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/target_brain = target.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!target_brain)
 		return FALSE
 	return TRUE
@@ -50,14 +54,24 @@
 	display_pain(target, "The pain in your head receeds, thinking becomes a bit easier!")
 	if(target.mind?.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
+<<<<<<< HEAD
 	target.setOrganLoss(ORGAN_SLOT_BRAIN, target.getOrganLoss(ORGAN_SLOT_BRAIN) - 50) //we set damage in this case in order to clear the "failing" flag
 	target.cure_all_traumas(TRAUMA_RESILIENCE_SURGERY)
 	if(target.getOrganLoss(ORGAN_SLOT_BRAIN) > 0)
+=======
+	target.setOrganLoss(ORGAN_SLOT_BRAIN, target.get_organ_loss(ORGAN_SLOT_BRAIN) - 50) //we set damage in this case in order to clear the "failing" flag
+	target.cure_all_traumas(TRAUMA_RESILIENCE_SURGERY)
+	if(target.get_organ_loss(ORGAN_SLOT_BRAIN) > 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, "[target]'s brain looks like it could be fixed further.")
 	return ..()
 
 /datum/surgery_step/fix_brain/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+<<<<<<< HEAD
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
+=======
+	if(target.get_organ_slot(ORGAN_SLOT_BRAIN))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		display_results(
 			user,
 			target,

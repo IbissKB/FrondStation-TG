@@ -24,7 +24,11 @@
 
 /datum/computer_file/program/scipaper_program/on_start(mob/living/user)
 	. = ..()
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !linked_techweb)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		linked_techweb = SSresearch.science_tech
 
 /datum/computer_file/program/scipaper_program/application_attackby(obj/item/attacking_item, mob/living/user)
@@ -83,7 +87,11 @@
 
 /datum/computer_file/program/scipaper_program/ui_data()
 	// Program Headers:
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["currentTab"] = current_tab
 	data["has_techweb"] = !!linked_techweb
 
@@ -164,11 +172,15 @@
 					data["purchaseableBoosts"][partner.type] += node_id
 	return data
 
+<<<<<<< HEAD
 /datum/computer_file/program/scipaper_program/ui_act(action, params)
 	. = ..()
 	if (.)
 		return
 
+=======
+/datum/computer_file/program/scipaper_program/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("et_alia")
 			paper_to_be.et_alia = !paper_to_be.et_alia
@@ -226,7 +238,11 @@
 					playsound(computer, 'sound/machines/ping.ogg', 25)
 					return TRUE
 			playsound(computer, 'sound/machines/terminal_error.ogg', 25)
+<<<<<<< HEAD
 			return FALSE
+=======
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Publication and adding points.
 /datum/computer_file/program/scipaper_program/proc/publish()

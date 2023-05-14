@@ -12,7 +12,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	in_use = FALSE
 	return ..()
 
+<<<<<<< HEAD
 /mob/living/carbon/human/dummy/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/carbon/human/dummy/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 /mob/living/carbon/human/dummy/attach_rot(mapload)
@@ -26,14 +30,22 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 /mob/living/carbon/human/dummy/proc/harvest_organs()
 	for(var/slot in list(ORGAN_SLOT_BRAIN, ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_APPENDIX, \
 		ORGAN_SLOT_EYES, ORGAN_SLOT_EARS, ORGAN_SLOT_TONGUE, ORGAN_SLOT_LIVER, ORGAN_SLOT_STOMACH))
+<<<<<<< HEAD
 		var/obj/item/organ/current_organ = getorganslot(slot) //Time to cache it lads
+=======
+		var/obj/item/organ/current_organ = get_organ_slot(slot) //Time to cache it lads
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(current_organ)
 			current_organ.Remove(src, special = TRUE) //Please don't somehow kill our dummy
 			SSwardrobe.stash_object(current_organ)
 
 	var/datum/species/current_species = dna.species
 	for(var/organ_path in current_species.mutant_organs)
+<<<<<<< HEAD
 		var/obj/item/organ/current_organ = getorgan(organ_path)
+=======
+		var/obj/item/organ/current_organ = get_organ_by_type(organ_path)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(current_organ)
 			current_organ.Remove(src, special = TRUE) //Please don't somehow kill our dummy
 			SSwardrobe.stash_object(current_organ)
@@ -83,8 +95,13 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	return
 
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
+<<<<<<< HEAD
 	target.create_dna()
 	target.dna.initialize_dna(skip_index = TRUE)
+=======
+	target.dna.initialize_dna(skip_index = TRUE)
+	/* SKYRAT EDIT START - Customization - ORIGINAL:
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.dna.features["body_markings"] = "None"
 	target.dna.features["ears"] = "None"
 	target.dna.features["ethcolor"] = COLOR_WHITE
@@ -93,6 +110,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["mcolor"] = COLOR_VIBRANT_LIME
 	target.dna.features["moth_antennae"] = "Plain"
 	target.dna.features["moth_markings"] = "None"
+<<<<<<< HEAD
 	target.dna.features["wings"] = "None" // SKYRAT EDIT CHANGE - Customization
 	target.dna.features["snout"] = "Round"
 	target.dna.features["spines"] = "None"
@@ -100,6 +118,18 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_cat"] = "None"
 	target.dna.features["tail_lizard"] = "Smooth"
 	target.dna.features["pod_hair"] = "Ivy"
+=======
+	target.dna.features["moth_wings"] = "Plain"
+	target.dna.features["snout"] = "Round"
+	target.dna.features["spines"] = "None"
+	target.dna.features["tail_cat"] = "None"
+	target.dna.features["tail_lizard"] = "Smooth"
+	target.dna.features["pod_hair"] = "Ivy"
+	*/ // ORIGINAL END - SKYRAT EDIT START
+	target.dna.features["ethcolor"] = COLOR_WHITE
+	target.dna.features["mcolor"] = COLOR_VIBRANT_LIME
+	target.dna.features["pod_hair"] = "Ivy"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent
@@ -119,6 +149,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	if(is_creating)
 		fully_replace_character_name(real_name, "John Doe")
 
+<<<<<<< HEAD
+=======
+/mob/living/carbon/human/consistent/domutcheck()
+	return // We skipped adding any mutations so this runtimes
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Inefficient pooling/caching way.
 GLOBAL_LIST_EMPTY(human_dummy_list)
 GLOBAL_LIST_EMPTY(dummy_mob_list)

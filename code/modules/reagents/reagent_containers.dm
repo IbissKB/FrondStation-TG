@@ -4,6 +4,7 @@
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = null
 	w_class = WEIGHT_CLASS_TINY
+<<<<<<< HEAD
 	var/amount_per_transfer_from_this = 5
 	var/list/possible_transfer_amounts = list(5,10,15,20,25,30)
 	/// Where we are in the possible transfer amount list.
@@ -16,6 +17,39 @@
 	var/spillable = FALSE
 	var/list/fill_icon_thresholds = null
 	var/fill_icon_state = null // Optional custom name for reagent fill icon_state prefix
+=======
+	/// The maximum amount of reagents per transfer that will be moved out of this reagent container
+	var/amount_per_transfer_from_this = 5
+	/// The different possible amounts of reagent to transfer out of the container
+	var/list/possible_transfer_amounts = list(5,10,15,20,25,30)
+	/// Where we are in the possible transfer amount list.
+	var/amount_list_position = 1
+	/// The maximum amount of reagents this container can hold
+	var/volume = 30
+	/// Reagent flags, a few examples being if the container is open or not, if its transparent, if you can inject stuff in and out of the container, and so on
+	var/reagent_flags
+	/// A list of what initial reagents this container should spawn with
+	var/list/list_reagents = null
+	/// If this container should spawn with a disease type inside of it
+	var/spawned_disease = null
+	/// How much of a disease specified in spawned_disease should this container spawn with
+	var/disease_amount = 20
+	/// If the reagents inside of this container will splash out when the container tries to splash onto someone or something
+	var/spillable = FALSE
+	/**
+	 * The different thresholds at which the reagent fill overlay will change. See reagentfillings.dmi.
+	 *
+	 * Should be a list of integers which correspond to a reagent unit threshold.
+	 * If null, no automatic fill overlays are generated.
+	 *
+	 * For example, list(0) will mean it will gain a the overlay with any reagents present. This overlay is "overlayname0".
+	 * list(0, 10) whill have two overlay options, for 0-10 units ("overlayname0") and 10+ units ("overlayname10").
+	 */
+	var/list/fill_icon_thresholds = null
+	/// The optional custom name for the reagent fill icon_state prefix
+	/// If not set, uses the current icon state.
+	var/fill_icon_state = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// The icon file to take fill icon appearances from
 	var/fill_icon = 'icons/obj/reagentfillings.dmi'
 
@@ -81,6 +115,7 @@
 	balloon_alert(user, "transferring [amount_per_transfer_from_this]u")
 	mode_change_message(user)
 
+<<<<<<< HEAD
 //SKYRAT EDIT CHANGE BEGIN - CHEMISTRY QOL
 /obj/item/reagent_containers/AltClick(mob/user)
 	. = ..()
@@ -90,6 +125,8 @@
 	return
 //SKYRAT EDIT END
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/reagent_containers/attack(mob/M, mob/living/user, def_zone)
 	if(user.combat_mode)
 		return ..()
@@ -128,6 +165,17 @@
 			span_userdanger("You feel drenched!"),
 		)
 
+<<<<<<< HEAD
+=======
+	playsound(target, 'sound/effects/slosh.ogg', 25, TRUE)
+
+	var/image/splash_animation = image('icons/effects/effects.dmi', target, "splash")
+	if(isturf(target))
+		splash_animation = image('icons/effects/effects.dmi', target, "splash_floor")
+	splash_animation.color = mix_color_from_reagents(reagents.reagent_list)
+	flick_overlay_global(splash_animation, GLOB.clients, 1.0 SECONDS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 		reagent_text += "[reagent] ([num2text(reagent.volume)]),"
 
@@ -147,9 +195,15 @@
 		return FALSE
 	var/mob/living/carbon/C = eater
 	var/covered = ""
+<<<<<<< HEAD
 	if(C.is_mouth_covered(head_only = 1))
 		covered = "headgear"
 	else if(C.is_mouth_covered(mask_only = 1))
+=======
+	if(C.is_mouth_covered(ITEM_SLOT_HEAD))
+		covered = "headgear"
+	else if(C.is_mouth_covered(ITEM_SLOT_MASK))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		covered = "mask"
 	if(covered)
 		var/who = (isnull(user) || eater == user) ? "your" : "[eater.p_their()]"
@@ -189,9 +243,17 @@
 	var/mob/thrown_by = thrownby?.resolve()
 
 	if(ismob(target) && target.reagents)
+<<<<<<< HEAD
 		if(thrown)
 			reagents.total_volume *= rand(5,10) * 0.1 //Not all of it makes contact with the target
 		var/mob/M = target
+=======
+		var/splash_multiplier = 1
+		if(thrown)
+			splash_multiplier *= (rand(5,10) * 0.1) //Not all of it makes contact with the target
+		var/mob/M = target
+		var/turf/target_turf = get_turf(target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/R
 		target.visible_message(span_danger("[M] is splashed with something!"), \
 						span_userdanger("[M] is splashed with something!"))
@@ -200,7 +262,13 @@
 
 		if(thrown_by)
 			log_combat(thrown_by, M, "splashed", R)
+<<<<<<< HEAD
 		reagents.expose(target, TOUCH)
+=======
+		reagents.expose(target, TOUCH, splash_multiplier)
+		reagents.expose(target_turf, TOUCH, (1 - splash_multiplier)) // 1 - splash_multiplier because it's what didn't hit the target
+		target_turf.add_liquid_from_reagents(reagents, reagent_multiplier = (1 - splash_multiplier)) // skyrat edit: liquid spills (molotov buff) (huge)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	else if(bartender_check(target) && thrown)
 		visible_message(span_notice("[src] lands onto the [target.name] without spilling a single drop."))
@@ -222,6 +290,17 @@
 		if(QDELETED(src))
 			return
 
+<<<<<<< HEAD
+=======
+	playsound(target, 'sound/effects/slosh.ogg', 25, TRUE)
+
+	var/image/splash_animation = image('icons/effects/effects.dmi', target, "splash")
+	if(isturf(target))
+		splash_animation = image('icons/effects/effects.dmi', target, "splash_floor")
+	splash_animation.color = mix_color_from_reagents(reagents.reagent_list)
+	flick_overlay_global(splash_animation, GLOB.clients, 1.0 SECONDS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	reagents.clear_reagents()
 
 /obj/item/reagent_containers/microwave_act(obj/machinery/microwave/microwave_source, mob/microwaver, randomize_pixel_offset)
@@ -244,13 +323,21 @@
 	if(!reagents.total_volume)
 		return
 
+<<<<<<< HEAD
 	var/fill_name = fill_icon_state? fill_icon_state : icon_state
+=======
+	var/fill_name = fill_icon_state ? fill_icon_state : icon_state
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mutable_appearance/filling = mutable_appearance(fill_icon, "[fill_name][fill_icon_thresholds[1]]")
 
 	var/percent = round((reagents.total_volume / volume) * 100)
 	for(var/i in 1 to fill_icon_thresholds.len)
 		var/threshold = fill_icon_thresholds[i]
+<<<<<<< HEAD
 		var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
+=======
+		var/threshold_end = (i == fill_icon_thresholds.len) ? INFINITY : fill_icon_thresholds[i+1]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(threshold <= percent && percent < threshold_end)
 			filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
 

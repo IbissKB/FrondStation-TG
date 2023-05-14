@@ -9,6 +9,7 @@ MODULE ID: EVENT
 Changes to the existing TG events, aswell our own events
 
 ### TG Proc Changes:
+<<<<<<< HEAD
 - OVERRIDE: modular_skyrat/modules/events/code/modules/events/meteor_wave.dm > /datum/round_event/meteor_wave/setup()
 - code/modules/events/meteor_wave.dm > /datum/round_event/meteor_wave/announce()
 
@@ -20,6 +21,11 @@ Changes to the existing TG events, aswell our own events
 - code/modules/events/meteor_wave.dm > /datum/round_event/meteor_wave/threatening > weight = 2
 - code/modules/events/meteor_wave.dm > /datum/round_event/meteor_wave/catastrophic > weight = 2
 
+=======
+
+### Defines:
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ### Master file additions
 
 - N/A

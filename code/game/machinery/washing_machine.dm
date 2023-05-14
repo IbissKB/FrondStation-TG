@@ -60,12 +60,21 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		DYE_MIME = /obj/item/clothing/gloves/color/white,
 		DYE_CLOWN = /obj/item/clothing/gloves/color/rainbow,
 		DYE_QM = /obj/item/clothing/gloves/color/brown,
+<<<<<<< HEAD
 		DYE_CAPTAIN = /obj/item/clothing/gloves/color/captain,
 		DYE_HOP = /obj/item/clothing/gloves/color/grey,
 		DYE_HOS = /obj/item/clothing/gloves/color/black,
 		DYE_CE = /obj/item/clothing/gloves/color/chief_engineer,
 		DYE_RD = /obj/item/clothing/gloves/color/grey,
 		DYE_CMO = /obj/item/clothing/gloves/color/latex/nitrile,
+=======
+		DYE_CAPTAIN = /obj/item/clothing/gloves/captain,
+		DYE_HOP = /obj/item/clothing/gloves/color/grey,
+		DYE_HOS = /obj/item/clothing/gloves/color/black,
+		DYE_CE = /obj/item/clothing/gloves/chief_engineer,
+		DYE_RD = /obj/item/clothing/gloves/color/grey,
+		DYE_CMO = /obj/item/clothing/gloves/latex/nitrile,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		DYE_REDCOAT = /obj/item/clothing/gloves/color/white,
 		DYE_SYNDICATE = /obj/item/clothing/gloves/combat,
 		DYE_CENTCOM = /obj/item/clothing/gloves/combat
@@ -165,7 +174,15 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	DYE_LAWYER_SPECIAL = list(
 		DYE_COSMIC = /obj/item/clothing/under/rank/civilian/lawyer/galaxy,
 		DYE_SYNDICATE = /obj/item/clothing/under/rank/civilian/lawyer/galaxy/red
+<<<<<<< HEAD
 	)
+=======
+	),
+	DYE_LAWYER_SPECIAL_SKIRT = list(
+		DYE_COSMIC = /obj/item/clothing/under/rank/civilian/lawyer/galaxy/skirt,
+		DYE_SYNDICATE = /obj/item/clothing/under/rank/civilian/lawyer/galaxy/red/skirt
+	),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ))
 
 /obj/machinery/washing_machine
@@ -185,18 +202,30 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	if(!busy)
 		. += span_notice("<b>Right-click</b> with an empty hand to start a wash cycle.")
 
+<<<<<<< HEAD
 /obj/machinery/washing_machine/process(delta_time)
+=======
+/obj/machinery/washing_machine/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!busy)
 		animate(src, transform=matrix(), time=2)
 		return PROCESS_KILL
 	if(anchored)
+<<<<<<< HEAD
 		if(DT_PROB(2.5, delta_time))
+=======
+		if(SPT_PROB(2.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/matrix/M = new
 			M.Translate(rand(-1, 1), rand(0, 1))
 			animate(src, transform=M, time=1)
 			animate(transform=matrix(), time=1)
 	else
+<<<<<<< HEAD
 		if(DT_PROB(0.5, delta_time))
+=======
+		if(SPT_PROB(0.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			step(src, pick(GLOB.cardinals))
 		var/matrix/M = new
 		M.Translate(rand(-3, 3), rand(-1, 3))
@@ -389,7 +418,11 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, !issilicon(user)))
+=======
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
 	if(busy)
 		to_chat(user, span_warning("[src] is busy!"))
@@ -416,7 +449,12 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		new /obj/item/stack/sheet/iron(drop_location(), 2)
 	qdel(src)
 
+<<<<<<< HEAD
 /obj/machinery/washing_machine/open_machine(drop = 1)
 	..()
+=======
+/obj/machinery/washing_machine/open_machine(drop = TRUE, density_to_set = FALSE)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_density(TRUE) //because machinery/open_machine() sets it to FALSE
 	color_source = null

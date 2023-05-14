@@ -3,6 +3,10 @@
 	desc = "A large wooden barrel. You can ferment fruits and such inside it, or just use it to hold reagents."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "barrel"
+<<<<<<< HEAD
+=======
+	resistance_flags = FLAMMABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = TRUE
 	anchored = FALSE
 	pressure_resistance = 2 * ONE_ATMOSPHERE
@@ -132,6 +136,7 @@
 	soundloop.stop()
 	STOP_PROCESSING(SSobj, src)
 
+<<<<<<< HEAD
 /obj/structure/fermenting_barrel/process(delta_time)
 	process_fermentation()
 
@@ -142,6 +147,11 @@
 	time = 50
 	category = CAT_PRIMAL
 
+=======
+/obj/structure/fermenting_barrel/process(seconds_per_tick)
+	process_fermentation()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Lil gunpowder barrel fer pirates since it's a nice reagent holder
 /obj/structure/fermenting_barrel/gunpowder
 	name = "gunpowder barrel"

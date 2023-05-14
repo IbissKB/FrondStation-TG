@@ -3,3 +3,9 @@
 #define DOAFTER_SOURCE_SURVIVALPEN "doafter_survivalpen"
 #define DOAFTER_SOURCE_GETTING_UP "doafter_gettingup"
 #define DOAFTER_SOURCE_CLIMBING_LADDER "doafter_climbingladder"
+<<<<<<< HEAD
+=======
+#define DOAFTER_SOURCE_SPIDER "doafter_spider"
+#define DOAFTER_SOURCE_HEAL_TOUCH "doafter_heal_touch"
+#define DOAFTER_SOURCE_PLANTING_DEVICE "doafter_planting_device"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

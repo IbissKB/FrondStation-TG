@@ -46,7 +46,11 @@
 	parent_gun = null
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/microfusion_phase_emitter/process(delta_time)
+=======
+/obj/item/microfusion_phase_emitter/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(current_heat == 0)
 		return
 	var/calculated_heat_dissipation_per_tick = heat_dissipation_per_tick
@@ -59,9 +63,15 @@
 	if(cooling_system && parent_gun && parent_gun.cell && parent_gun.cell.use(cooling_system_rate))
 		calculated_heat_dissipation_per_tick += cooling_system_rate
 
+<<<<<<< HEAD
 	current_heat = clamp(current_heat - (calculated_heat_dissipation_per_tick * delta_time) * 0.5, 0, INFINITY)
 	if(current_heat > max_heat)
 		integrity = integrity - current_heat / 1000 * delta_time * 0.5
+=======
+	current_heat = clamp(current_heat - (calculated_heat_dissipation_per_tick * seconds_per_tick) * 0.5, 0, INFINITY)
+	if(current_heat > max_heat)
+		integrity = integrity - current_heat / 1000 * seconds_per_tick * 0.5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	process_fire_delay_and_sound()
 

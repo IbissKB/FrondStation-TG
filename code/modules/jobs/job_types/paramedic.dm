@@ -7,7 +7,10 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_CMO
+<<<<<<< HEAD
 	selection_color = "#ffeef0"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "PARAMEDIC"
 
@@ -54,7 +57,11 @@
 	belt = /obj/item/storage/belt/medical/paramedic
 	ears = /obj/item/radio/headset/headset_med
 	head = /obj/item/clothing/head/soft/paramedic
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile
+=======
+	gloves = /obj/item/clothing/gloves/latex/nitrile
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	shoes = /obj/item/clothing/shoes/sneakers/blue
 	l_pocket = /obj/item/modular_computer/pda/medical/paramedic
 

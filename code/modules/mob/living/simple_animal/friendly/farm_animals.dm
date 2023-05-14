@@ -11,7 +11,10 @@
 	emote_see = list("shakes their head.", "stamps a foot.", "glares around.")
 	speak_chance = 1
 	turns_per_move = 5
+<<<<<<< HEAD
 	see_in_dark = 6
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	butcher_results = list(/obj/item/food/meat/slab = 4)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
@@ -19,7 +22,11 @@
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
+<<<<<<< HEAD
 	faction = list("neutral")
+=======
+	faction = list(FACTION_NEUTRAL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	attack_same = 1
 	attack_verb_continuous = "kicks"
@@ -41,6 +48,7 @@
 	AddComponent(/datum/component/udder)
 	. = ..()
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/retaliate/goat/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	if(.)
@@ -49,6 +57,16 @@
 			Retaliate()
 
 		if(enemies.len && DT_PROB(5, delta_time))
+=======
+/mob/living/simple_animal/hostile/retaliate/goat/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	. = ..()
+	if(.)
+		//chance to go crazy and start wacking stuff
+		if(!enemies.len && SPT_PROB(0.5, seconds_per_tick))
+			Retaliate()
+
+		if(enemies.len && SPT_PROB(5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			enemies.Cut()
 			LoseTarget()
 			src.visible_message(span_notice("[src] calms down."))
@@ -60,8 +78,21 @@
 		return
 
 	for(var/direction in shuffle(list(1,2,4,8,5,6,9,10)))
+<<<<<<< HEAD
 		var/step = get_step(src, direction)
 		if(step && ((locate(/obj/structure/spacevine) in step) || (locate(/obj/structure/glowshroom) in step)))
+=======
+		var/turf/step = get_step(src, direction)
+
+		if(!istype(step))
+			return
+
+		var/vine = locate(/obj/structure/spacevine) in step
+		var/mushroom = locate(/obj/structure/glowshroom) in step
+		var/flower = locate(/obj/structure/alien/resin/flower_bud) in step
+
+		if(vine || mushroom || flower)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			Move(step, get_dir(src, step))
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
@@ -74,6 +105,7 @@
 		eat_plants()
 
 /mob/living/simple_animal/hostile/retaliate/goat/proc/eat_plants()
+<<<<<<< HEAD
 	var/eaten = FALSE
 	var/obj/structure/spacevine/SV = locate(/obj/structure/spacevine) in loc
 	if(SV)
@@ -97,6 +129,46 @@
 			H.visible_message(span_warning("[src] takes a big chomp out of [H]!"), \
 								  span_userdanger("[src] takes a big chomp out of your [NB]!"))
 			NB.dismember()
+=======
+	var/obj/structure/spacevine/vine = locate(/obj/structure/spacevine) in loc
+	if(vine)
+		vine.eat(src)
+
+	var/obj/structure/alien/resin/flower_bud/flower = locate(/obj/structure/alien/resin/flower_bud) in loc
+	if(flower)
+		flower.take_damage(rand(30, 50), BRUTE, 0)
+
+	var/obj/structure/glowshroom/mushroom = locate(/obj/structure/glowshroom) in loc
+	if(mushroom)
+		qdel(mushroom)
+
+	if((vine || flower || mushroom) && prob(10))
+		say("Nom") // bon appetit
+		playsound(src, 'sound/items/eatfood.ogg', rand(30, 50), TRUE)
+
+/mob/living/simple_animal/hostile/retaliate/goat/AttackingTarget()
+	. = ..()
+
+	if(!. || !isliving(target))
+		return
+
+	var/mob/living/plant_target = target
+	if(!(plant_target.mob_biotypes & MOB_PLANT))
+		return
+
+	plant_target.adjustBruteLoss(20)
+	playsound(src, 'sound/items/eatfood.ogg', rand(30, 50), TRUE)
+	var/obj/item/bodypart/edible_bodypart
+
+	if(ishuman(plant_target))
+		var/mob/living/carbon/human/plant_man = target
+		edible_bodypart = pick(plant_man.bodyparts)
+		edible_bodypart.dismember()
+
+	plant_target.visible_message(span_warning("[src] takes a big chomp out of [plant_target]!"), \
+							span_userdanger("[src] takes a big chomp out of your [edible_bodypart || "body"]!"))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/chick
 	name = "\improper chick"
@@ -143,20 +215,37 @@
 /mob/living/simple_animal/chick/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CHICKEN, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/chick/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/simple_animal/chick/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. =..()
 	if(!.)
 		return
 	if(!stat && !ckey)
+<<<<<<< HEAD
 		amount_grown += rand(0.5 * delta_time, 1 * delta_time)
+=======
+		amount_grown += rand(0.5 * seconds_per_tick, 1 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(amount_grown >= 100)
 			new /mob/living/simple_animal/chicken(src.loc)
 			qdel(src)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/chick/holo/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
 	amount_grown = 0
 
+=======
+/mob/living/simple_animal/chick/holo/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	..()
+	amount_grown = 0
+
+/// Counter for number of chicken mobs in the universe. Chickens will not lay fertile eggs if it exceeds the MAX_CHICKENS define.
+GLOBAL_VAR_INIT(chicken_count, 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/chicken
 	name = "\improper chicken"
@@ -188,6 +277,7 @@
 	mob_size = MOB_SIZE_SMALL
 	gold_core_spawnable = FRIENDLY_SPAWN
 	footstep_type = FOOTSTEP_MOB_CLAW
+<<<<<<< HEAD
 	///counter for how many chickens are in existence to stop too many chickens from lagging shit up
 	var/static/chicken_count = 0
 	///boolean deciding whether eggs laid by this chicken can hatch into chicks
@@ -196,6 +286,14 @@
 /mob/living/simple_animal/chicken/Initialize(mapload)
 	. = ..()
 	chicken_count++
+=======
+	///boolean deciding whether eggs laid by this chicken can hatch into chicks
+	var/fertile = TRUE
+
+/mob/living/simple_animal/chicken/Initialize(mapload)
+	. = ..()
+	GLOB.chicken_count++
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	add_cell_sample()
 	AddElement(/datum/element/animal_variety, "chicken", pick("brown","black","white"), TRUE)
 	AddComponent(/datum/component/egg_layer,\
@@ -214,6 +312,7 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CHICKEN, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
 /mob/living/simple_animal/chicken/Destroy()
+<<<<<<< HEAD
 	chicken_count--
 	return ..()
 
@@ -263,3 +362,19 @@
 	maxHealth = 75
 	blood_volume = BLOOD_VOLUME_NORMAL
 	footstep_type = FOOTSTEP_MOB_SHOE
+=======
+	GLOB.chicken_count--
+	return ..()
+
+/mob/living/simple_animal/chicken/proc/egg_laid(obj/item/egg)
+	if(GLOB.chicken_count <= MAX_CHICKENS && fertile && prob(25))
+		egg.AddComponent(/datum/component/fertile_egg,\
+			embryo_type = /mob/living/simple_animal/chick,\
+			minimum_growth_rate = 1,\
+			maximum_growth_rate = 2,\
+			total_growth_required = 200,\
+			current_growth = 0,\
+			location_allowlist = typecacheof(list(/turf)),\
+			spoilable = TRUE,\
+		)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

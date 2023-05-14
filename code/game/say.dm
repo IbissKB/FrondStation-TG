@@ -20,6 +20,10 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	"[FREQ_INTERDYNE]" = "syndradio", //SKYRAT EDIT ADDITION - MAPPING
 	"[FREQ_GUILD]" = "syndradio", //SKYRAT EDIT ADDITION - MAPPING
 	"[FREQ_TARKON]" = "engradio", //SKYRAT EDIT ADDITION - MAPPING
+<<<<<<< HEAD
+=======
+	"[FREQ_SOLFED]" = "medradio", //SKYRAT EDIT ADDITION - SOLFED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	"[FREQ_CTF_RED]" = "redteamradio",
 	"[FREQ_CTF_BLUE]" = "blueteamradio",
 	"[FREQ_CTF_GREEN]" = "greenteamradio",
@@ -248,9 +252,15 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	if(ishuman(M))
 		// Humans use their job as seen on the crew manifest. This is so the AI
 		// can know their job even if they don't carry an ID.
+<<<<<<< HEAD
 		var/datum/data/record/findjob = find_record("name", name, GLOB.data_core.general)
 		if(findjob)
 			job = findjob.fields["rank"]
+=======
+		var/datum/record/crew/found_record = find_record(name)
+		if(found_record)
+			job = found_record.rank
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			job = "Unknown"
 	else if(iscarbon(M))  // Carbon nonhuman

@@ -7,7 +7,11 @@
 	movedelay = 3
 	max_integrity = 250
 	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_SECURITY)
+<<<<<<< HEAD
 	armor = list(MELEE = 25, BULLET = 20, LASER = 30, ENERGY = 15, BOMB = 0, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/mecha_gygax
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_temperature = 25000
 	leg_overload_coeff = 80
 	force = 25
@@ -22,6 +26,17 @@
 	)
 	step_energy_drain = 3
 
+<<<<<<< HEAD
+=======
+/datum/armor/mecha_gygax
+	melee = 25
+	bullet = 20
+	laser = 30
+	energy = 15
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/mecha/gygax/generate_actions()
 	. = ..()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_overload_mode)
@@ -56,13 +71,21 @@
 	icon_state = "darkgygax"
 	base_icon_state = "darkgygax"
 	max_integrity = 300
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 40, LASER = 50, ENERGY = 35, BOMB = 20, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/gygax_dark
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_temperature = 35000
 	leg_overload_coeff = 70
 	force = 30
 	operation_req_access = list(ACCESS_SYNDICATE)
 	internals_req_access = list(ACCESS_SYNDICATE)
 	wreckage = /obj/structure/mecha_wreckage/gygax/dark
+<<<<<<< HEAD
+=======
+	mecha_flags = CANSTRAFE | IS_ENCLOSED | HAS_LIGHTS | MMI_COMPATIBLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_equip_by_category = list(
 		MECHA_UTILITY = 2,
 		MECHA_POWER = 1,
@@ -77,13 +100,36 @@
 	)
 	destruction_sleep_duration = 20
 
+<<<<<<< HEAD
+=======
+/datum/armor/gygax_dark
+	melee = 40
+	bullet = 40
+	laser = 50
+	energy = 35
+	bomb = 20
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/mecha/gygax/dark/loaded/Initialize(mapload)
 	. = ..()
 	max_ammo()
 
+<<<<<<< HEAD
 /obj/vehicle/sealed/mecha/gygax/dark/add_cell(obj/item/stock_parts/cell/C=null)
 	if(C)
 		C.forceMove(src)
 		cell = C
 		return
 	cell = new /obj/item/stock_parts/cell/bluespace(src)
+=======
+/obj/vehicle/sealed/mecha/gygax/dark/add_cell()
+	cell = new /obj/item/stock_parts/cell/bluespace(src)
+
+/obj/vehicle/sealed/mecha/gygax/dark/add_scanmod()
+	scanmod = new /obj/item/stock_parts/scanning_module/triphasic(src)
+
+/obj/vehicle/sealed/mecha/gygax/dark/add_capacitor()
+	capacitor = new /obj/item/stock_parts/capacitor/quadratic(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

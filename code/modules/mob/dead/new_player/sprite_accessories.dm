@@ -103,6 +103,13 @@
 	name = "Afro (Large)"
 	icon_state = "hair_bigafro"
 
+<<<<<<< HEAD
+=======
+/datum/sprite_accessory/hair/allthefuzz
+	name = "All The Fuzz"
+	icon_state = "hair_allthefuzz"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/hair/antenna
 	name = "Ahoge"
 	icon_state = "hair_antenna"
@@ -128,7 +135,11 @@
 	icon_state = "hair_bedheadv3"
 
 /datum/sprite_accessory/hair/bedheadv4
+<<<<<<< HEAD
 	name = "BedHead 4X"
+=======
+	name = "Bedhead 4x"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "hair_bedheadv4"
 
 /datum/sprite_accessory/hair/bedheadlong
@@ -139,8 +150,13 @@
 	name = "Floorlength Bedhead"
 	icon_state = "hair_floorlength_bedhead"
 
+<<<<<<< HEAD
 /datum/sprite_accessory/hair/BadlyCut
 	name = "Marginally shorter yet Long Bedhead"
+=======
+/datum/sprite_accessory/hair/badlycut
+	name = "Shorter Long Bedhead"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "hair_verybadlycut"
 
 /datum/sprite_accessory/hair/beehive
@@ -255,6 +271,13 @@
 	name = "Buzzcut"
 	icon_state = "hair_buzzcut"
 
+<<<<<<< HEAD
+=======
+/datum/sprite_accessory/hair/chinbob
+	name = "Chin-Length Bob Cut"
+	icon_state = "hair_chinbob"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/hair/comet
 	name = "Comet"
 	icon_state = "hair_comet"
@@ -527,6 +550,13 @@
 	name = "Over Eye"
 	icon_state = "hair_shortovereye"
 
+<<<<<<< HEAD
+=======
+/datum/sprite_accessory/hair/hair_overeyetwo
+	name = "Over Eye 2"
+	icon_state = "hair_overeyetwo"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/hair/oxton
 	name = "Oxton"
 	icon_state = "hair_oxton"
@@ -807,6 +837,13 @@
 	name = "Wisp"
 	icon_state = "hair_wisp"
 
+<<<<<<< HEAD
+=======
+/datum/sprite_accessory/hair/ziegler
+	name = "Ziegler"
+	icon_state = "hair_ziegler"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*
 /////////////////////////////////////
 /  =---------------------------=    /
@@ -1587,6 +1624,13 @@
 	name = "Knee-high (White)"
 	icon_state = "white_knee"
 
+<<<<<<< HEAD
+=======
+/datum/sprite_accessory/socks/fishnet_knee
+	name = "Knee-high (Fishnet)"
+	icon_state = "fishnet_knee"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/socks/black_norm
 	name = "Normal (Black)"
 	icon_state = "black_norm"
@@ -1639,6 +1683,13 @@
 	name = "Stockings (Yellow)"
 	icon_state = "stockings_yellow"
 
+<<<<<<< HEAD
+=======
+/datum/sprite_accessory/socks/stockings_fishnet
+	name = "Stockings (Fishnet)"
+	icon_state = "fishnet_full"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/socks/ace_thigh
 	name = "Thigh-high (Ace)"
 	icon_state = "ace_thigh"
@@ -1683,6 +1734,13 @@
 	name = "Thigh-high (White)"
 	icon_state = "white_thigh"
 
+<<<<<<< HEAD
+=======
+/datum/sprite_accessory/socks/fishnet_thigh
+	name = "Thigh-high (Fishnet)"
+	icon_state = "fishnet_thigh"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/socks/thocks
 	name = "Thocks"
 	icon_state = "thocks"
@@ -1692,7 +1750,11 @@
 /////////////////////////////
 
 /datum/sprite_accessory/body_markings
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
+=======
+	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/body_markings/none
 	name = "None"
@@ -1714,9 +1776,17 @@
 	gender_specific = 1
 
 /datum/sprite_accessory/tails
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
 	em_block = TRUE
 
+=======
+	em_block = TRUE
+
+/datum/sprite_accessory/tails/lizard
+	icon = 'icons/mob/species/lizard/lizard_tails.dmi'
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/tails/lizard/smooth
 	name = "Smooth"
 	icon_state = "smooth"
@@ -1735,11 +1805,20 @@
 
 /datum/sprite_accessory/tails/human/cat
 	name = "Cat"
+<<<<<<< HEAD
 	icon_state = "cat"
+=======
+	icon = 'icons/mob/species/human/cat_features.dmi'
+	icon_state = "default"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	color_src = HAIR
 
 /datum/sprite_accessory/tails/monkey
 	name = "Monkey"
+<<<<<<< HEAD
+=======
+	icon = 'icons/mob/species/monkey/monkey_tail.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "monkey"
 	color_src = FALSE
 
@@ -1788,7 +1867,11 @@
 	icon_state = "hibiscus"
 
 /datum/sprite_accessory/snouts
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
+=======
+	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	em_block = TRUE
 
 /datum/sprite_accessory/snouts/sharp
@@ -1808,7 +1891,11 @@
 	icon_state = "roundlight"
 
 /datum/sprite_accessory/horns
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
+=======
+	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	em_block = TRUE
 
 /datum/sprite_accessory/horns/none
@@ -1848,7 +1935,11 @@
 	icon_state = "lbroken"
 
 /datum/sprite_accessory/ears
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
+=======
+	icon = 'icons/mob/species/human/cat_features.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	em_block = TRUE
 
 /datum/sprite_accessory/ears/none
@@ -1874,11 +1965,19 @@
 	icon_state = "none"
 
 /datum/sprite_accessory/wings
+<<<<<<< HEAD
 	icon = 'icons/mob/clothing/wings.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/wings_open
 	icon = 'icons/mob/clothing/wings.dmi'
+=======
+	icon = 'icons/mob/species/wings.dmi'
+	em_block = TRUE
+
+/datum/sprite_accessory/wings_open
+	icon = 'icons/mob/species/wings.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	em_block = TRUE
 
 /datum/sprite_accessory/wings/angel
@@ -1999,7 +2098,11 @@
 	dimension_y = 32
 
 /datum/sprite_accessory/frills
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
+=======
+	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/frills/none
 	name = "None"
@@ -2018,11 +2121,19 @@
 	icon_state = "aqua"
 
 /datum/sprite_accessory/spines
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/spines_animated
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
+=======
+	icon = 'icons/mob/species/lizard/lizard_spines.dmi'
+	em_block = TRUE
+
+/datum/sprite_accessory/spines_animated
+	icon = 'icons/mob/species/lizard/lizard_spines.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	em_block = TRUE
 
 /datum/sprite_accessory/spines/none
@@ -2084,7 +2195,11 @@
 	name = DIGITIGRADE_LEGS
 
 /datum/sprite_accessory/caps
+<<<<<<< HEAD
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
+=======
+	icon = 'icons/mob/species/mush_cap.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	color_src = HAIR
 	em_block = TRUE
 
@@ -2196,7 +2311,11 @@
 /datum/sprite_accessory/moth_wings/plasmafire
 	name = "Plasmafire"
 	icon_state = "plasmafire"
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/moth_wings/moffra
 	name = "Moffra"
 	icon_state = "moffra"
@@ -2283,7 +2402,11 @@
 /datum/sprite_accessory/moth_antennae/plasmafire
 	name = "Plasmafire"
 	icon_state = "plasmafire"
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/sprite_accessory/moth_antennae/moffra
 	name = "Moffra"
 	icon_state = "moffra"

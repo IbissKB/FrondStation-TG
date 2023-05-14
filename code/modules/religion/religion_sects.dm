@@ -156,7 +156,11 @@
 
 	//first we determine if we can charge them
 	var/did_we_charge = FALSE
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/ethereal/eth_stomach = blessed.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/ethereal/eth_stomach = blessed.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(istype(eth_stomach))
 		eth_stomach.adjust_charge(60)
 		did_we_charge = TRUE
@@ -204,18 +208,40 @@
 	tgui_icon = "fire-alt"
 	alignment = ALIGNMENT_NEUT
 	max_favor = 10000
+<<<<<<< HEAD
 	desired_items = list(/obj/item/candle = "already lit")
 	rites_list = list(/datum/religion_rites/fireproof, /datum/religion_rites/burning_sacrifice, /datum/religion_rites/infinite_candle)
 	altar_icon_state = "convertaltar-red"
 
+=======
+	desired_items = list(/obj/item/flashlight/flare/candle = "already lit")
+	rites_list = list(/datum/religion_rites/fireproof, /datum/religion_rites/burning_sacrifice, /datum/religion_rites/infinite_candle)
+	altar_icon_state = "convertaltar-red"
+
+/datum/religion_sect/pyre/on_select()
+	. = ..()
+	AddComponent(/datum/component/sect_nullrod_bonus, list(
+		/obj/item/gun/ballistic/bow/divine/with_quiver = list(
+			/datum/religion_rites/blazing_star,
+		),
+	))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //candle sect bibles don't heal or do anything special apart from the standard holy water blessings
 /datum/religion_sect/pyre/sect_bless(mob/living/target, mob/living/chap)
 	return TRUE
 
+<<<<<<< HEAD
 /datum/religion_sect/pyre/on_sacrifice(obj/item/candle/offering, mob/living/user)
 	if(!istype(offering))
 		return
 	if(!offering.lit)
+=======
+/datum/religion_sect/pyre/on_sacrifice(obj/item/flashlight/flare/candle/offering, mob/living/user)
+	if(!istype(offering))
+		return
+	if(!offering.on)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_notice("The candle needs to be lit to be offered!"))
 		return
 	to_chat(user, span_notice("[GLOB.deity] is pleased with your sacrifice."))

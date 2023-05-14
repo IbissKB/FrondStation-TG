@@ -24,5 +24,9 @@
 
 /obj/item/clothing/under/stripper_outfit/AltClick(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	if(unique_reskin && !current_skin && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(unique_reskin && !current_skin && user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskin_obj(user)

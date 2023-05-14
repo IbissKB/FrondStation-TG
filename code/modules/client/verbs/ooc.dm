@@ -13,6 +13,11 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	if(!mob)
 		return
 
+<<<<<<< HEAD
+=======
+	VALIDATE_CLIENT(src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!holder)
 		if(!GLOB.ooc_allowed)
 			to_chat(src, span_danger("OOC is globally muted."))
@@ -422,9 +427,15 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	if (!prefs.read_preference(/datum/preference/toggle/auto_fit_viewport))
 		return
 	if(fully_created)
+<<<<<<< HEAD
 		INVOKE_ASYNC(src, .verb/fit_viewport)
 	else //Delayed to avoid wingets from Login calls.
 		addtimer(CALLBACK(src, .verb/fit_viewport, 1 SECONDS))
+=======
+		INVOKE_ASYNC(src, VERB_REF(fit_viewport))
+	else //Delayed to avoid wingets from Login calls.
+		addtimer(CALLBACK(src, VERB_REF(fit_viewport), 1 SECONDS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /client/verb/policy()
 	set name = "Show Policy"
@@ -452,3 +463,15 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	set hidden = TRUE
 
 	init_verbs()
+<<<<<<< HEAD
+=======
+
+/client/proc/export_preferences()
+	set name = "Export Preferences"
+	set desc = "Export your current preferences to a file."
+	set category = "OOC"
+
+	ASSERT(prefs, "User attempted to export preferences while preferences were null!") // what the fuck
+
+	prefs.savefile.export_json_to_client(usr, ckey)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

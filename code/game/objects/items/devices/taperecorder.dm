@@ -9,7 +9,11 @@
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=60, /datum/material/glass=30)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 0.6, /datum/material/glass=SMALL_MATERIAL_AMOUNT * 0.3)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	force = 2
 	throwforce = 2
 	speech_span = SPAN_TAPE_RECORDER
@@ -91,12 +95,17 @@
 		if(!user.transferItemToLoc(I,src))
 			return
 		mytape = I
+<<<<<<< HEAD
 		to_chat(user, span_notice("You insert [I] into [src]."))
+=======
+		balloon_alert(user, "inserted [mytape]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(src, 'sound/items/taperecorder/taperecorder_close.ogg', 50, FALSE)
 		update_appearance()
 
 
 /obj/item/taperecorder/proc/eject(mob/user)
+<<<<<<< HEAD
 	if(mytape)
 		playsound(src, 'sound/items/taperecorder/taperecorder_open.ogg', 50, FALSE)
 		to_chat(user, span_notice("You remove [mytape] from [src]."))
@@ -104,6 +113,20 @@
 		user.put_in_hands(mytape)
 		mytape = null
 		update_appearance()
+=======
+	if(!mytape)
+		balloon_alert(user, "no tape!")
+		return
+	if(playing)
+		balloon_alert(user, "stop the tape first!")
+		return
+	playsound(src, 'sound/items/taperecorder/taperecorder_open.ogg', 50, FALSE)
+	balloon_alert(user, "ejected [mytape]")
+	stop()
+	user.put_in_hands(mytape)
+	mytape = null
+	update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/taperecorder/fire_act(exposed_temperature, exposed_volume)
 	mytape.unspool() //Fires unspool the tape, which makes sense if you don't think about it
@@ -127,8 +150,15 @@
 	set category = "Object"
 
 	if(!can_use(usr))
+<<<<<<< HEAD
 		return
 	if(!mytape)
+=======
+		balloon_alert(usr, "can't use!")
+		return
+	if(!mytape)
+		balloon_alert(usr, "no tape!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	eject(usr)
@@ -152,7 +182,11 @@
 	. = ..()
 	if(mytape && recording)
 		mytape.timestamp += mytape.used_capacity
+<<<<<<< HEAD
 		mytape.storedinfo += "\[[time2text(mytape.used_capacity,"mm:ss")]\] [message]"
+=======
+		mytape.storedinfo += "\[[time2text(mytape.used_capacity,"mm:ss")]\] [raw_message]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /obj/item/taperecorder/verb/record()
@@ -160,19 +194,36 @@
 	set category = "Object"
 
 	if(!can_use(usr))
+<<<<<<< HEAD
 		return
 	if(!mytape || mytape.unspooled)
 		return
 	if(recording)
 		return
 	if(playing)
+=======
+		balloon_alert(usr, "can't use!")
+		return
+	if(!mytape || mytape.unspooled)
+		balloon_alert(usr, "no spooled tape!")
+		return
+	if(recording)
+		balloon_alert(usr, "stop recording first!")
+		return
+	if(playing)
+		balloon_alert(usr, "already playing!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	playsound(src, 'sound/items/taperecorder/taperecorder_play.ogg', 50, FALSE)
 
 	if(mytape.used_capacity < mytape.max_capacity)
 		recording = TRUE
+<<<<<<< HEAD
 		say("Recording started.")
+=======
+		balloon_alert(usr, "started recording")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_sound()
 		update_appearance()
 		var/used = mytape.used_capacity //to stop runtimes when you eject the tape
@@ -182,6 +233,7 @@
 			used += 1 SECONDS
 			if(max - used < time_left_warning && !time_warned)
 				time_warned = TRUE
+<<<<<<< HEAD
 				say("[(max - used) / 10] seconds left!") //deciseconds / 10 = seconds
 			sleep(1 SECONDS)
 		if(used >= max)
@@ -189,6 +241,16 @@
 		stop()
 	else
 		say("The tape is full!")
+=======
+				balloon_alert(usr, "[(max - used) / 10] second\s left")
+			sleep(1 SECONDS)
+		if(used >= max)
+			balloon_alert(usr, "tape full!")
+			sleep(1 SECONDS) //prevent balloon alerts layering over the top of each other
+		stop()
+	else
+		balloon_alert(usr, "tape full!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(src, 'sound/items/taperecorder/taperecorder_stop.ogg', 50, FALSE)
 
 
@@ -197,15 +259,27 @@
 	set category = "Object"
 
 	if(!can_use(usr))
+<<<<<<< HEAD
+=======
+		balloon_alert(usr, "can't use!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(recording)
 		playsound(src, 'sound/items/taperecorder/taperecorder_stop.ogg', 50, FALSE)
+<<<<<<< HEAD
 		say("Recording stopped.")
 		recording = FALSE
 	else if(playing)
 		playsound(src, 'sound/items/taperecorder/taperecorder_stop.ogg', 50, FALSE)
 		say("Playback stopped.")
+=======
+		balloon_alert(usr, "stopped recording")
+		recording = FALSE
+	else if(playing)
+		playsound(src, 'sound/items/taperecorder/taperecorder_stop.ogg', 50, FALSE)
+		balloon_alert(usr, "stopped playing")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playing = FALSE
 	time_warned = FALSE
 	update_appearance()
@@ -216,18 +290,38 @@
 	set category = "Object"
 
 	if(!can_use(usr))
+<<<<<<< HEAD
 		return
 	if(!mytape || mytape.unspooled)
 		return
 	if(recording)
 		return
 	if(playing)
+=======
+		balloon_alert(usr, "can't use!")
+		return
+	if(!mytape || mytape.unspooled)
+		balloon_alert(usr, "no spooled tape!")
+		return
+	if(recording)
+		balloon_alert(usr, "stop recording first!")
+		return
+	if(playing)
+		balloon_alert(usr, "already playing!")
+		return
+	if(mytape.storedinfo?.len <= 0)
+		balloon_alert(usr, "[mytape] is empty!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	playing = TRUE
 	update_appearance()
 	update_sound()
+<<<<<<< HEAD
 	say("Playback started.")
+=======
+	balloon_alert(usr, "started playing")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(src, 'sound/items/taperecorder/taperecorder_play.ogg', 50, FALSE)
 	var/used = mytape.used_capacity //to stop runtimes when you eject the tape
 	var/max = mytape.max_capacity
@@ -237,7 +331,12 @@
 		if(playing == FALSE)
 			break
 		if(mytape.storedinfo.len < i)
+<<<<<<< HEAD
 			say("End of recording.")
+=======
+			balloon_alert(usr, "recording ended")
+			stoplag(1 SECONDS) //prevents multiple balloon alerts covering each other
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			break
 		say("[mytape.storedinfo[i]]", sanitize=FALSE)//We want to display this properly, don't double encode
 		if(mytape.storedinfo.len < i + 1)
@@ -256,10 +355,14 @@
 
 /obj/item/taperecorder/attack_self(mob/user)
 	if(!mytape)
+<<<<<<< HEAD
 		to_chat(user, span_notice("\The [src] is empty."))
 		return
 	if(mytape.unspooled)
 		to_chat(user, span_warning("\The tape inside \the [src] is broken!"))
+=======
+		balloon_alert(user, "it's empty!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	update_available_icons()
@@ -285,6 +388,7 @@
 
 	var/list/transcribed_info = mytape.storedinfo
 	if(!length(transcribed_info))
+<<<<<<< HEAD
 		return
 	if(!mytape)
 		return
@@ -294,6 +398,24 @@
 	if(recording || playing)
 		return
 	if(!can_use(usr))
+=======
+		balloon_alert(usr, "tape is empty!")
+		return
+	if(!canprint)
+		balloon_alert(usr, "can't print that fast!")
+		return
+	if(!can_use(usr))
+		balloon_alert(usr, "can't use!")
+		return
+	if(!mytape || mytape.unspooled)
+		balloon_alert(usr, "no spooled tape!")
+		return
+	if(recording)
+		balloon_alert(usr, "stop recording first!")
+		return
+	if(playing)
+		balloon_alert(usr, "already playing!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/transcribed_text = "<b>Transcript:</b><br><br>"
@@ -308,7 +430,11 @@
 
 		// Very unexpected. Better abort non-gracefully.
 		if(excerpt_length > MAX_PAPER_LENGTH)
+<<<<<<< HEAD
 			say("Error: Data corruption detected. Cannot print.")
+=======
+			balloon_alert(usr, "data corrupted, can't print!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			CRASH("Transcript entry has more than [MAX_PAPER_LENGTH] chars: [excerpt_length] chars")
 
 		// If we're going to overflow the paper's length, print the current transcribed text out first and reset to prevent us
@@ -328,7 +454,11 @@
 	transcript_paper.name = "[paper_name] page [page_count]"
 	transcript_paper.update_appearance()
 
+<<<<<<< HEAD
 	say("Transcript printed, [page_count] pages.")
+=======
+	balloon_alert(usr, "transcript printed\n[page_count] page\s")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	playsound(src, 'sound/items/taperecorder/taperecorder_print.ogg', 50, FALSE)
 
 	// Can't put the entire stack into their hands if there's multple pages, but hey we can at least put one page in.
@@ -349,7 +479,11 @@
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=20, /datum/material/glass=5)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 0.2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.05)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	force = 1
 	throwforce = 0
 	obj_flags = UNIQUE_RENAME //my mixtape
@@ -409,13 +543,21 @@
 				if(loc != user)
 					return
 				tapeflip()
+<<<<<<< HEAD
 				to_chat(user, span_notice("You turn \the [src] over."))
+=======
+				balloon_alert(user, "flipped tape")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				playsound(src, 'sound/items/taperecorder/tape_flip.ogg', 70, FALSE)
 			if("Unwind tape")
 				if(loc != user)
 					return
 				unspool()
+<<<<<<< HEAD
 				to_chat(user, span_warning("You pull out all the tape!"))
+=======
+				balloon_alert(user, "unspooled tape")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/tape/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(prob(50))
@@ -454,10 +596,19 @@
 /obj/item/tape/screwdriver_act(mob/living/user, obj/item/tool)
 	if(!unspooled)
 		return FALSE
+<<<<<<< HEAD
 	to_chat(user, span_notice("You start winding the tape back in..."))
 	if(tool.use_tool(src, user, 120))
 		to_chat(user, span_notice("You wind the tape back in."))
 		respool()
+=======
+	balloon_alert(user, "respooling tape...")
+	if(!tool.use_tool(src, user, 12 SECONDS))
+		balloon_alert(user, "respooling failed!")
+		return FALSE
+	balloon_alert(user, "tape respooled")
+	respool()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Random colour tapes
 /obj/item/tape/random

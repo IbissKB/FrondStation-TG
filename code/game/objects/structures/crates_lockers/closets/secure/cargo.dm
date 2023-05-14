@@ -5,6 +5,7 @@
 
 /obj/structure/closet/secure_closet/quartermaster/PopulateContents()
 	..()
+<<<<<<< HEAD
 	new /obj/item/clothing/neck/cloak/qm(src)
 	new /obj/item/storage/lockbox/medal/cargo(src)
 	// SKYRAT EDIT REMOVAL BEGIN - MOVED TO COMMAND CLOTHING VENDOR
@@ -19,6 +20,9 @@
 	new /obj/item/radio/headset/heads/qm(src)
 	new /obj/item/clothing/suit/utility/fire/firefighter(src)
 	new /obj/item/clothing/gloves/fingerless(src)
+=======
+	new /obj/item/storage/lockbox/medal/cargo(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/megaphone/cargo(src)
 	new /obj/item/tank/internals/emergency_oxygen(src)
 	new /obj/item/universal_scanner(src)
@@ -26,10 +30,17 @@
 	new /obj/item/circuitboard/machine/techfab/department/cargo(src)
 	new /obj/item/storage/photo_album/qm(src)
 	new /obj/item/circuitboard/machine/ore_silo(src)
+<<<<<<< HEAD
 	new /obj/item/clothing/suit/hooded/wintercoat/cargo/qm(src)
 	new /obj/item/gun/ballistic/rifle/boltaction/brand_new/quartermaster(src) // SKYRAT EDIT - The QM's 'special' head item. It spawns loaded, but you have to find more ammo if you run out and get ready to manually load rounds in!
 	new /obj/item/cargo_teleporter(src) // SKYRAT EDIT - Adds a cargo teleporter to QM locker, so they can intice others to research it
 	new /obj/item/clothing/glasses/hud/gun_permit/sunglasses(src) //SKYRAT EDIT - GUN CARGO
+=======
+	new /obj/item/gun/ballistic/rifle/boltaction/quartermaster(src) // SKYRAT EDIT - The QM's 'special' head item. It spawns loaded, but you have to find more ammo if you run out and get ready to manually load rounds in!
+	new /obj/item/cargo_teleporter(src) // SKYRAT EDIT - Adds a cargo teleporter to QM locker, so they can intice others to research it
+	new /obj/item/clothing/glasses/hud/gun_permit/sunglasses(src) //SKYRAT EDIT - GUN CARGO
+	new /obj/item/storage/bag/garment/quartermaster(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/quartermaster/populate_contents_immediate()
 	. = ..()

@@ -10,6 +10,10 @@
 /datum/symptom/choking
 	name = "Choking"
 	desc = "The virus causes inflammation of the host's air conduits, leading to intermittent choking."
+<<<<<<< HEAD
+=======
+	illness = "Pneumatic Tubes"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -3
 	resistance = -2
 	stage_speed = -2
@@ -84,6 +88,10 @@ Bonus
 
 	name = "Acute respiratory distress syndrome"
 	desc = "The virus causes shrinking of the host's lungs, causing severe asphyxiation. May also lead to heart attacks."
+<<<<<<< HEAD
+=======
+	illness = "Iron Lungs"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -2
 	resistance = -0
 	stage_speed = -1

@@ -5,7 +5,11 @@
 	suicide_cry = "FOR THE GREENTEXT!!" // This can never actually show up, but not including it is a missed opportunity
 	count_against_dynamic_roll_chance = FALSE
 
+<<<<<<< HEAD
 /datum/antagonist/greentext/proc/forge_objectives()
+=======
+/datum/antagonist/greentext/forge_objectives()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/objective/succeed_objective = new /datum/objective("Succeed")
 	succeed_objective.completed = TRUE //YES!
 	succeed_objective.owner = owner

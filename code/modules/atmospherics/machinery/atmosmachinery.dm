@@ -20,6 +20,11 @@
 	resistance_flags = FIRE_PROOF
 	max_integrity = 200
 	obj_flags = CAN_BE_HIT
+<<<<<<< HEAD
+=======
+	armor_type = /datum/armor/machinery_atmospherics
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Check if the object can be unwrenched
 	var/can_unwrench = FALSE
 	///Bitflag of the initialized directions (NORTH | SOUTH | EAST | WEST)
@@ -61,6 +66,22 @@
 	///keeps the name of the object from being overridden if it's vareditted.
 	var/override_naming
 
+<<<<<<< HEAD
+=======
+	///If we should init and immediately start processing
+	var/init_processing = FALSE
+
+	armor_type = /datum/armor/machinery_atmospherics
+
+/datum/armor/machinery_atmospherics
+	melee = 25
+	bullet = 10
+	laser = 10
+	energy = 100
+	fire = 100
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/LateInitialize()
 	. = ..()
 	update_name()
@@ -79,11 +100,16 @@
 	if(pipe_flags & PIPING_CARDINAL_AUTONORMALIZE)
 		normalize_cardinal_directions()
 	nodes = new(device_type)
+<<<<<<< HEAD
 	if (!armor)
 		armor = list(MELEE = 25, BULLET = 10, LASER = 10, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 100, ACID = 70)
 	..()
 	if(process)
 		SSair.start_processing_machine(src)
+=======
+	init_processing = process
+	..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_init_directions(init_dir)
 
 /obj/machinery/atmospherics/Initialize(mapload)
@@ -95,6 +121,11 @@
 		turf_loc.add_blueprints_preround(src)
 	SSspatial_grid.add_grid_awareness(src, SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
 	SSspatial_grid.add_grid_membership(src, turf_loc, SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
+<<<<<<< HEAD
+=======
+	if(init_processing)
+		SSair.start_processing_machine(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/machinery/atmospherics/Destroy()
@@ -147,6 +178,50 @@
 	nodes[i] = null
 
 /**
+<<<<<<< HEAD
+=======
+ * Setter for device direction
+ *
+ * Set the direction to either SOUTH or WEST if the pipe_flag is set to PIPING_CARDINAL_AUTONORMALIZE, called in New(), used mostly by layer manifolds
+ */
+/obj/machinery/atmospherics/proc/normalize_cardinal_directions()
+	switch(dir)
+		if(SOUTH)
+			setDir(NORTH)
+		if(WEST)
+			setDir(EAST)
+
+/**
+ * setter for pipe layers
+ *
+ * Set the layer of the pipe that the device has to a new_layer
+ * Arguments:
+ * * new_layer - the layer at which we want the piping_layer to be (1 to 5)
+ */
+/obj/machinery/atmospherics/proc/set_piping_layer(new_layer)
+	piping_layer = (pipe_flags & PIPING_DEFAULT_LAYER_ONLY) ? PIPING_LAYER_DEFAULT : new_layer
+	update_appearance()
+
+/obj/machinery/atmospherics/update_icon()
+	. = ..()
+	update_layer()
+
+/**
+ * Find a connecting /obj/machinery/atmospherics in specified direction, called by relaymove()
+ * used by ventcrawling mobs to check if they can move inside a pipe in a specific direction
+ * Arguments:
+ * * direction - the direction we are checking against
+ * * prompted_layer - the piping_layer we are inside
+ */
+/obj/machinery/atmospherics/proc/find_connecting(direction, prompted_layer)
+	for(var/obj/machinery/atmospherics/target in get_step_multiz(src, direction))
+		if(!(target.initialize_directions & get_dir(target,src)) && !istype(target, /obj/machinery/atmospherics/pipe/multiz))
+			continue
+		if(connection_check(target, prompted_layer))
+			return target
+
+/**
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * Getter for node_connects
  *
  * Return a list of the nodes that can connect to other machines, get called by atmos_init()
@@ -168,6 +243,7 @@
 	return node_connects
 
 /**
+<<<<<<< HEAD
  * Setter for device direction
  *
  * Set the direction to either SOUTH or WEST if the pipe_flag is set to PIPING_CARDINAL_AUTONORMALIZE, called in New(), used mostly by layer manifolds
@@ -180,6 +256,8 @@
 			setDir(EAST)
 
 /**
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * Initialize for atmos devices
  *
  * initialize the nodes for each pipe/device, this is called just after the air controller sets up turfs
@@ -192,6 +270,7 @@
 
 	for(var/i in 1 to device_type)
 		for(var/obj/machinery/atmospherics/target in get_step(src,node_connects[i]))
+<<<<<<< HEAD
 			if(can_be_node(target, i))
 				nodes[i] = target
 				break
@@ -212,11 +291,20 @@
 	. = ..()
 	update_layer()
 
+=======
+			if(can_be_node(target))
+				nodes[i] = target
+				break
+
+	update_appearance()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Check if a node can actually exists by connecting to another machine
  * called on atmos_init()
  * Arguments:
  * * obj/machinery/atmospherics/target - the machine we are connecting to
+<<<<<<< HEAD
  * * iteration - the current node we are checking (from 1 to 4)
  */
 /obj/machinery/atmospherics/proc/can_be_node(obj/machinery/atmospherics/target, iteration)
@@ -237,6 +325,13 @@
 			return target
 
 /**
+=======
+ */
+/obj/machinery/atmospherics/proc/can_be_node(obj/machinery/atmospherics/target)
+	return connection_check(target, piping_layer)
+
+/**
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * Check the connection between two nodes
  *
  * Check if our machine and the target machine are connectable by both calling isConnectable and by checking that the directions and piping_layer are compatible
@@ -246,6 +341,7 @@
  * * given_layer - the piping_layer we are checking
  */
 /obj/machinery/atmospherics/proc/connection_check(obj/machinery/atmospherics/target, given_layer)
+<<<<<<< HEAD
 	if(is_connectable(target, given_layer) && target.is_connectable(src, given_layer) && check_init_directions(target))
 		return TRUE
 	return FALSE
@@ -260,6 +356,17 @@
 	if((initialize_directions & get_dir(src, target) && target.initialize_directions & get_dir(target,src)) || istype(target, /obj/machinery/atmospherics/pipe/multiz))
 		return TRUE
 	return FALSE
+=======
+	//if target is not multiz then we have to check if the target & src connect in the same direction
+	if(!istype(target, /obj/machinery/atmospherics/pipe/multiz) && !((initialize_directions & get_dir(src, target)) && (target.initialize_directions & get_dir(target, src))))
+		return FALSE
+
+	//both target & src can't be connected either way
+	if(!is_connectable(target, given_layer) || !target.is_connectable(src, given_layer))
+		return FALSE
+
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * check if the piping layer and color are the same on both sides (grey can connect to all colors)
@@ -271,6 +378,7 @@
 /obj/machinery/atmospherics/proc/is_connectable(obj/machinery/atmospherics/target, given_layer)
 	if(isnull(given_layer))
 		given_layer = piping_layer
+<<<<<<< HEAD
 	if(check_connectable_layer(target, given_layer) && target.loc != loc && check_connectable_color(target))
 		return TRUE
 	return FALSE
@@ -298,6 +406,22 @@
 	if(target.pipe_color == pipe_color || ((target.pipe_flags | pipe_flags) & PIPING_ALL_COLORS) || target.pipe_color == COLOR_VERY_LIGHT_GRAY || pipe_color == COLOR_VERY_LIGHT_GRAY)
 		return TRUE
 	return FALSE
+=======
+
+	// you cant place the machine on the same location as the target cause it blocks
+	if(target.loc == loc)
+		return FALSE
+
+	//if the target is not in the same piping layer & it does not have the all layer connection flag[which allows it to be connected regardless of layer] then we are out
+	if(target.piping_layer != given_layer && !(target.pipe_flags & PIPING_ALL_LAYER))
+		return FALSE
+
+	//if the target does not have the same color and it does not have all color connection flag[which allows it to be connected regardless of color] & one of the pipes is not gray[allowing for connection regardless] then we are out
+	if(target.pipe_color != pipe_color && !((target.pipe_flags | pipe_flags) & PIPING_ALL_COLORS) && target.pipe_color != COLOR_VERY_LIGHT_GRAY && pipe_color != COLOR_VERY_LIGHT_GRAY)
+		return FALSE
+
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Called on construction and when expanding the datum_pipeline, returns the nodes of the device
@@ -373,6 +497,7 @@
 	add_fingerprint(user)
 
 	var/unsafe_wrenching = FALSE
+<<<<<<< HEAD
 	var/internal_pressure = int_air.return_pressure()-env_air.return_pressure()
 
 	to_chat(user, span_notice("You begin to unfasten \the [src]..."))
@@ -382,6 +507,31 @@
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
 	if(I.use_tool(src, user, 20, volume=50))
+=======
+	var/internal_pressure = int_air.return_pressure() - env_air.return_pressure()
+	var/empty_pipe = FALSE
+	if(istype(src, /obj/machinery/atmospherics/components))
+		var/list/datum/gas_mixture/all_gas_mixes = return_analyzable_air()
+		var/empty_mixes = 0
+		for(var/gas_mix_number in 1 to device_type)
+			var/datum/gas_mixture/gas_mix = all_gas_mixes[gas_mix_number]
+			if(!(gas_mix.total_moles() > 0))
+				empty_mixes++
+		if(empty_mixes == device_type)
+			empty_pipe = TRUE
+	if(!(int_air.total_moles() > 0))
+		empty_pipe = TRUE
+
+	if(!empty_pipe)
+		to_chat(user, span_notice("You begin to unfasten \the [src]..."))
+
+	if (internal_pressure > 2 * ONE_ATMOSPHERE)
+		to_chat(user, span_warning("As you begin unwrenching \the [src] a gush of air blows in your face... maybe you should reconsider?"))
+		unsafe_wrenching = TRUE //Oh dear oh dear
+
+	var/time_taken = empty_pipe ? 0 : 20
+	if(I.use_tool(src, user, time_taken, volume = 50))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.visible_message( \
 			"[user] unfastens \the [src].", \
 			span_notice("You unfasten \the [src]."), \
@@ -392,7 +542,12 @@
 		if(unsafe_wrenching)
 			unsafe_pressure_release(user, internal_pressure)
 		return deconstruct(TRUE)
+<<<<<<< HEAD
 	return TRUE
+=======
+
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Getter for can_unwrench
@@ -465,7 +620,11 @@
 		PIPING_FORWARD_SHIFT(pipe_overlay, piping_layer, 2)
 	return pipe_overlay
 
+<<<<<<< HEAD
 /obj/machinery/atmospherics/on_construction(obj_color, set_layer = PIPING_LAYER_DEFAULT)
+=======
+/obj/machinery/atmospherics/on_construction(mob/user, obj_color, set_layer = PIPING_LAYER_DEFAULT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(can_unwrench)
 		add_atom_colour(obj_color, FIXED_COLOUR_PRIORITY)
 		set_pipe_color(obj_color)
@@ -593,3 +752,10 @@
 /obj/machinery/atmospherics/proc/set_pipe_color(pipe_colour)
 	src.pipe_color = uppertext(pipe_colour)
 	update_name()
+<<<<<<< HEAD
+=======
+
+#undef PIPE_VISIBLE_LEVEL
+#undef PIPE_HIDDEN_LEVEL
+#undef VENT_SOUND_DELAY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

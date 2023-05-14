@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* SKYRAT EDIT REMOVAL - MOVED TO MODULAR GUN.DM
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define DUALWIELD_PENALTY_EXTRA_MULTIPLIER 1.4
 #define FIRING_PIN_REMOVAL_DELAY 50
 
@@ -11,7 +14,11 @@
 	worn_icon_state = "gun"
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=2000)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5
 	throw_speed = 3
@@ -75,6 +82,11 @@
 		pin = new pin(src)
 
 	add_seclight_point()
+<<<<<<< HEAD
+=======
+	give_gun_safeties() // SKYRAT EDIT ADDITION - GUN SAFETIES
+	give_manufacturer_examine() // SKYRAT EDIT ADDITON - MANUFACTURER EXAMINE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/Destroy()
 	if(isobj(pin)) //Can still be the initial path, then we skip
@@ -117,7 +129,14 @@
 	if(!pinless)
 		if(pin)
 			. += "It has \a [pin] installed."
+<<<<<<< HEAD
 			. += span_info("[pin] looks like it could be removed with some <b>tools</b>.")
+=======
+			if(pin.pin_removable)
+				. += span_info("[pin] looks like [pin.p_they()] could be removed with some <b>tools</b>.")
+			else
+				. += span_info("[pin] looks like [pin.p_theyre()] firmly locked in, [pin.p_they()] looks impossible to remove.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			. += "It doesn't have a <b>firing pin</b> installed, and won't fire."
 
@@ -199,19 +218,35 @@
 	var/datum/component/gunpoint/gunpoint_component = user.GetComponent(/datum/component/gunpoint)
 	if (gunpoint_component)
 		if(gunpoint_component.target == victim)
+<<<<<<< HEAD
 			return ..() //we're already holding them up, shoot that mans instead of complaining
 		balloon_alert(user, "already holding someone up!")
+=======
+			balloon_alert(user, "already holding them up!")
+		else
+			balloon_alert(user, "already holding someone up!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if (user == victim)
 		balloon_alert(user, "can't hold yourself up!")
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+<<<<<<< HEAD
 	user.AddComponent(/datum/component/gunpoint, victim, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
 	. = ..()
 	return fire_gun(target, user, flag, params)
+=======
+	if(do_after(user, 0.5 SECONDS, victim))
+		user.AddComponent(/datum/component/gunpoint, victim, src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
+	..()
+	return fire_gun(target, user, flag, params) | AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/proc/fire_gun(atom/target, mob/living/user, flag, params)
 	if(QDELETED(target))
@@ -260,6 +295,7 @@
 	var/loop_counter = 0
 	if(ishuman(user) && user.combat_mode)
 		var/mob/living/carbon/human/H = user
+<<<<<<< HEAD
 		for(var/obj/item/gun/G in H.held_items)
 			if(G == src || G.weapon_weight >= WEAPON_MEDIUM)
 				continue
@@ -267,6 +303,15 @@
 				bonus_spread += dual_wield_spread
 				loop_counter++
 				addtimer(CALLBACK(G, TYPE_PROC_REF(/obj/item/gun, process_fire), target, user, TRUE, params, null, bonus_spread), loop_counter)
+=======
+		for(var/obj/item/gun/gun in H.held_items)
+			if(gun == src || gun.weapon_weight >= WEAPON_MEDIUM)
+				continue
+			else if(gun.can_trigger_gun(user, akimbo_usage = TRUE))
+				bonus_spread += dual_wield_spread
+				loop_counter++
+				addtimer(CALLBACK(gun, TYPE_PROC_REF(/obj/item/gun, process_fire), target, user, TRUE, params, null, bonus_spread), loop_counter)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return process_fire(target, user, TRUE, params, null, bonus_spread)
 
@@ -284,7 +329,11 @@
 					user.dropItemToGround(src, TRUE)
 				return TRUE
 
+<<<<<<< HEAD
 /obj/item/gun/can_trigger_gun(mob/living/user)
+=======
+/obj/item/gun/can_trigger_gun(mob/living/user, akimbo_usage)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!handle_pins(user))
 		return FALSE
@@ -445,13 +494,21 @@
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(bayonet && can_bayonet) //if it has a bayonet, and the bayonet can be removed
 		return remove_bayonet(user, I)
 
+<<<<<<< HEAD
 	else if(pin && user.is_holding(src))
+=======
+	else if(pin?.pin_removable && user.is_holding(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
 		span_notice("You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)"), null, 3)
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, volume = 50))
@@ -466,9 +523,15 @@
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 		return
 	if(pin && user.is_holding(src))
+=======
+	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+		return
+	if(pin?.pin_removable && user.is_holding(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
 		span_notice("You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)"), null, 3)
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, 5, volume = 50))
@@ -483,9 +546,15 @@
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 		return
 	if(pin && user.is_holding(src))
+=======
+	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+		return
+	if(pin?.pin_removable && user.is_holding(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
 		span_notice("You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)"), null, 3)
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, volume = 50))
@@ -542,7 +611,11 @@
 
 	semicd = TRUE
 
+<<<<<<< HEAD
 	if(!bypass_timer && (!do_mob(user, target, 120) || user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
+=======
+	if(!bypass_timer && (!do_after(user, 120, target) || user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(user)
 			if(user == target)
 				user.visible_message(span_notice("[user] decided not to shoot."))
@@ -577,4 +650,7 @@
 
 #undef FIRING_PIN_REMOVAL_DELAY
 #undef DUALWIELD_PENALTY_EXTRA_MULTIPLIER
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

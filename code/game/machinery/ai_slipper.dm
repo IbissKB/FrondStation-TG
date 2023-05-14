@@ -7,13 +7,28 @@
 	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
 	plane = FLOOR_PLANE
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
+=======
+	armor_type = /datum/armor/machinery_ai_slipper
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/uses = 20
 	COOLDOWN_DECLARE(foam_cooldown)
 	var/cooldown_time = 10 SECONDS // just about enough cooldown time so you cant waste foam
 	req_access = list(ACCESS_AI_UPLOAD)
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_ai_slipper
+	melee = 50
+	bullet = 20
+	laser = 20
+	energy = 20
+	fire = 50
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/ai_slipper/examine(mob/user)
 	. = ..()
 	. += span_notice("It has <b>[uses]</b> uses of foam remaining.")

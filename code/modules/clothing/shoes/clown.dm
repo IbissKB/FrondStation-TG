@@ -6,14 +6,23 @@
 	slowdown = SHOES_SLOWDOWN+1
 	var/enabled_waddle = TRUE
 	///List of possible sounds for the squeak component to use, allows for different clown shoe subtypes to have different sounds.
+<<<<<<< HEAD
 	var/list/squeak_sound = list('sound/effects/clownstep1.ogg'=1,'sound/effects/clownstep2.ogg'=1)
 	lace_time = 20 SECONDS // how the hell do these laces even work??
 	species_exception = list(/datum/species/golem/bananium)
+=======
+	var/list/squeak_sound = list('sound/effects/footstep/clownstep1.ogg'=1,'sound/effects/footstep/clownstep2.ogg'=1)
+	lace_time = 20 SECONDS // how the hell do these laces even work??
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/shoes/clown_shoes/Initialize(mapload)
 	. = ..()
 
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/shoes/clown)
+=======
+	create_storage(storage_type = /datum/storage/pockets/shoes/clown)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	LoadComponent(/datum/component/squeak, squeak_sound, 50, falloff_exponent = 20) //die off quick please
 	//AddElement(/datum/element/swabable, CELL_LINE_TABLE_CLOWN, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 0) // SKYRAT EDIT - REMOVAL - NO CLOWN CYTOLOGY
 
@@ -53,7 +62,11 @@
 	name = "meown shoes"
 	desc = "The adorable sound they make when you walk will mean making friends is more likely."
 	icon_state = "meown_shoes"
+<<<<<<< HEAD
 	squeak_sound = list('sound/effects/meowstep1.ogg'=1) //mew mew mew mew
+=======
+	squeak_sound = list('sound/effects/footstep/meowstep1.ogg'=1) //mew mew mew mew
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/shoes/clown_shoes/ducky_shoes
 	name = "ducky shoes"

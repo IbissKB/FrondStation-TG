@@ -34,7 +34,11 @@
 	. = ..()
 	AddComponent(/datum/component/plumbing/acclimator, bolt, layer)
 
+<<<<<<< HEAD
 /obj/machinery/plumbing/acclimator/process(delta_time)
+=======
+/obj/machinery/plumbing/acclimator/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(machine_stat & NOPOWER || !enabled || !reagents.total_volume || reagents.chem_temp == target_temperature)
 		if(acclimate_state != NEUTRAL)
 			acclimate_state = NEUTRAL
@@ -56,9 +60,15 @@
 			emptying = TRUE
 
 	if(!emptying) //suspend heating/cooling during emptying phase
+<<<<<<< HEAD
 		reagents.adjust_thermal_energy((target_temperature - reagents.chem_temp) * heater_coefficient * delta_time * SPECIFIC_HEAT_DEFAULT * reagents.total_volume) //keep constant with chem heater
 		reagents.handle_reactions()
 		use_power(active_power_usage * delta_time)
+=======
+		reagents.adjust_thermal_energy((target_temperature - reagents.chem_temp) * heater_coefficient * seconds_per_tick * SPECIFIC_HEAT_DEFAULT * reagents.total_volume) //keep constant with chem heater
+		reagents.handle_reactions()
+		use_power(active_power_usage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(acclimate_state != NEUTRAL)
 		acclimate_state = NEUTRAL
 		update_appearance()

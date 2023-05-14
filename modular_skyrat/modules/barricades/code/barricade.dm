@@ -6,6 +6,10 @@
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
 	flags_1 = ON_BORDER_1
+<<<<<<< HEAD
+=======
+	obj_flags = CAN_BE_HIT | BLOCKS_CONSTRUCTION_DIR | IGNORE_DENSITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 100
 	///The type of stack the barricade dropped when disassembled if any.
 	var/stack_type
@@ -259,13 +263,29 @@
 	desc = "A small barricade made from metal posting, designed to stop you from going places you aren't supposed to."
 	icon_state = "railing_0"
 	max_integrity = 150
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 100, ACID = 10)
+=======
+	armor_type = /datum/armor/deployable_barricade_guardrail
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stack_type = /obj/item/stack/rods
 	destroyed_stack_amount = 2
 	barricade_type = "railing"
 	allow_thrown_objs = FALSE
 	can_wire = FALSE
 
+<<<<<<< HEAD
+=======
+/datum/armor/deployable_barricade_guardrail
+	bullet = 50
+	laser = 50
+	energy = 50
+	bomb = 15
+	bio = 100
+	fire = 100
+	acid = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/deployable_barricade/guardrail/update_icon()
 	. = ..()
 	if(dir == NORTH)
@@ -331,7 +351,11 @@
 	desc = "A durable and easily mounted barricade made from metal plates, often used for rapid fortification. Repairing it requires a welder."
 	icon_state = "metal_0"
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
+=======
+	armor_type = /datum/armor/deployable_barricade_metal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stack_type = /obj/item/stack/sheet/iron
 	stack_amount = 2
 	destroyed_stack_amount = 1
@@ -348,6 +372,14 @@
 	/// Can we be upgraded?
 	var/can_upgrade = TRUE
 
+<<<<<<< HEAD
+=======
+/datum/armor/deployable_barricade_metal
+	bio = 100
+	fire = 80
+	acid = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/deployable_barricade/metal/AltClick(mob/user)
 	if(portable_type)
 		if(anchored)
@@ -452,11 +484,19 @@
 
 	switch(choice)
 		if(BARRICADE_TYPE_BOMB)
+<<<<<<< HEAD
 			armor = armor.modifyRating(bomb = 50)
 		if(BARRICADE_TYPE_MELEE)
 			armor = armor.modifyRating(melee = 30, bullet = 30)
 		if(BARRICADE_TYPE_ACID)
 			armor = armor.modifyRating(bio = 0, acid = 20)
+=======
+			set_armor_rating(BOMB, min(get_armor_rating(BOMB) + 50, 100))
+		if(BARRICADE_TYPE_MELEE)
+			set_armor(get_armor().generate_new_with_modifiers(list(MELEE = 30, BULLET = 30)))
+		if(BARRICADE_TYPE_ACID)
+			set_armor(get_armor().generate_new_with_modifiers(list(ACID = 20)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	barricade_upgrade_type = choice
 
@@ -535,7 +575,11 @@
 			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
+<<<<<<< HEAD
 			user.visible_message (span_notice ("[user] removes the panel from[src]."),
+=======
+			user.visible_message (span_notice ("[user] removes the panel from [src]."),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			span_notice ("You remove the panel from [src], revealing some <b>bolts</b> beneath it."))
 			build_state = BARRICADE_METAL_ANCHORED
 			return TRUE
@@ -613,18 +657,29 @@
 
 			switch(barricade_upgrade_type)
 				if(BARRICADE_TYPE_BOMB)
+<<<<<<< HEAD
 					armor = armor.modifyRating(bomb = -50)
 				if(BARRICADE_TYPE_MELEE)
 					armor = armor.modifyRating(melee = -30, bullet = -30)
 				if(BARRICADE_TYPE_ACID)
 					armor = armor.modifyRating(bio = 0, acid = -20)
+=======
+					set_armor_rating(BOMB, max(get_armor_rating(BOMB) - 50, 0))
+				if(BARRICADE_TYPE_MELEE)
+					set_armor(get_armor().generate_new_with_modifiers(list(MELEE = -30, BULLET = -30)))
+				if(BARRICADE_TYPE_ACID)
+					set_armor(get_armor().generate_new_with_modifiers(list(ACID = -20)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			new /obj/item/stack/sheet/iron(loc, BARRICADE_UPGRADE_REQUIRED_SHEETS)
 			barricade_upgrade_type = null
 			update_icon()
 			return TRUE
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/deployable_barricade/metal/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -749,7 +804,11 @@
 
 /obj/item/quickdeploy/examine(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	. += "This [src.name] is set up deploy [thing_to_deploy.name]."
+=======
+	. += "This [src.name] is set up deploy [initial(thing_to_deploy.name)]." // initial() since thing_to_deploy is a typepath
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/quickdeploy/attack_self(mob/user)
 	to_chat(user, span_notice("You start deploying [src] in front of you."))

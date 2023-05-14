@@ -121,7 +121,14 @@
 		holochange.name = "[holochange.credits] credit holochip"
 		if(ishuman(user))
 			var/mob/living/carbon/human/paying_customer = user
+<<<<<<< HEAD
 			if(!INVOKE_ASYNC(paying_customer, TYPE_PROC_REF(/mob, put_in_hands), holochange))
+=======
+			var/successfully_put_in_hands
+			ASYNC //Put_in_hands can sleep, we don't want that to block this proc.
+				successfully_put_in_hands = paying_customer.put_in_hands(holochange)
+			if(!successfully_put_in_hands)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				user.pulling = holochange
 		else
 			user.pulling = holochange
@@ -134,6 +141,11 @@
  * Attempts to charge a mob, user, an integer number of credits, total_cost, directly from an ID card/bank account.
  */
 /datum/component/payment/proc/handle_card(mob/living/user, obj/item/card/id/idcard, total_cost)
+<<<<<<< HEAD
+=======
+	var/atom/atom_parent = parent
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!idcard)
 		return FALSE
 	if(!idcard?.registered_account)
@@ -154,7 +166,11 @@
 				to_chat(user, span_warning("YOU MORON. YOU ABSOLUTE BAFOON. YOU INSUFFERABLE TOOL. YOU ARE POOR."))
 			if(PAYMENT_CLINICAL)
 				to_chat(user, span_warning("ID Card lacks funds. Aborting."))
+<<<<<<< HEAD
 		user.balloon_alert(user, "Cost: [total_cost] credits.")
+=======
+		atom_parent.balloon_alert(user, "needs [total_cost] credit\s!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	target_acc.transfer_money(idcard.registered_account, total_cost, "Nanotrasen: Usage of Corporate Machinery")
 	log_econ("[total_cost] credits were spent on [parent] by [user] via [idcard.registered_account.account_holder]'s card.")

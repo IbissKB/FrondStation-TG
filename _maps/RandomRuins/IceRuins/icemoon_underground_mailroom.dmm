@@ -17,9 +17,13 @@
 /turf/closed/indestructible/reinforced,
 /area/ruin/powered/mailroom)
 "ba" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured,
 /area/ruin/powered/mailroom)
 "bK" = (
@@ -72,7 +76,11 @@
 "hj" = (
 /obj/structure/filingcabinet/chestdrawer/wheeled,
 /obj/item/storage/fancy/heart_box,
+<<<<<<< HEAD
 /obj/item/food/tinychocolate,
+=======
+/obj/item/food/bonbon,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered/mailroom)
 "hk" = (
@@ -106,9 +114,13 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/powered/mailroom)
 "jm" = (
+<<<<<<< HEAD
 /obj/structure/closet/crate/mail{
 	icon_state = "mailopen"
 	},
+=======
+/obj/structure/closet/crate/mail/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/mail/junkmail,
 /obj/item/mail/junkmail,
 /obj/item/mail/junkmail,
@@ -167,9 +179,13 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/ruin/powered/mailroom)
 "oU" = (
+<<<<<<< HEAD
 /obj/structure/closet/crate/mail{
 	icon_state = "mailopen"
 	},
+=======
+/obj/structure/closet/crate/mail/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/mail/junkmail,
 /obj/item/mail/junkmail,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
@@ -288,7 +304,11 @@
 /obj/machinery/door/window{
 	dir = 2
 	},
+<<<<<<< HEAD
 /obj/structure/window/spawner/east,
+=======
+/obj/structure/window/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/toy/figure/cargotech,
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/mailroom/waiting,
 /turf/open/floor/noslip,
@@ -319,9 +339,13 @@
 	},
 /area/ruin/powered/mailroom)
 "Jd" = (
+<<<<<<< HEAD
 /obj/structure/closet/crate/mail{
 	icon_state = "mailopen"
 	},
+=======
+/obj/structure/closet/crate/mail/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/siding/yellow,
 /obj/item/mail/junkmail,
 /obj/item/mail/junkmail,
@@ -369,9 +393,13 @@
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered/mailroom)
 "MT" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/textured,
 /area/ruin/powered/mailroom)
@@ -417,9 +445,13 @@
 /turf/open/misc/grass,
 /area/ruin/powered/mailroom)
 "Qb" = (
+<<<<<<< HEAD
 /obj/structure/closet/crate/mail{
 	icon_state = "mailopen"
 	},
+=======
+/obj/structure/closet/crate/mail/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes{
 	dir = 8
 	},
@@ -498,9 +530,13 @@
 /turf/open/floor/iron/white,
 /area/ruin/powered/mailroom)
 "Wr" = (
+<<<<<<< HEAD
 /obj/structure/closet/crate/mail{
 	icon_state = "mailopen"
 	},
+=======
+/obj/structure/closet/crate/mail/preopen,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/siding/yellow,
 /obj/item/mail/junkmail,
 /obj/item/mail/junkmail,

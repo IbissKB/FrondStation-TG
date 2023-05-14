@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //clusterCheckFlags defines
 //All based on clusterMin and clusterMax as guides
 
@@ -17,6 +18,8 @@
 //All
 #define CLUSTER_CHECK_ALL 30 //Don't let anything cluster, like, at all
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/map_generator
 
 	//Map information

@@ -14,7 +14,11 @@
 	demolition_mod = 1.25
 	w_class = WEIGHT_CLASS_SMALL
 	usesound = 'sound/items/ratchet.ogg'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=150)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*1.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	drop_sound = 'sound/items/handling/wrench_drop.ogg'
 	pickup_sound = 'sound/items/handling/wrench_pickup.ogg'
 
@@ -22,7 +26,15 @@
 	attack_verb_simple = list("bash", "batter", "bludgeon", "whack")
 	tool_behaviour = TOOL_WRENCH
 	toolspeed = 1
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
+=======
+	armor_type = /datum/armor/item_wrench
+
+/datum/armor/item_wrench
+	fire = 50
+	acid = 30
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/wrench/Initialize(mapload)
 	. = ..()
@@ -38,7 +50,11 @@
 	desc = "A polarized wrench. It causes anything placed between the jaws to turn."
 	icon = 'icons/obj/abductor.dmi'
 	belt_icon_state = "wrench_alien"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
+=======
+	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT*1.25, /datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/titanium =SHEET_MATERIAL_AMOUNT, /datum/material/diamond =SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	usesound = 'sound/effects/empulse.ogg'
 	toolspeed = 0.1
 
@@ -125,3 +141,13 @@
 	balloon_alert(user, "[name] [active ? "active, woe!":"restrained"]")
 	playsound(user ? user : src, active ? 'sound/weapons/saberon.ogg' : 'sound/weapons/saberoff.ogg', 5, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
+<<<<<<< HEAD
+=======
+
+/obj/item/wrench/bolter
+	name = "bolter wrench"
+	desc = "A wrench designed to grab into airlock's bolting system and raise it regardless of the airlock's power status."
+	icon_state = "bolter_wrench"
+	inhand_icon_state = "bolter_wrench"
+	w_class = WEIGHT_CLASS_NORMAL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

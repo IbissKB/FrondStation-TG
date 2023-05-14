@@ -37,6 +37,11 @@
 	if(severity > EXPLODE_LIGHT)
 		return ..()
 
+<<<<<<< HEAD
+=======
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/storage/portable_chem_mixer/attackby(obj/item/I, mob/user, params)
 	if (is_reagent_container(I) && !(I.item_flags & ABSTRACT) && I.is_open_container() && atom_storage.locked)
 		var/obj/item/reagent_containers/B = I
@@ -80,7 +85,11 @@
 /obj/item/storage/portable_chem_mixer/AltClick(mob/living/user)
 	if(!atom_storage.locked)
 		return ..()
+<<<<<<< HEAD
 	if(!can_interact(user) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!can_interact(user) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	replace_beaker(user)
 	update_appearance()
@@ -90,6 +99,10 @@
 	if (!atom_storage.locked)
 		update_contents()
 	if (atom_storage.locked)
+<<<<<<< HEAD
+=======
+		atom_storage.hide_contents(usr)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		replace_beaker(user)
 	update_appearance()
 	playsound(src, 'sound/items/screwdriver2.ogg', 50)
@@ -207,7 +220,11 @@
 			var/reagent_name = params["reagent"]
 			var/datum/reagent/reagent = GLOB.name2reagent[reagent_name]
 			var/entry = dispensable_reagents[reagent]
+<<<<<<< HEAD
 			if(beaker)
+=======
+			if(beaker && beaker.loc == src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				var/datum/reagents/R = beaker.reagents
 				var/actual = min(amount, 1000, R.maximum_volume - R.total_volume)
 				// todo: add check if we have enough reagent left

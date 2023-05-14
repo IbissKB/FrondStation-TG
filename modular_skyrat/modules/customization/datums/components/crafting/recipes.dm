@@ -6,11 +6,19 @@
 		/obj/item/organ/internal/lungs = 1,
 		/obj/item/organ/internal/stomach = 1,
 		/obj/item/food/grown/onion = 1,
+<<<<<<< HEAD
 		/obj/item/food/soup/oatmeal = 1,
 		/datum/reagent/consumable/salt = 1,
 	)
 	result = /obj/item/food/snacks/store/bread/haggis
 	subcategory = CAT_MISCFOOD
+=======
+		/obj/item/food/grown/oat = 1,
+		/datum/reagent/consumable/salt = 1,
+	)
+	result = /obj/item/food/snacks/store/bread/haggis
+	category = CAT_MISCFOOD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/neep_tatty_haggis
 	name = "Haggis With Neeps and Tatties"
@@ -21,6 +29,7 @@
 		/obj/item/food/grown/whitebeet = 1
 		)
 	result = /obj/item/food/snacks/neep_tatty_haggis
+<<<<<<< HEAD
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/batter
@@ -31,6 +40,19 @@
 	)
 	result = /obj/item/food/sausage/battered
 	subcategory = CAT_MISCFOOD
+=======
+	category = CAT_MISCFOOD
+
+/datum/crafting_recipe/food/raw_battered_sausage
+	name = "Raw Battered Sausage"
+	reqs = list(
+		/datum/reagent/consumable/ethanol/beerbatter = 5,
+		/obj/item/food/raw_meatball = 1,
+		/obj/item/food/meat/rawcutlet = 2
+	)
+	result = /obj/item/food/raw_sausage/battered
+	category = CAT_MISCFOOD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/shortbread
 	name = "Shortbread"
@@ -41,7 +63,11 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/cookie/shortbread
+<<<<<<< HEAD
 	subcategory = CAT_PASTRY
+=======
+	category = CAT_PASTRY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/tuna
 	name = "Can of Tuna"
@@ -50,4 +76,16 @@
 		/obj/item/food/fishmeat = 2
 	)
 	result = /obj/item/food/canned/tuna
+<<<<<<< HEAD
 	subcategory = CAT_SEAFOOD
+=======
+	category = CAT_SEAFOOD
+
+// Recipes that provide crafting instructions and don't yield any result
+
+/datum/crafting_recipe/food/grill/battered_sausage
+	reqs = list(
+		/obj/item/food/raw_sausage/battered = 1
+	)
+	result = /obj/item/food/sausage/battered
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

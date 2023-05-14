@@ -169,7 +169,11 @@
 		return message
 	if (is_banned_from(ckey, "Emote"))
 		return copytext(message, customsaypos + 1)
+<<<<<<< HEAD
 	mods[MODE_CUSTOM_SAY_EMOTE] = lowertext(copytext_char(message, 1, customsaypos))
+=======
+	mods[MODE_CUSTOM_SAY_EMOTE] = copytext(message, 1, customsaypos)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	message = copytext(message, customsaypos + 1)
 	if (!message)
 		mods[MODE_CUSTOM_SAY_ERASE_INPUT] = TRUE
@@ -224,3 +228,8 @@
 		if(!message)
 			return
 	return message
+<<<<<<< HEAD
+=======
+
+#undef MESSAGE_MODS_LENGTH
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

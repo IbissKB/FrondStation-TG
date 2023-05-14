@@ -3,6 +3,12 @@
 
 /area/ruin/powered/beach
 
+<<<<<<< HEAD
+=======
+/area/ruin/powered/lavaland_phone_booth
+	name = "\improper Phone Booth"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/ruin/powered/clownplanet
 	name = "\improper Clown Biodome"
 	ambientsounds = list('sound/ambience/clown.ogg')
@@ -45,6 +51,7 @@
 //Syndicate lavaland base
 
 /area/ruin/syndicate_lava_base/engineering
+<<<<<<< HEAD
 	name = "Interdyne Engineering" // SKYRAT EDIT STEALTH INTERDYNE
 	always_unpowered = FALSE // SKYRAT EDIT ADDITION - SYNDIEBROKE
 
@@ -85,6 +92,39 @@
 
 /area/ruin/syndicate_lava_base/telecomms
 	name = "\improper Interdyne Telecommunications" // SKYRAT EDIT STEALTH INTERDYNE
+=======
+	name = "Syndicate Lavaland Engineering"
+
+/area/ruin/syndicate_lava_base/medbay
+	name = "Syndicate Lavaland Medbay"
+
+/area/ruin/syndicate_lava_base/arrivals
+	name = "Syndicate Lavaland Arrivals"
+
+/area/ruin/syndicate_lava_base/bar
+	name = "\improper Syndicate Lavaland Bar"
+
+/area/ruin/syndicate_lava_base/main
+	name = "\improper Syndicate Lavaland Primary Hallway"
+
+/area/ruin/syndicate_lava_base/cargo
+	name = "\improper Syndicate Lavaland Cargo Bay"
+
+/area/ruin/syndicate_lava_base/chemistry
+	name = "Syndicate Lavaland Chemistry"
+
+/area/ruin/syndicate_lava_base/virology
+	name = "Syndicate Lavaland Virology"
+
+/area/ruin/syndicate_lava_base/testlab
+	name = "\improper Syndicate Lavaland Experimentation Lab"
+
+/area/ruin/syndicate_lava_base/dormitories
+	name = "\improper Syndicate Lavaland Dormitories"
+
+/area/ruin/syndicate_lava_base/telecomms
+	name = "\improper Syndicate Lavaland Telecommunications"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Xeno Nest
 

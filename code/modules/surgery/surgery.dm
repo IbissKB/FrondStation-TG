@@ -116,6 +116,7 @@
 		try_to_fail = TRUE
 
 	var/datum/surgery_step/step = get_surgery_step()
+<<<<<<< HEAD
 	if(step)
 		var/obj/item/tool = user.get_active_held_item()
 		if(step.try_op(user, target, user.zone_selected, tool, src, try_to_fail))
@@ -123,6 +124,17 @@
 		if(tool && tool.item_flags & SURGICAL_TOOL) //Just because you used the wrong tool it doesn't mean you meant to whack the patient with it
 			to_chat(user, span_warning("This step requires a different tool!"))
 			return TRUE
+=======
+	if(isnull(step))
+		return FALSE
+	var/obj/item/tool = user.get_active_held_item()
+	if(step.try_op(user, target, user.zone_selected, tool, src, try_to_fail))
+		return TRUE
+	if(tool && tool.item_flags & SURGICAL_TOOL) //Just because you used the wrong tool it doesn't mean you meant to whack the patient with it
+		to_chat(user, span_warning("This step requires a different tool!"))
+		return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /datum/surgery/proc/get_surgery_step()
@@ -137,6 +149,7 @@
 
 /datum/surgery/proc/complete(mob/surgeon)
 	SSblackbox.record_feedback("tally", "surgeries_completed", 1, type)
+<<<<<<< HEAD
 	surgeon.mind.add_memory(
 		MEMORY_SUCCESSFUL_SURGERY,
 		list(
@@ -146,6 +159,9 @@
 		),
 		story_value = STORY_VALUE_OKAY
 	)
+=======
+	surgeon.add_mob_memory(/datum/memory/surgery, deuteragonist = surgeon, surgery_type = name)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	qdel(src)
 
 /// Returns a nearby operating computer linked to an operating table
@@ -172,14 +188,22 @@
 	name = "Surgery Procedure Disk"
 	desc = "A disk that contains advanced surgery procedures, must be loaded into an Operating Console."
 	icon_state = "datadisk1"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass=SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/surgeries
 
 /obj/item/disk/surgery/debug
 	name = "Debug Surgery Disk"
 	desc = "A disk that contains all existing surgery procedures."
 	icon_state = "datadisk1"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass=SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/disk/surgery/debug/Initialize(mapload)
 	. = ..()
@@ -192,7 +216,11 @@
 //INFO
 //Check /mob/living/carbon/attackby for how surgery progresses, and also /mob/living/carbon/attack_hand.
 //As of Feb 21 2013 they are in code/modules/mob/living/carbon/carbon.dm, lines 459 and 51 respectively.
+<<<<<<< HEAD
 //Other important variables are var/list/surgeries (/mob/living) and var/list/internal_organs (/mob/living/carbon)
+=======
+//Other important variables are var/list/surgeries (/mob/living) and var/list/organs (/mob/living/carbon)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // var/list/bodyparts (/mob/living/carbon/human) is the LIMBS of a Mob.
 //Surgical procedures are initiated by attempt_initiate_surgery(), which is called by surgical drapes and bedsheets.
 

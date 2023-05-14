@@ -7,7 +7,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "Central Command and the Nanotrasen Consultant"
+<<<<<<< HEAD
 	selection_color = "#c6ffe0"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	minimal_player_age = 7
 	exp_requirements = 2400
 	exp_required_type = EXP_TYPE_CREW
@@ -56,7 +59,11 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	backpack_contents = list(
 		/obj/item/storage/box/gunset/blueshield = 1,
+<<<<<<< HEAD
 		/obj/item/melee/baton/security/loaded = 1,)
+=======
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	implants = list(/obj/item/implant/mindshield)
 	backpack = /obj/item/storage/backpack/blueshield
 	satchel = /obj/item/storage/backpack/satchel/blueshield
@@ -72,6 +79,7 @@
 
 	head = /obj/item/clothing/head/helmet/space/plasmaman/blueshield
 	uniform = /obj/item/clothing/under/plasmaman/blueshield
+<<<<<<< HEAD
 
 /obj/item/storage/box/gunset/blueshield
 	name = "CMG-1 gunset"
@@ -107,3 +115,5 @@
 	icon_state = "hellfirepdw"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/bs)
 	company_flag = COMPANY_ALLSTAR
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

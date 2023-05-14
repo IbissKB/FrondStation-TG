@@ -2,17 +2,31 @@
 #define IV_TAKING 0
 ///IV drip operation mode when it injects reagents into the object
 #define IV_INJECTING 1
+<<<<<<< HEAD
+=======
+///What the transfer rate value is rounded to
+#define IV_TRANSFER_RATE_STEP 0.01
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Minimum possible IV drip transfer rate in units per second
 #define MIN_IV_TRANSFER_RATE 0
 ///Maximum possible IV drip transfer rate in units per second
 #define MAX_IV_TRANSFER_RATE 5
+<<<<<<< HEAD
 ///What the transfer rate value is rounded to
 #define IV_TRANSFER_RATE_STEP 0.01
+=======
+///Default IV drip transfer rate in units per second
+#define DEFAULT_IV_TRANSFER_RATE 5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Universal IV that can drain blood or feed reagents over a period of time from or to a replaceable container
 /obj/machinery/iv_drip
 	name = "\improper IV drip"
+<<<<<<< HEAD
 	desc = "An IV drip with an advanced infusion pump that can both drain blood into and inject liquids from attached containers. Blood packs are injected at twice the displayed rate. Right-Click to detach the IV or the attached container."
+=======
+	desc = "An IV drip with an advanced infusion pump that can both drain blood into and inject liquids from attached containers."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/medical/iv_drip.dmi'
 	icon_state = "iv_drip"
 	base_icon_state = "iv_drip"
@@ -27,8 +41,13 @@
 	var/atom/attached
 	///Are we donating or injecting?
 	var/mode = IV_INJECTING
+<<<<<<< HEAD
 	///whether we feed slower
 	var/transfer_rate = MIN_IV_TRANSFER_RATE
+=======
+	///The chemicals flow speed
+	var/transfer_rate = DEFAULT_IV_TRANSFER_RATE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Internal beaker
 	var/obj/item/reagent_container
 	///Set false to block beaker use and instead use an internal reagent holder
@@ -50,12 +69,20 @@
 
 /obj/machinery/iv_drip/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	update_appearance(UPDATE_ICON)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(use_internal_storage)
 		create_reagents(internal_volume_maximum, TRANSPARENT)
 		if(internal_list_reagents)
 			reagents.add_reagent_list(internal_list_reagents)
 	interaction_flags_machine |= INTERACT_MACHINE_OFFLINE
+<<<<<<< HEAD
+=======
+	register_context()
+	update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/iv_drip/Destroy()
 	attached = null
@@ -73,6 +100,27 @@
 		ui = new(user, src, "IVDrip", name)
 		ui.open()
 
+<<<<<<< HEAD
+=======
+/obj/machinery/iv_drip/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(attached)
+		context[SCREENTIP_CONTEXT_RMB] = "Take needle out"
+	else if(reagent_container && !use_internal_storage)
+		context[SCREENTIP_CONTEXT_RMB] = "Eject container"
+	else if(!inject_only)
+		context[SCREENTIP_CONTEXT_RMB] = "Change direction"
+
+	if(istype(src, /obj/machinery/iv_drip/plumbing))
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(transfer_rate > MIN_IV_TRANSFER_RATE)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Set flow to min"
+	else
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Set flow to max"
+
+	return CONTEXTUAL_SCREENTIP_SET
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/iv_drip/ui_data(mob/user)
 	var/list/data = list()
 
@@ -121,15 +169,31 @@
 
 /// Sets the transfer rate to the provided value
 /obj/machinery/iv_drip/proc/set_transfer_rate(new_rate)
+<<<<<<< HEAD
 	if(!use_internal_storage && !reagent_container)
 		return
 	if(!attached)
+=======
+	if(inject_from_plumbing && mode == IV_INJECTING)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	transfer_rate = round(clamp(new_rate, MIN_IV_TRANSFER_RATE, MAX_IV_TRANSFER_RATE), IV_TRANSFER_RATE_STEP)
 	update_appearance(UPDATE_ICON)
 
+<<<<<<< HEAD
 /obj/machinery/iv_drip/update_icon_state()
 	if(transfer_rate > 0)
+=======
+/// Toggles transfer rate between min and max rate
+/obj/machinery/iv_drip/proc/toggle_transfer_rate()
+	if(transfer_rate > MIN_IV_TRANSFER_RATE)
+		set_transfer_rate(MIN_IV_TRANSFER_RATE)
+	else
+		set_transfer_rate(MAX_IV_TRANSFER_RATE)
+
+/obj/machinery/iv_drip/update_icon_state()
+	if(transfer_rate > 0 && attached)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		icon_state = "[base_icon_state]_[mode ? "injecting" : "donating"]"
 	else
 		icon_state = "[base_icon_state]_[mode ? "injectidle" : "donateidle"]"
@@ -158,7 +222,11 @@
 
 /obj/machinery/iv_drip/MouseDrop(atom/target)
 	. = ..()
+<<<<<<< HEAD
 	if(!Adjacent(target) || !usr.canUseTopic(src, be_close = TRUE))
+=======
+	if(!Adjacent(target) || !usr.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!isliving(usr))
 		to_chat(usr, span_warning("You can't do that!"))
@@ -201,15 +269,19 @@
 		return FALSE
 	if(istype(src, /obj/machinery/iv_drip/plumbing)) // AltClick is used for rotation there
 		return FALSE
+<<<<<<< HEAD
 	if(!attached)
 		return FALSE
 	if(!get_reagents())
 		return FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/machinery/iv_drip/AltClick(mob/user)
 	if(!can_use_alt_click(user))
 		return ..()
+<<<<<<< HEAD
 	if(transfer_rate > MIN_IV_TRANSFER_RATE)
 		set_transfer_rate(MIN_IV_TRANSFER_RATE)
 	else
@@ -217,13 +289,20 @@
 	investigate_log("was set to [transfer_rate] u/sec. by [key_name(user)]", INVESTIGATE_ATMOS)
 	balloon_alert(user, "transfer rate set to [transfer_rate] u/sec.")
 	update_appearance(UPDATE_ICON)
+=======
+	toggle_transfer_rate()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/iv_drip/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/iron(loc)
 	qdel(src)
 
+<<<<<<< HEAD
 /obj/machinery/iv_drip/process(delta_time)
+=======
+/obj/machinery/iv_drip/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!attached)
 		return PROCESS_KILL
 
@@ -234,7 +313,11 @@
 			var/list/arm_zones = shuffle(list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
 			var/obj/item/bodypart/chosen_limb = attached_mob.get_bodypart(arm_zones[1]) || attached_mob.get_bodypart(arm_zones[2]) || attached_mob.get_bodypart(BODY_ZONE_CHEST)
 			chosen_limb.receive_damage(3)
+<<<<<<< HEAD
 			chosen_limb.force_wound_upwards(/datum/wound/pierce/moderate)
+=======
+			chosen_limb.force_wound_upwards(/datum/wound/pierce/moderate, wound_source = "IV needle")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			visible_message(span_warning("[attached] is detached from [src]."))
 		detach_iv()
@@ -250,22 +333,38 @@
 	// Give reagents
 	if(mode)
 		if(drip_reagents.total_volume)
+<<<<<<< HEAD
 			drip_reagents.trans_to(attached, transfer_rate * delta_time, methods = INJECT, show_message = FALSE) //make reagents reacts, but don't spam messages
+=======
+			drip_reagents.trans_to(attached, transfer_rate * seconds_per_tick, methods = INJECT, show_message = FALSE) //make reagents reacts, but don't spam messages
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			update_appearance(UPDATE_ICON)
 
 	// Take blood
 	else if (isliving(attached))
 		var/mob/living/attached_mob = attached
+<<<<<<< HEAD
 		var/amount = min(transfer_rate * delta_time, drip_reagents.maximum_volume - drip_reagents.total_volume)
 		// If the beaker is full, ping
 		if(!amount)
 			set_transfer_rate(MIN_IV_TRANSFER_RATE)
 			visible_message(span_hear("[src] pings."))
+=======
+		var/amount = min(transfer_rate * seconds_per_tick, drip_reagents.maximum_volume - drip_reagents.total_volume)
+		// If the beaker is full, ping
+		if(!amount)
+			set_transfer_rate(MIN_IV_TRANSFER_RATE)
+			audible_message(span_hear("[src] pings."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 
 		// If the human is losing too much blood, beep.
 		if(attached_mob.blood_volume < BLOOD_VOLUME_SAFE && prob(5))
+<<<<<<< HEAD
 			visible_message(span_hear("[src] beeps loudly."))
+=======
+			audible_message(span_hear("[src] beeps loudly."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			playsound(loc, 'sound/machines/twobeep_high.ogg', 50, TRUE)
 		var/atom/movable/target = use_internal_storage ? src : reagent_container
 		attached_mob.transfer_blood_to(target, amount)
@@ -280,7 +379,10 @@
 	if(attached)
 		visible_message(span_notice("[attached] is detached from [src]."))
 		detach_iv()
+<<<<<<< HEAD
 		return
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(reagent_container)
 		eject_beaker(user)
 	else
@@ -310,8 +412,13 @@
 	if(attached)
 		visible_message(span_notice("[attached] is detached from [src]."))
 	SEND_SIGNAL(src, COMSIG_IV_DETACH, attached)
+<<<<<<< HEAD
 	set_transfer_rate(MIN_IV_TRANSFER_RATE)
 	attached = null
+=======
+	attached = null
+	update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Get the reagents used by IV drip
 /obj/machinery/iv_drip/proc/get_reagents()
@@ -325,7 +432,11 @@
 	if(!isliving(usr))
 		to_chat(usr, span_warning("You can't do that!"))
 		return
+<<<<<<< HEAD
 	if (!usr.canUseTopic())
+=======
+	if(!usr.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(usr.incapacitated())
 		return
@@ -345,23 +456,37 @@
 	if(!isliving(usr))
 		to_chat(usr, span_warning("You can't do that!"))
 		return
+<<<<<<< HEAD
 	if (!usr.canUseTopic())
+=======
+	if(!usr.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(usr.incapacitated())
 		return
 	if(inject_only)
+<<<<<<< HEAD
 		if(!mode)
 			update_appearance(UPDATE_ICON)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		mode = IV_INJECTING
 		return
 	// Prevent blood draining from non-living
 	if(attached && !isliving(attached))
+<<<<<<< HEAD
 		if(!mode)
 			update_appearance(UPDATE_ICON)
 		mode = IV_INJECTING
 		return
 	mode = !mode
 	set_transfer_rate(MIN_IV_TRANSFER_RATE)
+=======
+		mode = IV_INJECTING
+		return
+	mode = !mode
+	update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(usr, span_notice("The IV drip is now [mode ? "injecting" : "taking blood"]."))
 
 /obj/machinery/iv_drip/examine(mob/user)
@@ -433,3 +558,8 @@
 
 #undef MIN_IV_TRANSFER_RATE
 #undef MAX_IV_TRANSFER_RATE
+<<<<<<< HEAD
+=======
+
+#undef IV_TRANSFER_RATE_STEP
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

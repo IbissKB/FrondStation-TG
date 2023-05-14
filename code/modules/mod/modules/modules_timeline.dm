@@ -156,7 +156,11 @@
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 5
 	incompatible_modules = list(/obj/item/mod/module/timeline_jumper)
 	cooldown_time = 5 SECONDS
+<<<<<<< HEAD
 	allowed_in_phaseout = TRUE
+=======
+	allow_flags = MODULE_ALLOW_PHASEOUT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///The dummy for phasing from this module, the wearer is phased out while this exists.
 	var/obj/effect/dummy/phased_mob/chrono/phased_mob
 
@@ -294,7 +298,10 @@
 	name = "eradication beam"
 	icon_state = "chronobolt"
 	range = CHRONO_BEAM_RANGE
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Reference to the tem... given by the tem! weakref because back in the day we didn't know about harddels- or maybe we didn't care.
 	var/datum/weakref/tem_weakref
 
@@ -364,7 +371,11 @@
 		mob_underlay.icon_state = "frame[RPpos]"
 		underlays += mob_underlay
 
+<<<<<<< HEAD
 /obj/structure/chrono_field/process(delta_time)
+=======
+/obj/structure/chrono_field/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!captured)
 		qdel(src)
 		return
@@ -388,14 +399,24 @@
 		update_appearance()
 		if(tem)
 			if(tem.field_check(src))
+<<<<<<< HEAD
 				timetokill -= delta_time
+=======
+				timetokill -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else
 				tem = null
 				return
 		else if(!attached)
+<<<<<<< HEAD
 			timetokill -= delta_time
 		else
 			timetokill += delta_time
+=======
+			timetokill -= seconds_per_tick
+		else
+			timetokill += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /obj/structure/chrono_field/bullet_act(obj/projectile/projectile)

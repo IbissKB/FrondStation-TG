@@ -3,9 +3,16 @@
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/rnd/rna_recombinator
 	req_components = list(
+<<<<<<< HEAD
 		/obj/item/stock_parts/scanning_module = 1,
 		/obj/item/stock_parts/manipulator = 2,
 		/obj/item/stock_parts/micro_laser = 2)
+=======
+		/datum/stock_part/scanning_module = 1,
+		/datum/stock_part/servo = 2,
+		/datum/stock_part/micro_laser = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/techweb_node/mutanttech
 	id = "mutanttech"
@@ -22,17 +29,33 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 3000, /datum/material/silver = 1000)
 	build_path = /obj/item/rna_vial
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_EQUIPMENT)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/rna_extractor
 	name = "Empty RNA vial"
+=======
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/rna_extractor
+	name = "RNA Extractor Device"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "An RNA extraction device, use this on any subect you'd like to extract RNA data from, needs RNA vials to work."
 	id = "rna_extractor"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 3000, /datum/material/gold = 3000, /datum/material/uranium = 1000, /datum/material/diamond = 1000)
 	build_path = /obj/item/rna_extractor
+<<<<<<< HEAD
 	category = list(RND_CATEGORY_EQUIPMENT)
+=======
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/board/rna_recombinator

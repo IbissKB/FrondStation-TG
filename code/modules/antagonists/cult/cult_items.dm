@@ -180,12 +180,29 @@ Striking a noncultist, however, will tear their flesh."}
 	desc = "A torn, dust-caked hood. Strange letters line the inside."
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEEARS
 	flags_cover = HEADCOVERSEYES
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 30, LASER = 40,ENERGY = 40, BOMB = 25, BIO = 10, FIRE = 10, ACID = 10)
+=======
+	armor_type = /datum/armor/hooded_cult_hoodie
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cold_protection = HEAD
 	min_cold_protection_temperature = HELMET_MIN_TEMP_PROTECT
 	heat_protection = HEAD
 	max_heat_protection_temperature = HELMET_MAX_TEMP_PROTECT
 
+<<<<<<< HEAD
+=======
+/datum/armor/hooded_cult_hoodie
+	melee = 40
+	bullet = 30
+	laser = 40
+	energy = 40
+	bomb = 25
+	bio = 10
+	fire = 10
+	acid = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cultrobes
 	name = "ancient cultist robes"
 	desc = "A ragged, dusty set of robes. Strange letters line the inside."
@@ -195,7 +212,11 @@ Striking a noncultist, however, will tear their flesh."}
 	inhand_icon_state = "cultrobes"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	allowed = list(/obj/item/tome, /obj/item/melee/cultblade)
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 30, LASER = 40,ENERGY = 40, BOMB = 25, BIO = 10, FIRE = 10, ACID = 10)
+=======
+	armor_type = /datum/armor/hooded_cultrobes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_inv = HIDEJUMPSUIT
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
@@ -204,6 +225,19 @@ Striking a noncultist, however, will tear their flesh."}
 	hoodtype = /obj/item/clothing/head/hooded/cult_hoodie
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/hooded_cultrobes
+	melee = 40
+	bullet = 30
+	laser = 40
+	energy = 40
+	bomb = 25
+	bio = 10
+	fire = 10
+	acid = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hooded/cult_hoodie/alt
 	name = "cultist hood"
 	desc = "An armored hood worn by the followers of Nar'Sie."
@@ -230,9 +264,25 @@ Striking a noncultist, however, will tear their flesh."}
 	inhand_icon_state = null
 	desc = "A helm worn by the followers of Nar'Sie."
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDEEARS|HIDEEYES|HIDESNOUT
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 30, LASER = 50,ENERGY = 50, BOMB = 25, BIO = 10, FIRE = 10, ACID = 10)
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 
+=======
+	armor_type = /datum/armor/wizard_magus
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
+
+/datum/armor/wizard_magus
+	melee = 50
+	bullet = 30
+	laser = 50
+	energy = 50
+	bomb = 25
+	bio = 10
+	fire = 10
+	acid = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/magusred
 	name = "magus robes"
 	desc = "A set of armored robes worn by the followers of Nar'Sie."
@@ -242,9 +292,25 @@ Striking a noncultist, however, will tear their flesh."}
 	inhand_icon_state = null
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	allowed = list(/obj/item/tome, /obj/item/melee/cultblade)
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 30, LASER = 50,ENERGY = 50, BOMB = 25, BIO = 10, FIRE = 10, ACID = 10)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
+=======
+	armor_type = /datum/armor/suit_magusred
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+
+/datum/armor/suit_magusred
+	melee = 50
+	bullet = 30
+	laser = 50
+	energy = 50
+	bomb = 25
+	bio = 10
+	fire = 10
+	acid = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cultrobes/hardened
 	name = "\improper Nar'Sien hardened armor"
 	desc = "A heavily-armored exosuit worn by warriors of the Nar'Sien cult. It can withstand hard vacuum."
@@ -252,20 +318,44 @@ Striking a noncultist, however, will tear their flesh."}
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_BULKY
 	allowed = list(/obj/item/tome, /obj/item/melee/cultblade, /obj/item/tank/internals)
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 40, LASER = 50, ENERGY = 60, BOMB = 50, BIO = 100, FIRE = 100, ACID = 100)
 	hoodtype = /obj/item/clothing/head/hooded/cult_hoodie/hardened
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT | HIDETAIL // SKYRAT EDIT ADDITION - HIDETAIL
+=======
+	armor_type = /datum/armor/cultrobes_hardened
+	hoodtype = /obj/item/clothing/head/hooded/cult_hoodie/hardened
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL
+	flags_inv = HIDEGLOVES | HIDEJUMPSUIT | HIDETAIL // SKYRAT EDIT ADDITION - HIDETAIL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 
+<<<<<<< HEAD
+=======
+/datum/armor/cultrobes_hardened
+	melee = 50
+	bullet = 40
+	laser = 50
+	energy = 60
+	bomb = 50
+	bio = 100
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hooded/cult_hoodie/hardened
 	name = "\improper Nar'Sien hardened helmet"
 	desc = "A heavily-armored helmet worn by warriors of the Nar'Sien cult. It can withstand hard vacuum."
 	icon_state = "cult_helmet"
 	inhand_icon_state = null
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 40, LASER = 50, ENERGY = 60, BOMB = 50, BIO = 100, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/cult_hoodie_hardened
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | PLASMAMAN_HELMET_EXEMPT | HEADINTERNALS
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	min_cold_protection_temperature = SPACE_HELM_MIN_TEMP_PROTECT
@@ -274,6 +364,19 @@ Striking a noncultist, however, will tear their flesh."}
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 
+<<<<<<< HEAD
+=======
+/datum/armor/cult_hoodie_hardened
+	melee = 50
+	bullet = 40
+	laser = 50
+	energy = 60
+	bomb = 50
+	bio = 100
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/sharpener/cult
 	name = "eldritch whetstone"
 	desc = "A block, empowered by dark magic. Sharp weapons will be enhanced when used on the stone."
@@ -293,9 +396,25 @@ Striking a noncultist, however, will tear their flesh."}
 	icon_state = "cult_armor"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_BULKY
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 40, LASER = 50,ENERGY = 50, BOMB = 50, BIO = 30, FIRE = 50, ACID = 60)
 	hoodtype = /obj/item/clothing/head/hooded/cult_hoodie/cult_shield
 
+=======
+	armor_type = /datum/armor/cultrobes_cult_shield
+	hoodtype = /obj/item/clothing/head/hooded/cult_hoodie/cult_shield
+
+/datum/armor/cultrobes_cult_shield
+	melee = 50
+	bullet = 40
+	laser = 50
+	energy = 50
+	bomb = 50
+	bio = 30
+	fire = 50
+	acid = 60
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cultrobes/cult_shield/setup_shielding()
 	AddComponent(/datum/component/shielded, recharge_start_delay = 0 SECONDS, shield_icon_file = 'icons/effects/cult/effects.dmi', shield_icon = "shield-cult", run_hit_callback = CALLBACK(src, PROC_REF(shield_damaged)))
 
@@ -310,7 +429,21 @@ Striking a noncultist, however, will tear their flesh."}
 	name = "empowered cultist helmet"
 	desc = "Empowered helmet which creates a powerful shield around the user."
 	icon_state = "cult_hoodalt"
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 40, LASER = 50,ENERGY = 50, BOMB = 50, BIO = 30, FIRE = 50, ACID = 60)
+=======
+	armor_type = /datum/armor/cult_hoodie_cult_shield
+
+/datum/armor/cult_hoodie_cult_shield
+	melee = 50
+	bullet = 40
+	laser = 50
+	energy = 50
+	bomb = 50
+	bio = 30
+	fire = 50
+	acid = 60
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/hooded/cultrobes/cult_shield/equipped(mob/living/user, slot)
 	..()
@@ -325,6 +458,7 @@ Striking a noncultist, however, will tear their flesh."}
 	name = "flagellant's robes"
 	desc = "Blood-soaked robes infused with dark magic; allows the user to move at inhuman speeds, but at the cost of increased damage. Provides an even greater speed boost if its hood is worn."
 	allowed = list(/obj/item/tome, /obj/item/melee/cultblade)
+<<<<<<< HEAD
 	armor = list(MELEE = -45, BULLET = -45, LASER = -45,ENERGY = -55, BOMB = -45, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = -0.3 //the hood gives an additional -0.3 if you have it flipped up, for a total of -0.6
 	hoodtype = /obj/item/clothing/head/hooded/cult_hoodie/berserkerhood
@@ -335,6 +469,32 @@ Striking a noncultist, however, will tear their flesh."}
 	armor = list(MELEE = -45, BULLET = -45, LASER = -45,ENERGY = -55, BOMB = -45, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = -0.3
 
+=======
+	armor_type = /datum/armor/cultrobes_berserker
+	slowdown = -0.3 //the hood gives an additional -0.3 if you have it flipped up, for a total of -0.6
+	hoodtype = /obj/item/clothing/head/hooded/cult_hoodie/berserkerhood
+
+/datum/armor/cultrobes_berserker
+	melee = -45
+	bullet = -45
+	laser = -45
+	energy = -55
+	bomb = -45
+
+/obj/item/clothing/head/hooded/cult_hoodie/berserkerhood
+	name = "flagellant's hood"
+	desc = "A blood-soaked hood infused with dark magic."
+	armor_type = /datum/armor/cult_hoodie_berserkerhood
+	slowdown = -0.3
+
+/datum/armor/cult_hoodie_berserkerhood
+	melee = -45
+	bullet = -45
+	laser = -45
+	energy = -55
+	bomb = -45
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cultrobes/berserker/equipped(mob/living/user, slot)
 	..()
 	if(!IS_CULTIST(user))
@@ -358,13 +518,25 @@ Striking a noncultist, however, will tear their flesh."}
 		user.dropItemToGround(src, TRUE)
 		user.set_dizzy_if_lower(1 MINUTES)
 		user.Paralyze(100)
+<<<<<<< HEAD
 		user.adjust_blindness(30)
+=======
+		user.adjust_temp_blindness(60 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/cup/beaker/unholywater
 	name = "flask of unholy water"
 	desc = "Toxic to nonbelievers; reinvigorating to the faithful - this flask may be sipped or thrown."
+<<<<<<< HEAD
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "holyflask"
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+	icon_state = "holyflask"
+	inhand_icon_state = "holyflask"
+	lefthand_file = 'icons/mob/inhands/items/drinks_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/drinks_righthand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	color = "#333333"
 	list_reagents = list(/datum/reagent/fuel/unholywater = 50)
 
@@ -483,6 +655,7 @@ Striking a noncultist, however, will tear their flesh."}
 	var/turf/mobloc = get_turf(C)
 	var/turf/destination = get_teleport_loc(location = mobloc, target = C, distance = 9, density_check = TRUE, errorx = 3, errory = 1, eoffsety = 1)
 
+<<<<<<< HEAD
 	if(destination)
 		uses--
 		if(uses <= 0)
@@ -500,6 +673,27 @@ Striking a noncultist, however, will tear their flesh."}
 
 	else
 		to_chat(C, span_warning("The veil cannot be torn here!"))
+=======
+	if(!destination || !do_teleport(C, destination, channel = TELEPORT_CHANNEL_CULT))
+		playsound(src, 'sound/items/haunted/ghostitemattack.ogg', 100, TRUE)
+		balloon_alert(user, "teleport failed!")
+		return
+
+	uses--
+	if(uses <= 0)
+		icon_state ="shifter_drained"
+
+	var/atom/movable/pulled = handle_teleport_grab(destination, C)
+	if(pulled)
+		C.start_pulling(pulled) //forcemove resets pulls, so we need to re-pull
+
+	new /obj/effect/temp_visual/dir_setting/cult/phase/out(mobloc, C.dir)
+	new /obj/effect/temp_visual/dir_setting/cult/phase(destination, C.dir)
+
+	playsound(mobloc, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(destination, 'sound/effects/phasein.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(destination, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/flashlight/flare/culttorch
 	name = "void torch"
@@ -528,6 +722,11 @@ Striking a noncultist, however, will tear their flesh."}
 		to_chat(user, span_warning("\The [src] can only transport items!"))
 		return
 
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/cultists = list()
 	for(var/datum/mind/M as anything in get_antag_minds(/datum/antagonist/cult))
 		if(M.current && M.current.stat != DEAD)
@@ -684,7 +883,13 @@ Striking a noncultist, however, will tear their flesh."}
 	mag_type = /obj/item/ammo_box/magazine/internal/blood
 	fire_sound = 'sound/magic/wand_teleport.ogg'
 
+<<<<<<< HEAD
 /obj/item/gun/ballistic/rifle/enchanted/arcane_barrage/blood/can_trigger_gun(mob/living/user)
+=======
+/obj/item/gun/ballistic/rifle/enchanted/arcane_barrage/blood/can_trigger_gun(mob/living/user, akimbo_usage)
+	if(akimbo_usage)
+		return FALSE //no akimbo wielding magic lol.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!IS_CULTIST(user))
 		to_chat(user, span_cultlarge("\"Did you truly think that you could channel MY blood without my approval? Amusing, but futile.\""))
@@ -734,7 +939,11 @@ Striking a noncultist, however, will tear their flesh."}
 /obj/item/blood_beam
 	name = "\improper magical aura"
 	desc = "Sinister looking aura that distorts the flow of reality around it."
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/weapons/hand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	lefthand_file = 'icons/mob/inhands/items/touchspell_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/touchspell_righthand.dmi'
 	icon_state = "disintegrate"
@@ -761,7 +970,11 @@ Striking a noncultist, however, will tear their flesh."}
 		angle = get_angle(user, A)
 	else
 		qdel(src)
+<<<<<<< HEAD
 		return
+=======
+		return . | AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	charging = TRUE
 	INVOKE_ASYNC(src, PROC_REF(charge), user)
 	if(do_after(user, 9 SECONDS, target = user))
@@ -816,7 +1029,11 @@ Striking a noncultist, however, will tear their flesh."}
 		for(var/turf/T in get_line(targets_from,temp_target))
 			if (locate(/obj/effect/blessing, T))
 				temp_target = T
+<<<<<<< HEAD
 				playsound(T, 'sound/machines/clockcult/ark_damage.ogg', 50, TRUE)
+=======
+				playsound(T, 'sound/effects/parry.ogg', 50, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				new /obj/effect/temp_visual/at_shield(T, T)
 				break
 			T.narsie_act(TRUE, TRUE)
@@ -886,7 +1103,11 @@ Striking a noncultist, however, will tear their flesh."}
 				addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/shield/mirror, readd)), 450)
 				if(prob(60))
 					var/mob/living/simple_animal/hostile/illusion/M = new(owner.loc)
+<<<<<<< HEAD
 					M.faction = list("cult")
+=======
+					M.faction = list(FACTION_CULT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					M.Copy_Parent(owner, 70, 10, 5)
 					M.move_to_delay = owner.cached_multiplicative_slowdown
 				else
@@ -899,7 +1120,11 @@ Striking a noncultist, however, will tear their flesh."}
 		if(prob(50))
 			var/mob/living/simple_animal/hostile/illusion/H = new(owner.loc)
 			H.Copy_Parent(owner, 100, 20, 5)
+<<<<<<< HEAD
 			H.faction = list("cult")
+=======
+			H.faction = list(FACTION_CULT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			H.GiveTarget(owner)
 			H.move_to_delay = owner.cached_multiplicative_slowdown
 			to_chat(owner, span_danger("<b>[src] betrays you!</b>"))
@@ -940,3 +1165,8 @@ Striking a noncultist, however, will tear their flesh."}
 				throw_at(D.thrower, 7, 1, null)
 	else
 		..()
+<<<<<<< HEAD
+=======
+
+#undef SHUTTLE_CURSE_OMFG_TIMESPAN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

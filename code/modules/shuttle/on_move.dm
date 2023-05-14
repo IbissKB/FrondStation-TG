@@ -39,7 +39,11 @@ All ShuttleMove procs go here
 
 
 		else //non-living mobs shouldn't be affected by shuttles, which is why this is an else
+<<<<<<< HEAD
 			if(istype(thing, /obj/singularity) || istype(thing, /obj/energy_ball))
+=======
+			if(istype(thing, /obj/effect/abstract) || istype(thing, /obj/singularity) || istype(thing, /obj/energy_ball))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				continue
 			if(!thing.anchored)
 				step(thing, shuttle_dir)
@@ -52,11 +56,18 @@ All ShuttleMove procs go here
 		return
 	// Destination turf changes.
 	// Baseturfs is definitely a list or this proc wouldnt be called.
+<<<<<<< HEAD
 	var/shuttle_boundary = baseturfs.Find(/turf/baseturf_skipover/shuttle)
 
 	if(!shuttle_boundary)
 		CRASH("A turf queued to move via shuttle somehow had no skipover in baseturfs. [src]([type]):[loc]")
 	var/depth = baseturfs.len - shuttle_boundary + 1
+=======
+	var/shuttle_depth = depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
+
+	if(!shuttle_depth)
+		CRASH("A turf queued to move via shuttle somehow had no skipover in baseturfs. [src]([type]):[loc]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//SKYRAT EDIT ADDITION
 	if(newT.lgroup)
@@ -73,7 +84,12 @@ All ShuttleMove procs go here
 		liquids.ChangeToNewTurf(newT)
 		newT.reasses_liquids()
 	//SKYRAT EDIT END
+<<<<<<< HEAD
 	newT.CopyOnTop(src, 1, depth, TRUE)
+=======
+
+	newT.CopyOnTop(src, 1, shuttle_depth, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	newT.blocks_air = TRUE
 	newT.air_update_turf(TRUE, FALSE)
 	blocks_air = TRUE
@@ -91,10 +107,17 @@ All ShuttleMove procs go here
 	oldT.TransferComponents(src)
 
 	SSexplosions.wipe_turf(src)
+<<<<<<< HEAD
 	var/shuttle_boundary = baseturfs.Find(/turf/baseturf_skipover/shuttle)
 
 	if(shuttle_boundary)
 		oldT.ScrapeAway(baseturfs.len - shuttle_boundary + 1)
+=======
+	var/shuttle_depth = depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
+
+	if(shuttle_depth)
+		oldT.ScrapeAway(shuttle_depth)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(rotation)
 		shuttleRotate(rotation) //see shuttle_rotate.dm
@@ -130,11 +153,15 @@ All ShuttleMove procs go here
 
 // Called on atoms after everything has been moved
 /atom/movable/proc/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+<<<<<<< HEAD
 	var/turf/newT = get_turf(src)
 	if (newT.z != oldT.z)
 		var/same_z_layer = (GET_TURF_PLANE_OFFSET(oldT) == GET_TURF_PLANE_OFFSET(newT))
 		on_changed_z_level(oldT, newT, same_z_layer)
 
+=======
+	SEND_SIGNAL(src, COMSIG_ATOM_AFTER_SHUTTLE_MOVE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(light)
 		update_light()
 	if(rotation)
@@ -170,21 +197,29 @@ All ShuttleMove procs go here
 	if(newT == oldT) // In case of in place shuttle rotation shenanigans.
 		return TRUE
 
+<<<<<<< HEAD
 	contents -= oldT
 	turfs_to_uncontain += oldT
 	underlying_old_area.contents += oldT
 	underlying_old_area.contained_turfs += oldT
 	oldT.transfer_area_lighting(src, underlying_old_area)
+=======
+	oldT.change_area(src, underlying_old_area)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//The old turf has now been given back to the area that turf originaly belonged to
 
 	var/area/old_dest_area = newT.loc
 	parallax_movedir = old_dest_area.parallax_movedir
+<<<<<<< HEAD
 
 	old_dest_area.contents -= newT
 	old_dest_area.turfs_to_uncontain += newT
 	contents += newT
 	contained_turfs += newT
 	newT.transfer_area_lighting(old_dest_area, src)
+=======
+	newT.change_area(old_dest_area, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 // Called on areas after everything has been moved
@@ -278,11 +313,19 @@ All ShuttleMove procs go here
 /obj/machinery/navbeacon/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 
+<<<<<<< HEAD
 	if(codes["patrol"])
 		if(!GLOB.navbeacons["[z]"])
 			GLOB.navbeacons["[z]"] = list()
 		GLOB.navbeacons["[z]"] += src //Register with the patrol list!
 	if(codes["delivery"])
+=======
+	if(codes[NAVBEACON_PATROL_MODE])
+		if(!GLOB.navbeacons["[z]"])
+			GLOB.navbeacons["[z]"] = list()
+		GLOB.navbeacons["[z]"] += src //Register with the patrol list!
+	if(codes[NAVBEACON_DELIVERY_MODE])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		GLOB.deliverybeacons += src
 		GLOB.deliverybeacontags += location
 

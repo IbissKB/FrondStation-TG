@@ -7,7 +7,11 @@
 	icon_dead = "vortigaunt_dead"
 	icon_gib = null
 	gender = MALE
+<<<<<<< HEAD
 	faction = list(FACTION_STATION, "neutral")
+=======
+	faction = list(FACTION_STATION, FACTION_NEUTRAL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
 	speak_chance = 1
 	speak_emote = list("galungs")

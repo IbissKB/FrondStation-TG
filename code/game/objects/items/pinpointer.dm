@@ -13,7 +13,11 @@
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	throw_speed = 3
 	throw_range = 7
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 500, /datum/material/glass = 250)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/active = FALSE
 	var/atom/movable/target //The thing we're searching for
 	var/minimum_range = 0 //at what range the pinpointer declares you to be at your destination
@@ -37,6 +41,14 @@
 	toggle_on()
 	user.visible_message(span_notice("[user] [active ? "" : "de"]activates [user.p_their()] pinpointer."), span_notice("You [active ? "" : "de"]activate your pinpointer."))
 
+<<<<<<< HEAD
+=======
+/obj/item/pinpointer/examine(mob/user)
+	. = ..()
+	if(target)
+		. += "It is currently tracking [target]."
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/pinpointer/proc/toggle_on()
 	active = !active
 	playsound(src, 'sound/items/screwdriver2.ogg', 50, TRUE)
@@ -211,3 +223,41 @@
 /obj/item/pinpointer/shuttle/Destroy()
 	shuttleport = null
 	. = ..()
+<<<<<<< HEAD
+=======
+
+///list of all sheets with sniffable = TRUE for the sniffer to locate
+GLOBAL_LIST_EMPTY(sniffable_sheets)
+
+/obj/item/pinpointer/material_sniffer
+	name = "material sniffer"
+	desc = "A handheld tracking device that locates sheets of glass and iron."
+	icon_state = "pinpointer_sniffer"
+	worn_icon_state = "pinpointer_black"
+
+/obj/item/pinpointer/material_sniffer/scan_for_target()
+	if(target || !GLOB.sniffable_sheets.len)
+		return
+	var/obj/item/stack/sheet/new_sheet_target
+	var/closest_distance = INFINITY
+	for(var/obj/item/stack/sheet/potential_sheet as anything in GLOB.sniffable_sheets)
+		// not enough for lag reasons, and shouldn't even be on this
+		if(potential_sheet.amount < 10)
+			GLOB.sniffable_sheets -= potential_sheet
+			continue
+		//held by someone
+		if(isliving(potential_sheet.loc))
+			continue
+		//not on scanner's z
+		if(potential_sheet.z != z)
+			continue
+		var/distance_from_sniffer = get_dist(src, potential_sheet)
+		if(distance_from_sniffer < closest_distance)
+			closest_distance = distance_from_sniffer
+			new_sheet_target = potential_sheet
+	if(!new_sheet_target)
+		target = null
+		return
+	say("Located [new_sheet_target.amount] [new_sheet_target.singular_name]s!")
+	target = new_sheet_target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

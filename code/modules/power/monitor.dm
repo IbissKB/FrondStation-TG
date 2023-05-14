@@ -5,7 +5,11 @@
 	desc = "It monitors power levels across the station."
 	icon_screen = "power"
 	icon_keyboard = "power_key"
+<<<<<<< HEAD
 	light_color = LIGHT_COLOR_YELLOW
+=======
+	light_color = LIGHT_COLOR_DIM_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	use_power = ACTIVE_POWER_USE
 	circuit = /obj/item/circuitboard/computer/powermonitor
 	tgui_id = "PowerMonitor"

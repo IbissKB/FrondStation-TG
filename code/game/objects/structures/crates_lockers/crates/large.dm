@@ -2,6 +2,10 @@
 	name = "large crate"
 	desc = "A hefty wooden crate. You'll need a crowbar to get it open."
 	icon_state = "largecrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "largecrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = TRUE
 	pass_flags_self = PASSSTRUCTURE
 	material_drop = /obj/item/stack/sheet/mineral/wood

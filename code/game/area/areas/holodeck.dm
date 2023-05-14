@@ -10,7 +10,10 @@
 
 	var/obj/machinery/computer/holodeck/linked
 	var/restricted = FALSE // if true, program goes on emag list
+<<<<<<< HEAD
 	network_root_id = "HOLODECK"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*
 	Power tracking: Use the holodeck computer's power grid
 	Asserts are to avoid the inevitable infinite loops

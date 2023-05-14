@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { sortBy } from 'common/collections';
 import { ANTAG2GROUP, HEALTH, THREAT } from './constants';
 import type { AntagGroup, Antags, Observable } from './types';
@@ -19,6 +20,29 @@ export const collateAntagonists = (antagonists: Antags) => {
   });
   const sortedAntagonists = sortBy<AntagGroup>(([key]) => key)(
     Object.entries(collatedAntagonists)
+=======
+import { filter, sortBy } from 'common/collections';
+import { flow } from 'common/fp';
+import { HEALTH, THREAT } from './constants';
+import type { AntagGroup, Antagonist, Observable } from './types';
+
+/** Return a map of strings with each antag in its antag_category */
+export const getAntagCategories = (antagonists: Antagonist[]) => {
+  const categories: Record<string, Antagonist[]> = {};
+
+  antagonists.map((player) => {
+    const { antag_group } = player;
+
+    if (!categories[antag_group]) {
+      categories[antag_group] = [];
+    }
+
+    categories[antag_group].push(player);
+  });
+
+  const sortedAntagonists = sortBy<AntagGroup>(([key]) => key)(
+    Object.entries(categories)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   );
 
   return sortedAntagonists;
@@ -29,6 +53,10 @@ export const getDisplayName = (full_name: string, name?: string) => {
   if (!name) {
     return full_name;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   if (
     !full_name?.includes('[') ||
     full_name.match(/\(as /) ||
@@ -36,10 +64,35 @@ export const getDisplayName = (full_name: string, name?: string) => {
   ) {
     return name;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   // return only the name before the first ' [' or ' ('
   return `"${full_name.split(/ \[| \(/)[0]}"`;
 };
 
+<<<<<<< HEAD
+=======
+export const getMostRelevant = (
+  searchQuery: string,
+  observables: Observable[][]
+) => {
+  /** Returns the most orbited observable that matches the search. */
+  const mostRelevant: Observable = flow([
+    // Filters out anything that doesn't match search
+    filter<Observable>((observable) =>
+      isJobOrNameMatch(observable, searchQuery)
+    ),
+    // Sorts descending by orbiters
+    sortBy<Observable>((observable) => -(observable.orbiters || 0)),
+    // Makes a single Observables list for an easy search
+  ])(observables.flat())[0];
+
+  return mostRelevant;
+};
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /** Returns the display color for certain health percentages */
 const getHealthColor = (health: number) => {
   switch (true) {

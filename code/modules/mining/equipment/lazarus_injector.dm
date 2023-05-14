@@ -29,6 +29,7 @@
 	. = ..()
 	if(!loaded || !(isliving(target) && proximity_flag) )
 		return
+<<<<<<< HEAD
 	if(!isanimal(target))
 		to_chat(user, span_info("[src] is only effective on lesser beings."))
 		return
@@ -53,6 +54,18 @@
 			user.log_message("has revived hostile mob [key_name(target)] with a malfunctioning lazarus injector.", LOG_GAME)
 		else
 			target_hostile.attack_same = FALSE
+=======
+
+	var/mob/living/target_animal = target
+	if(!target_animal.compare_sentience_type(revive_type)) // Will also return false if not a basic or simple mob, which are the only two we want anyway
+		balloon_alert(user, "invalid creature!")
+		return
+	if(target_animal.stat != DEAD)
+		balloon_alert(user, "it's not dead!")
+		return
+
+	target_animal.lazarus_revive(user, malfunctioning)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	loaded = FALSE
 	user.visible_message(span_notice("[user] injects [target_animal] with [src], reviving it."))
 	SSblackbox.record_feedback("tally", "lazarus_injector", 1, target_animal.type)

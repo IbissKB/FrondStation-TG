@@ -33,7 +33,11 @@
 	qdel(src)
 
 // Every x seconds, if on lavaland, add one stack
+<<<<<<< HEAD
 /obj/item/organ/internal/monster_core/brimdust_sac/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/monster_core/brimdust_sac/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, brimdust_auto_apply_cooldown))
 		return

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/effects/fire.dmi', "fire", appearance_flags = RESET_COLOR))
 
 /// Anything you can pick up and hold.
@@ -5,6 +6,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	name = "item"
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+=======
+/// Anything you can pick up and hold.
+/obj/item
+	name = "item"
+	icon = 'icons/obj/objects.dmi'
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	burning_particles = /particles/smoke/burning/small
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pass_flags_self = PASSITEM
 
 	/* !!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!
@@ -16,7 +25,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 		!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!! */
 
+<<<<<<< HEAD
 	///icon state for inhand overlays, if null the normal icon_state will be used.
+=======
+	///icon state for inhand overlays.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/inhand_icon_state = null
 	///Icon file for left hand inhand overlays
 	var/lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
@@ -131,6 +144,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/armour_penetration = 0
 	///Whether or not our object is easily hindered by the presence of armor
 	var/weak_against_armour = FALSE
+<<<<<<< HEAD
+=======
+	/// The click cooldown given after attacking. Lower numbers means faster attacks
+	var/attack_speed = CLICK_CD_MELEE
+	/// The click cooldown on secondary attacks. Lower numbers mean faster attacks. Will use attack_speed if undefined.
+	var/secondary_attack_speed
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///In deciseconds, how long an item takes to equip; counts only for normal clothing slots, not pockets etc.
 	var/equip_delay_self = 0
 	///In deciseconds, how long an item takes to put on another person
@@ -250,8 +270,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
 	if(LAZYLEN(embedding))
 		updateEmbedding()
+<<<<<<< HEAD
 	if(mapload && !GLOB.steal_item_handler.generated_items)
 		add_stealing_item_objective()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/Destroy(force)
 	// This var exists as a weird proxy "owner" ref
@@ -309,7 +332,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	LAZYREMOVE(actions, action)
 	qdel(action)
 
+<<<<<<< HEAD
 /// Called if this item is supposed to be a steal objective item objective. Only done at mapload
+=======
+/// Called if this item is supposed to be a steal objective item objective.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/proc/add_stealing_item_objective()
 	return
 
@@ -364,6 +391,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	// SKYRAT EDIT ADD START
 	if(greyscale_config_worn_digi)
 		worn_icon_digi = SSgreyscale.GetColoredIconByType(greyscale_config_worn_digi, greyscale_colors)
+<<<<<<< HEAD
+=======
+	if(greyscale_config_worn_monkey)
+		worn_icon_monkey = SSgreyscale.GetColoredIconByType(greyscale_config_worn_monkey, greyscale_colors)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(greyscale_config_worn_vox)
 		worn_icon_vox = SSgreyscale.GetColoredIconByType(greyscale_config_worn_vox, greyscale_colors)
 	if(greyscale_config_worn_better_vox)
@@ -462,7 +494,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	add_fingerprint(user)
 	ui_interact(user)
 
+<<<<<<< HEAD
 /obj/item/ui_act(action, list/params)
+=======
+/obj/item/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	add_fingerprint(usr)
 	return ..()
 
@@ -565,12 +601,21 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
 		to_chat(user,span_notice("You start picking up [src]..."))
+<<<<<<< HEAD
 		if(!do_mob(user,src,30*grav_power))
+=======
+		if(!do_after(user, 30 * grav_power, src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 
 
 	//If the item is in a storage item, take it out
+<<<<<<< HEAD
 	loc.atom_storage?.attempt_remove(src, user.loc, silent = TRUE)
+=======
+	if(loc.atom_storage && !loc.atom_storage.remove_single(user, src, user.loc, silent = TRUE))
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(QDELETED(src)) //moving it out of the storage to the floor destroyed it.
 		return
 
@@ -605,7 +650,12 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 
 	//If the item is in a storage item, take it out
+<<<<<<< HEAD
 	loc.atom_storage?.attempt_remove(src, user.loc, silent = TRUE)
+=======
+	if(loc.atom_storage && !loc.atom_storage.remove_single(user, src, user.loc, silent = TRUE))
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(QDELETED(src)) //moving it out of the storage to the floor destroyed it.
 		return
 
@@ -678,6 +728,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/pickup(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)
+<<<<<<< HEAD
+=======
+	SEND_SIGNAL(user, COMSIG_LIVING_PICKED_UP_ITEM, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	item_flags |= IN_INVENTORY
 
 /// called when "found" in pockets and storage items. Returns 1 if the search should end.
@@ -706,6 +760,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
  */
 /obj/item/proc/equipped(mob/user, slot, initial = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
+<<<<<<< HEAD
+=======
+	SEND_SIGNAL(user, COMSIG_HUMAN_EQUIPPING_ITEM, src, slot)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	visual_equipped(user, slot, initial)
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
 	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
@@ -807,7 +865,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		var/mob/living/L = hit_atom
 		L.ignite_mob()
 	var/itempush = 1
+<<<<<<< HEAD
 	if(w_class < 4)
+=======
+	if(w_class < WEIGHT_CLASS_BULKY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		itempush = 0 //too light to push anything
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/volume = get_volume_by_throwforce_and_or_w_class()
@@ -840,12 +902,29 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		pixel_x = rand(-8,8)
 		pixel_y = rand(-8,8)
 
+<<<<<<< HEAD
 
 /obj/item/proc/remove_item_from_storage(atom/newLoc) //please use this if you're going to snowflake an item out of a obj/item/storage
 	if(!newLoc)
 		return FALSE
 	if(loc.atom_storage)
 		return loc.atom_storage.attempt_remove(src, newLoc, silent = TRUE)
+=======
+/// Takes the location to move the item to, and optionally the mob doing the removing
+/// If no mob is provided, we'll pass in the location, assuming it is a mob
+/// Please use this if you're going to snowflake an item out of a obj/item/storage
+/obj/item/proc/remove_item_from_storage(atom/newLoc, mob/removing)
+	if(!newLoc)
+		return FALSE
+	if(!removing)
+		if(ismob(newLoc))
+			removing = newLoc
+		else
+			stack_trace("Tried to remove an item and place it into [newLoc] without implicitly or explicitly passing in a mob doing the removing")
+			return
+	if(loc.atom_storage)
+		return loc.atom_storage.remove_single(removing, src, newLoc, silent = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /// Returns the icon used for overlaying the object on a belt
@@ -887,6 +966,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 ///Returns the temperature of src. If you want to know if an item is hot use this proc.
 /obj/item/proc/get_temperature()
+<<<<<<< HEAD
+=======
+	if(resistance_flags & ON_FIRE)
+		return max(heat, BURNING_ITEM_MINIMUM_TEMPERATURE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return heat
 
 ///Returns the sharpness of src. If you want to get the sharpness of an item use this.
@@ -899,6 +983,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	else
 		. = SFX_DESECRATION
 
+<<<<<<< HEAD
 /obj/item/proc/open_flame(flame_heat=700)
 	var/turf/location = loc
 	if(ismob(location))
@@ -911,6 +996,22 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(isturf(location))
 		location.hotspot_expose(flame_heat, 5)
 
+=======
+/// Creates an ignition hotspot if item is lit and located on turf, in mask, or in hand
+/obj/item/proc/open_flame(flame_heat=700)
+	var/turf/location = loc
+	if(ismob(location))
+		var/mob/pyromanic = location
+		var/success = FALSE
+		if(src == pyromanic.get_item_by_slot(ITEM_SLOT_MASK) || (src in pyromanic.held_items))
+			success = TRUE
+		if(success)
+			location = get_turf(pyromanic)
+	if(isturf(location))
+		location.hotspot_expose(flame_heat, 5)
+
+/// If an object can successfully be used as a fire starter it will return a message
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
 		. = span_notice("[user] lights [A] with [src].")
@@ -928,11 +1029,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return ..()
 	return 0
 
+<<<<<<< HEAD
 /obj/item/attack_basic_mob(mob/living/basic/user, list/modifiers)
 	if (obj_flags & CAN_BE_HIT)
 		return ..()
 	return 0
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/burn()
 	if(!QDELETED(src))
 		var/turf/T = get_turf(src)
@@ -1067,6 +1171,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		// Create a callback with checks that would be called every tick by do_after.
 		var/datum/callback/tool_check = CALLBACK(src, PROC_REF(tool_check_callback), user, amount, extra_checks)
 
+<<<<<<< HEAD
 		if(ismob(target))
 			if(!do_mob(user, target, delay, extra_checks=tool_check))
 				return
@@ -1074,6 +1179,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		else
 			if(!do_after(user, delay, target=target, extra_checks=tool_check))
 				return
+=======
+		if(!do_after(user, delay, target=target, extra_checks=tool_check))
+			return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		// Invoke the extra checks once, just in case.
 		if(extra_checks && !extra_checks.Invoke())
@@ -1198,13 +1307,21 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
  * * target- Either a body part or a carbon. What are we hitting?
  * * forced- Do we want this to go through 100%?
  */
+<<<<<<< HEAD
 /obj/item/proc/tryEmbed(atom/target, forced=FALSE, silent=FALSE)
+=======
+/obj/item/proc/tryEmbed(atom/target, forced=FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!isbodypart(target) && !iscarbon(target))
 		return NONE
 	if(!forced && !LAZYLEN(embedding))
 		return NONE
 
+<<<<<<< HEAD
 	if(SEND_SIGNAL(src, COMSIG_EMBED_TRY_FORCE, target, forced, silent))
+=======
+	if(SEND_SIGNAL(src, COMSIG_EMBED_TRY_FORCE, target = target, forced = forced))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return COMPONENT_EMBED_SUCCESS
 	failedEmbed()
 
@@ -1264,7 +1381,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 		victim.apply_damage(max(15, force), BRUTE, BODY_ZONE_HEAD, wound_bonus = 10, sharpness = TRUE)
 		victim.losebreath += 2
+<<<<<<< HEAD
 		if(tryEmbed(victim.get_bodypart(BODY_ZONE_CHEST), TRUE, TRUE)) //and if it embeds successfully in their chest, cause a lot of pain
+=======
+		if(tryEmbed(victim.get_bodypart(BODY_ZONE_CHEST), forced = TRUE)) //and if it embeds successfully in their chest, cause a lot of pain
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			victim.apply_damage(max(25, force*1.5), BRUTE, BODY_ZONE_CHEST, wound_bonus = 7, sharpness = TRUE)
 			victim.losebreath += 6
 			discover_after = FALSE
@@ -1388,7 +1509,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	/// if the item are glasses, this variable stores the item.
 	var/obj/item/clothing/glasses/reskinned_glasses
 
+<<<<<<< HEAD
 	if(istype(src, /obj/item/clothing/glasses))
+=======
+	if(istype(src, /obj/item/clothing/glasses)) // TODO - Remove this mess about glasses, it shouldn't be necessary anymore.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskinned_glasses = src
 		if(reskinned_glasses.can_switch_eye)
 			is_swappable = TRUE
@@ -1397,7 +1522,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 
 	for(var/reskin_option in unique_reskin)
+<<<<<<< HEAD
 		var/image/item_image = image(icon = unique_reskin[reskin_option][RESKIN_ICON] ? unique_reskin[reskin_option][RESKIN_ICON] : icon, icon_state = "[unique_reskin[reskin_option][RESKIN_ICON_STATE]][is_swappable ? "_R" : ""]")
+=======
+		var/image/item_image = image(icon = unique_reskin[reskin_option][RESKIN_ICON] ? unique_reskin[reskin_option][RESKIN_ICON] : icon, icon_state = "[unique_reskin[reskin_option][RESKIN_ICON_STATE]]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		items += list("[reskin_option]" = item_image)
 	sort_list(items)
 
@@ -1413,8 +1542,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	if(unique_reskin[pick][RESKIN_ICON_STATE])
 		if(is_swappable)
+<<<<<<< HEAD
 			reskinned_glasses.base_icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
 			icon_state = reskinned_glasses.base_icon_state + "_R"
+=======
+			base_icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
+			icon_state = base_icon_state
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
 
@@ -1422,11 +1556,15 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		worn_icon = unique_reskin[pick][RESKIN_WORN_ICON]
 
 	if(unique_reskin[pick][RESKIN_WORN_ICON_STATE])
+<<<<<<< HEAD
 		if(is_swappable)
 			reskinned_glasses.current_worn_state = unique_reskin[pick][RESKIN_WORN_ICON_STATE]
 			worn_icon_state = reskinned_glasses.current_worn_state + "_R"
 		else
 			worn_icon_state = unique_reskin[pick][RESKIN_WORN_ICON_STATE]
+=======
+		worn_icon_state = unique_reskin[pick][RESKIN_WORN_ICON_STATE]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(unique_reskin[pick][RESKIN_INHAND_L])
 		lefthand_file = unique_reskin[pick][RESKIN_INHAND_L]
@@ -1607,11 +1745,18 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
  * This proc calls at the begining of anytime an item is being equiped to a target by another mob.
  * It handles initial messages, AFK stripping, and initial logging.
  */
+<<<<<<< HEAD
 /obj/item/proc/item_start_equip(atom/target, obj/item/equipping, mob/user, warn_dangerous = TRUE)
 
 	if(warn_dangerous && isclothing(equipping))
 		var/obj/item/clothing/clothing = equipping
 		if(clothing.clothing_flags & DANGEROUS_OBJECT)
+=======
+/obj/item/proc/item_start_equip(atom/target, obj/item/equipping, mob/user, show_visible_message = TRUE)
+
+	if(show_visible_message)
+		if(HAS_TRAIT(equipping, TRAIT_DANGEROUS_OBJECT))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			target.visible_message(
 				span_danger("[user] tries to put [equipping] on [target]."),
 				span_userdanger("[user] tries to put [equipping] on you."),
@@ -1640,3 +1785,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	user.log_message("is putting [equipping] on [key_name(target)]", LOG_ATTACK, color="red")
 	target.log_message("is having [equipping] put on them by [key_name(user)]", LOG_VICTIM, color="orange", log_globally=FALSE)
+<<<<<<< HEAD
+=======
+
+/obj/item/update_atom_colour()
+	. = ..()
+	update_slot_icon()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

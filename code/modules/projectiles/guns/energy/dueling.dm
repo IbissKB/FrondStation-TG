@@ -21,7 +21,11 @@
 	var/pairing_code = ""
 
 /datum/duel/New(new_gun_A, new_gun_B)
+<<<<<<< HEAD
 	pairing_code = SSnetworks.assign_random_name()
+=======
+	pairing_code = assign_random_name()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	gun_A = new_gun_A
 	gun_B = new_gun_B
@@ -223,7 +227,13 @@
 	. = ..()
 	duel?.clear_duel()
 
+<<<<<<< HEAD
 /obj/item/gun/energy/dueling/can_trigger_gun(mob/living/user)
+=======
+/obj/item/gun/energy/dueling/can_trigger_gun(mob/living/user, akimbo_usage)
+	if(akimbo_usage)
+		return FALSE //not honorable.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!check_valid_duel(user, TRUE))
 		return FALSE
@@ -384,3 +394,15 @@
 	var/obj/item/gun/energy/dueling/gun_A = new(src)
 	var/obj/item/gun/energy/dueling/gun_B = new(src)
 	new /datum/duel(gun_A, gun_B)
+<<<<<<< HEAD
+=======
+
+#undef DUEL_IDLE
+#undef DUEL_PREPARATION
+#undef DUEL_READY
+#undef DUEL_COUNTDOWN
+#undef DUEL_FIRING
+#undef DUEL_SETTING_A
+#undef DUEL_SETTING_B
+#undef DUEL_SETTING_C
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

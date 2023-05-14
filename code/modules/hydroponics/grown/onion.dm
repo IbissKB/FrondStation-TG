@@ -14,7 +14,11 @@
 	growthstages = 3
 	weed_chance = 3
 	growing_icon = 'icons/obj/hydroponics/growing_vegetables.dmi'
+<<<<<<< HEAD
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1, /datum/reagent/consumable/tearjuice = 0.5)
+=======
+	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1, /datum/reagent/consumable/tearjuice = 0.25)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mutatelist = list(/obj/item/seeds/onion/red)
 
 /obj/item/food/grown/onion
@@ -25,7 +29,11 @@
 	tastes = list("onions" = 1)
 	wine_power = 30
 
+<<<<<<< HEAD
 /obj/item/food/grown/onion/MakeProcessable()
+=======
+/obj/item/food/grown/onion/make_processable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/onion_slice, 2, 15, screentip_verb = "Cut")
 
 /obj/item/seeds/onion/red
@@ -45,7 +53,11 @@
 	icon_state = "onion_red"
 	wine_power = 60
 
+<<<<<<< HEAD
 /obj/item/food/grown/onion/red/MakeProcessable()
+=======
+/obj/item/food/grown/onion/red/make_processable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/onion_slice/red, 2, 15, screentip_verb = "Cut")
 
 /obj/item/food/grown/onion/UsedforProcessing(mob/living/user, obj/item/I, list/chosen_option)
@@ -58,6 +70,7 @@
 	return ..()
 
 /obj/item/food/onion_slice
+<<<<<<< HEAD
 	name = "onion slices"
 	desc = "Rings, not for wearing."
 	icon_state = "onionslice"
@@ -71,5 +84,22 @@
 /obj/item/food/onion_slice/red
 	name = "red onion slices"
 	desc = "They shine like exceptionally low quality amethyst."
+=======
+	name = "onion slice"
+	desc = "Ring, not for wearing."
+	icon_state = "onionslice"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/food/onion_slice/make_bakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/onionrings, rand(15 SECONDS, 20 SECONDS), TRUE, TRUE)
+
+/obj/item/food/onion_slice/make_microwaveable()
+	AddElement(/datum/element/microwavable, /obj/item/food/onionrings)
+
+/obj/item/food/onion_slice/red
+	name = "red onion slice"
+	desc = "It shines like an exceptionally low quality amethyst."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "onionslice_red"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/tearjuice = 2.5)

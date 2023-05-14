@@ -284,7 +284,11 @@
 /obj/item/mecha_parts/mecha_equipment/rcd/action(mob/source, atom/target, list/modifiers)
 	if(!isturf(target) && !istype(target, /obj/machinery/door/airlock))
 		target = get_turf(target)
+<<<<<<< HEAD
 	if(!action_checks(target) || get_dist(chassis, target)>3 || istype(target, /turf/open/space/transit))
+=======
+	if(!action_checks(target) || !(target in view(3, chassis)) || istype(target, /turf/open/space/transit))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	playsound(chassis, 'sound/machines/click.ogg', 50, TRUE)
 
@@ -292,6 +296,7 @@
 		if(MODE_DECONSTRUCT)
 			to_chat(source, "[icon2html(src, source)][span_notice("Deconstructing [target]...")]")
 			if(iswallturf(target))
+<<<<<<< HEAD
 				var/turf/closed/wall/W = target
 				if(!do_after_cooldown(W, source))
 					return
@@ -301,11 +306,23 @@
 				if(!do_after_cooldown(target, source))
 					return
 				F.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+=======
+				var/turf/closed/wall/wall_turf = target
+				if(!do_after_cooldown(wall_turf, source))
+					return
+				wall_turf.ScrapeAway()
+			else if(isfloorturf(target))
+				var/turf/open/floor/floor_turf = target
+				if(!do_after_cooldown(floor_turf, source))
+					return
+				floor_turf.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else if (istype(target, /obj/machinery/door/airlock))
 				if(!do_after_cooldown(target, source))
 					return
 				qdel(target)
 		if(MODE_WALL)
+<<<<<<< HEAD
 			if(isspaceturf(target))
 				var/turf/open/space/S = target
 				to_chat(source, "[icon2html(src, source)][span_notice("Building Floor...")]")
@@ -318,13 +335,32 @@
 				if(!do_after_cooldown(F, source))
 					return
 				F.PlaceOnTop(/turf/closed/wall)
+=======
+			if(isfloorturf(target))
+				var/turf/open/floor/floor_turf = target
+				to_chat(source, "[icon2html(src, source)][span_notice("Building Wall...")]")
+				if(!do_after_cooldown(floor_turf, source))
+					return
+				floor_turf.PlaceOnTop(/turf/closed/wall)
+			else if(isopenturf(target))
+				var/turf/open/open_turf = target
+				to_chat(source, "[icon2html(src, source)][span_notice("Building Floor...")]")
+				if(!do_after_cooldown(open_turf, source))
+					return
+				open_turf.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(MODE_AIRLOCK)
 			if(isfloorturf(target))
 				to_chat(source, "[icon2html(src, source)][span_notice("Building Airlock...")]")
 				if(!do_after_cooldown(target, source))
 					return
+<<<<<<< HEAD
 				var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock(target)
 				T.autoclose = TRUE
+=======
+				var/obj/machinery/door/airlock/airlock_door = new /obj/machinery/door/airlock(target)
+				airlock_door.autoclose = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				playsound(target, 'sound/effects/sparks2.ogg', 50, TRUE)
 	chassis.spark_system.start()
 	playsound(target, 'sound/items/deconstruct.ogg', 50, TRUE)

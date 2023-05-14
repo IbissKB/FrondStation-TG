@@ -28,7 +28,11 @@
 		/obj/item/tank/internals,
 	)
 	slowdown = 1
+<<<<<<< HEAD
 	armor = list(MELEE = 15, BULLET = 5, LASER = 20, ENERGY = 20, BOMB = 20, BIO = 50, FIRE = 100, ACID = 50)
+=======
+	armor_type = /datum/armor/utility_fire
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL // SKYRAT EDIT ADDITION - HIDETAIL
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -39,6 +43,19 @@
 	equip_delay_other = 60
 	resistance_flags = FIRE_PROOF
 
+<<<<<<< HEAD
+=======
+/datum/armor/utility_fire
+	melee = 15
+	bullet = 5
+	laser = 20
+	energy = 20
+	bomb = 20
+	bio = 50
+	fire = 100
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/utility/fire/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
@@ -47,6 +64,12 @@
 /obj/item/clothing/suit/utility/fire/firefighter
 	icon_state = "firesuit"
 	inhand_icon_state = "firefighter"
+<<<<<<< HEAD
+=======
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/utility/fire/heavy
 	name = "heavy firesuit"
@@ -56,11 +79,23 @@
 	slowdown = 1.5
 
 /obj/item/clothing/suit/utility/fire/atmos
+<<<<<<< HEAD
 	name = "firesuit"
 	desc = "An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame."
 	icon_state = "atmos_firesuit"
 	inhand_icon_state = null
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+=======
+	name = "atmospheric firesuit"
+	desc = "An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame."
+	icon_state = "atmos_firesuit"
+	inhand_icon_state = "firefighter_atmos"
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS
+	flags_inv = HIDESHOES|HIDEJUMPSUIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
  * Bomb protection
@@ -70,7 +105,11 @@
 	desc = "Use in case of bomb."
 	icon_state = "bombsuit"
 	clothing_flags = THICKMATERIAL | SNUG_FIT
+<<<<<<< HEAD
 	armor = list(MELEE = 20, BULLET = 0, LASER = 20,ENERGY = 30, BOMB = 100, BIO = 0, FIRE = 80, ACID = 50)
+=======
+	armor_type = /datum/armor/utility_bomb_hood
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_inv = HIDEFACE|HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 	cold_protection = HEAD
@@ -82,6 +121,17 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 
+<<<<<<< HEAD
+=======
+/datum/armor/utility_bomb_hood
+	melee = 20
+	laser = 20
+	energy = 30
+	bomb = 100
+	fire = 80
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/utility/bomb_suit
 	name = "bomb suit"
 	desc = "A suit designed for safety when handling explosives."
@@ -91,7 +141,11 @@
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	slowdown = 2
+<<<<<<< HEAD
 	armor = list(MELEE = 20, BULLET = 0, LASER = 20,ENERGY = 30, BOMB = 100, BIO = 50, FIRE = 80, ACID = 50)
+=======
+	armor_type = /datum/armor/utility_bomb_suit
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_inv = HIDEJUMPSUIT|HIDETAIL // SKYRAT EDIT ADDITION - HIDETAIL
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
@@ -101,6 +155,18 @@
 	equip_delay_other = 70
 	resistance_flags = NONE
 
+<<<<<<< HEAD
+=======
+/datum/armor/utility_bomb_suit
+	melee = 20
+	laser = 20
+	energy = 30
+	bomb = 100
+	bio = 50
+	fire = 80
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/utility/bomb_hood/security
 	icon_state = "bombsuit_sec"
 	inhand_icon_state = null
@@ -128,12 +194,24 @@
 	desc = "A hood with radiation protective properties. The label reads, 'Made with lead. Please do not consume insulation.'"
 	clothing_flags = THICKMATERIAL | SNUG_FIT
 	flags_inv = HIDEMASK|HIDEEARS|HIDEFACE|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 60, FIRE = 30, ACID = 30)
+=======
+	armor_type = /datum/armor/utility_radiation
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	strip_delay = 60
 	equip_delay_other = 60
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 
+<<<<<<< HEAD
+=======
+/datum/armor/utility_radiation
+	bio = 60
+	fire = 30
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/utility/radiation/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/radiation_protected_clothing)
@@ -152,7 +230,11 @@
 		/obj/item/tank/internals,
 		)
 	slowdown = 1.5
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 60, FIRE = 30, ACID = 30)
+=======
+	armor_type = /datum/armor/utility_radiation
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	strip_delay = 60
 	equip_delay_other = 60
 	flags_inv = HIDEJUMPSUIT|HIDETAIL // SKYRAT EDIT ADDITION - HIDETAIL
@@ -161,8 +243,11 @@
 /obj/item/clothing/suit/utility/radiation/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/radiation_protected_clothing)
+<<<<<<< HEAD
 
 /obj/item/clothing/suit/utility/radiation/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

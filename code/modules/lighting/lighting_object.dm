@@ -27,6 +27,7 @@ GLOBAL_LIST_EMPTY(default_lighting_underlays_by_z)
 		stack_trace("a lighting object was assigned to a turf that already had a lighting object!")
 
 	affected_turf.lighting_object = src
+<<<<<<< HEAD
 	affected_turf.luminosity = 0
 
 	// This path is really hot. this is faster
@@ -34,6 +35,15 @@ GLOBAL_LIST_EMPTY(default_lighting_underlays_by_z)
 	if(CONFIG_GET(flag/starlight))
 		for(var/turf/open/space/space_tile in RANGE_TURFS(1, affected_turf))
 			space_tile.update_starlight()
+=======
+	// Default to fullbright, so things can "see" if they use view() before we update
+	affected_turf.luminosity = 1
+
+	// This path is really hot. this is faster
+	// Really this should be a global var or something, but lets not think about that yes?
+	for(var/turf/open/space/space_tile in RANGE_TURFS(1, affected_turf))
+		space_tile.enable_starlight()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	needs_update = TRUE
 	SSlighting.objects_queue += src
@@ -50,6 +60,15 @@ GLOBAL_LIST_EMPTY(default_lighting_underlays_by_z)
 	return ..()
 
 /datum/lighting_object/proc/update()
+<<<<<<< HEAD
+=======
+#ifdef VISUALIZE_LIGHT_UPDATES
+	affected_turf.add_atom_colour(COLOR_BLUE_LIGHT, ADMIN_COLOUR_PRIORITY)
+	animate(affected_turf, 10, color = null)
+	addtimer(CALLBACK(affected_turf, /atom/proc/remove_atom_colour, ADMIN_COLOUR_PRIORITY, COLOR_BLUE_LIGHT), 10, TIMER_UNIQUE|TIMER_OVERRIDE)
+#endif
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// To the future coder who sees this and thinks
 	// "Why didn't he just use a loop?"
 	// Well my man, it's because the loop performed like shit.

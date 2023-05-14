@@ -13,7 +13,11 @@ export const BorgPanel = (props, context) => {
   const ais = data.ais || [];
   const laws = data.laws || [];
   return (
+<<<<<<< HEAD
     <Window title="Borg Panel" width={700} height={700}>
+=======
+    <Window title="Borg Panel" theme="admin" width={700} height={700}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <Window.Content scrollable>
         <Section
           title={borg.name}

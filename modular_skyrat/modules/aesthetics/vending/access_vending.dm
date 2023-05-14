@@ -42,12 +42,20 @@
 
 	var/mob/living/carbon/carbon_user = user
 	var/obj/item/card/id/user_id = carbon_user.get_idcard(TRUE)
+<<<<<<< HEAD
 	if(!user_id)
+=======
+	if(onstation && !user_id && !(obj_flags & EMAGGED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	// Alright so, this is the EXACT SAME LOOP as our base proc; however we check to see if the user is allowed to purchase it first.
 	for (var/datum/data/vending_product/record in product_records)
+<<<<<<< HEAD
 		if(!allow_purchase(user_id.access, record.product_path))
+=======
+		if(!allow_purchase(user_id, record.product_path))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		var/list/data = list(
 			path = replacetext(replacetext("[record.product_path]", "/obj/item/", ""), "/", "-"),
@@ -59,10 +67,18 @@
 		.["product_records"] += list(data)
 
 /// Check if the list of given access is allowed to purchase the given product
+<<<<<<< HEAD
 /obj/machinery/vending/access/proc/allow_purchase(list/access, product_path)
 	if(obj_flags & EMAGGED)
 		return TRUE
 	. = FALSE
+=======
+/obj/machinery/vending/access/proc/allow_purchase(var/obj/item/card/id/user_id, product_path)
+	if(obj_flags & EMAGGED || !onstation)
+		return TRUE
+	. = FALSE
+	var/list/access = user_id.access
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/acc in access)
 		acc = "[acc]" // U G L Y
 		if(!((acc) in access_lists))

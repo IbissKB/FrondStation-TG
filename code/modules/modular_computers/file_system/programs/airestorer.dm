@@ -30,11 +30,19 @@
 	examine_text += span_info("Alt-click to eject the intelliCard.")
 	return examine_text
 
+<<<<<<< HEAD
 /datum/computer_file/program/ai_restorer/kill_program(forced)
 	try_eject(forced = TRUE)
 	return ..()
 
 /datum/computer_file/program/ai_restorer/process_tick(delta_time)
+=======
+/datum/computer_file/program/ai_restorer/kill_program()
+	try_eject(forced = TRUE)
+	return ..()
+
+/datum/computer_file/program/ai_restorer/process_tick(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!restoring) //Put the check here so we don't check for an ai all the time
 		return
@@ -98,11 +106,15 @@
 	return TRUE
 
 
+<<<<<<< HEAD
 /datum/computer_file/program/ai_restorer/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
+=======
+/datum/computer_file/program/ai_restorer/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("PRG_beginReconstruction")
 			if(!stored_card || !stored_card.AI)
@@ -118,7 +130,11 @@
 				return TRUE
 
 /datum/computer_file/program/ai_restorer/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	data["ejectable"] = TRUE
 	data["AI_present"] = !!stored_card?.AI

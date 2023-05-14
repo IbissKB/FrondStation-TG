@@ -92,12 +92,15 @@
 		if(.)
 			L.amount_grown = min(L.amount_grown + damage, L.max_grown)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/attack_basic_mob(mob/living/basic/user, list/modifiers)
 	. = ..()
 	if(.)
 		var/damage = rand(user.melee_damage_lower, user.melee_damage_upper)
 		return attack_threshold_check(damage, user.melee_damage_type)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	. = ..()
 	if(.)
@@ -137,12 +140,19 @@
 		return TRUE
 
 /mob/living/simple_animal/ex_act(severity, target, origin)
+<<<<<<< HEAD
 	if(origin && istype(origin, /datum/spacevine_mutation) && isvineimmune(src))
 		return FALSE
 
 	. = ..()
 	if(QDELETED(src))
 		return
+=======
+	. = ..()
+	if(!. || QDELETED(src))
+		return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch (severity)
 		if (EXPLODE_DEVASTATE)
 			ex_act_devastate()
@@ -151,6 +161,11 @@
 		if (EXPLODE_LIGHT)
 			ex_act_light()
 
+<<<<<<< HEAD
+=======
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Called when a devastating explosive acts on this mob
 /mob/living/simple_animal/proc/ex_act_devastate()
 	var/bomb_armor = getarmor(null, BOMB)
@@ -197,7 +212,11 @@
 			if (EMP_LIGHT)
 				visible_message(span_danger("[src] shakes violently, its parts coming loose!"))
 				apply_damage(maxHealth * 0.6)
+<<<<<<< HEAD
 				Shake(5, 5, 1 SECONDS)
+=======
+				Shake(duration = 1 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if (EMP_HEAVY)
 				visible_message(span_danger("[src] suddenly bursts apart!"))
 				apply_damage(maxHealth)

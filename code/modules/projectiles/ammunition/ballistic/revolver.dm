@@ -6,6 +6,12 @@
 	caliber = CALIBER_357
 	projectile_type = /obj/projectile/bullet/a357
 
+<<<<<<< HEAD
+=======
+/obj/item/ammo_casing/a357/spent
+	projectile_type = null
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/ammo_casing/a357/match
 	name = ".357 match bullet casing"
 	desc = "A .357 bullet casing, manufactured to exceedingly high standards."

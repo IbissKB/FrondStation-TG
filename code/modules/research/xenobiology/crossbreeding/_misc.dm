@@ -53,8 +53,15 @@ Slimecrossing Items
 	return ret
 
 /obj/item/camera/rewind/afterattack(atom/target, mob/user, flag)
+<<<<<<< HEAD
 	if(!on || !pictures_left || !isturf(target.loc))
 		return
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+	if(!on || !pictures_left || !isturf(target.loc))
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(user == target)
 		to_chat(user, span_notice("You take a selfie!"))
@@ -64,7 +71,11 @@ Slimecrossing Items
 	to_chat(target, span_boldnotice("You'll remember this moment forever!"))
 
 	target.AddComponent(/datum/component/dejavu, 2)
+<<<<<<< HEAD
 	.=..()
+=======
+	return . | ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 
@@ -76,10 +87,19 @@ Slimecrossing Items
 	pictures_max = 1
 
 /obj/item/camera/timefreeze/afterattack(atom/target, mob/user, flag)
+<<<<<<< HEAD
 	if(!on || !pictures_left || !isturf(target.loc))
 		return
 	new /obj/effect/timestop(get_turf(target), 2, 50, list(user))
 	. = ..()
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+	if(!on || !pictures_left || !isturf(target.loc))
+		return .
+	new /obj/effect/timestop(get_turf(target), 2, 50, list(user))
+	return . | ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Hypercharged slime cell - Charged Yellow
 /obj/item/stock_parts/cell/high/slime_hypercharged
@@ -144,7 +164,19 @@ Slimecrossing Items
 	icon_state = "frozen"
 	density = TRUE
 	max_integrity = 100
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 50, LASER = -50, ENERGY = -50, BOMB = 0, BIO = 0, FIRE = -80, ACID = 30)
+=======
+	armor_type = /datum/armor/structure_ice_stasis
+
+/datum/armor/structure_ice_stasis
+	melee = 30
+	bullet = 50
+	laser = -50
+	energy = -50
+	fire = -80
+	acid = 30
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/ice_stasis/Initialize(mapload)
 	. = ..()
@@ -164,6 +196,7 @@ Slimecrossing Items
 	icon = 'icons/obj/xenobiology/slimecrossing.dmi'
 	icon_state = "capturedevice"
 
+<<<<<<< HEAD
 /obj/item/capturedevice/attack(mob/living/M, mob/user)
 	if(length(contents))
 		to_chat(user, span_warning("The device already has something inside."))
@@ -190,6 +223,33 @@ Slimecrossing Items
 			return
 	to_chat(user, span_notice("You store [M] in the capture device."))
 	store(M)
+=======
+/obj/item/capturedevice/attack(mob/living/pokemon, mob/user)
+	if(length(contents))
+		to_chat(user, span_warning("The device already has something inside."))
+		return
+	if(!isanimal_or_basicmob(pokemon))
+		to_chat(user, span_warning("The capture device only works on simple creatures."))
+		return
+	if(pokemon.mind)
+		to_chat(user, span_notice("You offer the device to [pokemon]."))
+		if(tgui_alert(pokemon, "Would you like to enter [user]'s capture device?", "Gold Capture Device", list("Yes", "No")) == "Yes")
+			if(user.can_perform_action(src) && user.can_perform_action(pokemon))
+				to_chat(user, span_notice("You store [pokemon] in the capture device."))
+				to_chat(pokemon, span_notice("The world warps around you, and you're suddenly in an endless void, with a window to the outside floating in front of you."))
+				store(pokemon, user)
+			else
+				to_chat(user, span_warning("You were too far away from [pokemon]."))
+				to_chat(pokemon, span_warning("You were too far away from [user]."))
+		else
+			to_chat(user, span_warning("[pokemon] refused to enter the device."))
+			return
+	else if(!(FACTION_NEUTRAL in pokemon.faction))
+		to_chat(user, span_warning("This creature is too aggressive to capture."))
+		return
+	to_chat(user, span_notice("You store [pokemon] in the capture device."))
+	store(pokemon)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/capturedevice/attack_self(mob/user)
 	if(contents.len)

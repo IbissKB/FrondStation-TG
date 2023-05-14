@@ -6,7 +6,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_HOP
+<<<<<<< HEAD
 	selection_color = "#bbe291"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "MIME"
 
@@ -80,7 +83,10 @@
 	if(H.mind)
 		var/datum/action/cooldown/spell/vow_of_silence/vow = new(H.mind)
 		vow.Grant(H)
+<<<<<<< HEAD
 		H.mind.miming = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/datum/atom_hud/fan = GLOB.huds[DATA_HUD_FAN]
 	fan.show_to(H)

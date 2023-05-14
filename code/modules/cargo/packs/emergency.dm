@@ -1,6 +1,7 @@
 /datum/supply_pack/emergency
 	group = "Emergency"
 
+<<<<<<< HEAD
 /datum/supply_pack/emergency/vehicle
 	name = "Biker Gang Kit" //TUNNEL SNAKES OWN THIS TOWN
 	desc = "TUNNEL SNAKES OWN THIS TOWN. Contains an unbranded All Terrain Vehicle, and a \
@@ -17,6 +18,8 @@
 	crate_name = "biker kit"
 	crate_type = /obj/structure/closet/crate/large
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/supply_pack/emergency/bio
 	name = "Biological Emergency Crate"
 	desc = "This crate holds 2 full bio suits which will protect you from viruses."
@@ -25,7 +28,11 @@
 					/obj/item/clothing/suit/bio_suit = 2,
 					/obj/item/storage/bag/bio,
 					/obj/item/reagent_containers/syringe/antiviral = 2,
+<<<<<<< HEAD
 					/obj/item/clothing/gloves/color/latex/nitrile = 2,
+=======
+					/obj/item/clothing/gloves/latex/nitrile = 2,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				)
 	crate_name = "bio suit crate"
 
@@ -73,7 +80,11 @@
 
 /datum/supply_pack/emergency/atmostank
 	name = "Firefighting Tank Backpack"
+<<<<<<< HEAD
 	desc = "Mow down fires with this high-capacity fire fighting tank backpack. Requires Atmospherics access to open."
+=======
+	desc = "Mow down fires with this high-capacity fire fighting tank backpack."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 1.8
 	access = ACCESS_ATMOSPHERICS
 	contains = list(/obj/item/watertank/atmos)
@@ -103,7 +114,11 @@
 /datum/supply_pack/emergency/plasma_spacesuit
 	name = "Plasmaman Space Envirosuits"
 	desc = "Contains two space-worthy envirosuits for Plasmamen. \
+<<<<<<< HEAD
 		Order now and we'll throw in two free helmets! Requires EVA access to open."
+=======
+		Order now and we'll throw in two free helmets!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 3.5
 	access = ACCESS_EVA
 	contains = list(/obj/item/clothing/suit/space/eva/plasmaman = 2,
@@ -143,7 +158,11 @@
 
 /datum/supply_pack/emergency/spacesuit
 	name = "Space Suit Crate"
+<<<<<<< HEAD
 	desc = "Contains one aging suit from Space-Goodwill and a jetpack. Requires EVA access to open."
+=======
+	desc = "Contains one aging suit from Space-Goodwill and a jetpack."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 3
 	access = ACCESS_EVA
 	contains = list(/obj/item/clothing/suit/space,
@@ -154,6 +173,7 @@
 	crate_name = "space suit crate"
 	crate_type = /obj/structure/closet/crate/secure
 
+<<<<<<< HEAD
 /datum/supply_pack/emergency/specialops
 	name = "Special Ops Supplies"
 	desc = "(*!&@#SAD ABOUT THAT NULL_ENTRY, HUH OPERATIVE? WELL, THIS LITTLE ORDER CAN STILL HELP YOU OUT IN A PINCH. \
@@ -175,6 +195,16 @@
 	cost = CARGO_CRATE_VALUE * 2.5
 	access = ACCESS_HYDROPONICS
 	contains = list(/obj/item/scythe,
+=======
+/datum/supply_pack/emergency/weedcontrol
+	name = "Weed Control Crate"
+	desc = "Keep those invasive species OUT. Contains a scythe, leather gloves, gasmask, and two anti-weed chemical grenades. \
+		Warranty void if used on ambrosia."
+	cost = CARGO_CRATE_VALUE * 2.5
+	access = ACCESS_HYDROPONICS
+	contains = list(/obj/item/scythe,
+					/obj/item/clothing/gloves/botanic_leather,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					/obj/item/clothing/mask/gas,
 					/obj/item/grenade/chem_grenade/antiweed = 2,
 				)

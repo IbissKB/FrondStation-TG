@@ -53,3 +53,8 @@ SUBSYSTEM_DEF(area_contents)
 
 		clear.turfs_to_uncontain = list()
 		marked_for_clearing.len--
+<<<<<<< HEAD
+=======
+
+#undef ALLOWED_LOOSE_TURFS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

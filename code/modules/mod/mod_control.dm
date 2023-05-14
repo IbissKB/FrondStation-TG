@@ -8,12 +8,22 @@
 /obj/item/mod/control
 	name = "MOD control unit"
 	desc = "The control unit of a Modular Outerwear Device, a powered suit that protects against various environments."
+<<<<<<< HEAD
 	icon_state = "control"
 	inhand_icon_state = "mod_control"
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	strip_delay = 10 SECONDS
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0, WOUND = 0)
+=======
+	icon_state = "standard-control"
+	inhand_icon_state = "mod_control"
+	base_icon_state = "control"
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BACK
+	strip_delay = 10 SECONDS
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	actions_types = list(
 		/datum/action/item_action/mod/deploy,
 		/datum/action/item_action/mod/activate,
@@ -78,8 +88,11 @@
 	var/list/mod_parts = list()
 	/// Associated list of parts that can overslot to their overslot (overslot means the part can cover another layer of clothing).
 	var/list/overslotting_parts = list()
+<<<<<<< HEAD
 	/// Modules the MOD should spawn with.
 	var/list/initial_modules = list()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Modules the MOD currently possesses.
 	var/list/modules = list()
 	/// Currently used module.
@@ -89,7 +102,11 @@
 	var/mob/living/silicon/ai/ai
 	*/ // SKYRAT EDIT END
 	/// Delay between moves as AI.
+<<<<<<< HEAD
 	var/movedelay = 0
+=======
+	var/static/movedelay = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Cooldown for AI moves.
 	COOLDOWN_DECLARE(cooldown_mod_move)
 	/// Person wearing the MODsuit.
@@ -97,6 +114,11 @@
 
 /obj/item/mod/control/Initialize(mapload, datum/mod_theme/new_theme, new_skin, obj/item/mod/core/new_core)
 	. = ..()
+<<<<<<< HEAD
+=======
+	if(!movedelay)
+		movedelay = CONFIG_GET(number/movedelay/run_delay)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(new_theme)
 		theme = new_theme
 	theme = GLOB.mod_themes[theme]
@@ -107,7 +129,10 @@
 	complexity_max = theme.complexity_max
 	ui_theme = theme.ui_theme
 	charge_drain = theme.charge_drain
+<<<<<<< HEAD
 	initial_modules += theme.inbuilt_modules
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	wires = new /datum/wires/mod(src)
 	if(length(req_access))
 		locked = TRUE
@@ -125,7 +150,11 @@
 	for(var/obj/item/part as anything in all_parts)
 		part.name = "[theme.name] [part.name]"
 		part.desc = "[part.desc] [theme.desc]"
+<<<<<<< HEAD
 		part.armor = getArmor(arglist(theme.armor))
+=======
+		part.set_armor(theme.armor_type)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		part.resistance_flags = theme.resistance_flags
 		part.flags_1 |= theme.atom_flags //flags like initialization or admin spawning are here, so we cant set, have to add
 		part.heat_protection = NONE
@@ -138,12 +167,20 @@
 		RegisterSignal(part, COMSIG_PARENT_QDELETING, PROC_REF(on_part_deletion))
 	set_mod_skin(new_skin || theme.default_skin)
 	update_speed()
+<<<<<<< HEAD
 	for(var/obj/item/mod/module/module as anything in initial_modules)
 		module = new module(src)
 		install(module)
 	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
 	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_potion))
 	movedelay = CONFIG_GET(number/movedelay/run_delay)
+=======
+	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
+	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_potion))
+	for(var/obj/item/mod/module/module as anything in theme.inbuilt_modules)
+		module = new module(src)
+		install(module)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/mod/control/Destroy()
 	if(active)
@@ -223,7 +260,11 @@
 	. = ..()
 	. += "<i>[extended_desc]</i>"
 
+<<<<<<< HEAD
 /obj/item/mod/control/process(delta_time)
+=======
+/obj/item/mod/control/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
 		seconds_electrified--
 	if(!get_charge() && active && !activating)
@@ -232,12 +273,21 @@
 	var/malfunctioning_charge_drain = 0
 	if(malfunctioning)
 		malfunctioning_charge_drain = rand(1,20)
+<<<<<<< HEAD
 	subtract_charge((charge_drain + malfunctioning_charge_drain)*delta_time)
 	update_charge_alert()
 	for(var/obj/item/mod/module/module as anything in modules)
 		if(malfunctioning && module.active && DT_PROB(5, delta_time))
 			module.on_deactivation(display_message = TRUE)
 		module.on_process(delta_time)
+=======
+	subtract_charge((charge_drain + malfunctioning_charge_drain)*seconds_per_tick)
+	update_charge_alert()
+	for(var/obj/item/mod/module/module as anything in modules)
+		if(malfunctioning && module.active && SPT_PROB(5, seconds_per_tick))
+			module.on_deactivation(display_message = TRUE)
+		module.on_process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/mod/control/equipped(mob/user, slot)
 	..()
@@ -288,7 +338,11 @@
 
 		return
 	// SKYRAT ADDITION END
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!wearer.incapacitated())
 		var/atom/movable/screen/inventory/hand/ui_hand = over_object
 		if(wearer.putItemFromInventoryInHandIfPossible(src, ui_hand.held_index))
@@ -440,9 +494,17 @@
 	if(wearer.stat < UNCONSCIOUS && prob(10))
 		wearer.emote("scream")
 
+<<<<<<< HEAD
 /obj/item/mod/control/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)
 	if(visuals_only)
 		set_wearer(outfit_wearer) //we need to set wearer manually since it doesnt call equipped
+=======
+/obj/item/mod/control/visual_equipped(mob/user, slot, initial = FALSE)
+	if(slot & slot_flags)
+		set_wearer(user)
+
+/obj/item/mod/control/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	quick_activation()
 
 /obj/item/mod/control/doStrip(mob/stripper, mob/owner)
@@ -454,6 +516,7 @@
 		retract(null, part)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/mod/control/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
 	. = ..()
 	for(var/obj/item/mod/module/module as anything in modules)
@@ -467,6 +530,22 @@
 	return ..()
 
 /obj/item/mod/control/proc/set_wearer(mob/living/carbon/human/user)
+=======
+/obj/item/mod/control/update_icon_state()
+	icon_state = "[skin]-[base_icon_state][active ? "-sealed" : ""]"
+	return ..()
+
+/obj/item/mod/control/proc/set_wearer(mob/living/carbon/human/user)
+	if (wearer == user)
+		// This should also not happen.
+		// This path is hit when equipping an outfit with visualsOnly, but only sometimes, and this eventually gets called twice.
+		// I'm not sure this proc should ever be being called by visualsOnly, but it is,
+		// and this was an emergency patch.
+		return
+	else if (!isnull(wearer))
+		stack_trace("set_wearer() was called with a new wearer without unset_wearer() being called")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	wearer = user
 	SEND_SIGNAL(src, COMSIG_MOD_WEARER_SET, wearer)
 	RegisterSignal(wearer, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
@@ -554,11 +633,14 @@
 				balloon_alert(user, "[new_module] incompatible with [old_module]!")
 				playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return
+<<<<<<< HEAD
 	if(is_type_in_list(new_module, theme.module_blacklist))
 		if(user)
 			balloon_alert(user, "[src] doesn't accept [new_module]!")
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/complexity_with_module = complexity
 	complexity_with_module += new_module.complexity
 	if(complexity_with_module > complexity_max)
@@ -570,9 +652,18 @@
 	modules += new_module
 	complexity += new_module.complexity
 	new_module.mod = src
+<<<<<<< HEAD
 	new_module.on_install()
 	if(wearer)
 		new_module.on_equip()
+=======
+	new_module.RegisterSignal(src, COMSIG_ITEM_GET_WORN_OVERLAYS, TYPE_PROC_REF(/obj/item/mod/module, add_module_overlay))
+	new_module.on_install()
+	if(wearer)
+		new_module.on_equip()
+	if(active)
+		new_module.on_suit_activation()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// SKYRAT EDIT START - pAIs in MODsuits
 	if(mod_pai)
 		var/datum/action/item_action/mod/pinned_module/action = new_module.pinned_to[ref(mod_pai)]
@@ -586,10 +677,19 @@
 /obj/item/mod/control/proc/uninstall(obj/item/mod/module/old_module, deleting = FALSE)
 	modules -= old_module
 	complexity -= old_module.complexity
+<<<<<<< HEAD
+=======
+	if(wearer)
+		old_module.on_unequip()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(active)
 		old_module.on_suit_deactivation(deleting = deleting)
 		if(old_module.active)
 			old_module.on_deactivation(display_message = !deleting, deleting = deleting)
+<<<<<<< HEAD
+=======
+	old_module.UnregisterSignal(src, COMSIG_ITEM_GET_WORN_OVERLAYS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	old_module.on_uninstall(deleting = deleting)
 	QDEL_LIST_ASSOC_VAL(old_module.pinned_to)
 	old_module.mod = null
@@ -659,7 +759,11 @@
 	for(var/obj/item/part as anything in skin_updating)
 		part.icon = used_skin[MOD_ICON_OVERRIDE] || 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 		part.worn_icon = used_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
+<<<<<<< HEAD
 		part.icon_state = "[skin]-[initial(part.icon_state)]"
+=======
+		part.icon_state = "[skin]-[part.base_icon_state]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/item/clothing/part as anything in mod_parts)
 		var/used_category
 		if(part == helmet)

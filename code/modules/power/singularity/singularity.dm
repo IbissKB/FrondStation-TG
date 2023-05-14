@@ -11,6 +11,7 @@
 	plane = ABOVE_LIGHTING_PLANE
 	light_range = 6
 	appearance_flags = LONG_GLIDE
+<<<<<<< HEAD
 
 	invisibility = INVISIBILITY_MAXIMUM //SKYRAT EDIT ADDITION
 
@@ -18,10 +19,27 @@
 	/// A weak ref in case an admin removes the component to preserve the functionality.
 	var/datum/weakref/singularity_component
 
+=======
+	invisibility = INVISIBILITY_MAXIMUM //SKYRAT EDIT ADDITION
+
+	/// the prepended string to the icon state (singularity_s1, dark_matter_s1, etc)
+	var/singularity_icon_variant = "singularity"
+	/// The singularity component itself.
+	/// A weak ref in case an admin removes the component to preserve the functionality.
+	var/datum/weakref/singularity_component
+	/// type of singularity component made
+	var/singularity_component_type = /datum/component/singularity
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Current singularity size, from 1 to 6
 	var/current_size = 1
 	///Current allowed size for the singulo
 	var/allowed_size = 1
+<<<<<<< HEAD
+=======
+	///maximum size this singuloth can get to.
+	var/maximum_stage = STAGE_SIX
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///How strong are we?
 	var/energy = 100
 	///Do we lose energy over time?
@@ -40,6 +58,11 @@
 	var/consumed_supermatter = FALSE
 	/// How long it's been since the singulo last acted, in seconds
 	var/time_since_act = 0
+<<<<<<< HEAD
+=======
+	/// What the game tells ghosts when you make one
+	var/ghost_notification_message = "IT'S LOOSE"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	flags_1 = SUPERMATTER_IGNORES_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -59,7 +82,11 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 
 	var/datum/component/singularity/new_component = AddComponent(
+<<<<<<< HEAD
 		/datum/component/singularity, \
+=======
+		singularity_component_type, \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		consume_callback = CALLBACK(src, PROC_REF(consume)), \
 	)
 
@@ -74,12 +101,20 @@
 
 	if (!mapload)
 		notify_ghosts(
+<<<<<<< HEAD
 			"IT'S LOOSE",
+=======
+			ghost_notification_message,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			source = src,
 			action = NOTIFY_ORBIT,
 			flashwindow = FALSE,
 			ghost_sound = 'sound/machines/warning-buzzer.ogg',
+<<<<<<< HEAD
 			header = "IT'S LOOSE",
+=======
+			header = ghost_notification_message,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			notify_volume = 75
 		)
 
@@ -154,14 +189,22 @@
 		if(EXPLODE_LIGHT)
 			energy -= round(((energy + 1) / 4), 1)
 
+<<<<<<< HEAD
 /obj/singularity/process(delta_time)
 	time_since_act += delta_time
+=======
+	return TRUE
+
+/obj/singularity/process(seconds_per_tick)
+	time_since_act += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(time_since_act < 2)
 		return
 	time_since_act = 0
 	if(current_size >= STAGE_TWO)
 		if(prob(event_chance))
 			event()
+<<<<<<< HEAD
 	dissipate(delta_time)
 	check_energy()
 
@@ -170,6 +213,16 @@
 		return
 
 	time_since_last_dissipiation += delta_time
+=======
+	dissipate(seconds_per_tick)
+	check_energy()
+
+/obj/singularity/proc/dissipate(seconds_per_tick)
+	if (!dissipate)
+		return
+
+	time_since_last_dissipiation += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// Uses a while in case of especially long delta times
 	while (time_since_last_dissipiation >= dissipate_delay)
@@ -185,6 +238,16 @@
 	if(temp_allowed_size >= STAGE_SIX && !consumed_supermatter)
 		temp_allowed_size = STAGE_FIVE
 
+<<<<<<< HEAD
+=======
+	//cap it off if the singuloth has a maximum stage
+	temp_allowed_size = min(temp_allowed_size, maximum_stage)
+
+	if(temp_allowed_size == maximum_stage)
+		//It cant go smaller due to e loss
+		dissipate = FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/new_grav_pull
 	var/new_consume_range
 
@@ -192,7 +255,11 @@
 		if(STAGE_ONE)
 			current_size = STAGE_ONE
 			icon = 'modular_skyrat/modules/aesthetics/singularity/singularity_s1.dmi' //SKYRAT EDIT CHANGE - ORIGINAL: icon = 'icons/obj/engine/singularity.dmi'
+<<<<<<< HEAD
 			icon_state = "singularity_s1"
+=======
+			icon_state = "[singularity_icon_variant]_s1"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			pixel_x = 0
 			pixel_y = 0
 			new_grav_pull = 4
@@ -204,7 +271,11 @@
 			if(check_cardinals_range(1, TRUE))
 				current_size = STAGE_TWO
 				icon = 'modular_skyrat/modules/aesthetics/singularity/singularity_s3.dmi' //SKYRAT EDIT CHANGE
+<<<<<<< HEAD
 				icon_state = "singularity_s3"
+=======
+				icon_state = "[singularity_icon_variant]_s3"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				pixel_x = -32
 				pixel_y = -32
 				new_grav_pull = 6
@@ -216,7 +287,11 @@
 			if(check_cardinals_range(2, TRUE))
 				current_size = STAGE_THREE
 				icon = 'modular_skyrat/modules/aesthetics/singularity/singularity_s5.dmi' //SKYRAT EDIT CHANGE
+<<<<<<< HEAD
 				icon_state = "singularity_s5"
+=======
+				icon_state = "[singularity_icon_variant]_s5"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				pixel_x = -64
 				pixel_y = -64
 				new_grav_pull = 8
@@ -228,7 +303,11 @@
 			if(check_cardinals_range(3, TRUE))
 				current_size = STAGE_FOUR
 				icon = 'modular_skyrat/modules/aesthetics/singularity/singularity_s7.dmi' //SKYRAT EDIT CHANGE
+<<<<<<< HEAD
 				icon_state = "singularity_s7"
+=======
+				icon_state = "[singularity_icon_variant]_s7"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				pixel_x = -96
 				pixel_y = -96
 				new_grav_pull = 10
@@ -238,8 +317,13 @@
 				dissipate_strength = 10
 		if(STAGE_FIVE)//this one also lacks a check for gens because it eats everything
 			current_size = STAGE_FIVE
+<<<<<<< HEAD
 			icon = 'modular_skyrat/modules/aesthetics/singularity/singularity_s9.dmi' //SKYRAT EDIT CHANGE
 			icon_state = "singularity_s9"
+=======
+			icon = 'modular_skyrat/modules/aesthetics/singularity/singularity_s9.dmi' //SKYRAT EDIT CHANGE'
+			icon_state = "[singularity_icon_variant]_s9"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			pixel_x = -128
 			pixel_y = -128
 			new_grav_pull = 10
@@ -248,7 +332,11 @@
 		if(STAGE_SIX) //This only happens if a stage 5 singulo consumes a supermatter shard.
 			current_size = STAGE_SIX
 			icon = 'icons/effects/352x352.dmi'
+<<<<<<< HEAD
 			icon_state = "singularity_s11"
+=======
+			icon_state = "[singularity_icon_variant]_s11"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			pixel_x = -160
 			pixel_y = -160
 			new_grav_pull = 15
@@ -298,10 +386,20 @@
 	var/gain = thing.singularity_act(current_size, src)
 	energy += gain
 	if(istype(thing, /obj/machinery/power/supermatter_crystal) && !consumed_supermatter)
+<<<<<<< HEAD
 		desc = "[initial(desc)] It glows fiercely with inner fire."
 		name = "supermatter-charged [initial(name)]"
 		consumed_supermatter = TRUE
 		set_light(10)
+=======
+		supermatter_upgrade()
+
+/obj/singularity/proc/supermatter_upgrade()
+	name = "supermatter-charged [initial(name)]"
+	desc = "[initial(desc)] It glows fiercely with inner fire."
+	consumed_supermatter = TRUE
+	set_light(10)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/singularity/proc/check_cardinals_range(steps, retry_with_move = FALSE)
 	. = length(GLOB.cardinals) //Should be 4.
@@ -369,7 +467,11 @@
 /obj/singularity/proc/can_move(turf/considered_turf)
 	if(!considered_turf)
 		return FALSE
+<<<<<<< HEAD
 	if((locate(/obj/machinery/field/containment) in considered_turf)||(locate(/obj/machinery/shieldwall) in considered_turf))
+=======
+	if((locate(/obj/machinery/field/containment) in considered_turf) || (locate(/obj/machinery/shieldwall) in considered_turf))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	else if(locate(/obj/machinery/field/generator) in considered_turf)
 		var/obj/machinery/field/generator/check_generator = locate(/obj/machinery/field/generator) in considered_turf

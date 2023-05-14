@@ -1,6 +1,10 @@
 /datum/outfit/faction_captain
 	name = "Faction - Captain"
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/hos/beret/faction
+=======
+	head = /obj/item/clothing/head/hats/hos/beret/faction
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
 	shoes = /obj/item/clothing/shoes/combat
@@ -32,7 +36,11 @@
 
 /datum/outfit/faction_medic
 	name = "Faction - Medic"
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/hos/beret/faction
+=======
+	head = /obj/item/clothing/head/hats/hos/beret/faction
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
 	shoes = /obj/item/clothing/shoes/combat
@@ -48,7 +56,11 @@
 
 /datum/outfit/faction_tech
 	name = "Faction - Tech"
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/hos/beret/faction
+=======
+	head = /obj/item/clothing/head/hats/hos/beret/faction
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
 	suit_store = /obj/item/gun/energy/e_gun

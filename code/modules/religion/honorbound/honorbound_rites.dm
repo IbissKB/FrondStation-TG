@@ -128,7 +128,11 @@
 	var/obj/item/paper/autograph = writ_target
 	var/turf/tool_turf = get_turf(religious_tool)
 	writ_target = null
+<<<<<<< HEAD
 	if(QDELETED(autograph) || !(tool_turf == autograph.loc)) //check if the same food is still there
+=======
+	if(QDELETED(autograph) || !(tool_turf == autograph.loc)) //check if the paper is still there
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_warning("Your target left the altar!"))
 		return FALSE
 	autograph.visible_message(span_notice("Words magically form on [autograph]!"))

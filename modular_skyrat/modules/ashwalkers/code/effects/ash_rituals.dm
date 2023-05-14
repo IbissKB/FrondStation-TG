@@ -344,7 +344,11 @@
 	if(find_animal.sentience_type != SENTIENCE_ORGANIC)
 		return
 
+<<<<<<< HEAD
 	find_animal.faction = list("neutral")
+=======
+	find_animal.faction = list(FACTION_NEUTRAL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(ishostile(find_animal))
 		var/mob/living/simple_animal/hostile/hostile_animal = find_animal

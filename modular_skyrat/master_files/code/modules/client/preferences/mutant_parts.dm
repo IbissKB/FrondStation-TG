@@ -49,7 +49,11 @@
 /datum/preference/toggle/eye_emissives/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	value = value && preferences && is_allowed(preferences)
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/eyes_organ = target.getorgan(/obj/item/organ/internal/eyes)
+=======
+	var/obj/item/organ/internal/eyes/eyes_organ = target.get_organ_by_type(/obj/item/organ/internal/eyes)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.emissive_eyes = value
 	if (istype(eyes_organ))
 		eyes_organ.is_emissive = value
@@ -68,18 +72,44 @@
 /datum/preference/toggle/eye_emissives/proc/is_allowed(datum/preferences/preferences)
 	return preferences.read_preference(/datum/preference/toggle/allow_emissives)
 
+<<<<<<< HEAD
 // Body Markings
+=======
+// Body Markings - This isn't used anymore and thus I'm making it not do anything.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preference/toggle/mutant_toggle/body_markings
 	savefile_key = "body_markings_toggle"
 	relevant_mutant_bodypart = "body_markings"
 
+<<<<<<< HEAD
+=======
+/datum/preference/toggle/mutant_toggle/body_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+/datum/preference/toggle/mutant_toggle/body_markings/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/choiced/mutant_choice/body_markings
 	savefile_key = "feature_body_markings"
 	relevant_mutant_bodypart = "body_markings"
 	type_to_check = /datum/preference/toggle/mutant_toggle/body_markings
 	default_accessory_type = /datum/sprite_accessory/body_markings/none
 
+<<<<<<< HEAD
+=======
+/datum/preference/choiced/mutant_choice/body_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+/datum/preference/choiced/mutant_choice/body_markings/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/tri_color/body_markings
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -87,6 +117,16 @@
 	relevant_mutant_bodypart = "body_markings"
 	type_to_check = /datum/preference/toggle/mutant_toggle/body_markings
 
+<<<<<<< HEAD
+=======
+/datum/preference/tri_color/body_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+/datum/preference/tri_color/body_markings/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/tri_bool/body_markings
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -94,6 +134,17 @@
 	relevant_mutant_bodypart = "body_markings"
 	type_to_check = /datum/preference/toggle/mutant_toggle/body_markings
 
+<<<<<<< HEAD
+=======
+/datum/preference/tri_bool/body_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+/datum/preference/tri_bool/body_markings/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Tails
 
 /datum/preference/toggle/mutant_toggle/tail
@@ -338,18 +389,39 @@
 	relevant_mutant_bodypart = "moth_antennae"
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_antennae
 
+<<<<<<< HEAD
 /// Moth Markings
+=======
+/// Moth Markings - They don't work, and we use regular markings for those anyway, so we're going to disable them.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preference/toggle/mutant_toggle/moth_markings
 	savefile_key = "moth_markings_toggle"
 	relevant_mutant_bodypart = "moth_markings"
 
+<<<<<<< HEAD
+=======
+/datum/preference/toggle/mutant_toggle/moth_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/choiced/mutant_choice/moth_markings
 	savefile_key = "feature_moth_markings"
 	relevant_mutant_bodypart = "moth_markings"
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_markings
 	default_accessory_type = /datum/sprite_accessory/moth_markings/none
 
+<<<<<<< HEAD
+=======
+/datum/preference/choiced/mutant_choice/moth_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+/datum/preference/choiced/mutant_choice/moth_markings/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/tri_color/moth_markings
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -357,6 +429,16 @@
 	relevant_mutant_bodypart = "moth_markings"
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_markings
 
+<<<<<<< HEAD
+=======
+/datum/preference/tri_color/moth_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+/datum/preference/tri_color/moth_markings/apply_to_human(mob/living/carbon/human/target, value)
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/tri_bool/moth_markings
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -364,6 +446,16 @@
 	relevant_mutant_bodypart = "moth_markings"
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_markings
 
+<<<<<<< HEAD
+=======
+/datum/preference/tri_bool/moth_markings/is_accessible(datum/preferences/preferences)
+	. = ..() // Got to do this because of linters.
+	return FALSE
+
+/datum/preference/tri_bool/moth_markings/apply_to_human(mob/living/carbon/human/target, value)
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Fluff
 
 /datum/preference/toggle/mutant_toggle/fluff
@@ -416,6 +508,17 @@
 
 	return data
 
+<<<<<<< HEAD
+=======
+/datum/preference/choiced/mutant_choice/ipc_screen/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/species_path = preferences?.read_preference(/datum/preference/choiced/species)
+	if(!ispath(species_path, /datum/species/synthetic)) // This is what we do so it doesn't show up on non-synthetics.
+		return
+
+	return ..()
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/color/mutant/ipc_screen_color
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -443,12 +546,20 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_color"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
+<<<<<<< HEAD
+=======
+	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preference/tri_bool/synth_antenna_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_emissive"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
+<<<<<<< HEAD
+=======
+	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// IPC Chassis
 

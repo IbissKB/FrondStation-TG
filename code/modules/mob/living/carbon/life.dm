@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /mob/living/carbon/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/carbon/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(notransform)
 		return
@@ -16,25 +20,41 @@
 
 	if(IS_IN_STASIS(src))
 		. = ..()
+<<<<<<< HEAD
 		reagents.handle_stasis_chems(src, delta_time, times_fired)
 	else
 		//Reagent processing needs to come before breathing, to prevent edge cases.
 		handle_organs(delta_time, times_fired)
+=======
+		reagents.handle_stasis_chems(src, seconds_per_tick, times_fired)
+	else
+		//Reagent processing needs to come before breathing, to prevent edge cases.
+		handle_dead_metabolization(seconds_per_tick, times_fired) //Dead metabolization first since it can modify life metabolization.
+		handle_organs(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		. = ..()
 		if(QDELETED(src))
 			return
 
 		if(.) //not dead
+<<<<<<< HEAD
 			handle_blood(delta_time, times_fired)
 
 		if(stat != DEAD)
 			handle_brain_damage(delta_time, times_fired)
+=======
+			handle_blood(seconds_per_tick, times_fired)
+
+		if(stat != DEAD)
+			handle_brain_damage(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
 	else
 
+<<<<<<< HEAD
 		if(staminaloss > 0 && stam_regen_start_time <= world.time)
 			adjustStaminaLoss(-INFINITY, null, FALSE)
 			update_stamina()
@@ -48,6 +68,18 @@
 		for(var/key in mind.addiction_points)
 			var/datum/addiction/addiction = SSaddiction.all_addictions[key]
 			addiction.process_addiction(src, delta_time, times_fired)
+=======
+		if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
+			adjustStaminaLoss(-INFINITY)
+		var/bprv = handle_bodyparts(seconds_per_tick, times_fired)
+		if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
+			updatehealth()
+
+	if(. && mind) //. == not dead
+		for(var/key in mind.addiction_points)
+			var/datum/addiction/addiction = SSaddiction.all_addictions[key]
+			addiction.process_addiction(src, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(stat != DEAD)
 		return 1
 
@@ -55,11 +87,19 @@
 // BREATHING //
 ///////////////
 
+<<<<<<< HEAD
 //Start of a breath chain, calls breathe()
 /mob/living/carbon/handle_breathing(delta_time, times_fired)
 	var/next_breath = 4
 	var/obj/item/organ/internal/lungs/L = getorganslot(ORGAN_SLOT_LUNGS)
 	var/obj/item/organ/internal/heart/H = getorganslot(ORGAN_SLOT_HEART)
+=======
+// Start of a breath chain, calls [carbon/proc/breathe()]
+/mob/living/carbon/handle_breathing(seconds_per_tick, times_fired)
+	var/next_breath = 4
+	var/obj/item/organ/internal/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
+	var/obj/item/organ/internal/heart/H = get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(L)
 		if(L.damage > L.high_threshold)
 			next_breath--
@@ -68,7 +108,11 @@
 			next_breath--
 
 	if((times_fired % next_breath) == 0 || failed_last_breath)
+<<<<<<< HEAD
 		breathe(delta_time, times_fired) //Breathe per 4 ticks if healthy, down to 2 if our lungs or heart are damaged, unless suffocating
+=======
+		breathe(seconds_per_tick, times_fired) //Breathe per 4 ticks if healthy, down to 2 if our lungs or heart are damaged, unless suffocating
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(failed_last_breath)
 			add_mood_event("suffocation", /datum/mood_event/suffocation)
 		else
@@ -78,9 +122,15 @@
 			var/obj/location_as_object = loc
 			location_as_object.handle_internal_lifeform(src,0)
 
+<<<<<<< HEAD
 //Second link in a breath chain, calls check_breath()
 /mob/living/carbon/proc/breathe(delta_time, times_fired)
 	var/obj/item/organ/internal/lungs = getorganslot(ORGAN_SLOT_LUNGS)
+=======
+// Second link in a breath chain, calls [carbon/proc/check_breath()]
+/mob/living/carbon/proc/breathe(seconds_per_tick, times_fired)
+	var/obj/item/organ/internal/lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(SEND_SIGNAL(src, COMSIG_CARBON_ATTEMPT_BREATHE) & COMSIG_CARBON_BLOCK_BREATH)
 		return
 
@@ -92,7 +142,11 @@
 
 	var/datum/gas_mixture/breath
 
+<<<<<<< HEAD
 	if(!getorganslot(ORGAN_SLOT_BREATHING_TUBE))
+=======
+	if(!get_organ_slot(ORGAN_SLOT_BREATHING_TUBE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(health <= HEALTH_THRESHOLD_FULLCRIT || (pulledby?.grab_state >= GRAB_KILL) || (lungs?.organ_flags & ORGAN_FAILING))
 			losebreath++  //You can't breath at all when in critical or when being choked, so you're going to miss a breath
 
@@ -167,6 +221,7 @@
 		return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 
 //Third link in a breath chain, calls handle_breath_temperature()
 /mob/living/carbon/proc/check_breath(datum/gas_mixture/breath)
@@ -306,6 +361,204 @@
 
 		//Miasma side effects
 		switch(miasma_partialpressure)
+=======
+/**
+ * This proc tests if the lungs can breathe, if the mob can breathe a given gas mixture, and throws/clears gas alerts.
+ * If there are moles of gas in the given gas mixture, side-effects may be applied/removed on the mob.
+ * This proc expects a lungs organ in order to breathe successfully, but does not defer any work to it.
+ *
+ * Returns TRUE if the breath was successful, or FALSE if otherwise.
+ *
+ * Arguments:
+ * * breath: A gas mixture to test, or null.
+ */
+/mob/living/carbon/proc/check_breath(datum/gas_mixture/breath)
+	. = TRUE
+
+	if(status_flags & GODMODE)
+		failed_last_breath = FALSE
+		clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
+		return
+
+	if(HAS_TRAIT(src, TRAIT_NOBREATH))
+		return
+
+	// Breath may be null, so use a fallback "empty breath" for convenience.
+	if(!breath)
+		/// Fallback "empty breath" for convenience.
+		var/static/datum/gas_mixture/immutable/empty_breath = new(BREATH_VOLUME)
+		breath = empty_breath
+
+	// Ensure gas volumes are present.
+	breath.assert_gases(/datum/gas/bz, /datum/gas/carbon_dioxide, /datum/gas/freon, /datum/gas/plasma, /datum/gas/pluoxium, /datum/gas/miasma, /datum/gas/nitrous_oxide, /datum/gas/nitrium, /datum/gas/oxygen)
+
+	/// The list of gases in the breath.
+	var/list/breath_gases = breath.gases
+	/// Indicates if there are moles of gas in the breath.
+	var/has_moles = breath.total_moles() != 0
+
+	var/obj/item/organ/internal/lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+	// Indicates if lungs can breathe without gas.
+	var/can_breathe_vacuum = FALSE
+	if(lungs)
+		// Breathing with lungs.
+		// Check for vacuum-adapted lungs.
+		can_breathe_vacuum = HAS_TRAIT(lungs, TRAIT_SPACEBREATHING)
+	else
+		// Lungs are missing! Can't breathe.
+		// Simulates breathing zero moles of gas.
+		has_moles = FALSE
+		// Extra damage, let God sort ’em out!
+		adjustOxyLoss(2)
+
+	/// Minimum O2 before suffocation.
+	var/safe_oxygen_min = 16
+	/// Maximum CO2 before side-effects.
+	var/safe_co2_max = 10
+	/// Maximum Plasma before side-effects.
+	var/safe_plas_max = 0.05
+	/// Maximum Pluoxum before side-effects.
+	var/gas_stimulation_min = 0.002 // For Pluoxium
+	// Vars for N2O induced euphoria, stun, and sleep.
+	var/n2o_euphoria = EUPHORIA_LAST_FLAG
+	var/n2o_para_min = 1
+	var/n2o_sleep_min = 5
+
+	// Partial pressures in our breath
+	// Main gases.
+	var/pluoxium_pp = 0
+	var/o2_pp = 0
+	var/plasma_pp = 0
+	var/co2_pp = 0
+	// Trace gases ordered alphabetically.
+	var/bz_pp = 0
+	var/freon_pp = 0
+	var/n2o_pp = 0
+	var/nitrium_pp = 0
+	var/miasma_pp = 0
+
+	// Check for moles of gas and handle partial pressures / special conditions.
+	if(has_moles)
+		// Breath has more than 0 moles of gas.
+		// Partial pressures of "main gases".
+		pluoxium_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/pluoxium][MOLES])
+		o2_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/oxygen][MOLES] + (8 * pluoxium_pp))
+		plasma_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/plasma][MOLES])
+		co2_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/carbon_dioxide][MOLES])
+		// Partial pressures of "trace" gases.
+		bz_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/bz][MOLES])
+		freon_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/freon][MOLES])
+		miasma_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/miasma][MOLES])
+		n2o_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/nitrous_oxide][MOLES])
+		nitrium_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/nitrium][MOLES])
+
+	// Breath has 0 moles of gas.
+	else if(can_breathe_vacuum)
+		// The mob can breathe anyways. What are you? Some bottom-feeding, scum-sucking algae eater?
+		failed_last_breath = FALSE
+		// Vacuum-adapted lungs regenerate oxyloss even when breathing nothing.
+		if(health >= crit_threshold)
+			adjustOxyLoss(-5)
+	else
+		// Can't breathe! Lungs are missing, and/or breath is empty.
+		. = FALSE
+		failed_last_breath = TRUE
+
+	//-- PLUOXIUM --//
+	// Behaves like Oxygen with 8X efficacy, but metabolizes into a reagent.
+	if(pluoxium_pp)
+		// Inhale Pluoxium. Exhale nothing.
+		breath_gases[/datum/gas/pluoxium][MOLES] = 0
+		// Metabolize to reagent.
+		if(pluoxium_pp > gas_stimulation_min)
+			var/existing = reagents.get_reagent_amount(/datum/reagent/pluoxium)
+			reagents.add_reagent(/datum/reagent/pluoxium, max(0, 1 - existing))
+
+	//-- OXYGEN --//
+	// Carbons need only Oxygen to breathe properly.
+	var/oxygen_used = 0
+	// Minimum Oxygen effects. "Too little oxygen!"
+	if(!can_breathe_vacuum && (o2_pp < safe_oxygen_min))
+		// Breathe insufficient amount of O2.
+		oxygen_used = handle_suffocation(o2_pp, safe_oxygen_min, breath_gases[/datum/gas/oxygen][MOLES])
+		throw_alert(ALERT_NOT_ENOUGH_OXYGEN, /atom/movable/screen/alert/not_enough_oxy)
+	else
+		// Enough oxygen to breathe.
+		failed_last_breath = FALSE
+		clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
+		if(o2_pp)
+			// Inhale O2.
+			oxygen_used = breath_gases[/datum/gas/oxygen][MOLES]
+			// Heal mob if not in crit.
+			if(health >= crit_threshold)
+				adjustOxyLoss(-5)
+	// Exhale equivalent amount of CO2.
+	if(o2_pp)
+		breath_gases[/datum/gas/oxygen][MOLES] -= oxygen_used
+		breath_gases[/datum/gas/carbon_dioxide][MOLES] += oxygen_used
+
+	//-- CARBON DIOXIDE --//
+	// Maximum CO2 effects. "Too much CO2!"
+	if(co2_pp > safe_co2_max)
+		// CO2 side-effects.
+		// Give the mob a chance to notice.
+		if(prob(20))
+			emote("cough")
+		// If it's the first breath with too much CO2 in it, lets start a counter, then have them pass out after 12s or so.
+		if(!co2overloadtime)
+			co2overloadtime = world.time
+		else if((world.time - co2overloadtime) > 12 SECONDS)
+			throw_alert(ALERT_TOO_MUCH_CO2, /atom/movable/screen/alert/too_much_co2)
+			Unconscious(6 SECONDS)
+			// Lets hurt em a little, let them know we mean business.
+			adjustOxyLoss(3)
+			// They've been in here 30s now, start to kill them for their own good!
+			if((world.time - co2overloadtime) > 30 SECONDS)
+				adjustOxyLoss(8)
+	else
+		// Reset side-effects.
+		co2overloadtime = 0
+		clear_alert(ALERT_TOO_MUCH_CO2)
+
+	//-- PLASMA --//
+	// Maximum Plasma effects. "Too much Plasma!"
+	if(plasma_pp > safe_plas_max)
+		// Plasma side-effects.
+		var/ratio = (breath_gases[/datum/gas/plasma][MOLES] / safe_plas_max) * 10
+		adjustToxLoss(clamp(ratio, MIN_TOXIC_GAS_DAMAGE, MAX_TOXIC_GAS_DAMAGE))
+		throw_alert(ALERT_TOO_MUCH_PLASMA, /atom/movable/screen/alert/too_much_plas)
+	else
+		// Reset side-effects.
+		clear_alert(ALERT_TOO_MUCH_PLASMA)
+
+	//-- TRACES --//
+	// If there's some other funk in the air lets deal with it here.
+
+	//-- BZ --//
+	// (Facepunch port of their Agent B)
+	if(bz_pp)
+		if(bz_pp > 1)
+			adjust_hallucinations(20 SECONDS)
+		else if(bz_pp > 0.01)
+			adjust_hallucinations(10 SECONDS)
+
+	//-- FREON --//
+	if(freon_pp)
+		adjustFireLoss(freon_pp * 0.25)
+
+	//-- MIASMA --//
+	if(!miasma_pp)
+	// Clear moodlet if no miasma at all.
+		clear_mood_event("smell")
+	else
+		// Miasma sickness
+		if(prob(1 * miasma_pp))
+			var/datum/disease/advance/miasma_disease = new /datum/disease/advance/random(max_symptoms = 2, max_level = 3)
+			miasma_disease.name = "Unknown"
+			ForceContractDisease(miasma_disease, make_copy = TRUE, del_on_fail = TRUE)
+		// Miasma side-effects.
+		switch(miasma_pp)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(0.25 to 5)
 				// At lower pp, give out a little warning
 				clear_mood_event("smell")
@@ -331,6 +584,7 @@
 			else
 				clear_mood_event("smell")
 
+<<<<<<< HEAD
 	//Clear all moods if no miasma at all
 	else
 		clear_mood_event("smell")
@@ -341,6 +595,80 @@
 	handle_breath_temperature(breath)
 
 	return TRUE
+=======
+	//-- NITROUS OXIDE --//
+	if(n2o_pp > n2o_para_min)
+		// More N2O, more severe side-effects. Causes stun/sleep.
+		n2o_euphoria = EUPHORIA_ACTIVE
+		throw_alert(ALERT_TOO_MUCH_N2O, /atom/movable/screen/alert/too_much_n2o)
+		// give them one second of grace to wake up and run away a bit!
+		if(!HAS_TRAIT(src, TRAIT_SLEEPIMMUNE))
+			Unconscious(6 SECONDS)
+		// Enough to make the mob sleep.
+		if(n2o_pp > n2o_sleep_min)
+			Sleeping(max(AmountSleeping() + 40, 200))
+	else if(n2o_pp > 0.01)
+		// No alert for small amounts, but the mob randomly feels euphoric.
+		if(prob(20))
+			n2o_euphoria = EUPHORIA_ACTIVE
+			emote(pick("giggle","laugh"))
+		else
+			n2o_euphoria = EUPHORIA_INACTIVE
+	else
+	// Reset side-effects, for zero or extremely small amounts of N2O.
+		n2o_euphoria = EUPHORIA_INACTIVE
+		clear_alert(ALERT_TOO_MUCH_N2O)
+
+	//-- NITRIUM --//
+	if(nitrium_pp)
+		if(nitrium_pp > 0.5)
+			adjustFireLoss(nitrium_pp * 0.15)
+		if(nitrium_pp > 5)
+			adjustToxLoss(nitrium_pp * 0.05)
+
+	// Handle chemical euphoria mood event, caused by N2O.
+	if (n2o_euphoria == EUPHORIA_ACTIVE)
+		add_mood_event("chemical_euphoria", /datum/mood_event/chemical_euphoria)
+	else if (n2o_euphoria == EUPHORIA_INACTIVE)
+		clear_mood_event("chemical_euphoria")
+	// Activate mood on first flag, remove on second, do nothing on third.
+
+	if(has_moles)
+		handle_breath_temperature(breath)
+
+	breath.garbage_collect()
+
+/// Applies suffocation side-effects to a given Human, scaling based on ratio of required pressure VS "true" pressure.
+/// If pressure is greater than 0, the return value will represent the amount of gas successfully breathed.
+/mob/living/carbon/proc/handle_suffocation(breath_pp = 0, safe_breath_min = 0, true_pp = 0)
+	. = 0
+	// Can't suffocate without minimum breath pressure.
+	if(!safe_breath_min)
+		return
+	// Mob is suffocating.
+	failed_last_breath = TRUE
+	// Give them a chance to notice something is wrong.
+	if(prob(20))
+		emote("gasp")
+	// Mob is at critical health, check if they can be damaged further.
+	if(health < crit_threshold)
+		// Mob is immune to damage at critical health.
+		if(HAS_TRAIT(src, TRAIT_NOCRITDAMAGE))
+			return
+		// Reagents like Epinephrine stop suffocation at critical health.
+		if(reagents.has_reagent(/datum/reagent/medicine/epinephrine, needs_metabolizing = TRUE))
+			return
+	// Low pressure.
+	if(breath_pp)
+		var/ratio = safe_breath_min / breath_pp
+		adjustOxyLoss(min(5 * ratio, 3))
+		return true_pp * ratio / 6
+	// Zero pressure.
+	if(health >= crit_threshold)
+		adjustOxyLoss(3)
+	else
+		adjustOxyLoss(1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Fourth and final link in a breath chain
 /mob/living/carbon/proc/handle_breath_temperature(datum/gas_mixture/breath)
@@ -363,6 +691,7 @@
 	// To differentiate between no internals and active, but empty internals.
 	return . || FALSE
 
+<<<<<<< HEAD
 /mob/living/carbon/proc/handle_blood(delta_time, times_fired)
 	return
 
@@ -377,11 +706,28 @@
 		for(var/obj/item/organ/internal/organ as anything in internal_organs)
 			// On-death is where organ decay is handled
 			organ.on_death(delta_time, times_fired)
+=======
+/mob/living/carbon/proc/handle_blood(seconds_per_tick, times_fired)
+	return
+
+/mob/living/carbon/proc/handle_bodyparts(seconds_per_tick, times_fired)
+	for(var/obj/item/bodypart/limb as anything in bodyparts)
+		. |= limb.on_life(seconds_per_tick, times_fired)
+
+/mob/living/carbon/proc/handle_organs(seconds_per_tick, times_fired)
+	if(stat == DEAD)
+		if(reagents.has_reagent(/datum/reagent/toxin/formaldehyde, 1) || reagents.has_reagent(/datum/reagent/cryostylane)) // No organ decay if the body contains formaldehyde.
+			return
+		for(var/obj/item/organ/internal/organ in organs)
+			// On-death is where organ decay is handled
+			organ?.on_death(seconds_per_tick, times_fired) // organ can be null due to reagent metabolization causing organ shuffling
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			// We need to re-check the stat every organ, as one of our others may have revived us
 			if(stat != DEAD)
 				break
 		return
 
+<<<<<<< HEAD
 	// NOTE: internal_organs_slot is sorted by GLOB.organ_process_order on insertion
 	for(var/slot in internal_organs_slot)
 		// We don't use getorganslot here because we know we have the organ we want, since we're iterating the list containing em already
@@ -407,6 +753,33 @@
 			W.handle_process(delta_time, times_fired)
 
 /mob/living/carbon/handle_mutations(time_since_irradiated, delta_time, times_fired)
+=======
+	// NOTE: organs_slot is sorted by GLOB.organ_process_order on insertion
+	for(var/slot in organs_slot)
+		// We don't use get_organ_slot here because we know we have the organ we want, since we're iterating the list containing em already
+		// This code is hot enough that it's just not worth the time
+		var/obj/item/organ/internal/organ = organs_slot[slot]
+		if(organ?.owner) // This exist mostly because reagent metabolization can cause organ reshuffling
+			organ.on_life(seconds_per_tick, times_fired)
+
+
+/mob/living/carbon/handle_diseases(seconds_per_tick, times_fired)
+	for(var/thing in diseases)
+		var/datum/disease/D = thing
+		if(SPT_PROB(D.infectivity, seconds_per_tick))
+			D.spread()
+
+		if(stat != DEAD || D.process_dead)
+			D.stage_act(seconds_per_tick, times_fired)
+
+/mob/living/carbon/handle_wounds(seconds_per_tick, times_fired)
+	for(var/thing in all_wounds)
+		var/datum/wound/W = thing
+		if(W.processes) // meh
+			W.handle_process(seconds_per_tick, times_fired)
+
+/mob/living/carbon/handle_mutations(time_since_irradiated, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!dna?.temporary_mutations.len)
 		return
 
@@ -443,6 +816,7 @@
 		if(HM?.timeout)
 			dna.remove_mutation(HM.type)
 
+<<<<<<< HEAD
 // This updates all special effects that really should be status effect datums: Druggy, Hallucinations, Drunkenness, Mute, etc..
 /mob/living/carbon/handle_status_effects(delta_time, times_fired)
 	..()
@@ -461,6 +835,27 @@
 
 	if(stat != DEAD) // If you are dead your body does not stabilize naturally
 		natural_bodytemperature_stabilization(environment, delta_time, times_fired)
+=======
+/**
+ * Handles calling metabolization for dead people.
+ * Due to how reagent metabolization code works this couldn't be done anywhere else.
+ *
+ * Arguments:
+ * - seconds_per_tick: The amount of time that has elapsed since the last tick.
+ * - times_fired: The number of times SSmobs has ticked.
+ */
+/mob/living/carbon/proc/handle_dead_metabolization(seconds_per_tick, times_fired)
+	if (stat != DEAD)
+		return
+	reagents.metabolize(src, seconds_per_tick, times_fired, can_overdose = TRUE, liverless = TRUE, dead = TRUE) // Your liver doesn't work while you're dead.
+
+/// Base carbon environment handler, adds natural stabilization
+/mob/living/carbon/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+	var/areatemp = get_temperature(environment)
+
+	if(stat != DEAD) // If you are dead your body does not stabilize naturally
+		natural_bodytemperature_stabilization(environment, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!on_fire || areatemp > bodytemperature) // If we are not on fire or the area is hotter
 		adjust_bodytemperature((areatemp - bodytemperature), use_insulation=TRUE, use_steps=TRUE)
@@ -470,10 +865,17 @@
  *
  * Arguments:
  * - [environemnt][/datum/gas_mixture]: The environment gas mix
+<<<<<<< HEAD
  * - delta_time: The amount of time that has elapsed since the last tick
  * - times_fired: The number of times SSmobs has ticked
  */
 /mob/living/carbon/proc/natural_bodytemperature_stabilization(datum/gas_mixture/environment, delta_time, times_fired)
+=======
+ * - seconds_per_tick: The amount of time that has elapsed since the last tick
+ * - times_fired: The number of times SSmobs has ticked
+ */
+/mob/living/carbon/proc/natural_bodytemperature_stabilization(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/areatemp = get_temperature(environment)
 	var/body_temperature_difference = get_body_temp_normal() - bodytemperature
 	var/natural_change = 0
@@ -519,7 +921,11 @@
 				natural_change = (1 / (thermal_protection + 1)) * natural_change
 
 	// Apply the natural stabilization changes
+<<<<<<< HEAD
 	adjust_bodytemperature(natural_change * delta_time)
+=======
+	adjust_bodytemperature(natural_change * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Get the insulation that is appropriate to the temperature you're being exposed to.
@@ -594,7 +1000,11 @@
 /mob/living/carbon/get_fullness()
 	var/fullness = nutrition
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/belly = getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!belly) //nothing to see here if we do not have a stomach
 		return fullness
 
@@ -612,7 +1022,11 @@
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/belly = getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!belly)
 		return FALSE
 	return belly.reagents.has_reagent(reagent, amount, needs_metabolizing)
@@ -623,20 +1037,33 @@
 
 ///Check to see if we have the liver, if not automatically gives you last-stage effects of lacking a liver.
 
+<<<<<<< HEAD
 /mob/living/carbon/proc/handle_liver(delta_time, times_fired)
 	if(!dna)
 		return
 
 	var/obj/item/organ/internal/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
+=======
+/mob/living/carbon/proc/handle_liver(seconds_per_tick, times_fired)
+	if(!dna)
+		return
+
+	var/obj/item/organ/internal/liver/liver = get_organ_slot(ORGAN_SLOT_LIVER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(liver)
 		return
 
 	reagents.end_metabolization(src, keep_liverless = TRUE) //Stops trait-based effects on reagents, to prevent permanent buffs
+<<<<<<< HEAD
 	reagents.metabolize(src, delta_time, times_fired, can_overdose=TRUE, liverless = TRUE)
+=======
+	reagents.metabolize(src, seconds_per_tick, times_fired, can_overdose=TRUE, liverless = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(HAS_TRAIT(src, TRAIT_STABLELIVER) || HAS_TRAIT(src, TRAIT_NOMETABOLISM))
 		return
 
+<<<<<<< HEAD
 	adjustToxLoss(0.6 * delta_time, TRUE,  TRUE)
 	adjustOrganLoss(pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES, ORGAN_SLOT_EARS), 0.5* delta_time)
 
@@ -700,14 +1127,31 @@
 		visible_message(span_warning("[src]'s body crumbles into a pile of ash!"))
 		dust(TRUE, TRUE)
 
+=======
+	adjustToxLoss(0.6 * seconds_per_tick, TRUE,  TRUE)
+	adjustOrganLoss(pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES, ORGAN_SLOT_EARS), 0.5* seconds_per_tick)
+
+/mob/living/carbon/proc/undergoing_liver_failure()
+	var/obj/item/organ/internal/liver/liver = get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver?.organ_flags & ORGAN_FAILING)
+		return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ////////////////
 //BRAIN DAMAGE//
 ////////////////
 
+<<<<<<< HEAD
 /mob/living/carbon/proc/handle_brain_damage(delta_time, times_fired)
 	for(var/T in get_traumas())
 		var/datum/brain_trauma/BT = T
 		BT.on_life(delta_time, times_fired)
+=======
+/mob/living/carbon/proc/handle_brain_damage(seconds_per_tick, times_fired)
+	for(var/T in get_traumas())
+		var/datum/brain_trauma/BT = T
+		BT.on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /////////////////////////////////////
 //MONKEYS WITH TOO MUCH CHOLOESTROL//
@@ -716,7 +1160,11 @@
 /mob/living/carbon/proc/can_heartattack()
 	if(!needs_heart())
 		return FALSE
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+=======
+	var/obj/item/organ/internal/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!heart || (heart.organ_flags & ORGAN_SYNTHETIC))
 		return FALSE
 	return TRUE
@@ -724,7 +1172,11 @@
 /mob/living/carbon/proc/needs_heart()
 	if(HAS_TRAIT(src, TRAIT_STABLEHEART))
 		return FALSE
+<<<<<<< HEAD
 	if(dna && dna.species && (NOBLOOD in dna.species.species_traits)) //not all carbons have species!
+=======
+	if(dna && dna.species && (HAS_TRAIT(src, TRAIT_NOBLOOD) || isnull(dna.species.mutantheart))) //not all carbons have species!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return TRUE
 
@@ -736,7 +1188,11 @@
  * related situations (i.e not just cardiac arrest)
  */
 /mob/living/carbon/proc/undergoing_cardiac_arrest()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+=======
+	var/obj/item/organ/internal/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(istype(heart) && heart.beating)
 		return FALSE
 	else if(!needs_heart())
@@ -747,7 +1203,11 @@
 	if(!can_heartattack())
 		return FALSE
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+=======
+	var/obj/item/organ/internal/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!istype(heart))
 		return
 

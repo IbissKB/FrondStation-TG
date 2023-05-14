@@ -3,7 +3,11 @@
 	desc = "A handy little spring-loaded trap for catching pesty rodents."
 	icon_state = "mousetrap"
 	inhand_icon_state = "mousetrap"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=100)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attachable = TRUE
 	var/armed = FALSE
 	drop_sound = 'sound/items/handling/component_drop.ogg'

@@ -212,7 +212,11 @@
 	if(is_centcom_level(T.z) || is_away_level(T.z))
 		return FALSE
 	var/area/A = get_area(T)
+<<<<<<< HEAD
 	if(!A ||(A.area_flags & NOTELEPORT))
+=======
+	if(!A || (A.area_flags & NOTELEPORT))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return TRUE
 

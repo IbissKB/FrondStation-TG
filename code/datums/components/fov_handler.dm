@@ -97,12 +97,22 @@
 /datum/component/fov_handler/proc/remove_mask()
 	var/mob/parent_mob = parent
 	var/client/parent_client = parent_mob.client
+<<<<<<< HEAD
+=======
+	// Prevents stupid ass hard deletes
+	parent_mob.hud_used.always_visible_inventory -= blocker_mask
+	parent_mob.hud_used.always_visible_inventory -= visual_shadow
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!parent_client) //Love client volatility!!
 		return
 	applied_mask = FALSE
 	parent_client.screen -= blocker_mask
 	parent_client.screen -= visual_shadow
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/fov_handler/proc/add_mask()
 	var/mob/parent_mob = parent
 	var/client/parent_client = parent_mob.client
@@ -111,6 +121,11 @@
 	applied_mask = TRUE
 	parent_client.screen += blocker_mask
 	parent_client.screen += visual_shadow
+<<<<<<< HEAD
+=======
+	parent_mob.hud_used.always_visible_inventory += blocker_mask
+	parent_mob.hud_used.always_visible_inventory += visual_shadow
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// When a direction of the user changes, so do the masks
 /datum/component/fov_handler/proc/on_dir_change(mob/source, old_dir, new_dir)

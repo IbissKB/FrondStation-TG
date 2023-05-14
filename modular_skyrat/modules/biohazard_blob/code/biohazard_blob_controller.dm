@@ -189,7 +189,11 @@
 				active_resin[potato] = TRUE
 				return
 
+<<<<<<< HEAD
 /datum/biohazard_blob_controller/process(delta_time)
+=======
+/datum/biohazard_blob_controller/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	progress_to_spread++
 	if(stalled && progress_to_spread < SPREAD_STALLED_PROCESS)
 		return

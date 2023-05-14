@@ -15,6 +15,11 @@
 	if(!istype(parent, /datum/action))
 		return COMPONENT_INCOMPATIBLE
 
+<<<<<<< HEAD
+=======
+	ASSERT(isnull(item) || istype(item))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!item && !item_callback)
 		stack_trace("[type] created without a reference item or an item callback - one or the other is required.")
 		return COMPONENT_INCOMPATIBLE
@@ -48,13 +53,26 @@
 	SIGNAL_HANDLER
 
 	// We're in the middle of being removed / deleted, remove our associated overlay
+<<<<<<< HEAD
 	if(QDELING(src) && item_appearance)
 		current_button.cut_overlay(item_appearance)
 		item_appearance = null
+=======
+	if(QDELING(src))
+		if(item_appearance)
+			current_button.cut_overlay(item_appearance)
+			item_appearance = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/atom/movable/muse = item_callback?.Invoke() || item_ref?.resolve()
 	if(!istype(muse))
+<<<<<<< HEAD
+=======
+		if(item_appearance) // New item does not exist but we have an old appearance
+			current_button.cut_overlay(item_appearance)
+			item_appearance = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(item_appearance)

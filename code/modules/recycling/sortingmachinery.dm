@@ -118,7 +118,11 @@
 		if(!user.can_write(item))
 			return
 		var/str = tgui_input_text(user, "Label text?", "Set label", max_length = MAX_NAME_LEN)
+<<<<<<< HEAD
 		if(!user.canUseTopic(src, be_close = TRUE))
+=======
+		if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 		if(!str || !length(str))
 			to_chat(user, span_warning("Invalid text!"))
@@ -131,7 +135,11 @@
 		if(wrapping_paper.use(3))
 			user.visible_message(span_notice("[user] wraps the package in festive paper!"))
 			giftwrapped = TRUE
+<<<<<<< HEAD
 			greyscale_config = text2path("/datum/greyscale_config/[icon_state]")
+=======
+			greyscale_config = text2path("/datum/greyscale_config/gift[icon_state]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			set_greyscale(colors = wrapping_paper.greyscale_colors)
 			update_appearance()
 		else
@@ -260,7 +268,11 @@
 	desc = "Used to set the destination of properly wrapped packages."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "cargo tagger"
+<<<<<<< HEAD
 	worn_icon_state = "cargo tagger"
+=======
+	worn_icon_state = "cargotagger"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/currTag = 0 //Destinations are stored in code\globalvars\lists\flavor_misc.dm
 	var/locked_destination = FALSE //if true, users can't open the destination tag window to prevent changing the tagger's current destination
 	w_class = WEIGHT_CLASS_TINY

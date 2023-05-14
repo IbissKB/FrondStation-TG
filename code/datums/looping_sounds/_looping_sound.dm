@@ -120,11 +120,27 @@
 		return
 	// If we have a timer, we're varying mid length, and this is happening while we're runnin mid_sounds
 	if(timer_id && mid_length_vary && start_time)
+<<<<<<< HEAD
 		updatetimedelay(timer_id, mid_length + rand(-mid_length_vary, mid_length_vary))
+=======
+		updatetimedelay(timer_id, mid_length + rand(-mid_length_vary, mid_length_vary), timer_subsystem = SSsound_loops)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!chance || prob(chance))
 		play(get_sound())
 
 /**
+<<<<<<< HEAD
+=======
+ * Applies a new mid length to the sound
+ */
+/datum/looping_sound/proc/set_mid_length(new_mid)
+	mid_length = new_mid
+	if(!timer_id)
+		return
+	updatetimedelay(timer_id, mid_length + rand(-mid_length_vary, mid_length_vary), timer_subsystem = SSsound_loops)
+
+/**
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * The proc that handles actually playing the sound.
  *
  * Arguments:

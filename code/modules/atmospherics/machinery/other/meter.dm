@@ -8,7 +8,11 @@
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.05
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.03
 	max_integrity = 150
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 40, ACID = 0)
+=======
+	armor_type = /datum/armor/machinery_meter
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	greyscale_config = /datum/greyscale_config/meter
 	greyscale_colors = COLOR_GRAY
 	///The pipe we are attaching to
@@ -16,6 +20,13 @@
 	///The piping layer of the target
 	var/target_layer = PIPING_LAYER_DEFAULT
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_meter
+	energy = 100
+	fire = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/meter/Destroy()
 	SSair.stop_processing_machine(src)
 	target = null
@@ -54,6 +65,12 @@
 		icon_state = "meter"
 		SSair.stop_processing_machine(src)
 
+<<<<<<< HEAD
+=======
+/obj/machinery/meter/return_air()
+	return target?.return_air() || ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/meter/process_atmos()
 	var/datum/gas_mixture/pipe_air = target.return_air()
 	if(!pipe_air)

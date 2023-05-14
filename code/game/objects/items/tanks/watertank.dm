@@ -12,12 +12,23 @@
 	slowdown = 1
 	actions_types = list(/datum/action/item_action/toggle_mister)
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 30)
+=======
+	armor_type = /datum/armor/item_watertank
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 
 	var/obj/item/noz
 	var/volume = 500
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_watertank
+	fire = 100
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/watertank/Initialize(mapload)
 	. = ..()
 	create_reagents(volume, OPENCONTAINER)
@@ -127,6 +138,7 @@
 	item_flags = NOBLUDGEON | ABSTRACT  // don't put in storage
 	slot_flags = NONE
 
+<<<<<<< HEAD
 	var/obj/item/watertank/tank
 
 /obj/item/reagent_containers/spray/mister/Initialize(mapload)
@@ -135,11 +147,22 @@
 	if(!tank?.reagents)
 		return INITIALIZE_HINT_QDEL
 	reagents = tank.reagents //This mister is really just a proxy for the tank's reagents
+=======
+/obj/item/reagent_containers/spray/mister/Initialize(mapload)
+	. = ..()
+	if(!loc?.reagents)
+		return INITIALIZE_HINT_QDEL
+	reagents = loc.reagents //This mister is really just a proxy for the tank's reagents
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/spray/mister/afterattack(obj/target, mob/user, proximity)
 	if(target.loc == loc) //Safety check so you don't fill your mister with mutagen or something and then blast yourself in the face with it
 		return
+<<<<<<< HEAD
 	..()
+=======
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Janitor tank
 /obj/item/watertank/janitor
@@ -295,8 +318,12 @@
 	if(AttemptRefill(target, user))
 		return
 	if(nozzle_mode == EXTINGUISHER)
+<<<<<<< HEAD
 		..()
 		return
+=======
+		return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/Adj = user.Adjacent(target)
 	if(nozzle_mode == RESIN_LAUNCHER)
 		if(Adj)
@@ -320,7 +347,11 @@
 		return
 
 	if(nozzle_mode == RESIN_FOAM)
+<<<<<<< HEAD
 		if(!Adj|| !isturf(target))
+=======
+		if(!Adj || !isturf(target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			balloon_alert(user, "too far!")
 			return
 		for(var/S in target)
@@ -336,9 +367,15 @@
 			balloon_alert(user, "still being synthesized!")
 			return
 
+<<<<<<< HEAD
 /obj/item/extinguisher/mini/nozzle/proc/resin_stop_check(datum/move_loop/source, succeeded)
 	SIGNAL_HANDLER
 	if(succeeded)
+=======
+/obj/item/extinguisher/mini/nozzle/proc/resin_stop_check(datum/move_loop/source, result)
+	SIGNAL_HANDLER
+	if(result == MOVELOOP_SUCCESS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	resin_landed(source)
 	qdel(source)
@@ -453,7 +490,11 @@
 	if(ismob(loc))
 		to_chat(loc, span_notice("[src] turns off."))
 
+<<<<<<< HEAD
 /obj/item/reagent_containers/chemtank/process(delta_time)
+=======
+/obj/item/reagent_containers/chemtank/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!ishuman(loc))
 		turn_off()
 		return
@@ -465,7 +506,11 @@
 		turn_off()
 		return
 
+<<<<<<< HEAD
 	var/inj_am = injection_amount * delta_time
+=======
+	var/inj_am = injection_amount * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/used_amount = inj_am / usage_ratio
 	reagents.trans_to(user, used_amount, multiplier=usage_ratio, methods = INJECT)
 	update_appearance()

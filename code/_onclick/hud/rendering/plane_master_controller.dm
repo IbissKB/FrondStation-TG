@@ -57,7 +57,11 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 /atom/movable/plane_master_controller/transition_filter(name, time, list/new_params, easing, loop)
 	. = ..()
 	for(var/atom/movable/screen/plane_master/pm_iterator as anything in get_planes())
+<<<<<<< HEAD
 		pm_iterator.transition_filter(name, time, new_params, easing, loop)
+=======
+		pm_iterator.transition_filter(name, new_params, time, easing, loop)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Full override so we can just use filterrific
 /atom/movable/plane_master_controller/add_atom_colour(coloration, colour_priority)
@@ -86,6 +90,18 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		RENDER_PLANE_GAME
 	)
 
+<<<<<<< HEAD
+=======
+/// Exists for convienience when referencing all non-master render plates.
+/// This is the whole game and the UI, but not the escape menu.
+/atom/movable/plane_master_controller/non_master
+	name = PLANE_MASTERS_NON_MASTER
+	controlled_planes = list(
+		RENDER_PLANE_GAME,
+		RENDER_PLANE_NON_GAME,
+	)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Exists for convienience when referencing all game render plates
 /atom/movable/plane_master_controller/colorblind
 	name = PLANE_MASTERS_COLORBLIND

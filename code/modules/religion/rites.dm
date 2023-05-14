@@ -37,7 +37,11 @@
 		return FALSE
 	to_chat(user, span_notice("You begin to perform the rite of [name]..."))
 	if(!ritual_invocations)
+<<<<<<< HEAD
 		if(do_after(user, target = user, delay = ritual_length))
+=======
+		if(do_after(user, ritual_length))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return TRUE
 		return FALSE
 	var/first_invoke = TRUE
@@ -48,10 +52,17 @@
 			continue
 		if(!length(ritual_invocations)) //we divide so we gotta protect
 			return FALSE
+<<<<<<< HEAD
 		if(!do_after(user, target = user, delay = ritual_length/length(ritual_invocations)))
 			return FALSE
 		user.say(i)
 	if(!do_after(user, target = user, delay = ritual_length/length(ritual_invocations))) //because we start at 0 and not the first fraction in invocations, we still have another fraction of ritual_length to complete
+=======
+		if(!do_after(user, ritual_length/length(ritual_invocations)))
+			return FALSE
+		user.say(i)
+	if(!do_after(user, ritual_length/length(ritual_invocations))) //because we start at 0 and not the first fraction in invocations, we still have another fraction of ritual_length to complete
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	if(invoke_msg)
 		user.say(invoke_msg)
@@ -139,6 +150,7 @@
 	new blessing(altar_turf)
 	return TRUE
 
+<<<<<<< HEAD
 /**** Pyre God ****/
 
 ///apply a bunch of fire immunity effect to clothing
@@ -257,6 +269,8 @@
 	playsound(altar_turf, 'sound/magic/fireball.ogg', 50, TRUE)
 	return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*********Greedy God**********/
 
 ///all greed rites cost money instead
@@ -358,7 +372,11 @@
 	if(!HAS_TRAIT_FROM(user, TRAIT_HOPELESSLY_ADDICTED, "maint_adaptation"))
 		to_chat(user, span_warning("You need to adapt to maintenance first."))
 		return FALSE
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/night_vision/maintenance_adapted/adapted = user.getorganslot(ORGAN_SLOT_EYES)
+=======
+	var/obj/item/organ/internal/eyes/night_vision/maintenance_adapted/adapted = user.get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(adapted && istype(adapted))
 		to_chat(user, span_warning("Your eyes are already adapted!"))
 		return FALSE
@@ -366,7 +384,11 @@
 
 /datum/religion_rites/adapted_eyes/invoke_effect(mob/living/carbon/human/user, atom/movable/religious_tool)
 	..()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/eyes/oldeyes = user.getorganslot(ORGAN_SLOT_EYES)
+=======
+	var/obj/item/organ/internal/eyes/oldeyes = user.get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(user, span_warning("You feel your eyes adapt to the darkness!"))
 	if(oldeyes)
 		oldeyes.Remove(user, special = TRUE)
@@ -531,7 +553,11 @@
 	if(!used_for_blade.use(5))//use 5 of the material
 		return
 	var/obj/item/ceremonial_blade/blade = new(altar_turf)
+<<<<<<< HEAD
 	blade.set_custom_materials(list(GET_MATERIAL_REF(material_used) = MINERAL_MATERIAL_AMOUNT * 5))
+=======
+	blade.set_custom_materials(list(GET_MATERIAL_REF(material_used) = SHEET_MATERIAL_AMOUNT * 5))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /datum/religion_rites/unbreakable

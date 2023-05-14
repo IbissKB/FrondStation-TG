@@ -7,11 +7,51 @@
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_TESHARI
 
+<<<<<<< HEAD
+=======
+/obj/item/bodypart/head/mutant/teshari/Initialize(mapload)
+	worn_ears_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_EARS,
+		offset_y = list("north" = -4, "south" = -4, "east" = -4, "west" = -4),
+	)
+	worn_head_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_HEAD,
+		offset_x = list("north" = 1, "south" = 1, "east" = 1, "west" = 1),
+		offset_y = list("north" = -4, "south" = -4, "east" = -4, "west" = -4),
+	)
+	worn_mask_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_FACEMASK,
+		offset_y = list("north" = -5, "south" = -5, "east" = -5, "west" = -5),
+	)
+	return ..()
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bodypart/chest/mutant/teshari
 	icon_greyscale = BODYPART_ICON_TESHARI
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_TESHARI
 
+<<<<<<< HEAD
+=======
+/obj/item/bodypart/chest/mutant/teshari/Initialize(mapload)
+	worn_back_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_BACK,
+		offset_y = list("north" = -4, "south" = -4, "east" = -4, "west" = -4),
+	)
+	worn_accessory_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_ACCESSORY,
+		offset_y = list("north" = -4, "south" = -4, "east" = -4, "west" = -4),
+	)
+	return ..()
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/bodypart/arm/left/mutant/teshari
 	icon_greyscale = BODYPART_ICON_TESHARI
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM

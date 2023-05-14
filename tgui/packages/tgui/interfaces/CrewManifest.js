@@ -36,7 +36,15 @@ export const CrewManifest = (props, context) => {
             <Table>
               {Object.entries(crew).map(([crewIndex, crewMember]) => (
                 <Table.Row key={crewIndex}>
+<<<<<<< HEAD
                   <Table.Cell className={'CrewManifest__Cell'}>
+=======
+                  <Table.Cell
+                    className={'CrewManifest__Cell'}
+                    maxWidth="135px"
+                    overflow="hidden"
+                    width="50%">
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                     {crewMember.name}
                   </Table.Cell>
                   <Table.Cell
@@ -44,8 +52,15 @@ export const CrewManifest = (props, context) => {
                       'CrewManifest__Cell',
                       'CrewManifest__Icons',
                     ])}
+<<<<<<< HEAD
                     collapsing>
                     {positions[dept].exceptions.includes(crewMember.trim) && (
+=======
+                    collapsing
+                    minWidth="40px"
+                    width="40px">
+                    {positions[dept].exceptions.includes(crewMember.rank) && (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                       <Tooltip content="No position limit" position="bottom">
                         <Icon className="CrewManifest__Icon" name="infinity" />
                       </Tooltip>
@@ -79,7 +94,14 @@ export const CrewManifest = (props, context) => {
                       'CrewManifest__Cell',
                       'CrewManifest__Cell--Rank',
                     ])}
+<<<<<<< HEAD
                     collapsing>
+=======
+                    collapsing
+                    maxWidth="135px"
+                    overflow="hidden"
+                    width="50%">
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                     {crewMember.rank}
                   </Table.Cell>
                 </Table.Row>

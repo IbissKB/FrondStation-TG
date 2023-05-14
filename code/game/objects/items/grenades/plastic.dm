@@ -77,7 +77,11 @@
 
 /obj/item/grenade/c4/attack_self(mob/user)
 	var/newtime = tgui_input_number(user, "Please set the timer", "C4 Timer", minimum_timer, maximum_timer, minimum_timer)
+<<<<<<< HEAD
 	if(!newtime || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!newtime || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	det_time = newtime
 	to_chat(user, "Timer set for [det_time] seconds.")
@@ -89,15 +93,28 @@
 		return
 	if(!flag)
 		return
+<<<<<<< HEAD
 	if(bomb_target != user && HAS_TRAIT(user, TRAIT_PACIFISM) && isliving(bomb_target))
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
 		return
+=======
+
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+	if(bomb_target != user && HAS_TRAIT(user, TRAIT_PACIFISM) && isliving(bomb_target))
+		to_chat(user, span_warning("You don't want to harm other living beings!"))
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	to_chat(user, span_notice("You start planting [src]. The timer is set to [det_time]..."))
 
 	if(do_after(user, 30, target = bomb_target))
 		if(!user.temporarilyRemoveItemFromInventory(src))
+<<<<<<< HEAD
 			return
+=======
+			return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		target = bomb_target
 		active = TRUE
 
@@ -121,6 +138,11 @@
 		to_chat(user, span_notice("You plant the bomb. Timer counting down from [det_time]."))
 		addtimer(CALLBACK(src, PROC_REF(detonate)), det_time*10)
 
+<<<<<<< HEAD
+=======
+	return .
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/grenade/c4/proc/shout_syndicate_crap(mob/player)
 	if(!player)
 		CRASH("[src] proc shout_syndicate_crap called without a mob to shout crap from!")

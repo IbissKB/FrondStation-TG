@@ -273,11 +273,19 @@ rough example of the "cone" made by the 3 dirs checked
 	if(!isnull(value) && value != "")
 		matches = filter_fancy_list(matches, value)
 
+<<<<<<< HEAD
 	if(matches.len==0)
 		return
 
 	var/chosen
 	if(matches.len==1)
+=======
+	if(matches.len == 0)
+		return
+
+	var/chosen
+	if(matches.len == 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		chosen = matches[1]
 	else if(random)
 		chosen = pick(matches) || null

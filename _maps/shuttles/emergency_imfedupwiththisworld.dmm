@@ -29,10 +29,14 @@
 /turf/open/floor/carpet,
 /area/shuttle/escape)
 "j" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "k" = (
@@ -40,10 +44,14 @@
 /obj/machinery/vending/boozeomat{
 	req_access = null
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "l" = (
@@ -68,10 +76,14 @@
 "p" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/cup/glass/shaker,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "q" = (
@@ -84,28 +96,40 @@
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass,
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass,
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "s" = (
 /obj/machinery/door/window{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "t" = (
 /obj/structure/table/reinforced,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "u" = (

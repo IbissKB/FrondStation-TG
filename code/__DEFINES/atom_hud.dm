@@ -27,6 +27,7 @@
 #define DIAG_MECH_HUD "11"
 /// Bot HUDs
 #define DIAG_BOT_HUD "12"
+<<<<<<< HEAD
 /// Circuit assembly health bar
 #define DIAG_CIRCUIT_HUD "13"
 /// Mech/Silicon tracking beacon, Circutry long range icon
@@ -47,6 +48,26 @@
 #define FAN_HUD "24"
 /// Mech camera HUD
 #define DIAG_CAMERA_HUD "25"
+=======
+/// Mech/Silicon tracking beacon, Circutry long range icon
+#define DIAG_TRACK_HUD "13"
+/// Airlock shock overlay
+#define DIAG_AIRLOCK_HUD "14"
+/// Bot path indicators
+#define DIAG_PATH_HUD "15"
+/// Gland indicators for abductors
+#define GLAND_HUD "16"
+#define SENTIENT_DISEASE_HUD "17"
+#define AI_DETECT_HUD "18"
+/// Displays launchpads' targeting reticle
+#define DIAG_LAUNCHPAD_HUD "19"
+//for antag huds. these are used at the /mob level
+#define ANTAG_HUD "20"
+// for fans to identify pins
+#define FAN_HUD "21"
+/// Mech camera HUD
+#define DIAG_CAMERA_HUD "22"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // SKYRAT EDIT ADDITION BEGIN - gun permits
 /// ammo of guns
@@ -101,6 +122,10 @@
 #define SECHUD_CHIEF_MEDICAL_OFFICER "hudchiefmedicalofficer"
 #define SECHUD_CLOWN "hudclown"
 #define SECHUD_COOK "hudcook"
+<<<<<<< HEAD
+=======
+#define SECHUD_CORONER "hudcoroner"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define SECHUD_CURATOR "hudcurator"
 #define SECHUD_DETECTIVE "huddetective"
 #define SECHUD_GENETICIST "hudgeneticist"

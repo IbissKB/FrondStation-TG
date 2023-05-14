@@ -91,7 +91,11 @@
 		return FALSE
 	if(wearer && (wearer.pulledby?.grab_state || wearer.incapacitated() || wearer.stat))
 		return FALSE
+<<<<<<< HEAD
 	var/timemodifier = MOVE_DELAY * (ISDIAGONALDIR(direction) ? SQRT_2 : 1) * (wearer ? WEARER_DELAY : LONE_DELAY)
+=======
+	var/timemodifier = MOVE_DELAY * (ISDIAGONALDIR(direction) ? sqrt(2) : 1) * (wearer ? WEARER_DELAY : LONE_DELAY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	COOLDOWN_START(src, cooldown_mod_move, movedelay * timemodifier + slowdown)
 	playsound(src, 'sound/mecha/mechmove01.ogg', 25, TRUE)
 	core.subtract_charge(CELL_PER_STEP)

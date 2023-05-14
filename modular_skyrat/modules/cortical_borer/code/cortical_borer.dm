@@ -10,6 +10,12 @@ GLOBAL_VAR_INIT(successful_blood_chem, 0)
 
 GLOBAL_LIST_EMPTY(cortical_borers)
 
+<<<<<<< HEAD
+=======
+/// This divisor controls how fast body temperature changes to match the environment
+#define BODYTEMP_DIVISOR 16
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //we need a way of buffing leg speed
 /datum/movespeed_modifier/focus_speed
 	multiplicative_slowdown = -0.4
@@ -264,7 +270,11 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	. += "2) [GLOB.objective_willing_hosts] willing hosts: [length(GLOB.willing_hosts)]/[GLOB.objective_willing_hosts]"
 	. += "3) [GLOB.objective_blood_borer] borers learning [GLOB.objective_blood_chem] from the blood: [GLOB.successful_blood_chem]/[GLOB.objective_blood_borer]"
 
+<<<<<<< HEAD
 /mob/living/basic/cortical_borer/Life(delta_time, times_fired)
+=======
+/mob/living/basic/cortical_borer/Life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	//can only do stuff when we are inside a LIVING human
 	if(!inside_human() || human_host?.stat == DEAD)
@@ -330,11 +340,37 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 		return TRUE
 	return FALSE
 
+<<<<<<< HEAD
+=======
+/// Base mob environment handler for body temperature, overridden to take into consideration being inside a host
+/mob/living/basic/cortical_borer/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+	var/loc_temp
+	if(human_host)
+		loc_temp = human_host.coretemperature // set the local temp to that of the host's core temp
+	else
+		loc_temp = get_temperature(environment)
+	var/temp_delta = loc_temp - bodytemperature
+
+	if(!human_host && ismovable(loc))
+		var/atom/movable/occupied_space = loc
+		temp_delta *= (1 - occupied_space.contents_thermal_insulation)
+
+	if(temp_delta < 0) // it is cold here
+		if(!on_fire) // do not reduce body temp when on fire
+			adjust_bodytemperature(max(max(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_COOLING_MAX) * seconds_per_tick, temp_delta))
+	else // this is a hot place
+		adjust_bodytemperature(min(min(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_HEATING_MAX) * seconds_per_tick, temp_delta))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //leave the host, forced or not
 /mob/living/basic/cortical_borer/proc/leave_host()
 	if(!human_host)
 		return
+<<<<<<< HEAD
 	var/obj/item/organ/internal/borer_body/borer_organ = locate() in human_host.internal_organs
+=======
+	var/obj/item/organ/internal/borer_body/borer_organ = locate() in human_host.organs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(borer_organ)
 		borer_organ.Remove(human_host)
 	var/turf/human_turf = get_turf(human_host)
@@ -436,3 +472,8 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	chemical_storage = 250
 	chem_regen_per_level = 1.5
 	chem_storage_per_level = 25
+<<<<<<< HEAD
+=======
+
+#undef BODYTEMP_DIVISOR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

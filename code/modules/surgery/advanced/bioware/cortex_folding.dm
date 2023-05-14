@@ -15,7 +15,11 @@
 	bioware_target = BIOWARE_CORTEX
 
 /datum/surgery/advanced/bioware/cortex_folding/can_start(mob/user, mob/living/carbon/target)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/target_brain = target.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!target_brain)
 		return FALSE
 	return ..()
@@ -48,7 +52,11 @@
 	return ..()
 
 /datum/surgery_step/fold_cortex/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+<<<<<<< HEAD
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
+=======
+	if(target.get_organ_slot(ORGAN_SLOT_BRAIN))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		display_results(
 			user,
 			target,

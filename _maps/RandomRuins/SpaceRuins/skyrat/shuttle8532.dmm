@@ -271,8 +271,12 @@
 	dir = 9
 	},
 /obj/machinery/computer/operating{
+<<<<<<< HEAD
 	dir = 4;
 	icon_state = "computer"
+=======
+	dir = 4
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
@@ -516,9 +520,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
+<<<<<<< HEAD
 	cell_type = /obj/item/stock_parts/cell/bluespace;
 	start_charge = 0
 	},
+=======
+	cell_type = /obj/item/stock_parts/cell/bluespace
+	},
+/obj/effect/mapping_helpers/apc/no_charge,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "kL" = (
@@ -547,9 +557,13 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "lw" = (
@@ -888,9 +902,13 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "tC" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "tG" = (
@@ -901,8 +919,12 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "tP" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/engine/airless,
@@ -951,11 +973,14 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+<<<<<<< HEAD
 "uz" = (
 /obj/structure/grille,
 /obj/structure/grille,
 /turf/template_noop,
 /area/template_noop)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "uG" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
@@ -968,8 +993,12 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "uS" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /obj/effect/mapping_helpers/burnt_floor,
@@ -1164,7 +1193,11 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
+<<<<<<< HEAD
 /obj/item/disk/tech_disk/spaceloot,
+=======
+/obj/item/disk/design_disk/bepis,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stack/spacecash/c1000,
 /obj/item/raw_anomaly_core/random,
 /turf/open/floor/iron/airless,
@@ -1175,7 +1208,11 @@
 /area/ruin/space/has_grav/shuttle8532engineering)
 "zg" = (
 /obj/structure/table/reinforced,
+<<<<<<< HEAD
 /obj/item/disk/tech_disk/spaceloot,
+=======
+/obj/item/disk/design_disk/bepis,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "zi" = (
@@ -1202,9 +1239,13 @@
 /area/ruin/space/has_grav/shuttle8532bridge)
 "zC" = (
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "zE" = (
@@ -1229,15 +1270,25 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
+<<<<<<< HEAD
 	cell_type = /obj/item/stock_parts/cell/bluespace;
 	start_charge = 0
 	},
+=======
+	cell_type = /obj/item/stock_parts/cell/bluespace
+	},
+/obj/effect/mapping_helpers/apc/no_charge,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "zX" = (
@@ -1391,9 +1442,15 @@
 /obj/machinery/light/dim/directional/north,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
+<<<<<<< HEAD
 	cell_type = /obj/item/stock_parts/cell/bluespace;
 	start_charge = 0
 	},
+=======
+	cell_type = /obj/item/stock_parts/cell/bluespace
+	},
+/obj/effect/mapping_helpers/apc/no_charge,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532cargohall)
 "Ci" = (
@@ -1484,8 +1541,12 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "DZ" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/iron/airless,
@@ -1555,9 +1616,13 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "EX" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
@@ -1696,6 +1761,15 @@
 /obj/effect/spawner/random/clothing/syndie,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532cargohall)
+<<<<<<< HEAD
+=======
+"Ip" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/item/gun/ballistic/revolver/c38,
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532crewquarters)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Iu" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -1856,7 +1930,11 @@
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "MM" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee/space,
+=======
+/mob/living/basic/syndicate/melee/space,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "MO" = (
@@ -2146,18 +2224,25 @@
 "SJ" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/shuttle8532researchbay)
+<<<<<<< HEAD
 "Tl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/item/gun/ballistic/revolver/rifle/improvised,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Tq" = (
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "Tt" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /obj/machinery/power/shuttle_engine/heater,
@@ -2220,7 +2305,11 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "Uy" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee/space,
+=======
+/mob/living/basic/syndicate/melee/space,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "UN" = (
@@ -2506,8 +2595,12 @@
 /turf/template_noop,
 /area/template_noop)
 "ZN" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /obj/effect/decal/cleanable/glass,
@@ -3424,7 +3517,11 @@ CC
 Zq
 jQ
 jm
+<<<<<<< HEAD
 Tl
+=======
+CC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 rR
 yI
 CC
@@ -3606,7 +3703,11 @@ Se
 pu
 Ue
 TM
+<<<<<<< HEAD
 yv
+=======
+Ip
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 xB
 uZ
 BR
@@ -4248,7 +4349,11 @@ qb
 qb
 qb
 qb
+<<<<<<< HEAD
 uz
+=======
+hD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 qb
 OQ
 OQ

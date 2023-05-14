@@ -23,7 +23,16 @@
 	if (CONFIG_GET(flag/log_prayer))
 		WRITE_LOG(GLOB.world_game_log, "PRAY: [text]")
 
+<<<<<<< HEAD
 /// Logging for changes to ID card access
+=======
+/// Logging for music requests
+/proc/log_internet_request(text)
+	if (CONFIG_GET(flag/log_internet_request))
+		WRITE_LOG(GLOB.world_game_log, "INTERNET REQUEST: [text]")
+
+/// Logging for logging in & out of the game, with error messages.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /proc/log_access(text)
 	if (CONFIG_GET(flag/log_access))
 		WRITE_LOG(GLOB.world_game_log, "ACCESS: [text]")
@@ -32,3 +41,7 @@
 /proc/log_vote(text)
 	if (CONFIG_GET(flag/log_vote))
 		WRITE_LOG(GLOB.world_game_log, "VOTE: [text]")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

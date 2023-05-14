@@ -5,6 +5,11 @@
 	max_occurrences = 1
 	earliest_start = 0 MINUTES
 	description = "Every item in the world will have fantastical names."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 4
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/wizard/rpgloot/start()
 	GLOB.rpgloot_controller = new /datum/rpgloot_controller
@@ -26,6 +31,11 @@
 	if(!proximity || !istype(target))
 		return
 
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.AddComponent(/datum/component/fantasy, upgrade_amount, null, null, can_backfire, TRUE)
 
 	uses -= 1
@@ -33,6 +43,11 @@
 		visible_message(span_warning("[src] vanishes, its magic completely consumed from the fortification."))
 		qdel(src)
 
+<<<<<<< HEAD
+=======
+	return .
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/upgradescroll/unlimited
 	name = "unlimited foolproof item fortification scroll"
 	desc = "Somehow, this piece of paper can be applied to items to make them \"better\". This scroll is made from the tongues of dead paper wizards, and can be used an unlimited number of times, with no drawbacks."

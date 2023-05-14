@@ -30,10 +30,19 @@ SUBSYSTEM_DEF(area_spawn)
 	// And dense things aren't on walls. These objects should have normal density logic flipped.
 	var/list/flip_density_wall_mount_objects_list = list(
 		/obj/machinery,
+<<<<<<< HEAD
 		/obj/item/radio/intercom,
 		/obj/structure/table,
 		/obj/structure/rack,
 		/obj/structure/noticeboard,
+=======
+		/obj/structure/table,
+		/obj/structure/rack,
+		/obj/item/radio/intercom,
+		/obj/structure/noticeboard,
+		/obj/structure/sign,
+		/obj/structure/extinguisher_cabinet,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	/// Cache of area turf info.
@@ -47,7 +56,18 @@ SUBSYSTEM_DEF(area_spawn)
 	for(var/iterating_type in subtypesof(/datum/area_spawn))
 		var/datum/area_spawn/iterating_area_spawn = new iterating_type
 		iterating_area_spawn.try_spawn()
+<<<<<<< HEAD
 	clear_cache()
+=======
+		qdel(iterating_area_spawn)
+	clear_cache()
+
+	for(var/iterating_type in subtypesof(/datum/area_spawn_over))
+		var/datum/area_spawn_over/iterating_area_spawn_over = new iterating_type
+		iterating_area_spawn_over.try_spawn()
+		qdel(iterating_area_spawn_over)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return SS_INIT_SUCCESS
 
 /**
@@ -285,6 +305,11 @@ SUBSYSTEM_DEF(area_spawn)
 	for(var/i in 1 to amount_to_spawn)
 		var/turf/candidate_turf = SSarea_spawn.pick_turf_candidate(available_turfs)
 
+<<<<<<< HEAD
+=======
+		var/final_desired_atom = desired_atom
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(mode == AREA_SPAWN_MODE_MOUNT_WALL)
 			// For wall mounts, we have to find the wall and spawn the right directional.
 			for(var/dir in GLOB.cardinals)
@@ -292,10 +317,54 @@ SUBSYSTEM_DEF(area_spawn)
 				if(isopenturf(neighbor_turf))
 					continue
 
+<<<<<<< HEAD
 				desired_atom = text2path("[desired_atom]/directional/[dir2text(dir)]")
 				break
 
 		new desired_atom(candidate_turf)
+=======
+				final_desired_atom = text2path("[desired_atom]/directional/[dir2text(dir)]")
+				break
+
+		new final_desired_atom(candidate_turf)
+
+/**
+ * Spawns an atom on any turf that contains specific over atoms.
+ */
+/datum/area_spawn_over
+	/// The target area types for us to search for the over_atoms.
+	var/list/target_areas
+	/// The list of atom types to spawn the desired atom over.
+	var/list/over_atoms
+	/// The atom type that we want to spawn
+	var/desired_atom
+	/// Map blacklist, this is used to determine what maps we should not spawn on.
+	var/list/blacklisted_stations = list("Void Raptor", "Runtime Station", "MultiZ Debug")
+
+/**
+ * Spawn the atoms.
+ */
+/datum/area_spawn_over/proc/try_spawn()
+	if(SSmapping.config.map_name in blacklisted_stations)
+		return
+
+	for(var/area_type in target_areas)
+		var/area/found_area = GLOB.areas_by_type[area_type]
+		if(!found_area)
+			continue
+
+		for(var/turf/candidate_turf as anything in found_area.get_contained_turfs())
+			// Don't spawn if there's already a desired_atom here.
+			if(is_type_on_turf(candidate_turf, desired_atom))
+				continue
+
+			for(var/over_atom_type in over_atoms)
+				// Spawn on the first one we find in the turf and stop.
+				if(is_type_on_turf(candidate_turf, over_atom_type))
+					new desired_atom(candidate_turf)
+					// Break the over_atom_type loop.
+					break
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/turf_test
 	name = "PASS"

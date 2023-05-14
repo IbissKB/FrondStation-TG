@@ -55,7 +55,11 @@
 
 /obj/item/clothing/neck/kink_collar/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/small/kink_collar)
+=======
+	create_storage(storage_type = /datum/storage/pockets/small/kink_collar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/key/kink_collar/key
 	if(!treat_path)
 		return
@@ -70,7 +74,11 @@
 
 /obj/item/clothing/neck/kink_collar/AltClick(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	if(unique_reskin && !current_skin && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(unique_reskin && !current_skin && user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskin_obj(user)
 
 //rename collar code
@@ -108,7 +116,11 @@
 
 /obj/item/clothing/neck/kink_collar/locked/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/small/kink_collar/locked)
+=======
+	create_storage(storage_type = /datum/storage/pockets/small/kink_collar/locked)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //spawn thing in collar
 
@@ -116,7 +128,11 @@
 
 /obj/item/clothing/neck/kink_collar/locked/AltClick(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	if(unique_reskin && !current_skin && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(unique_reskin && !current_skin && user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskin_obj(user)
 
 //locking or unlocking collar code
@@ -195,7 +211,11 @@
 //changing color of key in case if we using multiple collars
 /obj/item/key/kink_collar/AltClick(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	if(unique_reskin && !current_skin && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if(unique_reskin && !current_skin && user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskin_obj(user)
 
 //changing name of key in case if we using multiple collars with same color
@@ -295,7 +315,11 @@
 
 /obj/item/clothing/neck/mind_collar/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/small/kink_collar/mind_collar)
+=======
+	create_storage(storage_type = /datum/storage/pockets/small/kink_collar/mind_collar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	remote = new /obj/item/mind_controller(src, src)
 	remote.forceMove(src)
 

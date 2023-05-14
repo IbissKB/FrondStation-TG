@@ -3,7 +3,11 @@
 /obj/item/gun/ballistic
 	desc = "Now comes in flavors like GUN. Uses 10mm ammo, for some reason."
 	name = "projectile gun"
+<<<<<<< HEAD
 	icon_state = "pistol"
+=======
+	icon_state = "debug"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_NORMAL
 
 	///sound when inserting magazine
@@ -59,7 +63,18 @@
 	var/empty_alarm = FALSE
 	///Whether the gun supports multiple special mag types
 	var/special_mags = FALSE
+<<<<<<< HEAD
 	///The bolt type of the gun, affects quite a bit of functionality, see combat.dm defines for bolt types: BOLT_TYPE_STANDARD; BOLT_TYPE_LOCKING; BOLT_TYPE_OPEN; BOLT_TYPE_NO_BOLT
+=======
+	/**
+	* The bolt type controls how the gun functions, and what iconstates you'll need to represent those functions.
+	* BOLT_TYPE_STANDARD - The Slide doesn't lock back.  Clicking on it will only cycle the bolt.  Only 1 sprite.
+	* BOLT_TYPE_OPEN - Same as standard, but it fires directly from the magazine - No need to rack.  Doesn't hold the bullet when you drop the mag.
+	* BOLT_TYPE_LOCKING - This is most handguns and bolt action rifles.  The bolt will lock back when it's empty.  You need yourgun_bolt and yourgun_bolt_locked icon states.
+	* BOLT_TYPE_NO_BOLT - This is shotguns and revolvers.  clicking will dump out all the bullets in the gun, spent or not.
+	* see combat.dm defines for bolt types: BOLT_TYPE_STANDARD; BOLT_TYPE_LOCKING; BOLT_TYPE_OPEN; BOLT_TYPE_NO_BOLT
+	**/
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/bolt_type = BOLT_TYPE_STANDARD
 	///Used for locking bolt and open bolt guns. Set a bit differently for the two but prevents firing when true for both.
 	var/bolt_locked = FALSE
@@ -92,7 +107,11 @@
 	/// Check if you are able to see if a weapon has a bullet loaded in or not.
 	var/hidden_chambered = FALSE
 
+<<<<<<< HEAD
 	///Gun internal magazine modification and misfiring
+=======
+	// Gun internal magazine modification and misfiring
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///Can we modify our ammo type in this gun's internal magazine?
 	var/can_modify_ammo = FALSE
@@ -126,13 +145,24 @@
 		return
 	if (!magazine)
 		magazine = new mag_type(src)
+<<<<<<< HEAD
 	if(bolt_type == BOLT_TYPE_STANDARD)
+=======
+	if(bolt_type == BOLT_TYPE_STANDARD || internal_magazine) //Internal magazines shouldn't get magazine + 1.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		chamber_round()
 	else
 		chamber_round(replace_new_round = TRUE)
 	update_appearance()
 	RegisterSignal(src, COMSIG_ITEM_RECHARGED, PROC_REF(instant_reload))
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/Destroy()
+	QDEL_NULL(magazine)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = PROC_REF(add_notes_ballistic))
 
@@ -155,7 +185,11 @@
  * Outputs type-specific weapon stats for ballistic weaponry based on its magazine and its caliber.
  * It contains extra breaks for the sake of presentation
  *
+<<<<<<< HEAD
  */
+=======
+ **/
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/proc/add_notes_ballistic()
 	if(magazine) // Make sure you have a magazine, to get the notes from
 		return "\n[magazine.add_notes_box()]"
@@ -393,6 +427,13 @@
 
 	if (sawn_off)
 		bonus_spread += SAWN_OFF_ACC_PENALTY
+<<<<<<< HEAD
+=======
+
+	if(!chambered.is_cased_ammo)
+		magazine.stored_ammo -= chambered
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/gun/ballistic/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
@@ -416,7 +457,11 @@
 	return ..()
 
 /obj/item/gun/ballistic/AltClick(mob/user)
+<<<<<<< HEAD
 	if (unique_reskin && !current_skin && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE))
+=======
+	if (unique_reskin && !current_skin && user.can_perform_action(src, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reskin_obj(user)
 		return
 	if(loc == user)
@@ -521,12 +566,21 @@
 
 ///Gets the number of bullets in the gun
 /obj/item/gun/ballistic/proc/get_ammo(countchambered = TRUE)
+<<<<<<< HEAD
 	var/boolets = 0 //mature var names for mature people
 	if (chambered && countchambered)
 		boolets++
 	if (magazine)
 		boolets += magazine.ammo_count()
 	return boolets
+=======
+	var/bullets = 0 //No silly variable names on my watch.
+	if (chambered && countchambered)
+		bullets++
+	if (magazine)
+		bullets += magazine.ammo_count()
+	return bullets
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///gets a list of every bullet in the gun
 /obj/item/gun/ballistic/proc/get_ammo_list(countchambered = TRUE, drop_all = FALSE)
@@ -543,8 +597,13 @@
 #define BRAINS_BLOWN_THROW_SPEED 1
 
 /obj/item/gun/ballistic/suicide_act(mob/living/user)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
 	if (B && chambered && chambered.loaded_projectile && can_trigger_gun(user) && !chambered.loaded_projectile.nodamage)
+=======
+	var/obj/item/organ/internal/brain/B = user.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if (B && chambered && chambered.loaded_projectile && can_trigger_gun(user) && chambered.loaded_projectile.damage > 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.visible_message(span_suicide("[user] is putting the barrel of [src] in [user.p_their()] mouth. It looks like [user.p_theyre()] trying to commit suicide!"))
 		sleep(2.5 SECONDS)
 		if(user.is_holding(src))
@@ -575,7 +634,11 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 	)))
 
 ///Handles all the logic of sawing off guns,
+<<<<<<< HEAD
 /obj/item/gun/ballistic/proc/sawoff(mob/user, obj/item/saw)
+=======
+/obj/item/gun/ballistic/proc/sawoff(mob/user, obj/item/saw, handle_modifications = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!saw.get_sharpness() || (!is_type_in_typecache(saw, GLOB.gun_saw_types) && saw.tool_behaviour != TOOL_SAW)) //needs to be sharp. Otherwise turned off eswords can cut this.
 		return
 	if(sawn_off)
@@ -596,6 +659,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 		if(sawn_off)
 			return
 		user.visible_message(span_notice("[user] shortens [src]!"), span_notice("You shorten [src]."))
+<<<<<<< HEAD
 		name = "sawn-off [src.name]"
 		desc = sawn_desc
 		w_class = WEIGHT_CLASS_NORMAL
@@ -611,6 +675,24 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 		recoil = SAWN_OFF_RECOIL
 		sawn_off = TRUE
 		update_appearance()
+=======
+		sawn_off = TRUE
+		if(handle_modifications)
+			name = "sawn-off [src.name]"
+			desc = sawn_desc
+			w_class = WEIGHT_CLASS_NORMAL
+			//The file might not have a "gun" icon, let's prepare for this
+			lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+			righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+			inhand_x_dimension = 32
+			inhand_y_dimension = 32
+			inhand_icon_state = "gun"
+			worn_icon_state = "gun"
+			slot_flags &= ~ITEM_SLOT_BACK //you can't sling it on your back
+			slot_flags |= ITEM_SLOT_BELT //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally)
+			recoil = SAWN_OFF_RECOIL
+			update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 
 /obj/item/gun/ballistic/proc/guncleaning(mob/user, obj/item/A)
@@ -693,8 +775,11 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "suppressor"
 	w_class = WEIGHT_CLASS_TINY
+<<<<<<< HEAD
 
 
 /obj/item/suppressor/specialoffer
 	name = "cheap suppressor"
 	desc = "A foreign knock-off suppressor, it feels flimsy, cheap, and brittle. Still fits most weapons."
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

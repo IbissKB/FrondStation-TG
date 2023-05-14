@@ -13,7 +13,10 @@
 	rack_sound = 'sound/weapons/gun/l6/l6_rack.ogg'
 	suppressed_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg'
 	fire_sound_volume = 70
+<<<<<<< HEAD
 	fire_select_modes = list(SELECT_SEMI_AUTOMATIC, SELECT_FULLY_AUTOMATIC)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
@@ -24,13 +27,27 @@
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	tac_reloads = FALSE
+<<<<<<< HEAD
 	company_flag = COMPANY_OLDARMS
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/cover_open = FALSE
 
 /obj/item/gun/ballistic/automatic/mg34/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob)
 
+=======
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/automatic/mg34/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_OLDARMS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/automatic/mg34/examine(mob/user)
 	. = ..()
 	. += "<b>RMB with an empty hand</b> to [cover_open ? "close" : "open"] the dust cover."
@@ -38,7 +55,11 @@
 		. += span_notice("It seems like you could use an <b>empty hand</b> to remove the magazine.")
 
 /obj/item/gun/ballistic/automatic/mg34/attack_hand_secondary(mob/user, list/modifiers)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	cover_open = !cover_open
 	to_chat(user, span_notice("You [cover_open ? "open" : "close"] [src]'s cover."))
@@ -124,9 +145,15 @@
 	RegisterSignal(src, COMSIG_GUN_FIRED, PROC_REF(process_heat))
 	START_PROCESSING(SSobj, src)
 
+<<<<<<< HEAD
 /obj/item/gun/ballistic/automatic/mg34/mg42/process(delta_time)
 	if(barrel_heat > 0)
 		barrel_heat -= BARREL_COOLDOWN_RATE * delta_time
+=======
+/obj/item/gun/ballistic/automatic/mg34/mg42/process(seconds_per_tick)
+	if(barrel_heat > 0)
+		barrel_heat -= BARREL_COOLDOWN_RATE * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_appearance()
 
 /obj/item/gun/ballistic/automatic/mg34/mg42/examine(mob/user)
@@ -210,4 +237,8 @@
 	ammo_type = /obj/item/ammo_casing/realistic/a792x57
 	caliber = "a792x57"
 	max_ammo = 150 // It's a lot, but the gun overheats.
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -29,8 +29,16 @@
 //Launching Shuttles to CentCom
 #define NOLAUNCH -1
 #define UNLAUNCHED 0
+<<<<<<< HEAD
 #define ENDGAME_LAUNCHED 1
 #define EARLY_LAUNCHED 2
+=======
+/// This shuttle launched to head to end game (or has arrived there), it will not update further
+#define ENDGAME_LAUNCHED 1
+#define EARLY_LAUNCHED 2
+/// "Endgame transit" denotes shuttles which "fly into the sunset" when the round ends, such as the whiteship.
+/// These shuttles leave when the main emergency shuttle does but don't dock anywhere (to save space), so this counts as "escaped".
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define ENDGAME_TRANSIT 3
 
 //positive value = cannot puchase
@@ -44,7 +52,11 @@
 #define TRANSIT_REQUEST 1
 #define TRANSIT_READY 2
 
+<<<<<<< HEAD
 #define SHUTTLE_TRANSIT_BORDER 8
+=======
+#define SHUTTLE_TRANSIT_BORDER 16
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #define PARALLAX_LOOP_TIME 25
 #define HYPERSPACE_END_TIME 5

@@ -13,7 +13,11 @@
 
 /datum/surgery/advanced/necrotic_revival/can_start(mob/user, mob/living/carbon/target)
 	. = ..()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/zombie_infection/z_infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
+=======
+	var/obj/item/organ/internal/zombie_infection/z_infection = target.get_organ_slot(ORGAN_SLOT_ZOMBIE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(z_infection)
 		return FALSE
 
@@ -45,7 +49,11 @@
 		span_notice("[user] completes the surgery on [target]'s brain."),
 	)
 	display_pain(target, "Your head goes totally numb for a moment, the pain is overwhelming!")
+<<<<<<< HEAD
 	if(!target.getorganslot(ORGAN_SLOT_ZOMBIE))
+=======
+	if(!target.get_organ_slot(ORGAN_SLOT_ZOMBIE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/obj/item/organ/internal/zombie_infection/z_infection = new()
 		z_infection.Insert(target)
 	return ..()

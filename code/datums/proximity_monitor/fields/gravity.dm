@@ -1,4 +1,8 @@
 /datum/proximity_monitor/advanced/gravity
+<<<<<<< HEAD
+=======
+	edge_is_a_field = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/gravity_value = 0
 	var/list/modified_turfs = list()
 
@@ -7,6 +11,7 @@
 	gravity_value = gravity
 	recalculate_field()
 
+<<<<<<< HEAD
 /datum/proximity_monitor/advanced/gravity/setup_field_turf(turf/T)
 	. = ..()
 
@@ -19,3 +24,19 @@
 		return
 	T.RemoveElement(/datum/element/forced_gravity, modified_turfs[T])
 	modified_turfs -= T
+=======
+/datum/proximity_monitor/advanced/gravity/setup_field_turf(turf/target)
+	. = ..()
+	if (isnull(modified_turfs[target]))
+		return
+
+	target.AddElement(/datum/element/forced_gravity, gravity_value)
+	modified_turfs[target] = gravity_value
+
+/datum/proximity_monitor/advanced/gravity/cleanup_field_turf(turf/target)
+	. = ..()
+	if(isnull(modified_turfs[target]))
+		return
+	target.RemoveElement(/datum/element/forced_gravity, modified_turfs[target])
+	modified_turfs -= target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

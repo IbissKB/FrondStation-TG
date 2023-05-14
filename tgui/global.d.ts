@@ -198,4 +198,9 @@ const Byond: ByondType;
 
 interface Window {
   Byond: ByondType;
+<<<<<<< HEAD
+=======
+  __store__: Store<unknown, AnyAction>;
+  __augmentStack__: (store: Store) => StackAugmentor;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 }

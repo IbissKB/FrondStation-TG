@@ -193,6 +193,7 @@
 /datum/tgs_api/v3210/ChatChannelInfo()
 	return list() // :omegalul:
 
+<<<<<<< HEAD
 /datum/tgs_api/v3210/ChatBroadcast(message, list/channels)
 	if(channels)
 		return TGS_UNIMPLEMENTED
@@ -203,6 +204,21 @@
 	ExportService("[admin_only ? SERVICE_REQUEST_IRC_ADMIN_CHANNEL_MESSAGE : SERVICE_REQUEST_IRC_BROADCAST] [message]")
 
 /datum/tgs_api/v3210/ChatPrivateMessage(message, datum/tgs_chat_user/user)
+=======
+/datum/tgs_api/v3210/ChatBroadcast(datum/tgs_message_content/message, list/channels)
+	if(channels)
+		return TGS_UNIMPLEMENTED
+	message = UpgradeDeprecatedChatMessage(message)
+	ChatTargetedBroadcast(message, TRUE)
+	ChatTargetedBroadcast(message, FALSE)
+
+/datum/tgs_api/v3210/ChatTargetedBroadcast(datum/tgs_message_content/message, admin_only)
+	message = UpgradeDeprecatedChatMessage(message)
+	ExportService("[admin_only ? SERVICE_REQUEST_IRC_ADMIN_CHANNEL_MESSAGE : SERVICE_REQUEST_IRC_BROADCAST] [message.text]")
+
+/datum/tgs_api/v3210/ChatPrivateMessage(message, datum/tgs_chat_user/user)
+	UpgradeDeprecatedChatMessage(message)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TGS_UNIMPLEMENTED
 
 /datum/tgs_api/v3210/SecurityLevel()

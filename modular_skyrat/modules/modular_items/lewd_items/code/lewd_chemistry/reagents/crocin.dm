@@ -37,7 +37,11 @@
 	exposed_mob.adjust_pain(pain_adjust_amount)
 
 	var/modified_genitals = FALSE
+<<<<<<< HEAD
 	for(var/obj/item/organ/external/genital/mob_genitals in exposed_mob.external_organs)
+=======
+	for(var/obj/item/organ/external/genital/mob_genitals in exposed_mob.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(!mob_genitals.aroused == AROUSAL_CANT)
 			mob_genitals.aroused = AROUSAL_FULL
 			mob_genitals.update_sprite_suffix()

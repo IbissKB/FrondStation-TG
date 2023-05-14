@@ -8,8 +8,11 @@
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		HAIR,
 		FACEHAIR
 	)
@@ -63,9 +66,16 @@
 
 /datum/species/vox/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
 	. = ..()
+<<<<<<< HEAD
 	var/datum/outfit/vox/O = new /datum/outfit/vox
 	equipping.equipOutfit(O, visuals_only)
 	equipping.open_internals(equipping.get_item_for_held_index(2))
+=======
+	if(job?.vox_outfit)
+		equipping.equipOutfit(job.vox_outfit, visuals_only)
+	else
+		give_important_for_life(equipping)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/species/vox/random_name(gender,unique,lastname)
 	if(unique)
@@ -96,8 +106,13 @@
 	if(item_slot == LOADOUT_ITEM_SHOES)
 		var/obj/item/bodypart/leg = bodypart_overrides[BODY_ZONE_L_LEG] || bodypart_overrides[BODY_ZONE_R_LEG]
 		if(initial(leg?.limb_id) != "digitigrade")
+<<<<<<< HEAD
 			// normal legs, force using human shoes
 			return item.worn_icon || item.icon
+=======
+			// normal legs, use normal human shoes
+			return DEFAULT_SHOES_FILE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return item.worn_icon_vox
 
@@ -109,3 +124,14 @@
 
 /datum/species/vox/get_species_lore()
 	return list(placeholder_lore)
+<<<<<<< HEAD
+=======
+
+/datum/species/vox/prepare_human_for_preview(mob/living/carbon/human/vox)
+	vox.dna.features["mcolor"] = "#77DD88"
+	vox.dna.features["mcolor2"] = "#EEDD88"
+	vox.dna.features["mcolor3"] = "#222222"
+	vox.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Vox Snout", MUTANT_INDEX_COLOR_LIST = list("#EEDD88"))
+	regenerate_organs(vox, src, visual_only = TRUE)
+	vox.update_body(TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

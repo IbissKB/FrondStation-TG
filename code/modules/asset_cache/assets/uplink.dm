@@ -28,10 +28,18 @@
 				"purchasable_from" = item.purchasable_from,
 				"restricted" = item.restricted,
 				"limited_stock" = item.limited_stock,
+<<<<<<< HEAD
+=======
+				"stock_key" = item.stock_key,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				"restricted_roles" = item.restricted_roles,
 				"restricted_species" = item.restricted_species,
 				"progression_minimum" = item.progression_minimum,
 				"cost_override_string" = item.cost_override_string,
+<<<<<<< HEAD
+=======
+				"lock_other_purchases" = item.lock_other_purchases
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			))
 		}
 		SStraitor.uplink_items += item

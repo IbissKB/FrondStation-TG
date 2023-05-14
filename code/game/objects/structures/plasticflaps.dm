@@ -4,7 +4,11 @@
 	gender = PLURAL
 	icon = 'icons/obj/stationobjs.dmi'//ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
 	icon_state = "plasticflaps"
+<<<<<<< HEAD
 	armor = list(MELEE = 100, BULLET = 80, LASER = 80, ENERGY = 100, BOMB = 50, BIO = 0, FIRE = 50, ACID = 50)
+=======
+	armor_type = /datum/armor/structure_plasticflaps
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = FALSE
 	anchored = TRUE
 	can_atmos_pass = ATMOS_PASS_NO
@@ -13,6 +17,18 @@
 /obj/structure/plasticflaps/opaque
 	opacity = TRUE
 
+<<<<<<< HEAD
+=======
+/datum/armor/structure_plasticflaps
+	melee = 100
+	bullet = 80
+	laser = 80
+	energy = 100
+	bomb = 50
+	fire = 50
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/plasticflaps/Initialize(mapload)
 	. = ..()
 	alpha = 0

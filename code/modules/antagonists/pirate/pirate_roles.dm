@@ -12,7 +12,11 @@
 	density = FALSE
 	show_flavor = FALSE //Flavour only exists for spawners menu
 	you_are_text = "You are a space pirate."
+<<<<<<< HEAD
 	flavour_text = "The station refused to pay for your protection, protect the ship, siphon the credits from the station and raid it for even more loot."
+=======
+	flavour_text = "The station refused to pay for your protection. Protect the ship, siphon the credits from the station, and raid it for even more loot."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	spawner_job_path = /datum/job/space_pirate
 	///Rank of the pirate on the ship, it's used in generating pirate names!
 	var/rank = "Deserter"
@@ -49,7 +53,11 @@
 
 /obj/effect/mob_spawn/ghost_role/human/pirate/skeleton
 	name = "pirate remains"
+<<<<<<< HEAD
 	desc = "Some unanimated bones. They feel like they could spring to life any moment!"
+=======
+	desc = "Some inanimate bones. They feel like they could spring to life at any moment!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = FALSE
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
@@ -94,6 +102,7 @@
 
 /obj/effect/mob_spawn/ghost_role/human/pirate/silverscale/gunner
 	rank = "Top-drawer"
+<<<<<<< HEAD
 
 /obj/effect/mob_spawn/ghost_role/human/pirate/psykers
 	name = "mental energizer"
@@ -110,3 +119,5 @@
 /obj/effect/mob_spawn/ghost_role/human/pirate/psykers/captain
 	rank = "Allbrain"
 	outfit = /datum/outfit/pirate/psyker/captain
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

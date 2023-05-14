@@ -4,8 +4,11 @@
 	description = "Pure happiness"
 	taste_description = "an indescribable, slightly sour taste. Something in it relaxes you, filling you with pleasure."
 	color = "#97ffee"
+<<<<<<< HEAD
 	glass_name = "dopamine"
 	glass_desc = "Delicious flavored reagent. You feel happy even looking at it."
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	reagent_state = LIQUID
 	overdose_threshold = 10
 	life_pref_datum = /datum/preference/toggle/erp/aphro
@@ -19,6 +22,14 @@
 	/// How likely the drug is to make the mob druggy per life process
 	var/drugginess_chance = 7
 
+<<<<<<< HEAD
+=======
+/datum/glass_style/drinking_glass/dopamine
+	required_drink_type = /datum/reagent/drug/aphrodisiac/dopamine
+	name = "dopamine"
+	desc = "Delicious flavored reagent. You feel happy even looking at it."
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/reagent/drug/aphrodisiac/dopamine/on_mob_add(mob/living/carbon/human/exposed_mob)
 	if(!(exposed_mob.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
 		return ..()

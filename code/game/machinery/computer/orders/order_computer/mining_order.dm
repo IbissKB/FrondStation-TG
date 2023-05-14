@@ -1,21 +1,41 @@
+<<<<<<< HEAD
 /obj/machinery/computer/order_console/mining
 	name = "mining equipment vendor"
+=======
+#define CREDIT_TYPE_MINING "mp"
+
+/obj/machinery/computer/order_console/mining
+	name = "mining equipment order console"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "An equipment shop for miners, points collected at an ore redemption machine can be spent here."
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "mining"
 	icon_keyboard = null
 	icon_screen = null
 	circuit = /obj/item/circuitboard/computer/order_console/mining
+<<<<<<< HEAD
 
 	cooldown_time = 10 SECONDS //just time to let you know your order went through.
 	express_cost_multiplier = 1.5
 	uses_ltsrbt = TRUE
+=======
+	cooldown_time = 10 SECONDS //just time to let you know your order went through.
+	cargo_cost_multiplier = 0.65
+	express_cost_multiplier = 1
+	purchase_tooltip = @{"Your purchases will arrive at cargo,
+	and hopefully get delivered by them.
+	35% cheaper than express delivery."}
+	express_tooltip = @{"Sends your purchases instantly."}
+	credit_type = CREDIT_TYPE_MINING
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	order_categories = list(
 		CATEGORY_MINING,
 		CATEGORY_CONSUMABLES,
 		CATEGORY_TOYS_DRONE,
 		CATEGORY_PKA,
 	)
+<<<<<<< HEAD
 
 /obj/machinery/computer/order_console/mining/purchase_items(obj/item/card/id/card, express = FALSE)
 	var/final_cost = get_total_cost()
@@ -30,10 +50,22 @@
 	return FALSE
 
 /obj/machinery/computer/order_console/mining/order_groceries(mob/living/purchaser, obj/item/card/id/card, list/groceries, ltsrbt_delivered = FALSE)
+=======
+	blackbox_key = "mining"
+
+/obj/machinery/computer/order_console/mining/subtract_points(final_cost, obj/item/card/id/card)
+	if(final_cost <= card.registered_account.mining_points)
+		card.registered_account.mining_points -= final_cost
+		return TRUE
+	return FALSE
+
+/obj/machinery/computer/order_console/mining/order_groceries(mob/living/purchaser, obj/item/card/id/card, list/groceries)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/things_to_order = list()
 	for(var/datum/orderable_item/item as anything in groceries)
 		things_to_order[item.item_path] = groceries[item]
 
+<<<<<<< HEAD
 	var/datum/supply_pack/custom/mining_pack = new(purchaser, things_to_order)
 	var/datum/supply_order/new_order = new(
 		pack = mining_pack, \
@@ -73,6 +105,33 @@
 		data["points"] = id_card.mining_points
 
 	return data
+=======
+	var/datum/supply_pack/custom/mining_pack = new(
+		purchaser = purchaser, \
+		cost = get_total_cost(), \
+		contains = things_to_order,
+	)
+	var/datum/supply_order/new_order = new(
+		pack = mining_pack,
+		orderer = purchaser,
+		orderer_rank = "Mining Vendor",
+		orderer_ckey = purchaser.ckey,
+		reason = "",
+		paying_account = card.registered_account,
+		department_destination = null,
+		coupon = null,
+		charge_on_purchase = FALSE,
+		manifest_can_fail = FALSE,
+		cost_type = credit_type,
+		can_be_cancelled = FALSE,
+	)
+	say("Thank you for your purchase! It will arrive on the next cargo shuttle!")
+	radio.talk_into(src, "A shaft miner has ordered equipment which will arrive on the cargo shuttle! Please make sure it gets to them as soon as possible!", radio_channel)
+	SSshuttle.shopping_list += new_order
+
+/obj/machinery/computer/order_console/mining/retrive_points(obj/item/card/id/id_card)
+	return round(id_card.registered_account.mining_points)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/computer/order_console/mining/ui_act(action, params)
 	. = ..()
@@ -180,13 +239,18 @@
 	var/point_movement = tgui_alert(user, "To ID (from card) or to card (from ID)?", "Mining Points Transfer", list(TO_USER_ID, TO_POINT_CARD))
 	if(!point_movement)
 		return
+<<<<<<< HEAD
 	var/amount = tgui_input_number(user, "How much do you want to transfer? ID Balance: [attacking_id.mining_points], Card Balance: [points]", "Transfer Points", min_value = 0, round_value = 1)
+=======
+	var/amount = tgui_input_number(user, "How much do you want to transfer? ID Balance: [attacking_id.registered_account.mining_points], Card Balance: [points]", "Transfer Points", min_value = 0, round_value = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!amount)
 		return
 	switch(point_movement)
 		if(TO_USER_ID)
 			if(amount > points)
 				amount = points
+<<<<<<< HEAD
 			attacking_id.mining_points += amount
 			points -= amount
 			to_chat(user, span_notice("You transfer [amount] mining points from [src] to [attacking_id]."))
@@ -197,5 +261,18 @@
 			points += amount
 			to_chat(user, span_notice("You transfer [amount] mining points from [attacking_id] to [src]."))
 
+=======
+			attacking_id.registered_account.mining_points += amount
+			points -= amount
+			to_chat(user, span_notice("You transfer [amount] mining points from [src] to [attacking_id]."))
+		if(TO_POINT_CARD)
+			if(amount > attacking_id.registered_account.mining_points)
+				amount = attacking_id.registered_account.mining_points
+			attacking_id.registered_account.mining_points -= amount
+			points += amount
+			to_chat(user, span_notice("You transfer [amount] mining points from [attacking_id] to [src]."))
+
+#undef CREDIT_TYPE_MINING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef TO_POINT_CARD
 #undef TO_USER_ID

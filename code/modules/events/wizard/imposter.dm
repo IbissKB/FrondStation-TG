@@ -5,6 +5,11 @@
 	max_occurrences = 1
 	earliest_start = 0 MINUTES
 	description = "Spawns a doppelganger of the wizard."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 2
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/wizard/imposter/start()
 	for(var/datum/mind/M as anything in get_antag_minds(/datum/antagonist/wizard))
@@ -12,7 +17,11 @@
 			continue
 		var/mob/living/carbon/human/W = M.current
 		var/list/candidates = poll_ghost_candidates("Would you like to be an imposter wizard?", ROLE_WIZARD)
+<<<<<<< HEAD
 		if(!candidates)
+=======
+		if(!length(candidates))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return //Sad Trombone
 		var/mob/dead/observer/C = pick(candidates)
 
@@ -36,3 +45,7 @@
 		I.mind.special_role = "imposter"
 		I.log_message("is an imposter!", LOG_ATTACK, color="red") //?
 		SEND_SOUND(I, sound('sound/effects/magic.ogg'))
+<<<<<<< HEAD
+=======
+		announce_to_ghosts(I)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

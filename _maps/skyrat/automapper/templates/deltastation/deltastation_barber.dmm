@@ -110,7 +110,11 @@
 /turf/closed/wall,
 /area/station/maintenance/port)
 "yr" = (
+<<<<<<< HEAD
 /obj/structure/window/spawner/west,
+=======
+/obj/structure/window/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/edge{
 	dir = 8

@@ -32,6 +32,7 @@
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
 "bk" = (
 /obj/structure/chair{
 	dir = 1;
@@ -42,6 +43,8 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "bF" = (
 /obj/structure/filingcabinet,
 /obj/item/folder/syndicate,
@@ -148,6 +151,7 @@
 /obj/item/modular_computer/laptop/preset,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
 "fB" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Loot Storage";
@@ -155,6 +159,8 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "fK" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
@@ -202,7 +208,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "gl" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged{
+=======
+/mob/living/basic/syndicate/ranged{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Yarr-harr fiddley dee.";
 	faction = list("pirate");
 	name = "Pirate Operative"
@@ -227,6 +237,19 @@
 /obj/item/modular_computer/pda/cargo,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
+=======
+"gZ" = (
+/mob/living/basic/carp/mega{
+	faction = list("pirate");
+	health = 50;
+	maxHealth = 50;
+	name = "Jack"
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/line,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "hd" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/corner{
 	dir = 8
@@ -360,7 +383,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "na" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee{
+=======
+/mob/living/basic/syndicate/melee{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Yo-ho-ho he took a bite'a gum-gum.";
 	faction = list("pirate");
 	name = "Pirate Operative"
@@ -378,6 +405,16 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
+=======
+"nj" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Prison Cell";
+	req_access = list("command","tech_storage")
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "nw" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/large,
@@ -436,7 +473,11 @@
 /turf/open/floor/engine,
 /area/ruin/space)
 "pu" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged{
+=======
+/mob/living/basic/syndicate/ranged{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Yarr-harr fiddley dee.";
 	faction = list("pirate");
 	name = "Pirate Operative"
@@ -458,6 +499,7 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
 "pF" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
@@ -465,6 +507,8 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "pS" = (
 /mob/living/simple_animal/hostile/pirate/melee,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
@@ -488,7 +532,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "qy" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee{
+=======
+/mob/living/basic/syndicate/melee{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Yo-ho-ho he took a bite'a gum-gum.";
 	faction = list("pirate");
 	name = "Pirate Operative"
@@ -563,6 +611,7 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
 "tA" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Prison Cell";
@@ -570,6 +619,8 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "tC" = (
 /obj/structure/closet/crate/secure{
 	req_access = list("armory")
@@ -738,7 +789,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "xD" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee{
+=======
+/mob/living/basic/syndicate/melee{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Yo-ho-ho he took a bite'a gum-gum.";
 	faction = list("pirate");
 	name = "Pirate Operative"
@@ -841,6 +896,7 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
 "zR" = (
 /mob/living/simple_animal/hostile/carp/megacarp{
 	faction = list("pirate");
@@ -851,6 +907,8 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "An" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/exotic/antag_gear_weak,
@@ -888,7 +946,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "BV" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged{
+=======
+/mob/living/basic/syndicate/ranged{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Yarr-harr fiddley dee.";
 	faction = list("pirate");
 	name = "Pirate Operative"
@@ -1009,6 +1071,16 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
+=======
+"FL" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Loot Storage";
+	req_access = list("command","tech_storage")
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "FP" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 5
@@ -1166,7 +1238,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Nz" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/melee{
+=======
+/mob/living/basic/syndicate/melee{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Yo-ho-ho he took a bite'a gum-gum.";
 	faction = list("pirate");
 	name = "Pirate Operative"
@@ -1204,6 +1280,16 @@
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+<<<<<<< HEAD
+=======
+"Oo" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armory";
+	req_access = list("command","tech_storage")
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "Ph" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/engine,
@@ -1869,7 +1955,11 @@ wL
 oR
 RQ
 Iy
+<<<<<<< HEAD
 bk
+=======
+zQ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 Iy
 zQ
 ih
@@ -2071,7 +2161,11 @@ oR
 oR
 oR
 oR
+<<<<<<< HEAD
 fB
+=======
+FL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 oR
 oR
 yr
@@ -2198,7 +2292,11 @@ BV
 dP
 dP
 dP
+<<<<<<< HEAD
 zR
+=======
+gZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 oR
 qX
 us
@@ -2297,8 +2395,13 @@ oR
 oR
 oR
 oR
+<<<<<<< HEAD
 pF
 pF
+=======
+Oo
+Oo
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 oR
 oR
 FP
@@ -2630,11 +2733,19 @@ Js
 Js
 oR
 oR
+<<<<<<< HEAD
 tA
 oR
 nf
 oR
 tA
+=======
+nj
+oR
+nf
+oR
+nj
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 oR
 oR
 oR

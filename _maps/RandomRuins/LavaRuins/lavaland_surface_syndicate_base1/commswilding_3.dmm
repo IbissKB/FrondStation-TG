@@ -46,10 +46,15 @@
 /obj/structure/chair{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/machinery/power/apc/syndicate{
 	name = "Telecommunications APC";
 	pixel_y = -25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/syndicate_lava_base/telecomms)
@@ -116,10 +121,13 @@
 /turf/open/floor/iron/grimy,
 /area/ruin/syndicate_lava_base/telecomms)
 "z" = (
+<<<<<<< HEAD
 /obj/machinery/airalarm/syndicate{
 	dir = 8;
 	pixel_x = -24
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/modular_computer/pda/chameleon/broken{
 	pixel_x = 5;
 	pixel_y = 4
@@ -130,6 +138,11 @@
 	pixel_y = 13
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+<<<<<<< HEAD
+=======
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/airalarm/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/grimy,
 /area/ruin/syndicate_lava_base/telecomms)
 "A" = (

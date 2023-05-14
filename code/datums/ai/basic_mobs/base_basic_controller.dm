@@ -8,7 +8,11 @@
 
 	update_speed(basic_mob)
 
+<<<<<<< HEAD
 	RegisterSignal(basic_mob, POST_BASIC_MOB_UPDATE_VARSPEED, PROC_REF(update_speed))
+=======
+	RegisterSignals(basic_mob, list(POST_BASIC_MOB_UPDATE_VARSPEED, COMSIG_MOB_MOVESPEED_UPDATED), PROC_REF(update_speed))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return ..() //Run parent at end
 

@@ -349,7 +349,11 @@
 /obj/item/circuitboard/computer/med_data
 	name = "Medical Records Console"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
+<<<<<<< HEAD
 	build_path = /obj/machinery/computer/med_data
+=======
+	build_path = /obj/machinery/computer/records/medical
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/circuitboard/computer/operating
 	name = "Operating Computer"
@@ -448,7 +452,11 @@
 /obj/item/circuitboard/computer/secure_data
 	name = "Security Records Console"
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
+<<<<<<< HEAD
 	build_path = /obj/machinery/computer/secure_data
+=======
+	build_path = /obj/machinery/computer/records/security
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/circuitboard/computer/warrant
 	name = "Security Warrant Viewer"
@@ -559,6 +567,14 @@
 	name = "Lavaland Shuttle"
 	build_path = /obj/machinery/computer/shuttle/mining/common
 
+<<<<<<< HEAD
+=======
+/obj/item/circuitboard/computer/emergency_pod
+	name = "Emergency Pod Controls"
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/computer/shuttle/pod
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/circuitboard/computer/exoscanner_console
 	name = "Scanner Array Control Console"
 	build_path = /obj/machinery/computer/exoscanner_control

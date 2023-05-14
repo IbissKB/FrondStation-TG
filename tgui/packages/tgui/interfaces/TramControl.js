@@ -93,12 +93,21 @@ export const TramControl = (props, context) => {
             color={getDestColor(dest)}
             circular
             compact
+<<<<<<< HEAD
             height={5}
             width={5}
             tooltipPosition="top"
             tooltip={COLOR2BLURB[getDestColor(dest)]}
             onClick={() => setTransitIndex(destinations.indexOf(dest))}>
             <Icon ml={-2.1} mt={0.55} fontSize="60px" name="circle-o" />
+=======
+            height={4.9}
+            width={4.9}
+            tooltipPosition="top"
+            tooltip={COLOR2BLURB[getDestColor(dest)]}
+            onClick={() => setTransitIndex(destinations.indexOf(dest))}>
+            <Icon ml={-2.1} fontSize="60px" name="circle-o" />
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           </Button>
           {(destinations.length - 1 !== destinations.indexOf(dest) && (
             <Section title=" " mt={-7.3} ml={10} mr={-6.1} />

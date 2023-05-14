@@ -50,15 +50,24 @@
 	max_plasma = 100
 	actions_types = list(/datum/action/cooldown/alien/transfer)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/alien/plasmavessel/on_life(delta_time, times_fired)
 	//If there are alien weeds on the ground then heal if needed or give some plasma
 	if(locate(/obj/structure/alien/weeds) in owner.loc)
 		if(owner.health >= owner.maxHealth)
 			owner.adjustPlasma(plasma_rate * delta_time)
+=======
+/obj/item/organ/internal/alien/plasmavessel/on_life(seconds_per_tick, times_fired)
+	//If there are alien weeds on the ground then heal if needed or give some plasma
+	if(locate(/obj/structure/alien/weeds) in owner.loc)
+		if(owner.health >= owner.maxHealth)
+			owner.adjustPlasma(plasma_rate * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			var/heal_amt = heal_rate
 			if(!isalien(owner))
 				heal_amt *= 0.2
+<<<<<<< HEAD
 			owner.adjustPlasma(0.5 * plasma_rate * delta_time)
 			owner.adjustBruteLoss(-heal_amt * delta_time)
 			owner.adjustFireLoss(-heal_amt * delta_time)
@@ -69,13 +78,30 @@
 
 /obj/item/organ/internal/alien/plasmavessel/Insert(mob/living/carbon/organ_owner, special = FALSE, drop_if_replaced = TRUE)
 	..()
+=======
+			owner.adjustPlasma(0.5 * plasma_rate * seconds_per_tick)
+			owner.adjustBruteLoss(-heal_amt * seconds_per_tick)
+			owner.adjustFireLoss(-heal_amt * seconds_per_tick)
+			owner.adjustOxyLoss(-heal_amt * seconds_per_tick)
+			owner.adjustCloneLoss(-heal_amt * seconds_per_tick)
+	else
+		owner.adjustPlasma(0.1 * plasma_rate * seconds_per_tick)
+
+/obj/item/organ/internal/alien/plasmavessel/on_insert(mob/living/carbon/organ_owner)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(isalien(organ_owner))
 		var/mob/living/carbon/alien/target_alien = organ_owner
 		target_alien.updatePlasmaDisplay()
 	RegisterSignal(organ_owner, COMSIG_MOB_GET_STATUS_TAB_ITEMS, PROC_REF(get_status_tab_item))
 
+<<<<<<< HEAD
 /obj/item/organ/internal/alien/plasmavessel/Remove(mob/living/carbon/organ_owner, special = FALSE)
 	..()
+=======
+/obj/item/organ/internal/alien/plasmavessel/on_remove(mob/living/carbon/organ_owner)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(isalien(organ_owner))
 		var/mob/living/carbon/alien/organ_owner_alien = organ_owner
 		organ_owner_alien.updatePlasmaDisplay()
@@ -97,19 +123,32 @@
 	/// Indicates if the queen died recently, aliens are heavily weakened while this is active.
 	var/recent_queen_death = FALSE
 
+<<<<<<< HEAD
 /obj/item/organ/internal/alien/hivenode/Insert(mob/living/carbon/organ_owner, special = FALSE, drop_if_replaced = TRUE)
 	..()
+=======
+/obj/item/organ/internal/alien/hivenode/on_insert(mob/living/carbon/organ_owner)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	organ_owner.faction |= ROLE_ALIEN
 	ADD_TRAIT(organ_owner, TRAIT_XENO_IMMUNE, ORGAN_TRAIT)
 
 /obj/item/organ/internal/alien/hivenode/Remove(mob/living/carbon/organ_owner, special = FALSE)
 	organ_owner.faction -= ROLE_ALIEN
 	REMOVE_TRAIT(organ_owner, TRAIT_XENO_IMMUNE, ORGAN_TRAIT)
+<<<<<<< HEAD
 	..()
 
 //When the alien queen dies, all aliens suffer a penalty as punishment for failing to protect her.
 /obj/item/organ/internal/alien/hivenode/proc/queen_death()
 	if(!owner|| owner.stat == DEAD)
+=======
+	return ..()
+
+//When the alien queen dies, all aliens suffer a penalty as punishment for failing to protect her.
+/obj/item/organ/internal/alien/hivenode/proc/queen_death()
+	if(!owner || owner.stat == DEAD)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(isalien(owner)) //Different effects for aliens than humans
 		to_chat(owner, span_userdanger("Your Queen has been struck down!"))
@@ -186,7 +225,11 @@
 	QDEL_LIST(stomach_contents)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/organ/internal/stomach/alien/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/stomach/alien/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!owner || SSmobs.times_fired % 3 != 0)
 		return
@@ -281,7 +324,11 @@
 	if(!impact)
 		return
 
+<<<<<<< HEAD
 	applyOrganDamage(impact)
+=======
+	apply_organ_damage(impact)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/damage_ratio = damage / max(maxHealth, 1)
 	if(owner)

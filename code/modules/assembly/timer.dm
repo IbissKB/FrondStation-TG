@@ -2,7 +2,11 @@
 	name = "timer"
 	desc = "Used to time things. Works well with contraptions which has to count down. Tick tock."
 	icon_state = "timer"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=500, /datum/material/glass=50)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*5, /datum/material/glass=SMALL_MATERIAL_AMOUNT*0.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attachable = TRUE
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
@@ -63,10 +67,17 @@
 		timing = TRUE
 	update_appearance()
 
+<<<<<<< HEAD
 /obj/item/assembly/timer/process(delta_time)
 	if(!timing)
 		return
 	time -= delta_time
+=======
+/obj/item/assembly/timer/process(seconds_per_tick)
+	if(!timing)
+		return
+	time -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(time <= 0)
 		timing = FALSE
 		timer_end()

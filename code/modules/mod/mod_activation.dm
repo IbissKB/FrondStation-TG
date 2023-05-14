@@ -157,7 +157,11 @@
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
 	for(var/obj/item/mod/module/module as anything in modules)
+<<<<<<< HEAD
 		if(!module.active || module.allowed_inactive)
+=======
+		if(!module.active || (module.allow_flags & MODULE_ALLOW_INACTIVE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		module.on_deactivation(display_message = FALSE)
 	activating = TRUE
@@ -203,6 +207,10 @@
 ///Seals or unseals the given part
 /obj/item/mod/control/proc/seal_part(obj/item/clothing/part, seal)
 	if(seal)
+<<<<<<< HEAD
+=======
+		part.icon_state = "[skin]-[part.base_icon_state]-sealed"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		part.clothing_flags |= part.visor_flags
 		part.flags_inv |= part.visor_flags_inv
 		part.flags_cover |= part.visor_flags_cover
@@ -210,6 +218,10 @@
 		part.cold_protection = initial(part.cold_protection)
 		part.alternate_worn_layer = null
 	else
+<<<<<<< HEAD
+=======
+		part.icon_state = "[skin]-[part.base_icon_state]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		part.flags_cover &= ~part.visor_flags_cover
 		part.flags_inv &= ~part.visor_flags_inv
 		part.clothing_flags &= ~part.visor_flags
@@ -217,6 +229,7 @@
 		part.cold_protection = NONE
 		part.alternate_worn_layer = mod_parts[part]
 	if(part == boots)
+<<<<<<< HEAD
 		boots.icon_state = "[skin]-boots[seal ? "-sealed" : ""]"
 		wearer.update_worn_shoes()
 	if(part == gauntlets)
@@ -228,6 +241,15 @@
 		wearer.update_worn_undersuit()
 	if(part == helmet)
 		helmet.icon_state = "[skin]-helmet[seal ? "-sealed" : ""]"
+=======
+		wearer.update_worn_shoes()
+	if(part == gauntlets)
+		wearer.update_worn_gloves()
+	if(part == chestplate)
+		wearer.update_worn_oversuit()
+		wearer.update_worn_undersuit()
+	if(part == helmet)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		wearer.update_worn_head()
 		wearer.update_worn_mask()
 		wearer.update_worn_glasses()

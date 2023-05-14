@@ -2,7 +2,11 @@
 "j" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east{
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = 3
 	},
 /obj/structure/rack/gunrack,
@@ -17,7 +21,11 @@
 /area/station/ai_monitored/security/armory)
 "l" = (
 /obj/effect/turf_decal/bot,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east{
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = 3
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -28,7 +36,11 @@
 /area/station/ai_monitored/security/armory)
 "E" = (
 /obj/structure/rack,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/turf_decal/bot,
 /obj/item/clothing/suit/armor/vest/alt/sec{
@@ -54,7 +66,11 @@
 "L" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east{
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = 3
 	},
 /obj/structure/rack/gunrack,
@@ -148,10 +164,17 @@
 "X" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/east{
 	pixel_x = 3
 	},
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+	pixel_x = 3
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/secure_closet/smartgun,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)

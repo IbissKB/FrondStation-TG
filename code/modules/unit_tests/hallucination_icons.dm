@@ -19,6 +19,11 @@
 
 	// Test preset delusion hallucinations for invalid image setups
 	for(var/datum/hallucination/delusion/preset/hallucination as anything in subtypesof(/datum/hallucination/delusion/preset))
+<<<<<<< HEAD
+=======
+		if(initial(hallucination.dynamic_icon))
+			continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/icon = initial(hallucination.delusion_icon_file)
 		var/icon_state = initial(hallucination.delusion_icon_state)
 		check_hallucination_icon(hallucination, icon, icon_state)
@@ -58,7 +63,11 @@
 		if(icon_exists(icon, icon_state))
 			continue
 
+<<<<<<< HEAD
 		Fail("Hallucination image holder [image_holder] had an invalid / missing icon state for the icon [icon].")
+=======
+		TEST_FAIL("Hallucination image holder [image_holder] had an invalid / missing icon state for the icon [icon].")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// Test ice hallucination for if the ice cube icon state exists
 	var/datum/hallucination/ice/ice_hallucination = /datum/hallucination/ice
@@ -68,9 +77,18 @@
 
 /datum/unit_test/hallucination_icons/proc/check_hallucination_icon(hallucination, icon, icon_state)
 	if(!icon)
+<<<<<<< HEAD
 		Fail("Hallucination [hallucination] forgot to set its icon file.")
 	if(!icon_state)
 		Fail("Hallucination [hallucination] forgot to set an icon state.")
 	if(!icon || !icon_state || icon_exists(icon, icon_state))
 		return
 	Fail("Hallucination [hallucination] has an invalid icon_state ([icon_state]) for its icon ([icon]).")
+=======
+		TEST_FAIL("Hallucination [hallucination] forgot to set its icon file.")
+	if(!icon_state)
+		TEST_FAIL("Hallucination [hallucination] forgot to set an icon state.")
+	if(!icon || !icon_state || icon_exists(icon, icon_state))
+		return
+	TEST_FAIL("Hallucination [hallucination] has an invalid icon_state ([icon_state]) for its icon ([icon]).")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

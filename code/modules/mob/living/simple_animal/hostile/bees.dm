@@ -34,7 +34,11 @@
 	response_harm_simple = "squash"
 	maxHealth = 10
 	health = 10
+<<<<<<< HEAD
 	faction = list("hostile")
+=======
+	faction = list(FACTION_HOSTILE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	move_to_delay = 0
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
@@ -62,8 +66,12 @@
 
 /mob/living/simple_animal/hostile/bee/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+=======
+	add_traits(list(TRAIT_SPACEWALK, TRAIT_VENTCRAWLER_ALWAYS), INNATE_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	generate_bee_visuals()
 	AddElement(/datum/element/simple_flying)
 	AddComponent(/datum/component/clickbox, x_offset = -2, y_offset = -2)
@@ -390,4 +398,17 @@
 	body_overlay.color = beegent ? beegent.color : BEE_DEFAULT_COLOUR
 	. += body_overlay
 
+<<<<<<< HEAD
 #undef BEE_FOODGROUPS
+=======
+#undef BEE_DEFAULT_COLOUR
+#undef BEE_FOODGROUPS
+#undef BEE_IDLE_GOHOME
+#undef BEE_IDLE_ROAMING
+#undef BEE_POLLINATE_PEST_CHANCE
+#undef BEE_POLLINATE_POTENCY_CHANCE
+#undef BEE_POLLINATE_YIELD_CHANCE
+#undef BEE_PROB_GOHOME
+#undef BEE_PROB_GOROAM
+#undef BEE_TRAY_RECENT_VISIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /// If an object needs to be rotated with a wrench
 #define ROTATION_REQUIRE_WRENCH (1<<0)
 /// If ghosts can rotate an object (if the ghost config is enabled)
@@ -16,6 +17,8 @@
 /// Rotate an object upside down
 #define ROTATION_FLIP 180
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/simple_rotation
 	/// Additional stuff to do after rotation
 	var/datum/callback/AfterRotation
@@ -102,7 +105,11 @@
 	AfterRotation.Invoke(user, degrees)
 
 /datum/component/simple_rotation/proc/CanUserRotate(mob/user, degrees)
+<<<<<<< HEAD
 	if(isliving(user) && user.canUseTopic(parent, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = !iscyborg(user)))
+=======
+	if(isliving(user) && user.can_perform_action(parent, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	if((rotation_flags & ROTATION_GHOSTS_ALLOWED) && isobserver(user) && CONFIG_GET(flag/ghost_interaction))
 		return TRUE
@@ -110,6 +117,11 @@
 
 /datum/component/simple_rotation/proc/CanBeRotated(mob/user, degrees, silent=FALSE)
 	var/obj/rotated_obj = parent
+<<<<<<< HEAD
+=======
+	if(!rotated_obj.Adjacent(user))
+		silent = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(rotation_flags & ROTATION_REQUIRE_WRENCH)
 		if(!isliving(user))
@@ -130,7 +142,11 @@
 		var/target_dir = turn(rotated_obj.dir, degrees)
 		var/obj/structure/window/rotated_window = rotated_obj
 		var/fulltile = istype(rotated_window) ? rotated_window.fulltile : FALSE
+<<<<<<< HEAD
 		if(!valid_window_location(rotated_obj.loc, target_dir, is_fulltile = fulltile))
+=======
+		if(!valid_build_direction(rotated_obj.loc, target_dir, is_fulltile = fulltile))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(!silent)
 				rotated_obj.balloon_alert(user, "can't rotate in that direction!")
 			return FALSE

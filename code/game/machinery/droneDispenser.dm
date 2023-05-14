@@ -21,8 +21,13 @@
 
 	var/list/using_materials
 	var/starting_amount = 0
+<<<<<<< HEAD
 	var/iron_cost = 1000
 	var/glass_cost = 1000
+=======
+	var/iron_cost =HALF_SHEET_MATERIAL_AMOUNT
+	var/glass_cost =HALF_SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/power_used = 1000
 
 	var/mode = DRONE_READY
@@ -50,7 +55,11 @@
 
 /obj/machinery/drone_dispenser/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container, list(/datum/material/iron, /datum/material/glass), MINERAL_MATERIAL_AMOUNT * MAX_STACK_SIZE * 2, MATCONTAINER_EXAMINE|BREAKDOWN_FLAGS_DRONE_DISPENSER, allowed_items=/obj/item/stack)
+=======
+	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container, list(/datum/material/iron, /datum/material/glass), SHEET_MATERIAL_AMOUNT * MAX_STACK_SIZE * 2, MATCONTAINER_EXAMINE|BREAKDOWN_FLAGS_DRONE_DISPENSER, allowed_items=/obj/item/stack)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	materials.insert_amount_mat(starting_amount)
 	materials.precise_insertion = TRUE
 	using_materials = list(/datum/material/iron = iron_cost, /datum/material/glass = glass_cost)
@@ -80,8 +89,13 @@
 	dispense_type = /obj/effect/mob_spawn/ghost_role/drone/snowflake
 	end_create_message = "dispenses a snowflake drone shell."
 	// Those holoprojectors aren't cheap
+<<<<<<< HEAD
 	iron_cost = 2000
 	glass_cost = 2000
+=======
+	iron_cost =SHEET_MATERIAL_AMOUNT
+	glass_cost =SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	power_used = 2000
 	starting_amount = 10000
 
@@ -125,6 +139,19 @@
 
 /obj/machinery/drone_dispenser/examine(mob/user)
 	. = ..()
+<<<<<<< HEAD
+=======
+	var/material_requirement_string = "It needs "
+	if (iron_cost > 0)
+		material_requirement_string += "[iron_cost] iron "
+		if (glass_cost > 0)
+			material_requirement_string += "and "
+	if (glass_cost > 0)
+		material_requirement_string += "[glass_cost] glass "
+	if (iron_cost > 0 || glass_cost > 0)
+		material_requirement_string += "to produce one drone shell."
+		. += span_notice(material_requirement_string)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if((mode == DRONE_RECHARGING) && !machine_stat && recharging_text)
 		. += span_warning("[recharging_text]")
 

@@ -25,6 +25,11 @@
 	var/timer = 0
 	///Is this loop running or not
 	var/running = FALSE
+<<<<<<< HEAD
+=======
+	///Track if we're currently paused
+	var/paused = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/move_loop/New(datum/movement_packet/owner, datum/controller/subsystem/movement/controller, atom/moving, priority, flags, datum/extra_info)
 	src.owner = owner
@@ -51,7 +56,12 @@
 		return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 /datum/move_loop/proc/start_loop()
+=======
+///Called when a loop is starting by a movement subsystem
+/datum/move_loop/proc/loop_started()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOVELOOP_START)
 	running = TRUE
@@ -62,7 +72,12 @@
 		return
 	timer = world.time + delay
 
+<<<<<<< HEAD
 /datum/move_loop/proc/stop_loop()
+=======
+///Called when a loop is stopped, doesn't stop the loop itself
+/datum/move_loop/proc/loop_stopped()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SHOULD_CALL_PARENT(TRUE)
 	running = FALSE
 	SEND_SIGNAL(src, COMSIG_MOVELOOP_STOP)
@@ -109,11 +124,19 @@
 		return
 
 	var/visual_delay = controller.visual_delay
+<<<<<<< HEAD
 	var/success = move()
 
 	SEND_SIGNAL(src, COMSIG_MOVELOOP_POSTPROCESS, success, delay * visual_delay)
 
 	if(QDELETED(src) || !success) //Can happen
+=======
+	var/result = move() //Result is an enum value. Enums defined in __DEFINES/movement.dm
+
+	SEND_SIGNAL(src, COMSIG_MOVELOOP_POSTPROCESS, result, delay * visual_delay)
+
+	if(QDELETED(src) || result != MOVELOOP_SUCCESS) //Can happen
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(flags & MOVEMENT_LOOP_IGNORE_GLIDE)
@@ -124,7 +147,30 @@
 ///Handles the actual move, overriden by children
 ///Returns FALSE if nothing happen, TRUE otherwise
 /datum/move_loop/proc/move()
+<<<<<<< HEAD
 	return FALSE
+=======
+	return MOVELOOP_FAILURE
+
+
+///Pause our loop untill restarted with resume_loop()
+/datum/move_loop/proc/pause_loop()
+	if(!controller || !running || paused) //we dead
+		return
+
+	//Dequeue us from our current bucket
+	controller.dequeue_loop(src)
+	paused = TRUE
+
+///Resume our loop after being paused by pause_loop()
+/datum/move_loop/proc/resume_loop()
+	if(!controller || !running || !paused)
+		return
+
+	controller.queue_loop(src)
+	timer = world.time
+	paused = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Removes the atom from some movement subsystem. Defaults to SSmovement
 /datum/controller/subsystem/move_manager/proc/stop_looping(atom/movable/moving, datum/controller/subsystem/movement/subsystem = SSmovement)
@@ -168,10 +214,17 @@
 
 /datum/move_loop/move/move()
 	var/atom/old_loc = moving.loc
+<<<<<<< HEAD
 	moving.Move(get_step(moving, direction), direction)
 	// We cannot rely on the return value of Move(), we care about teleports and it doesn't
 	// Moving also can be null on occasion, if the move deleted it and therefor us
 	return old_loc != moving?.loc
+=======
+	moving.Move(get_step(moving, direction), direction, FALSE, !(flags & MOVEMENT_LOOP_NO_DIR_UPDATE))
+	// We cannot rely on the return value of Move(), we care about teleports and it doesn't
+	// Moving also can be null on occasion, if the move deleted it and therefor us
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Like move(), but it uses byond's pathfinding on a step by step basis
@@ -196,7 +249,11 @@
 /datum/move_loop/move/move_to/move()
 	var/atom/old_loc = moving.loc
 	step_to(moving, get_step(moving, direction))
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /**
@@ -222,7 +279,11 @@
 /datum/move_loop/move/force/move()
 	var/atom/old_loc = moving.loc
 	moving.forceMove(get_step(moving, direction))
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /datum/move_loop/has_target
@@ -280,7 +341,11 @@
 /datum/move_loop/has_target/force_move/move()
 	var/atom/old_loc = moving.loc
 	moving.forceMove(get_step(moving, get_dir(moving, target)))
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /**
@@ -319,7 +384,12 @@
 	subsystem,
 	priority,
 	flags,
+<<<<<<< HEAD
 	datum/extra_info)
+=======
+	datum/extra_info,
+	initial_path)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return add_to_loop(moving,
 		subsystem,
 		/datum/move_loop/has_target/jps,
@@ -335,7 +405,12 @@
 		id,
 		simulated_only,
 		avoid,
+<<<<<<< HEAD
 		skip_first)
+=======
+		skip_first,
+		initial_path)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/move_loop/has_target/jps
 	///How often we're allowed to recalculate our path
@@ -356,8 +431,21 @@
 	var/list/movement_path
 	///Cooldown for repathing, prevents spam
 	COOLDOWN_DECLARE(repath_cooldown)
+<<<<<<< HEAD
 
 /datum/move_loop/has_target/jps/setup(delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, obj/item/card/id/id, simulated_only, turf/avoid, skip_first)
+=======
+	///Bool used to determine if we're already making a path in JPS. this prevents us from re-pathing while we're already busy.
+	var/is_pathing = FALSE
+	///Callback to invoke once we make a path
+	var/datum/callback/on_finish_callback
+
+/datum/move_loop/has_target/jps/New(datum/movement_packet/owner, datum/controller/subsystem/movement/controller, atom/moving, priority, flags, datum/extra_info)
+	. = ..()
+	on_finish_callback = CALLBACK(src, PROC_REF(on_finish_pathing))
+
+/datum/move_loop/has_target/jps/setup(delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, obj/item/card/id/id, simulated_only, turf/avoid, skip_first, list/initial_path)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
@@ -368,17 +456,36 @@
 	src.simulated_only = simulated_only
 	src.avoid = avoid
 	src.skip_first = skip_first
+<<<<<<< HEAD
 	if(isidcard(id))
 		RegisterSignal(id, COMSIG_PARENT_QDELETING, PROC_REF(handle_no_id)) //I prefer erroring to harddels. If this breaks anything consider making id info into a datum or something
 
 /datum/move_loop/has_target/jps/compare_loops(datum/move_loop/loop_type, priority, flags, extra_info, delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, obj/item/card/id/id, simulated_only, turf/avoid, skip_first)
+=======
+	movement_path = initial_path.Copy()
+	if(isidcard(id))
+		RegisterSignal(id, COMSIG_PARENT_QDELETING, PROC_REF(handle_no_id)) //I prefer erroring to harddels. If this breaks anything consider making id info into a datum or something
+
+/datum/move_loop/has_target/jps/compare_loops(datum/move_loop/loop_type, priority, flags, extra_info, delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, obj/item/card/id/id, simulated_only, turf/avoid, skip_first, initial_path)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(..() && repath_delay == src.repath_delay && max_path_length == src.max_path_length && minimum_distance == src.minimum_distance && id == src.id && simulated_only == src.simulated_only && avoid == src.avoid)
 		return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 /datum/move_loop/has_target/jps/start_loop()
 	. = ..()
 	INVOKE_ASYNC(src, PROC_REF(recalculate_path))
+=======
+/datum/move_loop/has_target/jps/loop_started()
+	. = ..()
+	if(!movement_path)
+		INVOKE_ASYNC(src, PROC_REF(recalculate_path))
+
+/datum/move_loop/has_target/jps/loop_stopped()
+	. = ..()
+	movement_path = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/move_loop/has_target/jps/Destroy()
 	id = null //Kill me
@@ -389,11 +496,16 @@
 	SIGNAL_HANDLER
 	id = null
 
+<<<<<<< HEAD
 //Returns FALSE if the recalculation failed, TRUE otherwise
+=======
+///Tries to calculate a new path for this moveloop.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/move_loop/has_target/jps/proc/recalculate_path()
 	if(!COOLDOWN_FINISHED(src, repath_cooldown))
 		return
 	COOLDOWN_START(src, repath_cooldown, repath_delay)
+<<<<<<< HEAD
 	SEND_SIGNAL(src, COMSIG_MOVELOOP_JPS_REPATH)
 	movement_path = get_path_to(moving, target, max_path_length, minimum_distance, id, simulated_only, avoid, skip_first)
 
@@ -402,11 +514,33 @@
 		INVOKE_ASYNC(src, PROC_REF(recalculate_path))
 		if(!length(movement_path))
 			return FALSE
+=======
+	if(SSpathfinder.pathfind(moving, target, max_path_length, minimum_distance, id, simulated_only, avoid, skip_first, on_finish = on_finish_callback))
+		is_pathing = TRUE
+		SEND_SIGNAL(src, COMSIG_MOVELOOP_JPS_REPATH)
+
+///Called when a path has finished being created
+/datum/move_loop/has_target/jps/proc/on_finish_pathing(list/path)
+	movement_path = path
+	is_pathing = FALSE
+
+/datum/move_loop/has_target/jps/move()
+	if(!length(movement_path))
+		if(is_pathing)
+			return MOVELOOP_NOT_READY
+		else
+			INVOKE_ASYNC(src, PROC_REF(recalculate_path))
+			return MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/turf/next_step = movement_path[1]
 	var/atom/old_loc = moving.loc
 	moving.Move(next_step, get_dir(moving, next_step))
+<<<<<<< HEAD
 	. = (old_loc != moving?.loc)
+=======
+	. = (old_loc != moving?.loc) ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// this check if we're on exactly the next tile may be overly brittle for dense objects who may get bumped slightly
 	// to the side while moving but could maybe still follow their path without needing a whole new path
@@ -414,7 +548,11 @@
 		movement_path.Cut(1,2)
 	else
 		INVOKE_ASYNC(src, PROC_REF(recalculate_path))
+<<<<<<< HEAD
 		return FALSE
+=======
+		return MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 ///Base class of move_to and move_away, deals with the distance and target aspect of things
@@ -438,8 +576,13 @@
 
 /datum/move_loop/has_target/dist_bound/move()
 	if(!check_dist()) //If we're too close don't do the move
+<<<<<<< HEAD
 		return FALSE
 	return TRUE
+=======
+		return MOVELOOP_FAILURE
+	return MOVELOOP_SUCCESS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /**
@@ -473,7 +616,11 @@
 		return
 	var/atom/old_loc = moving.loc
 	step_to(moving, target)
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Wrapper around walk_away()
@@ -506,7 +653,11 @@
 		return
 	var/atom/old_loc = moving.loc
 	step_away(moving, target)
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /**
@@ -614,7 +765,11 @@
 		x_rate = 0
 		y_rate = 0
 		return
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/move_loop/has_target/move_towards/proc/handle_move(source, atom/OldLoc, Dir, Forced = FALSE)
 	SIGNAL_HANDLER
@@ -690,8 +845,35 @@
 	var/turf/target_turf = get_step_towards(moving, target)
 	var/atom/old_loc = moving.loc
 	moving.Move(target_turf, get_dir(moving, target_turf))
+<<<<<<< HEAD
 	return old_loc != moving?.loc
 
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+
+/**
+ * Assigns a target to a move loop that immediately freezes for a set duration of time.
+ *
+ * Returns TRUE if the loop sucessfully started, or FALSE if it failed
+ *
+ * Arguments:
+ * moving - The atom we want to move
+ * halted_turf - The turf we want to freeze on. This should typically be the loc of moving.
+ * delay - How many deci-seconds to wait between fires. Defaults to the lowest value, 0.1
+ * timeout - Time in deci-seconds until the moveloop self expires. This should be considered extremely non-optional as it will completely stun out the movement loop <i>forever</i> if unset.
+ * subsystem - The movement subsystem to use. Defaults to SSmovement. Only one loop can exist for any one subsystem
+ * priority - Defines how different move loops override each other. Lower numbers beat higher numbers, equal defaults to what currently exists. Defaults to MOVEMENT_DEFAULT_PRIORITY
+ * flags - Set of bitflags that effect move loop behavior in some way. Check _DEFINES/movement.dm
+ */
+/datum/controller/subsystem/move_manager/proc/freeze(moving, halted_turf, delay, timeout, subsystem, priority, flags, datum/extra_info)
+	return add_to_loop(moving, subsystem, /datum/move_loop/freeze, priority, flags, extra_info, delay, timeout, halted_turf)
+
+/// As close as you can get to a "do-nothing" move loop, the pure intention of this is to absolutely resist all and any automated movement until the move loop times out.
+/datum/move_loop/freeze
+
+/datum/move_loop/freeze/move()
+	return MOVELOOP_SUCCESS // it's successful because it's not moving. we autoclear outselves when `timeout` is reached
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Helper proc for the move_rand datum
@@ -731,8 +913,13 @@
 
 /datum/move_loop/move_rand/compare_loops(datum/move_loop/loop_type, priority, flags, extra_info, delay, timeout, list/directions)
 	if(..() && (length(potential_directions | directions) == length(potential_directions))) //i guess this could be useful if actually it really has yet to move
+<<<<<<< HEAD
 		return TRUE
 	return FALSE
+=======
+		return MOVELOOP_SUCCESS
+	return MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/move_loop/move_rand/move()
 	var/list/potential_dirs = potential_directions.Copy()
@@ -742,9 +929,15 @@
 		var/atom/old_loc = moving.loc
 		moving.Move(moving_towards, testdir)
 		if(old_loc != moving?.loc)  //If it worked, we're done
+<<<<<<< HEAD
 			return TRUE
 		potential_dirs -= testdir
 	return FALSE
+=======
+			return MOVELOOP_SUCCESS
+		potential_dirs -= testdir
+	return MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Wrapper around walk_rand(), doesn't actually result in a random walk, it's more like moving to random places in viewish
@@ -769,7 +962,11 @@
 /datum/move_loop/move_to_rand/move()
 	var/atom/old_loc = moving.loc
 	step_rand(moving)
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Snowflake disposal movement. Moves a disposal holder along a chain of disposal pipes
@@ -808,4 +1005,8 @@
 		return FALSE
 	var/atom/old_loc = moving.loc
 	holder.current_pipe = holder.current_pipe.transfer(holder)
+<<<<<<< HEAD
 	return old_loc != moving?.loc
+=======
+	return old_loc != moving?.loc ? MOVELOOP_SUCCESS : MOVELOOP_FAILURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

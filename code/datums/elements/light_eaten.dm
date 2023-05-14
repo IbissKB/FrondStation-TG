@@ -67,6 +67,11 @@
 	if(isliving(examiner) && prob(20))
 		var/mob/living/target = examiner
 		examine_text += span_danger("You can feel something in [eaten_light.p_them()] gnash at your eyes!")
+<<<<<<< HEAD
 		target.adjust_blindness(5)
 		target.blur_eyes(10)
+=======
+		target.adjust_temp_blindness(10 SECONDS)
+		target.set_eye_blur_if_lower(20 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return NONE

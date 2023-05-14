@@ -5,8 +5,11 @@
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		HAIR,
 		FACEHAIR
 	)

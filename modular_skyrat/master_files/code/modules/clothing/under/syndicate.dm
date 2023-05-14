@@ -11,7 +11,11 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/syndicate.dmi'
 	//These are pre-set for ease and reference, as syndie under items SHOULDNT have sensors and should have similar stats; also its better to start with adjust = false
 	has_sensor = NO_SENSORS
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/syndicate_skyrat
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_adjust = FALSE
 
 //Related files:
@@ -23,6 +27,16 @@
 */
 
 //This is an overwrite, not a fully new item, but still fits best here.
+<<<<<<< HEAD
+=======
+
+/datum/armor/syndicate_skyrat
+	melee = 10
+	bio = 10
+	fire = 50
+	acid = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/syndicate/tacticool //Overwrites the 'fake' one. Zero armor, sensors, and default blue. More Balanced to make station-available.
 	name = "tacticool turtleneck"
 	desc = "A snug turtleneck, in fabulous Nanotrasen-blue. Just looking at it makes you want to buy a NT-certifed coffee, go into the office, and -work-."
@@ -32,7 +46,11 @@
 	inhand_icon_state = "b_suit"
 	can_adjust = TRUE
 	has_sensor = HAS_SENSORS
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	unique_reskin = list(
 		RESKIN_NT = "tactifool_blue",
 		RESKIN_CHARCOAL = "tactifool"
@@ -48,7 +66,11 @@
 	name = "tacticool skirtleneck"
 	desc = "A snug skirtleneck, in fabulous Nanotrasen-blue. Just looking at it makes you want to buy a NT-certifed coffee, go into the office, and -work-."
 	icon_state = "tactifool_blue_skirt"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
@@ -60,7 +82,11 @@
 
 /obj/item/clothing/under/syndicate/bloodred/sleepytime/sensors //Halloween-only
 	has_sensor = HAS_SENSORS
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/syndicate/skyrat/baseball
 	name = "syndicate baseball tee"
@@ -79,12 +105,25 @@
 	inhand_icon_state = "r_suit"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/skyrat_tactical
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	unique_reskin = list(
 		RESKIN_SYNDIE = "syndicate_red",
 		RESKIN_CHARCOAL = "syndicate"
 	)
 
+<<<<<<< HEAD
+=======
+/datum/armor/skyrat_tactical
+	melee = 10
+	bio = 10
+	fire = 50
+	acid = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/syndicate/skyrat/tactical/reskin_obj(mob/M)
 	..()
 	if(current_skin && current_skin == RESKIN_CHARCOAL)
@@ -118,27 +157,58 @@
 	desc = "Throughout the stars, rumors of mad scientists and angry drill sergeant run rampent, of creatures in armor black as night being led by men or women wearing this uniform, they share one thing, a deep, natonalistic zeal of the dream of America."
 	icon_state = "enclaveo"
 	can_adjust = TRUE
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0, WOUND = 0)
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/syndicate/skyrat/enclave
 	name = "neo american sergeant uniform"
 	desc = "Throughout the stars, rumors of mad scientists and angry drill sergeant run rampent, of creatures in armor black as night being led by men or women wearing this uniform, they share one thing, a deep, natonalistic zeal of the dream of America."
 	icon_state = "enclave"
 	can_adjust = TRUE
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0, WOUND = 0)
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/syndicate/skyrat/enclaveo/real
 	name = "neo american officer uniform"
 	desc = "Throughout the stars, rumors of mad scientists and angry drill sergeant run rampent, of creatures in armor black as night being led by men or women wearing this uniform, they share one thing, a deep, natonalistic zeal of the dream of America."
 	icon_state = "enclaveo"
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/enclaveo_real
+
+/datum/armor/enclaveo_real
+	melee = 10
+	bio = 10
+	fire = 50
+	acid = 40
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/syndicate/skyrat/enclave/real
 	name = "neo american sergeant uniform"
 	desc = "Throughout the stars, rumors of mad scientists and angry drill sergeant run rampent, of creatures in armor black as night being led by men or women wearing this uniform, they share one thing, a deep, natonalistic zeal of the dream of America."
 	icon_state = "enclave"
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/enclave_real
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef RESKIN_CHARCOAL
 #undef RESKIN_NT
 #undef RESKIN_SYNDIE
+<<<<<<< HEAD
+=======
+
+/datum/armor/enclave_real
+	melee = 10
+	bio = 10
+	fire = 50
+	acid = 40
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

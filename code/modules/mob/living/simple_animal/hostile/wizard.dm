@@ -40,6 +40,10 @@
 
 /mob/living/simple_animal/hostile/wizard/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
+=======
+	apply_dynamic_human_appearance(src, mob_spawn_path = /obj/effect/mob_spawn/corpse/human/wizard, r_hand = /obj/item/staff)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/implant/exile/exiled = new /obj/item/implant/exile(src)
 	exiled.implant(src)
 

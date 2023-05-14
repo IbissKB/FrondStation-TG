@@ -17,11 +17,25 @@ type Transactions = {
 let name_to_token, money_to_send, token;
 
 export const NtosPay = (props, context) => {
+<<<<<<< HEAD
+=======
+  return (
+    <NtosWindow width={495} height={655}>
+      <NtosWindow.Content>
+        <NtosPayContent />
+      </NtosWindow.Content>
+    </NtosWindow>
+  );
+};
+
+export const NtosPayContent = (props, context) => {
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const { data } = useBackend<Data>(context);
   const { name } = data;
 
   if (!name) {
     return (
+<<<<<<< HEAD
       <NtosWindow width={512} height={130}>
         <NtosWindow.Content>
           <NoticeBox>
@@ -30,10 +44,17 @@ export const NtosPay = (props, context) => {
           </NoticeBox>
         </NtosWindow.Content>
       </NtosWindow>
+=======
+      <NoticeBox>
+        You need to insert your ID card into the card slot in order to use this
+        application.
+      </NoticeBox>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     );
   }
 
   return (
+<<<<<<< HEAD
     <NtosWindow width={495} height={655}>
       <NtosWindow.Content>
         <Stack fill vertical>
@@ -49,6 +70,19 @@ export const NtosPay = (props, context) => {
         </Stack>
       </NtosWindow.Content>
     </NtosWindow>
+=======
+    <Stack fill vertical>
+      <Stack.Item>
+        <Introduction />
+      </Stack.Item>
+      <Stack.Item>
+        <TransferSection />
+      </Stack.Item>
+      <Stack.Item grow>
+        <TransactionHistory />
+      </Stack.Item>
+    </Stack>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   );
 };
 
@@ -80,7 +114,11 @@ const TransferSection = (props, context) => {
         <Section vertical title="Transfer Money">
           <Box>
             <Tooltip
+<<<<<<< HEAD
               content="Enter the pay token of the account you want to trasfer credits."
+=======
+              content="Enter the pay token of the account you want to transfer credits to."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               position="top">
               <Input
                 placeholder="Pay Token"

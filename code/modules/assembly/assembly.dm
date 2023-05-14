@@ -6,7 +6,11 @@
 	icon_state = ""
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_SMALL
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=100)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	throwforce = 2
 	throw_speed = 3
 	throw_range = 7

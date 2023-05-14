@@ -1,7 +1,11 @@
 /datum/computer_file/program/newscaster
 	filename = "newscasterapp"
 	filedesc = "Newscaster"
+<<<<<<< HEAD
 	required_access = list(ACCESS_LIBRARY)
+=======
+	transfer_access = list(ACCESS_LIBRARY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "bountyboard"
 	extended_desc = "This program allows any user to access the Newscaster network from anywhere."
@@ -22,6 +26,7 @@
 	return ..()
 
 /datum/computer_file/program/newscaster/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
 	data += newscaster_ui.ui_data(user)
 	return data
@@ -35,3 +40,12 @@
 	if(.)
 		return
 	return newscaster_ui.ui_act(action, params, ui)
+=======
+	return newscaster_ui.ui_data(user)
+
+/datum/computer_file/program/newscaster/ui_static_data(mob/user)
+	return newscaster_ui.ui_static_data(user)
+
+/datum/computer_file/program/newscaster/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	return newscaster_ui.ui_act(action, params, ui, state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

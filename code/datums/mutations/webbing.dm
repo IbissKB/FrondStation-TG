@@ -5,20 +5,35 @@
 	quality = POSITIVE
 	text_gain_indication = "<span class='notice'>Your skin feels webby.</span>"
 	instability = 15
+<<<<<<< HEAD
 	power_path = /datum/action/cooldown/spell/lay_genetic_web
+=======
+	power_path = /datum/action/cooldown/lay_web/genetic
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	energy_coeff = 1
 
 /datum/mutation/human/webbing/modify()
 	. = ..()
+<<<<<<< HEAD
 	var/datum/action/cooldown/spell/lay_genetic_web/to_modify =.
+=======
+	var/datum/action/cooldown/lay_web/genetic/to_modify = .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!istype(to_modify)) // null or invalid
 		return
 
+<<<<<<< HEAD
 	if(GET_MUTATION_ENERGY(src) == 1) //energetic chromosome outputs a value less than 1 when present, 1 by default
 		to_modify.webbing_time = initial(to_modify.webbing_time)
 		return
 	to_modify.webbing_time = 2 SECONDS
+=======
+	if(GET_MUTATION_ENERGY(src) == 1) // Energetic chromosome outputs a value less than 1 when present, 1 by default
+		to_modify.webbing_time = initial(to_modify.webbing_time)
+		return
+	to_modify.webbing_time = 2 SECONDS // Spin webs faster but not more often
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/mutation/human/webbing/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -29,6 +44,7 @@
 	if(..())
 		return
 	REMOVE_TRAIT(owner, TRAIT_WEB_WEAVER, GENETIC_MUTATION)
+<<<<<<< HEAD
 
 // In the future this could be unified with the spider's web action
 /datum/action/cooldown/spell/lay_genetic_web
@@ -63,3 +79,5 @@
 
 	new web_path(web_spot, cast_on)
 	return ..()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

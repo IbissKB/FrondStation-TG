@@ -42,7 +42,10 @@
 	icon_state = "ice_2"
 	damage = 10
 	damage_type = BURN
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	armor_flag = ENERGY
 	temperature = -50 // Cools you down! per hit!
 	var/slowdown = TRUE //Determines if the projectile applies a slowdown status effect on carbons or not
@@ -58,7 +61,10 @@
 	icon_state= "chronobolt"
 	damage = 40
 	damage_type = BRUTE
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	temperature = 0
 	slowdown = FALSE
 
@@ -79,6 +85,11 @@
 		if(EXPLODE_LIGHT)
 			adjustBruteLoss(110)
 
+<<<<<<< HEAD
+=======
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/hostile/asteroid/basilisk/AttackingTarget()
 	. = ..()
 	if(lava_drinker && !warmed_up && islava(target))
@@ -104,14 +115,23 @@
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher
 	name = "watcher"
 	desc = "A levitating, eye-like creature held aloft by winglike formations of sinew. A sharp spine of crystal protrudes from its body."
+<<<<<<< HEAD
 	icon = 'icons/mob/simple/lavaland/watcher.dmi'
+=======
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters_wide.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "watcher"
 	icon_living = "watcher"
 	icon_aggro = "watcher"
 	icon_dead = "watcher_dead"
 	health_doll_icon = "watcher"
+<<<<<<< HEAD
 	pixel_x = -10
 	base_pixel_x = -10
+=======
+	pixel_x = -12
+	base_pixel_x = -12
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	throw_message = "bounces harmlessly off of"
 	melee_damage_lower = 15
 	melee_damage_upper = 15
@@ -135,7 +155,11 @@
 	. = ..()
 	AddElement(/datum/element/simple_flying)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(stat == CONSCIOUS)
 		consume_bait()
@@ -194,7 +218,10 @@
 	icon_state = "lava"
 	damage = 5
 	damage_type = BURN
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	temperature = 200 // Heats you up! per hit!
 	slowdown = FALSE
 
@@ -209,7 +236,10 @@
 /obj/projectile/temp/basilisk/icewing
 	damage = 5
 	damage_type = BURN
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/temp/basilisk/icewing/on_hit(atom/target, blocked = FALSE)
 	. = ..()

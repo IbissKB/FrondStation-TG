@@ -83,6 +83,7 @@
 	if(can_be_driven)
 		//let the player take over if they should be controlling movement
 		ADD_TRAIT(ridden, TRAIT_AI_PAUSED, REF(src))
+<<<<<<< HEAD
 	if(rider.pulling == ridden)
 		rider.stop_pulling()
 	RegisterSignal(rider, COMSIG_LIVING_TRY_PULL, PROC_REF(on_rider_try_pull))
@@ -95,6 +96,10 @@
 		ridden.balloon_alert(rider_pulling, "not while riding it!")
 		return COMSIG_LIVING_CANCEL_PULL
 
+=======
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/riding/creature/vehicle_mob_unbuckle(mob/living/formerly_ridden, mob/living/former_rider, force = FALSE)
 	if(istype(formerly_ridden) && istype(former_rider))
 		formerly_ridden.log_message("is no longer being ridden by [former_rider].", LOG_GAME, color="pink")
@@ -102,7 +107,10 @@
 	remove_abilities(former_rider)
 	if(!formerly_ridden.buckled_mobs.len)
 		REMOVE_TRAIT(formerly_ridden, TRAIT_AI_PAUSED, REF(src))
+<<<<<<< HEAD
 	UnregisterSignal(former_rider, COMSIG_LIVING_TRY_PULL)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// We gotta reset those layers at some point, don't we?
 	former_rider.layer = MOB_LAYER
 	formerly_ridden.layer = MOB_LAYER
@@ -128,7 +136,11 @@
 	var/atom/movable/movable_parent = parent
 	movable_parent.unbuckle_mob(rider)
 
+<<<<<<< HEAD
 	if(!isanimal(movable_parent) && !iscyborg(movable_parent))
+=======
+	if(!iscyborg(movable_parent) && !isanimal_or_basicmob(movable_parent))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/turf/target = get_edge_target_turf(movable_parent, movable_parent.dir)
@@ -147,7 +159,11 @@
 /// If we're a cyborg or animal and we spin, we yeet whoever's on us off us
 /datum/component/riding/creature/proc/check_emote(mob/living/user, datum/emote/emote)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	if((!iscyborg(user) && !isanimal(user)) || !istype(emote, /datum/emote/spin))
+=======
+	if((!iscyborg(user) && !isanimal_or_basicmob(user)) || !istype(emote, /datum/emote/spin))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	for(var/mob/yeet_mob in user.buckled_mobs)
@@ -438,6 +454,26 @@
 	set_vehicle_dir_offsets(EAST, movable_parent.pixel_x, 0)
 	set_vehicle_dir_offsets(WEST, movable_parent.pixel_x, 0)
 
+<<<<<<< HEAD
+=======
+/datum/component/riding/creature/guardian
+	can_be_driven = FALSE
+
+/datum/component/riding/creature/guardian/handle_specials()
+	. = ..()
+	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-6, 3), TEXT_WEST = list(6, 3)))
+	set_vehicle_dir_layer(SOUTH, ABOVE_MOB_LAYER)
+	set_vehicle_dir_layer(NORTH, OBJ_LAYER)
+	set_vehicle_dir_layer(EAST, ABOVE_MOB_LAYER)
+	set_vehicle_dir_layer(WEST, ABOVE_MOB_LAYER)
+
+/datum/component/riding/creature/guardian/ride_check(mob/living/user, consequences = TRUE)
+	var/mob/living/simple_animal/hostile/guardian/charger = parent
+	if(!istype(charger))
+		return ..()
+	return charger.summoner == user
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //SKYRAT EDIT START: Human Riding Defines
 #undef OVERSIZED_OFFSET

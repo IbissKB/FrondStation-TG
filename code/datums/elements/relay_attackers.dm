@@ -8,7 +8,11 @@
 /datum/element/relay_attackers/Attach(datum/target)
 	. = ..()
 	// Boy this sure is a lot of ways to tell us that someone tried to attack us
+<<<<<<< HEAD
 	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, PROC_REF(on_attackby))
+=======
+	RegisterSignal(target, COMSIG_ATOM_AFTER_ATTACKEDBY, PROC_REF(after_attackby))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignals(target, list(COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_ATTACK_PAW, COMSIG_MOB_ATTACK_ALIEN), PROC_REF(on_attack_generic))
 	RegisterSignals(target, list(COMSIG_ATOM_ATTACK_BASIC_MOB, COMSIG_ATOM_ATTACK_ANIMAL), PROC_REF(on_attack_npc))
 	RegisterSignal(target, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
@@ -19,7 +23,11 @@
 /datum/element/relay_attackers/Detach(datum/source, ...)
 	. = ..()
 	UnregisterSignal(source, list(
+<<<<<<< HEAD
 		COMSIG_PARENT_ATTACKBY,
+=======
+		COMSIG_ATOM_AFTER_ATTACKEDBY,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		COMSIG_ATOM_ATTACK_HAND,
 		COMSIG_ATOM_ATTACK_PAW,
 		COMSIG_ATOM_ATTACK_BASIC_MOB,
@@ -31,7 +39,11 @@
 		COMSIG_ATOM_ATTACK_MECH,
 	))
 
+<<<<<<< HEAD
 /datum/element/relay_attackers/proc/on_attackby(atom/target, obj/item/weapon, mob/attacker)
+=======
+/datum/element/relay_attackers/proc/after_attackby(atom/target, obj/item/weapon, mob/attacker)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 	if(weapon.force)
 		relay_attacker(target, attacker)
@@ -48,7 +60,11 @@
 
 /datum/element/relay_attackers/proc/on_bullet_act(atom/target, obj/projectile/hit_projectile)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	if(hit_projectile.nodamage)
+=======
+	if(!hit_projectile.is_hostile_projectile())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!ismob(hit_projectile.firer))
 		return

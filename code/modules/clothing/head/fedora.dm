@@ -9,7 +9,11 @@
 /obj/item/clothing/head/fedora/Initialize(mapload)
 	. = ..()
 
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/small/fedora)
+=======
+	create_storage(storage_type = /datum/storage/pockets/small/fedora)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/fedora/white
 	name = "white fedora"

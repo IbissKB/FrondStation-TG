@@ -4,8 +4,13 @@
 	reqs = list(/obj/item/stack/rods = 1,
 				/obj/item/stack/sheet/cloth = 2,
 				/obj/item/stack/cable_coil = 5)
+<<<<<<< HEAD
 	time = 30
 	category = CAT_MISC
+=======
+	time = 3 SECONDS
+	category = CAT_TOOLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/mop
 	name = "Tribal Mop"
@@ -13,8 +18,13 @@
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 1,
 				/obj/item/stack/sheet/cloth = 2,
 				/obj/item/stack/sheet/sinew = 1)
+<<<<<<< HEAD
 	time = 30
 	category = CAT_PRIMAL
+=======
+	time = 3 SECONDS
+	category = CAT_TOOLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/doubletank
 	name = "Double emergency oxygen tank"

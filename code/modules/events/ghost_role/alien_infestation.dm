@@ -9,7 +9,11 @@
 	category = EVENT_CATEGORY_ENTITIES
 	description = "A xenomorph larva spawns on a random vent."
 
+<<<<<<< HEAD
 /datum/round_event_control/alien_infestation/can_spawn_event(players_amt)
+=======
+/datum/round_event_control/alien_infestation/can_spawn_event(players_amt, allow_magic = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return .

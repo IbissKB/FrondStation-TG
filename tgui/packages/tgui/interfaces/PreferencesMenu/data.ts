@@ -16,12 +16,24 @@ export enum Food {
   Junkfood = 'JUNKFOOD',
   Meat = 'MEAT',
   Nuts = 'NUTS',
+<<<<<<< HEAD
   Pineapple = 'PINEAPPLE',
   Raw = 'RAW',
   Seafood = 'SEAFOOD',
   Sugar = 'SUGAR',
   Toxic = 'TOXIC',
   Vegetables = 'VEGETABLES',
+=======
+  Oranges = 'ORANGES',
+  Pineapple = 'PINEAPPLE',
+  Raw = 'RAW',
+  Seafood = 'SEAFOOD',
+  Stone = 'STONE',
+  Sugar = 'SUGAR',
+  Toxic = 'TOXIC',
+  Vegetables = 'VEGETABLES',
+  Bloody = 'BLOODY', // SKYRAT EDIT ADDITION - Hemophage Food
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 }
 
 export enum JobPriority {
@@ -168,7 +180,11 @@ export type PreferencesMenuData = {
   character_preview_view: string;
   character_profiles: (string | null)[];
 
+<<<<<<< HEAD
   preview_options: string; // SKYRAT EDIT ADDITION
+=======
+  preview_options: string[]; // SKYRAT EDIT ADDITION
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   preview_selection: string; // SKYRAT EDIT ADDITION
 
   is_veteran: BooleanLike; // SKYRAT EDIT - Veteran status

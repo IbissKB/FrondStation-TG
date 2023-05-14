@@ -7,11 +7,16 @@
 
 /datum/keybinding/admin/admin_say
 	hotkey_keys = list("F3")
+<<<<<<< HEAD
 	name = "admin_say"
+=======
+	name = ADMIN_CHANNEL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	full_name = "Admin say"
 	description = "Talk with other admins."
 	keybind_signal = COMSIG_KB_ADMIN_ASAY_DOWN
 
+<<<<<<< HEAD
 /datum/keybinding/admin/admin_say/down(client/user)
 	. = ..()
 	if(.)
@@ -19,6 +24,8 @@
 	user.get_admin_say()
 	return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/keybinding/admin/admin_ghost
 	hotkey_keys = list("F5")
 	name = "admin_ghost"

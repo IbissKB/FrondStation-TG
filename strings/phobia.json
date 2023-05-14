@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"spiders": [
 		"spider",
 		"web",
@@ -24,6 +25,129 @@
 		"hos",
 		"brig",
 		"gulag"
+=======
+	"aliens": [
+		"abductee",
+		"abductor",
+		"alien",
+		"ayy lmao",
+		"ayys",
+		"facehugger",
+		"greys",
+		"jelly",
+		"lusty",
+		"mothership",
+		"resin",
+		"slime",
+		"xeno",
+		"xenobiology",
+		"xenomorph"
+	],
+
+	"anime": [
+		"~",
+		"anime",
+		"baka",
+		"best girl",
+		"catgirl",
+		"catgirls",
+		"cosplay",
+		"desu",
+		"dubs",
+		"husbando",
+		"katana",
+		"manga",
+		"neet",
+		"ninja",
+		"nya",
+		"nyaa",
+		"ora",
+		"otaku",
+		"season two when",
+		"subs",
+		"sugoi",
+		"uguu",
+		"waifu",
+		"weeb",
+		"worst girl"
+	],
+
+	"authority": [
+		"admiral",
+		"cap",
+		"captain",
+		"ce",
+		"centcom",
+		"centcom",
+		"chief",
+		"cmo",
+		"comdom",
+		"command",
+		"condom",
+		"head",
+		"heads",
+		"hop",
+		"hos",
+		"nanotrasen",
+		"qm",
+		"quarter master",
+		"quartermaster",
+		"rd",
+		"research director"
+	],
+
+	"birds": [
+		"avian",
+		"aviary",
+		"beak",
+		"bird",
+		"birdemic",
+		"chick",
+		"claw",
+		"cracker",
+		"eagle",
+		"feather",
+		"flap",
+		"fowl",
+		"griffin",
+		"ka kaw",
+		"kakaw",
+		"ki ki ya ya",
+		"kiki yaya",
+		"owl",
+		"peck",
+		"poly",
+		"vox",
+		"wing"
+	],
+
+	"blood": [
+		"bled",
+		"bleed",
+		"bleeding",
+		"blood",
+		"bloodloss",
+		"bloody",
+		"dialysis",
+		"gib",
+		"gibbed",
+		"gibs",
+		"gore",
+		"hemorrhage",
+		"hemorrhaged",
+		"hemorrhaging",
+		"iv",
+		"transfusion"
+	],
+
+	"clowns": [
+		"banana",
+		"clown",
+		"honk",
+		"slip",
+		"slipped",
+		"slipping"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	],
 
 	"conspiracies": [
@@ -66,6 +190,7 @@
 		"xeno"
 	],
 
+<<<<<<< HEAD
 	"clowns": [
 		"banana",
 		"clown",
@@ -73,6 +198,40 @@
 		"slip",
 		"slipped",
 		"slipping"
+=======
+	"doctors": [
+		"chem",
+		"chemist",
+		"chemistry",
+		"chief medical officer",
+		"cloning",
+		"cmo",
+		"cryo",
+		"doc",
+		"geneticist",
+		"genetics",
+		"healing",
+		"md",
+		"medicine",
+		"nurse",
+		"sleeper",
+		"viro",
+		"virologist",
+		"virology"
+	],
+
+	"falling": [
+		"chasm",
+		"fall",
+		"fell",
+		"hang in there",
+		"hold on",
+		"hole",
+		"i'll catch you",
+		"let go",
+		"pit",
+		"slip"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	],
 
 	"greytide": [
@@ -86,6 +245,79 @@
 		"viva"
 	],
 
+<<<<<<< HEAD
+=======
+	"guns": [
+		"10mm",
+		"357",
+		"45",
+		"9mm",
+		"ammo",
+		"armory",
+		"ballistic",
+		"beam",
+		"buckshot",
+		"bulldog",
+		"bullet",
+		"c20",
+		"cannon",
+		"carbine",
+		"cartridge",
+		"casing",
+		"dart",
+		"deagle",
+		"emitter",
+		"firearm",
+		"fired",
+		"gun",
+		"handgun",
+		"hitscan",
+		"incendiary",
+		"l6",
+		"laser",
+		"lmg",
+		"m1911",
+		"mag",
+		"magazine",
+		"mateba",
+		"mosin",
+		"musket",
+		"nagant",
+		"pistol",
+		"projectile",
+		"pulse",
+		"revolver",
+		"rifle",
+		"shell",
+		"shoot",
+		"shooter",
+		"shot",
+		"shotgun",
+		"slug",
+		"smg",
+		"sniper",
+		"speed loader",
+		"speedloader",
+		"turret",
+		"uzi",
+		"wt550"
+	],
+
+	"insects": [
+		"bee",
+		"buzz",
+		"cockroach",
+		"flutter",
+		"fly",
+		"glockroach",
+		"insect",
+		"moff",
+		"moth",
+		"roach",
+		"sting"
+	],
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	"lizards": [
 		"hiss",
 		"hissed",
@@ -96,6 +328,68 @@
 		"wagging"
 	],
 
+<<<<<<< HEAD
+=======
+	"ocky icky": [
+		"admeme",
+		"admin",
+		"ahelp",
+		"antag",
+		"antagonist",
+		"ban",
+		"banned",
+		"click",
+		"discord",
+		"forum",
+		"ick ock",
+		"k",
+		"kek",
+		"leddit",
+		"moderator",
+		"mods",
+		"ocky",
+		"ooc",
+		"owo",
+		"pwn",
+		"reddit",
+		"round",
+		"rule",
+		"self antag",
+		"selfantag",
+		"u",
+		"uwa",
+		"uwu",
+		"valid",
+		"y"
+	],
+
+	"robots": [
+		"ai",
+		"android",
+		"artificial intelligence",
+		"beep",
+		"boop",
+		"borg",
+		"bot",
+		"cyborg",
+		"robot",
+		"silicon",
+		"silly cone"
+	],
+
+	"security": [
+		"sec",
+		"security",
+		"shitcurity",
+		"baton",
+		"taser",
+		"beepsky",
+		"hos",
+		"brig",
+		"gulag"
+	],
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	"skeletons": [
 		"bone",
 		"calcium",
@@ -118,6 +412,7 @@
 		"viper"
 	],
 
+<<<<<<< HEAD
 	"robots": [
 		"ai",
 		"android",
@@ -175,6 +470,28 @@
 		"quartermaster",
 		"rd",
 		"research director"
+=======
+	"space": [
+		"space",
+		"star",
+		"universe",
+		"void",
+		"galaxy",
+		"spess"
+	],
+
+	"spiders": [
+		"spider",
+		"web",
+		"arachnid"
+	],
+
+	"strangers": [
+		"as (unknown)",
+		"unidentified",
+		"unknown",
+		"stranger"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	],
 
 	"the supernatural": [
@@ -211,6 +528,7 @@
 		"wiz",
 		"wizard",
 		"zombie"
+<<<<<<< HEAD
 	],
 
 "aliens": [
@@ -420,4 +738,11 @@
 	"iv",
 	"transfusion"
 	]
+=======
+		]
+
+
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 }

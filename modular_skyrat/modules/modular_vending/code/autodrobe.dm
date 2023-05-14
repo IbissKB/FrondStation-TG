@@ -29,6 +29,10 @@
 				/obj/item/clothing/under/costume/skyrat/kamishimo = 5,
 				/obj/item/clothing/under/costume/skyrat/yukata = 5,
 				/obj/item/clothing/under/costume/skyrat/kimono = 5,
+<<<<<<< HEAD
+=======
+				/obj/item/clothing/head/beret/badge = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			),
 		),
 		list(
@@ -38,17 +42,30 @@
 				/obj/item/clothing/glasses/biker = 5,
 				/obj/item/clothing/suit/trenchblack = 5,
 				/obj/item/clothing/suit/trenchbrown = 5,
+<<<<<<< HEAD
 				/obj/item/clothing/head/costume/christmas = 5,
 				/obj/item/clothing/head/costume/christmas/green =  5,
+=======
+				/obj/item/clothing/head/costume/skyrat/christmas = 5,
+				/obj/item/clothing/head/costume/skyrat/christmas/green =  5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				/obj/item/clothing/under/costume/skyrat/christmas = 5,
 				/obj/item/clothing/under/costume/skyrat/christmas/green = 5,
 				/obj/item/clothing/under/costume/skyrat/christmas/croptop = 5,
 				/obj/item/clothing/under/costume/skyrat/christmas/croptop/green = 5,
+<<<<<<< HEAD
 				/obj/item/clothing/suit/hooded/wintercoat/christmas = 5,
 				/obj/item/clothing/suit/hooded/wintercoat/christmas/green = 5,
 				/obj/item/clothing/suit/hooded/wintercoat/christmas/gamerpc = 5,
 				/obj/item/clothing/shoes/winterboots/christmas = 5,
 				/obj/item/clothing/shoes/winterboots/christmas/green = 5,
+=======
+				/obj/item/clothing/suit/hooded/wintercoat/skyrat/christmas = 5,
+				/obj/item/clothing/suit/hooded/wintercoat/skyrat/christmas/green = 5,
+				/obj/item/clothing/shoes/winterboots/christmas = 5,
+				/obj/item/clothing/shoes/winterboots/christmas/green = 5,
+				/obj/item/clothing/under/pants/tactical = 5,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			),
 		),
 	)

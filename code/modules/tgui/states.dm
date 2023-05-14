@@ -73,7 +73,12 @@
 
 /mob/living/shared_ui_interaction(src_object)
 	. = ..()
+<<<<<<< HEAD
 	if(!(mobility_flags & MOBILITY_UI) && . == UI_INTERACTIVE)
+=======
+	var/obj/item/object = src_object
+	if(!(mobility_flags & MOBILITY_UI) && !(object.interaction_flags_atom & INTERACT_ATOM_IGNORE_MOBILITY) && . == UI_INTERACTIVE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return UI_UPDATE
 
 /mob/living/silicon/ai/shared_ui_interaction(src_object)

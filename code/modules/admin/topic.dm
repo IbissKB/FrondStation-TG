@@ -83,6 +83,7 @@
 		else message_admins("[key_name_admin(usr)] FAILED to create '[href_list["makeAntag"]]' with a parameter of '[opt]'.")
 // SKYRAT EDIT END -- ONE CLICK ANTAG
 
+<<<<<<< HEAD
 	else if(href_list["forceevent"])
 		if(!check_rights(R_FUN))
 			return
@@ -108,6 +109,8 @@
 			log_admin("[key_name(usr)] has triggered an event. ([E.name])")
 		return
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(href_list["editrightsbrowser"])
 		edit_admin_permissions(0)
 
@@ -886,7 +889,11 @@
 					status = "<font color='red'><b>Dead</b></font>"
 			health_description = "Status: [status]"
 			health_description += "<br>Brute: [lifer.getBruteLoss()] - Burn: [lifer.getFireLoss()] - Toxin: [lifer.getToxLoss()] - Suffocation: [lifer.getOxyLoss()]"
+<<<<<<< HEAD
 			health_description += "<br>Clone: [lifer.getCloneLoss()] - Brain: [lifer.getOrganLoss(ORGAN_SLOT_BRAIN)] - Stamina: [lifer.getStaminaLoss()]"
+=======
+			health_description += "<br>Clone: [lifer.getCloneLoss()] - Brain: [lifer.get_organ_loss(ORGAN_SLOT_BRAIN)] - Stamina: [lifer.getStaminaLoss()]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			health_description = "This mob type has no health to speak of."
 
@@ -1212,7 +1219,11 @@
 	else if(href_list["dupe_marked_datum"])
 		if(!check_rights(R_SPAWN))
 			return
+<<<<<<< HEAD
 		return DuplicateObject(marked_datum, perfectcopy=1, newloc=get_turf(usr))
+=======
+		return duplicate_object(marked_datum, spawning_location = get_turf(usr))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	else if(href_list["object_list"]) //this is the laggiest thing ever
 		if(!check_rights(R_SPAWN))
@@ -1554,7 +1565,11 @@
 	else if(href_list["ctf_toggle"])
 		if(!check_rights(R_ADMIN))
 			return
+<<<<<<< HEAD
 		toggle_id_ctf(usr, "centcom")
+=======
+		toggle_id_ctf(usr, CTF_GHOST_CTF_GAME_ID)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	else if(href_list["rebootworld"])
 		if(!check_rights(R_ADMIN))
@@ -1815,3 +1830,16 @@
 		if(!paper_to_show)
 			return
 		paper_to_show.ui_interact(usr)
+<<<<<<< HEAD
+=======
+	else if(href_list["play_internet"])
+		if(!check_rights(R_SOUND))
+			return
+
+		var/link_url = href_list["play_internet"]
+		if(!link_url)
+			return
+
+		web_sound(usr, link_url)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

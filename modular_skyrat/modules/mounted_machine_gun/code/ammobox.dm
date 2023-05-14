@@ -3,7 +3,11 @@
 	desc = "A big box full of beltfed ammo."
 	icon = 'modular_skyrat/modules/mounted_machine_gun/icons/turret_objects.dmi'
 	icon_state = "ammobox"
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_ammo = 150
 	ammo_type = /obj/item/ammo_casing/b50cal
 	caliber = CALIBER_50BMG

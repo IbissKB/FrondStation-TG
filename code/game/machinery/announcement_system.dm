@@ -54,7 +54,11 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 
 /obj/machinery/announcement_system/screwdriver_act(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
+<<<<<<< HEAD
 	panel_open = !panel_open
+=======
+	toggle_panel_open()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(user, span_notice("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_appearance()
 	return TRUE
@@ -124,7 +128,11 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	. = ..()
 	if(.)
 		return
+<<<<<<< HEAD
 	if(!usr.canUseTopic(src, !issilicon(usr)))
+=======
+	if(!usr.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(machine_stat & BROKEN)
 		visible_message(span_warning("[src] buzzes."), span_hear("You hear a faint buzz."))
@@ -133,14 +141,22 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	switch(action)
 		if("ArrivalText")
 			var/NewMessage = trim(html_encode(param["newText"]), MAX_MESSAGE_LEN)
+<<<<<<< HEAD
 			if(!usr.canUseTopic(src, !issilicon(usr)))
+=======
+			if(!usr.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			if(NewMessage)
 				arrival = NewMessage
 				usr.log_message("updated the arrivals announcement to: [NewMessage]", LOG_GAME)
 		if("NewheadText")
 			var/NewMessage = trim(html_encode(param["newText"]), MAX_MESSAGE_LEN)
+<<<<<<< HEAD
 			if(!usr.canUseTopic(src, !issilicon(usr)))
+=======
+			if(!usr.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			if(NewMessage)
 				newhead = NewMessage
@@ -157,7 +173,11 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	. = attack_ai(user)
 
 /obj/machinery/announcement_system/attack_ai(mob/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, !issilicon(user)))
+=======
+	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(machine_stat & BROKEN)
 		to_chat(user, span_warning("[src]'s firmware appears to be malfunctioning!"))

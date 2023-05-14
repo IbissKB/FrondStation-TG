@@ -32,9 +32,15 @@
 			haunt_equipper = FALSE
 	if(haunt_equipper)
 		//You have now become one of the victims of the HAAAAUNTTIIIINNGGG OOOOOO~~~
+<<<<<<< HEAD
 		blackboard[BB_TO_HAUNT_LIST][WEAKREF(equipper)] += HAUNTED_ITEM_AGGRO_ADDITION
 	else
 		blackboard[BB_LIKES_EQUIPPER] = TRUE
+=======
+		set_blackboard_key_assoc(BB_TO_HAUNT_LIST, equipper, HAUNTED_ITEM_AGGRO_ADDITION)
+	else
+		set_blackboard_key(BB_LIKES_EQUIPPER, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	RegisterSignal(pawn, COMSIG_ITEM_DROPPED, PROC_REF(on_dropped))
 
@@ -42,6 +48,11 @@
 /datum/ai_controller/haunted/proc/on_dropped(datum/source, mob/user)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	RegisterSignal(pawn, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
 	blackboard[BB_LIKES_EQUIPPER] = FALSE
+=======
+	set_blackboard_key(BB_LIKES_EQUIPPER, FALSE)
+	RegisterSignal(pawn, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	UnregisterSignal(pawn, COMSIG_ITEM_DROPPED)

@@ -4,6 +4,11 @@
 	weight = 30
 	category = EVENT_CATEGORY_ENGINEERING
 	description = "Heavily emps all telecommunication machines, blocking all communication for a while."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 0
+	max_wizard_trigger_potency = 3
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/communications_blackout
 	announce_when = 1

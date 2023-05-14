@@ -16,7 +16,11 @@
 /obj/item/book/granter/action/spell/blind/recoil(mob/living/user)
 	. = ..()
 	to_chat(user, span_warning("You go blind!"))
+<<<<<<< HEAD
 	user.adjust_blindness(10)
+=======
+	user.adjust_temp_blindness(20 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/book/granter/action/spell/blind/wgw
 	name = "Woody's Got Wood"
@@ -30,4 +34,7 @@
 		"Please, make it stop...",
 		"HELP ME SOMEONE, WHY AM I READING THIS...",
 	)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -136,7 +136,11 @@
 
 	return TRUE
 
+<<<<<<< HEAD
 /datum/status_effect/fire_blasted/tick(delta_time, times_fired)
+=======
+/datum/status_effect/fire_blasted/tick(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	owner.adjustFireLoss(tick_damage)
 	owner.adjustStaminaLoss(2 * tick_damage)
 

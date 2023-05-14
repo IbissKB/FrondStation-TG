@@ -23,7 +23,11 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/stock_parts/cell/crank/process(delta_time)
+=======
+/obj/item/stock_parts/cell/crank/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	use(discharge_amount)
 
 /obj/item/stock_parts/cell/crank/attack_self(mob/user)
@@ -51,5 +55,9 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/stock_parts/cell/self_charge/process(delta_time)
+=======
+/obj/item/stock_parts/cell/self_charge/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	give(recharge_amount)

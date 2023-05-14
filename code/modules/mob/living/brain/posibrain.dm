@@ -73,12 +73,20 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	addtimer(CALLBACK(src, PROC_REF(check_success)), ask_delay)
 
 /obj/item/mmi/posibrain/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/input_seed = tgui_input_text(user, "Enter a personality seed", "Enter seed", ask_role, MAX_NAME_LEN)
 	if(isnull(input_seed))
 		return
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	to_chat(user, span_notice("You set the personality seed to \"[input_seed]\"."))
 	ask_role = input_seed
@@ -117,13 +125,21 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 		return
 	if(is_occupied() || is_banned_from(user.ckey, ROLE_POSIBRAIN) || QDELETED(brainmob) || QDELETED(src) || QDELETED(user))
 		return
+<<<<<<< HEAD
 	if(user.suiciding) //if they suicided, they're out forever.
+=======
+	if(HAS_TRAIT(src, TRAIT_SUICIDED)) //if they suicided, they're out forever.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_warning("[src] fizzles slightly. Sadly it doesn't take those who suicided!"))
 		return
 	var/posi_ask = tgui_alert(user, "Become a [name]? (Warning, You can no longer be revived, and all past lives will be forgotten!)", "Confirm", list("Yes","No"))
 	if(posi_ask != "Yes" || QDELETED(src))
 		return
+<<<<<<< HEAD
 	if(brainmob.suiciding) //clear suicide status if the old occupant suicided.
+=======
+	if(HAS_TRAIT(brainmob, TRAIT_SUICIDED)) //clear suicide status if the old occupant suicided.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		brainmob.set_suicide(FALSE)
 	transfer_personality(user)
 

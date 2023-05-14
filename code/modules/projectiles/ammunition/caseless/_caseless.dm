@@ -1,7 +1,11 @@
 /obj/item/ammo_casing/caseless
 	desc = "A caseless bullet casing."
 	firing_effect_type = null
+<<<<<<< HEAD
 	heavy_metal = FALSE
+=======
+	is_cased_ammo = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/caseless/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
 	if (!..()) //failed firing

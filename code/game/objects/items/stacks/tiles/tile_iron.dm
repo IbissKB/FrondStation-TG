@@ -5,6 +5,7 @@
 	icon_state = "tile"
 	inhand_icon_state = "tile"
 	force = 6
+<<<<<<< HEAD
 	mats_per_unit = list(/datum/material/iron=500)
 	throwforce = 10
 	flags_1 = CONDUCT_1
@@ -14,6 +15,17 @@
 	matter_amount = 1
 	cost = 125
 	source = /datum/robot_energy_storage/iron
+=======
+	mats_per_unit = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*5)
+	throwforce = 10
+	flags_1 = CONDUCT_1
+	turf_type = /turf/open/floor/iron
+	armor_type = /datum/armor/tile_iron
+	resistance_flags = FIRE_PROOF
+	matter_amount = 1
+	cost = SMALL_MATERIAL_AMOUNT * 5
+	source = /datum/robot_energy_storage/material/iron
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	merge_type = /obj/item/stack/tile/iron
 	tile_reskin_types = list(
 		/obj/item/stack/tile/iron,
@@ -89,6 +101,13 @@
 /obj/item/stack/tile/iron/four
 	amount = 4
 
+<<<<<<< HEAD
+=======
+/datum/armor/tile_iron
+	fire = 100
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stack/tile/iron/Initialize(mapload)
 	. = ..()
 	var/static/list/tool_behaviors = list(

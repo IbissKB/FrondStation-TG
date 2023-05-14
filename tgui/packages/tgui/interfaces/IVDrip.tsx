@@ -52,6 +52,7 @@ export const IVDrip = (props, context) => {
       <Window.Content>
         <Section fill>
           <LabeledList>
+<<<<<<< HEAD
             {hasContainer || hasInternalStorage ? (
               <LabeledList.Item
                 label="Container"
@@ -88,6 +89,57 @@ export const IVDrip = (props, context) => {
                   <NoticeBox my={0.7}>No container attached.</NoticeBox>
                 </Tooltip>
               </LabeledList.Item>
+=======
+            {mode === MODE.injecting && injectFromPlumbing ? ( // Plumbing drip injects with the rate from network
+              <LabeledList.Item label="Flow Rate">
+                Controlled by the plumbing network
+              </LabeledList.Item>
+            ) : (
+              !!canAdjustTransfer && (
+                <LabeledList.Item
+                  label="Flow Rate"
+                  buttons={
+                    <Box>
+                      <Button
+                        width={4}
+                        lineHeight={2}
+                        align="center"
+                        icon="angles-left"
+                        onClick={() =>
+                          act('changeRate', {
+                            rate: minTransferRate,
+                          })
+                        }
+                      />
+                      <Button
+                        width={4}
+                        lineHeight={2}
+                        align="center"
+                        icon="angles-right"
+                        onClick={() =>
+                          act('changeRate', {
+                            rate: maxTransferRate,
+                          })
+                        }
+                      />
+                    </Box>
+                  }>
+                  <Slider
+                    step={transferStep}
+                    my={1}
+                    value={transferRate}
+                    minValue={minTransferRate}
+                    maxValue={maxTransferRate}
+                    unit="units/sec."
+                    onDrag={(e, value) =>
+                      act('changeRate', {
+                        rate: value,
+                      })
+                    }
+                  />
+                </LabeledList.Item>
+              )
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
             )}
             <LabeledList.Item
               label="Direction"
@@ -111,6 +163,47 @@ export const IVDrip = (props, context) => {
                   : 'Reagents from container'
                 : 'Blood into container'}
             </LabeledList.Item>
+<<<<<<< HEAD
+=======
+            {hasContainer || hasInternalStorage ? (
+              <LabeledList.Item
+                label="Container"
+                buttons={
+                  !hasInternalStorage &&
+                  !!canRemoveContainer && (
+                    <Button
+                      my={1}
+                      width={8}
+                      lineHeight={2}
+                      align="center"
+                      icon="eject"
+                      content="Eject"
+                      onClick={() => act('eject')}
+                    />
+                  )
+                }>
+                <ProgressBar
+                  py={0.3}
+                  value={containerCurrentVolume}
+                  minValue={0}
+                  maxValue={containerMaxVolume}
+                  color={containerReagentColor}>
+                  <span
+                    style={{
+                      'text-shadow': '1px 1px 0 black',
+                    }}>
+                    {`${containerCurrentVolume} of ${containerMaxVolume} units`}
+                  </span>
+                </ProgressBar>
+              </LabeledList.Item>
+            ) : (
+              <LabeledList.Item label="Container">
+                <Tooltip content="Click the drip with a container in hand to attach.">
+                  <NoticeBox my={0.7}>No container attached.</NoticeBox>
+                </Tooltip>
+              </LabeledList.Item>
+            )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
             {hasObjectAttached ? (
               <LabeledList.Item
                 label="Object"
@@ -133,6 +226,7 @@ export const IVDrip = (props, context) => {
             ) : (
               <LabeledList.Item label="Object">
                 <Tooltip content="Drag the cursor from the drip and drop it on an object to connect.">
+<<<<<<< HEAD
                   <NoticeBox my={0.7}>No object hasObjectAttached.</NoticeBox>
                 </Tooltip>
               </LabeledList.Item>
@@ -163,6 +257,12 @@ export const IVDrip = (props, context) => {
                   </LabeledList.Item>
                 )
               ))}
+=======
+                  <NoticeBox my={0.7}>No object attached.</NoticeBox>
+                </Tooltip>
+              </LabeledList.Item>
+            )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           </LabeledList>
         </Section>
       </Window.Content>

@@ -44,14 +44,24 @@
 	qdel(src)
 
 /datum/status_effect/jitter/tick()
+<<<<<<< HEAD
+=======
+	// Resting helps against jitter
+	// While resting, we lose 8 seconds of duration (4 additional ticks) per tick
+	if(owner.resting && remove_duration(4 * initial(tick_interval)))
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/time_left_in_seconds = (duration - world.time) / 10
 	owner.do_jitter_animation(time_left_in_seconds)
 
+<<<<<<< HEAD
 	// Decrease the duration by our resting_modifier, effectively skipping resting_modifier ticks per tick
 	var/resting_modifier = owner.resting ? 5 : 1
 	duration -= ((resting_modifier - 1) * initial(tick_interval))
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Helper proc that causes the mob to do a jittering animation by jitter_amount.
 /// jitter_amount will only apply up to 300 (maximum jitter effect).
 /mob/living/proc/do_jitter_animation(jitter_amount = 100)

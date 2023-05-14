@@ -35,8 +35,16 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	var/used = FALSE
 
 /obj/effect/landmark/start/proc/after_round_start()
+<<<<<<< HEAD
 	if(delete_after_roundstart)
 		qdel(src)
+=======
+	// We'd like to keep these around for unit tests, so we can check that they exist.
+#ifndef UNIT_TESTS
+	if(delete_after_roundstart)
+		qdel(src)
+#endif
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/landmark/start/Initialize(mapload)
 	. = ..()
@@ -157,6 +165,13 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Medical Doctor"
 	icon_state = "Medical Doctor"
 
+<<<<<<< HEAD
+=======
+/obj/effect/landmark/start/coroner
+	name = "Coroner"
+	icon_state = "Coroner"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/start/paramedic
 	name = "Paramedic"
 	icon_state = "Paramedic"
@@ -317,6 +332,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	name = "Observer-Start"
 	icon_state = "observer_start"
 
+<<<<<<< HEAD
 //xenos, morphs and nightmares spawn here
 /obj/effect/landmark/xeno_spawn
 	name = "xeno_spawn"
@@ -325,6 +341,16 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/xeno_spawn/Initialize(mapload)
 	..()
 	GLOB.xeno_spawn += loc
+=======
+//generic maintenance locations
+/obj/effect/landmark/generic_maintenance_landmark
+	name = "generic_maintenance_spawn"
+	icon_state = "xeno_spawn"
+
+/obj/effect/landmark/generic_maintenance_landmark/Initialize(mapload)
+	..()
+	GLOB.generic_maintenance_landmarks += loc
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return INITIALIZE_HINT_QDEL
 
 //objects with the stationloving component (nuke disk) respawn here.
@@ -421,7 +447,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	GLOB.tdomeadmin += loc
 	return INITIALIZE_HINT_QDEL
 
+<<<<<<< HEAD
 //generic event spawns
+=======
+/**
+ * Generic event spawn points
+ *
+ * These are placed in locales where there are likely to be players, and places which are identifiable at a glance -
+ * Such as public hallways, department rooms, head of staff offices, and non-generic maintenance locations
+ *
+ * Used in events to cause effects in locations where it is likely to effect players
+ */
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/event_spawn
 	name = "generic event spawn"
 	icon_state = "generic_event"
@@ -469,23 +506,61 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	name = "hangover spawn"
 	icon_state = "hangover_spawn"
 
+<<<<<<< HEAD
 	/// A list of everything this hangover spawn created
 	var/list/debris = list()
+=======
+	/// A list of everything this hangover spawn created as part of the hangover station trait
+	var/list/hangover_debris = list()
+
+	/// A list of everything this hangover spawn created as part of the birthday station trait
+	var/list/party_debris = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/landmark/start/hangover/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/start/hangover/Destroy()
+<<<<<<< HEAD
 	debris = null
+=======
+	hangover_debris = null
+	party_debris = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/effect/landmark/start/hangover/LateInitialize()
 	. = ..()
+<<<<<<< HEAD
 	if(!HAS_TRAIT(SSstation, STATION_TRAIT_HANGOVER))
 		return
 	if(prob(60))
 		debris += new /obj/effect/decal/cleanable/vomit(get_turf(src))
+=======
+	if(HAS_TRAIT(SSstation, STATION_TRAIT_BIRTHDAY))
+		party_debris += new /obj/effect/decal/cleanable/confetti(get_turf(src)) //a birthday celebration can also be a hangover
+		var/list/bonus_confetti = GLOB.alldirs
+		for(var/confettis in bonus_confetti)
+			var/party_turf_to_spawn_on = get_step(src, confettis)
+			if(!isopenturf(party_turf_to_spawn_on))
+				continue
+			var/dense_object = FALSE
+			for(var/atom/content in party_turf_to_spawn_on)
+				if(content.density)
+					dense_object = TRUE
+					break
+			if(dense_object)
+				continue
+			if(prob(50))
+				party_debris += new /obj/effect/decal/cleanable/confetti(party_turf_to_spawn_on)
+			if(prob(10))
+				party_debris += new /obj/item/toy/balloon(party_turf_to_spawn_on)
+	if(!HAS_TRAIT(SSstation, STATION_TRAIT_HANGOVER))
+		return
+	if(prob(60))
+		hangover_debris += new /obj/effect/decal/cleanable/vomit(get_turf(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(prob(70))
 		var/bottle_count = rand(1, 3)
 		for(var/index in 1 to bottle_count)
@@ -499,7 +574,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 					break
 			if(dense_object)
 				continue
+<<<<<<< HEAD
 			debris += new /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty(turf_to_spawn_on)
+=======
+			hangover_debris += new /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty(turf_to_spawn_on)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Spawns the mob with some drugginess/drunkeness, and some disgust.
 /obj/effect/landmark/start/hangover/proc/make_hungover(mob/hangover_mob)

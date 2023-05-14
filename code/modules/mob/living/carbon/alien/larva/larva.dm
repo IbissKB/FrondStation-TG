@@ -38,7 +38,11 @@
 	return ..()
 
 /mob/living/carbon/alien/larva/create_internal_organs()
+<<<<<<< HEAD
 	internal_organs += new /obj/item/organ/internal/alien/plasmavessel/small/tiny
+=======
+	organs += new /obj/item/organ/internal/alien/plasmavessel/small/tiny
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 //This needs to be fixed
@@ -74,3 +78,10 @@
 
 /mob/living/carbon/alien/larva/canBeHandcuffed()
 	return TRUE
+<<<<<<< HEAD
+=======
+
+/// Don't scramble a larva's body parts, it doesn't have any
+/mob/living/carbon/alien/larva/bioscramble(scramble_source)
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -143,9 +143,15 @@
 	start()
 
 /obj/structure/chem_separator/extinguish()
+<<<<<<< HEAD
 	if(burning)
 		stop()
 	return ..()
+=======
+	. = ..()
+	if(burning)
+		stop()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Ignite the burner to start the separation process
 /obj/structure/chem_separator/proc/start()
@@ -213,7 +219,11 @@
 		return FALSE
 	return TRUE
 
+<<<<<<< HEAD
 /obj/structure/chem_separator/process(delta_time)
+=======
+/obj/structure/chem_separator/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/gas_mixture/air = return_air()
 	if(!can_process(air))
 		return stop()
@@ -221,7 +231,11 @@
 		var/turf/location = loc
 		location.hotspot_expose(exposed_temperature = 700, exposed_volume = 5)
 	if(reagents.chem_temp < required_temp)
+<<<<<<< HEAD
 		reagents.adjust_thermal_energy(heating_rate * delta_time * SPECIFIC_HEAT_DEFAULT * reagents.maximum_volume)
+=======
+		reagents.adjust_thermal_energy(heating_rate * seconds_per_tick * SPECIFIC_HEAT_DEFAULT * reagents.maximum_volume)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		reagents.chem_temp = min(reagents.chem_temp, required_temp)
 		update_appearance(UPDATE_ICON)
 		return
@@ -229,7 +243,11 @@
 		if(!boiling)
 			boiling = TRUE
 			soundloop.start()
+<<<<<<< HEAD
 		var/vapor_amount = distillation_rate * delta_time
+=======
+		var/vapor_amount = distillation_rate * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		// Vapor to condenser
 		reagents.trans_id_to(condenser, separating_reagent.type, vapor_amount)
 		// Cool the vapor down

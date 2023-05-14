@@ -13,7 +13,11 @@
 /obj/machinery/atmospherics/components/unary/set_init_directions()
 	initialize_directions = dir
 
+<<<<<<< HEAD
 /obj/machinery/atmospherics/components/unary/on_construction()
+=======
+/obj/machinery/atmospherics/components/unary/on_construction(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	update_appearance()
 

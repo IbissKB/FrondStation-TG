@@ -53,6 +53,7 @@
 		/datum/reagent/medicine/syndicate_nanites\
 	)
 #define BASE_SERVICE_REAGENTS list(/datum/reagent/consumable/applejuice, /datum/reagent/consumable/banana,\
+<<<<<<< HEAD
 		/datum/reagent/consumable/coffee, /datum/reagent/consumable/cream, /datum/reagent/consumable/dr_gibb,\
 		/datum/reagent/consumable/grenadine, /datum/reagent/consumable/ice, /datum/reagent/consumable/lemonjuice,\
 		/datum/reagent/consumable/lemon_lime, /datum/reagent/consumable/limejuice, /datum/reagent/consumable/menthol,\
@@ -63,6 +64,18 @@
 		/datum/reagent/consumable/spacemountainwind, /datum/reagent/consumable/space_up, /datum/reagent/consumable/sugar,\
 		/datum/reagent/consumable/tea, /datum/reagent/consumable/tomatojuice, /datum/reagent/consumable/tonic,\
 		/datum/reagent/water,\
+=======
+		/datum/reagent/consumable/berryjuice, /datum/reagent/consumable/cherryjelly, /datum/reagent/consumable/coffee,\
+		/datum/reagent/consumable/cream, /datum/reagent/consumable/dr_gibb, /datum/reagent/consumable/grenadine,\
+		/datum/reagent/consumable/ice, /datum/reagent/consumable/lemon_lime, /datum/reagent/consumable/limejuice,\
+		/datum/reagent/consumable/lemonjuice, /datum/reagent/consumable/menthol, /datum/reagent/consumable/nothing,\
+		/datum/reagent/consumable/milk, /datum/reagent/consumable/orangejuice, /datum/reagent/consumable/peachjuice,\
+		/datum/reagent/consumable/pineapplejuice, /datum/reagent/consumable/pwr_game, /datum/reagent/consumable/shamblers,\
+		/datum/reagent/consumable/sodawater, /datum/reagent/consumable/sol_dry, /datum/reagent/consumable/soymilk,\
+		/datum/reagent/consumable/space_cola, /datum/reagent/consumable/spacemountainwind, /datum/reagent/consumable/space_up,\
+		/datum/reagent/consumable/tea, /datum/reagent/consumable/tomatojuice, /datum/reagent/consumable/tonic,\
+		/datum/reagent/consumable/vinegar, /datum/reagent/water,\
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/datum/reagent/consumable/ethanol/ale, /datum/reagent/consumable/ethanol/applejack, /datum/reagent/consumable/ethanol/beer,\
 		/datum/reagent/consumable/ethanol/champagne, /datum/reagent/consumable/ethanol/cognac, /datum/reagent/consumable/ethanol/creme_de_coconut,\
 		/datum/reagent/consumable/ethanol/creme_de_cacao, /datum/reagent/consumable/ethanol/creme_de_menthe, /datum/reagent/consumable/ethanol/gin,\
@@ -70,10 +83,33 @@
 		/datum/reagent/consumable/ethanol/tequila, /datum/reagent/consumable/ethanol/triple_sec, /datum/reagent/consumable/ethanol/vermouth,\
 		/datum/reagent/consumable/ethanol/vodka, /datum/reagent/consumable/ethanol/whiskey, /datum/reagent/consumable/ethanol/wine\
 	)
+<<<<<<< HEAD
 #define HACKED_SERVICE_REAGENTS list(\
 		/datum/reagent/toxin/fakebeer,\
 		/datum/reagent/consumable/ethanol/fernet\
 	)
+=======
+#define EXPANDED_SERVICE_REAGENTS list(\
+	/datum/reagent/consumable/blackpepper,\
+	/datum/reagent/consumable/coco,\
+	/datum/reagent/consumable/cornmeal,\
+	/datum/reagent/consumable/cornoil,\
+	/datum/reagent/consumable/corn_starch,\
+	/datum/reagent/consumable/eggwhite,\
+	/datum/reagent/consumable/eggyolk,\
+	/datum/reagent/consumable/flour,\
+	/datum/reagent/consumable/rice,\
+	/datum/reagent/consumable/sugar,\
+	/datum/reagent/consumable/salt,\
+	/datum/reagent/consumable/vanilla,\
+)
+#define HACKED_SERVICE_REAGENTS list(\
+		/datum/reagent/blood,\
+		/datum/reagent/toxin/carpotoxin,\
+		/datum/reagent/toxin/fakebeer,\
+		/datum/reagent/consumable/ethanol/fernet,\
+)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Borg Hypospray
 /obj/item/reagent_containers/borghypo
@@ -130,8 +166,13 @@
 	return ..()
 
 /// Every [recharge_time] seconds, recharge some reagents for the cyborg
+<<<<<<< HEAD
 /obj/item/reagent_containers/borghypo/process(delta_time)
 	charge_timer += delta_time
+=======
+/obj/item/reagent_containers/borghypo/process(seconds_per_tick)
+	charge_timer += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(charge_timer >= recharge_time)
 		regenerate_reagents(default_reagent_types)
 		if(upgraded)
@@ -179,7 +220,11 @@
 			balloon_alert(user, "[amount_per_transfer_from_this] unit\s injected")
 			log_combat(user, injectee, "injected", src, "(CHEMICALS: [selected_reagent])")
 	else
+<<<<<<< HEAD
 		balloon_alert(user, "[user.zone_selected] is blocked!")
+=======
+		balloon_alert(user, "[parse_zone(user.zone_selected)] is blocked!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/borghypo/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -216,7 +261,10 @@
 		if(reagent.name == action)
 			selected_reagent = reagent
 			. = TRUE
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/mob/living/silicon/robot/cyborg = loc
 			if(istype(loc, /obj/item/robot_model))
 				var/obj/item/robot_model/container_model = loc
@@ -232,9 +280,17 @@
 
 /obj/item/reagent_containers/borghypo/AltClick(mob/living/user)
 	. = ..()
+<<<<<<< HEAD
 	if(user.stat == DEAD || user != loc)
 		return //IF YOU CAN HEAR ME SET MY TRANSFER AMOUNT TO 1
 	change_transfer_amount(user)
+=======
+/* SKYRAT REMOVAL START - Changing transfer amounts is now handled by the parent proc in modular files.
+	if(user.stat == DEAD || user != loc) 
+		return //IF YOU CAN HEAR ME SET MY TRANSFER AMOUNT TO 1
+	change_transfer_amount(user)	
+*/ // SKYRAT REMOVAL END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Default Medborg Hypospray
 /obj/item/reagent_containers/borghypo/medical
@@ -303,14 +359,24 @@
 /obj/item/reagent_containers/borghypo/borgshaker
 	name = "cyborg shaker"
 	desc = "An advanced drink synthesizer and mixer."
+<<<<<<< HEAD
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "shaker"
 	possible_transfer_amounts = list(5,10,20)
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+	icon_state = "shaker"
+	possible_transfer_amounts = list(5,10,20,1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Lots of reagents all regenerating at once, so the charge cost is lower. They also regenerate faster.
 	charge_cost = 20
 	recharge_time = 3
 	dispensed_temperature = WATER_MATTERSTATE_CHANGE_TEMP //Water stays wet, ice stays ice
 	default_reagent_types = BASE_SERVICE_REAGENTS
+<<<<<<< HEAD
+=======
+	expanded_reagent_types = EXPANDED_SERVICE_REAGENTS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/borghypo/borgshaker/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -321,7 +387,10 @@
 /obj/item/reagent_containers/borghypo/borgshaker/ui_data(mob/user)
 	var/list/drink_reagents = list()
 	var/list/alcohol_reagents = list()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/datum/reagent/reagent in stored_reagents.reagent_list)
 		// Split the reagents into alcoholic/non-alcoholic
 		if(istype(reagent, /datum/reagent/consumable/ethanol))
@@ -349,6 +418,7 @@
 /obj/item/reagent_containers/borghypo/borgshaker/afterattack(obj/target, mob/user, proximity)
 	. = ..()
 	if(!proximity)
+<<<<<<< HEAD
 		return
 	if(!selected_reagent)
 		balloon_alert(user, "no reagent selected!")
@@ -360,6 +430,20 @@
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
 			balloon_alert(user, "[target] is full!")
 			return
+=======
+		return .
+	if(!selected_reagent)
+		balloon_alert(user, "no reagent selected!")
+		return .
+	. |= AFTERATTACK_PROCESSED_ITEM
+	if(target.is_refillable())
+		if(!stored_reagents.has_reagent(selected_reagent.type, amount_per_transfer_from_this))
+			balloon_alert(user, "not enough [selected_reagent.name]!")
+			return .
+		if(target.reagents.total_volume >= target.reagents.maximum_volume)
+			balloon_alert(user, "[target] is full!")
+			return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		// This is the in-between where we're storing the reagent we're going to pour into the container
 		// because we cannot specify a singular reagent to transfer in trans_to
@@ -369,10 +453,82 @@
 
 		shaker.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
 		balloon_alert(user, "[amount_per_transfer_from_this] unit\s poured")
+<<<<<<< HEAD
+=======
+	return .
+	
+/obj/item/reagent_containers/borghypo/condiment_synthesizer // Solids! Condiments! The borger uprising!
+	name = "Condiment Synthesizer"
+	desc = "An advanced condiment synthesizer"
+	icon = 'icons/obj/food/containers.dmi'
+	icon_state = "flour"
+	possible_transfer_amounts = list(5,10,20,1)
+	// Lots of reagents all regenerating at once, so the charge cost is lower. They also regenerate faster.
+	charge_cost = 40 //Costs double the power of the borgshaker due to synthesizing solids
+	recharge_time = 6 //Double the recharge time too, for the same reason.
+	dispensed_temperature = WATER_MATTERSTATE_CHANGE_TEMP 
+	default_reagent_types = EXPANDED_SERVICE_REAGENTS
+
+/obj/item/reagent_containers/borghypo/condiment_synthesizer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "BorgHypo", name)
+		ui.open()
+
+/obj/item/reagent_containers/borghypo/condiment_synthesizer/ui_data(mob/user)
+	var/list/condiments = list()
+	for(var/datum/reagent/reagent in stored_reagents.reagent_list)
+		if(reagent)
+			condiments.Add(list(list(
+				"name" = reagent.name,
+				"volume" = round(reagent.volume, 0.01) - 1,
+				"description" = reagent.description,
+			))) // list in a list because Byond merges the first list...
+
+	var/data = list()
+	data["theme"] = tgui_theme
+	data["minVolume"] = amount_per_transfer_from_this
+	data["maxVolume"] = max_volume_per_reagent
+	data["reagents"] = condiments
+	data["selectedReagent"] = selected_reagent?.name
+	return data
+		
+/obj/item/reagent_containers/borghypo/condiment_synthesizer/attack(mob/M, mob/user)
+	return 
+
+/obj/item/reagent_containers/borghypo/condiment_synthesizer/afterattack(obj/target, mob/user, proximity)
+	. = ..()
+	if(!proximity)
+		return .
+	if(!selected_reagent)
+		balloon_alert(user, "no reagent selected!")
+		return .
+	. |= AFTERATTACK_PROCESSED_ITEM
+	if(!target.is_refillable())
+		return .
+	if(!stored_reagents.has_reagent(selected_reagent.type, amount_per_transfer_from_this))
+		balloon_alert(user, "not enough [selected_reagent.name]!")
+		return .
+	if(target.reagents.total_volume >= target.reagents.maximum_volume)
+		balloon_alert(user, "[target] is full!")
+		return .
+	// This is the in-between where we're storing the reagent we're going to pour into the container
+	// because we cannot specify a singular reagent to transfer in trans_to
+	var/datum/reagents/shaker = new()
+	stored_reagents.remove_reagent(selected_reagent.type, amount_per_transfer_from_this)
+	shaker.add_reagent(selected_reagent.type, amount_per_transfer_from_this, reagtemp = dispensed_temperature, no_react = TRUE)
+	shaker.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
+	balloon_alert(user, "[amount_per_transfer_from_this] unit\s poured")
+	
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/borghypo/borgshaker/hacked
 	name = "cyborg shaker"
 	desc = "Will mix drinks that knock them dead."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/drinks/mixed_drinks.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "threemileislandglass"
 	tgui_theme = "syndicate"
 	dispensed_temperature = WATER_MATTERSTATE_CHANGE_TEMP
@@ -387,4 +543,8 @@
 #undef HACKED_CLOWN_REAGENTS
 #undef BASE_SYNDICATE_REAGENTS
 #undef BASE_SERVICE_REAGENTS
+<<<<<<< HEAD
+=======
+#undef EXPANDED_SERVICE_REAGENTS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef HACKED_SERVICE_REAGENTS

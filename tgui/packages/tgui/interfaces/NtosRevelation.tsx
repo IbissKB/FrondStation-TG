@@ -12,7 +12,11 @@ export const NtosRevelation = (props, context) => {
   const { armed } = data;
 
   return (
+<<<<<<< HEAD
     <NtosWindow width={400} height={250} theme="syndicate">
+=======
+    <NtosWindow width={400} height={250}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <NtosWindow.Content>
         <Section>
           <Button.Input
@@ -44,6 +48,10 @@ export const NtosRevelation = (props, context) => {
             textAlign="center"
             color="bad"
             disabled={!armed}
+<<<<<<< HEAD
+=======
+            onClick={() => act('PRG_activate')}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           />
         </Section>
       </NtosWindow.Content>

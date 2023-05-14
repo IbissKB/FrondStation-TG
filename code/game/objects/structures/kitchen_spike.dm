@@ -9,6 +9,33 @@
 	anchored = FALSE
 	max_integrity = 200
 
+<<<<<<< HEAD
+=======
+/obj/structure/kitchenspike_frame/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/structure/kitchenspike_frame/examine(mob/user)
+	. = ..()
+	. += "It can be <b>welded</b> apart."
+	. += "You could attach <b>[MEATSPIKE_IRONROD_REQUIREMENT]</b> iron rods to it to create a <b>Meat Spike</b>."
+
+/obj/structure/kitchenspike_frame/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(isnull(held_item))
+		return NONE
+
+	var/message = ""
+	if(held_item.tool_behaviour == TOOL_WELDER)
+		message = "Deconstruct"
+	else if(held_item.tool_behaviour == TOOL_WRENCH)
+		message = "Bolt Down Frame"
+
+	if(!message)
+		return NONE
+	context[SCREENTIP_CONTEXT_LMB] = message
+	return CONTEXTUAL_SCREENTIP_SET
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/kitchenspike_frame/welder_act(mob/living/user, obj/item/tool)
 	if(!tool.tool_start_check(user, amount = 0))
 		return FALSE
@@ -33,10 +60,19 @@
 	var/obj/item/stack/rods/used_rods = attacking_item
 	if(used_rods.get_amount() >= MEATSPIKE_IRONROD_REQUIREMENT)
 		used_rods.use(MEATSPIKE_IRONROD_REQUIREMENT)
+<<<<<<< HEAD
 		to_chat(user, span_notice("You add spikes to the frame."))
 		var/obj/structure/new_meatspike = new /obj/structure/kitchenspike(loc)
 		transfer_fingerprints_to(new_meatspike)
 		qdel(src)
+=======
+		balloon_alert(user, "meatspike built")
+		var/obj/structure/new_meatspike = new /obj/structure/kitchenspike(loc)
+		transfer_fingerprints_to(new_meatspike)
+		qdel(src)
+		return
+	balloon_alert(user, "[MEATSPIKE_IRONROD_REQUIREMENT] rods needed!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/kitchenspike//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "meat spike"
@@ -49,6 +85,28 @@
 	can_buckle = TRUE
 	max_integrity = 250
 
+<<<<<<< HEAD
+=======
+/obj/structure/kitchenspike/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/structure/kitchenspike/examine(mob/user)
+	. = ..()
+	. += "<b>Drag a mob</b> onto it to hook it in place."
+	. += "A <b>crowbar</b> could remove those spikes."
+
+/obj/structure/kitchenspike/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(isnull(held_item))
+		return NONE
+
+	if(held_item.tool_behaviour == TOOL_CROWBAR)
+		context[SCREENTIP_CONTEXT_LMB] = "Remove Spikes"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	return NONE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/kitchenspike/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
 
@@ -66,7 +124,11 @@
 /obj/structure/kitchenspike/user_buckle_mob(mob/living/target, mob/user, check_loc = TRUE)
 	if(!iscarbon(target) && !isanimal_or_basicmob(target))
 		return
+<<<<<<< HEAD
 	if(!do_mob(user, target, 10 SECONDS))
+=======
+	if(!do_after(user, 10 SECONDS, target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	return ..()
 

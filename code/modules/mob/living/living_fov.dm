@@ -45,7 +45,11 @@
 		. = TRUE
 
 	// Handling nearsightnedness
+<<<<<<< HEAD
 	if(. && is_nearsighted())
+=======
+	if(. && is_nearsighted_currently())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if((rel_x >= NEARSIGHTNESS_FOV_BLINDNESS || rel_x <= -NEARSIGHTNESS_FOV_BLINDNESS) || (rel_y >= NEARSIGHTNESS_FOV_BLINDNESS || rel_y <= -NEARSIGHTNESS_FOV_BLINDNESS))
 			return FALSE
 

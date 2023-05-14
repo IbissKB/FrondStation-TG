@@ -1,8 +1,30 @@
 /obj/structure/closet/secure_closet/personal
+<<<<<<< HEAD
 	desc = "It's a secure locker for personnel. The first card swiped gains control."
 	name = "personal closet"
 	req_access = list(ACCESS_ALL_PERSONAL_LOCKERS)
 	var/registered_name = null
+=======
+	desc = "It's a secure locker for personnel. The first person to swipe their ID gains control."
+	name = "personal closet"
+	req_access = list(ACCESS_ALL_PERSONAL_LOCKERS)
+	card_reader_installed = TRUE
+
+/obj/structure/closet/secure_closet/personal/Initialize(mapload)
+	. = ..()
+	var/static/list/choices
+	if(isnull(choices))
+		choices = list("Personal")
+	access_choices = choices
+
+/obj/structure/closet/secure_closet/personal/can_unlock(mob/living/user, obj/item/card/id/player_id, obj/item/card/id/registered_id)
+	if(isnull(registered_id)) //first time anyone can unlock
+		return TRUE
+	else
+		if(allowed(user)) //players with ACCESS_ALL_PERSONAL_LOCKERS can override your ID
+			return TRUE
+		return player_id == registered_id
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/personal/PopulateContents()
 	..()
@@ -34,6 +56,7 @@
 	new /obj/item/storage/backpack/satchel/leather/withwallet( src )
 	new /obj/item/instrument/piano_synth(src)
 	new /obj/item/radio/headset( src )
+<<<<<<< HEAD
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/W, mob/user, params)
 	var/obj/item/card/id/I = W.GetID()
@@ -64,3 +87,5 @@
 	var/obj/item/card/id/id_card = human_to_check.wear_id?.GetID()
 	if (istype(id_card) && id_card.registered_name == registered_name)
 		return TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

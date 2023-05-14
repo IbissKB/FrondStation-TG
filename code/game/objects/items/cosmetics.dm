@@ -2,7 +2,11 @@
 	gender = PLURAL
 	name = "red lipstick"
 	desc = "A generic brand of lipstick."
+<<<<<<< HEAD
 	icon =  'modular_skyrat/modules/salon/icons/items.dmi' //SKYRAT EDIT CHANGE - ORIGINAL: icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon =  'modular_skyrat/modules/salon/icons/items.dmi' //SKYRAT EDIT CHANGE - ORIGINAL: icon = 'icons/obj/cosmetic.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "lipstick"
 	inhand_icon_state = "lipstick"
 	w_class = WEIGHT_CLASS_TINY
@@ -26,7 +30,10 @@
 	inhand_icon_state = "lipstick[open ? "open" : null]"
 	return ..()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/lipstick/update_overlays()
 	. = ..()
 	if(!open)
@@ -35,7 +42,10 @@
 	colored_overlay.color = colour
 	. += colored_overlay
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/lipstick/purple
 	name = "purple lipstick"
 	colour = "purple"
@@ -45,6 +55,21 @@
 	name = "jade lipstick"
 	colour = "lime"
 
+<<<<<<< HEAD
+=======
+/obj/item/lipstick/blue
+	name = "blue lipstick"
+	colour = "blue"
+
+/obj/item/lipstick/green
+	name = "green lipstick"
+	colour = "green"
+
+/obj/item/lipstick/white
+	name = "white lipstick"
+	colour = "white"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/lipstick/black
 	name = "black lipstick"
 	colour = "black"
@@ -123,7 +148,11 @@
 /obj/item/razor
 	name = "electric razor"
 	desc = "The latest and greatest power razor born from the science of shaving."
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/cosmetic.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "razor"
 	inhand_icon_state = "razor"
 	flags_1 = CONDUCT_1
@@ -144,7 +173,10 @@
 	H.update_body_parts()
 	playsound(loc, 'sound/items/welder2.ogg', 20, TRUE)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/razor/attack(mob/M, mob/living/user)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -158,7 +190,11 @@
 					if (H == user)
 						to_chat(user, span_warning("You need a mirror to properly style your own facial hair!"))
 						return
+<<<<<<< HEAD
 					if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+					if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						return
 					var/new_style = tgui_input_list(user, "Select a facial hairstyle", "Grooming", GLOB.facial_hairstyles_list)
 					if(isnull(new_style))
@@ -209,7 +245,11 @@
 				if (H == user)
 					to_chat(user, span_warning("You need a mirror to properly style your own hair!"))
 					return
+<<<<<<< HEAD
 				if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				var/new_style = tgui_input_list(user, "Select a hairstyle", "Grooming", GLOB.hairstyles_list)
 				if(isnull(new_style))

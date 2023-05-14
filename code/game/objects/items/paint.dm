@@ -5,7 +5,11 @@
 	gender= PLURAL
 	name = "paint"
 	desc = "Used to recolor floors and walls. Can be removed by the janitor."
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/art/paint.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "paint_neutral"
 	inhand_icon_state = "paintcan"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -60,7 +64,17 @@
 	name = "adaptive paint"
 	icon_state = "paint_neutral"
 
+<<<<<<< HEAD
 /obj/item/paint/anycolor/attack_self(mob/user)
+=======
+/obj/item/paint/anycolor/cyborg
+	paintleft = INFINITY
+
+/obj/item/paint/anycolor/attack_self(mob/user)
+	if(paintleft <= 0)
+		balloon_alert(user, "no paint left!")
+		return	// Don't do any of the following because there's no paint left to be able to change the color of
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/possible_colors = list(
 		"black" = image(icon = src.icon, icon_state = "paint_black"),
 		"blue" = image(icon = src.icon, icon_state = "paint_blue"),
@@ -115,6 +129,10 @@
 		return
 	if(!isturf(target) || isspaceturf(target))
 		return
+<<<<<<< HEAD
+=======
+	paintleft--
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.add_atom_colour(paint_color, WASHABLE_COLOUR_PRIORITY)
 
 /obj/item/paint/paint_remover
@@ -129,5 +147,9 @@
 		return
 	if(!isturf(target) || !isobj(target))
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(target.color != initial(target.color))
 		target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)

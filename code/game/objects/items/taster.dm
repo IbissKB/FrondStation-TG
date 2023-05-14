@@ -13,6 +13,11 @@
 	if(!proximity)
 		return
 
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!O.reagents)
 		to_chat(user, span_notice("[src] cannot taste [O], since [O.p_they()] [O.p_have()] have no reagents."))
 	else if(O.reagents.total_volume == 0)

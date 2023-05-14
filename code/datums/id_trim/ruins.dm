@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /// Generic away/pffstation trim.
+=======
+/// Generic away/offstation trim.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/id_trim/away
 	access = list(ACCESS_AWAY_GENERAL)
 
@@ -61,7 +65,11 @@
 	trim_state = "trim_bartender"
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME
+<<<<<<< HEAD
 	access = list(ACCESS_BAR)
+=======
+	access = list(ACCESS_BAR, ACCESS_KITCHEN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Trim for various Centcom corpses.
 /datum/id_trim/centcom/corpse/bridge_officer
@@ -122,8 +130,51 @@
 /datum/id_trim/pirate/captain/silverscale
 	assignment = "Silver Scale VIP"
 
+<<<<<<< HEAD
 /datum/id_trim/pirate/psykers
 	assignment = "Psyker-gang Member"
 
 /datum/id_trim/pirate/captain/psykers
 	assignment = "Psyker-gang Leader"
+=======
+//Trims for Dangerous Research, used in ``dangerous_research.dm``
+/datum/id_trim/away/dangerous_research
+	assignment = "Researcher"
+	access = list(ACCESS_AWAY_SCIENCE)
+
+/datum/id_trim/away/dangerous_research/head_occultist
+	assignment = "Head Occultist"
+	access = list(ACCESS_AWAY_SCIENCE, ACCESS_AWAY_COMMAND)
+
+//Trims for waystation.dmm space ruin
+/datum/id_trim/away/waystation/cargo_technician
+	assignment = "Waystation Cargo Hauler"
+	trim_state = "trim_cargotechnician"
+	department_color = COLOR_CARGO_BROWN
+	access = list(ACCESS_AWAY_SUPPLY)
+
+/datum/id_trim/away/waystation/quartermaster
+	assignment = "Waystation Quartermaster"
+	trim_state = "trim_quartermaster"
+	department_color = COLOR_CARGO_BROWN
+	access = list(ACCESS_AWAY_SUPPLY, ACCESS_AWAY_COMMAND)
+
+/datum/id_trim/away/waystation/security
+	assignment = "Waystation Security Officer"
+	trim_state = "trim_securityofficer"
+	department_color = COLOR_CARGO_BROWN
+	access = list(ACCESS_AWAY_SUPPLY, ACCESS_AWAY_SEC)
+
+//Trims for the outlet ruin
+/datum/id_trim/away/the_outlet
+	assignment = "Krazy Cashier"
+	access = list(ACCESS_AWAY_GENERAL)
+
+/datum/id_trim/away/the_outlet/angry_assistant_manager
+	assignment = "Angry Assistant Manager"
+	access = list(ACCESS_AWAY_GENERAL, ACCESS_AWAY_MEDICAL)
+
+/datum/id_trim/away/the_outlet/mad_manager
+	assignment = "The Mad Manager"
+	access = list(ACCESS_AWAY_GENERAL, ACCESS_AWAY_MEDICAL, ACCESS_AWAY_SEC)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

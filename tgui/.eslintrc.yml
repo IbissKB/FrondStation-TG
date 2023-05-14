@@ -308,6 +308,7 @@ rules:
   ## Enforce or disallow capitalization of the first letter of a comment
   # capitalized-comments: error
   ## Require or disallow trailing commas
+<<<<<<< HEAD
   comma-dangle: [error, {
     arrays: always-multiline,
     objects: always-multiline,
@@ -315,6 +316,18 @@ rules:
     exports: always-multiline,
     functions: only-multiline, ## Optional on functions
   }]
+=======
+  comma-dangle: [
+      error,
+      {
+        arrays: always-multiline,
+        objects: always-multiline,
+        imports: always-multiline,
+        exports: always-multiline,
+        functions: only-multiline, ## Optional on functions
+      },
+    ]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   ## Enforce consistent spacing before and after commas
   comma-spacing: [error, { before: false, after: true }]
   ## Enforce consistent comma style

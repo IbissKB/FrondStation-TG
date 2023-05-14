@@ -16,13 +16,18 @@
 	visibility_flags = HIDDEN_PANDEMIC
 	bypasses_immunity = TRUE
 
+<<<<<<< HEAD
 /datum/disease/adrenal_crisis/stage_act(delta_time, times_fired)
+=======
+/datum/disease/adrenal_crisis/stage_act(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
 
 	switch(stage)
 		if(1)
+<<<<<<< HEAD
 			if(DT_PROB(2.5, delta_time))
 				to_chat(affected_mob, span_warning(pick("You feel lightheaded.", "You feel lethargic.")))
 		if(2)
@@ -36,4 +41,19 @@
 				affected_mob.set_dizzy_if_lower(20 SECONDS)
 
 			if(DT_PROB(2.5, delta_time))
+=======
+			if(SPT_PROB(2.5, seconds_per_tick))
+				to_chat(affected_mob, span_warning(pick("You feel lightheaded.", "You feel lethargic.")))
+		if(2)
+			if(SPT_PROB(5, seconds_per_tick))
+				affected_mob.Unconscious(40)
+
+			if(SPT_PROB(10, seconds_per_tick))
+				affected_mob.adjust_slurring(14 SECONDS)
+
+			if(SPT_PROB(7, seconds_per_tick))
+				affected_mob.set_dizzy_if_lower(20 SECONDS)
+
+			if(SPT_PROB(2.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(affected_mob, span_warning(pick("You feel pain shoot down your legs!", "You feel like you are going to pass out at any moment.", "You feel really dizzy.")))

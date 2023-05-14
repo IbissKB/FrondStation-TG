@@ -28,11 +28,19 @@
 		return
 	close_machine(target)
 
+<<<<<<< HEAD
 /obj/machinery/abductor/experiment/open_machine()
 	if(!state_open && !panel_open)
 		..()
 
 /obj/machinery/abductor/experiment/close_machine(mob/target)
+=======
+/obj/machinery/abductor/experiment/open_machine(drop = TRUE, density_to_set = FALSE)
+	if(!state_open && !panel_open)
+		..()
+
+/obj/machinery/abductor/experiment/close_machine(mob/target, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/A in loc)
 		if(isabductor(A))
 			return
@@ -132,7 +140,11 @@
 	if(H.stat == DEAD)
 		say("Specimen deceased - please provide fresh sample.")
 		return "Specimen deceased."
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/gland/GlandTest = locate() in H.internal_organs
+=======
+	var/obj/item/organ/internal/heart/gland/GlandTest = locate() in H.organs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!GlandTest)
 		say("Experimental dissection not detected!")
 		return "No glands detected!"
@@ -153,7 +165,11 @@
 		user_abductor.team.abductees += H.mind
 		H.mind.add_antag_datum(/datum/antagonist/abductee)
 
+<<<<<<< HEAD
 		for(var/obj/item/organ/internal/heart/gland/G in H.internal_organs)
+=======
+		for(var/obj/item/organ/internal/heart/gland/G in H.organs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			G.Start()
 			point_reward++
 		if(point_reward > 0)

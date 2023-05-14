@@ -10,12 +10,20 @@
 		***********************************************************"))
 
 /datum/buildmode_mode/tweakcomps/change_settings(client/target_client)
+<<<<<<< HEAD
 	var/rating_to_choose = input(target_client, "Enter number of rating", "Number", "1") 
+=======
+	var/rating_to_choose = input(target_client, "Enter number of rating", "Number", "1")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	rating_to_choose = text2num(rating_to_choose)
 	if(!isnum(rating_to_choose))
 		tgui_alert(target_client, "Input a number.")
 		return
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	rating = rating_to_choose
 
 /datum/buildmode_mode/tweakcomps/handle_click(client/target_client, params, obj/machinery/object)
@@ -31,6 +39,10 @@
 		P.rating = rating
 	object.RefreshParts()
 
+<<<<<<< HEAD
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Machine Upgrade", "[rating]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 			
+=======
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Machine Upgrade", "[rating]")) // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

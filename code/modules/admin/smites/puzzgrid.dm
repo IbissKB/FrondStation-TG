@@ -54,8 +54,12 @@
 
 	name = "[victim]'s fiendish curse"
 
+<<<<<<< HEAD
 	ADD_TRAIT(victim, TRAIT_HANDS_BLOCKED, "[type]")
 	ADD_TRAIT(victim, TRAIT_IMMOBILIZED, "[type]")
+=======
+	victim.add_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_IMMOBILIZED), "[type]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	add_puzzgrid_component(puzzgrid)
 
@@ -80,7 +84,11 @@
 		span_notice("You are unshackled from your fiendish prison!"),
 	)
 
+<<<<<<< HEAD
 	remove_traits()
+=======
+	victim.remove_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_IMMOBILIZED), "[type]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	victim = null
 
@@ -103,7 +111,11 @@
 		victim.forceMove(loc)
 		victim.Paralyze(5 SECONDS)
 		victim.visible_message(span_bolddanger("Despite completely failing the puzzle, through unbelievable luck, [victim] manages to break out anyway!"))
+<<<<<<< HEAD
 		remove_traits()
+=======
+		victim.remove_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_IMMOBILIZED), "[type]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		qdel(src)
 		victim = null
 		return
@@ -112,7 +124,10 @@
 
 	// Defer until after the fail proc finishes, since that will qdel the component.
 	addtimer(CALLBACK(src, PROC_REF(add_puzzgrid_component), puzzgrid), 0)
+<<<<<<< HEAD
 
 /obj/structure/puzzgrid_effect/proc/remove_traits()
 	REMOVE_TRAIT(victim, TRAIT_HANDS_BLOCKED, "[type]")
 	REMOVE_TRAIT(victim, TRAIT_IMMOBILIZED, "[type]")
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

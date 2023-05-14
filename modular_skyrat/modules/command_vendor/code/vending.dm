@@ -106,7 +106,10 @@
 	)
 	access_lists["[ACCESS_CE]"] = list(
 		/obj/item/clothing/head/beret/engi/ce = 1,
+<<<<<<< HEAD
 		/obj/item/clothing/head/beret/engi/ce/alt = 1,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/clothing/head/hats/imperial/ce = 1,
 		/obj/item/clothing/under/rank/engineering/chief_engineer = 1,
 		/obj/item/clothing/under/rank/engineering/chief_engineer/skirt = 1,
@@ -116,9 +119,15 @@
 		/obj/item/clothing/shoes/sneakers/brown = 1,
 	)
 	access_lists["[ACCESS_HOS]"] = list(
+<<<<<<< HEAD
 		/obj/item/clothing/head/hats/hos = 1,
 		/obj/item/clothing/head/hos/beret/navyhos = 1,
 		/obj/item/clothing/head/hats/hos/peacekeeper/sol = 1,
+=======
+		/obj/item/clothing/head/hats/hos/cap = 1,
+		/obj/item/clothing/head/hats/hos/beret/navyhos = 1,
+		/obj/item/clothing/head/hats/hos/cap/peacekeeper/sol = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/clothing/head/hats/imperial/hos = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/peacekeeper = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/peacekeeper/sol = 1,
@@ -159,6 +168,10 @@
 		/obj/item/clothing/under/rank/nanotrasen_consultant/skirt = 1,
 		/obj/item/clothing/head/hats/centhat = 1,
 		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
+<<<<<<< HEAD
+=======
+		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	access_lists["[ACCESS_COMMAND]"] = list(

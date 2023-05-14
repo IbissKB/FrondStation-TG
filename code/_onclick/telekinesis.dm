@@ -179,9 +179,17 @@
 				focus.do_attack_animation(target, null, focus)
 		else if(isgun(I)) //I've only tested this with guns, and it took some doing to make it work
 			. = I.afterattack(target, tk_user, 0, params)
+<<<<<<< HEAD
 
 	user.changeNext_move(CLICK_CD_MELEE)
 	update_appearance()
+=======
+		. |= AFTERATTACK_PROCESSED_ITEM
+
+	user.changeNext_move(CLICK_CD_MELEE)
+	update_appearance()
+	return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/tk_grab/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()

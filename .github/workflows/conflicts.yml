@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+<<<<<<< HEAD
+=======
+      - 'project/**'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 jobs:
   triage:
     runs-on: ubuntu-20.04

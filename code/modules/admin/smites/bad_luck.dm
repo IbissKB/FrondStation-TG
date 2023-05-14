@@ -14,4 +14,14 @@
 
 /datum/smite/bad_luck/effect(client/user, mob/living/target)
 	. = ..()
+<<<<<<< HEAD
 	target.AddComponent(/datum/component/omen, silent, null, permanent)
+=======
+	target.AddComponent(/datum/component/omen/smite, permanent = permanent)
+
+	if(silent)
+		return
+	to_chat(target, span_warning("You get a bad feeling..."))
+	if(permanent)
+		to_chat(target, span_warning("A <b>very</b> bad feeling... As if malevolent forces are watching you..."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

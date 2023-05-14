@@ -24,7 +24,10 @@ type Category = {
 
 type Design = {
   title: string;
+<<<<<<< HEAD
   design_id: Number;
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   icon: string;
 };
 
@@ -71,14 +74,22 @@ const CategoryItem = (props, context) => {
   );
 };
 
+<<<<<<< HEAD
 const InfoSection = (props, context) => {
+=======
+export const InfoSection = (props, context) => {
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const { data } = useBackend<Data>(context);
   const { silo_upgraded } = data;
 
   return (
     <Section>
       <LabeledList>
+<<<<<<< HEAD
         <MatterItem space />
+=======
+        <MatterItem />
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         {silo_upgraded ? <SiloItem /> : ''}
         <CategoryItem />
       </LabeledList>
@@ -110,9 +121,15 @@ const DesignSection = (props, context) => {
           </Tabs.Tab>
         ))}
       </Tabs>
+<<<<<<< HEAD
       {shownCategory?.designs.map((design) => (
         <Button
           key={design.design_id}
+=======
+      {shownCategory?.designs.map((design, i) => (
+        <Button
+          key={i + 1}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           fluid
           ellipsis
           height="31px"
@@ -124,7 +141,11 @@ const DesignSection = (props, context) => {
           onClick={() =>
             act('design', {
               category: shownCategory.cat_name,
+<<<<<<< HEAD
               index: design.design_id,
+=======
+              index: i + 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
             })
           }>
           <Box
@@ -134,7 +155,13 @@ const DesignSection = (props, context) => {
             className={classes(['rcd-tgui32x32', design.icon])}
             style={{
               transform:
+<<<<<<< HEAD
                 design.icon === 'window0' || design.icon === 'rwindow0'
+=======
+                design.icon === 'window0' ||
+                design.icon === 'rwindow0' ||
+                design.icon === 'catwalk0'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                   ? 'scale(0.7)'
                   : 'scale(1.0)',
             }}

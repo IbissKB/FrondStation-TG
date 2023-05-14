@@ -6,7 +6,11 @@
 
 import DOMPurify from 'dompurify';
 import { storage } from 'common/storage';
+<<<<<<< HEAD
 import { loadSettings, updateSettings } from '../settings/actions';
+=======
+import { loadSettings, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from '../settings/actions';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { selectSettings } from '../settings/selectors';
 import { addChatPage, changeChatPage, changeScrollTracking, loadChat, rebuildChat, removeChatPage, saveChatToDisk, toggleAcceptedType, updateMessageCount } from './actions';
 import { MAX_PERSISTED_MESSAGES, MESSAGE_SAVE_INTERVAL } from './constants';
@@ -113,6 +117,7 @@ export const chatMiddleware = (store) => {
       chatRenderer.rebuildChat();
       return next(action);
     }
+<<<<<<< HEAD
     if (type === updateSettings.type || type === loadSettings.type) {
       next(action);
       const settings = selectSettings(store.getState());
@@ -122,6 +127,23 @@ export const chatMiddleware = (store) => {
         settings.matchWord,
         settings.matchCase
       );
+=======
+
+    if (
+      type === updateSettings.type ||
+      type === loadSettings.type ||
+      type === addHighlightSetting.type ||
+      type === removeHighlightSetting.type ||
+      type === updateHighlightSetting.type
+    ) {
+      next(action);
+      const settings = selectSettings(store.getState());
+      chatRenderer.setHighlight(
+        settings.highlightSettings,
+        settings.highlightSettingById
+      );
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       return;
     }
     if (type === 'roundrestart') {

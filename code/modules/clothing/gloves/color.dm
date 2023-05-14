@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /obj/item/clothing/gloves/color
 	dying_key = DYE_REGISTRY_GLOVES
 	greyscale_colors = null
@@ -102,6 +103,8 @@
 /obj/item/clothing/gloves/cut/heirloom
 	desc = "The old gloves your great grandfather stole from Engineering, many moons ago. They've seen some tough times recently."
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/gloves/color/black
 	desc = "These gloves are fire-resistant."
 	name = "black gloves"
@@ -132,7 +135,11 @@
 	// SKYRAT EDIT ADDITION END
 /obj/item/clothing/gloves/fingerless
 	name = "fingerless gloves"
+<<<<<<< HEAD
 	desc = "Plain black gloves without fingertips for the hard working."
+=======
+	desc = "Plain black gloves without fingertips for the hard-working."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "fingerless"
 	greyscale_colors = "#2f2e31"
 	strip_delay = 40
@@ -160,9 +167,18 @@
 	name = "insulated gloves"
 	desc = "These gloves provide protection against electric shock."
 	siemens_coefficient = 0
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 0, ACID = 0)
 	resistance_flags = NONE
 
+=======
+	armor_type = /datum/armor/red_insulated
+	resistance_flags = NONE
+
+/datum/armor/red_insulated
+	bio = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/gloves/color/rainbow
 	name = "rainbow gloves"
 	desc = "A pair of gloves, they don't look special in any way."
@@ -216,6 +232,7 @@
 	icon_state = "brown"
 	greyscale_colors = "#83613d"
 
+<<<<<<< HEAD
 /obj/item/clothing/gloves/color/captain
 	desc = "Regal blue gloves, with a nice gold trim, a diamond anti-shock coating, and an integrated thermal barrier. Swanky."
 	name = "captain's gloves"
@@ -275,12 +292,15 @@
 	clothing_traits = list(TRAIT_QUICK_BUILD)
 	custom_materials = list(/datum/material/iron=2000, /datum/material/silver=1500, /datum/material/gold = 1000)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/gloves/color/white
 	name = "white gloves"
 	desc = "These look pretty fancy."
 	icon_state = "white"
 	greyscale_colors = "#ffffff"
 	custom_price = PAYCHECK_CREW
+<<<<<<< HEAD
 
 /obj/item/clothing/gloves/kim
 	name = "aerostatic gloves"
@@ -294,3 +314,5 @@
 	icon_state = "maid_arms"
 	inhand_icon_state = null
 	greyscale_colors = null
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

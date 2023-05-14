@@ -17,7 +17,11 @@
 	var/cut_min = 0.01
 
 /datum/computer_file/program/shipping/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	data["has_id_slot"] = !!computer.computer_id_slot
 	data["paperamt"] = "[computer.stored_paper] / [computer.max_paper]"
@@ -27,6 +31,7 @@
 	return data
 
 /datum/computer_file/program/shipping/ui_act(action, list/params)
+<<<<<<< HEAD
 	. = ..()
 	if(.)
 		return
@@ -35,16 +40,27 @@
 
 	if(!computer.computer_id_slot) //We need an ID to successfully run
 		return
+=======
+	if(!computer.computer_id_slot) //We need an ID to successfully run
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	switch(action)
 		if("ejectid")
 			computer.RemoveID(usr)
 		if("selectid")
 			if(!computer.computer_id_slot.registered_account)
+<<<<<<< HEAD
 				playsound(get_turf(ui_host()), 'sound/machines/buzz-sigh.ogg', 50, TRUE, -1)
 				return
 			payments_acc = computer.computer_id_slot.registered_account
 			playsound(get_turf(ui_host()), 'sound/machines/ping.ogg', 50, TRUE, -1)
+=======
+				playsound(get_turf(computer.ui_host()), 'sound/machines/buzz-sigh.ogg', 50, TRUE, -1)
+				return TRUE
+			payments_acc = computer.computer_id_slot.registered_account
+			playsound(get_turf(computer.ui_host()), 'sound/machines/ping.ogg', 50, TRUE, -1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("resetid")
 			payments_acc = null
 		if("setsplit")
@@ -53,11 +69,19 @@
 		if("print")
 			if(computer.stored_paper <= 0)
 				to_chat(usr, span_notice("Printer is out of paper."))
+<<<<<<< HEAD
 				return
 			if(!payments_acc)
 				to_chat(usr, span_notice("Software error: Please set a current user first."))
 				return
 			var/obj/item/barcode/barcode = new /obj/item/barcode(get_turf(ui_host()))
+=======
+				return TRUE
+			if(!payments_acc)
+				to_chat(usr, span_notice("Software error: Please set a current user first."))
+				return TRUE
+			var/obj/item/barcode/barcode = new /obj/item/barcode(get_turf(computer.ui_host()))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			barcode.payments_acc = payments_acc
 			barcode.cut_multiplier = cut_multiplier
 			computer.stored_paper--

@@ -65,10 +65,19 @@
 	volume = 50
 	list_reagents = list(/datum/reagent/phlogiston = 30)
 
+<<<<<<< HEAD
 /obj/item/reagent_containers/cup/bottle/calomel
 	name = "calomel bottle"
 	desc = "A small bottle of calomel, which quickly purges all chemicals from the patient. Causes toxin damage if the patient is not heavily injured."
 	list_reagents = list(/datum/reagent/medicine/calomel = 30)
+=======
+/obj/item/reagent_containers/cup/bottle/ammoniated_mercury
+	name = "ammoniated mercury bottle"
+	desc = "Quickly purges the body of toxic chemicals. Heals toxin damage when in a good condition someone has \
+		no brute and fire damage. When hurt with brute or fire damage, it can deal a great amount of toxin damage. \
+		When there are no toxins present, it starts slowly purging itself."
+	list_reagents = list(/datum/reagent/medicine/ammoniated_mercury = 30)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/cup/bottle/syriniver
 	name = "syriniver bottle"
@@ -108,8 +117,14 @@
 /obj/item/reagent_containers/cup/bottle/adminordrazine
 	name = "Adminordrazine Bottle"
 	desc = "A small bottle. Contains the liquid essence of the gods."
+<<<<<<< HEAD
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "holyflask"
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+	icon_state = "holyflask"
+	inhand_icon_state = "holyflask"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 30)
 
 /obj/item/reagent_containers/cup/bottle/capsaicin
@@ -431,7 +446,11 @@
 /obj/item/reagent_containers/cup/bottle/clownstears
 	name = "bottle of distilled clown misery"
 	desc = "A small bottle. Contains a mythical liquid used by sublime bartenders; made from the unhappiness of clowns."
+<<<<<<< HEAD
 	list_reagents = list(/datum/reagent/consumable/clownstears = 30)
+=======
+	list_reagents = list(/datum/reagent/consumable/nutriment/soup/clown_tears = 30)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/cup/bottle/saltpetre
 	name = "saltpetre bottle"
@@ -532,7 +551,11 @@
 	if(!inputvalue)
 		return
 
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE))
+=======
+	if(user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		name = "[(inputvalue ? "[inputvalue]" : null)] bottle"
 
 //types of syrups

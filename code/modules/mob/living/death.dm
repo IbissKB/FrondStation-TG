@@ -14,7 +14,11 @@
 	if(!prev_lying)
 		gib_animation()
 
+<<<<<<< HEAD
 	spill_organs(no_brain, no_organs, no_bodyparts)
+=======
+	spill_organs(no_brain, no_organs, no_bodyparts, TRUE) //SKYRAT EDIT CHANGE - ORIGINAL: spill_organs(no_brain, no_organs, no_bodyparts)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!no_bodyparts)
 		spread_bodyparts(no_brain, no_organs)

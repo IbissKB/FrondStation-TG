@@ -14,7 +14,11 @@
 	)
 
 /datum/surgery/hepatectomy/can_start(mob/user, mob/living/carbon/target)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/liver/target_liver = target.getorganslot(ORGAN_SLOT_LIVER)
+=======
+	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(target_liver)
 		if(target_liver.damage > 50 && !target_liver.operated)
 			return TRUE
@@ -46,7 +50,11 @@
 
 /datum/surgery_step/hepatectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/human_target = target
+<<<<<<< HEAD
 	var/obj/item/organ/internal/liver/target_liver = target.getorganslot(ORGAN_SLOT_LIVER)
+=======
+	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	human_target.setOrganLoss(ORGAN_SLOT_LIVER, 10) //not bad, not great
 	if(target_liver)
 		target_liver.operated = TRUE

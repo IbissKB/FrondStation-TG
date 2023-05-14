@@ -43,6 +43,7 @@
 	return "I'll take \a [initial(object_to_order.name)]"
 
 /datum/venue/restaurant/on_get_order(mob/living/simple_animal/robot_customer/customer_pawn, obj/item/order_item)
+<<<<<<< HEAD
 	. = ..()
 	var/obj/item/food/ordered_food = order_item
 	customer_pawn.visible_message(span_danger("[customer_pawn] pushes [ordered_food] into their mouth-shaped hole!"), span_danger("You push [ordered_food] into your mouth-shaped hole."))
@@ -52,6 +53,22 @@
 
 /obj/machinery/restaurant_portal/restaurant
 	linked_venue = /datum/venue/restaurant
+=======
+	var/transaction_result = ..()
+	if((transaction_result & TRANSACTION_HANDLED) || !(transaction_result & TRANSACTION_SUCCESS))
+		return
+
+	customer_pawn.visible_message(
+		span_danger("[customer_pawn] pushes [order_item] into their mouth-shaped hole!"),
+		span_danger("You push [order_item] into your mouth-shaped hole."),
+	)
+	playsound(customer_pawn, 'sound/items/eatfood.ogg', rand(10,50), TRUE)
+	qdel(order_item)
+
+/obj/machinery/restaurant_portal/restaurant
+	linked_venue = /datum/venue/restaurant
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/holosign_creator/robot_seat/restaurant
 	name = "restaurant seating indicator placer"
 	holosign_type = /obj/structure/holosign/robot_seat/restaurant
@@ -61,8 +78,11 @@
 	linked_venue = /datum/venue/restaurant
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /////BAR/////
 /datum/venue/bar
 	name = "bar"
@@ -82,6 +102,7 @@
 		/datum/customer_data/malfunction = 1,
 	)
 
+<<<<<<< HEAD
 /datum/venue/bar/get_food_appearance(order)
 	var/glass_visual
 	var/datum/reagent/reagent_to_order = order
@@ -127,6 +148,8 @@
 		var/obj/item/reagent_containers/cup/glass/potential_drink = object_used
 		return potential_drink.reagents.has_reagent(wanted_item, VENUE_BAR_MINIMUM_REAGENTS)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/restaurant_portal/bar
 	linked_venue = /datum/venue/bar
 

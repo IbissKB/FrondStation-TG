@@ -115,4 +115,7 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 ///Custom names for individuals in a team
 /datum/team/proc/antag_listing_name()
 	return name
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

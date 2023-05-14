@@ -9,6 +9,7 @@
 	unique_reskin = list(
 		"Default (Purple)" = list(
 			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi',
+<<<<<<< HEAD
 			RESKIN_ICON_STATE = "blastwave_suit",
 			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi',
 			RESKIN_WORN_ICON_STATE = "blastwave_suit"
@@ -36,6 +37,35 @@
 			RESKIN_ICON_STATE = "blastwave_suit_y",
 			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi',
 			RESKIN_WORN_ICON_STATE = "blastwave_suit_y"
+=======
+			RESKIN_ICON_STATE = "blastwave_helmet",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi',
+			RESKIN_WORN_ICON_STATE = "blastwave_helmet"
+		),
+		"Red" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi',
+			RESKIN_ICON_STATE = "blastwave_helmet_r",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi',
+			RESKIN_WORN_ICON_STATE = "blastwave_helmet_r"
+		),
+		"Green" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi',
+			RESKIN_ICON_STATE = "blastwave_helmet_g",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi',
+			RESKIN_WORN_ICON_STATE = "blastwave_helmet_g"
+		),
+		"Blue" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi',
+			RESKIN_ICON_STATE = "blastwave_helmet_b",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi',
+			RESKIN_WORN_ICON_STATE = "blastwave_helmet_b"
+		),
+		"Yellow" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi',
+			RESKIN_ICON_STATE = "blastwave_helmet_y",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi',
+			RESKIN_WORN_ICON_STATE = "blastwave_helmet_y"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 	)
 

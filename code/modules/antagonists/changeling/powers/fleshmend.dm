@@ -11,7 +11,11 @@
 //Can be used whilst unconscious.
 /datum/action/changeling/fleshmend/sting_action(mob/living/user)
 	if(user.has_status_effect(/datum/status_effect/fleshmend))
+<<<<<<< HEAD
 		to_chat(user, span_warning("We are already fleshmending!"))
+=======
+		user.balloon_alert(user, "already fleshmending!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	..()
 	to_chat(user, span_notice("We begin to heal rapidly."))

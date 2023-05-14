@@ -62,7 +62,11 @@
 		var/current_spawn = rand(5 SECONDS, 10 SECONDS)
 		var/next_spawn = rand(5 SECONDS, 10 SECONDS)
 		var/extended_spawn = 0
+<<<<<<< HEAD
 		if(DT_PROB(1, next_spawn))
+=======
+		if(SPT_PROB(1, next_spawn))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			extended_spawn = rand(5 MINUTES, 15 MINUTES)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(supermatter_anomaly_gen), anomaly_location, anomaly_to_spawn, TRUE), current_spawn + extended_spawn)
 	return TRUE

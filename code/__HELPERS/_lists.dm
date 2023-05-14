@@ -594,12 +594,20 @@
 			inserted_list[key] = temp[key]
 
 ///for sorting clients or mobs by ckey
+<<<<<<< HEAD
 /proc/sort_key(list/ckey_list, order=1)
 	return sortTim(ckey_list, order >= 0 ? GLOBAL_PROC_REF(cmp_ckey_asc) : GLOBAL_PROC_REF(cmp_ckey_dsc))
 
 ///Specifically for record datums in a list.
 /proc/sort_record(list/record_list, field = "name", order = 1)
 	GLOB.cmp_field = field
+=======
+/proc/sort_key(list/ckey_list, order = 1)
+	return sortTim(ckey_list, order >= 0 ? GLOBAL_PROC_REF(cmp_ckey_asc) : GLOBAL_PROC_REF(cmp_ckey_dsc))
+
+///Specifically for record datums in a list.
+/proc/sort_record(list/record_list, order = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return sortTim(record_list, order >= 0 ? GLOBAL_PROC_REF(cmp_records_asc) : GLOBAL_PROC_REF(cmp_records_dsc))
 
 ///sort any value in a list
@@ -639,11 +647,35 @@
 			i++
 	return i
 
+<<<<<<< HEAD
 /// Returns datum/data/record
 /proc/find_record(field, value, list/inserted_list)
 	for(var/datum/data/record/record_to_check in inserted_list)
 		if(record_to_check.fields[field] == value)
 			return record_to_check
+=======
+/**
+ * Returns the first record in the list that matches the name
+ *
+ * If locked_only is TRUE, locked records will be checked
+ *
+ * If locked_only is FALSE, crew records will be checked
+ *
+ * If no record is found, returns null
+ */
+/proc/find_record(value, locked_only = FALSE)
+	if(locked_only)
+		for(var/datum/record/locked/target in GLOB.manifest.locked)
+			if(target.name != value)
+				continue
+			return target
+		return null
+
+	for(var/datum/record/crew/target in GLOB.manifest.general)
+		if(target.name != value)
+			continue
+		return target
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return null
 
 
@@ -1099,3 +1131,14 @@
 			stack_trace("[name] is not sorted. value at [index] ([value]) is in the wrong place compared to the previous value of [last_value] (when compared to by [cmp])")
 
 		last_value = value
+<<<<<<< HEAD
+=======
+
+/**
+ * Converts a list of coordinates, or an assosciative list if passed, into a turf by calling locate(x, y, z) based on the values in the list
+ */
+/proc/coords2turf(list/coords)
+	if("x" in coords)
+		return locate(coords["x"], coords["y"], coords["z"])
+	return locate(coords[1], coords[2], coords[3])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

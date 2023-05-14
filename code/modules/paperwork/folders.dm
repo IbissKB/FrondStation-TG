@@ -8,6 +8,18 @@
 	resistance_flags = FLAMMABLE
 	/// The background color for tgui in hex (with a `#`)
 	var/bg_color = "#7f7f7f"
+<<<<<<< HEAD
+=======
+	/// A typecache of the objects that can be inserted into a folder
+	var/static/list/folder_insertables = typecacheof(list(
+		/obj/item/paper,
+		/obj/item/photo,
+		/obj/item/documents,
+		/obj/item/paperwork,
+	))
+	/// Do we hide the contents on examine?
+	var/contents_hidden = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/folder/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] begins filing an imaginary death warrant! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -26,8 +38,13 @@
 
 /obj/item/folder/examine()
 	. = ..()
+<<<<<<< HEAD
 	if(length(contents))
 		. += span_notice("Right-click to remove [contents[1]].")
+=======
+	if(length(contents) && !contents_hidden)
+		. += span_notice("<b>Right-click</b> to remove [contents[1]].")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/folder/proc/rename(mob/user, obj/item/writing_instrument)
 	if(!user.can_write(writing_instrument))
@@ -38,7 +55,11 @@
 	if(!inputvalue)
 		return
 
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE))
+=======
+	if(user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		name = "folder[(inputvalue ? " - '[inputvalue]'" : null)]"
 
 /obj/item/folder/proc/remove_item(obj/item/Item, mob/user)
@@ -62,7 +83,11 @@
 /obj/item/folder/attackby(obj/item/weapon, mob/user, params)
 	if(burn_paper_product_attackby_check(weapon, user))
 		return
+<<<<<<< HEAD
 	if(istype(weapon, /obj/item/paper) || istype(weapon, /obj/item/photo) || istype(weapon, /obj/item/documents))
+=======
+	if(is_type_in_typecache(weapon, folder_insertables))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		//Add paper, photo or documents into the folder
 		if(!user.transferItemToLoc(weapon, src))
 			return

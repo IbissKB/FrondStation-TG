@@ -89,7 +89,13 @@
 	new /obj/item/holosign_creator/atmos(src)
 	new /obj/item/watertank/atmos(src)
 	new /obj/item/clothing/suit/utility/fire/atmos(src)
+<<<<<<< HEAD
 	new /obj/item/clothing/mask/gas/atmos(src)
 	new /obj/item/clothing/head/utility/hardhat/atmos(src)
+=======
+	new /obj/item/clothing/gloves/atmos(src)
+	new /obj/item/clothing/mask/gas/atmos(src)
+	new /obj/item/clothing/head/utility/hardhat/welding/atmos(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new /obj/item/clothing/glasses/meson/engine/tray(src)
 	new /obj/item/extinguisher/advanced(src)

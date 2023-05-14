@@ -84,11 +84,16 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/power/apc/syndicate{
 	dir = 1;
 	name = "Ship Power Controller";
 	pixel_y = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/slaver)
@@ -436,9 +441,13 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/slaver)
 "vx" = (
@@ -617,7 +626,11 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/slaver)
@@ -655,9 +668,13 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/slaver)
 "Dk" = (
@@ -730,7 +747,11 @@
 /obj/effect/turf_decal/stripes/full,
 /obj/machinery/door/airlock/external/glass{
 	id_tag = "prisonshipwreckdoorright";
+<<<<<<< HEAD
 	req_one_access_txt = "1,2,3,150"
+=======
+	req_one_access = list("security","brig","armory","syndicate")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -769,7 +790,11 @@
 	desc = "Kinda sleek. Doesn't offer much privacy.";
 	dir = 8;
 	name = "Prison Cell Door";
+<<<<<<< HEAD
 	req_one_access_txt = "1,2,3,150"
+=======
+	req_one_access = list("security","brig","armory","syndicate")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
 	dir = 4
@@ -915,9 +940,13 @@
 /area/shuttle/syndicate/slaver)
 "NV" = (
 /obj/machinery/power/shuttle_engine/heater,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/slaver)
 "OX" = (
@@ -1096,7 +1125,11 @@
 "SA" = (
 /obj/machinery/door/airlock/external/glass{
 	id_tag = "prisonshipwreckdock";
+<<<<<<< HEAD
 	req_one_access_txt = "1,2,3,150"
+=======
+	req_one_access = list("security","brig","armory","syndicate")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/docking_port/mobile/pirate{
@@ -1130,7 +1163,11 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/slaver)
 "VF" = (
@@ -1221,7 +1258,11 @@
 "XM" = (
 /obj/machinery/door/airlock/external/glass{
 	id_tag = "prisonshipwreckdoorleft";
+<<<<<<< HEAD
 	req_one_access_txt = "1,2,3,150"
+=======
+	req_one_access = list("security","brig","armory","syndicate")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/turf_decal/stripes/full,
 /obj/structure/fans/tiny,

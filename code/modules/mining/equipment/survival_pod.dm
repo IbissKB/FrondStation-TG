@@ -5,7 +5,11 @@
 	static_lighting = TRUE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
+<<<<<<< HEAD
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
+=======
+	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_1 = CAN_BE_DIRTY_1
 
 //Survival Capsule
@@ -88,14 +92,20 @@
 	icon_state = "pod_window-0"
 	base_icon_state = "pod_window"
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_SURVIVAL_TITANIUM_POD, SMOOTH_GROUP_SHUTTLE_PARTS)
 	canSmoothWith = list(SMOOTH_GROUP_SURVIVAL_TITANIUM_POD)
+=======
+	smoothing_groups = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
+	canSmoothWith = SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/window/reinforced/survival_pod
 	name = "pod window"
 	icon = 'icons/obj/lavaland/survival_pod.dmi'
 	icon_state = "pwindow"
 
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod/spawner/north
 	dir = NORTH
 
@@ -104,6 +114,9 @@
 
 /obj/structure/window/reinforced/survival_pod/spawner/west
 	dir = WEST
+=======
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawner, 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Door
 /obj/machinery/door/airlock/survival_pod
@@ -111,7 +124,11 @@
 	icon = 'icons/obj/doors/airlocks/survival/survival.dmi'
 	overlays_file = 'icons/obj/doors/airlocks/survival/survival_overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_pod
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_SURVIVAL_TITANIUM_POD, SMOOTH_GROUP_AIRLOCK)
+=======
+	smoothing_groups = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/door/airlock/survival_pod/glass
 	opacity = FALSE

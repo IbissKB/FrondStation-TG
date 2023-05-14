@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #define MODULE_CHEAP_LOWER 1
+=======
+#define MODULE_CHEAP_LOWER 0.5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define MODULE_CHEAP_UPPER 1.5
 
 #define MODULE_MID_LOWER 2
@@ -7,6 +11,12 @@
 #define MODULE_PRICEY_LOWER 4
 #define MODULE_PRICEY_UPPER 6
 
+<<<<<<< HEAD
+=======
+#define MODULE_ANOMALY_LOWER 7.5
+#define MODULE_ANOMALY_UPPER 9
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/armament_entry/company_import/nakamura_modsuits
 	category = NAKAMURA_ENGINEERING_MODSUITS_NAME
 	company_bitflag = CARGO_COMPANY_NAKAMURA_MODSUITS
@@ -119,6 +129,10 @@
 	interest_required = COMPANY_HIGH_INTEREST
 	restricted = TRUE
 	interest_addition = COMPANY_INTEREST_GAIN_BIG
+<<<<<<< HEAD
+=======
+	contraband = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/accretion
 	item_type = /obj/item/mod/module/ash_accretion
@@ -259,6 +273,17 @@
 	lower_cost = CARGO_CRATE_VALUE * MODULE_MID_LOWER
 	upper_cost = CARGO_CRATE_VALUE * MODULE_MID_UPPER
 	interest_required = COMPANY_SOME_INTEREST
+<<<<<<< HEAD
+=======
+	contraband = TRUE
+	
+/datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/rave
+	item_type = /obj/item/mod/module/visor/rave
+	lower_cost = CARGO_CRATE_VALUE * MODULE_MID_LOWER
+	upper_cost = CARGO_CRATE_VALUE * MODULE_MID_UPPER
+	interest_required = COMPANY_SOME_INTEREST
+	contraband = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/hat_stabilizer
 	item_type = /obj/item/mod/module/hat_stabilizer
@@ -267,25 +292,46 @@
 	interest_required = COMPANY_SOME_INTEREST
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/kinesis
+<<<<<<< HEAD
 	item_type = /obj/item/mod/module/anomaly_locked/kinesis
 	lower_cost = CARGO_CRATE_VALUE * MODULE_PRICEY_LOWER
 	upper_cost = CARGO_CRATE_VALUE * MODULE_PRICEY_UPPER
+=======
+	item_type = /obj/item/mod/module/anomaly_locked/kinesis/prebuilt
+	lower_cost = CARGO_CRATE_VALUE * MODULE_ANOMALY_LOWER
+	upper_cost = CARGO_CRATE_VALUE * MODULE_ANOMALY_UPPER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	interest_required = COMPANY_HIGH_INTEREST
 	interest_addition = COMPANY_INTEREST_GAIN_BIG
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/antigrav
+<<<<<<< HEAD
 	item_type = /obj/item/mod/module/anomaly_locked/antigrav
 	lower_cost = CARGO_CRATE_VALUE * MODULE_PRICEY_LOWER
 	upper_cost = CARGO_CRATE_VALUE * MODULE_PRICEY_UPPER
+=======
+	item_type = /obj/item/mod/module/anomaly_locked/antigrav/prebuilt
+	lower_cost = CARGO_CRATE_VALUE * MODULE_ANOMALY_LOWER
+	upper_cost = CARGO_CRATE_VALUE * MODULE_ANOMALY_UPPER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	interest_required = COMPANY_HIGH_INTEREST
 	interest_addition = COMPANY_INTEREST_GAIN_BIG
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/teleporter
+<<<<<<< HEAD
 	item_type = /obj/item/mod/module/anomaly_locked/teleporter
 	lower_cost = CARGO_CRATE_VALUE * MODULE_PRICEY_LOWER
 	upper_cost = CARGO_CRATE_VALUE * MODULE_PRICEY_UPPER
 	interest_required = COMPANY_HIGH_INTEREST
 	interest_addition = COMPANY_INTEREST_GAIN_BIG
+=======
+	item_type = /obj/item/mod/module/anomaly_locked/teleporter/prebuilt
+	lower_cost = CARGO_CRATE_VALUE * MODULE_ANOMALY_LOWER
+	upper_cost = CARGO_CRATE_VALUE * MODULE_ANOMALY_UPPER
+	interest_required = COMPANY_HIGH_INTEREST
+	interest_addition = COMPANY_INTEREST_GAIN_BIG
+	contraband = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef MODULE_CHEAP_LOWER
 #undef MODULE_CHEAP_UPPER
@@ -295,3 +341,9 @@
 
 #undef MODULE_PRICEY_LOWER
 #undef MODULE_PRICEY_UPPER
+<<<<<<< HEAD
+=======
+
+#undef MODULE_ANOMALY_LOWER
+#undef MODULE_ANOMALY_UPPER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

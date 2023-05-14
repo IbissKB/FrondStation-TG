@@ -28,7 +28,11 @@
 	var/selected_zone = user.zone_selected
 	var/obj/item/bodypart/leg/right = target.get_bodypart(BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/leg/left = target.get_bodypart(BODY_ZONE_L_LEG)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/target_brain = target.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!ishuman(target))
 		return

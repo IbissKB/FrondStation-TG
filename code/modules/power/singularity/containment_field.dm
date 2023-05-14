@@ -141,7 +141,11 @@
 	else if(issilicon(user))
 		if(prob(20))
 			user.Stun(40)
+<<<<<<< HEAD
 		user.take_overall_damage(0, shock_damage)
+=======
+		user.take_overall_damage(burn = shock_damage)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.visible_message(span_danger("[user.name] is shocked by the [src.name]!"), \
 		span_userdanger("Energy pulse detected, system damaged!"), \
 		span_hear("You hear an electrical crack."))

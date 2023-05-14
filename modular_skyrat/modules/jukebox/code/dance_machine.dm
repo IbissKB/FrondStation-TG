@@ -172,7 +172,11 @@
 			spotlights += new /obj/item/flashlight/spotlight(t, 1 + get_dist(src, t), 30 - (get_dist(src, t) * 8), LIGHT_COLOR_PURPLE)
 			continue
 		if(t.x > cen.x && t.y == cen.y)
+<<<<<<< HEAD
 			spotlights += new /obj/item/flashlight/spotlight(t, 1 + get_dist(src, t), 30 - (get_dist(src, t) * 8), LIGHT_COLOR_YELLOW)
+=======
+			spotlights += new /obj/item/flashlight/spotlight(t, 1 + get_dist(src, t), 30 - (get_dist(src, t) * 8), LIGHT_COLOR_BRIGHT_YELLOW)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		if(t.x < cen.x && t.y == cen.y)
 			spotlights += new /obj/item/flashlight/spotlight(t, 1 + get_dist(src, t), 30 - (get_dist(src, t) * 8), LIGHT_COLOR_GREEN)
@@ -268,12 +272,21 @@
 				if(LIGHT_COLOR_BLUEGREEN)
 					if(glow.even_cycle)
 						glow.set_light_range(glow.base_light_range * DISCO_INFENO_RANGE)
+<<<<<<< HEAD
 						glow.set_light_color(LIGHT_COLOR_YELLOW)
 						glow.set_light_on(TRUE)
 					else
 						glow.set_light_on(FALSE)
 						glow.set_light_color(LIGHT_COLOR_YELLOW)
 				if(LIGHT_COLOR_YELLOW)
+=======
+						glow.set_light_color(LIGHT_COLOR_BRIGHT_YELLOW)
+						glow.set_light_on(TRUE)
+					else
+						glow.set_light_on(FALSE)
+						glow.set_light_color(LIGHT_COLOR_BRIGHT_YELLOW)
+				if(LIGHT_COLOR_BRIGHT_YELLOW)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					if(glow.even_cycle)
 						glow.set_light_on(FALSE)
 						glow.set_light_color(LIGHT_COLOR_CYAN)

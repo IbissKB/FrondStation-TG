@@ -42,4 +42,8 @@ That’s how he would have wanted it.
 	desc = "Awarded for outstanding excellence in paperwork, administration, and bureaucracy."
 	icon_state = "medal_paperwork"
 	medaltype = "medal-gold"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/gold=1000)
+=======
+	custom_materials = list(/datum/material/gold=HALF_SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

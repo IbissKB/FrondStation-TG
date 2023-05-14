@@ -2,7 +2,11 @@
 	This datum should be used for handling mineral contents of machines and whatever else is supposed to hold minerals and make use of them.
 
 	Variables:
+<<<<<<< HEAD
 		amount - raw amount of the mineral this container is holding, calculated by the defined value MINERAL_MATERIAL_AMOUNT=2000.
+=======
+		amount - raw amount of the mineral this container is holding, calculated by the defined value SHEET_MATERIAL_AMOUNT=SHEET_MATERIAL_AMOUNT.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		max_amount - max raw amount of mineral this container can hold.
 		sheet_type - type of the mineral sheet the container handles, used for output.
 		parent - object that this container is being used by, used for output.
@@ -62,6 +66,17 @@
 			mat_amt = 0
 		materials[mat_ref] += mat_amt
 
+<<<<<<< HEAD
+=======
+	if(_mat_container_flags & MATCONTAINER_NO_INSERT)
+		return
+
+	var/atom/atom_target = parent
+	atom_target.flags_1 |= HAS_CONTEXTUAL_SCREENTIPS_1
+
+	RegisterSignal(atom_target, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM, PROC_REF(on_requesting_context_from_item))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/material_container/Destroy(force, silent)
 	materials = null
 	allowed_materials = null
@@ -265,7 +280,11 @@
 /datum/component/material_container/proc/transer_amt_to(datum/component/material_container/T, amt, datum/material/mat)
 	if(!istype(mat))
 		mat = GET_MATERIAL_REF(mat)
+<<<<<<< HEAD
 	if((amt==0)||(!T)||(!mat))
+=======
+	if((amt == 0) || (!T) || (!mat))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	if(amt<0)
 		return T.transer_amt_to(src, -amt, mat)
@@ -287,7 +306,11 @@
 		return (max_amount - total_amount)
 
 
+<<<<<<< HEAD
 /// For consuming a dictionary of materials. mats is the map of materials to use and the corresponding amounts, example: list(M/datum/material/glass =100, datum/material/iron=200)
+=======
+/// For consuming a dictionary of materials. mats is the map of materials to use and the corresponding amounts, example: list(M/datum/material/glass =100, datum/material/iron=SMALL_MATERIAL_AMOUNT * 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/material_container/proc/use_materials(list/mats, multiplier=1)
 	if(!mats || !length(mats))
 		return FALSE
@@ -325,6 +348,7 @@
 	if(!target)
 		var/atom/parent_atom = parent
 		target = parent_atom.drop_location()
+<<<<<<< HEAD
 	if(materials[M] < (sheet_amt * MINERAL_MATERIAL_AMOUNT))
 		sheet_amt = round(materials[M] / MINERAL_MATERIAL_AMOUNT)
 	var/count = 0
@@ -337,6 +361,20 @@
 		new M.sheet_type(target, sheet_amt, null, list((M) = MINERAL_MATERIAL_AMOUNT))
 		count += sheet_amt
 		use_amount_mat(sheet_amt * MINERAL_MATERIAL_AMOUNT, M)
+=======
+	if(materials[M] < (sheet_amt * SHEET_MATERIAL_AMOUNT))
+		sheet_amt = round(materials[M] / SHEET_MATERIAL_AMOUNT)
+	var/count = 0
+	while(sheet_amt > MAX_STACK_SIZE)
+		new M.sheet_type(target, MAX_STACK_SIZE, null, list((M) = SHEET_MATERIAL_AMOUNT))
+		count += MAX_STACK_SIZE
+		use_amount_mat(sheet_amt * SHEET_MATERIAL_AMOUNT, M)
+		sheet_amt -= MAX_STACK_SIZE
+	if(sheet_amt >= 1)
+		new M.sheet_type(target, sheet_amt, null, list((M) = SHEET_MATERIAL_AMOUNT))
+		count += sheet_amt
+		use_amount_mat(sheet_amt * SHEET_MATERIAL_AMOUNT, M)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return count
 
 
@@ -402,14 +440,23 @@
 
 /// Turns a material amount into the amount of sheets it should output
 /datum/component/material_container/proc/amount2sheet(amt)
+<<<<<<< HEAD
 	if(amt >= MINERAL_MATERIAL_AMOUNT)
 		return round(amt / MINERAL_MATERIAL_AMOUNT)
+=======
+	if(amt >= SHEET_MATERIAL_AMOUNT)
+		return round(amt / SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 /// Turns an amount of sheets into the amount of material amount it should output
 /datum/component/material_container/proc/sheet2amount(sheet_amt)
 	if(sheet_amt > 0)
+<<<<<<< HEAD
 		return sheet_amt * MINERAL_MATERIAL_AMOUNT
+=======
+		return sheet_amt * SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return FALSE
 
 
@@ -442,9 +489,48 @@
 			"name" = material.name,
 			"ref" = REF(material),
 			"amount" = amount,
+<<<<<<< HEAD
 			"sheets" = round(amount / MINERAL_MATERIAL_AMOUNT),
 			"removable" = amount >= MINERAL_MATERIAL_AMOUNT,
+=======
+			"sheets" = round(amount / SHEET_MATERIAL_AMOUNT),
+			"removable" = amount >= SHEET_MATERIAL_AMOUNT,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			"color" = material.greyscale_colors
 		))
 
 	return data
+<<<<<<< HEAD
+=======
+
+/**
+ * Adds context sensitivy directly to the material container file for screentips
+ * Arguments:
+ * * source - refers to item that will display its screentip
+ * * context - refers to, in this case, an item in the users hand hovering over the material container, such as an autolathe
+ * * held_item - refers to the item that has materials accepted by the material container
+ * * user - refers to user who will see the screentip when the proper context and tool are there
+ */
+/datum/component/material_container/proc/on_requesting_context_from_item(datum/source, list/context, obj/item/held_item, mob/living/user)
+	SIGNAL_HANDLER
+
+	if(isnull(held_item))
+		return NONE
+	if(!(mat_container_flags & MATCONTAINER_ANY_INTENT) && user.combat_mode)
+		return NONE
+	if(held_item.item_flags & ABSTRACT)
+		return NONE
+	if((held_item.flags_1 & HOLOGRAM_1) || (held_item.item_flags & NO_MAT_REDEMPTION) || (allowed_item_typecache && !is_type_in_typecache(held_item, allowed_item_typecache)))
+		return NONE
+	var/list/item_materials = held_item.get_material_composition(mat_container_flags)
+	if(!length(item_materials))
+		return NONE
+	for(var/material in item_materials)
+		if(can_hold_material(material))
+			continue
+		return NONE
+
+	context[SCREENTIP_CONTEXT_LMB] = "Insert"
+
+	return CONTEXTUAL_SCREENTIP_SET
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

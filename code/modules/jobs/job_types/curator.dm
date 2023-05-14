@@ -7,7 +7,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_HOP
+<<<<<<< HEAD
 	selection_color = "#bbe291"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	config_tag = "CURATOR"
 	exp_granted_type = EXP_TYPE_CREW
 

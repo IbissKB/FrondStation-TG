@@ -2,7 +2,11 @@
 	name = "Silk String"
 	result = /obj/item/weaponcrafting/silkstring
 	reqs = list(/obj/item/stack/sheet/cloth = 1)
+<<<<<<< HEAD
 	time = 50
+=======
+	time = 5 SECONDS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = CAT_MISC
 
 /datum/crafting_recipe/wood_bow
@@ -12,8 +16,13 @@
 		/obj/item/stack/sheet/mineral/wood = 25,
 		/obj/item/weaponcrafting/silkstring = 2,
 	)
+<<<<<<< HEAD
 	time = 300
 	category = CAT_PRIMAL
+=======
+	time = 30 SECONDS
+	category = CAT_WEAPON_RANGED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/pipebow
 	name = "Pipe Bow"
@@ -23,8 +32,13 @@
 		/obj/item/stack/sheet/plastic = 5,
 		/obj/item/weaponcrafting/silkstring = 2,
 	)
+<<<<<<< HEAD
 	time = 450
 	category = CAT_PRIMAL
+=======
+	time = 45 SECONDS
+	category = CAT_WEAPON_RANGED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/arrow
 	name = "Arrow"
@@ -34,8 +48,13 @@
 		/obj/item/stack/sheet/cloth= 1,
 		/obj/item/stack/rods = 1,
 	)
+<<<<<<< HEAD
 	time = 15
 	category = CAT_PRIMAL
+=======
+	time = 1.5 SECONDS
+	category = CAT_WEAPON_AMMO
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/bone_arrow
 	name = "Bone Arrow"
@@ -44,8 +63,13 @@
 		/obj/item/stack/sheet/bone = 1,
 		/obj/item/ammo_casing/caseless/arrow/ash = 1,
 	)
+<<<<<<< HEAD
 	time = 15
 	category = CAT_PRIMAL
+=======
+	time = 1.5 SECONDS
+	category = CAT_WEAPON_AMMO
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/ashen_arrow
 	name = "Ashen Arrow"
@@ -55,8 +79,13 @@
 		/obj/item/stack/sheet/sinew = 1,
 		/obj/item/stack/ore/glass/basalt = 10,
 	)
+<<<<<<< HEAD
 	time = 15
 	category = CAT_PRIMAL
+=======
+	time = 1.5 SECONDS
+	category = CAT_WEAPON_AMMO
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/bronze_arrow
 	name = "Bronze arrow"
@@ -65,8 +94,13 @@
 		/obj/item/ammo_casing/caseless/arrow/ash = 1,
 		/obj/item/stack/tile/bronze = 1,
 	)
+<<<<<<< HEAD
 	time = 15
 	category = CAT_PRIMAL
+=======
+	time = 1.5 SECONDS
+	category = CAT_WEAPON_AMMO
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/goliathshield
 	name = "Goliath shield"
@@ -75,8 +109,13 @@
 		/obj/item/stack/sheet/bone = 4,
 		/obj/item/stack/sheet/animalhide/goliath_hide = 3,
 	)
+<<<<<<< HEAD
 	time = 60
 	category = CAT_PRIMAL
+=======
+	time = 6 SECONDS
+	category = CAT_EQUIPMENT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/bonesword
 	name = "Bone Sword"
@@ -85,9 +124,15 @@
 		/obj/item/stack/sheet/bone = 2,
 		/obj/item/stack/sheet/sinew = 2,
 	)
+<<<<<<< HEAD
 	time = 40
 	always_available = FALSE
 	category = CAT_PRIMAL
+=======
+	time = 4 SECONDS
+	always_available = FALSE
+	category = CAT_WEAPON_MELEE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/quiver
 	name = "Quiver"
@@ -96,8 +141,13 @@
 		/obj/item/stack/sheet/leather = 2,
 		/obj/item/stack/sheet/sinew = 4,
 	)
+<<<<<<< HEAD
 	time = 80
 	category = CAT_PRIMAL
+=======
+	time = 8 SECONDS
+	category = CAT_WEAPON_AMMO
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/bone_bow
 	name = "Bone Bow"
@@ -106,5 +156,10 @@
 		/obj/item/stack/sheet/bone = 4,
 		/obj/item/stack/sheet/sinew = 4,
 	)
+<<<<<<< HEAD
 	time = 200
 	category = CAT_PRIMAL
+=======
+	time = 20 SECONDS
+	category = CAT_WEAPON_RANGED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

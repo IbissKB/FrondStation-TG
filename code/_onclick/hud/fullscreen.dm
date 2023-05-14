@@ -99,12 +99,15 @@
 	severity = 0
 	. = ..()
 
+<<<<<<< HEAD
 /atom/movable/screen/fullscreen/emergency_meeting
 	icon_state = "emergency_meeting"
 	show_when_dead = TRUE
 	layer = CURSE_LAYER
 	plane = SPLASHSCREEN_PLANE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /atom/movable/screen/fullscreen/brute
 	icon_state = "brutedamageoverlay"
 	layer = UI_DAMAGE_LAYER
@@ -124,6 +127,12 @@
 	icon_state = "oxydamageoverlay"
 	layer = BLIND_LAYER
 
+<<<<<<< HEAD
+=======
+/atom/movable/screen/fullscreen/crit/projectile_parry
+	layer = PARRY_LAYER
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /atom/movable/screen/fullscreen/blind
 	icon_state = "blackimageoverlay"
 	layer = BLIND_LAYER
@@ -196,8 +205,14 @@
 /atom/movable/screen/fullscreen/lighting_backdrop
 	icon = 'icons/hud/screen_gen.dmi'
 	icon_state = "flash"
+<<<<<<< HEAD
 	transform = matrix(200, 0, 0, 0, 200, 0)
 	plane = LIGHTING_PLANE
+=======
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	plane = LIGHTING_PLANE
+	layer = LIGHTING_ABOVE_ALL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	blend_mode = BLEND_OVERLAY
 	show_when_dead = TRUE
 	needs_offsetting = FALSE
@@ -215,5 +230,9 @@
 /atom/movable/screen/fullscreen/see_through_darkness
 	icon_state = "nightvision"
 	plane = LIGHTING_PLANE
+<<<<<<< HEAD
+=======
+	layer = LIGHTING_ABOVE_ALL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE

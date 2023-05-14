@@ -9,6 +9,10 @@
 /datum/symptom/headache
 	name = "Headache"
 	desc = "The virus causes inflammation inside the brain, causing constant headaches."
+<<<<<<< HEAD
+=======
+	illness = "Brain Freeze"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -1
 	resistance = 4
 	stage_speed = 2
@@ -43,7 +47,11 @@
 		return
 	var/mob/living/M = A.affected_mob
 	if(power < 2)
+<<<<<<< HEAD
 		if(prob(base_message_chance) || A.stage >=4)
+=======
+		if(prob(base_message_chance) || A.stage >= 4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(M, span_warning("[pick("Your head hurts.", "Your head pounds.")]"))
 	if(power >= 2 && A.stage >= 4)
 		to_chat(M, span_warning("[pick("Your head hurts a lot.", "Your head pounds incessantly.")]"))

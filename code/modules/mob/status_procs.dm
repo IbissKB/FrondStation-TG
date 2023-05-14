@@ -1,5 +1,6 @@
 //Here are the procs used to modify status effects of a mob.
 
+<<<<<<< HEAD
 /**
 * Set drowsyness of a mob to passed value
 */
@@ -89,6 +90,8 @@
 	else
 		game_plane_master_controller.remove_filter("eye_blur")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///Adjust the disgust level of a mob
 /mob/proc/adjust_disgust(amount)
 	return
@@ -129,6 +132,7 @@
 	var/old_invis = see_invisible
 	see_invisible = new_sight
 	SEND_SIGNAL(src, COMSIG_MOB_SEE_INVIS_CHANGE, see_invisible, old_invis)
+<<<<<<< HEAD
 
 /// see_in_dark is essentially just a range value
 /// Basically, if a tile has 0 luminosity affecting it, it will be counted as "dark"
@@ -143,3 +147,5 @@
 	see_in_dark = new_dark
 	SEND_SIGNAL(src, COMSIG_MOB_SEE_IN_DARK_CHANGE, see_in_dark, old_dark)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

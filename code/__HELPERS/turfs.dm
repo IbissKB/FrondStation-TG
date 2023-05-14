@@ -84,7 +84,13 @@ Turf and target are separate in case you want to teleport some distance from a t
 	var/turf/center = locate((destination.x + xoffset), (destination.y + yoffset), location.z)//So now, find the new center.
 
 	//Now to find a box from center location and make that our destination.
+<<<<<<< HEAD
 	for(var/turf/current_turf in block(locate(center.x + b1xerror, center.y + b1yerror, location.z), locate(center.x + b2xerror, center.y + b2yerror, location.z)))
+=======
+	var/width = (b2xerror - b1xerror) + 1
+	var/height = (b2yerror - b1yerror) + 1
+	for(var/turf/current_turf as anything in CORNER_BLOCK_OFFSET(center, width, height, b1xerror, b1yerror))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(density_check && current_turf.density)
 			continue//If density was specified.
 		if(closed_turf_check && isclosedturf(current_turf))
@@ -359,6 +365,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 			return target
 
 /**
+<<<<<<< HEAD
  * Checks whether the target turf is in a valid state to accept a directional window
  * or other directional pseudo-dense object such as railings.
  *
@@ -388,6 +395,27 @@ Turf and target are separate in case you want to teleport some distance from a t
 		if(istype(turf_content, /obj/structure/railing))
 			var/obj/structure/railing/rail = turf_content
 			if(rail.dir == test_dir || is_fulltile)
+=======
+ * Checks whether the target turf is in a valid state to accept a directional construction
+ * such as windows or railings.
+ *
+ * Returns FALSE if the target turf cannot accept a directional construction.
+ * Returns TRUE otherwise.
+ *
+ * Arguments:
+ * * dest_turf - The destination turf to check for existing directional constructions
+ * * test_dir - The prospective dir of some atom you'd like to put on this turf.
+ * * is_fulltile - Whether the thing you're attempting to move to this turf takes up the entire tile or whether it supports multiple movable atoms on its tile.
+ */
+/proc/valid_build_direction(turf/dest_turf, test_dir, is_fulltile = FALSE)
+	if(!dest_turf)
+		return FALSE
+	for(var/obj/turf_content in dest_turf)
+		if(turf_content.obj_flags & BLOCKS_CONSTRUCTION_DIR)
+			if(is_fulltile)  // for making it so fulltile things can't be built over directional things--a special case
+				return FALSE
+			if(turf_content.dir == test_dir)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return FALSE
 	return TRUE
 

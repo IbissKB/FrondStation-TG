@@ -56,7 +56,11 @@
 /datum/supply_pack/service/janitor/janitank
 	name = "Janitor Backpack Crate"
 	desc = "Call forth divine judgement upon dirt and grime with this high capacity janitor \
+<<<<<<< HEAD
 		backpack. Contains 500 units of station-cleansing cleaner. Requires janitor access to open."
+=======
+		backpack. Contains 500 units of station-cleansing cleaner."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 2
 	access = ACCESS_JANITOR
 	contains = list(/obj/item/watertank/janitor)
@@ -154,7 +158,11 @@
 	desc = "All the miners died too fast? Assistant wants to get a taste of life off-station? \
 		Either way, this kit is the best way to turn a regular crewman into an ore-producing, \
 		monster-slaying machine. Contains meson goggles, a pickaxe, advanced mining scanner, \
+<<<<<<< HEAD
 		cargo headset, ore bag, gasmask, an explorer suit and a miner ID upgrade. Requires QM access to open."
+=======
+		cargo headset, ore bag, gasmask, an explorer suit and a miner ID upgrade."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 4
 	access = ACCESS_QM
 	access_view = ACCESS_MINING_STATION
@@ -182,7 +190,11 @@
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/clothing/under/dress/wedding_dress,
 					/obj/item/clothing/under/suit/tuxedo,
+<<<<<<< HEAD
 					/obj/item/storage/belt/cummerbund,
+=======
+					/obj/item/storage/belt/fannypack/cummerbund,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					/obj/item/clothing/head/costume/weddingveil,
 					/obj/item/bouquet,
 					/obj/item/bouquet/sunflower,

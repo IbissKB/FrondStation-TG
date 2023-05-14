@@ -58,7 +58,11 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 	if (!istype(jumpsuit))
 		return null
 	to_chat(source, "<span class='notice'>[user] is trying to adjust your [jumpsuit.name].")
+<<<<<<< HEAD
 	if (!do_mob(user, source, jumpsuit.strip_delay * 0.5))
+=======
+	if (!do_after(user, (jumpsuit.strip_delay * 0.5), source))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	to_chat(source, "<span class='notice'>[user] successfully adjusted your [jumpsuit.name].")
 	jumpsuit.toggle_jumpsuit_adjust()
@@ -213,7 +217,11 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 
 	to_chat(user, span_notice("You try to [(carbon_source.internal != item) ? "open" : "close"] the valve on [source]'s [item.name]..."))
 
+<<<<<<< HEAD
 	if(!do_mob(user, carbon_source, INTERNALS_TOGGLE_DELAY))
+=======
+	if(!do_after(user, INTERNALS_TOGGLE_DELAY, carbon_source))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if (carbon_source.internal == item)

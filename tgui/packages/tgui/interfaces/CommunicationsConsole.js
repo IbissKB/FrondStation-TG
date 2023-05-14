@@ -235,9 +235,17 @@ const PageMain = (props, context) => {
     canSendToSectors,
     canSetAlertLevel,
     canToggleEmergencyAccess,
+<<<<<<< HEAD
     emagged,
     syndicate,
     emergencyAccess,
+=======
+    canToggleEngineeringOverride, // SKYRAT EDIT - Engineering Override
+    emagged,
+    syndicate,
+    emergencyAccess,
+    engineeringOverride, // SKYRAT EDIT - Engineering Override
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     importantActionReady,
     sectors,
     shuttleCalled,
@@ -373,6 +381,7 @@ const PageMain = (props, context) => {
               onClick={() => act('makePriorityAnnouncement')}
             />
           )}
+<<<<<<< HEAD
           {!!aprilFools && !!canMakeAnnouncement && (
             <Button
               icon="bullhorn"
@@ -380,6 +389,8 @@ const PageMain = (props, context) => {
               onClick={() => act('emergency_meeting')}
             />
           )}
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           {!!canToggleEmergencyAccess && (
             <Button.Confirm
               icon="id-card-o"
@@ -391,6 +402,22 @@ const PageMain = (props, context) => {
             />
           )}
 
+<<<<<<< HEAD
+=======
+          {/* SKYRAT EDIT ADDITION START - Engineering Override */}
+          {!!canToggleEngineeringOverride && (
+            <Button.Confirm
+              icon="wrench"
+              content={`${
+                engineeringOverride ? 'Disable' : 'Enable'
+              } Engineering Override Access`}
+              color={engineeringOverride ? 'bad' : undefined}
+              onClick={() => act('toggleEngOverride')}
+            />
+          )}
+          {/* SKYRAT EDIT ADDITION END */}
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           {!syndicate && (
             <Button
               icon="desktop"
@@ -456,8 +483,13 @@ const PageMain = (props, context) => {
           {!!canMakeAnnouncement && (
             <Button
               icon="bullhorn"
+<<<<<<< HEAD
               content="Call Sol Federation 811: Breach Control Response"
               onClick={() => act('callBreachControl')}
+=======
+              content="Call Sol Federation 811: Advanced Atmospherics Response"
+              onClick={() => act('callTheCatmos')}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
             />
           )}
           {!!canMakeAnnouncement && (

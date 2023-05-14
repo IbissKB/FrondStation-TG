@@ -48,7 +48,11 @@
 
 	AddComponent(/datum/component/plumbing/simple_demand, bolt, layer)
 
+<<<<<<< HEAD
 /obj/machinery/plumbing/pill_press/process(delta_time)
+=======
+/obj/machinery/plumbing/pill_press/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(machine_stat & NOPOWER)
 		return
 	if(reagents.total_volume >= current_volume)
@@ -94,7 +98,11 @@
 			stored_products -= AM
 			AM.forceMove(drop_location())
 
+<<<<<<< HEAD
 	use_power(active_power_usage * delta_time)
+=======
+	use_power(active_power_usage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/plumbing/pill_press/proc/load_styles()
 	//expertly copypasted from chemmasters

@@ -62,3 +62,17 @@
 		return FALSE
 
 	return is_admin(preferences.parent)
+<<<<<<< HEAD
+=======
+
+/datum/preference/toggle/comms_notification
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "comms_notification"
+	savefile_identifier = PREFERENCE_PLAYER
+
+/datum/preference/toggle/comms_notification/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return is_admin(preferences.parent)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

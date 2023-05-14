@@ -11,7 +11,11 @@
 
 /datum/traitor_objective/ultimate/battlecruiser/generate_objective(datum/mind/generating_for, list/possible_duplicates)
 	// There's no empty space to load a battlecruiser in...
+<<<<<<< HEAD
 	if(!SSmapping.empty_space)
+=======
+	if(SSmapping.is_planetary())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	return TRUE

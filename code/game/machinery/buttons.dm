@@ -11,18 +11,43 @@
 	var/id = null
 	var/initialized_button = 0
 	var/silicon_access_disabled = FALSE
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 0, FIRE = 90, ACID = 70)
+=======
+	///The light mask used in the icon file for emissive layer
+	var/light_mask = null
+	light_power = 0.5 // Minimums, we want the button to glow if it has a mask, not light an area
+	light_range = 1.5
+	light_color = LIGHT_COLOR_DARK_BLUE
+	armor_type = /datum/armor/machinery_button
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.02
 	resistance_flags = LAVA_PROOF | FIRE_PROOF
 
 /obj/machinery/button/indestructible
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_button
+	melee = 50
+	bullet = 50
+	laser = 50
+	energy = 50
+	bomb = 10
+	fire = 90
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/button/Initialize(mapload, ndir = 0, built = 0)
 	. = ..()
 	if(built)
 		setDir(ndir)
+<<<<<<< HEAD
 		panel_open = TRUE
+=======
+		set_panel_open(TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_appearance()
 
 	if(!built && !device && device_type)
@@ -30,9 +55,15 @@
 
 	src.check_access(null)
 
+<<<<<<< HEAD
 	if(req_access.len || req_one_access.len)
 		board = new(src)
 		if(req_access.len)
+=======
+	if(length(req_access) || length(req_one_access))
+		board = new(src)
+		if(length(req_access))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			board.accesses = req_access
 		else
 			board.one_access = 1
@@ -40,6 +71,14 @@
 
 	setup_device()
 
+<<<<<<< HEAD
+=======
+/obj/machinery/button/Destroy()
+	QDEL_NULL(device)
+	QDEL_NULL(board)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/button/update_icon_state()
 	if(panel_open)
 		icon_state = "button-open"
@@ -52,6 +91,11 @@
 
 /obj/machinery/button/update_overlays()
 	. = ..()
+<<<<<<< HEAD
+=======
+	if(light_mask && !(machine_stat & (NOPOWER|BROKEN)) && !panel_open)
+		. += emissive_appearance(icon, light_mask, src, alpha = alpha)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!panel_open)
 		return
 	if(device)
@@ -87,6 +131,10 @@
 				req_one_access = board.accesses
 			else
 				req_access = board.accesses
+<<<<<<< HEAD
+=======
+			balloon_alert(user, "electronics added")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_notice("You add [W] to the button."))
 
 		if(!device && !board && W.tool_behaviour == TOOL_WRENCH)
@@ -128,6 +176,20 @@
 /obj/machinery/button/attack_robot(mob/user)
 	return attack_ai(user)
 
+<<<<<<< HEAD
+=======
+/obj/machinery/button/examine(mob/user)
+	. = ..()
+	if(!panel_open)
+		return
+	if(device)
+		. += span_notice("There is \a [device] inside, which could be removed with an <b>empty hand</b>.")
+	if(board)
+		. += span_notice("There is \a [board] inside, which could be removed with an <b>empty hand</b>.")
+	if(!board && !device)
+		. += span_notice("There is nothing currently installed in \the [src].")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/button/proc/setup_device()
 	if(id && istype(device, /obj/item/assembly/control))
 		var/obj/item/assembly/control/A = device
@@ -149,14 +211,25 @@
 	if(panel_open)
 		if(device || board)
 			if(device)
+<<<<<<< HEAD
 				device.forceMove(drop_location())
 				device = null
 			if(board)
 				board.forceMove(drop_location())
+=======
+				user.put_in_hands(device)
+				device = null
+			if(board)
+				user.put_in_hands(board)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				req_access = list()
 				req_one_access = list()
 				board = null
 			update_appearance()
+<<<<<<< HEAD
+=======
+			balloon_alert(user, "electronics removed")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_notice("You remove electronics from the button frame."))
 
 		else
@@ -164,6 +237,10 @@
 				skin = "launcher"
 			else
 				skin = "doorctrl"
+<<<<<<< HEAD
+=======
+			balloon_alert(user, "swapped button style")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_notice("You change the button frame's front panel."))
 		return
 
@@ -319,6 +396,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	desc = "Used for building buttons."
 	icon_state = "button"
 	result_path = /obj/machinery/button
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
 	pixel_shift = 24
 
@@ -343,3 +421,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	. = ..()
 	. += span_notice("There's a small inscription on the button...")
 	. += span_notice("THIS CALLS THE TRAM! IT DOES NOT OPERATE IT! The console on the tram tells it where to go!")
+=======
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
+	pixel_shift = 24
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

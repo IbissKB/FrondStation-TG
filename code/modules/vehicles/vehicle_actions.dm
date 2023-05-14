@@ -381,15 +381,25 @@
 		rider.Paralyze(50)
 		if(prob(15))
 			rider.visible_message(
+<<<<<<< HEAD
 				span_userdanger("You smack against the board, hard."),
 				span_danger("[rider] misses the landing and falls on [rider.p_their()] face!)"),
+=======
+				span_danger("[rider] misses the landing and falls on [rider.p_their()] face!)"),
+				span_userdanger("You smack against the board, hard."),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			)
 			rider.emote("scream")
 			rider.adjustBruteLoss(10)  // thats gonna leave a mark
 			return
 		rider.visible_message(
+<<<<<<< HEAD
 			span_userdanger("You fall flat onto the board!"),
 			span_danger("[rider] misses the landing and falls on [rider.p_their()] face!"),
+=======
+			span_danger("[rider] misses the landing and falls on [rider.p_their()] face!"),
+			span_userdanger("You fall flat onto the board!"),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 		return
 

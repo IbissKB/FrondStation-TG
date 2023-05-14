@@ -17,12 +17,20 @@
 	cold_level_2_threshold = 0
 	cold_level_3_threshold = 0
 	status = ORGAN_ROBOTIC
+<<<<<<< HEAD
 	organ_flags = ORGAN_SYNTHETIC
+=======
+	organ_flags = ORGAN_SYNTHETIC | ORGAN_SYNTHETIC_FROM_SPECIES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/brain/vox
 	name = "vox brain"
 	status = ORGAN_ROBOTIC
+<<<<<<< HEAD
 	organ_flags = ORGAN_SYNTHETIC
+=======
+	organ_flags = ORGAN_SYNTHETIC | ORGAN_SYNTHETIC_FROM_SPECIES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/brain/vox/emp_act(severity)
 	. = ..()

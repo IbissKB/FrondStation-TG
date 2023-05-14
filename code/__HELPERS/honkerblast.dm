@@ -23,7 +23,11 @@
 		victim.Stun(100)
 		victim.adjust_stutter(30 SECONDS)
 		victim.set_jitter_if_lower(1000 SECONDS)
+<<<<<<< HEAD
 		var/obj/item/organ/internal/ears/ears = victim.getorganslot(ORGAN_SLOT_EARS)
+=======
+		var/obj/item/organ/internal/ears/ears = victim.get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ears?.adjustEarDamage(10, 15)
 		to_chat(victim, "<font color='red' size='8'>HONK</font>")
 		var/obj/item/clothing/shoes/victim_shoes = victim.get_item_by_slot(ITEM_SLOT_FEET)
@@ -35,13 +39,21 @@
 		victim.Paralyze(20)
 		victim.Stun(50)
 		victim.set_jitter_if_lower(500 SECONDS)
+<<<<<<< HEAD
 		var/obj/item/organ/internal/ears/ears = victim.getorganslot(ORGAN_SLOT_EARS)
+=======
+		var/obj/item/organ/internal/ears/ears = victim.get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ears?.adjustEarDamage(7, 10)
 		to_chat(victim, "<font color='red' size='5'>HONK</font>")
 
 	for(var/mob/living/carbon/victim in lightly_honked)
 		victim.Knockdown(20)
 		victim.set_jitter_if_lower(200 SECONDS)
+<<<<<<< HEAD
 		var/obj/item/organ/internal/ears/ears = victim.getorganslot(ORGAN_SLOT_EARS)
+=======
+		var/obj/item/organ/internal/ears/ears = victim.get_organ_slot(ORGAN_SLOT_EARS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ears?.adjustEarDamage(4, 5)
 		to_chat(victim, "<font color='red' size='2'>HONK</font>")

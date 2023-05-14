@@ -1,12 +1,25 @@
+<<<<<<< HEAD
 ///bonus of the fly: you... are a flyperson now. sorry.
 /datum/status_effect/organ_set_bonus/fly
+=======
+#define FLY_INFUSED_ORGAN_DESC "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+#define FLY_INFUSED_ORGAN_ICON pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
+
+///bonus of the fly: you... are a flyperson now. sorry.
+/datum/status_effect/organ_set_bonus/fly
+	id = "organ_set_bonus_fly"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	organs_needed = 4 //there are actually 7 fly organs that count, but you only need 4 to go full-flyperson. Be careful!
 	bonus_activate_text = null
 	bonus_deactivate_text = null
 
 /datum/status_effect/organ_set_bonus/fly/enable_bonus()
 	. = ..()
+<<<<<<< HEAD
 	if(!ishuman(owner))
+=======
+	if(!. || !ishuman(owner))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/mob/living/carbon/human/new_fly = owner
 	if(isflyperson(new_fly))
@@ -35,6 +48,7 @@
 	taste_sensitivity = 25 // you eat vomit, this is a mercy
 	modifies_speech = TRUE
 	languages_native = list(/datum/language/buzzwords)
+<<<<<<< HEAD
 	var/static/list/languages_possible_fly = typecacheof(list(
 		/datum/language/common,
 		/datum/language/draconic,
@@ -51,6 +65,8 @@
 		/datum/language/nekomimetic,
 		/datum/language/buzzwords
 	))
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/tongue/fly/modify_speech(datum/source, list/speech_args)
 	var/static/regex/fly_buzz = new("z+", "g")
@@ -74,16 +90,30 @@
 
 /obj/item/organ/internal/tongue/fly/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	languages_possible = languages_possible_fly
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/internal/heart/fly
 	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+=======
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
+
+/obj/item/organ/internal/tongue/fly/get_possible_languages()
+	return ..() + /datum/language/buzzwords
+
+/obj/item/organ/internal/heart/fly
+	desc = FLY_INFUSED_ORGAN_DESC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/heart/fly/Initialize(mapload)
 	. = ..()
 	name = odd_organ_name()
+<<<<<<< HEAD
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
+=======
+	icon_state = FLY_INFUSED_ORGAN_ICON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/internal/heart/fly/update_icon_state()
@@ -91,31 +121,55 @@
 	return //don't set icon thank you
 
 /obj/item/organ/internal/lungs/fly
+<<<<<<< HEAD
 	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+=======
+	desc = FLY_INFUSED_ORGAN_DESC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/lungs/fly/Initialize(mapload)
 	. = ..()
 	name = odd_organ_name()
+<<<<<<< HEAD
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/internal/liver/fly
 	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+=======
+	icon_state = FLY_INFUSED_ORGAN_ICON
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
+
+/obj/item/organ/internal/liver/fly
+	desc = FLY_INFUSED_ORGAN_DESC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	alcohol_tolerance = 0.007 //flies eat vomit, so a lower alcohol tolerance is perfect!
 
 /obj/item/organ/internal/liver/fly/Initialize(mapload)
 	. = ..()
 	name = odd_organ_name()
+<<<<<<< HEAD
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/internal/stomach/fly
 	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+=======
+	icon_state = FLY_INFUSED_ORGAN_ICON
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
+
+/obj/item/organ/internal/stomach/fly
+	desc = FLY_INFUSED_ORGAN_DESC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/stomach/fly/Initialize(mapload)
 	. = ..()
 	name = odd_organ_name()
+<<<<<<< HEAD
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
+=======
+	icon_state = FLY_INFUSED_ORGAN_ICON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/internal/stomach/fly/after_eat(edible)
@@ -131,28 +185,52 @@
 	return ..()
 
 /obj/item/organ/internal/appendix/fly
+<<<<<<< HEAD
 	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+=======
+	desc = FLY_INFUSED_ORGAN_DESC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/appendix/fly/Initialize(mapload)
 	. = ..()
 	name = odd_organ_name()
+<<<<<<< HEAD
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
+=======
+	icon_state = FLY_INFUSED_ORGAN_ICON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/internal/appendix/fly/update_appearance(updates=ALL)
 	return ..(updates & ~(UPDATE_NAME|UPDATE_ICON)) //don't set name or icon thank you
 
+<<<<<<< HEAD
 
 
 //useless organs we throw in just to fuck with surgeons a bit more. they aren't part of a bonus, just the (absolute) state of flies
 /obj/item/organ/internal/fly
 	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+=======
+//useless organs we throw in just to fuck with surgeons a bit more. they aren't part of a bonus, just the (absolute) state of flies
+/obj/item/organ/internal/fly
+	desc = FLY_INFUSED_ORGAN_DESC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	visual = FALSE
 
 /obj/item/organ/internal/fly/Initialize(mapload)
 	. = ..()
 	name = odd_organ_name()
+<<<<<<< HEAD
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
 
 /obj/item/organ/internal/fly/groin //appendix is the only groin organ so we gotta have one of these too lol
 	zone = BODY_ZONE_PRECISE_GROIN
+=======
+	icon_state = FLY_INFUSED_ORGAN_ICON
+
+/obj/item/organ/internal/fly/groin //appendix is the only groin organ so we gotta have one of these too lol
+	zone = BODY_ZONE_PRECISE_GROIN
+
+#undef FLY_INFUSED_ORGAN_DESC
+#undef FLY_INFUSED_ORGAN_ICON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

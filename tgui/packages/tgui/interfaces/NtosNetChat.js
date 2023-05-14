@@ -68,6 +68,7 @@ export const NtosNetChat = (props, context) => {
     if (client.operator) {
       return 'green';
     }
+<<<<<<< HEAD
     switch (client.status) {
       case CLIENT_ONLINE:
         return 'white';
@@ -76,6 +77,15 @@ export const NtosNetChat = (props, context) => {
       case CLIENT_OFFLINE:
       default:
         return 'label';
+=======
+    if (client.online) {
+      return 'white';
+    }
+    if (client.away) {
+      return 'yellow';
+    } else {
+      return 'label';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     }
   };
   // client from this computer!

@@ -9,9 +9,14 @@
 /area/ruin/syndicate_lava_base/testlab)
 "be" = (
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/machinery/power/apc/auto_name/directional/south{
 	req_access = list("syndicate")
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "bs" = (
@@ -86,9 +91,12 @@
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "gX" = (
+<<<<<<< HEAD
 /obj/machinery/airalarm/directional/north{
 	req_access = list("syndicate")
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/stock_parts/matter_bin/bluespace,
 /obj/item/stock_parts/matter_bin/bluespace,
 /obj/item/stock_parts/matter_bin/bluespace,
@@ -101,6 +109,7 @@
 /obj/item/stock_parts/micro_laser/quadultra,
 /obj/item/stock_parts/micro_laser/quadultra,
 /obj/item/stock_parts/micro_laser/quadultra,
+<<<<<<< HEAD
 /obj/item/stock_parts/manipulator/femto,
 /obj/item/stock_parts/manipulator/femto,
 /obj/item/stock_parts/manipulator/femto,
@@ -108,6 +117,17 @@
 /obj/item/stock_parts/manipulator/femto,
 /obj/item/stock_parts/manipulator/femto,
 /obj/structure/rack,
+=======
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/item/stock_parts/servo/femto,
+/obj/structure/rack,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/airalarm/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "hJ" = (
@@ -162,9 +182,15 @@
 	name = "Experimentation Lab"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /obj/modular_map_connector,
+=======
+/obj/structure/cable,
+/obj/modular_map_connector,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "oo" = (
@@ -175,7 +201,11 @@
 /area/ruin/syndicate_lava_base/testlab)
 "oV" = (
 /obj/structure/window/reinforced/plasma/spawner,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/west,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
@@ -263,7 +293,11 @@
 /area/ruin/syndicate_lava_base/testlab)
 "Ce" = (
 /obj/structure/window/reinforced/plasma/spawner,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/east,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -283,9 +317,14 @@
 /area/ruin/syndicate_lava_base/testlab)
 "HC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+<<<<<<< HEAD
 /obj/machinery/airalarm/directional/south{
 	req_access = list("syndicate")
 	},
+=======
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/airalarm/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "It" = (

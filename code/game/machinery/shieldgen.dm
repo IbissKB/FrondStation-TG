@@ -47,6 +47,36 @@
 	if(.) //damage was dealt
 		new /obj/effect/temp_visual/impact_effect/ion(loc)
 
+<<<<<<< HEAD
+=======
+/// Subtype of shields that repair over time after sustaining integrity damage
+/obj/structure/emergency_shield/regenerating
+	name = "energy shield"
+	desc = "An energy shield used to let ships through, but keep out the void of space."
+	max_integrity = 400
+	/// How much integrity is healed per second (per process multiplied by seconds per tick)
+	var/heal_rate_per_second = 5
+
+/obj/structure/emergency_shield/regenerating/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF)
+
+/obj/structure/emergency_shield/regenerating/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/structure/emergency_shield/regenerating/take_damage(damage, damage_type, damage_flag, sound_effect, attack_dir)
+	. = ..()
+	if(.)
+		// We took some damage so we'll start processing to heal said damage.
+		START_PROCESSING(SSobj, src)
+
+/obj/structure/emergency_shield/regenerating/process(seconds_per_tick)
+	var/repaired_amount = repair_damage(heal_rate_per_second * seconds_per_tick)
+	if(repaired_amount <= 0)
+		// 0 damage repaired means we're at the max integrity, so don't need to process anymore
+		STOP_PROCESSING(SSobj, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/emergency_shield/cult
 	name = "cult barrier"
@@ -54,8 +84,14 @@
 	max_integrity = 100
 	icon_state = "shield-red"
 
+<<<<<<< HEAD
 /obj/structure/emergency_shield/cult/emp_act(severity)
 	return
+=======
+/obj/structure/emergency_shield/cult/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/emergency_shield/cult/narsie
 	name = "sanguine barrier"
@@ -149,9 +185,15 @@
 	update_appearance()
 	QDEL_LIST(deployed_shields)
 
+<<<<<<< HEAD
 /obj/machinery/shieldgen/process(delta_time)
 	if((machine_stat & BROKEN) && active)
 		if(deployed_shields.len && DT_PROB(2.5, delta_time))
+=======
+/obj/machinery/shieldgen/process(seconds_per_tick)
+	if((machine_stat & BROKEN) && active)
+		if(deployed_shields.len && SPT_PROB(2.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			qdel(pick(deployed_shields))
 
 
@@ -187,7 +229,11 @@
 
 /obj/machinery/shieldgen/screwdriver_act(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src, 100)
+<<<<<<< HEAD
 	panel_open = !panel_open
+=======
+	toggle_panel_open()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(panel_open)
 		to_chat(user, span_notice("You open the panel and expose the wiring."))
 	else
@@ -522,3 +568,9 @@
 	else
 		if(isprojectile(mover))
 			return prob(10)
+<<<<<<< HEAD
+=======
+
+#undef ACTIVE_SETUPFIELDS
+#undef ACTIVE_HASFIELDS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

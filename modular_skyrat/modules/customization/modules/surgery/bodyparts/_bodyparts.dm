@@ -13,6 +13,13 @@
 	if(current_style)
 		. += "-[current_style]"
 
+<<<<<<< HEAD
+=======
+	for(var/key in markings)
+		. += limb_id == "digitigrade" ? ("digitigrade_1_" + body_zone) : body_zone
+		. += "-[key]_[markings[key][MARKING_INDEX_COLOR]]_[markings[key][MARKING_INDEX_EMISSIVE]]"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return .
 
 /**

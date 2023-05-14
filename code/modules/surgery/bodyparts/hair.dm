@@ -48,7 +48,11 @@
 		hair_hidden = TRUE
 		facial_hair_hidden = TRUE
 
+<<<<<<< HEAD
 	if(!hair_hidden && !owner.getorganslot(ORGAN_SLOT_BRAIN) && !(NOBLOOD in species_flags_list))
+=======
+	if(!hair_hidden && !owner.get_organ_slot(ORGAN_SLOT_BRAIN) && !HAS_TRAIT(owner, TRAIT_NO_DEBRAIN_OVERLAY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		show_debrained = TRUE
 	else
 		show_debrained = FALSE

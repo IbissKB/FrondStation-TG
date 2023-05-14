@@ -10,7 +10,11 @@
 	name = "Self-Actualization Device (Machine Board)"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/self_actualization_device
+<<<<<<< HEAD
 	req_components = list(/obj/item/stock_parts/micro_laser = 1)
+=======
+	req_components = list(/datum/stock_part/micro_laser = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/self_actualization_device
 	name = "Self-Actualization Device"
@@ -55,7 +59,11 @@
 	. = ..()
 	update_appearance()
 
+<<<<<<< HEAD
 /obj/machinery/self_actualization_device/close_machine(mob/user)
+=======
+/obj/machinery/self_actualization_device/close_machine(atom/movable/target, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	playsound(src, 'sound/machines/click.ogg', 50)
 	if(!occupant)
@@ -71,10 +79,13 @@
 	. = ..()
 	. += span_notice("ALT-Click to turn ON when closed.")
 
+<<<<<<< HEAD
 /obj/machinery/self_actualization_device/open_machine(mob/user)
 	playsound(src, 'sound/machines/click.ogg', 50)
 	..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/self_actualization_device/AltClick(mob/user)
 	. = ..()
 	if(!powered() || !occupant || state_open)
@@ -113,7 +124,11 @@
 		open_machine()
 		return
 
+<<<<<<< HEAD
 /obj/machinery/self_actualization_device/process(delta_time)
+=======
+/obj/machinery/self_actualization_device/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!processing)
 		return
 	if(!powered() || !occupant || !iscarbon(occupant))
@@ -140,6 +155,7 @@
 	var/mob/living/carbon/human/patient = occupant
 	var/original_name = patient.dna.real_name
 
+<<<<<<< HEAD
 	//Organ damage saving code.
 	var/heart_damage = check_organ(patient, /obj/item/organ/internal/heart)
 	var/liver_damage = check_organ(patient, /obj/item/organ/internal/liver)
@@ -158,6 +174,9 @@
 	var/burn_damage = patient.getFireLoss()
 
 	patient.client?.prefs?.safe_transfer_prefs_to(patient)
+=======
+	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	patient.dna.update_dna_identity()
 	log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
 
@@ -166,6 +185,7 @@
 		Original Name: [original_name], New Name: [patient.dna.real_name]. \
 		This may be a false positive from changing from a humanized monkey into a character, so be careful.")
 
+<<<<<<< HEAD
 	// Apply organ damage
 	patient.setOrganLoss(ORGAN_SLOT_HEART, heart_damage)
 	patient.setOrganLoss(ORGAN_SLOT_LIVER, liver_damage)
@@ -199,6 +219,11 @@
 
 	return organ_to_track.damage
 
+=======
+	open_machine()
+	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/self_actualization_device/screwdriver_act(mob/living/user, obj/item/used_item)
 	. = TRUE
 	if(..())

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /datum/species/golem
 	// Animated beings of stone. They have increased defenses, and do not need to breathe. They're also slow as fuuuck.
 	name = "Golem"
@@ -19,12 +20,39 @@
 	mutant_organs = list(/obj/item/organ/internal/adamantine_resonator)
 	mutanttongue = /obj/item/organ/internal/vocal_cords/adamantine
 	speedmod = 2
+=======
+/// Animated beings of stone. They have increased defenses, and do not need to breathe. They must eat minerals to live, which give additional buffs.
+/datum/species/golem
+	name = "Golem"
+	id = SPECIES_GOLEM
+	species_traits = list(
+		NO_DNA_COPY,
+		NOTRANSSTING,
+		NO_UNDERWEAR,
+		NOEYEHOLES,
+	)
+	inherent_traits = list(
+		TRAIT_GENELESS,
+		TRAIT_LAVA_IMMUNE,
+		TRAIT_NOBREATH,
+		TRAIT_NODISMEMBER,
+		TRAIT_NOBLOOD,
+		TRAIT_NOFIRE,
+		TRAIT_PIERCEIMMUNE,
+		TRAIT_RADIMMUNE,
+	)
+	mutantheart = null
+	mutantlungs = null
+	inherent_biotypes = MOB_HUMANOID|MOB_MINERAL
+	liked_food = STONE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	payday_modifier = 0.75
 	armor = 55
 	siemens_coeff = 0
 	no_equip_flags = ITEM_SLOT_MASK | ITEM_SLOT_OCLOTHING | ITEM_SLOT_GLOVES | ITEM_SLOT_FEET | ITEM_SLOT_ICLOTHING | ITEM_SLOT_SUITSTORE
 	nojumpsuit = 1
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC
+<<<<<<< HEAD
 	sexes = 1
 	meat = /obj/item/food/meat/slab/human/mutant/golem
 	species_language_holder = /datum/language_holder/golem
@@ -32,6 +60,21 @@
 	// changes, only the Random Golem type can be chosen
 	fixed_mut_color = "#aaaaaa"
 
+=======
+	sexes = FALSE
+	meat = /obj/item/food/meat/slab/human/mutant/golem
+	species_language_holder = /datum/language_holder/golem
+
+	bodytemp_heat_damage_limit = BODYTEMP_HEAT_LAVALAND_SAFE
+	bodytemp_cold_damage_limit = BODYTEMP_COLD_ICEBOX_SAFE
+
+	mutant_organs = list(/obj/item/organ/internal/adamantine_resonator)
+	mutanteyes = /obj/item/organ/internal/eyes/golem
+	mutantbrain = /obj/item/organ/internal/brain/golem
+	mutanttongue = /obj/item/organ/internal/tongue/golem
+	mutantstomach = /obj/item/organ/internal/stomach/golem
+	mutantappendix = /obj/item/organ/internal/appendix/golem
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/golem,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/golem,
@@ -41,6 +84,7 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/golem,
 	)
 
+<<<<<<< HEAD
 	var/info_text = "As an <span class='danger'>Iron Golem</span>, you don't have any special traits."
 	var/random_eligible = TRUE //If false, the golem subtype can't be made through golem mutation toxin
 
@@ -61,12 +105,23 @@
 
 	var/golem_name = "[prefix] [golem_surname]"
 	return golem_name
+=======
+	/// Chance that we will generate a human surname, for lore reasons
+	var/human_surname_chance = 3
+
+/datum/species/golem/random_name(gender,unique,lastname)
+	var/name = pick(GLOB.golem_names)
+	if (prob(human_surname_chance))
+		name += " [pick(GLOB.last_names)]"
+	return name
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/species/golem/create_pref_unique_perks()
 	var/list/to_add = list()
 
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+<<<<<<< HEAD
 		SPECIES_PERK_ICON = "gem",
 		SPECIES_PERK_NAME = "Lithoid",
 		SPECIES_PERK_DESC = "Lithoids are creatures made out of elements instead of \
@@ -853,10 +908,41 @@
 		SPECIES_PERK_DESC = "Mummies are made entirely of cloth, which makes them \
 			very vulnerable to fire. They will not reform if they die while on \
 			fire, and they will easily catch alight. If your bandages burn to ash, you're toast!",
+=======
+		SPECIES_PERK_ICON = "user-shield",
+		SPECIES_PERK_NAME = "Lithoid",
+		SPECIES_PERK_DESC = "Lithoids are creatures made out of minerals instead of \
+			blood and flesh. They are strong and immune to many environmental and personal dangers \
+			such as fire, radiation, lack of air, lava, viruses, and dismemberment.",
+	))
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "gem",
+		SPECIES_PERK_NAME = "Metamorphic Rock",
+		SPECIES_PERK_DESC = "Consuming minerals can grant Lithoids temporary benefits based on the type consumed.",
+	))
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "pickaxe",
+		SPECIES_PERK_NAME = "Natural Miners",
+		SPECIES_PERK_DESC = "Golems can see dimly in the dark, sense minerals, and mine stone with their bare hands. \
+			They can even smelt ores in an internal furnace, if their surrounding environment is hot enough.",
+	))
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = "bolt",
+		SPECIES_PERK_NAME = "Anima",
+		SPECIES_PERK_DESC = "Maintaining the force animating stone is taxing. Lithoids must eat frequently \
+			in order to avoid returning to inanimate statues, and only derive nutrition from eating minerals.",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	))
 
 	return to_add
 
+<<<<<<< HEAD
 /obj/structure/cloth_pile
 	name = "pile of bandages"
 	desc = "It emits a strange aura, as if there was still life within it..."
@@ -1340,4 +1426,11 @@
 
 /datum/species/golem/mhydrogen/on_species_loss(mob/living/carbon/C)
 	REMOVE_TRAIT(C, TRAIT_ANTIMAGIC, SPECIES_TRAIT)
+=======
+/// Remove nutrient value from non-mineral food, wish this was on an organ and not species but such is life
+/datum/species/golem/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)
+	if (istype(chem, /datum/reagent/consumable) && !istype(chem, /datum/reagent/consumable/nutriment/mineral))
+		var/datum/reagent/consumable/yummy_chem = chem
+		yummy_chem.nutriment_factor = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()

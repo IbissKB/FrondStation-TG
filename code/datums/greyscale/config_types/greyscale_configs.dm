@@ -52,6 +52,14 @@
 	name = "Space Carp, Disk in Mouth"
 	json_config = 'code/datums/greyscale/json_configs/carp_disk_mouth.json'
 
+<<<<<<< HEAD
+=======
+/datum/greyscale_config/garden_gnome
+	name = "Garden Gnome"
+	icon_file = 'icons/mob/simple/garden_gnome.dmi'
+	json_config = 'code/datums/greyscale/json_configs/garden_gnome.json'
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/greyscale_config/wirecutters
 	name = "Wirecutters"
 	icon_file = 'icons/obj/tools.dmi'
@@ -228,6 +236,13 @@
 	name = "Marisa Sneakers"
 	icon_file = 'icons/obj/clothing/shoes.dmi'
 	json_config = 'code/datums/greyscale/json_configs/sneakers_marisa.json'
+<<<<<<< HEAD
+=======
+	
+/datum/greyscale_config/sneakers_marisa/worn
+	name = "Worn Marisa Sneakers"
+	icon_file = 'icons/mob/clothing/feet.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/greyscale_config/circuit
 	name = "Circuit Board"
@@ -465,6 +480,14 @@
 	icon_file = 'icons/obj/sofa.dmi'
 	json_config = 'code/datums/greyscale/json_configs/bench_right.json'
 
+<<<<<<< HEAD
+=======
+/datum/greyscale_config/bench_solo
+	name = "Bench Solo"
+	icon_file = 'icons/obj/sofa.dmi'
+	json_config = 'code/datums/greyscale/json_configs/bench_solo.json'
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/greyscale_config/bench_corner
 	name = "Bench Corner"
 	icon_file = 'icons/obj/sofa.dmi'
@@ -902,6 +925,19 @@
 	icon_file = 'icons/mob/clothing/accessories.dmi'
 	json_config = 'code/datums/greyscale/json_configs/waistcoat_worn.json'
 
+<<<<<<< HEAD
+=======
+/datum/greyscale_config/witch_hat
+	name = "Fancy Hat"
+	icon_file = 'icons/obj/clothing/head/wizard.dmi'
+	json_config = 'code/datums/greyscale/json_configs/witch_hat.json'
+
+/datum/greyscale_config/witch_hat_worn
+	name = "Worn Fancy Hat"
+	icon_file = 'icons/mob/clothing/head/wizard.dmi'
+	json_config = 'code/datums/greyscale/json_configs/witch_hat_worn.json'
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/greyscale_config/fancy_hat
 	name = "Fancy Hat"
 	icon_file = 'icons/obj/clothing/head/costume.dmi'
@@ -987,3 +1023,31 @@
 	name = "Quantum Keycard"
 	icon_file = 'icons/obj/device.dmi'
 	json_config = 'code/datums/greyscale/json_configs/quantum_keycard.json'
+<<<<<<< HEAD
+=======
+
+/datum/greyscale_config/heretic_rune
+	name = "Transmutation Rune"
+	icon_file = 'icons/effects/96x96.dmi'
+	json_config = 'code/datums/greyscale/json_configs/heretic_rune.json'
+
+/datum/greyscale_config/festive_hat
+	name = "Festive Hat"
+	icon_file = 'icons/obj/clothing/head/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/festive_hat.json'
+
+/datum/greyscale_config/festive_hat_worn
+	name = "Festive Hat Worn"
+	icon_file = 'icons/mob/clothing/head/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/festive_hat.json'
+
+/datum/greyscale_config/party_hat
+	name = "Party Hat"
+	icon_file = 'icons/obj/clothing/head/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/party_hat.json'
+
+/datum/greyscale_config/party_hat_worn
+	name = "Party Hat Worn"
+	icon_file = 'icons/mob/clothing/head/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/party_hat.json'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -175,9 +175,12 @@
 #define SDQL2_STATE_SWITCHING 5
 #define SDQL2_STATE_HALTING 6
 
+<<<<<<< HEAD
 #define SDQL2_VALID_OPTION_TYPES list("proccall", "select", "priority", "autogc" , "sequential")
 #define SDQL2_VALID_OPTION_VALUES list("async", "blocking", "force_nulls", "skip_nulls", "high", "normal", "keep_alive" , "true")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define SDQL2_OPTION_SELECT_OUTPUT_SKIP_NULLS (1<<0)
 #define SDQL2_OPTION_BLOCKING_CALLS (1<<1)
 #define SDQL2_OPTION_HIGH_PRIORITY (1<<2) //High priority SDQL query, allow using almost all of the tick.
@@ -1231,3 +1234,24 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 		usr.log_message("non-holder clicked on a statclick! ([src])", LOG_ADMIN)
 		return
 	usr.client.debug_variables(GLOB.sdql2_queries)
+<<<<<<< HEAD
+=======
+
+#undef SDQL2_HALT_CHECK
+#undef SDQL2_IS_RUNNING
+#undef SDQL2_OPTION_BLOCKING_CALLS
+#undef SDQL2_OPTION_DO_NOT_AUTOGC
+#undef SDQL2_OPTION_HIGH_PRIORITY
+#undef SDQL2_OPTION_SELECT_OUTPUT_SKIP_NULLS
+#undef SDQL2_OPTION_SEQUENTIAL
+#undef SDQL2_OPTIONS_DEFAULT
+#undef SDQL2_STAGE_SWITCH_CHECK
+#undef SDQL2_STATE_ERROR
+#undef SDQL2_STATE_EXECUTING
+#undef SDQL2_STATE_HALTING
+#undef SDQL2_STATE_IDLE
+#undef SDQL2_STATE_PRESEARCH
+#undef SDQL2_STATE_SEARCHING
+#undef SDQL2_STATE_SWITCHING
+#undef SDQL2_TICK_CHECK
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

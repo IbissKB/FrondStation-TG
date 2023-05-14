@@ -93,7 +93,11 @@
 /turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/space)
 "y" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox,
+=======
+/mob/living/basic/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/template_noop,
 /area/template_noop)
 "z" = (

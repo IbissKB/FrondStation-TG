@@ -67,16 +67,23 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
 "m" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
 "n" = (
@@ -110,14 +117,18 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
 "r" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
 "s" = (
@@ -125,6 +136,12 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/transport)
+"s" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -135,6 +152,10 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
 "t" = (
@@ -168,12 +189,15 @@
 "v" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 6
@@ -186,6 +210,12 @@
 	pixel_y = 4
 	},
 /obj/machinery/light/directional/west,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
 "w" = (

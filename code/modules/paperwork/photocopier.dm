@@ -12,6 +12,12 @@
 #define DOCUMENT_TONER_USE 0.75
 /// How much toner is used for making a copy of an ass.
 #define ASS_TONER_USE 0.625
+<<<<<<< HEAD
+=======
+/// How much toner is used for making a copy of paperwork
+#define PAPERWORK_TONER_USE 0.75
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// The maximum amount of copies you can make with one press of the copy button.
 #define MAX_COPIES_AT_ONCE 10
 
@@ -24,12 +30,15 @@
 	power_channel = AREA_USAGE_EQUIP
 	max_integrity = 300
 	integrity_failure = 0.33
+<<<<<<< HEAD
 	/// A reference to an `/obj/item/paper` inside the copier, if one is inserted. Otherwise null.
 	var/obj/item/paper/paper_copy
 	/// A reference to an `/obj/item/photo` inside the copier, if one is inserted. Otherwise null.
 	var/obj/item/photo/photo_copy
 	/// A reference to an `/obj/item/documents` inside the copier, if one is inserted. Otherwise null.
 	var/obj/item/documents/document_copy
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// A reference to a mob on top of the photocopier trying to copy their ass. Null if there is no mob.
 	var/mob/living/ass
 	/// A reference to the toner cartridge that's inserted into the copier. Null if there is no cartridge.
@@ -42,6 +51,7 @@
 	var/busy = FALSE
 	/// Variable needed to determine the selected category of forms on Photocopier.js
 	var/category
+<<<<<<< HEAD
 
 /obj/machinery/photocopier/Initialize(mapload)
 	. = ..()
@@ -55,6 +65,23 @@
 		photo_copy = null
 	if(deleting_atom == document_copy)
 		document_copy = null
+=======
+	///Variable that holds a reference to any object supported for photocopying inside the photocopier
+	var/obj/object_copy
+
+/obj/machinery/photocopier/Initialize(mapload)
+	. = ..()
+	toner_cartridge = new(src)
+	setup_components()
+
+/// Simply adds the necessary components for this to function.
+/obj/machinery/photocopier/proc/setup_components()
+	AddComponent(/datum/component/payment, 5, SSeconomy.get_dep_account(ACCOUNT_CIV), PAYMENT_CLINICAL)
+
+/obj/machinery/photocopier/handle_atom_del(atom/deleting_atom)
+	if(deleting_atom == object_copy)
+		object_copy = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(deleting_atom == ass)
 		ass = null
 	if(deleting_atom == toner_cartridge)
@@ -62,8 +89,12 @@
 	return ..()
 
 /obj/machinery/photocopier/Destroy()
+<<<<<<< HEAD
 	QDEL_NULL(paper_copy)
 	QDEL_NULL(photo_copy)
+=======
+	QDEL_NULL(object_copy)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	QDEL_NULL(toner_cartridge)
 	ass = null //the mob isn't actually contained and just referenced, no need to delete it.
 	return ..()
@@ -91,7 +122,11 @@
 	catch()
 		data["forms_exist"] = FALSE
 
+<<<<<<< HEAD
 	if(photo_copy)
+=======
+	if(istype(object_copy, /obj/item/photo))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		data["is_photo"] = TRUE
 		data["color_mode"] = color_mode
 
@@ -120,6 +155,7 @@
 	switch(action)
 		// Copying paper, photos, documents and asses.
 		if("make_copy")
+<<<<<<< HEAD
 			if(busy)
 				to_chat(usr, span_warning("[src] is currently busy copying something. Please wait until it is finished."))
 				return FALSE
@@ -155,14 +191,53 @@
 			else if(document_copy)
 				remove_photocopy(document_copy, usr)
 				document_copy = null
+=======
+			if(check_busy(usr))
+				return FALSE
+			// ASS COPY. By Miauw
+			if(ass)
+				do_copy_loop(CALLBACK(src, PROC_REF(make_ass_copy), usr), usr)
+				return TRUE
+			else
+				if(istype(object_copy, /obj/item/paper))
+					var/obj/item/paper/paper_copy = object_copy
+					if(!paper_copy.get_total_length())
+						to_chat(usr, span_warning("An error message flashes across [src]'s screen: \"The supplied paper is blank. Aborting.\""))
+						return FALSE
+					// Basic paper
+					do_copy_loop(CALLBACK(src, PROC_REF(make_paper_copy), paper_copy), usr)
+					return TRUE
+				// Copying photo.
+				if(istype(object_copy, /obj/item/photo))
+					do_copy_loop(CALLBACK(src, PROC_REF(make_photo_copy), object_copy), usr)
+					return TRUE
+				// Copying Documents.
+				if(istype(object_copy, /obj/item/documents))
+					do_copy_loop(CALLBACK(src, PROC_REF(make_document_copy), object_copy), usr)
+					return TRUE
+				// Copying paperwork
+				if(istype(object_copy, /obj/item/paperwork))
+					do_copy_loop(CALLBACK(src, PROC_REF(make_paperwork_copy), object_copy), usr)
+					return TRUE
+
+		// Remove the paper/photo/document from the photocopier.
+		if("remove")
+			if(object_copy)
+				remove_photocopy(object_copy, usr)
+				object_copy = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else if(check_ass())
 				to_chat(ass, span_notice("You feel a slight pressure on your ass."))
 			return TRUE
 
 		// AI printing photos from their saved images.
 		if("ai_photo")
+<<<<<<< HEAD
 			if(busy)
 				to_chat(usr, span_warning("[src] is currently busy copying something. Please wait until it is finished."))
+=======
+			if(check_busy(usr))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return FALSE
 			var/mob/living/silicon/ai/tempAI = usr
 			if(!length(tempAI.aicamera.stored))
@@ -182,11 +257,20 @@
 
 		// Remove the toner cartridge from the copier.
 		if("remove_toner")
+<<<<<<< HEAD
 			if(busy)
 				to_chat(usr, span_warning("[src] is currently busy copying something. Please wait until it is finished."))
 				return
 			if(issilicon(usr) || (ishuman(usr) && !usr.put_in_hands(toner_cartridge)))
 				toner_cartridge.forceMove(drop_location())
+=======
+			if(check_busy(usr))
+				return
+			var/success = usr.put_in_hands(toner_cartridge)
+			if(!success)
+				toner_cartridge.forceMove(drop_location())
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			toner_cartridge = null
 			return TRUE
 
@@ -200,12 +284,17 @@
 			return TRUE
 		// Called when you press print blank
 		if("print_blank")
+<<<<<<< HEAD
 			if(busy)
 				to_chat(usr, span_warning("[src] is currently busy copying something. Please wait until it is finished."))
+=======
+			if(check_busy(usr))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return FALSE
 			if (toner_cartridge.charges - PAPER_TONER_USE < 0)
 				to_chat(usr, span_warning("There is not enough toner in [src] to print the form, please replace the cartridge."))
 				return FALSE
+<<<<<<< HEAD
 			do_copy_loop(CALLBACK(src, PROC_REF(make_blank_print)), usr)
 			var/obj/item/paper/printblank = new /obj/item/paper (loc)
 			var/printname = sanitize(params["name"])
@@ -216,11 +305,16 @@
 			printblank.add_raw_text(printinfo)
 			printblank.update_appearance()
 			return printblank
+=======
+			do_copy_loop(CALLBACK(src, PROC_REF(make_blank_print), params), usr)
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Determines if the photocopier has enough toner to create `num_copies` amount of copies of the currently inserted item.
  */
 /obj/machinery/photocopier/proc/has_enough_toner()
+<<<<<<< HEAD
 	if(paper_copy)
 		return toner_cartridge.charges >= (PAPER_TONER_USE * num_copies)
 	else if(document_copy)
@@ -230,6 +324,20 @@
 	else if(ass)
 		return toner_cartridge.charges >= (ASS_TONER_USE * num_copies)
 	return FALSE
+=======
+	if(ass)
+		return toner_cartridge.charges >= (ASS_TONER_USE * num_copies)
+	if(isnull(object_copy))
+		return FALSE
+	if(istype(object_copy, /obj/item/paper))
+		return toner_cartridge.charges >= (PAPER_TONER_USE * num_copies)
+	if(istype(object_copy, /obj/item/documents))
+		return toner_cartridge.charges >= (DOCUMENT_TONER_USE * num_copies)
+	if(istype(object_copy, /obj/item/photo))
+		return toner_cartridge.charges >= (PHOTO_TONER_USE * num_copies)
+	if(istype(object_copy, /obj/item/paperwork))
+		return toner_cartridge.charges >= (PAPERWORK_TONER_USE * num_copies)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Will invoke the passed in `copy_cb` callback in 1 second intervals, and charge the user 5 credits for each copy made.
@@ -258,6 +366,16 @@
 	update_use_power(IDLE_POWER_USE)
 	busy = FALSE
 
+<<<<<<< HEAD
+=======
+/obj/machinery/photocopier/proc/check_busy(mob/user)
+	if(busy)
+		to_chat(user, span_warning("[src] is currently busy copying something. Please wait until it is finished."))
+		return TRUE
+	return FALSE
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Gives items a random x and y pixel offset, between -10 and 10 for each.
  *
@@ -275,7 +393,11 @@
  *
  * Checks first if `paper_copy` exists. Since this proc is called from a timer, it's possible that it was removed.
  */
+<<<<<<< HEAD
 /obj/machinery/photocopier/proc/make_paper_copy()
+=======
+/obj/machinery/photocopier/proc/make_paper_copy(obj/item/paper/paper_copy)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!paper_copy || !toner_cartridge)
 		return
 
@@ -294,7 +416,11 @@
  *
  * Checks first if `photo_copy` exists. Since this proc is called from a timer, it's possible that it was removed.
  */
+<<<<<<< HEAD
 /obj/machinery/photocopier/proc/make_photo_copy()
+=======
+/obj/machinery/photocopier/proc/make_photo_copy(obj/item/photo/photo_copy)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!photo_copy || !toner_cartridge)
 		return
 	var/obj/item/photo/copied_pic = new(loc, photo_copy.picture.Copy(color_mode == PHOTO_GREYSCALE ? TRUE : FALSE))
@@ -306,7 +432,11 @@
  *
  * Checks first if `document_copy` exists. Since this proc is called from a timer, it's possible that it was removed.
  */
+<<<<<<< HEAD
 /obj/machinery/photocopier/proc/make_document_copy()
+=======
+/obj/machinery/photocopier/proc/make_document_copy(obj/item/documents/document_copy)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!document_copy || !toner_cartridge)
 		return
 	var/obj/item/documents/photocopy/copied_doc = new(loc, document_copy)
@@ -314,11 +444,44 @@
 	toner_cartridge.charges -= DOCUMENT_TONER_USE
 
 /**
+<<<<<<< HEAD
  * The procedure is called when printing a blank to write off toner consumption.
  */
 /obj/machinery/photocopier/proc/make_blank_print()
 	if(!toner_cartridge)
 		return
+=======
+ * Handles the copying of documents.
+ *
+ * Checks first if `paperwork_copy` exists. Since this proc is called from a timer, it's possible that it was removed.
+ * Copies the stamp from a given piece of paperwork if it is already stamped, allowing for you to sell photocopied paperwork at the risk of losing budget money.
+ */
+/obj/machinery/photocopier/proc/make_paperwork_copy(obj/item/paperwork/paperwork_copy)
+	if(!paperwork_copy || !toner_cartridge)
+		return
+	var/obj/item/paperwork/photocopy/copied_paperwork = new(loc, paperwork_copy)
+	copied_paperwork.copy_stamp_info(paperwork_copy)
+	if(paperwork_copy.stamped)
+		copied_paperwork.stamp_icon = "paper_stamp-pc" //Override with the photocopy overlay sprite
+		copied_paperwork.add_stamp()
+	give_pixel_offset(copied_paperwork)
+	toner_cartridge.charges -= PAPERWORK_TONER_USE
+
+/**
+ * The procedure is called when printing a blank to write off toner consumption.
+ */
+/obj/machinery/photocopier/proc/make_blank_print(params)
+	if(!toner_cartridge)
+		return
+	var/obj/item/paper/printblank = new(loc)
+	var/printname = sanitize(params["name"])
+	var/list/printinfo
+	for(var/infoline in params["info"])
+		printinfo += infoline
+	printblank.name = printname
+	printblank.add_raw_text(printinfo)
+	printblank.update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	toner_cartridge.charges -= PAPER_TONER_USE
 
 /**
@@ -327,11 +490,19 @@
  * Calls `check_ass()` first to make sure that `ass` exists, among other conditions. Since this proc is called from a timer, it's possible that it was removed.
  * Additionally checks that the mob has their clothes off.
  */
+<<<<<<< HEAD
 /obj/machinery/photocopier/proc/make_ass_copy()
 	if(!check_ass() || !toner_cartridge)
 		return
 	if(ishuman(ass) && (ass.get_item_by_slot(ITEM_SLOT_ICLOTHING) || ass.get_item_by_slot(ITEM_SLOT_OCLOTHING)))
 		to_chat(usr, span_notice("You feel kind of silly, copying [ass == usr ? "your" : ass][ass == usr ? "" : "\'s"] ass with [ass == usr ? "your" : "[ass.p_their()]"] clothes on.") )
+=======
+/obj/machinery/photocopier/proc/make_ass_copy(mob/user)
+	if(!check_ass() || !toner_cartridge)
+		return
+	if(ishuman(ass) && (ass.get_item_by_slot(ITEM_SLOT_ICLOTHING) || ass.get_item_by_slot(ITEM_SLOT_OCLOTHING)))
+		to_chat(user, span_notice("You feel kind of silly, copying [ass == user ? "your" : ass][ass == user ? "" : "\'s"] ass with [ass == user ? "your" : "[ass.p_their()]"] clothes on.") )
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/icon/temp_img
@@ -392,6 +563,7 @@
 	default_unfasten_wrench(user, tool)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
+<<<<<<< HEAD
 /obj/machinery/photocopier/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/paper))
 		if(copier_empty())
@@ -432,6 +604,37 @@
 		to_chat(user, span_warning("The Blueprint is too large to put into the copier. You need to find something else to record the document."))
 	else
 		return ..()
+=======
+/obj/machinery/photocopier/attackby(obj/item/object, mob/user, params)
+	if(istype(object, /obj/item/paper) || istype(object, /obj/item/photo) || istype(object, /obj/item/documents))
+		insert_copy_object(object, user)
+
+	else if(istype(object, /obj/item/toner))
+		if(toner_cartridge)
+			to_chat(user, span_warning("[src] already has a toner cartridge inserted. Remove that one first."))
+			return
+		object.forceMove(src)
+		toner_cartridge = object
+		to_chat(user, span_notice("You insert [object] into [src]."))
+
+	else if(istype(object, /obj/item/areaeditor/blueprints))
+		to_chat(user, span_warning("The Blueprint is too large to put into the copier. You need to find something else to record the document."))
+
+	else if(istype(object, /obj/item/paperwork))
+		if(istype(object, /obj/item/paperwork/photocopy)) //No infinite paper chain. You need the original paperwork to make more copies.
+			to_chat(user, span_warning("The [object] is far too messy to produce a good copy!"))
+		else
+			insert_copy_object(object, user)
+
+/obj/machinery/photocopier/proc/insert_copy_object(obj/item/object, mob/user)
+	if(copier_empty())
+		if(!user.temporarilyRemoveItemFromInventory(object))
+			return
+		object_copy = object
+		do_insertion(object, user)
+	else
+		to_chat(user, span_warning("There is already something in [src]!"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/photocopier/atom_break(damage_flag)
 	. = ..()
@@ -441,7 +644,11 @@
 
 /obj/machinery/photocopier/MouseDrop_T(mob/target, mob/user)
 	check_ass() //Just to make sure that you can re-drag somebody onto it after they moved off.
+<<<<<<< HEAD
 	if(!istype(target) || target.anchored || target.buckled || !Adjacent(target) || !user.canUseTopic(src, be_close = TRUE) || target == ass || copier_blocked())
+=======
+	if(!istype(target) || target.anchored || target.buckled || !Adjacent(target) || !user.can_perform_action(src) || target == ass || copier_blocked())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	add_fingerprint(user)
 	if(target == user)
@@ -461,6 +668,7 @@
 		target.forceMove(drop_location())
 		ass = target
 
+<<<<<<< HEAD
 		if(photo_copy)
 			photo_copy.forceMove(drop_location())
 			visible_message(span_warning("[photo_copy] is shoved out of the way by [ass]!"))
@@ -475,6 +683,12 @@
 			document_copy.forceMove(drop_location())
 			visible_message(span_warning("[document_copy] is shoved out of the way by [ass]!"))
 			document_copy = null
+=======
+		if(!isnull(object_copy))
+			object_copy.forceMove(drop_location())
+			visible_message(span_warning("[object_copy] is shoved out of the way by [ass]!"))
+			object_copy = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/photocopier/Exited(atom/movable/gone, direction)
 	check_ass() // There was potentially a person sitting on the copier, check if they're still there.
@@ -514,17 +728,36 @@
  * Return `FALSE` is the copier has something inside of it. Returns `TRUE` if it doesn't.
  */
 /obj/machinery/photocopier/proc/copier_empty()
+<<<<<<< HEAD
 	if(paper_copy || photo_copy || document_copy || check_ass())
+=======
+	if(object_copy || check_ass())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	else
 		return TRUE
 
+<<<<<<< HEAD
+=======
+/// Subtype of photocopier that is free to use.
+/obj/machinery/photocopier/gratis
+	desc = "Does the same important paperwork, but it's free to use! The best type of free."
+
+/obj/machinery/photocopier/gratis/setup_components()
+	// it's free! no charge! very cool and gratis-pilled.
+	AddComponent(/datum/component/payment, 0, SSeconomy.get_dep_account(ACCOUNT_CIV), PAYMENT_CLINICAL)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*
  * Toner cartridge
  */
 /obj/item/toner
 	name = "toner cartridge"
+<<<<<<< HEAD
 	desc = "A small, lightweight cartridge of NanoTrasen ValueBrand toner. Fits photocopiers and autopainters alike."
+=======
+	desc = "A small, lightweight cartridge of Nanotrasen ValueBrand toner. Fits photocopiers and autopainters alike."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/device.dmi'
 	icon_state = "tonercartridge"
 	grind_results = list(/datum/reagent/iodine = 40, /datum/reagent/iron = 10)
@@ -537,7 +770,11 @@
 
 /obj/item/toner/large
 	name = "large toner cartridge"
+<<<<<<< HEAD
 	desc = "A hefty cartridge of NanoTrasen ValueBrand toner. Fits photocopiers and autopainters alike."
+=======
+	desc = "A hefty cartridge of Nanotrasen ValueBrand toner. Fits photocopiers and autopainters alike."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	grind_results = list(/datum/reagent/iodine = 90, /datum/reagent/iron = 10)
 	charges = 25
 	max_charges = 25
@@ -555,3 +792,7 @@
 #undef DOCUMENT_TONER_USE
 #undef ASS_TONER_USE
 #undef MAX_COPIES_AT_ONCE
+<<<<<<< HEAD
+=======
+#undef PAPERWORK_TONER_USE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #define VALUE_MODE_NUM 0
 #define VALUE_MODE_TEXT 1
 #define VALUE_MODE_FLAG 2
@@ -5,6 +6,8 @@
 #define KEY_MODE_TEXT 0
 #define KEY_MODE_TYPE 1
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/config_entry
 	/// Read-only, this is determined by the last portion of the derived entry type
 	var/name

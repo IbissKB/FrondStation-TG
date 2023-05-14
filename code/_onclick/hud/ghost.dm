@@ -48,7 +48,11 @@
 /atom/movable/screen/ghost/minigames_menu
 	name ="Minigames"
 	icon_state = "minigames"
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /atom/movable/screen/ghost/minigames_menu/Click()
 	var/mob/dead/observer/observer = usr
 	observer.open_minigames_menu()
@@ -88,7 +92,11 @@
 	static_inventory += using
 
 	using = new /atom/movable/screen/language_menu
+<<<<<<< HEAD
 	using.screen_loc = 	ui_ghost_language_menu
+=======
+	using.screen_loc = ui_ghost_language_menu
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	using.icon = ui_style
 	using.hud = src
 	static_inventory += using

@@ -158,6 +158,16 @@
 	RegisterSignal(owner, COMSIG_LIVING_IGNITED, PROC_REF(on_ignited))
 	RegisterSignal(owner, COMSIG_LIVING_EXTINGUISHED, PROC_REF(on_extinguished))
 
+<<<<<<< HEAD
+=======
+/datum/status_effect/fleshmend/on_creation(mob/living/new_owner, ...)
+	. = ..()
+	if(!. || !owner || !linked_alert)
+		return
+	if(owner.on_fire)
+		linked_alert.icon_state = "fleshmend_fire"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/status_effect/fleshmend/on_remove()
 	UnregisterSignal(owner, list(COMSIG_LIVING_IGNITED, COMSIG_LIVING_EXTINGUISHED))
 
@@ -254,6 +264,11 @@
 					if(((hand % 2) == 0))
 						var/obj/item/bodypart/L = itemUser.newBodyPart(BODY_ZONE_R_ARM, FALSE, FALSE)
 						if(L.try_attach_limb(itemUser))
+<<<<<<< HEAD
+=======
+							L.update_limb(is_creating = TRUE)
+							itemUser.update_body_parts()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 							itemUser.put_in_hand(newRod, hand, forced = TRUE)
 						else
 							qdel(L)
@@ -262,6 +277,11 @@
 					else
 						var/obj/item/bodypart/L = itemUser.newBodyPart(BODY_ZONE_L_ARM, FALSE, FALSE)
 						if(L.try_attach_limb(itemUser))
+<<<<<<< HEAD
+=======
+							L.update_limb(is_creating = TRUE)
+							itemUser.update_body_parts()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 							itemUser.put_in_hand(newRod, hand, forced = TRUE)
 						else
 							qdel(L)
@@ -278,7 +298,11 @@
 			itemUser.adjustBruteLoss(-1.5)
 			itemUser.adjustFireLoss(-1.5)
 			itemUser.adjustToxLoss(-1.5, forced = TRUE) //Because Slime People are people too
+<<<<<<< HEAD
 			itemUser.adjustOxyLoss(-1.5)
+=======
+			itemUser.adjustOxyLoss(-1.5, forced = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			itemUser.adjustStaminaLoss(-1.5)
 			itemUser.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1.5)
 			itemUser.adjustCloneLoss(-0.5) //Becasue apparently clone damage is the bastion of all health
@@ -458,17 +482,28 @@
 	tick_interval = 0.4 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/nest_sustenance
 
+<<<<<<< HEAD
 /datum/status_effect/nest_sustenance/tick(delta_time, times_fired)
+=======
+/datum/status_effect/nest_sustenance/tick(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	if(owner.stat == DEAD) //If the victim has died due to complications in the nest
 		qdel(src)
 		return
 
+<<<<<<< HEAD
 	owner.adjustBruteLoss(-2 * delta_time, updating_health = FALSE)
 	owner.adjustFireLoss(-2 * delta_time, updating_health = FALSE)
 	owner.adjustOxyLoss(-4 * delta_time, updating_health = FALSE)
 	owner.adjustStaminaLoss(-4 * delta_time, updating_stamina = FALSE)
+=======
+	owner.adjustBruteLoss(-2 * seconds_per_tick, updating_health = FALSE)
+	owner.adjustFireLoss(-2 * seconds_per_tick, updating_health = FALSE)
+	owner.adjustOxyLoss(-4 * seconds_per_tick, updating_health = FALSE)
+	owner.adjustStaminaLoss(-4 * seconds_per_tick, updating_stamina = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	owner.adjust_bodytemperature(BODYTEMP_NORMAL, 0, BODYTEMP_NORMAL) //Won't save you from the void of space, but it will stop you from freezing or suffocating in low pressure
 
 

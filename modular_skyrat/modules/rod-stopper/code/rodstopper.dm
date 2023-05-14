@@ -3,8 +3,14 @@
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/rodstopper
 	req_components = list(
+<<<<<<< HEAD
 		/obj/item/stock_parts/matter_bin = 1,
 		/obj/item/stack/sheet/plasteel = 1)
+=======
+		/datum/stock_part/matter_bin = 1,
+		/obj/item/stack/sheet/plasteel = 1,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/rodstopper
 	name = "rodstopper"

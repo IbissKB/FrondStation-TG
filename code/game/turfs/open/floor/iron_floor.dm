@@ -2,10 +2,17 @@
 	icon_state = "floor"
 	floor_tile = /obj/item/stack/tile/iron/base
 
+<<<<<<< HEAD
 /turf/open/floor/iron/setup_broken_states()
 	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")
 
 /turf/open/floor/iron/setup_burnt_states()
+=======
+/turf/open/floor/iron/broken_states()
+	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")
+
+/turf/open/floor/iron/burnt_states()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return list("floorscorched1", "floorscorched2")
 
 
@@ -35,6 +42,12 @@
 /turf/open/floor/iron/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
+<<<<<<< HEAD
+=======
+/turf/open/floor/iron/lavaland
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/edge
 	icon_state = "floor_edge"
 	base_icon_state = "floor_edge"
@@ -90,6 +103,12 @@
 	base_icon_state = "diagonal"
 	floor_tile = /obj/item/stack/tile/iron/diagonal
 
+<<<<<<< HEAD
+=======
+/turf/open/floor/iron/diagonal/lavaland
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/herringbone
 	icon_state = "herringbone"
 	base_icon_state = "herringbone"
@@ -160,6 +179,24 @@
 	base_icon_state = "textured_dark_large"
 	floor_tile = /obj/item/stack/tile/iron/dark/textured_large
 
+<<<<<<< HEAD
+=======
+/turf/open/floor/iron/dark/textured/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/iron/dark/textured_edge/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/iron/dark/textured_half/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/iron/dark/textured_corner/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/iron/dark/textured_large/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/small
 	icon_state = "dark_small"
 	base_icon_state = "dark_small"
@@ -181,6 +218,13 @@
 /turf/open/floor/iron/dark/telecomms
 	initial_gas_mix = TCOMMS_ATMOS
 
+<<<<<<< HEAD
+=======
+/turf/open/floor/iron/dark/textured/airless
+	initial_gas_mix = AIRLESS_ATMOS
+/turf/open/floor/iron/dark/smooth_large/airless
+	initial_gas_mix = AIRLESS_ATMOS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/side/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
@@ -389,6 +433,12 @@
 /turf/open/floor/iron/freezer/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
+<<<<<<< HEAD
+=======
+/turf/open/floor/iron/freezer/lavaland
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/kitchen_coldroom
 	name = "cold room floor"
 

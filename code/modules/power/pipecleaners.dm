@@ -88,6 +88,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	else
 		stored = new/obj/item/stack/pipe_cleaner_coil(null, 1, null, null, null)
 
+<<<<<<< HEAD
 	if(param_color)
 		color = GLOB.cable_colors[param_color]
 		pipecleaner_color = param_color
@@ -100,6 +101,14 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	update_appearance()
 	stored?.set_pipecleaner_color(pipecleaner_color)
+=======
+	if(!param_color)
+		param_color = "white"
+	color = GLOB.cable_colors[param_color]
+	pipecleaner_color = param_color
+	stored?.set_pipecleaner_color(pipecleaner_color)
+	update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(isturf(loc))
 		var/turf/turf_loc = loc
@@ -172,7 +181,11 @@ By design, d1 is the smallest direction and d2 is the highest
 	stored.update_appearance()
 
 /obj/structure/pipe_cleaner/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	cut_pipe_cleaner(user)
 
@@ -260,7 +273,11 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/pipe_cleaner_coil/Initialize(mapload, new_amount = null, list/mat_override=null, mat_amt=1, param_color = null)
 	. = ..()
 
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, slot_flags)
+=======
+	AddElement(/datum/element/update_icon_updates_onmob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(param_color)
 		set_pipecleaner_color(param_color)
 	if(!color)

@@ -16,7 +16,11 @@
 
 	create_notice()
 
+<<<<<<< HEAD
 	RegisterSignal(
+=======
+	RegisterSignals(
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ticket,
 		list(
 			COMSIG_ADMIN_HELP_MADE_INACTIVE,
@@ -93,7 +97,11 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /atom/movable/screen/admin_popup/process(delta_time)
+=======
+/atom/movable/screen/admin_popup/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_text()
 
 /atom/movable/screen/admin_popup/proc/update_text()

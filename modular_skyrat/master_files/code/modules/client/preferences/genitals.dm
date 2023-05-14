@@ -107,6 +107,18 @@
 	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(genital_pref_type))
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
+<<<<<<< HEAD
+=======
+/datum/preference/toggle/genital_skin_color/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	// If they're not using skintones, let's not apply this yeah?
+	var/datum/species/species_type = preferences?.read_preference(/datum/preference/choiced/species)
+	if(!species_type  || !initial(species_type.use_skintones))
+		return FALSE
+
+	return TRUE
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/preference/tri_color/genital
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -116,7 +128,10 @@
 
 /datum/preference/tri_color/genital/is_accessible(datum/preferences/preferences)
 	var/passed_initial_check = ..(preferences)
+<<<<<<< HEAD
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
 	var/can_color = TRUE
 	/// Checks that the use skin color pref is both enabled and actually accessible. If so, then this is useless.
@@ -124,7 +139,11 @@
 		var/datum/preference/toggle/genital_skin_color/skincolor = GLOB.preference_entries[skin_color_type]
 		if(skincolor.is_accessible(preferences))
 			can_color = FALSE
+<<<<<<< HEAD
 	return erp_allowed && can_color && (passed_initial_check || allowed)
+=======
+	return erp_allowed && can_color && passed_initial_check
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preference/tri_bool/genital
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -135,7 +154,10 @@
 
 /datum/preference/tri_bool/genital/is_accessible(datum/preferences/preferences)
 	var/passed_initial_check = ..(preferences)
+<<<<<<< HEAD
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
 	var/can_color = TRUE
 	/// Checks that the use skin color pref is both enabled and actually accessible. If so, then this is useless.
@@ -143,7 +165,11 @@
 		var/datum/preference/toggle/genital_skin_color/skincolor = GLOB.preference_entries[skin_color_type]
 		if(skincolor.is_accessible(preferences))
 			can_color = FALSE
+<<<<<<< HEAD
 	return erp_allowed && can_color && (passed_initial_check || allowed)
+=======
+	return erp_allowed && can_color && passed_initial_check
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // PENIS
 
@@ -166,6 +192,12 @@
 	genital_pref_type = /datum/preference/choiced/genital/penis
 
 /datum/preference/toggle/genital_skin_color/penis/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+<<<<<<< HEAD
+=======
+	if(!..()) // Don't apply it if it failed the check in the parent.
+		value = FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.dna.features["penis_uses_skincolor"] = value
 
 /datum/preference/numeric/penis_length
@@ -230,7 +262,11 @@
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
 
 /datum/preference/toggle/penis_taur_mode/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+<<<<<<< HEAD
 	target.dna.features["penis_taur"] = value
+=======
+	target.dna.features["penis_taur_mode"] = value
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/preference/toggle/penis_taur_mode/is_accessible(datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_erp_preferences))
@@ -284,6 +320,12 @@
 	genital_pref_type = /datum/preference/choiced/genital/testicles
 
 /datum/preference/toggle/genital_skin_color/testicles/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+<<<<<<< HEAD
+=======
+	if(!..()) // Don't apply it if it failed the check in the parent.
+		value = FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.dna.features["testicles_uses_skincolor"] = value
 
 /datum/preference/tri_color/genital/testicles
@@ -340,6 +382,12 @@
 	genital_pref_type = /datum/preference/choiced/genital/vagina
 
 /datum/preference/toggle/genital_skin_color/vagina/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+<<<<<<< HEAD
+=======
+	if(!..()) // Don't apply it if it failed the check in the parent.
+		value = FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.dna.features["vagina_uses_skincolor"] = value
 
 /datum/preference/tri_color/genital/vagina
@@ -382,6 +430,12 @@
 	genital_pref_type = /datum/preference/choiced/genital/breasts
 
 /datum/preference/toggle/genital_skin_color/breasts/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+<<<<<<< HEAD
+=======
+	if(!..()) // Don't apply it if it failed the check in the parent.
+		value = FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.dna.features["breasts_uses_skincolor"] = value
 
 /datum/preference/tri_color/genital/breasts

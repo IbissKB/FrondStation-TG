@@ -120,7 +120,11 @@
 		return
 	if(ishuman(victim))
 		var/mob/living/carbon/human/human_victim = victim
+<<<<<<< HEAD
 		if(NOBLOOD in human_victim.dna?.species.species_traits)
+=======
+		if(HAS_TRAIT(human_victim, TRAIT_NOBLOOD))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 
 	if(limb.body_zone == BODY_ZONE_CHEST && victim.blood_volume && prob(internal_bleeding_chance + wounding_dmg))
@@ -354,7 +358,11 @@
 	regen_ticks_needed = 240 // ticks every 2 seconds, 480 seconds, so roughly 8 minutes default
 
 // doesn't make much sense for "a" bone to stick out of your head
+<<<<<<< HEAD
 /datum/wound/blunt/critical/apply_wound(obj/item/bodypart/L, silent, datum/wound/old_wound, smited, attack_direction)
+=======
+/datum/wound/blunt/critical/apply_wound(obj/item/bodypart/L, silent = FALSE, datum/wound/old_wound = null, smited = FALSE, attack_direction = null, wound_source = "Unknown")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(L.body_zone == BODY_ZONE_HEAD)
 		occur_text = "splits open, exposing a bare, cracked skull through the flesh and blood"
 		examine_desc = "has an unsettling indent, with bits of skull poking out"

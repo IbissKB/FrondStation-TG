@@ -160,14 +160,22 @@
 		begin_processing()
 
 
+<<<<<<< HEAD
 /obj/machinery/chem_dispenser/process(delta_time)
+=======
+/obj/machinery/chem_dispenser/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (recharge_counter >= 8)
 		var/usedpower = cell.give(recharge_amount)
 		if(usedpower)
 			use_power(active_power_usage + recharge_amount)
 		recharge_counter = 0
 		return
+<<<<<<< HEAD
 	recharge_counter += delta_time
+=======
+	recharge_counter += seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/chem_dispenser/proc/display_beaker()
 	var/mutable_appearance/b_o = beaker_overlay || mutable_appearance(icon, "disp_beaker")
@@ -379,7 +387,11 @@
 			if(!is_operational)
 				return
 			var/name = tgui_input_text(usr, "What do you want to name this recipe?", "Recipe Name", MAX_NAME_LEN)
+<<<<<<< HEAD
 			if(!usr.canUseTopic(src, !issilicon(usr)))
+=======
+			if(!usr.can_perform_action(src, ALLOW_SILICON_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			if(saved_recipes[name] && tgui_alert(usr, "\"[name]\" already exists, do you want to overwrite it?",, list("Yes", "No")) == "No")
 				return
@@ -471,6 +483,7 @@
 	recharge_amount = initial(recharge_amount)
 	var/newpowereff = 0.0666666
 	var/parts_rating = 0
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/cell/P in component_parts)
 		cell = P
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
@@ -489,6 +502,40 @@
 			dispensable_reagents |= upgrade_reagents3
 		//SKYRAT EDIT END
 		parts_rating += M.rating
+=======
+	for(var/obj/item/stock_parts/cell/stock_cell in component_parts)
+		cell = stock_cell
+	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
+		newpowereff += 0.0166666666 * matter_bin.tier
+		parts_rating += matter_bin.tier
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		recharge_amount *= capacitor.tier
+		parts_rating += capacitor.tier
+	for(var/datum/stock_part/servo/servo in component_parts)
+		/* SKYRAT EDIT - ORIGINAL
+		if (servo.tier > 3)
+			dispensable_reagents |= upgrade_reagents
+		else
+			dispensable_reagents -= upgrade_reagents
+		*/
+		//SKYRAT EDIT START
+		if (servo.tier > 1)
+			dispensable_reagents |= upgrade_reagents
+		else
+			dispensable_reagents -= upgrade_reagents
+
+		if (servo.tier > 2)
+			dispensable_reagents |= upgrade_reagents2
+		else
+			dispensable_reagents -= upgrade_reagents2
+
+		if (servo.tier > 3)
+			dispensable_reagents |= upgrade_reagents3
+		else
+			dispensable_reagents -= upgrade_reagents3
+		//SKYRAT EDIT END
+		parts_rating += servo.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	powerefficiency = round(newpowereff, 0.01)
 
 /obj/machinery/chem_dispenser/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)
@@ -513,7 +560,11 @@
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
+<<<<<<< HEAD
 	if(!can_interact(user) || !user.canUseTopic(src, !issilicon(user), FALSE, no_tk = TRUE))
+=======
+	if(!can_interact(user) || !user.can_perform_action(src, ALLOW_SILICON_REACH|FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	replace_beaker(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -667,7 +718,11 @@
 	emagged_reagents = list(
 		/datum/reagent/consumable/ethanol,
 		/datum/reagent/iron,
+<<<<<<< HEAD
 		/datum/reagent/toxin/minttoxin,
+=======
+		/datum/reagent/consumable/mintextract,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/datum/reagent/consumable/ethanol/atomicbomb,
 		/datum/reagent/consumable/ethanol/fernet
 	)

@@ -12,7 +12,11 @@
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=600, /datum/material/glass=200)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 6, /datum/material/glass=SMALL_MATERIAL_AMOUNT *2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///The implant in our implanter
 	var/obj/item/implant/imp = null
 	///Type of implant this will spawn as imp upon being spawned
@@ -28,10 +32,16 @@
 
 	if(target != user)
 		target.visible_message(span_warning("[user] is attempting to implant [target]."))
+<<<<<<< HEAD
 
 	var/turf/target_on = get_turf(target)
 	if(!(target_on && (target == user || do_mob(user, target, 5 SECONDS))))
 		return
+=======
+		if(!do_after(user, 5 SECONDS, target))
+			return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!(src && imp))
 		return
 
@@ -54,7 +64,11 @@
 	var/new_name = tgui_input_text(user, "What would you like the label to be?", name, max_length = MAX_NAME_LEN)
 	if(user.get_active_held_item() != I)
 		return
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(new_name)
 		name = "implanter ([new_name])"

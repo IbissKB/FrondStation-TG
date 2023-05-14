@@ -4,6 +4,10 @@
 	color = list(460/255, 464/255, 460/255, 0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_colors = "#FFFFFF64"
 	alpha = 100
+<<<<<<< HEAD
+=======
+	starlight_color = COLOR_ALMOST_BLACK
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	sheet_type = /obj/item/stack/sheet/hauntium
 	value_per_unit = 0.05

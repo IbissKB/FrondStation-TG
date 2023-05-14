@@ -13,7 +13,11 @@
 
 	invocation = "CLANG!"
 	invocation_type = INVOCATION_SHOUT
+<<<<<<< HEAD
 	spell_requirements = SPELL_REQUIRES_WIZARD_GARB|SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_OFF_CENTCOM
+=======
+	spell_requirements = SPELL_REQUIRES_WIZARD_GARB|SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_STATION
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// The extra distance we travel per additional spell level.
 	var/distance_per_spell_rank = 3

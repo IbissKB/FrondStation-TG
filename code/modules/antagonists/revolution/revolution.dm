@@ -3,6 +3,12 @@
 //How often to check for promotion possibility
 #define HEAD_UPDATE_PERIOD 300
 
+<<<<<<< HEAD
+=======
+#define REVOLUTION_VICTORY 1
+#define STATION_VICTORY 2
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/antagonist/rev
 	name = "\improper Revolutionary"
 	roundend_category = "revolutionaries" // if by some miracle revolutionaries without revolution happen
@@ -28,6 +34,27 @@
 		if(new_owner.current && HAS_TRAIT(new_owner.current, TRAIT_MINDSHIELD))
 			return FALSE
 
+<<<<<<< HEAD
+=======
+/datum/antagonist/rev/admin_add(datum/mind/new_owner, mob/admin)
+	// No revolution exists which means admin adding this will create a new revolution team
+	// This causes problems because revolution teams (currently) require a dynamic datum to process its victory / defeat conditions
+	if(!(locate(/datum/team/revolution) in GLOB.antagonist_teams))
+		var/confirm = tgui_alert(admin, "Notice: Revolutions do not function 100% when created via traitor panel instead of dynamic. \
+			The leaders will be able to convert as normal, but the shuttle will not be blocked and there will be no announcements when either side wins. \
+			Are you sure?", "Be Wary", list("Yes", "No"))
+		if(QDELETED(src) || QDELETED(new_owner.current) || confirm != "Yes")
+			return
+
+	go_through_with_admin_add(new_owner, admin)
+
+/datum/antagonist/rev/proc/go_through_with_admin_add(datum/mind/new_owner, mob/admin)
+	new_owner.add_antag_datum(src)
+	message_admins("[key_name_admin(admin)] has rev'ed [key_name_admin(new_owner)].")
+	log_admin("[key_name(admin)] has rev'ed [key_name(new_owner)].")
+	to_chat(new_owner.current, span_userdanger("You are a member of the revolution!"))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/antagonist/rev/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 	handle_clown_mutation(M, mob_override ? null : "Your training has allowed you to overcome your clownish nature, allowing you to wield weapons without harming yourself.")
@@ -107,7 +134,11 @@
 	message_admins("[key_name_admin(admin)] has head-rev'ed [O].")
 	log_admin("[key_name(admin)] has head-rev'ed [O].")
 
+<<<<<<< HEAD
 /datum/antagonist/rev/head/admin_add(datum/mind/new_owner,mob/admin)
+=======
+/datum/antagonist/rev/head/go_through_with_admin_add(datum/mind/new_owner, mob/admin)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	give_flash = TRUE
 	give_hud = TRUE
 	remove_clumsy = TRUE
@@ -176,11 +207,67 @@
 /datum/antagonist/rev/head/on_removal()
 	if(give_hud)
 		var/mob/living/carbon/C = owner.current
+<<<<<<< HEAD
 		var/obj/item/organ/internal/cyberimp/eyes/hud/security/syndicate/S = C.getorganslot(ORGAN_SLOT_HUD)
+=======
+		var/obj/item/organ/internal/cyberimp/eyes/hud/security/syndicate/S = C.get_organ_slot(ORGAN_SLOT_HUD)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(S)
 			S.Remove(C)
 	return ..()
 
+<<<<<<< HEAD
+=======
+/datum/antagonist/rev/head/apply_innate_effects(mob/living/mob_override)
+	. = ..()
+	var/mob/living/real_mob = mob_override || owner.current
+	RegisterSignal(real_mob, COMSIG_MOB_PRE_FLASHED_CARBON, PROC_REF(on_flash))
+	RegisterSignal(real_mob, COMSIG_MOB_SUCCESSFUL_FLASHED_CARBON, PROC_REF(on_flash_success))
+
+/datum/antagonist/rev/head/remove_innate_effects(mob/living/mob_override)
+	. = ..()
+	var/mob/living/real_mob = mob_override || owner.current
+	UnregisterSignal(real_mob, list(COMSIG_MOB_PRE_FLASHED_CARBON, COMSIG_MOB_SUCCESSFUL_FLASHED_CARBON))
+
+/// Signal proc for [COMSIG_MOB_PRE_FLASHED_CARBON].
+/// Flashes will always result in partial success even if it's from behind someone
+/datum/antagonist/rev/head/proc/on_flash(mob/living/source, mob/living/carbon/flashed, obj/item/assembly/flash/flash, deviation)
+	SIGNAL_HANDLER
+
+	// Always partial flash at the very least
+	return (deviation == DEVIATION_FULL) ? DEVIATION_OVERRIDE_PARTIAL : NONE
+
+/// Signal proc for [COMSIG_MOB_SUCCESSFUL_FLASHED_CARBON].
+/// Bread and butter of revolution conversion, successfully flashing a carbon will make them a revolutionary
+/datum/antagonist/rev/head/proc/on_flash_success(mob/living/source, mob/living/carbon/flashed, obj/item/assembly/flash/flash, deviation)
+	SIGNAL_HANDLER
+
+	if(flashed.stat == DEAD)
+		return
+	if(flashed.stat != CONSCIOUS)
+		to_chat(source, span_warning("[flashed.p_they(capitalized = TRUE)] must be conscious before you can convert [flashed.p_them()]!"))
+		return
+
+	if(isnull(flashed.mind) || !GET_CLIENT(flashed))
+		to_chat(source, span_warning("[flashed]'s mind is so vacant that it is not susceptible to influence!"))
+		return
+
+	var/holiday_meme_chance = check_holidays(APRIL_FOOLS) && prob(10)
+	if(add_revolutionary(flashed.mind, mute = !holiday_meme_chance)) // don't mute if we roll the meme holiday chance
+		if(holiday_meme_chance)
+			INVOKE_ASYNC(src, PROC_REF(_async_holiday_meme_say), flashed)
+		flash.times_used-- // Flashes are less likely to burn out for headrevs, when used for conversion
+	else
+		to_chat(source, span_warning("[flashed] seems resistant to [flash]!"))
+
+/// Used / called async from [proc/on_flash] to deliver a funny meme line
+/datum/antagonist/rev/head/proc/_async_holiday_meme_say(mob/living/carbon/flashed)
+	if(ishuman(flashed))
+		var/mob/living/carbon/human/human_flashed = flashed
+		human_flashed.force_say()
+	flashed.say("You son of a bitch! I'm in.", forced = "That son of a bitch! They're in. (April Fools)")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/antagonist/rev/head/antag_listing_name()
 	return ..() + "(Leader)"
 
@@ -225,6 +312,7 @@
 		return FALSE
 	return TRUE
 
+<<<<<<< HEAD
 /datum/antagonist/rev/proc/add_revolutionary(datum/mind/rev_mind,stun = TRUE)
 	if(!can_be_converted(rev_mind.current))
 		return FALSE
@@ -233,6 +321,26 @@
 		rev_mind.current.flash_act(1, 1)
 		rev_mind.current.Stun(10 SECONDS)
 
+=======
+/**
+ * Adds a new mind to our revoltuion
+ *
+ * * rev_mind - the mind we're adding
+ * * stun - If TRUE, we will flash act and apply a long stun when we're applied
+ * * mute - If TRUE, we will apply a mute when we're applied
+ */
+/datum/antagonist/rev/proc/add_revolutionary(datum/mind/rev_mind, stun = TRUE, mute = TRUE)
+	if(!can_be_converted(rev_mind.current))
+		return FALSE
+
+	if(mute)
+		rev_mind.current.set_silence_if_lower(10 SECONDS)
+	if(stun)
+		rev_mind.current.flash_act(1, 1)
+		rev_mind.current.Stun(10 SECONDS)
+
+	rev_mind.add_memory(/datum/memory/recruited_by_headrev, protagonist = rev_mind.current, antagonist = owner.current)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	rev_mind.add_antag_datum(/datum/antagonist/rev,rev_team)
 	rev_mind.special_role = ROLE_REV
 	return TRUE
@@ -326,7 +434,15 @@
 	if(give_hud)
 		var/obj/item/organ/internal/cyberimp/eyes/hud/security/syndicate/S = new()
 		S.Insert(C)
+<<<<<<< HEAD
 		to_chat(C, "Your eyes have been implanted with a cybernetic security HUD which will help you keep track of who is mindshield-implanted, and therefore unable to be recruited.")
+=======
+		if(C.get_quirk(/datum/quirk/body_purist))
+			to_chat(C, "Being a body purist, you would never accept cybernetic implants. Upon hearing this, your employers signed you up for a special program, which... for \
+			some odd reason, you just can't remember... either way, the program must have worked, because you have gained the ability to keep track of who is mindshield-implanted, and therefore unable to be recruited.")
+		else
+			to_chat(C, "Your eyes have been implanted with a cybernetic security HUD which will help you keep track of who is mindshield-implanted, and therefore unable to be recruited.")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/team/revolution
 	name = "\improper Revolution"
@@ -416,6 +532,7 @@
 	save_members()
 
 	// Remove everyone as a revolutionary
+<<<<<<< HEAD
 	for (var/_rev_mind in members)
 		var/datum/mind/rev_mind = _rev_mind
 		if (rev_mind.has_antag_datum(/datum/antagonist/rev))
@@ -436,6 +553,20 @@
 
 		priority_announce("It appears the mutiny has been quelled. Please return yourself and your incapacitated colleagues to work. \
 		We have remotely blacklisted the head revolutionaries in your medical records to prevent accidental revival.", null, null, null, "Central Command Loyalty Monitoring Division")
+=======
+	for (var/datum/mind/rev_mind as anything in members)
+		var/datum/antagonist/rev/rev_antag = rev_mind.has_antag_datum(/datum/antagonist/rev)
+		if (!isnull(rev_antag))
+			rev_antag.remove_revolutionary(FALSE, . == STATION_VICTORY ? DECONVERTER_STATION_WIN : DECONVERTER_REVS_WIN)
+			if(rev_mind in ex_headrevs)
+				LAZYADD(rev_mind.special_statuses, "<span class='bad'>Former head revolutionary</span>")
+			else
+				LAZYADD(rev_mind.special_statuses, "<span class='bad'>Former revolutionary</span>")
+
+	if (. == STATION_VICTORY)
+		defeat_effects()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		victory_effects()
 
@@ -443,6 +574,7 @@
 	var/charter_given = FALSE
 
 	for(var/datum/mind/headrev_mind as anything in ex_headrevs)
+<<<<<<< HEAD
 		if(charter_given)
 			break
 		if(!headrev_mind.current || headrev_mind.current.stat != CONSCIOUS)
@@ -454,6 +586,24 @@
 			"spawn" = /obj/item/station_charter/revolution,
 		))
 		to_chat(headrev_mind.current, span_hear("You hear something crackle in your ears for a moment before a voice speaks. \
+=======
+		var/mob/living/real_headrev = headrev_mind.current
+		if(isnull(real_headrev))
+			continue
+		add_memory_in_range(real_headrev, 5, /datum/memory/revolution_rev_victory, protagonist = real_headrev)
+		if(charter_given || real_headrev.stat != CONSCIOUS)
+			continue
+		charter_given = TRUE
+		podspawn(list(
+			"target" = get_turf(real_headrev),
+			"style" = STYLE_SYNDICATE,
+			"spawn" = list(
+				/obj/item/bedsheet/rev,
+				/obj/item/megaphone,
+				/obj/item/station_charter/revolution,
+			)))
+		to_chat(real_headrev, span_hear("You hear something crackle in your ears for a moment before a voice speaks. \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			\"Please stand by for a message from your benefactor. Message as follows, provocateur. \
 			<b>You have been chosen out of your fellow provocateurs to rename the station. Choose wisely.</b> Message ends.\""))
 
@@ -540,6 +690,24 @@
 
 	SSshuttle.call_evac_shuttle("Sending emergency shuttle to rescue command and security staff.")
 
+<<<<<<< HEAD
+=======
+/datum/team/revolution/proc/defeat_effects()
+	// If the revolution was quelled, make rev heads unable to be revived through pods
+	for (var/datum/mind/rev_head as anything in ex_headrevs)
+		if(!isnull(rev_head.current))
+			ADD_TRAIT(rev_head.current, TRAIT_DEFIB_BLACKLISTED, REF(src))
+			rev_head.current.med_hud_set_status()
+
+	for(var/datum/objective/mutiny/head_tracker in objectives)
+		var/mob/living/head_of_staff = head_tracker.target?.current
+		if(!isnull(head_of_staff))
+			add_memory_in_range(head_of_staff, 5, /datum/memory/revolution_heads_victory, protagonist = head_of_staff)
+
+	priority_announce("It appears the mutiny has been quelled. Please return yourself and your incapacitated colleagues to work. \
+		We have remotely blacklisted the head revolutionaries in your medical records to prevent accidental revival.", null, null, null, "Central Command Loyalty Monitoring Division")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Mutates the ticker to report that the revs have won
 /datum/team/revolution/proc/round_result(finished)
 	if (finished == REVOLUTION_VICTORY)
@@ -626,7 +794,11 @@
 
 	var/heads_report = "<b>Heads of Staff</b><br>"
 	heads_report += "<table cellspacing=5>"
+<<<<<<< HEAD
 	for(var/datum/mind/N in SSjob.get_living_heads())
+=======
+	for(var/datum/mind/N as anything in SSjob.get_living_heads())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/mob/M = N.current
 		if(M)
 			heads_report += "<tr><td><a href='?_src_=holder;[HrefToken()];adminplayeropts=[REF(M)]'>[M.real_name]</a>[M.client ? "" : " <i>(No Client)</i>"][M.stat == DEAD ? " <b><font color=red>(DEAD)</font></b>" : ""]</td>"
@@ -649,5 +821,13 @@
 	l_hand = /obj/item/spear
 	r_hand = /obj/item/assembly/flash
 
+<<<<<<< HEAD
 #undef DECONVERTER_STATION_WIN
 #undef DECONVERTER_REVS_WIN
+=======
+#undef DECONVERTER_REVS_WIN
+#undef DECONVERTER_STATION_WIN
+#undef HEAD_UPDATE_PERIOD
+#undef REVOLUTION_VICTORY
+#undef STATION_VICTORY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

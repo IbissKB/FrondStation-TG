@@ -108,6 +108,13 @@
 	roundstart_template = /datum/map_template/shuttle/mining/kilo
 	height = 10
 
+<<<<<<< HEAD
+=======
+/obj/docking_port/stationary/mining_home/northstar
+	roundstart_template = /datum/map_template/shuttle/mining/northstar
+	height = 6
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/docking_port/stationary/mining_home/common
 	name = "SS13: Common Mining Dock"
 	shuttle_id = "commonmining_home"
@@ -116,9 +123,19 @@
 /obj/docking_port/stationary/mining_home/common/kilo
 	roundstart_template = /datum/map_template/shuttle/mining_common/kilo
 
+<<<<<<< HEAD
+=======
+/obj/docking_port/stationary/mining_home/common/northstar
+	roundstart_template = /datum/map_template/shuttle/mining_common/northstar
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**********************Mining car (Crate like thing, not the rail car)**************************/
 
 /obj/structure/closet/crate/miningcar
 	desc = "A mining car. This one doesn't work on rails, but has to be dragged."
 	name = "Mining car (not for rails)"
 	icon_state = "miningcar"
+<<<<<<< HEAD
+=======
+	base_icon_state = "miningcar"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

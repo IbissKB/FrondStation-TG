@@ -6,7 +6,10 @@
 	materials = list(/datum/material/gold = 3000, /datum/material/diamond = 1500, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
 	build_path = /obj/item/satchel_of_holding_inert
 	category = list(RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE)
+<<<<<<< HEAD
 	dangerous_construction = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/duffel_holding
@@ -17,5 +20,8 @@
 	materials = list(/datum/material/gold = 3000, /datum/material/diamond = 1500, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
 	build_path = /obj/item/duffel_of_holding_inert
 	category = list(RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE)
+<<<<<<< HEAD
 	dangerous_construction = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE

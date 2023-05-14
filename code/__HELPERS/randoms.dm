@@ -4,6 +4,7 @@
 
 	if(!LAZYLEN(allowed_food)) //it's static so we only ever do this once
 		var/list/blocked = list(
+<<<<<<< HEAD
 		/obj/item/food/drug,
 		/obj/item/food/spaghetti,
 		/obj/item/food/bread,
@@ -26,6 +27,30 @@
 		/obj/item/food/grown/ash_flora,
 		/obj/item/food/grown/nettle,
 		/obj/item/food/grown/shell
+=======
+			/obj/item/food/bowled,
+			/obj/item/food/bread,
+			/obj/item/food/breadslice,
+			/obj/item/food/cake,
+			/obj/item/food/cakeslice,
+			/obj/item/food/clothing,
+			/obj/item/food/drug,
+			/obj/item/food/grown,
+			/obj/item/food/grown/ash_flora,
+			/obj/item/food/grown/mushroom,
+			/obj/item/food/grown/nettle,
+			/obj/item/food/grown/shell,
+			/obj/item/food/kebab,
+			/obj/item/food/meat,
+			/obj/item/food/meat/slab,
+			/obj/item/food/meat/slab/human/mutant,
+			/obj/item/food/pie,
+			/obj/item/food/pieslice,
+			/obj/item/food/pizza,
+			/obj/item/food/pizzaslice,
+			/obj/item/food/salad,
+			/obj/item/food/spaghetti,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)
 
 		var/list/unfiltered_allowed_food = subtypesof(/obj/item/food) - blocked
@@ -55,3 +80,19 @@
 	while(length(str) < 5)
 		str = "0" + str
 	. = str
+<<<<<<< HEAD
+=======
+
+///Gets a random coin excluding the blocked type and including extra coins which aren't pathed like coins.
+/proc/get_random_coin()
+	var/list/blocked = list(
+		/obj/item/coin/gold/debug,
+		/obj/item/coin/eldritch,
+		/obj/item/coin/mythril,
+	)
+	var/list/extra_coins = list(
+		/obj/item/food/chococoin,
+	)
+	var/list/allowed_coins = subtypesof(/obj/item/coin) - blocked + extra_coins
+	return pick(allowed_coins)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

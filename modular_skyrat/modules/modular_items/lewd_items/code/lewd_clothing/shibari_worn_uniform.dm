@@ -77,7 +77,11 @@
 		if(SHIBARI_TIGHTNESS_HIGH)
 			tightness = SHIBARI_TIGHTNESS_LOW
 
+<<<<<<< HEAD
 /obj/item/clothing/under/shibari/process(delta_time)
+=======
+/obj/item/clothing/under/shibari/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!ishuman(loc))
 		return PROCESS_KILL
 	var/mob/living/carbon/human/hooman = loc
@@ -87,11 +91,19 @@
 		src.dropped(hooman)
 		return PROCESS_KILL
 	if(tightness == SHIBARI_TIGHTNESS_LOW && hooman.arousal < 15)
+<<<<<<< HEAD
 		hooman.adjust_arousal(0.6 * delta_time)
 	if(tightness == SHIBARI_TIGHTNESS_MED && hooman.arousal < 25)
 		hooman.adjust_arousal(0.6 * delta_time)
 	if(tightness == SHIBARI_TIGHTNESS_HIGH && hooman.arousal < 30)
 		hooman.adjust_arousal(0.6 * delta_time)
+=======
+		hooman.adjust_arousal(0.6 * seconds_per_tick)
+	if(tightness == SHIBARI_TIGHTNESS_MED && hooman.arousal < 25)
+		hooman.adjust_arousal(0.6 * seconds_per_tick)
+	if(tightness == SHIBARI_TIGHTNESS_HIGH && hooman.arousal < 30)
+		hooman.adjust_arousal(0.6 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //stuff to apply processing on equip and add mood event for perverts
 /obj/item/clothing/under/shibari/equipped(mob/user, slot)
@@ -127,13 +139,21 @@
 	greyscale_colors = "#bd8fcf"
 
 //processing stuff
+<<<<<<< HEAD
 /obj/item/clothing/under/shibari/torso/process(delta_time)
+=======
+/obj/item/clothing/under/shibari/torso/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(. == PROCESS_KILL)
 		return PROCESS_KILL
 	var/mob/living/carbon/human/hooman = loc
 	if(tightness == SHIBARI_TIGHTNESS_HIGH && hooman.pain < 25)
+<<<<<<< HEAD
 		hooman.adjust_pain(0.6 * delta_time)
+=======
+		hooman.adjust_pain(0.6 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/shibari/groin
 	name = "crotch rope shibari"
@@ -155,17 +175,29 @@
 	return..()
 
 //processing stuff
+<<<<<<< HEAD
 /obj/item/clothing/under/shibari/groin/process(delta_time)
+=======
+/obj/item/clothing/under/shibari/groin/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(. == PROCESS_KILL)
 		return PROCESS_KILL
 	var/mob/living/carbon/human/hooman = loc
 	if(tightness == SHIBARI_TIGHTNESS_LOW && hooman.pleasure < 20)
+<<<<<<< HEAD
 		hooman.adjust_pleasure(0.6 * delta_time)
 	if(tightness == SHIBARI_TIGHTNESS_MED && hooman.pleasure < 60)
 		hooman.adjust_pleasure(0.6 * delta_time)
 	if(tightness == SHIBARI_TIGHTNESS_HIGH)
 		hooman.adjust_pleasure(0.6 * delta_time)
+=======
+		hooman.adjust_pleasure(0.6 * seconds_per_tick)
+	if(tightness == SHIBARI_TIGHTNESS_MED && hooman.pleasure < 60)
+		hooman.adjust_pleasure(0.6 * seconds_per_tick)
+	if(tightness == SHIBARI_TIGHTNESS_HIGH)
+		hooman.adjust_pleasure(0.6 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/shibari/full
 	name = "shibari fullbody ropes"
@@ -182,12 +214,17 @@
 	greyscale_colors = "#bd8fcf#bd8fcf"
 
 //processing stuff
+<<<<<<< HEAD
 /obj/item/clothing/under/shibari/full/process(delta_time)
+=======
+/obj/item/clothing/under/shibari/full/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(. == PROCESS_KILL)
 		return PROCESS_KILL
 	var/mob/living/carbon/human/hooman = loc
 	if(tightness == SHIBARI_TIGHTNESS_LOW && hooman.pleasure< 20)
+<<<<<<< HEAD
 		hooman.adjust_pleasure(0.6 * delta_time)
 	if(tightness == SHIBARI_TIGHTNESS_MED && hooman.pleasure < 60)
 		hooman.adjust_pleasure(0.6 * delta_time)
@@ -195,6 +232,15 @@
 		hooman.adjust_pleasure(0.6 * delta_time)
 		if(hooman.pain < 40)
 			hooman.adjust_pain(0.6 * delta_time)
+=======
+		hooman.adjust_pleasure(0.6 * seconds_per_tick)
+	if(tightness == SHIBARI_TIGHTNESS_MED && hooman.pleasure < 60)
+		hooman.adjust_pleasure(0.6 * seconds_per_tick)
+	if(tightness == SHIBARI_TIGHTNESS_HIGH)
+		hooman.adjust_pleasure(0.6 * seconds_per_tick)
+		if(hooman.pain < 40)
+			hooman.adjust_pain(0.6 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef SHIBARI_TIGHTNESS_LOW
 #undef SHIBARI_TIGHTNESS_MED

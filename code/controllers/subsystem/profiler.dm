@@ -1,7 +1,10 @@
 #define PROFILER_FILENAME "profiler.json"
 #define SENDMAPS_FILENAME "sendmaps.json"
+<<<<<<< HEAD
 GLOBAL_REAL_VAR(world_init_maptick_profiler) = world.Profile(PROFILE_RESTART, type = "sendmaps")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 SUBSYSTEM_DEF(profiler)
 	name = "Profiler"
@@ -64,3 +67,9 @@ SUBSYSTEM_DEF(profiler)
 	WRITE_FILE(prof_file, current_profile_data)
 	WRITE_FILE(sendmaps_file, current_sendmaps_data)
 	write_cost = MC_AVERAGE(write_cost, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
+<<<<<<< HEAD
+=======
+
+#undef PROFILER_FILENAME
+#undef SENDMAPS_FILENAME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -6,7 +6,10 @@
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = SUPERVISOR_RD
+<<<<<<< HEAD
 	selection_color = "#ffeeff"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exp_requirements = 60
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
@@ -30,7 +33,11 @@
 
 	mail_goodies = list(
 		/obj/item/raw_anomaly_core/random = 10,
+<<<<<<< HEAD
 		/obj/item/disk/tech_disk/spaceloot = 2,
+=======
+		/obj/item/disk/design_disk/bepis = 2,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/camera_bug = 1
 	)
 	rpg_title = "Thaumaturgist"

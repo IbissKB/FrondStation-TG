@@ -34,6 +34,12 @@
 /datum/gas_mixture/immutable/copy_from()
 	return FALSE //we're immutable.
 
+<<<<<<< HEAD
+=======
+/datum/gas_mixture/immutable/copy_from_ratio()
+	return FALSE //we're immutable.
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/gas_mixture/immutable/temperature_share(datum/gas_mixture/sharer, conduction_coefficient, sharer_temperature, sharer_heat_capacity)
 	. = ..()
 	temperature = initial_temperature

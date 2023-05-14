@@ -94,8 +94,13 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/effect/client_image_holder/hallucination/danger/anomaly/process(delta_time)
 	if(DT_PROB(ANOMALY_MOVECHANCE, delta_time))
+=======
+/obj/effect/client_image_holder/hallucination/danger/anomaly/process(seconds_per_tick)
+	if(SPT_PROB(ANOMALY_MOVECHANCE, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		step(src, pick(GLOB.alldirs))
 
 /obj/effect/client_image_holder/hallucination/danger/anomaly/on_hallucinator_entered(mob/living/afflicted)

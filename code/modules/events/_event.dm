@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #define RANDOM_EVENT_ADMIN_INTERVENTION_TIME (60 SECONDS) // SKYRAT EDIT - ORIGINAL: (10 SECONDS)
+=======
+#define RANDOM_EVENT_ADMIN_INTERVENTION_TIME (3 MINUTES) //SKYRAT EDIT CHANGE
+#define NEVER_TRIGGERED_BY_WIZARDS -1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //this singleton datum is used by the events controller to dictate how it selects events
 /datum/round_event_control
@@ -25,29 +30,77 @@
 	var/alert_observers = TRUE //should we let the ghosts and admins know this event is firing
 									//should be disabled on events that fire a lot
 
+<<<<<<< HEAD
+=======
+	/// Minimum wizard rituals at which to trigger this event, inclusive
+	var/min_wizard_trigger_potency = NEVER_TRIGGERED_BY_WIZARDS
+	/// Maximum wizard rituals at which to trigger this event, inclusive
+	var/max_wizard_trigger_potency = NEVER_TRIGGERED_BY_WIZARDS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/triggering //admin cancellation
 
 	/// Whether or not dynamic should hijack this event
 	var/dynamic_should_hijack = FALSE
 
+<<<<<<< HEAD
+=======
+	/// Datum that will handle admin options for forcing the event.
+	/// If there are no options, just leave it as an empty list.
+	var/list/datum/event_admin_setup/admin_setup = list()
+	/// Flags dictating whether this event should be run on certain kinds of map
+	var/map_flags = NONE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/round_event_control/New()
 	if(config && !wizardevent) // Magic is unaffected by configs
 		earliest_start = CEILING(earliest_start * CONFIG_GET(number/events_min_time_mul), 1)
 		min_players = CEILING(min_players * CONFIG_GET(number/events_min_players_mul), 1)
+<<<<<<< HEAD
+=======
+	if(!length(admin_setup))
+		return
+	var/list/admin_setup_types = admin_setup.Copy()
+	admin_setup.Cut()
+	for(var/admin_setup_type in admin_setup_types)
+		admin_setup += new admin_setup_type(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event_control/wizard
 	category = EVENT_CATEGORY_WIZARD
 	wizardevent = TRUE
 
+<<<<<<< HEAD
 // Checks if the event can be spawned. Used by event controller and "false alarm" event.
 // Admin-created events override this.
 /datum/round_event_control/proc/can_spawn_event(players_amt)
+=======
+/// Returns true if event can run in current map
+/datum/round_event_control/proc/valid_for_map()
+	if (!map_flags)
+		return TRUE
+	if (SSmapping.is_planetary())
+		if (map_flags & EVENT_SPACE_ONLY)
+			return FALSE
+	else
+		if (map_flags & EVENT_PLANETARY_ONLY)
+			return FALSE
+	return TRUE
+
+// Checks if the event can be spawned. Used by event controller and "false alarm" event.
+// Admin-created events override this.
+/datum/round_event_control/proc/can_spawn_event(players_amt, allow_magic = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SHOULD_CALL_PARENT(TRUE)
 	if(occurrences >= max_occurrences)
 		return FALSE
 	if(earliest_start >= world.time-SSticker.round_start_time)
 		return FALSE
+<<<<<<< HEAD
 	if(wizardevent != SSevents.wizardmode)
+=======
+	if(!allow_magic && wizardevent != SSevents.wizardmode)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	if(players_amt < min_players)
 		return FALSE
@@ -73,7 +126,13 @@
 
 	triggering = TRUE
 
+<<<<<<< HEAD
 	// We sleep HERE, in pre-event setup (because there's no sense doing it in runEvent() since the event is already running!) for the given amount of time to make an admin has enough time to cancel an event un-fitting of the present round.
+=======
+	// We sleep HERE, in pre-event setup (because there's no sense doing it in run_event() since the event is already running!) for the given amount of time to make an admin has enough time to cancel an event un-fitting of the present round.
+	// SKYRAT EDIT REMOVAL BEGIN - Event notification
+	/**
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(alert_observers)
 		message_admins("Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | <a href='?src=[REF(src)];something_else=1'>SOMETHING ELSE</a>)") //SKYRAT EDIT CHANGE
 		sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)
@@ -81,6 +140,27 @@
 		if(!can_spawn_event(players_amt))
 			message_admins("Second pre-condition check for [name] failed, skipping...")
 			return EVENT_INTERRUPTED
+<<<<<<< HEAD
+=======
+	*/
+	// SKYRAT EDIT REMOVAL END - Event notification
+
+	// SKYRAT EDIT ADDITION BEGIN - Event notification
+	message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (\
+		<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
+		<a href='?src=[REF(src)];something_else=1'>SOMETHING ELSE</a>)</font>")
+	for(var/client/staff as anything in GLOB.admins)
+		if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
+			SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
+	sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
+
+	if(triggering)
+		message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)]: [name]. (\
+		<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
+		<a href='?src=[REF(src)];something_else=1'>SOMETHING ELSE</a>)</font>")
+		sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
+	// SKYRAT EDIT ADDITION END - Event notification
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!triggering)
 		return EVENT_CANCELLED //admin cancelled
@@ -97,6 +177,7 @@
 		message_admins("[key_name_admin(usr)] cancelled event [name].")
 		log_admin_private("[key_name(usr)] cancelled event [name].")
 		SSblackbox.record_feedback("tally", "event_admin_cancelled", 1, typepath)
+<<<<<<< HEAD
 	//SKYRAT EDIT ADDITION
 	if(href_list["something_else"])
 		if(!triggering)
@@ -107,6 +188,18 @@
 		message_admins("[key_name_admin(usr)] requested a new event be spawned instead of [name].")
 		log_admin_private("[key_name(usr)] requested a new event be spawned instead of [name].")
 	//SKYRAT EDIT END
+=======
+	//SKYRAT EDIT ADDITION BEGIN
+	if(href_list["something_else"])
+		if(!triggering)
+			to_chat(usr, span_admin("Too late! The event is running."))
+			return
+		triggering = FALSE
+		SSevents.spawnEvent(TRUE)
+		message_admins("[key_name_admin(usr)] requested a new event be spawned instead of [name].")
+		log_admin_private("[key_name(usr)] requested a new event be spawned instead of [name].")
+	//SKYRAT EDIT ADDITION END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 Runs the event
@@ -114,7 +207,11 @@ Runs the event
 * - random: shows if the event was triggered randomly, or by on purpose by an admin or an item
 * - announce_chance_override: if the value is not null, overrides the announcement chance when an admin calls an event
 */
+<<<<<<< HEAD
 /datum/round_event_control/proc/runEvent(random = FALSE, announce_chance_override = null, admin_forced = FALSE)
+=======
+/datum/round_event_control/proc/run_event(random = FALSE, announce_chance_override = null, admin_forced = FALSE, event_cause)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/*
 	* We clear our signals first so we dont cancel a wanted event by accident,
 	* the majority of time the admin will probably want to cancel a single midround spawned random events
@@ -122,20 +219,38 @@ Runs the event
 	* * In the worst case scenario we can still recall a event which we cancelled by accident, which is much better then to have a unwanted event
 	*/
 	UnregisterSignal(SSdcs, COMSIG_GLOB_RANDOM_EVENT)
+<<<<<<< HEAD
 	var/datum/round_event/E = new typepath(TRUE, src)
 	E.current_players = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
+=======
+	var/datum/round_event/round_event = new typepath(TRUE, src)
+	if(admin_forced && length(admin_setup))
+		//not part of the signal because it's conditional and relies on usr heavily
+		for(var/datum/event_admin_setup/admin_setup_datum in admin_setup)
+			admin_setup_datum.apply_to_event(round_event)
+	SEND_SIGNAL(src, COMSIG_CREATED_ROUND_EVENT, round_event)
+	round_event.setup()
+	round_event.current_players = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	occurrences++
 
 	SSevents.previously_run += src //SKYRAT EDIT ADDITION
 
 	if(announce_chance_override != null)
+<<<<<<< HEAD
 		E.announce_chance = announce_chance_override
 
 	testing("[time2text(world.time, "hh:mm:ss")] [E.type]")
+=======
+		round_event.announce_chance = announce_chance_override
+
+	testing("[time2text(world.time, "hh:mm:ss")] [round_event.type]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	triggering = TRUE
 
 	if(!triggering)
 		RegisterSignal(SSdcs, COMSIG_GLOB_RANDOM_EVENT, PROC_REF(stop_random_event))
+<<<<<<< HEAD
 		E.cancel_event = TRUE
 		return E
 
@@ -148,29 +263,56 @@ Runs the event
 
 	SSblackbox.record_feedback("tally", "event_ran", 1, "[E]")
 	return E
+=======
+		round_event.cancel_event = TRUE
+		return round_event
+
+	triggering = FALSE
+	log_game("[random ? "Random" : "Forced"] Event triggering: [name] ([typepath]).")
+
+	if(alert_observers)
+		round_event.announce_deadchat(random, event_cause)
+
+	SSblackbox.record_feedback("tally", "event_ran", 1, "[round_event]")
+	return round_event
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Returns the component for the listener
 /datum/round_event_control/proc/stop_random_event()
 	SIGNAL_HANDLER
 	return CANCEL_RANDOM_EVENT
 
+<<<<<<< HEAD
 /// Any special things admins can do while triggering this event to "improve" it.
 /// Return [ADMIN_CANCEL_EVENT] to stop the event from actually happening after all
 /datum/round_event_control/proc/admin_setup(mob/admin)
 	SHOULD_CALL_PARENT(FALSE)
 	return
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/round_event //NOTE: Times are measured in master controller ticks!
 	var/processing = TRUE
 	var/datum/round_event_control/control
 
 	/// When in the lifetime to call start().
+<<<<<<< HEAD
 	var/start_when = 0
 	/// When in the lifetime to call announce(). If you don't want it to announce use announce_chance, below.
+=======
+	/// This is in seconds - so 1 = ~2 seconds in.
+	var/start_when = 0
+	/// When in the lifetime to call announce(). If you don't want it to announce use announce_chance, below.
+	/// This is in seconds - so 1 = ~2 seconds in.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/announce_when = 0
 	/// Probability of announcing, used in prob(), 0 to 100, default 100. Called in process, and for a second time in the ion storm event.
 	var/announce_chance = 100
 	/// When in the lifetime the event should end.
+<<<<<<< HEAD
+=======
+	/// This is in seconds - so 1 = ~2 seconds in.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/end_when = 0
 
 	/// How long the event has existed. You don't need to change this.
@@ -190,12 +332,26 @@ Runs the event
 //It will only have been overridden by the time we get to announce() start() tick() or end() (anything but setup basically).
 //This is really only for setting defaults which can be overridden later when New() finishes.
 /datum/round_event/proc/setup()
+<<<<<<< HEAD
 	return
 
+=======
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
+///Annouces the event name to deadchat, override this if what an event should show to deadchat is different to its event name.
+/datum/round_event/proc/announce_deadchat(random, cause)
+	deadchat_broadcast(" has just been[random ? " randomly" : ""] triggered[cause ? " by [cause]" : ""]!", "<b>[control.name]</b>", message_type=DEADCHAT_ANNOUNCEMENT) //STOP ASSUMING IT'S BADMINS!
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Called when the tick is equal to the start_when variable.
 //Allows you to start before announcing or vice versa.
 //Only called once.
 /datum/round_event/proc/start()
+<<<<<<< HEAD
+=======
+	SHOULD_CALL_PARENT(FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return
 
 //Called after something followable has been spawned by an event
@@ -281,9 +437,16 @@ Runs the event
 //Sets up the event then adds the event to the the list of running events
 /datum/round_event/New(my_processing = TRUE, datum/round_event_control/event_controller)
 	control = event_controller
+<<<<<<< HEAD
 	setup()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	processing = my_processing
 	SSevents.running += src
 	return ..()
 
 #undef RANDOM_EVENT_ADMIN_INTERVENTION_TIME
+<<<<<<< HEAD
+=======
+#undef NEVER_TRIGGERED_BY_WIZARDS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

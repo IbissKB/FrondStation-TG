@@ -86,7 +86,11 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "ax" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/retaliate/ghost,
+=======
+/mob/living/basic/ghost,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "az" = (
@@ -116,11 +120,16 @@
 /area/ruin/space/has_grav)
 "aD" = (
 /obj/item/stack/sheet/iron,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/broken_floor,
+=======
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
 "aE" = (
@@ -131,20 +140,28 @@
 /area/ruin/space/has_grav)
 "aF" = (
 /obj/machinery/door/airlock/public/glass,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "aG" = (
 /obj/structure/door_assembly/door_assembly_public{
 	name = "broken airlock"
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "aH" = (
@@ -170,26 +187,38 @@
 /turf/open/floor/iron/cafeteria/airless,
 /area/ruin/space/has_grav)
 "aM" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "aN" = (
 /obj/item/plate,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "aO" = (
 /obj/item/chair,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "aP" = (
@@ -210,10 +239,14 @@
 /area/ruin/space/has_grav)
 "aT" = (
 /obj/item/kitchen/fork,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "aU" = (
@@ -234,10 +267,14 @@
 /area/ruin/space/has_grav)
 "aX" = (
 /obj/item/chair/stool/bar,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "aY" = (
@@ -251,7 +288,11 @@
 /turf/template_noop,
 /area/template_noop)
 "ba" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/retaliate/ghost,
+=======
+/mob/living/basic/ghost,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/cafeteria/airless,
 /area/ruin/space/has_grav)
 "bb" = (
@@ -265,10 +306,14 @@
 /area/ruin/space/has_grav)
 "bd" = (
 /obj/structure/chair/stool/bar/directional/west,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
 "bg" = (
@@ -678,8 +723,13 @@ ag
 ai
 aK
 aR
+<<<<<<< HEAD
 aR
 ba
+=======
+ba
+aR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 bj
 bg
 ah

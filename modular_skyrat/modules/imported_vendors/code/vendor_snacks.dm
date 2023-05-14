@@ -45,7 +45,11 @@
 	foodtypes = JUNKFOOD | GRAIN
 	custom_price = PAYCHECK_LOWER * 0.8
 
+<<<<<<< HEAD
 /obj/item/food/vendor_snacks/rice_crackers/MakeLeaveTrash()
+=======
+/obj/item/food/vendor_snacks/rice_crackers/make_leave_trash()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
 
 /obj/item/trash/vendor_trash/rice_crackers
@@ -134,7 +138,11 @@
 	foodtypes = VEGETABLES | SUGAR
 	custom_price = PAYCHECK_LOWER
 
+<<<<<<< HEAD
 /obj/item/food/vendor_snacks/mothmallow/MakeLeaveTrash()
+=======
+/obj/item/food/vendor_snacks/mothmallow/make_leave_trash()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
 
 /obj/item/trash/vendor_trash/mothmallow
@@ -244,7 +252,11 @@
 	foodtypes = SUGAR | VEGETABLES
 	custom_price = PAYCHECK_LOWER * 1.4 //Tizirian imports are a bit more expensive overall
 
+<<<<<<< HEAD
 /obj/item/food/vendor_snacks/lizard_bag/MakeLeaveTrash()
+=======
+/obj/item/food/vendor_snacks/lizard_bag/make_leave_trash()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
 
 /obj/item/food/vendor_snacks/lizard_bag/moon_jerky

@@ -25,12 +25,25 @@ SUBSYSTEM_DEF(library)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/library/proc/load_shelves()
+<<<<<<< HEAD
+=======
+	var/list/datum/callback/load_callbacks = list()
+	
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/structure/bookcase/case_to_load as anything in shelves_to_load)
 		if(!case_to_load)
 			stack_trace("A null bookcase somehow ended up in SSlibrary's shelves_to_load list. Did something harddel?")
 			continue
+<<<<<<< HEAD
 		case_to_load.load_shelf()
 	shelves_to_load = null
+=======
+		load_callbacks += CALLBACK(case_to_load, TYPE_PROC_REF(/obj/structure/bookcase, load_shelf))
+	shelves_to_load = null
+	
+	//Load all of the shelves asyncronously at the same time, blocking until the last one is finished.
+	callback_select(load_callbacks, savereturns = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Returns a list of copied book datums that we consider to be "in" the passed in area at roundstart
 /datum/controller/subsystem/library/proc/get_area_books(area/book_parent)

@@ -9,6 +9,7 @@
 	medical_record_text = "Patient seems to get excited easily."
 	value = 0
 	mob_trait = TRAIT_EXCITABLE
+<<<<<<< HEAD
 	icon = "laugh-beam"
 
 /datum/quirk/personalspace
@@ -20,6 +21,19 @@
 	value = 0
 	mob_trait = TRAIT_PERSONALSPACE
 	icon = "hand-paper"
+=======
+	icon = FA_ICON_LAUGH_BEAM
+
+/datum/quirk/personalspace
+	name = "Personal Space"
+	desc = "You'd rather people keep their hands off your rear end."
+	gain_text = span_notice("You'd like it if people kept their hands off your butt.")
+	lose_text = span_notice("You're less concerned about people touching your butt.")
+	medical_record_text = "Patient demonstrates negative reactions to their posterior being touched."
+	value = 0
+	mob_trait = TRAIT_PERSONALSPACE
+	icon = FA_ICON_HAND_PAPER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/quirk/dnr
 	name = "Do Not Revive"
@@ -29,13 +43,18 @@
 	medical_record_text = "Patient is a DNR, and cannot be revived in any way."
 	value = 0
 	mob_trait = TRAIT_DNR
+<<<<<<< HEAD
 	icon = "skull-crossbones"
+=======
+	icon = FA_ICON_SKULL_CROSSBONES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // uncontrollable laughter
 /datum/quirk/item_quirk/joker
 	name = "Pseudobulbar Affect"
 	desc = "At random intervals, you suffer uncontrollable bursts of laughter."
 	value = 0
+<<<<<<< HEAD
 	medical_record_text = "Patient suffers with sudden and uncontrollable bursts of laughter."
 	var/pcooldown = 0
 	var/pcooldown_time = 60 SECONDS
@@ -44,6 +63,29 @@
 /datum/quirk/item_quirk/joker/add_unique()
 	give_item_to_holder(/obj/item/paper/joker, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
 
+=======
+	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
+	medical_record_text = "Patient suffers with sudden and uncontrollable bursts of laughter."
+	var/pcooldown = 0
+	var/pcooldown_time = 60 SECONDS
+	icon = FA_ICON_GRIN_TEARS
+
+/datum/quirk/item_quirk/joker/add_unique(client/client_source)
+	give_item_to_holder(/obj/item/paper/joker, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
+
+/datum/quirk/item_quirk/joker/process()
+	if(pcooldown > world.time)
+		return
+	pcooldown = world.time + pcooldown_time
+	var/mob/living/carbon/human/user = quirk_holder
+	if(user && istype(user))
+		if(user.stat == CONSCIOUS)
+			if(prob(20))
+				user.emote("laugh")
+				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 5 SECONDS)
+				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 10 SECONDS)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/paper/joker
 	name = "disability card"
 	icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
@@ -153,6 +195,7 @@
 
 	balloon_alert(user, "card flipped")
 
+<<<<<<< HEAD
 /datum/quirk/item_quirk/joker/process()
 	if(pcooldown > world.time)
 		return
@@ -165,6 +208,8 @@
 				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 5 SECONDS)
 				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 10 SECONDS)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/quirk/feline_aspect
 	name = "Feline Traits"
 	desc = "You happen to act like a feline, for whatever reason."
@@ -172,11 +217,16 @@
 	lose_text = span_notice("You feel less attracted to lasers.")
 	medical_record_text = "Patient seems to possess behavior much like a feline."
 	mob_trait = TRAIT_FELINE
+<<<<<<< HEAD
 	icon = "cat"
+=======
+	icon = FA_ICON_CAT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/quirk/item_quirk/canine
 	name = "Canidae Traits"
 	desc = "Bark. You seem to act like a canine for whatever reason."
+<<<<<<< HEAD
 	icon = "canine"
 	value = 0
 	medical_record_text = "Patient was seen digging through the trash can. Keep an eye on them."
@@ -188,6 +238,24 @@
 	qdel(old_tongue)
 
 	var/obj/item/organ/internal/tongue/dog/new_tongue = new(get_turf(human_holder))
+=======
+	icon = FA_ICON_DOG
+	value = 0
+	medical_record_text = "Patient was seen digging through the trash can. Keep an eye on them."
+
+/datum/quirk/item_quirk/canine/add_unique(client/client_source)
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/obj/item/organ/internal/tongue/old_tongue = human_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
+	var/obj/item/organ/internal/tongue/dog/new_tongue = new(get_turf(human_holder))
+
+	// make sure the new tongue gets the actions from any species specific things (like hemophage blood drain, etc)
+	for(var/datum/action/action as anything in old_tongue.actions)
+		new_tongue.add_item_action(action.type)
+	// as well as the flags from the old tongue (like corruption from hemophage)
+	new_tongue.organ_flags |= old_tongue.organ_flags
+	old_tongue.Remove(human_holder)
+	qdel(old_tongue)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	new_tongue.Insert(human_holder)
 
 /datum/quirk/sensitivesnout
@@ -198,4 +266,8 @@
 	medical_record_text = "Patient's nose seems to have a cluster of nerves in the tip, would advise against direct contact."
 	value = 0
 	mob_trait = TRAIT_SENSITIVESNOUT
+<<<<<<< HEAD
 	icon = "fingerprint"
+=======
+	icon = FA_ICON_FINGERPRINT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

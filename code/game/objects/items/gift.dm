@@ -73,7 +73,11 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 		/obj/item/book/manual/chef_recipes,
 		/obj/item/bikehorn,
 		/obj/item/toy/beach_ball,
+<<<<<<< HEAD
 		/obj/item/toy/beach_ball/holoball,
+=======
+		/obj/item/toy/basketball,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/banhammer,
 		/obj/item/food/grown/ambrosia/deus,
 		/obj/item/food/grown/ambrosia/vulgaris,

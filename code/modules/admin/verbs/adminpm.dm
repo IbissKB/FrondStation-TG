@@ -30,7 +30,11 @@
 			confidential = TRUE)
 		return
 	cmd_admin_pm(M.client, null)
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin PM Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin PM Mob") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Shows a list of clients we could send PMs to, then forwards our choice to cmd_admin_pm
 /client/proc/cmd_admin_pm_panel()
@@ -63,7 +67,11 @@
 	if (isnull(target))
 		return
 	cmd_admin_pm(targets[target], null)
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin PM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin PM") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Replys to some existing ahelp, reply to whom, which can be a client or ckey
 /client/proc/cmd_ahelp_reply(whom)
@@ -326,6 +334,7 @@
 	var/name_key_with_link = key_name(src, TRUE, TRUE)
 
 	if(ambiguious_recipient == EXTERNAL_PM_USER)
+<<<<<<< HEAD
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_notice("PM to-<b>Admins</b>: [span_linkify(raw_message)]"),
@@ -333,6 +342,14 @@
 		var/datum/admin_help/new_admin_help = admin_ticket_log(src,
 			"<font color='red'>Reply PM from-<b>[name_key_with_link]</b> to <i>External</i>: [keyword_parsed_msg]</font>",
 			player_message = "<font color='red'>Reply PM from-<b>[name_key_with_link]</b> to <i>External</i>: [send_message]</font>")
+=======
+		var/datum/admin_help/new_admin_help = admin_ticket_log(src,
+			"<font color='red'>Reply PM from-<b>[name_key_with_link]</b> to <i>External</i>: [keyword_parsed_msg]</font>",
+			player_message = "<font color='red'>Reply PM from-<b>[name_key_with_link]</b> to <i>External</i>: [send_message]</font>")
+
+		new_admin_help.reply_to_admins_notification(raw_message)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/new_help_id = new_admin_help?.id
 
 		externalreplyamount--
@@ -409,10 +426,19 @@
 			type = MESSAGE_TYPE_ADMINPM,
 			html = "<font color='red' size='4'><b>-- Administrator private message --</b></font>",
 			confidential = TRUE)
+<<<<<<< HEAD
 		to_chat(recipient,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_adminsay("Admin PM from-<b>[link_to_us]</b>: [span_linkify(send_message)]"),
 			confidential = TRUE)
+=======
+
+		recipient.receive_ahelp(
+			link_to_us,
+			span_linkify(send_message),
+		)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(recipient,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_adminsay("<i>Click on the administrator's name to reply.</i>"),
@@ -480,10 +506,19 @@
 
 	// Admin on admin violence first
 	if(our_holder)
+<<<<<<< HEAD
 		to_chat(recipient,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_danger("Admin PM from-<b>[name_key_with_link]</b>: [span_linkify(keyword_parsed_msg)]"),
 			confidential = TRUE)
+=======
+		recipient.receive_ahelp(
+			name_key_with_link,
+			span_linkify(keyword_parsed_msg),
+			"danger",
+		)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_notice("Admin PM to-<b>[their_name_with_link]</b>: [span_linkify(keyword_parsed_msg)]"),
@@ -516,11 +551,18 @@
 		type = MESSAGE_TYPE_ADMINPM,
 		html = span_danger("[replymsg]"),
 		confidential = TRUE)
+<<<<<<< HEAD
 	to_chat(src,
 		type = MESSAGE_TYPE_ADMINPM,
 		html = span_notice("PM to-<b>Admins</b>: [span_linkify(send_message)]"),
 		confidential = TRUE)
 	SSblackbox.LogAhelp(ticket_id, "Reply", send_message, recip_ckey, our_ckey)
+=======
+
+	ticket.reply_to_admins_notification(send_message)
+	SSblackbox.LogAhelp(ticket_id, "Reply", send_message, recip_ckey, our_ckey)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /// Notifies all admins about the existance of an admin pm, then logs the pm
@@ -555,9 +597,15 @@
 	if(ambiguious_recipient == EXTERNAL_PM_USER)
 		// Guard against the possibility of a null, since it'll runtime and spit out the contents of what should be a private ticket.
 		if(ticket)
+<<<<<<< HEAD
 			log_admin_private("PM: Ticket #[ticket_id]: [our_name]->External: [raw_message]")
 		else
 			log_admin_private("PM: [our_name]->External: [raw_message]")
+=======
+			log_admin_private("PM: Ticket #[ticket_id]: [our_name]->External: [sanitize_text(trim(raw_message))]")
+		else
+			log_admin_private("PM: [our_name]->External: [sanitize_text(trim(raw_message))]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		for(var/client/lad in GLOB.admins)
 			to_chat(lad,
 				type = MESSAGE_TYPE_ADMINPM,
@@ -581,9 +629,15 @@
 
 	window_flash(recipient, ignorepref = TRUE)
 	if(ticket)
+<<<<<<< HEAD
 		log_admin_private("PM: Ticket #[ticket_id]: [our_name]->[recipient_name]: [raw_message]")
 	else
 		log_admin_private("PM: [our_name]->[recipient_name]: [raw_message]")
+=======
+		log_admin_private("PM: Ticket #[ticket_id]: [our_name]->[recipient_name]: [sanitize_text(trim(raw_message))]")
+	else
+		log_admin_private("PM: [our_name]->[recipient_name]: [sanitize_text(trim(raw_message))]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//we don't use message_admins here because the sender/receiver might get it too
 	for(var/client/lad in GLOB.admins)
 		if(lad.key == key || lad.key == recipient_key) //check to make sure client/lad isn't the sender or recipient
@@ -732,10 +786,19 @@
 		type = MESSAGE_TYPE_ADMINPM,
 		html = "<font color='red' size='4'><b>-- Administrator private message --</b></font>",
 		confidential = TRUE)
+<<<<<<< HEAD
 	to_chat(recipient,
 		type = MESSAGE_TYPE_ADMINPM,
 		html = span_adminsay("Admin PM from-<b><a href='?priv_msg=[stealthkey]'>[adminname]</A></b>: [message]"),
 		confidential = TRUE)
+=======
+
+	recipient.receive_ahelp(
+		"<a href='?priv_msg=[stealthkey]'>[adminname]</a>",
+		message,
+	)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(recipient,
 		type = MESSAGE_TYPE_ADMINPM,
 		html = span_adminsay("<i>Click on the administrator's name to reply.</i>"),
@@ -781,6 +844,24 @@
 
 	return GLOB.directory[searching_ckey]
 
+<<<<<<< HEAD
 
 #undef EXTERNAL_PM_USER
 #undef EXTERNALREPLYCOUNT
+=======
+/client/proc/receive_ahelp(reply_to, message, span_class = "adminsay")
+	to_chat(
+		src,
+		type = MESSAGE_TYPE_ADMINPM,
+		html = "<span class='[span_class]'>Admin PM from-<b>[reply_to]</b>: [message]</span>",
+		confidential = TRUE,
+	)
+
+	current_ticket?.player_replied = FALSE
+
+	SEND_SIGNAL(src, COMSIG_ADMIN_HELP_RECEIVED, message)
+
+#undef EXTERNAL_PM_USER
+#undef EXTERNALREPLYCOUNT
+#undef TGS_AHELP_USAGE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -9,6 +9,10 @@
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
 	antag_moodlet = /datum/mood_event/focused
+<<<<<<< HEAD
+=======
+	antagpanel_category = ANTAG_GROUP_ERT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	suicide_cry = "FOR NANOTRASEN!!"
 	count_against_dynamic_roll_chance = FALSE
 	var/datum/team/ert/ert_team
@@ -223,7 +227,11 @@
 	role = "Synthetic Bounty Hunter"
 	outfit = /datum/outfit/bountysynth/ert
 
+<<<<<<< HEAD
 /datum/antagonist/ert/proc/forge_objectives()
+=======
+/datum/antagonist/ert/forge_objectives()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(ert_team)
 		objectives |= ert_team.objectives
 

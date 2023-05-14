@@ -15,11 +15,21 @@ the new instance inside the host to be updated to the template's stats.
 	icon_state = "marker"
 	mouse_opacity = MOUSE_OPACITY_ICON
 	move_on_shuttle = FALSE
+<<<<<<< HEAD
 	see_in_dark = NIGHTVISION_FOV_RANGE
 	invisibility = INVISIBILITY_OBSERVER
 	see_invisible = SEE_INVISIBLE_LIVING
 	layer = BELOW_MOB_LAYER
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+=======
+	invisibility = INVISIBILITY_OBSERVER
+	see_invisible = SEE_INVISIBLE_LIVING
+	layer = BELOW_MOB_LAYER
+	// Pale green, bright enough to have good vision
+	lighting_cutoff_red = 5
+	lighting_cutoff_green = 35
+	lighting_cutoff_blue = 20
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	sight = SEE_SELF|SEE_THRU
 	initial_language_holder = /datum/language_holder/universal
 

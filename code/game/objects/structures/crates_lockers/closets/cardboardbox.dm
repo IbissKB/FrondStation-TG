@@ -17,15 +17,29 @@
 	close_sound_volume = 35
 	has_closed_overlay = FALSE
 	door_anim_time = 0 // no animation
+<<<<<<< HEAD
 	var/move_speed_multiplier = 1
 	var/move_delay = FALSE
 	can_install_electronics = FALSE
 
+=======
+	can_install_electronics = FALSE
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Cooldown controlling when the box can trigger the Metal Gear Solid-style '!' alert.
 	COOLDOWN_DECLARE(alert_cooldown)
 
 	/// How much time must pass before the box can trigger the next Metal Gear Solid-style '!' alert.
 	var/time_between_alerts = 60 SECONDS
+<<<<<<< HEAD
+=======
+	/// List of viewers around the box
+	var/list/alerted
+	/// How fast a mob can move inside this box
+	var/move_speed_multiplier = 1
+	/// If the speed multiplier should be applied to mobs inside this box
+	var/move_delay = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/cardboard/relaymove(mob/living/user, direction)
 	if(opened || move_delay || user.incapacitated() || !isturf(loc) || !has_gravity(loc))
@@ -41,6 +55,7 @@
 /obj/structure/closet/cardboard/proc/ResetMoveDelay()
 	move_delay = FALSE
 
+<<<<<<< HEAD
 /obj/structure/closet/cardboard/open(mob/living/user, force = FALSE)
 	var/do_alert = (COOLDOWN_FINISHED(src, alert_cooldown) && (locate(/mob/living) in contents))
 
@@ -58,15 +73,47 @@
 
 	// Box didn't open?
 	if(!.)
+=======
+/obj/structure/closet/cardboard/before_open(mob/living/user, force)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	alerted = null
+	var/do_alert = (COOLDOWN_FINISHED(src, alert_cooldown) && (locate(/mob/living) in contents))
+	if(!do_alert)
+
+		return TRUE
+	// Cache the list before we open the box.
+	alerted = viewers(7, src)
+	// There are no mobs to alert? clear the list & prevent furthur action after opening the box
+	if(!(locate(/mob/living) in alerted))
+		alerted = null
+
+	return TRUE
+
+/obj/structure/closet/cardboard/after_open(mob/living/user, force)
+	. = ..()
+	if(!length(alerted))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	COOLDOWN_START(src, alert_cooldown, time_between_alerts)
 
+<<<<<<< HEAD
 	for(var/mob/living/alerted_mob in alerted)
 		if(alerted_mob.stat == CONSCIOUS)
 			if(!alerted_mob.incapacitated(IGNORE_RESTRAINTS))
 				alerted_mob.face_atom(src)
 			alerted_mob.do_alert_animation()
+=======
+	for(var/mob/living/alerted_mob as anything in alerted)
+		if(alerted_mob.stat != CONSCIOUS || alerted_mob.is_blind())
+			continue
+		if(!alerted_mob.incapacitated(IGNORE_RESTRAINTS))
+			alerted_mob.face_atom(src)
+		alerted_mob.do_alert_animation()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	playsound(loc, 'sound/machines/chime.ogg', 50, FALSE, -5)
 

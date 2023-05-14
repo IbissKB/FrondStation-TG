@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 #define MAX_BERSERK_CHARGE 200
 #define BERSERK_HALF_CHARGE 100
+=======
+#define BERSERK_MAX_CHARGE 100
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define PROJECTILE_HIT_MULTIPLIER 1.5
 #define DAMAGE_TO_CHARGE_SCALE 1
 #define CHARGE_DRAINED_PER_SECOND 3
@@ -50,9 +54,25 @@
 	worn_icon = 'modular_skyrat/modules/gladiator/icons/berserk_suit.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/berserker/gatsu
 	w_class = WEIGHT_CLASS_BULKY
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 40, LASER = 20, ENERGY = 25, BOMB = 70, BIO = 100, FIRE = 100, ACID = 100)
 	resistance_flags = INDESTRUCTIBLE
 
+=======
+	armor_type = /datum/armor/berserker_gatsu
+	resistance_flags = INDESTRUCTIBLE
+
+/datum/armor/berserker_gatsu
+	melee = 40
+	bullet = 40
+	laser = 20
+	energy = 25
+	bomb = 70
+	bio = 100
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/berserker/gatsu/examine()
 	. = ..()
 	. += span_warning("Berserk mode requires the suit's helmet to be equipped, and can only be charged by taking damage.")
@@ -64,11 +84,17 @@
 	icon = 'modular_skyrat/modules/gladiator/icons/berserk_icons.dmi'
 	worn_icon = 'modular_skyrat/modules/gladiator/icons/berserk_suit.dmi'
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 40, LASER = 20, ENERGY = 25, BOMB = 70, BIO = 100, FIRE = 100, ACID = 100)
 	resistance_flags = INDESTRUCTIBLE
 	actions_types = list(/datum/action/item_action/berserk_mode)
 	///tracks whether or not the armor's charge is equal to or greater than 100% so it does not do the bubble alert twice
 	var/charged = FALSE
+=======
+	armor_type = /datum/armor/berserker_gatsu
+	resistance_flags = INDESTRUCTIBLE
+	actions_types = list(/datum/action/item_action/berserk_mode)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/hooded/berserker/gatsu/Initialize(mapload)
 	. = ..()
@@ -76,6 +102,7 @@
 
 /obj/item/clothing/head/hooded/berserker/gatsu/examine()
 	. = ..()
+<<<<<<< HEAD
 	. += span_warning("Berserk mode is usable at 100% charge but can gain up to 200% charge for extended duration.") //woag!!!
 
 /obj/item/clothing/head/hooded/berserker/gatsu/process(delta_time)
@@ -85,11 +112,24 @@
 		if(ishuman(loc))
 			end_berserk(loc)
 			charged = FALSE
+=======
+	. += span_warning("Berserk mode is usable at 100% charge and requires the helmet to be closed in order to remain active.") //woag!!!
+
+/obj/item/clothing/head/hooded/berserker/gatsu/process(seconds_per_tick)
+	if(berserk_active)
+		berserk_charge = clamp(berserk_charge - CHARGE_DRAINED_PER_SECOND * seconds_per_tick, 0, BERSERK_MAX_CHARGE)
+	if(!berserk_charge)
+		if(ishuman(loc))
+			end_berserk(loc)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/hooded/berserker/gatsu/dropped(mob/user)
 	. = ..()
 	end_berserk(user)
+<<<<<<< HEAD
 	charged = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/hooded/berserker/gatsu/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(berserk_active)
@@ -97,10 +137,16 @@
 	var/berserk_value = damage * DAMAGE_TO_CHARGE_SCALE
 	if(attack_type == PROJECTILE_ATTACK)
 		berserk_value *= PROJECTILE_HIT_MULTIPLIER
+<<<<<<< HEAD
 	berserk_charge = clamp(round(berserk_charge + berserk_value), 0, MAX_BERSERK_CHARGE)
 	if(berserk_charge >= BERSERK_HALF_CHARGE & charged == FALSE)
 		balloon_alert(owner, "berserk charged")
 		charged = TRUE
+=======
+	berserk_charge = clamp(round(berserk_charge + berserk_value), 0, BERSERK_MAX_CHARGE)
+	if(berserk_charge >= BERSERK_MAX_CHARGE)
+		balloon_alert(owner, "berserk charged")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/hooded/berserker/gatsu/IsReflect()
 	if(berserk_active)
@@ -124,6 +170,10 @@
 	armour_penetration = 35 //this boss is really hard and this sword is really big
 	block_chance = 25
 	sharpness = SHARP_EDGED
+<<<<<<< HEAD
+=======
+	item_flags = NO_BLOOD_ON_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// aughhghghgh this really should be elementized but this works for now
 	var/faction_bonus_force = 100
 	var/static/list/nemesis_factions = list("mining", "boss")
@@ -136,9 +186,12 @@
 	. = ..()
 	. += span_warning("Tempered against lavaland foes and bosses through supernatural energies. Right click to dodge at the cost of stamina.")
 
+<<<<<<< HEAD
 /obj/item/claymore/dragonslayer/add_blood_DNA(list/blood_dna) //110% stain-proof! or so they tell me
 	return FALSE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/claymore/dragonslayer/attack(mob/living/target, mob/living/carbon/human/user)
 	var/is_nemesis_faction = FALSE
 	for(var/found_faction in target.faction)
@@ -214,8 +267,12 @@
 	new /obj/item/clothing/neck/warrior_cape(src)
 	new /obj/item/crusher_trophy/gladiator(src)
 
+<<<<<<< HEAD
 #undef MAX_BERSERK_CHARGE
 #undef BERSERK_HALF_CHARGE
+=======
+#undef BERSERK_MAX_CHARGE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef PROJECTILE_HIT_MULTIPLIER
 #undef DAMAGE_TO_CHARGE_SCALE
 #undef CHARGE_DRAINED_PER_SECOND

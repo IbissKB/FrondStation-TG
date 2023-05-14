@@ -2,6 +2,7 @@
 "ab" = (
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "ac" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -50,6 +51,25 @@
 "cj" = (
 /obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/fluff/drake_statue,
+=======
+"aL" = (
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"bF" = (
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"bI" = (
+/obj/effect/spawner/structure/window/reinforced/indestructible,
+/turf/open/floor/plating,
+/area/centcom/ctf)
+"cj" = (
+/obj/structure/fluff/drake_statue,
+/obj/effect/turf_decal/tile/green/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "cm" = (
@@ -61,10 +81,14 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "cC" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "cJ" = (
@@ -75,13 +99,18 @@
 /turf/open/floor/iron/white,
 /area/centcom/ctf)
 "dn" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
+=======
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "dr" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -91,6 +120,11 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "dy" = (
@@ -100,7 +134,11 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "eF" = (
+<<<<<<< HEAD
 /obj/machinery/capture_the_flag/blue,
+=======
+/obj/machinery/ctf/spawner/blue,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "eH" = (
@@ -113,6 +151,7 @@
 /obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "gW" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -149,15 +188,27 @@
 "hU" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
+=======
+"hw" = (
+/obj/effect/turf_decal/tile/blue/half/contrasted,
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"hU" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "ie" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "iF" = (
@@ -172,6 +223,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "kA" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -181,10 +233,16 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "kX" = (
 /obj/structure/trap/ctf/red,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -203,6 +261,9 @@
 "lF" = (
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/structure/barricade/security/ctf,
+=======
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "lZ" = (
@@ -216,6 +277,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "mG" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -252,6 +314,11 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+=======
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "oD" = (
@@ -277,10 +344,14 @@
 /turf/open/floor/iron/white,
 /area/centcom/ctf)
 "qy" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -308,6 +379,7 @@
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "sr" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -328,6 +400,15 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"sP" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/centcom/ctf)
 "th" = (
@@ -342,6 +423,7 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "ua" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -360,6 +442,12 @@
 	desc = "A banner used to play capture the flag.";
 	name = "capture flag";
 	team = "WHITE_TEAM"
+=======
+"uG" = (
+/obj/item/ctf_flag{
+	desc = "A banner used to play capture the flag.";
+	name = "capture flag"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/circuit/green/anim,
 /area/centcom/ctf)
@@ -371,10 +459,14 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "wf" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -383,6 +475,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "xc" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -406,6 +499,22 @@
 "zp" = (
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/structure/fluff/drake_statue,
+=======
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted,
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"xd" = (
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"xx" = (
+/obj/machinery/ctf/spawner/green,
+/turf/open/floor/circuit/green/off,
+/area/centcom/ctf)
+"zp" = (
+/obj/structure/fluff/drake_statue,
+/obj/effect/turf_decal/tile/yellow/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "zw" = (
@@ -428,6 +537,7 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "BW" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -448,6 +558,12 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
+=======
+"Ci" = (
+/obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "CH" = (
@@ -460,16 +576,23 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "Dj" = (
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/structure/barricade/security/ctf,
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "DJ" = (
 /turf/template_noop,
 /area/template_noop)
 "DT" = (
+<<<<<<< HEAD
 /obj/machinery/capture_the_flag/red,
+=======
+/obj/machinery/ctf/spawner/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "EZ" = (
@@ -477,17 +600,26 @@
 /turf/open/floor/plating,
 /area/centcom/ctf)
 "FW" = (
+<<<<<<< HEAD
 /obj/machinery/capture_the_flag/yellow,
 /turf/open/floor/circuit/green/off,
 /area/centcom/ctf)
 "Gm" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
+=======
+/obj/machinery/ctf/spawner/yellow,
+/turf/open/floor/circuit/green/off,
+/area/centcom/ctf)
+"Gm" = (
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "Gn" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -500,6 +632,16 @@
 "Gq" = (
 /obj/effect/turf_decal/tile/red/fourcorners,
 /obj/structure/fluff/drake_statue,
+=======
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"Gq" = (
+/obj/structure/fluff/drake_statue,
+/obj/effect/turf_decal/tile/red/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "Gv" = (
@@ -508,6 +650,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "Ho" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -526,18 +669,26 @@
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
+=======
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "HY" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
+=======
+/obj/effect/turf_decal/tile/green/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "Iu" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/structure/trap/ctf/yellow,
 /turf/open/floor/iron/dark,
@@ -555,6 +706,19 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
+=======
+/obj/structure/trap/ctf/yellow,
+/obj/effect/turf_decal/tile/yellow/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"Jq" = (
+/obj/structure/trap/ctf/green,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"JL" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "Kj" = (
@@ -578,6 +742,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "MC" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -603,6 +768,21 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow{
+=======
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"Nc" = (
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/ctf)
+"NI" = (
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -620,15 +800,20 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "PY" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
+=======
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "Qw" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
@@ -636,10 +821,16 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/green,
+=======
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "QH" = (
 /obj/structure/fluff/drake_statue,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -650,6 +841,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/blue/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "QS" = (
@@ -667,6 +861,7 @@
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
+<<<<<<< HEAD
 "Th" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -677,17 +872,25 @@
 /obj/effect/turf_decal/tile/red,
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "UK" = (
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron/white,
 /area/centcom/ctf)
 "Xi" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "XF" = (
@@ -701,12 +904,18 @@
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "XZ" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/centcom/ctf)
 "Yq" = (
@@ -844,6 +1053,7 @@ cJ
 cJ
 cJ
 cJ
+<<<<<<< HEAD
 BW
 BW
 BW
@@ -853,6 +1063,17 @@ BW
 BW
 BW
 BW
+=======
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 cJ
 cJ
 cJ
@@ -1160,6 +1381,7 @@ cJ
 cJ
 cJ
 cJ
+<<<<<<< HEAD
 BW
 BW
 BW
@@ -1169,6 +1391,17 @@ BW
 BW
 BW
 BW
+=======
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 cJ
 cJ
 cJ
@@ -1233,7 +1466,11 @@ cJ
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1253,7 +1490,11 @@ Lz
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1312,7 +1553,11 @@ cJ
 ab
 ab
 ab
+<<<<<<< HEAD
 ow
+=======
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1332,7 +1577,11 @@ Lz
 ab
 ab
 ab
+<<<<<<< HEAD
 ow
+=======
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1390,9 +1639,15 @@ DJ
 cJ
 ab
 ab
+<<<<<<< HEAD
 Hq
 ow
 Hq
+=======
+YJ
+QX
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 Lz
@@ -1410,9 +1665,15 @@ cJ
 Lz
 ab
 ab
+<<<<<<< HEAD
 Hq
 ow
 Hq
+=======
+YJ
+QX
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 cJ
@@ -1469,9 +1730,15 @@ DJ
 cJ
 ab
 sq
+<<<<<<< HEAD
 ow
 ow
 ow
+=======
+QX
+QX
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sq
 ab
 Lz
@@ -1489,9 +1756,15 @@ cJ
 Lz
 ab
 sq
+<<<<<<< HEAD
 ow
 ow
 ow
+=======
+QX
+QX
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sq
 ab
 cJ
@@ -1548,9 +1821,15 @@ DJ
 cJ
 ab
 ab
+<<<<<<< HEAD
 Hq
 ow
 Hq
+=======
+YJ
+QX
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 Lz
@@ -1568,9 +1847,15 @@ cJ
 Lz
 ab
 ab
+<<<<<<< HEAD
 Hq
 ow
 Hq
+=======
+YJ
+QX
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 cJ
@@ -1628,7 +1913,11 @@ cJ
 ab
 ab
 ab
+<<<<<<< HEAD
 ow
+=======
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1648,7 +1937,11 @@ Lz
 ab
 ab
 ab
+<<<<<<< HEAD
 ow
+=======
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1707,7 +2000,11 @@ cJ
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1727,7 +2024,11 @@ Lz
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1786,7 +2087,11 @@ cJ
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1806,7 +2111,11 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1865,7 +2174,11 @@ cJ
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1885,7 +2198,11 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1943,9 +2260,15 @@ cJ
 cJ
 ab
 ab
+<<<<<<< HEAD
 Hq
 Hq
 ow
+=======
+YJ
+YJ
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1953,9 +2276,15 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
 Hq
 Hq
+=======
+YJ
+YJ
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -1963,9 +2292,15 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 ow
 Hq
 Hq
+=======
+QX
+YJ
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 cJ
@@ -2022,6 +2357,7 @@ cm
 EZ
 ab
 ab
+<<<<<<< HEAD
 Hq
 Hq
 ow
@@ -2045,6 +2381,31 @@ Hq
 ow
 Hq
 Hq
+=======
+YJ
+YJ
+QX
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
+QX
+YJ
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 EZ
@@ -2101,9 +2462,15 @@ cm
 EZ
 ab
 ab
+<<<<<<< HEAD
 ow
 ow
 ow
+=======
+QX
+QX
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -2111,9 +2478,15 @@ ab
 ab
 sq
 ab
+<<<<<<< HEAD
 Hq
 Hq
 Hq
+=======
+YJ
+YJ
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 sq
 ab
@@ -2121,9 +2494,15 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 ow
 ow
 ow
+=======
+QX
+QX
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 EZ
@@ -2191,7 +2570,11 @@ ab
 sq
 sq
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 sq
 sq
@@ -2270,7 +2653,11 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 Hq
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 ab
 ab
@@ -3414,7 +3801,11 @@ df
 df
 df
 cJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (35,1,1) = {"
 cJ
@@ -3459,7 +3850,11 @@ ab
 QS
 PD
 mC
+<<<<<<< HEAD
 hk
+=======
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ab
 cJ
 wA
@@ -3487,13 +3882,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 df
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (36,1,1) = {"
 cJ
@@ -3536,8 +3940,13 @@ JL
 dy
 ab
 QS
+<<<<<<< HEAD
 Th
 hk
+=======
+mG
+YJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 tj
 ab
 cJ
@@ -3566,13 +3975,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 df
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (37,1,1) = {"
 cJ
@@ -3611,11 +4029,19 @@ bI
 ab
 LT
 JL
+<<<<<<< HEAD
 aR
 dy
 ab
 QS
 mK
+=======
+zw
+dy
+ab
+QS
+QX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 mG
 PD
 ab
@@ -3645,13 +4071,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 df
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (38,1,1) = {"
 cJ
@@ -3724,13 +4159,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 ab
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (39,1,1) = {"
 cJ
@@ -3803,13 +4247,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 ab
 FW
 ab
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (40,1,1) = {"
 cJ
@@ -3882,13 +4335,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 ab
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (41,1,1) = {"
 cJ
@@ -3926,12 +4388,21 @@ wA
 cJ
 ab
 OO
+<<<<<<< HEAD
 ok
 lF
 lZ
 ab
 CH
 Dj
+=======
+Ho
+Gv
+lZ
+ab
+CH
+Bl
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 kA
 CW
 ab
@@ -3961,13 +4432,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 df
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (42,1,1) = {"
 cJ
@@ -4010,7 +4490,11 @@ Ho
 lZ
 ab
 CH
+<<<<<<< HEAD
 ac
+=======
+kA
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 XF
 Yv
 ab
@@ -4040,13 +4524,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 df
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (43,1,1) = {"
 cJ
@@ -4119,13 +4612,22 @@ DJ
 DJ
 DJ
 DJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 df
 df
 df
 df
+<<<<<<< HEAD
 gW
 lt
+=======
+df
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (44,1,1) = {"
 cJ
@@ -4204,7 +4706,11 @@ df
 df
 df
 cJ
+<<<<<<< HEAD
 lt
+=======
+cJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "}
 (45,1,1) = {"
 DJ
@@ -6446,9 +6952,15 @@ DJ
 DJ
 DJ
 cJ
+<<<<<<< HEAD
 ua
 ua
 ua
+=======
+rE
+rE
+rE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sP
 sP
 sP
@@ -6466,9 +6978,15 @@ Yq
 sP
 sP
 sP
+<<<<<<< HEAD
 ua
 ua
 ua
+=======
+rE
+rE
+rE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 cJ
 DJ
 DJ
@@ -6525,9 +7043,15 @@ DJ
 DJ
 DJ
 cJ
+<<<<<<< HEAD
 ua
 QH
 ua
+=======
+rE
+QH
+rE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sP
 sP
 sP
@@ -6545,9 +7069,15 @@ Yq
 sP
 sP
 sP
+<<<<<<< HEAD
 ua
 QH
 ua
+=======
+rE
+QH
+rE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 cJ
 DJ
 DJ
@@ -6604,9 +7134,15 @@ DJ
 DJ
 DJ
 cJ
+<<<<<<< HEAD
 ua
 ua
 ua
+=======
+rE
+rE
+rE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sP
 sP
 sP
@@ -6624,9 +7160,15 @@ Yq
 sP
 sP
 sP
+<<<<<<< HEAD
 ua
 ua
 ua
+=======
+rE
+rE
+rE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 cJ
 DJ
 DJ

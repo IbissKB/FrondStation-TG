@@ -4,7 +4,10 @@ import { NtosWindow } from '../layouts';
 import { prevNextCamera, selectCameras, CameraConsoleContent } from './CameraConsole';
 
 type Data = {
+<<<<<<< HEAD
   PC_device_theme: string;
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   mapRef: string;
   activeCamera: Camera;
   cameras: Camera[];
@@ -15,11 +18,16 @@ type Camera = {
 };
 
 export const NtosSecurEye = (props, context) => {
+<<<<<<< HEAD
   const { data } = useBackend<Data>(context);
   const { PC_device_theme } = data;
 
   return (
     <NtosWindow width={800} height={600} theme={PC_device_theme}>
+=======
+  return (
+    <NtosWindow width={800} height={600}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <NtosWindow.Content>
         <div className="CameraConsole__left">
           <CameraConsoleContent />

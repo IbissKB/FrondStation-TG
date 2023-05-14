@@ -3,8 +3,13 @@
 /obj/vehicle/sealed/mecha/generate_action_type()
 	. = ..()
 	if(istype(., /datum/action/vehicle/sealed/mecha))
+<<<<<<< HEAD
 		var/datum/action/vehicle/sealed/mecha/mecha = .
 		mecha.chassis = src
+=======
+		var/datum/action/vehicle/sealed/mecha/mecha_action = .
+		mecha_action.set_chassis(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/action/vehicle/sealed/mecha
 	button_icon = 'icons/mob/actions/actions_mecha.dmi'
@@ -14,6 +19,14 @@
 	chassis = null
 	return ..()
 
+<<<<<<< HEAD
+=======
+///Sets the chassis var of our mecha action to the referenced mecha. Used during actions generation in
+///generate_action_type() chain.
+/datum/action/vehicle/sealed/mecha/proc/set_chassis(passed_chassis)
+	chassis = passed_chassis
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/action/vehicle/sealed/mecha/mech_eject
 	name = "Eject From Mech"
 	button_icon_state = "mech_eject"
@@ -77,6 +90,30 @@
 
 	chassis.ui_interact(owner)
 
+<<<<<<< HEAD
+=======
+/datum/action/vehicle/sealed/mecha/mech_toggle_safeties
+	name = "Toggle Equipment Safeties"
+	button_icon_state = "mech_safeties_off"
+
+/datum/action/vehicle/sealed/mecha/mech_toggle_safeties/set_chassis(passed_chassis)
+	. = ..()
+	RegisterSignal(chassis, COMSIG_MECH_SAFETIES_TOGGLE, PROC_REF(update_action_icon))
+
+/datum/action/vehicle/sealed/mecha/mech_toggle_safeties/Trigger(trigger_flags)
+	if(!owner || !chassis || !(owner in chassis.occupants))
+		return
+
+	chassis.set_safety(owner)
+
+/datum/action/vehicle/sealed/mecha/mech_toggle_safeties/apply_button_icon(atom/movable/screen/movable/action_button/current_button, force)
+	button_icon_state = "mech_safeties_[chassis.weapons_safety ? "on" : "off"]"
+	return ..()
+
+/datum/action/vehicle/sealed/mecha/mech_toggle_safeties/proc/update_action_icon()
+	SIGNAL_HANDLER
+	build_all_button_icons()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/action/vehicle/sealed/mecha/strafe
 	name = "Toggle Strafing. Disabled when Alt is held."
@@ -89,7 +126,11 @@
 	chassis.toggle_strafe()
 
 /obj/vehicle/sealed/mecha/AltClick(mob/living/user)
+<<<<<<< HEAD
 	if(!(user in occupants) || !user.canUseTopic(src))
+=======
+	if(!(user in occupants) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!(user in return_controllers_with_flag(VEHICLE_CONTROL_DRIVE)))
 		to_chat(user, span_warning("You're in the wrong seat to control movement."))

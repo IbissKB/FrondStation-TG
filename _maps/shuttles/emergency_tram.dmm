@@ -63,6 +63,12 @@
 /area/shuttle/escape)
 "ao" = (
 /obj/machinery/light/directional/east,
+<<<<<<< HEAD
+=======
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/escape)
 "ap" = (
@@ -111,9 +117,13 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "ax" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
@@ -128,9 +138,13 @@
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
 "aA" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/emcloset,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/glass/reinforced,
@@ -138,11 +152,19 @@
 "aB" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "aC" = (
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"aC" = (
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aD" = (
 /obj/machinery/flasher/directional/west{
@@ -161,6 +183,12 @@
 /area/shuttle/escape)
 "aG" = (
 /obj/item/radio/intercom/directional/north,
+<<<<<<< HEAD
+=======
+/obj/machinery/camera/autoname{
+	dir = 6
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "aH" = (
@@ -173,34 +201,53 @@
 /obj/machinery/flasher/directional/west{
 	id = "shuttle_flasher"
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "aI" = (
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"aI" = (
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aJ" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Emergency Shuttle Brig"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aK" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/shuttle/escape)
 "aL" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/shuttle/escape)
 "aM" = (
@@ -208,13 +255,21 @@
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aN" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "aO" = (
 /turf/closed/wall/mineral/titanium/interior,
@@ -254,6 +309,12 @@
 "aV" = (
 /obj/machinery/light/directional/east,
 /obj/item/radio/intercom/directional/north,
+<<<<<<< HEAD
+=======
+/obj/machinery/camera/autoname{
+	dir = 6
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "aW" = (
@@ -354,9 +415,13 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
 "bh" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)
@@ -365,14 +430,20 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)
 "bj" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
 "bk" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
@@ -384,6 +455,21 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/glass/reinforced,
+/area/shuttle/escape)
+"bl" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/glass/reinforced,
+/area/shuttle/escape)
+"eV" = (
+/obj/machinery/camera/autoname,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/escape)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "uu" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -508,7 +594,11 @@ ax
 ak
 aY
 aZ
+<<<<<<< HEAD
 aZ
+=======
+eV
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ak
 bj
 "}

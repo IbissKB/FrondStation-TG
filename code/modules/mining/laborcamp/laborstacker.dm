@@ -125,7 +125,11 @@ GLOBAL_LIST(labor_sheet_values)
 					return TRUE
 
 /obj/machinery/mineral/labor_claim_console/proc/locate_stacking_machine()
+<<<<<<< HEAD
 	stacking_machine = locate(/obj/machinery/mineral/stacking_machine) in view(2, src)
+=======
+	stacking_machine = locate(/obj/machinery/mineral/stacking_machine) in dview(2, get_turf(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(stacking_machine)
 		stacking_machine.labor_console = src
 

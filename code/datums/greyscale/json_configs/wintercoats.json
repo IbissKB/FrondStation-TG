@@ -73,12 +73,15 @@
 			"icon_state": "bodybottom",
 			"blend_mode": "overlay",
 			"color_ids": [ 6 ]
+<<<<<<< HEAD
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "hood",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		}
 	]
 }

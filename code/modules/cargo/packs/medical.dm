@@ -30,6 +30,20 @@
 					/obj/item/reagent_containers/hypospray/medipen/blood_loss = 3)
 	crate_name = "medipen crate"
 
+<<<<<<< HEAD
+=======
+/datum/supply_pack/medical/coroner_crate
+	name = "Autopsy Kit"
+	desc = "Contains an autopsy scanner, when you lose your own and really \
+		need to complete your dissection experiments."
+	cost = CARGO_CRATE_VALUE * 2.5
+	contains = list(
+		/obj/item/autopsy_scanner = 1,
+		/obj/item/storage/medkit/coroner = 1,
+	)
+	crate_name = "autopsy kit crate"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/supply_pack/medical/chemical
 	name = "Chemical Starter Kit Crate"
 	desc = "Contains thirteen different chemicals, for all the fun experiments you can make."
@@ -119,7 +133,11 @@
 	desc = "Contains a bulk supply of saline-glucose condensed into a single canister that \
 		should last several days, with a large pump to fill containers with. Direct injection \
 		of saline should be left to medical professionals as the pump is capable of overdosing \
+<<<<<<< HEAD
 		patients. Requires medbay access to open."
+=======
+		patients."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 6
 	access = ACCESS_MEDICAL
 	contains = list(/obj/machinery/iv_drip/saline)
@@ -127,8 +145,12 @@
 /datum/supply_pack/medical/virus
 	name = "Virus Crate"
 	desc = "Contains twelve different bottles of several viral samples for virology \
+<<<<<<< HEAD
 		research. Also includes seven beakers and syringes. Balled-up jeans not included. \
 		Requires CMO access to open."
+=======
+		research. Also includes seven beakers and syringes. Balled-up jeans not included."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 5
 	access = ACCESS_CMO
 	access_view = ACCESS_VIROLOGY
@@ -151,9 +173,23 @@
 
 /datum/supply_pack/medical/cmoturtlenecks
 	name = "Chief Medical Officer Turtlenecks"
+<<<<<<< HEAD
 	desc = "Contains the CMO's turtleneck and turtleneck skirt. Requires CMO access to open."
+=======
+	desc = "Contains the CMO's turtleneck and turtleneck skirt."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = CARGO_CRATE_VALUE * 2
 	access = ACCESS_CMO
 	contains = list(/obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck,
 					/obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck/skirt,
 				)
+<<<<<<< HEAD
+=======
+
+/datum/supply_pack/medical/arm_implants
+	name = "Strong-Arm Implant Set"
+	desc = "A crate containing two implants, which can be surgically implanted to empower the strength of human arms. Warranty void if exposed to electromagnetic pulses."
+	cost = CARGO_CRATE_VALUE * 6
+	contains = list(/obj/item/organ/internal/cyberimp/arm/muscle = 2)
+	crate_name = "Strong-Arm implant crate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

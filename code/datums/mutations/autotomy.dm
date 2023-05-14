@@ -30,7 +30,11 @@
 	for(var/obj/item/bodypart/to_remove as anything in cast_on.bodyparts)
 		if(to_remove.body_zone == BODY_ZONE_HEAD || to_remove.body_zone == BODY_ZONE_CHEST)
 			continue
+<<<<<<< HEAD
 		if(!to_remove.dismemberable)
+=======
+		if(to_remove.bodypart_flags & BODYPART_UNREMOVABLE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		parts += to_remove
 

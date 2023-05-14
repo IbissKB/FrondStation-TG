@@ -7,7 +7,11 @@
 	cost = 1
 
 /datum/armament_entry/assault_operatives/utility/thermals
+<<<<<<< HEAD
 	item_type = /obj/item/clothing/glasses/thermal
+=======
+	item_type = /obj/item/clothing/glasses/thermal/syndi
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = 4
 
 /datum/armament_entry/assault_operatives/utility/chem_keycard

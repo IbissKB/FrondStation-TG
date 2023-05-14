@@ -108,9 +108,15 @@
 	old_dir = movable_parent.dir
 	delayed = FALSE
 
+<<<<<<< HEAD
 /datum/component/drift/proc/after_move(datum/source, succeeded, visual_delay)
 	SIGNAL_HANDLER
 	if(!succeeded)
+=======
+/datum/component/drift/proc/after_move(datum/source, result, visual_delay)
+	SIGNAL_HANDLER
+	if(result == MOVELOOP_FAILURE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		qdel(src)
 		return
 
@@ -127,6 +133,10 @@
 /datum/component/drift/proc/loop_death(datum/source)
 	SIGNAL_HANDLER
 	drifting_loop = null
+<<<<<<< HEAD
+=======
+	UnregisterSignal(parent, COMSIG_MOVABLE_NEWTONIAN_MOVE) // We won't block a component from replacing us anymore
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/drift/proc/handle_move(datum/source, old_loc)
 	SIGNAL_HANDLER

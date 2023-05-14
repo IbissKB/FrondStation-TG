@@ -6,7 +6,11 @@
 
 /obj/item/storage/box/milking_kit/PopulateContents()
 	var/static/items_inside = list(
+<<<<<<< HEAD
 		/obj/item/milking_machine/constructionkit = 1)
+=======
+		/obj/item/construction_kit/milker = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	generate_items_inside(items_inside, src)
 
 // X-Stand
@@ -16,7 +20,11 @@
 
 /obj/item/storage/box/xstand_kit/PopulateContents()
 	var/static/items_inside = list(
+<<<<<<< HEAD
 		/obj/item/x_stand_kit = 1)
+=======
+		/obj/item/construction_kit/bdsm/x_stand = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	generate_items_inside(items_inside, src)
 
 // BDSM bed
@@ -26,7 +34,11 @@
 
 /obj/item/storage/box/bdsmbed_kit/PopulateContents()
 	var/static/items_inside = list(
+<<<<<<< HEAD
 		/obj/item/bdsm_bed_kit = 1)
+=======
+		/obj/item/construction_kit/bdsm/bed = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	generate_items_inside(items_inside, src)
 
 // Striptease pole
@@ -36,7 +48,11 @@
 
 /obj/item/storage/box/strippole_kit/PopulateContents()
 	var/static/items_inside = list(
+<<<<<<< HEAD
 		/obj/item/polepack = 1)
+=======
+		/obj/item/construction_kit/pole = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	generate_items_inside(items_inside, src)
 
 // Shibari stand
@@ -46,7 +62,11 @@
 
 /obj/item/storage/box/shibari_stand/PopulateContents()
 	var/static/items_inside = list(
+<<<<<<< HEAD
 		/obj/item/shibari_stand_kit = 1,
+=======
+		/obj/item/construction_kit/bdsm/shibari = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/paper/shibari_kit_instructions = 1)
 	generate_items_inside(items_inside, src)
 

@@ -5,7 +5,11 @@
 	gain_text = span_danger("You suddenly can't raise a hand to hurt others!")
 	lose_text = span_notice("You think you can defend yourself again.")
 	medical_record_text = "Patient is nerve stapled and is unable to harm others."
+<<<<<<< HEAD
 	icon = "hand-peace"
+=======
+	icon = FA_ICON_FACE_ANGRY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	forced_items = list(/obj/item/clothing/glasses/nerve_staple = list(ITEM_SLOT_EYES))
 	/// The nerve staple attached to the quirk
 	var/obj/item/clothing/glasses/nerve_staple/staple
@@ -27,6 +31,10 @@
 	name = "Brain Degeneration"
 	desc = "You have a lethal condition in your brain that is slowly destroying it. Better bring some mannitol!"
 	medical_record_text = "Patient has a lethal condition in their brain that is slowly causing brain death."
+<<<<<<< HEAD
+=======
+	icon = FA_ICON_BRAIN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Override of Brain Tumor quirk for robotic/synthetic species with posibrains.
 // Does not appear in TGUI or the character preferences window.
@@ -36,12 +44,17 @@
 	gain_text = "<span class='danger'>You feel glitchy.</span>"
 	lose_text = "<span class='notice'>You no longer feel glitchy.</span>"
 	medical_record_text = "Patient has a cascading anomaly in their brain that is slowly causing brain death."
+<<<<<<< HEAD
 	icon = "bp_synth_brain"
+=======
+	icon = FA_ICON_BRAZILIAN_REAL_SIGN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
 	hidden_quirk = TRUE
 
 // If brainproblems is added to a synth, this detours to the brainproblems/synth quirk.
 // TODO: Add more brain-specific detours when PR #16105 is merged
+<<<<<<< HEAD
 /datum/quirk/item_quirk/brainproblems/add_to_holder(mob/living/new_holder, quirk_transfer)
 	if(!(issynthetic(new_holder) && (src.type == /datum/quirk/item_quirk/brainproblems)))
 		// Defer to TG brainproblems if the character isn't robotic.
@@ -53,6 +66,20 @@
 
 // Synthetics get liquid_solder with Brain Tumor instead of mannitol.
 /datum/quirk/item_quirk/brainproblems/synth/add_unique()
+=======
+/datum/quirk/item_quirk/brainproblems/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
+	if(!issynthetic(new_holder) || type != /datum/quirk/item_quirk/brainproblems)
+		// Defer to TG brainproblems if the character isn't robotic.
+		return ..()
+
+	// TODO: Check brain type and detour to appropriate brainproblems quirk
+	var/datum/quirk/item_quirk/brainproblems/synth/bp_synth = new
+	qdel(src)
+	return bp_synth.add_to_holder(new_holder, quirk_transfer, client_source)
+
+// Synthetics get liquid_solder with Brain Tumor instead of mannitol.
+/datum/quirk/item_quirk/brainproblems/synth/add_unique(client/client_source)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	give_item_to_holder(
 		/obj/item/storage/pill_bottle/liquid_solder/braintumor,
 		list(
@@ -70,16 +97,28 @@
 	name = "Hydraulic Leak"
 	desc = "Your body's hydraulic fluids are leaking through their seals."
 	medical_record_text = "Patient requires regular treatment for hydraulic fluid loss."
+<<<<<<< HEAD
 	icon = "bd_synth_tint"
+=======
+	icon = FA_ICON_GLASS_WATER_DROPLET
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mail_goodies = list(/obj/item/reagent_containers/blood/oil)
 	// min_blood = BLOOD_VOLUME_BAD - 25; // TODO: Uncomment after TG PR #70563
 	hidden_quirk = TRUE
 
 // If blooddeficiency is added to a synth, this detours to the blooddeficiency/synth quirk.
+<<<<<<< HEAD
 /datum/quirk/blooddeficiency/add_to_holder(mob/living/new_holder, quirk_transfer)
 	if(!(issynthetic(new_holder) && (src.type == /datum/quirk/blooddeficiency)))
 		// Defer to TG blooddeficiency if the character isn't robotic.
 		return ..()
+=======
+/datum/quirk/blooddeficiency/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
+	if(!issynthetic(new_holder) || type != /datum/quirk/blooddeficiency)
+		// Defer to TG blooddeficiency if the character isn't robotic.
+		return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/quirk/blooddeficiency/synth/bd_synth = new
 	qdel(src)
 	return bd_synth.add_to_holder(new_holder, quirk_transfer)

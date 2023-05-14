@@ -10,6 +10,10 @@
 		ANNOUNCER_IONSTORM = 'modular_skyrat/modules/alerts/sound/alerts/ionstorm.ogg',
 		ANNOUNCER_METEORS = 'modular_skyrat/modules/alerts/sound/alerts/meteors.ogg',
 		ANNOUNCER_OUTBREAK5 = 'modular_skyrat/modules/alerts/sound/alerts/outbreak5.ogg',
+<<<<<<< HEAD
+=======
+		ANNOUNCER_OUTBREAK6 = 'modular_skyrat/modules/alerts/sound/alerts/alert3.ogg',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ANNOUNCER_OUTBREAK7 = 'modular_skyrat/modules/alerts/sound/alerts/outbreak7.ogg',
 		ANNOUNCER_POWEROFF = 'modular_skyrat/modules/alerts/sound/alerts/poweroff.ogg',
 		ANNOUNCER_POWERON = 'modular_skyrat/modules/alerts/sound/alerts/poweron.ogg',
@@ -19,6 +23,10 @@
 		ANNOUNCER_SHUTTLEDOCK = 'modular_skyrat/modules/alerts/sound/alerts/crew_shuttle_docked.ogg',
 		ANNOUNCER_SHUTTLERECALLED = 'modular_skyrat/modules/alerts/sound/alerts/crew_shuttle_recalled.ogg',
 		ANNOUNCER_SHUTTLELEFT = 'modular_skyrat/modules/alerts/sound/alerts/crew_shuttle_left.ogg',
+<<<<<<< HEAD
+=======
+		ANNOUNCER_ANOMALIES = 'modular_skyrat/modules/alerts/sound/alerts/alert2.ogg',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		ANNOUNCER_GRAVANOMALIES= 'modular_skyrat/modules/alerts/sound/alerts/gravanomalies.ogg',
 		ANNOUNCER_SPANOMALIES = 'modular_skyrat/modules/alerts/sound/alerts/wormholes.ogg',
 		ANNOUNCER_VORTEXANOMALIES = 'modular_skyrat/modules/alerts/sound/alerts/vortex.ogg',
@@ -39,5 +47,10 @@
 		ANNOUNCER_MUTANTS = 'modular_skyrat/modules/alerts/sound/alerts/hazdet.ogg',
 		ANNOUNCER_KLAXON = 'modular_skyrat/modules/black_mesa/sound/siren1_long.ogg',
 		ANNOUNCER_ICARUS = 'modular_skyrat/modules/assault_operatives/sound/icarus_alarm.ogg',
+<<<<<<< HEAD
 		ANNOUNCER_NRI_RAIDERS = 'modular_skyrat/modules/encounters/sounds/morse.ogg'
+=======
+		ANNOUNCER_NRI_RAIDERS = 'modular_skyrat/modules/encounters/sounds/morse.ogg',
+		ANNOUNCER_FUNGI = 'modular_skyrat/modules/alerts/sound/alerts/fungi.ogg',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		)

@@ -18,7 +18,11 @@
 		return
 
 	var/safety = tgui_alert(user, "Doing this will have extremely dire consequences for the station and its crew. Be sure you know what you're doing.", "Put in [to_insert.name]?", list("Proceed", "Abort"))
+<<<<<<< HEAD
 	if(safety != "Proceed" || QDELETED(to_insert) || QDELETED(resolve_parent) || QDELETED(user) || !user.canUseTopic(resolve_parent, be_close = TRUE, no_dexterity = iscarbon(user)))
+=======
+	if(safety != "Proceed" || QDELETED(to_insert) || QDELETED(resolve_parent) || QDELETED(user) || !iscarbon(user) || !user.can_perform_action(resolve_parent, NEED_DEXTERITY))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/turf/loccheck = get_turf(resolve_parent)

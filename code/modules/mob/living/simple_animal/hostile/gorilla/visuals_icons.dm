@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+#define GORILLA_HANDS_LAYER 1
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/hostile/gorilla/proc/apply_overlay(cache_index)
 	. = gorilla_overlays[cache_index]
 	if(.)
@@ -51,3 +56,7 @@
 /mob/living/simple_animal/hostile/gorilla/regenerate_icons()
 	update_held_items()
 
+<<<<<<< HEAD
+=======
+#undef GORILLA_HANDS_LAYER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

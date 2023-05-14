@@ -8,12 +8,24 @@
 	fixed_mut_color = "#DBBF92"
 	hair_color = "#FF4B19" //cap color, spot color uses eye color
 
+<<<<<<< HEAD
 	species_traits = list(MUTCOLORS, NOEYESPRITES, NO_UNDERWEAR, HAS_FLESH, HAS_BONE)
+=======
+	species_traits = list(
+		MUTCOLORS,
+		NOEYESPRITES,
+		NO_UNDERWEAR,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inherent_traits = list(
 		TRAIT_NOBREATH,
 		TRAIT_NOFLASH,
 	)
+<<<<<<< HEAD
 	inherent_factions = list("mushroom")
+=======
+	inherent_factions = list(FACTION_MUSHROOM)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	speedmod = 1.5 //faster than golems but not by much
 
 	no_equip_flags = ITEM_SLOT_MASK | ITEM_SLOT_OCLOTHING | ITEM_SLOT_GLOVES | ITEM_SLOT_FEET | ITEM_SLOT_ICLOTHING
@@ -23,6 +35,10 @@
 
 	mutanttongue = /obj/item/organ/internal/tongue/mush
 	mutanteyes = /obj/item/organ/internal/eyes/night_vision/mushroom
+<<<<<<< HEAD
+=======
+	mutantlungs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	use_skintones = FALSE
 	var/datum/martial_art/mushpunch/mush
 	species_language_holder = /datum/language_holder/mushroom
@@ -54,11 +70,20 @@
 	mush.remove(C)
 	QDEL_NULL(mush)
 
+<<<<<<< HEAD
 /datum/species/mush/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)
 	if(chem.type == /datum/reagent/toxin/plantbgone/weedkiller)
 		H.adjustToxLoss(3 * REAGENTS_EFFECT_MULTIPLIER * delta_time)
 		H.reagents.remove_reagent(chem.type, REAGENTS_METABOLISM * delta_time)
 		return TRUE
+=======
+/datum/species/mush/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, seconds_per_tick, times_fired)
+	if(chem.type == /datum/reagent/toxin/plantbgone/weedkiller)
+		H.adjustToxLoss(3 * REM * seconds_per_tick)
+		H.reagents.remove_reagent(chem.type, REAGENTS_METABOLISM * seconds_per_tick)
+		return TRUE
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update = FALSE) //SKYRAT EDIT - ORIGINAL: /datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour) (one parameter added)
 	forced_colour = FALSE

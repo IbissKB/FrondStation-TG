@@ -28,7 +28,11 @@
 	juice_results = list(/datum/reagent/consumable/potato_juice = 0)
 	distill_reagent = /datum/reagent/consumable/ethanol/vodka
 
+<<<<<<< HEAD
 /obj/item/food/grown/potato/MakeBakeable()
+=======
+/obj/item/food/grown/potato/make_bakeable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/bakeable, /obj/item/food/baked_potato, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/grown/potato/wedges
@@ -66,5 +70,9 @@
 	icon_state = "sweetpotato"
 	distill_reagent = /datum/reagent/consumable/ethanol/sbiten
 
+<<<<<<< HEAD
 /obj/item/food/grown/potato/sweet/MakeBakeable()
+=======
+/obj/item/food/grown/potato/sweet/make_bakeable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/bakeable, /obj/item/food/yakiimo, rand(15 SECONDS, 35 SECONDS), TRUE, TRUE)

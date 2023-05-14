@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /obj/item/clothing/suit/hooded/wintercoat
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -95,6 +96,30 @@
 	icon_state = "coatnarsie"
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter)
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "fire" = 0, "acid" = 0, "wound" = 0)
+=======
+/obj/item/clothing/suit/hooded/wintercoat/medical/paramedic
+	allowed = list(
+		/obj/item/analyzer,
+		/obj/item/stack/medical,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/healthanalyzer,
+		/obj/item/reagent_containers/cup/bottle,
+		/obj/item/reagent_containers/cup/beaker,
+		/obj/item/reagent_containers/pill,
+		/obj/item/storage/pill_bottle,
+		/obj/item/paper,
+		/obj/item/melee/baton/telescopic,
+	)
+	armor_type = /datum/armor/wintercoat_paramedic
+
+/datum/armor/wintercoat_paramedic
+	bio = 50
+	acid = 45
+	wound = 3
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/flakjack
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -106,25 +131,48 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = CHEST
 	resistance_flags = NONE
+<<<<<<< HEAD
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "fire" = -5, "acid" = -15, "wound" = 0) //nylon sucks against acid
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+=======
+	armor_type = /datum/armor/suit_flakjack
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/datum/armor/suit_flakjack
+	bomb = 5
+	fire = -5
+	acid = -15
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cloak/david
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	name = "red cloak"
 	icon_state = "goliath_cloak"
+<<<<<<< HEAD
 	desc = "Ever wanted to look like a badass without ANY effort? Try this nanotrasen brand red cloak, perfect for kids"
+=======
+	desc = "Ever wanted to look like a badass without ANY effort? Try this nanotrasen brand red cloak, made of entirely synthetic material."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hoodtype = /obj/item/clothing/head/hooded/cloakhood/david
 	body_parts_covered = CHEST|GROIN|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/hooded/cloakhood/david
+<<<<<<< HEAD
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	name = "red cloak hood"
 	icon_state = "golhood"
 	desc = "conceal your face in shame with this nanotrasen brand hood"
+=======
+	icon = 'icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
+	name = "red cloak hood"
+	icon_state = "golhood"
+	desc = "Conceal your face in shame with this nanotrasen brand mock-goliath hood."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_inv = HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
@@ -148,10 +196,24 @@
 	inhand_icon_state = "det_suit"
 	blood_overlay_type = "coat"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+<<<<<<< HEAD
 	armor = list(MELEE = 25, BULLET = 10, LASER = 25, ENERGY = 35, BOMB = 0, BIO = 0, FIRE = 0, ACID = 45)
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 
+=======
+	armor_type = /datum/armor/toggle_deckard
+	cold_protection = CHEST|GROIN|LEGS|ARMS
+	heat_protection = CHEST|GROIN|LEGS|ARMS
+
+/datum/armor/toggle_deckard
+	melee = 25
+	bullet = 10
+	laser = 25
+	energy = 35
+	acid = 45
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/jacket/leather/colourable
 	desc = "Now with more color!"
 	icon_state = "leather_jacket"
@@ -200,6 +262,7 @@
 	icon_state = "suitjacket_white"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
 /obj/item/clothing/suit/hooded/wintercoat/christmas
 	name = "red christmas coat"
 	desc = "A festive red Christmas coat! Smells like Candy Cane!"
@@ -233,6 +296,8 @@
 /obj/item/clothing/head/hooded/winterhood/christmas/gamerpc
 	icon_state = "christmashoodrg"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/armor/vest/det_suit/runner
 	name = "joyful coat"
 	desc = "<i>\"You look like a good Joe.\"</i>"

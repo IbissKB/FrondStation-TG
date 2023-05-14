@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #define HITS_TO_CRIT(damage) round(130 / damage, 0.1) //Skyrat Edit
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  *
  * The purpose of this element is to widely provide the ability to examine an object and determine its stats, with the ability to add
@@ -12,10 +15,13 @@
 	// Additional proc to be run for specific object types
 	var/attached_proc
 
+<<<<<<< HEAD
 	// Flavor text crimes used in build_weapon_text()
 	var/list/crimes = list("Assaults", "Third Degree Murders", "Robberies", "Terrorist Attacks", "Different Felonies", "Felinies", "Counts of Tax Evasion", "Mutinies")
 	var/list/victims = list("a human", "a moth", "a felinid", "a lizard", "a particularly resilient slime", "a syndicate agent", "a clown", "a mime", "a mortal foe", "an innocent bystander")
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/element/weapon_description/Attach(datum/target, attached_proc)
 	. = ..()
 	if(!isitem(target)) // Do not attach this to anything that isn't an item
@@ -44,7 +50,11 @@
 	SIGNAL_HANDLER
 
 	if(item.force >= 5 || item.throwforce >= 5 || item.override_notes || item.offensive_notes || attached_proc) /// Only show this tag for items that could feasibly be weapons, shields, or those that have special notes
+<<<<<<< HEAD
 		examine_texts += span_notice("OOC: It has an ever-updating bluespace <a href='?src=[REF(item)];examine=1'>warning label.</a>") //SKYRAT EDIT ORIGINAL: ("It appears to have an ever-updating bluespace <a href='?src=[REF(item)];examine=1'>warning label.</a>")
+=======
+		examine_texts += span_notice("<a href='?src=[REF(item)];examine=1'>See combat information.</a>")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  *
@@ -74,15 +84,20 @@
  *  * source - The object whose stats are being examined
  */
 /datum/element/weapon_description/proc/build_label_text(obj/item/source)
+<<<<<<< HEAD
 	var/list/readout = list("") // Readout is used to store the text block output to the user so it all can be sent in one message
 
 	// Meaningless flavor text. The number of crimes is constantly changing because of the complex Nanotrasen legal system and the esoteric nature of time itself!
 	readout += "[span_warning("WARNING:")] This item has been marked as dangerous by the NT legal team because of its use in [span_warning("[rand(2,99)] [crimes[rand(1, crimes.len)]]")] in the past hour.\n"
+=======
+	var/list/readout = list() // Readout is used to store the text block output to the user so it all can be sent in one message
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)
 		// Make sure not to divide by 0 on accident
 		if(source.force > 0)
+<<<<<<< HEAD
 			readout += "Our extensive research has shown that it takes a mere [span_warning("[HITS_TO_CRIT(source.force)] hit\s")] to beat down [victims[rand(1, victims.len)]] with no armor."
 		else
 			readout += "Our extensive research found that you couldn't beat anyone to death with this if you tried."
@@ -93,6 +108,18 @@
 			readout += "If you decide to throw this object instead, then you will have trouble damaging anything."
 		if(source.armour_penetration > 0 || source.block_chance > 0)
 			readout += "This item has proven itself [span_warning("[weapon_tag_convert(source.armour_penetration)]")] of piercing armor and [span_warning("[weapon_tag_convert(source.block_chance)]")] of blocking attacks."
+=======
+			readout += "[source.p_they(capitalized = TRUE)] takes about [span_warning("[HITS_TO_CRIT(source.force)] melee hit\s")] to take down an enemy."
+		else
+			readout += "[source.p_they(capitalized = TRUE)] does not deal noticeable melee damage."
+
+		if(source.throwforce > 0)
+			readout += "[source.p_they(capitalized = TRUE)] takes about [span_warning("[HITS_TO_CRIT(source.throwforce)] throwing hit\s")] to take down an enemy."
+		else
+			readout += "[source.p_they(capitalized = TRUE)] does not deal noticeable throwing damage."
+		if(source.armour_penetration > 0 || source.block_chance > 0)
+			readout += "[source.p_they(capitalized = TRUE)] has [span_warning("[weapon_tag_convert(source.armour_penetration)]")] armor-piercing capability and [span_warning("[weapon_tag_convert(source.block_chance)]")] blocking capability."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Custom manual notes
 	if(source.offensive_notes)
 		readout += source.offensive_notes
@@ -115,6 +142,7 @@
 /datum/element/weapon_description/proc/weapon_tag_convert(tag_val)
 	switch(tag_val)
 		if(0)
+<<<<<<< HEAD
 			return "INCAPABLE"
 		if(1 to 25)
 			return "BARELY CAPABLE"
@@ -126,3 +154,16 @@
 			return "EXTREMELY CAPABLE"
 		else
 			return "STRANGELY CAPABLE"
+=======
+			return "NO"
+		if(1 to 25)
+			return "LITTLE"
+		if(26 to 50)
+			return "AVERAGE"
+		if(51 to 75)
+			return "ABOVE-AVERAGE"
+		if(76 to INFINITY)
+			return "EXCELLENT"
+		else
+			return "WEIRD"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

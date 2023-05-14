@@ -97,7 +97,11 @@
 	airs[i] = null
 	return ..()
 
+<<<<<<< HEAD
 /obj/machinery/atmospherics/components/on_construction()
+=======
+/obj/machinery/atmospherics/components/on_construction(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	update_parents()
 
@@ -130,6 +134,11 @@
 			parents[i] = null // Disconnects from the machinery side.
 
 	reference.other_atmos_machines -= src
+<<<<<<< HEAD
+=======
+	if(custom_reconcilation)
+		reference.require_custom_reconcilation -= src
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/**
 	 *  We explicitly qdel pipeline when this particular pipeline

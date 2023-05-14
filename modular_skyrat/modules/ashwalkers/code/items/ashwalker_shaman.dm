@@ -55,4 +55,8 @@
 		/obj/item/stack/sheet/sinew = 1,
 	)
 	time = 4 SECONDS
+<<<<<<< HEAD
 	category = CAT_PRIMAL
+=======
+	category = CAT_TOOLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

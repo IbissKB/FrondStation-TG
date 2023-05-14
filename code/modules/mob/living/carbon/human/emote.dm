@@ -1,9 +1,12 @@
 /datum/emote/living/carbon/human
 	mob_type_allowed_typecache = list(/mob/living/carbon/human)
 
+<<<<<<< HEAD
 /// The time it takes for the crying visual to be removed
 #define CRY_DURATION (12.8 SECONDS)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/emote/living/carbon/human/cry
 	key = "cry"
 	key_third_person = "cries"
@@ -14,6 +17,7 @@
 
 /datum/emote/living/carbon/human/cry/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
+<<<<<<< HEAD
 	if(. && ishuman(user)) // Give them a visual crying effect if they're human
 		var/mob/living/carbon/human/human_user = user
 		ADD_TRAIT(human_user, TRAIT_CRYING, "[type]")
@@ -31,6 +35,12 @@
 		human_user.update_body()
 
 #undef CRY_DURATION
+=======
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/human_user = user
+	QDEL_IN(human_user.give_emote_overlay(/datum/bodypart_overlay/simple/emote/cry), 12.8 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/emote/living/carbon/human/dap
 	key = "dap"
@@ -92,7 +102,11 @@
 /datum/emote/living/carbon/human/scream/screech //If a human tries to screech it'll just scream.
 	key = "screech"
 	key_third_person = "screeches"
+<<<<<<< HEAD
 	message = "screeches."
+=======
+	message = "screeches!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	message_mime = "screeches silently."
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 	vary = FALSE
@@ -133,7 +147,11 @@
 	. = ..()
 	if(!.)
 		return
+<<<<<<< HEAD
 	var/obj/item/organ/external/tail/oranges_accessory = user.getorganslot(ORGAN_SLOT_EXTERNAL_TAIL)
+=======
+	var/obj/item/organ/external/tail/oranges_accessory = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(oranges_accessory.wag_flags & WAG_WAGGING) //We verified the tail exists in can_run_emote()
 		SEND_SIGNAL(user, COMSIG_ORGAN_WAG_TAIL, FALSE)
 	else
@@ -141,14 +159,22 @@
 
 /datum/emote/living/carbon/human/wag/select_message_type(mob/user, intentional)
 	. = ..()
+<<<<<<< HEAD
 	var/obj/item/organ/external/tail/oranges_accessory = user.getorganslot(ORGAN_SLOT_EXTERNAL_TAIL)
+=======
+	var/obj/item/organ/external/tail/oranges_accessory = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(oranges_accessory.wag_flags & WAG_WAGGING)
 		. = "stops wagging " + message
 	else
 		. = "wags " + message
 
 /datum/emote/living/carbon/human/wag/can_run_emote(mob/user, status_check, intentional)
+<<<<<<< HEAD
 	var/obj/item/organ/external/tail/tail = user.getorganslot(ORGAN_SLOT_EXTERNAL_TAIL)
+=======
+	var/obj/item/organ/external/tail/tail = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(tail?.wag_flags & WAG_ABLE)
 		return ..()
 	return FALSE
@@ -162,7 +188,11 @@
 	. = ..()
 	if(.)
 		var/mob/living/carbon/human/H = user
+<<<<<<< HEAD
 		var/obj/item/organ/external/wings/functional/wings = H.getorganslot(ORGAN_SLOT_EXTERNAL_WINGS)
+=======
+		var/obj/item/organ/external/wings/functional/wings = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(wings && findtext(select_message_type(user,intentional), "open"))
 			wings.open_wings()
 		else
@@ -217,7 +247,11 @@
 /datum/emote/living/carbon/human/monkey/screech/roar
 	key = "roar"
 	key_third_person = "roars"
+<<<<<<< HEAD
 	message = "roars."
+=======
+	message = "roars!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	message_mime = "acts out a roar."
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 

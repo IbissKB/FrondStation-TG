@@ -20,7 +20,11 @@
 
 /obj/item/boxcutter/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDS)
+=======
+	AddElement(/datum/element/update_icon_updates_onmob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/butchering, \
 		speed = 7 SECONDS, \
 		effectiveness = 100, \

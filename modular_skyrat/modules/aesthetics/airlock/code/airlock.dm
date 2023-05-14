@@ -1,5 +1,9 @@
 //SKYRAT ADDITION BEGIN - AESTHETICS
+<<<<<<< HEAD
 #define AIRLOCK_LIGHT_POWER 1
+=======
+#define AIRLOCK_LIGHT_POWER 0.5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define AIRLOCK_LIGHT_RANGE 2
 #define AIRLOCK_LIGHT_ENGINEERING "engineering"
 #define AIRLOCK_POWERON_LIGHT_COLOR "#3aa7c2"
@@ -17,6 +21,14 @@
 #define AIRLOCK_DENY	5
 #define AIRLOCK_EMAG	6
 
+<<<<<<< HEAD
+=======
+#define AIRLOCK_FRAME_CLOSED "closed"
+#define AIRLOCK_FRAME_CLOSING "closing"
+#define AIRLOCK_FRAME_OPEN "open"
+#define AIRLOCK_FRAME_OPENING "opening"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock
 	doorOpen = 'modular_skyrat/modules/aesthetics/airlock/sound/open.ogg'
 	doorClose = 'modular_skyrat/modules/aesthetics/airlock/sound/close.ogg'
@@ -560,7 +572,12 @@
 //SKYRAT EDIT ADDITION BEGIN - AESTHETICS
 #undef AIRLOCK_LIGHT_POWER
 #undef AIRLOCK_LIGHT_RANGE
+<<<<<<< HEAD
 
+=======
+#undef AIRLOCK_LIGHT_ENGINEERING
+#undef AIRLOCK_ENGINEERING_LIGHT_COLOR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef AIRLOCK_POWERON_LIGHT_COLOR
 #undef AIRLOCK_BOLTS_LIGHT_COLOR
 #undef AIRLOCK_ACCESS_LIGHT_COLOR
@@ -574,3 +591,11 @@
 #undef AIRLOCK_OPENING
 #undef AIRLOCK_DENY
 #undef AIRLOCK_EMAG
+<<<<<<< HEAD
+=======
+
+#undef AIRLOCK_FRAME_CLOSED
+#undef AIRLOCK_FRAME_CLOSING
+#undef AIRLOCK_FRAME_OPEN
+#undef AIRLOCK_FRAME_OPENING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

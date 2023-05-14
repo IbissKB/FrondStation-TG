@@ -29,7 +29,11 @@ SUBSYSTEM_DEF(statpanels)
 			cached ? "Next Map: [cached.map_name]" : null,
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
+<<<<<<< HEAD
 			"Round Time: [ROUND_TIME]",
+=======
+			"Round Time: [ROUND_TIME()]",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			"Station Time: [station_time_timestamp()]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
 		)
@@ -121,9 +125,15 @@ SUBSYSTEM_DEF(statpanels)
 		return
 
 	target.stat_panel.send_message("update_stat", list(
+<<<<<<< HEAD
 		global_data = global_data,
 		ping_str = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
 		other_str = target.mob?.get_status_tab_items(),
+=======
+		"global_data" = global_data,
+		"ping_str" = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
+		"other_str" = target.mob?.get_status_tab_items(),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	))
 
 /datum/controller/subsystem/statpanels/proc/set_MC_tab(client/target)
@@ -131,7 +141,11 @@ SUBSYSTEM_DEF(statpanels)
 	var/coord_entry = COORD(eye_turf)
 	if(!mc_data)
 		generate_mc_data()
+<<<<<<< HEAD
 	target.stat_panel.send_message("update_mc", list(mc_data = mc_data, coord_entry = coord_entry))
+=======
+	target.stat_panel.send_message("update_mc", list("mc_data" = mc_data, "coord_entry" = coord_entry))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/controller/subsystem/statpanels/proc/set_tickets_tab(client/target)
 	var/list/ahelp_tickets = GLOB.ahelp_tickets.stat_entry()
@@ -352,7 +366,11 @@ SUBSYSTEM_DEF(statpanels)
 
 /// Takes a client, attempts to generate object images for it
 /// We will update the client with any improvements we make when we're done
+<<<<<<< HEAD
 /datum/object_window_info/process(delta_time)
+=======
+/datum/object_window_info/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Cache the datum access for sonic speed
 	var/list/to_make = atoms_to_imagify
 	var/list/newly_seen = atoms_to_images

@@ -68,7 +68,11 @@
 
 	//barticles
 	if(particles_path && ismovable(linked_song.parent))
+<<<<<<< HEAD
 		particle_holder = new(linked_song.parent, particles_path)
+=======
+		particle_holder = new(linked_song.parent, particles_path, PARTICLE_ATTACH_MOB)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//filters
 	linked_song.parent?.add_filter("smooth_tunes_outline", 9, list("type" = "outline", "color" = glow_color))
 
@@ -103,7 +107,11 @@
 	linked_song = null
 	qdel(src)
 
+<<<<<<< HEAD
 /datum/component/smooth_tunes/process(delta_time = SSOBJ_DT)
+=======
+/datum/component/smooth_tunes/process(seconds_per_tick = SSOBJ_DT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(linked_songtuner_rite && linked_song)
 		for(var/mob/living/carbon/human/listener in linked_song.hearing_mobs)
 			if(listener == parent || listener.can_block_magic(MAGIC_RESISTANCE_HOLY, charge_cost = 0))

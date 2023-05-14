@@ -13,6 +13,7 @@
 
 /datum/element/venomous/Attach(datum/target, poison_type, amount_added)
 	. = ..()
+<<<<<<< HEAD
 
 	if(ismachinery(target) || isstructure(target) || isgun(target) || isprojectilespell(target))
 		RegisterSignal(target, COMSIG_PROJECTILE_ON_HIT, PROC_REF(projectile_hit))
@@ -50,6 +51,17 @@
 	add_reagent(target)
 
 /datum/element/venomous/proc/add_reagent(mob/living/target)
+=======
+	src.poison_type = poison_type
+	src.amount_added = amount_added
+	target.AddComponent(/datum/component/on_hit_effect, CALLBACK(src, PROC_REF(do_venom)))
+
+/datum/element/venomous/Detach(datum/target)
+	qdel(target.GetComponent(/datum/component/on_hit_effect))
+	return ..()
+
+/datum/element/venomous/proc/do_venom(datum/element_owner, atom/venom_source, mob/living/target, hit_zone)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!istype(target))
 		return
 	if(target.stat == DEAD)

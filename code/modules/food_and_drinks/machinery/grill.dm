@@ -77,22 +77,38 @@
 
 	..()
 
+<<<<<<< HEAD
 /obj/machinery/grill/process(delta_time)
+=======
+/obj/machinery/grill/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	update_appearance()
 	if(grill_fuel <= 0)
 		return
 	else
+<<<<<<< HEAD
 		grill_fuel -= GRILL_FUELUSAGE_IDLE * delta_time
 		if(DT_PROB(0.5, delta_time))
+=======
+		grill_fuel -= GRILL_FUELUSAGE_IDLE * seconds_per_tick
+		if(SPT_PROB(0.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/datum/effect_system/fluid_spread/smoke/bad/smoke = new
 			smoke.set_up(1, holder = src, location = loc)
 			smoke.start()
 	if(grilled_item)
+<<<<<<< HEAD
 		SEND_SIGNAL(grilled_item, COMSIG_ITEM_GRILL_PROCESS, src, delta_time)
 		grill_time += delta_time
 		grilled_item.reagents.add_reagent(/datum/reagent/consumable/char, 0.5 * delta_time)
 		grill_fuel -= GRILL_FUELUSAGE_ACTIVE * delta_time
+=======
+		SEND_SIGNAL(grilled_item, COMSIG_ITEM_GRILL_PROCESS, src, seconds_per_tick)
+		grill_time += seconds_per_tick
+		grilled_item.reagents.add_reagent(/datum/reagent/consumable/char, 0.5 * seconds_per_tick)
+		grill_fuel -= GRILL_FUELUSAGE_ACTIVE * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		grilled_item.AddComponent(/datum/component/sizzle)
 
 /obj/machinery/grill/Exited(atom/movable/gone, direction)

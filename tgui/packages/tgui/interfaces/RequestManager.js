@@ -85,6 +85,10 @@ const displayTypeMap = {
   'request_syndicate': 'SYNDICATE',
   'request_nuke': 'NUKE CODE',
   'request_fax': 'FAX',
+<<<<<<< HEAD
+=======
+  'request_internet_sound': 'INTERNET SOUND',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 const RequestType = (props) => {
@@ -121,6 +125,12 @@ const RequestControls = (props, context) => {
       {request.req_type === 'request_fax' && (
         <Button onClick={() => act('show', { id: request.id })}>SHOW</Button>
       )}
+<<<<<<< HEAD
+=======
+      {request.req_type === 'request_internet_sound' && (
+        <Button onClick={() => act('play', { id: request.id })}>PLAY</Button>
+      )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     </div>
   );
 };

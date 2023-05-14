@@ -13,7 +13,11 @@
 /datum/preference/choiced/vampire_status/init_possible_values()
 	var/list/values = list()
 
+<<<<<<< HEAD
 	values["Inoculated"] = icon('icons/obj/drinks.dmi', "bloodglass")
+=======
+	values["Inoculated"] = icon('icons/obj/drinks/drinks.dmi', "bloodglass")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	values["Outcast"] = icon('icons/obj/medical/bloodpack.dmi', "generic_bloodpack")
 
 	return values

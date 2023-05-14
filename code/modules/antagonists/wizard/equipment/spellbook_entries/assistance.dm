@@ -72,6 +72,7 @@
 	item_path = /obj/item/guardiancreator/choose/wizard
 	category = "Assistance"
 
+<<<<<<< HEAD
 /datum/spellbook_entry/item/guardian/buy_spell(mob/living/carbon/human/user, obj/item/spellbook/book)
 	. = ..()
 	if(!.)
@@ -80,6 +81,8 @@
 	new /obj/item/paper/guides/antag/guardian/wizard(get_turf(user))
 	to_chat(user, span_notice("If you are not experienced in the ways of wizardly guardians, a guide has been summoned at your feet."))
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/spellbook_entry/item/bloodbottle
 	name = "Bottle of Blood"
 	desc = "A bottle of magically infused blood, the smell of which will \

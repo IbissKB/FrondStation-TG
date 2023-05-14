@@ -17,9 +17,26 @@
 	var/node2_concentration = 0.5
 	//node 3 is the outlet, nodes 1 & 2 are intakes
 
+<<<<<<< HEAD
 /obj/machinery/atmospherics/components/trinary/mixer/CtrlClick(mob/user)
 	if(can_interact(user))
 		on = !on
+=======
+/obj/machinery/atmospherics/components/trinary/mixer/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/machinery/atmospherics/components/trinary/mixer/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Turn [on ? "off" : "on"]"
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Maximize target pressure"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/machinery/atmospherics/components/trinary/mixer/CtrlClick(mob/user)
+	if(can_interact(user))
+		on = !on
+		balloon_alert(user, "turned [on ? "on" : "off"]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		investigate_log("was turned [on ? "on" : "off"] by [key_name(user)]", INVESTIGATE_ATMOS)
 		update_appearance()
 	return ..()

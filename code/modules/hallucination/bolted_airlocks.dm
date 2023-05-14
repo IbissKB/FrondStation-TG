@@ -26,11 +26,19 @@
 	START_PROCESSING(SSfastprocess, src)
 	return TRUE
 
+<<<<<<< HEAD
 /datum/hallucination/bolts/process(delta_time)
 	if(QDELETED(src))
 		return
 
 	next_action -= (delta_time * 10)
+=======
+/datum/hallucination/bolts/process(seconds_per_tick)
+	if(QDELETED(src))
+		return
+
+	next_action -= (seconds_per_tick * 10)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(next_action > 0)
 		return
 

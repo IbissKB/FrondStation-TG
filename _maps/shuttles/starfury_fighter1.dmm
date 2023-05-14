@@ -22,6 +22,7 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/sbc_fighter1)
+<<<<<<< HEAD
 "o" = (
 /obj/structure/rack,
 /obj/item/storage/toolbox/mechanical,
@@ -31,6 +32,8 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/sbc_fighter1)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "q" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst,
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
@@ -54,6 +57,18 @@
 	},
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/sbc_fighter1)
+<<<<<<< HEAD
+=======
+"C" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/multitool,
+/obj/machinery/light/small/directional/west{
+	brightness = 3
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/sbc_fighter1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "H" = (
 /obj/machinery/button/door{
 	id = "SBC_fighter1_bolt";
@@ -122,7 +137,11 @@ a
 f
 f
 W
+<<<<<<< HEAD
 o
+=======
+C
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 f
 q
 "}

@@ -133,7 +133,11 @@
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL
 
+<<<<<<< HEAD
 /obj/structure/pole/Initialize(mapload)
+=======
+/obj/structure/stripper_pole/Initialize(mapload)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL

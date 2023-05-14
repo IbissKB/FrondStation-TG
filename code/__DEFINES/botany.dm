@@ -23,8 +23,11 @@
 #define FUNGAL_METAB_YIELD_MIN 1
 
 /// -- Hydroponics tray defines. --
+<<<<<<< HEAD
 /// Macro for updating the tray name.
 #define TRAY_NAME_UPDATE name = myseed ? "[initial(name)] ([myseed.plantname])" : initial(name)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///  Base amount of nutrients a tray can old.
 #define STATIC_NUTRIENT_CAPACITY 10
 /// Maximum amount of toxins a tray can reach.

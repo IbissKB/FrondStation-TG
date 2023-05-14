@@ -1,8 +1,19 @@
 /obj/item/food/grown/mushroom
 	name = "mushroom"
+<<<<<<< HEAD
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES
 	wine_power = 40
+=======
+	// This is a prototype that should never be spawned
+	// but we'll default it to SOME seed if it does end up spawning just so we don't runtime horribly
+	seed = /obj/item/seeds/chanter
+	bite_consumption_mod = 3
+	foodtypes = VEGETABLES
+	wine_power = 40
+	/// Default mushroom icon for recipes that need any mushroom
+	icon_state = "plumphelmet"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Reishi
 /obj/item/seeds/reishi

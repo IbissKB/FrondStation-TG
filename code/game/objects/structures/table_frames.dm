@@ -58,7 +58,11 @@
 				return
 			var/list/material_list = list()
 			if(material.material_type)
+<<<<<<< HEAD
 				material_list[material.material_type] = MINERAL_MATERIAL_AMOUNT
+=======
+				material_list[material.material_type] = SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			make_new_table(/obj/structure/table/greyscale, material_list)
 		return
 	return ..()

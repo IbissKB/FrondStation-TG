@@ -7,8 +7,13 @@
 	ruin_type = ZTRAIT_ICE_RUINS
 	default_area = /area/icemoon/surface/outdoors/unexplored
 	has_ceiling = TRUE
+<<<<<<< HEAD
 	ceiling_turf = /turf/closed/mineral/random/snow
 	ceiling_baseturfs = list(/turf/open/misc/asteroid/snow/icemoon)
+=======
+	ceiling_turf = /turf/closed/mineral/random/snow/do_not_chasm
+	ceiling_baseturfs = list(/turf/open/misc/asteroid/snow/icemoon/do_not_chasm)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // above ground only
 
@@ -32,7 +37,11 @@
 
 /datum/map_template/ruin/icemoon/fountain
 	name = "Fountain Hall"
+<<<<<<< HEAD
 	id = "fountain"
+=======
+	id = "ice_fountain"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	description = "The fountain has a warning on the side. DANGER: May have undeclared side effects that only become obvious when implemented."
 	prefix = "_maps/RandomRuins/AnywhereRuins/"
 	suffix = "fountain_hall.dmm"
@@ -55,6 +64,21 @@
 	description = "Moffuchi's Family Pizzeria chain has a reputation for providing affordable artisanal meals of questionable edibility. This particular pizzeria seems to have been abandoned for some time."
 	suffix = "icemoon_surface_pizza.dmm"
 
+<<<<<<< HEAD
+=======
+/datum/map_template/ruin/icemoon/frozen_phonebooth
+	name = "Frozen Phonebooth"
+	id = "frozen_phonebooth"
+	description = "A venture by nanotrasen to help popularize the use of holopads. This one was sent to a icemoon."
+	suffix = "icemoon_surface_phonebooth.dmm"
+
+/datum/map_template/ruin/icemoon/smoking_room
+	name = "Smoking Room"
+	id = "smoking_room"
+	description = "Here lies Charles Morlbaro. He died the way he lived."
+	suffix = "icemoon_surface_smoking_room.dmm"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // above and below ground together
 /* SKYRAT EDIT REMOVAL - Mapping
 /datum/map_template/ruin/icemoon/mining_site

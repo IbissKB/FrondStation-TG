@@ -3,6 +3,10 @@ SUBSYSTEM_DEF(pathfinder)
 	name = "Pathfinder"
 	init_order = INIT_ORDER_PATH
 	priority = FIRE_PRIORITY_PATHFINDING
+<<<<<<< HEAD
+=======
+	wait = 0.5
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// List of pathfind datums we are currently trying to process
 	var/list/datum/pathfind/active_pathing = list()
 	/// List of pathfind datums being ACTIVELY processed. exists to make subsystem stats readable

@@ -95,3 +95,8 @@
 			cost_desc = "torrent"
 
 	to_chat(source, span_danger("You feel a [cost_desc] of your blood drained into the spell you just cast."))
+<<<<<<< HEAD
+=======
+
+#undef COOLDOWN_TO_BLOOD_RATIO
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

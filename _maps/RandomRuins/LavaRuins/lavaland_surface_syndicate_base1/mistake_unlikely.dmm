@@ -20,9 +20,14 @@
 	pixel_x = -6;
 	pixel_y = -3
 	},
+<<<<<<< HEAD
 /obj/machinery/airalarm/directional/north{
 	req_access = list("syndicate")
 	},
+=======
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "d" = (
@@ -63,9 +68,14 @@
 	dir = 4
 	},
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/machinery/power/apc/auto_name/directional/west{
 	req_access = list("syndicate")
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "N" = (
@@ -76,12 +86,19 @@
 	name = "Experimentation Lab"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /obj/modular_map_connector,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/testlab)
 "P" = (

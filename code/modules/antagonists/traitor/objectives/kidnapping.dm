@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /datum/traitor_objective_category/kidnapping
 	name = "Kidnap Personnel"
 	objectives = list( //Similar weights to destroy heirloom objectives
@@ -11,10 +12,14 @@
 	)
 
 /datum/traitor_objective/kidnapping
+=======
+/datum/traitor_objective/target_player/kidnapping
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "Kidnap %TARGET% the %JOB TITLE% and deliver them to %AREA%"
 	description = "%TARGET% holds extremely important information regarding secret NT projects - and you'll need to kidnap and deliver them to %AREA%, where our transport pod will be waiting. \
 		You'll get additional reward if %TARGET% is delivered alive."
 
+<<<<<<< HEAD
 	abstract_type = /datum/traitor_objective/kidnapping
 
 	//this is a prototype so this progression is for all basic level kill objectives
@@ -31,27 +36,51 @@
 	/// The person we need to kidnap
 	var/mob/living/victim
 	/// Area that the victim needs to be delivered to
+=======
+	abstract_type = /datum/traitor_objective/target_player/kidnapping
+
+	/// The jobs that this objective is targetting.
+	var/list/target_jobs
+	/// Area that the target needs to be delivered to
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/area/dropoff_area
 	/// Have we called the pod yet?
 	var/pod_called = FALSE
 	/// How much TC do we get from sending the target alive
 	var/alive_bonus = 0
+<<<<<<< HEAD
 	/// All stripped victims belongings
 	var/list/victim_belogings = list()
 
 /datum/traitor_objective/kidnapping/supported_configuration_changes()
+=======
+	/// All stripped targets belongings
+	var/list/target_belongings = list()
+
+	duplicate_type = /datum/traitor_objective/target_player
+
+/datum/traitor_objective/target_player/kidnapping/supported_configuration_changes()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	. += NAMEOF(src, objective_period)
 	. += NAMEOF(src, maximum_objectives_in_period)
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/New(datum/uplink_handler/handler)
 	. = ..()
 	AddComponent(/datum/component/traitor_objective_limit_per_time, \
 		/datum/traitor_objective/assassinate, \
+=======
+/datum/traitor_objective/target_player/kidnapping/New(datum/uplink_handler/handler)
+	. = ..()
+	AddComponent(/datum/component/traitor_objective_limit_per_time, \
+		/datum/traitor_objective/target_player, \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		time_period = objective_period, \
 		maximum_objectives = maximum_objectives_in_period \
 	)
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/common
 	progression_minimum = 0 MINUTES
 	progression_maximum = 30 MINUTES
@@ -81,12 +110,48 @@
 	)
 
 /datum/traitor_objective/kidnapping/less_common
+=======
+/datum/traitor_objective/target_player/kidnapping/common
+	progression_minimum = 0 MINUTES
+	progression_maximum = 30 MINUTES
+	progression_reward = list(2 MINUTES, 4 MINUTES)
+	telecrystal_reward = list(1, 2)
+	target_jobs = list(
+		// Cargo
+		/datum/job/cargo_technician,
+		// Engineering
+		/datum/job/atmospheric_technician,
+		/datum/job/station_engineer,
+		// Medical
+		/datum/job/chemist,
+		/datum/job/doctor,
+		/datum/job/psychologist,
+		/datum/job/virologist,
+		// Science
+		/datum/job/geneticist,
+		/datum/job/roboticist,
+		/datum/job/scientist,
+		// Service
+		/datum/job/bartender,
+		/datum/job/botanist,
+		/datum/job/chaplain,
+		/datum/job/clown,
+		/datum/job/curator,
+		/datum/job/janitor,
+		/datum/job/lawyer,
+		/datum/job/mime,
+	)
+	alive_bonus = 2
+
+/datum/traitor_objective/target_player/kidnapping/common/assistant
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	progression_minimum = 0 MINUTES
 	progression_maximum = 15 MINUTES
 	target_jobs = list(
 		/datum/job/assistant
 	)
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/uncommon //Hard to fish out victims
 	progression_minimum = 0 MINUTES
 	progression_maximum = 45 MINUTES
@@ -136,6 +201,54 @@
 	alive_bonus = 2
 
 /datum/traitor_objective/kidnapping/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+=======
+/datum/traitor_objective/target_player/kidnapping/uncommon //Hard to fish out targets
+	progression_minimum = 0 MINUTES
+	progression_maximum = 45 MINUTES
+	progression_reward = list(4 MINUTES, 8 MINUTES)
+	telecrystal_reward = list(1, 2)
+
+	target_jobs = list(
+		// Cargo
+		/datum/job/shaft_miner,
+		// Medical
+		/datum/job/paramedic,
+		// Service
+		/datum/job/cook,
+	)
+	alive_bonus = 3
+
+/datum/traitor_objective/target_player/kidnapping/rare
+	progression_minimum = 15 MINUTES
+	progression_maximum = 60 MINUTES
+	progression_reward = list(8 MINUTES, 12 MINUTES)
+	telecrystal_reward = list(2, 3)
+	target_jobs = list(
+		// Heads of staff
+		/datum/job/chief_engineer,
+		/datum/job/chief_medical_officer,
+		/datum/job/head_of_personnel,
+		/datum/job/research_director,
+		/datum/job/quartermaster,
+		// Security
+		/datum/job/detective,
+		/datum/job/security_officer,
+		/datum/job/warden,
+	)
+	alive_bonus = 4
+
+/datum/traitor_objective/target_player/kidnapping/captain
+	progression_minimum = 30 MINUTES
+	progression_reward = list(12 MINUTES, 16 MINUTES)
+	telecrystal_reward = list(2, 3)
+	target_jobs = list(
+		/datum/job/captain,
+		/datum/job/head_of_security,
+	)
+	alive_bonus = 5
+
+/datum/traitor_objective/target_player/kidnapping/generate_objective(datum/mind/generating_for, list/possible_duplicates)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/list/already_targeting = list() //List of minds we're already targeting. The possible_duplicates is a list of objectives, so let's not mix things
 	for(var/datum/objective/task as anything in handler.primary_objectives)
@@ -168,20 +281,35 @@
 
 		possible_targets += possible_target
 
+<<<<<<< HEAD
 	for(var/datum/traitor_objective/kidnapping/objective as anything in possible_duplicates)
 		if(!objective.victim) //the old objective was already completed.
 			continue
 		possible_targets -= objective.victim.mind
+=======
+	for(var/datum/traitor_objective/target_player/objective as anything in possible_duplicates)
+		if(!objective.target) //the old objective was already completed.
+			continue
+		possible_targets -= objective.target.mind
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!length(possible_targets))
 		return FALSE
 
 	var/datum/mind/target_mind = pick(possible_targets)
+<<<<<<< HEAD
 	victim = target_mind.current
 	AddComponent(/datum/component/traitor_objective_register, victim, fail_signals = list(COMSIG_PARENT_QDELETING))
 	var/list/possible_areas = GLOB.the_station_areas.Copy()
 	for(var/area/possible_area as anything in possible_areas)
 		if(istype(possible_area, /area/station/hallway) || istype(possible_area, /area/station/security) || initial(possible_area.outdoors))
+=======
+	target = target_mind.current
+	AddComponent(/datum/component/traitor_objective_register, target, fail_signals = list(COMSIG_PARENT_QDELETING))
+	var/list/possible_areas = GLOB.the_station_areas.Copy()
+	for(var/area/possible_area as anything in possible_areas)
+		if(ispath(possible_area, /area/station/hallway) || ispath(possible_area, /area/station/security) || initial(possible_area.outdoors))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			possible_areas -= possible_area
 
 	dropoff_area = pick(possible_areas)
@@ -190,42 +318,80 @@
 	replace_in_name("%AREA%", initial(dropoff_area.name))
 	return TRUE
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/ungenerate_objective()
 	victim = null
 	dropoff_area = null
 
 /datum/traitor_objective/kidnapping/generate_ui_buttons(mob/user)
+=======
+/datum/traitor_objective/target_player/kidnapping/ungenerate_objective()
+	target = null
+	dropoff_area = null
+
+/datum/traitor_objective/target_player/kidnapping/on_objective_taken(mob/user)
+	. = ..()
+	INVOKE_ASYNC(src, PROC_REF(generate_holding_area))
+
+/datum/traitor_objective/target_player/kidnapping/proc/generate_holding_area()
+	// Let's load in the holding facility ahead of time
+	// even if they fail the objective  it's better to get done now rather than later
+	SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_NINJA_HOLDING_FACILITY)
+
+/datum/traitor_objective/target_player/kidnapping/generate_ui_buttons(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/buttons = list()
 	if(!pod_called)
 		buttons += add_ui_button("Call Extraction Pod", "Pressing this will call down an extraction pod.", "rocket", "call_pod")
 	return buttons
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/ui_perform_action(mob/living/user, action)
+=======
+/datum/traitor_objective/target_player/kidnapping/ui_perform_action(mob/living/user, action)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	switch(action)
 		if("call_pod")
 			if(pod_called)
 				return
 			var/area/user_area = get_area(user)
+<<<<<<< HEAD
 			var/area/victim_area = get_area(victim)
+=======
+			var/area/target_area = get_area(target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			if(user_area.type != dropoff_area)
 				to_chat(user, span_warning("You must be in [initial(dropoff_area.name)] to call the extraction pod."))
 				return
 
+<<<<<<< HEAD
 			if(victim_area.type != dropoff_area)
 				to_chat(user, span_warning("[victim.real_name] must be in [initial(dropoff_area.name)] for you to call the extraction pod."))
+=======
+			if(target_area.type != dropoff_area)
+				to_chat(user, span_warning("[target.real_name] must be in [initial(dropoff_area.name)] for you to call the extraction pod."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 
 			call_pod(user)
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/proc/call_pod(mob/living/user)
+=======
+/datum/traitor_objective/target_player/kidnapping/proc/call_pod(mob/living/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pod_called = TRUE
 	var/obj/structure/closet/supplypod/extractionpod/new_pod = new()
 	RegisterSignal(new_pod, COMSIG_ATOM_ENTERED, PROC_REF(enter_check))
 	new /obj/effect/pod_landingzone(get_turf(user), new_pod)
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/proc/enter_check(obj/structure/closet/supplypod/extractionpod/source, entered_atom)
+=======
+/datum/traitor_objective/target_player/kidnapping/proc/enter_check(obj/structure/closet/supplypod/extractionpod/source, entered_atom)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!istype(source))
 		CRASH("Kidnapping objective's enter_check called with source being not an extraction pod: [source ? source.type : "N/A"]")
 
@@ -237,12 +403,23 @@
 	if(sent_mob.mind)
 		ADD_TRAIT(sent_mob.mind, TRAIT_HAS_BEEN_KIDNAPPED, TRAIT_GENERIC)
 
+<<<<<<< HEAD
 	for(var/obj/item/belonging in sent_mob)
 		if(belonging == sent_mob.get_item_by_slot(ITEM_SLOT_ICLOTHING) || belonging == sent_mob.get_item_by_slot(ITEM_SLOT_FEET))
 			continue
 
 		sent_mob.transferItemToLoc(belonging)
 		victim_belogings.Add(belonging)
+=======
+	for(var/obj/item/belonging in gather_belongings(sent_mob))
+		if(belonging == sent_mob.get_item_by_slot(ITEM_SLOT_ICLOTHING) || belonging == sent_mob.get_item_by_slot(ITEM_SLOT_FEET))
+			continue
+
+		var/unequipped = sent_mob.transferItemToLoc(belonging)
+		if (!unequipped)
+			continue
+		target_belongings.Add(belonging)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/datum/bank_account/cargo_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
 
@@ -251,9 +428,15 @@
 
 	priority_announce("One of your crew was captured by a rival organisation - we've needed to pay their ransom to bring them back. As is policy we've taken a portion of the station's funds to offset the overall cost.", "Nanotrasen Asset Protection", has_important_message = TRUE)
 
+<<<<<<< HEAD
 	addtimer(CALLBACK(src, PROC_REF(handle_victim), sent_mob), 1.5 SECONDS)
 
 	if(sent_mob != victim)
+=======
+	addtimer(CALLBACK(src, PROC_REF(handle_target), sent_mob), 1.5 SECONDS)
+
+	if(sent_mob != target)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		fail_objective(penalty_cost = telecrystal_penalty)
 		source.startExitSequence(source)
 		return
@@ -264,20 +447,34 @@
 	succeed_objective()
 	source.startExitSequence(source)
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/proc/handle_victim(mob/living/carbon/human/sent_mob)
 	addtimer(CALLBACK(src, PROC_REF(return_victim), sent_mob), 3 MINUTES)
+=======
+/datum/traitor_objective/target_player/kidnapping/proc/handle_target(mob/living/carbon/human/sent_mob)
+	addtimer(CALLBACK(src, PROC_REF(return_target), sent_mob), 3 MINUTES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(sent_mob.stat == DEAD)
 		return
 
 	sent_mob.flash_act()
 	sent_mob.adjust_confusion(10 SECONDS)
 	sent_mob.adjust_dizzy(10 SECONDS)
+<<<<<<< HEAD
 	sent_mob.blur_eyes(5 SECONDS)
+=======
+	sent_mob.set_eye_blur_if_lower(100 SECONDS)
+	sent_mob.dna.species.give_important_for_life(sent_mob) // so plasmamen do not get left for dead
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(sent_mob, span_hypnophrase(span_reallybig("A million voices echo in your head... <i>\"Your mind held many valuable secrets - \
 		we thank you for providing them. Your value is expended, and you will be ransomed back to your station. We always get paid, \
 		so it's only a matter of time before we ship you back...\"</i>")))
 
+<<<<<<< HEAD
 /datum/traitor_objective/kidnapping/proc/return_victim(mob/living/carbon/human/sent_mob)
+=======
+/datum/traitor_objective/target_player/kidnapping/proc/return_target(mob/living/carbon/human/sent_mob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!sent_mob || QDELETED(sent_mob)) //suicided and qdeleted themselves
 		return
 
@@ -305,6 +502,7 @@
 
 	do_sparks(8, FALSE, sent_mob)
 	sent_mob.visible_message(span_notice("[sent_mob] vanishes!"))
+<<<<<<< HEAD
 	for(var/obj/item/belonging in sent_mob)
 		if(belonging == sent_mob.get_item_by_slot(ITEM_SLOT_ICLOTHING) || belonging == sent_mob.get_item_by_slot(ITEM_SLOT_FEET))
 			continue
@@ -312,12 +510,34 @@
 		sent_mob.transferItemToLoc(belonging)
 
 	for(var/obj/item/belonging in victim_belogings)
+=======
+	for(var/obj/item/belonging in gather_belongings(sent_mob))
+		if(belonging == sent_mob.get_item_by_slot(ITEM_SLOT_ICLOTHING) || belonging == sent_mob.get_item_by_slot(ITEM_SLOT_FEET))
+			continue
+		sent_mob.dropItemToGround(belonging) // No souvenirs, except shoes and t-shirts
+
+	for(var/obj/item/belonging in target_belongings)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		belonging.forceMove(return_pod)
 
 	sent_mob.forceMove(return_pod)
 	sent_mob.flash_act()
 	sent_mob.adjust_confusion(10 SECONDS)
 	sent_mob.adjust_dizzy(10 SECONDS)
+<<<<<<< HEAD
 	sent_mob.blur_eyes(5 SECONDS)
 
 	new /obj/effect/pod_landingzone(pick(possible_turfs), return_pod)
+=======
+	sent_mob.set_eye_blur_if_lower(100 SECONDS)
+	sent_mob.dna.species.give_important_for_life(sent_mob) // so plasmamen do not get left for dead
+
+	new /obj/effect/pod_landingzone(pick(possible_turfs), return_pod)
+
+/// Returns a list of things that the provided mob has which we would rather that they do not have
+/datum/traitor_objective/target_player/kidnapping/proc/gather_belongings(mob/living/carbon/human/kidnapee)
+	var/list/belongings = kidnapee.get_all_gear()
+	for (var/obj/item/implant/storage/internal_bag in kidnapee.implants)
+		belongings += internal_bag.contents
+	return belongings
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

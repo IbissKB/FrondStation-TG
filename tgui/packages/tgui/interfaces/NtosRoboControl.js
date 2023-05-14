@@ -9,7 +9,11 @@ const getMuleByRef = (mules, ref) => {
 export const NtosRoboControl = (props, context) => {
   const { act, data } = useBackend(context);
   const [tab_main, setTab_main] = useSharedState(context, 'tab_main', 1);
+<<<<<<< HEAD
   const { bots, drones, id_owner, has_id, droneaccess, dronepingtypes } = data;
+=======
+  const { bots, drones, id_owner, droneaccess, dronepingtypes } = data;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   return (
     <NtosWindow width={550} height={550}>
       <NtosWindow.Content scrollable>

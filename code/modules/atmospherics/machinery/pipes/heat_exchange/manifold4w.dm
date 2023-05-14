@@ -3,6 +3,10 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w
 	icon = 'icons/obj/atmospherics/pipes/he-manifold.dmi'
 	icon_state = "manifold4w-3"
+<<<<<<< HEAD
+=======
+	base_icon_state = "manifold4w"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	name = "4-way pipe manifold"
 	desc = "A manifold composed of heat-exchanging pipes."
@@ -17,6 +21,12 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/set_init_directions()
 	initialize_directions = initial(initialize_directions)
 
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/update_pipe_icon()
+	icon_state = "[base_icon_state]-[piping_layer]"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/update_overlays()
 	. = ..()
 	var/mutable_appearance/center = mutable_appearance(icon, "manifold4w_center")

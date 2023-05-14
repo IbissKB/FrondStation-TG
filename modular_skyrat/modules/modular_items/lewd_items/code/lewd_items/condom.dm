@@ -7,7 +7,12 @@
 /obj/item/condom_pack
 	name = "condom pack"
 	desc = "Don't worry, I have protection."
+<<<<<<< HEAD
 	icon_state = "condom_pack"
+=======
+	icon_state = "condom_pack_pink"
+	base_icon_state = "condom_pack"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	/// The current color of the condom, can be changed and affects sprite
@@ -24,7 +29,11 @@
 
 /obj/item/condom_pack/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)]_[current_color]"
+=======
+	icon_state = "[base_icon_state]_[current_color]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/condom_pack/attack_self(mob/user)
 	to_chat(user, span_notice("You start to open the condom pack..."))

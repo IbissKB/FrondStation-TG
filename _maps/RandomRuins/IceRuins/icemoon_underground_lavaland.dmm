@@ -17,7 +17,11 @@
 /area/icemoon/underground)
 "q" = (
 /turf/open/genturf,
+<<<<<<< HEAD
 /area/lavaland/surface/outdoors/unexplored/danger)
+=======
+/area/lavaland/surface/outdoors/unexplored/danger/no_ruins)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "w" = (
 /obj/machinery/door/airlock/cult/friendly{
 	use_power = 0

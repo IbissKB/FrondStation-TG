@@ -27,3 +27,10 @@
 	GLOB.features_by_species[type] = features
 
 	return features
+<<<<<<< HEAD
+=======
+
+
+/datum/species/proc/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
+	return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

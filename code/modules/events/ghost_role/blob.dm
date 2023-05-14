@@ -10,7 +10,11 @@
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a new blob overmind."
 
+<<<<<<< HEAD
 /datum/round_event_control/blob/can_spawn_event(players)
+=======
+/datum/round_event_control/blob/can_spawn_event(players, allow_magic = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN) // no blobs if the shuttle is past the point of no return
 		return FALSE
 

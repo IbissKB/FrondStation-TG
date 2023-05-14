@@ -7,10 +7,33 @@
 	mutanttongue = /obj/item/organ/internal/tongue/ethereal
 	mutantheart = /obj/item/organ/internal/heart/ethereal
 	exotic_blood = /datum/reagent/consumable/liquidelectricity //Liquid Electricity. fuck you think of something better gamer
+<<<<<<< HEAD
 	siemens_coeff = 0.5 //They thrive on energy
 	brutemod = 1.25 //They're weak to punches
 	payday_modifier = 0.75
 	species_traits = list(DYNCOLORS, AGENDER, HAIR, FACEHAIR, HAS_FLESH, HAS_BONE) // i mean i guess they have blood so they can have wounds too //SKYRAT EDIT - Removes Lack of Underwear
+=======
+	exotic_bloodtype = "LE"
+	siemens_coeff = 0.5 //They thrive on energy
+	brutemod = 1.25 //They're weak to punches
+	payday_modifier = 0.75
+	/* SKYRAT EDIT - ORIGINAL
+	species_traits = list(
+		DYNCOLORS,
+		AGENDER,
+		NO_UNDERWEAR,
+		HAIR,
+		FACEHAIR,
+	)
+	*/
+	// SKYRAT EDIT - LET THEM WEAR PANTIES
+	species_traits = list(
+		DYNCOLORS,
+		AGENDER,
+		HAIR,
+		FACEHAIR,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	species_cookie = /obj/item/food/energybar
 	species_language_holder = /datum/language_holder/ethereal
@@ -53,11 +76,19 @@
 	return ..()
 
 
+<<<<<<< HEAD
 /datum/species/ethereal/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	. = ..()
 	if(!ishuman(C))
 		return
 	var/mob/living/carbon/human/ethereal = C
+=======
+/datum/species/ethereal/on_species_gain(mob/living/carbon/new_ethereal, datum/species/old_species, pref_load)
+	. = ..()
+	if(!ishuman(new_ethereal))
+		return
+	var/mob/living/carbon/human/ethereal = new_ethereal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	default_color = ethereal.dna.features["ethcolor"]
 	r1 = GETREDPART(default_color)
 	g1 = GETGREENPART(default_color)
@@ -67,6 +98,7 @@
 	RegisterSignal(ethereal, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
 	ethereal_light = ethereal.mob_light()
 	spec_updatehealth(ethereal)
+<<<<<<< HEAD
 	C.set_safe_hunger_level()
 
 	var/obj/item/organ/internal/heart/ethereal/ethereal_heart = C.getorganslot(ORGAN_SLOT_HEART)
@@ -83,6 +115,31 @@
 	QDEL_NULL(ethereal_light)
 	return ..()
 
+=======
+	new_ethereal.set_safe_hunger_level()
+	update_mail_goodies(ethereal)
+
+	var/obj/item/organ/internal/heart/ethereal/ethereal_heart = new_ethereal.get_organ_slot(ORGAN_SLOT_HEART)
+	ethereal_heart.ethereal_color = default_color
+
+	for(var/obj/item/bodypart/limb as anything in new_ethereal.bodyparts)
+		if(limb.limb_id == SPECIES_ETHEREAL)
+			limb.update_limb(is_creating = TRUE)
+
+/datum/species/ethereal/on_species_loss(mob/living/carbon/human/former_ethereal, datum/species/new_species, pref_load)
+	UnregisterSignal(former_ethereal, COMSIG_ATOM_EMAG_ACT)
+	UnregisterSignal(former_ethereal, COMSIG_ATOM_EMP_ACT)
+	UnregisterSignal(former_ethereal, COMSIG_LIGHT_EATER_ACT)
+	QDEL_NULL(ethereal_light)
+	return ..()
+
+/datum/species/ethereal/update_quirk_mail_goodies(mob/living/carbon/human/recipient, datum/quirk/quirk, list/mail_goodies = list())
+	if(istype(quirk, /datum/quirk/blooddeficiency))
+		mail_goodies += list(
+			/obj/item/reagent_containers/blood/ethereal
+		)
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/species/ethereal/random_name(gender,unique,lastname)
 	if(unique)
@@ -187,7 +244,11 @@
 	return list(
 		"Ethereals are a species native to the planet Sprout. \
 		When they were originally discovered, they were at a medieval level of technological progression, \
+<<<<<<< HEAD
 		but due to their natural acclimation with electricity, they felt easy among the large NanoTrasen installations.",
+=======
+		but due to their natural acclimation with electricity, they felt easy among the large Nanotrasen installations.",
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /datum/species/ethereal/create_pref_unique_perks()

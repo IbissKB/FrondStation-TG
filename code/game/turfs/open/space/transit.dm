@@ -5,13 +5,78 @@
 	dir = SOUTH
 	baseturfs = /turf/open/space/transit
 	flags_1 = NOJAUNT //This line goes out to every wizard that ever managed to escape the den. I'm sorry.
+<<<<<<< HEAD
 	explosion_block = INFINITY
+=======
+	explosive_resistance = INFINITY
+
+/turf/open/space/transit/Initialize(mapload)
+	. = ..()
+	update_appearance()
+	RegisterSignal(src, COMSIG_TURF_RESERVATION_RELEASED, PROC_REF(launch_contents))
+
+/turf/open/space/transit/Destroy()
+	//Signals are NOT removed from turfs upon replacement, and we get replaced ALOT, so unregister our signal
+	UnregisterSignal(src, COMSIG_TURF_RESERVATION_RELEASED)
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/space/transit/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	. = ..()
 	underlay_appearance.icon_state = "speedspace_ns_[get_transit_state(asking_turf)]"
 	underlay_appearance.transform = turn(matrix(), get_transit_angle(asking_turf))
 
+<<<<<<< HEAD
+=======
+/turf/open/space/transit/update_icon()
+	. = ..()
+	transform = turn(matrix(), get_transit_angle(src))
+
+/turf/open/space/transit/update_icon_state()
+	icon_state = "speedspace_ns_[get_transit_state(src)]"
+	return ..()
+
+/turf/open/space/transit/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+
+	if(!HAS_TRAIT(arrived, TRAIT_HYPERSPACED) && !HAS_TRAIT(arrived, TRAIT_FREE_HYPERSPACE_MOVEMENT))
+		arrived.AddComponent(/datum/component/shuttle_cling, turn(dir, 180), old_loc)
+
+/turf/open/space/transit/Exited(atom/movable/gone, direction)
+	. = ..()
+
+	var/turf/location = gone.loc
+	if(istype(location, /turf/open/space) && !istype(location, src.type))//they got forced out of transit area into default space tiles
+		dump_in_space(gone) //launch them into game space, away from transitspace
+
+///Get rid of all our contents, called when our reservation is released (which in our case means the shuttle arrived)
+/turf/open/space/transit/proc/launch_contents(datum/turf_reservation/reservation)
+	SIGNAL_HANDLER
+
+	for(var/atom/movable/movable in contents)
+		dump_in_space(movable)
+
+///Dump a movable in a random valid spacetile
+/proc/dump_in_space(atom/movable/dumpee)
+	var/max = world.maxx-TRANSITIONEDGE
+	var/min = 1+TRANSITIONEDGE
+
+	var/list/possible_transtitons = list()
+	for(var/datum/space_level/level as anything in SSmapping.z_list)
+		if (level.linkage == CROSSLINKED)
+			possible_transtitons += level.z_value
+	if(!length(possible_transtitons)) //No space to throw them to - try throwing them onto mining
+		possible_transtitons = SSmapping.levels_by_trait(ZTRAIT_MINING)
+		if(!length(possible_transtitons)) //Just throw them back on station, if not just runtime.
+			possible_transtitons = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
+	//move the dumpee to a random coordinate turf
+	dumpee.forceMove(locate(rand(min,max), rand(min,max), pick(possible_transtitons)))
+
+/turf/open/space/transit/CanBuildHere()
+	return SSshuttle.is_in_shuttle_bounds(src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/space/transit/south
 	dir = SOUTH
 
@@ -27,6 +92,7 @@
 /turf/open/space/transit/east
 	dir = EAST
 
+<<<<<<< HEAD
 /turf/open/space/transit/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	if(!locate(/obj/structure/lattice) in src)
@@ -90,6 +156,8 @@
 	icon_state = "speedspace_ns_[get_transit_state(src)]"
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /proc/get_transit_state(turf/T)
 	var/p = 9
 	. = 1

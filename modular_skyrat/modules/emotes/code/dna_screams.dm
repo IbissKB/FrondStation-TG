@@ -32,7 +32,11 @@
 	femalescreamsounds = null
 
 /datum/species/ethereal
+<<<<<<< HEAD
 	screamsounds = list('modular_skyrat/modules/emotes/sound/voice/scream_skeleton.ogg')
+=======
+	screamsounds = list('sound/voice/ethereal/ethereal_scream_1.ogg', 'sound/voice/ethereal/ethereal_scream_2.ogg', 'sound/voice/ethereal/ethereal_scream_3.ogg')
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	femalescreamsounds = null
 
 /datum/species/jelly

@@ -9,7 +9,11 @@
 		/obj/item/organ/internal/body_egg/alien_embryo = TRUE,
 		/obj/item/organ/internal/liver/alien = TRUE,
 		/obj/item/organ/internal/tongue/alien = TRUE,
+<<<<<<< HEAD
 		/obj/item/organ/internal/eyes/night_vision/alien = TRUE,
+=======
+		/obj/item/organ/internal/eyes/alien = TRUE,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 /datum/bounty/item/syndicate_documents

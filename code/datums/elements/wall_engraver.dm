@@ -37,7 +37,11 @@
 	if(HAS_TRAIT_FROM(wall, TRAIT_NOT_ENGRAVABLE, TRAIT_GENERIC))
 		user.balloon_alert(user, "wall has already been engraved!")
 		return
+<<<<<<< HEAD
 	if(!user.mind?.memories?.len)
+=======
+	if(!length(user.mind?.memories))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.balloon_alert(user, "nothing memorable to engrave!")
 		return
 	var/datum/memory/memory_to_engrave = user.mind.select_memory("engrave")
@@ -54,16 +58,24 @@
 	user.balloon_alert(user, "wall engraved")
 	user.do_attack_animation(wall)
 
+<<<<<<< HEAD
 	var/do_persistent_save = TRUE
 	if(memory_to_engrave.memory_flags & MEMORY_FLAG_NOPERSISTENCE)
 		do_persistent_save = FALSE
 
+=======
+	var/do_persistent_save = !(memory_to_engrave.memory_flags & MEMORY_FLAG_NOPERSISTENCE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/engraved_story = memory_to_engrave.generate_story(STORY_ENGRAVING, STORY_FLAG_DATED)
 
 	if(!engraved_story)
 		CRASH("Tried to submit a memory with an invalid story [memory_to_engrave]")
 
+<<<<<<< HEAD
 	wall.AddComponent(/datum/component/engraved, memory_to_engrave.generate_story(STORY_ENGRAVING, STORY_FLAG_DATED), persistent_save = do_persistent_save, story_value = memory_to_engrave.story_value)
+=======
+	wall.AddComponent(/datum/component/engraved, engraved_story, persistent_save = do_persistent_save, story_value = memory_to_engrave.story_value)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	memory_to_engrave.memory_flags |= MEMORY_FLAG_ALREADY_USED
 	//while someone just engraved a story "worth engraving" we should add this to SSpersistence for a possible prison tattoo
 

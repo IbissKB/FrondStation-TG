@@ -22,14 +22,35 @@ const MATERIAL_ICONS: Record<string, [number, string][]> = {
     [17, 'sheet-gold_2'],
     [34, 'sheet-gold_3'],
   ],
+<<<<<<< HEAD
   'diamond': [[0, 'sheet-diamond']],
+=======
+  'diamond': [
+    [0, 'sheet-diamond'],
+    [17, 'sheet-diamond_2'],
+    [34, 'sheet-diamond_3'],
+  ],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   'plasma': [
     [0, 'sheet-plasma'],
     [17, 'sheet-plasma_2'],
     [34, 'sheet-plasma_3'],
   ],
+<<<<<<< HEAD
   'uranium': [[0, 'sheet-uranium']],
   'bananium': [[0, 'sheet-bananium']],
+=======
+  'uranium': [
+    [0, 'sheet-uranium'],
+    [17, 'sheet-uranium_2'],
+    [34, 'sheet-uranium_3'],
+  ],
+  'bananium': [
+    [0, 'sheet-bananium'],
+    [17, 'sheet-bananium_2'],
+    [34, 'sheet-bananium_3'],
+  ],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   'titanium': [
     [0, 'sheet-titanium'],
     [17, 'sheet-titanium_2'],

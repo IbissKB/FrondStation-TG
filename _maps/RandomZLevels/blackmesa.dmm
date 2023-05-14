@@ -41,7 +41,11 @@
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/tram_room)
 "aaK" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/flora/biolumi/lamp/weaklight,
@@ -348,7 +352,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/entrance_lobby)
 "aeb" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/alien/weeds/xen,
@@ -418,7 +426,11 @@
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/cryo_room)
 "aeV" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/alien/weeds/xen,
@@ -534,12 +546,15 @@
 /obj/structure/sign/warning/electric_shock,
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/tram_room)
+<<<<<<< HEAD
 "agf" = (
 /obj/machinery/computer/secure_data{
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/gas_emitter_chamber)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "agi" = (
 /obj/structure/chair/sofa/bench{
 	dir = 8
@@ -757,7 +772,11 @@
 /turf/open/misc/ironsand/black_mesa,
 /area/awaymission/black_mesa)
 "aiW" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/effect/random_mob_placer/xen,
@@ -1067,7 +1086,11 @@
 /turf/open/floor/plating/elevatorshaft,
 /area/awaymission/black_mesa/cryo_room)
 "ano" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/biolumi/mine/weaklight,
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/textured_large,
@@ -1267,6 +1290,7 @@
 /obj/effect/spawner/random/bioluminescent_plant,
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/freeman_arena)
+<<<<<<< HEAD
 "apP" = (
 /obj/machinery/computer/secure_data{
 	dir = 1
@@ -1274,6 +1298,8 @@
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/entrance_lobby)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "apQ" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/machinery/door/poddoor{
@@ -2021,7 +2047,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/tram_room)
 "aAe" = (
+<<<<<<< HEAD
 /obj/structure/closet/secure_closet/security,
+=======
+/obj/structure/closet/secure_closet/security/black_mesa,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/security_outpost)
 "aAg" = (
@@ -2040,7 +2070,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/cryo_hallway)
 "aAm" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/broken,
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/textured_large,
@@ -2087,7 +2121,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/tram_room)
 "aAy" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -2607,9 +2645,13 @@
 /obj/structure/table/reinforced{
 	name = "Jim Norton's Quebecois Coffee table"
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/food/poppypretzel{
 	pixel_x = -8;
 	pixel_y = -3
@@ -2665,6 +2707,7 @@
 /obj/item/paper,
 /turf/open/floor/iron,
 /area/awaymission/black_mesa/security_outpost)
+<<<<<<< HEAD
 "aHj" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
@@ -2673,6 +2716,8 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/gas_emitter_chamber)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "aHk" = (
 /obj/structure/lattice/catwalk,
 /turf/open/chasm,
@@ -2731,7 +2776,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/entrance_lobby)
 "aHU" = (
+<<<<<<< HEAD
 /obj/structure/closet/secure_closet/security,
+=======
+/obj/structure/closet/secure_closet/security/black_mesa,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/ammo_box/magazine/multi_sprite/ladon,
 /obj/item/gun/ballistic/automatic/pistol/g17/mesa,
 /turf/open/floor/iron,
@@ -2855,7 +2904,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/servers)
 "aKb" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/alien/weeds/xen,
@@ -3003,7 +3056,11 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/cryo_storage)
 "aLz" = (
+<<<<<<< HEAD
 /obj/structure/closet/secure_closet/security,
+=======
+/obj/structure/closet/secure_closet/security/black_mesa,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/awaymission/black_mesa/security_outpost)
 "aLJ" = (
@@ -3297,9 +3354,13 @@
 /obj/item/reagent_containers/cup/glass/coffee{
 	pixel_x = -3
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/security_outpost)
 "aOZ" = (
@@ -3418,7 +3479,11 @@
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/employee_dorm_room)
 "aQB" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/broken,
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/textured_large,
@@ -3472,6 +3537,7 @@
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/entrance_hall)
+<<<<<<< HEAD
 "aRj" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
@@ -3479,6 +3545,8 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/black_mesa/entrance_lobby)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "aRk" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor{
@@ -3897,7 +3965,11 @@
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/antag_token_nook)
 "aWR" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/entrance_hall)
@@ -4011,6 +4083,7 @@
 	},
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/security_outpost)
+<<<<<<< HEAD
 "aYe" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/revolver/mateba{
@@ -4019,6 +4092,8 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/security_outpost)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "aYf" = (
 /obj/effect/mob_spawn/corpse/human/engineer,
 /turf/open/floor/iron/textured,
@@ -4401,7 +4476,11 @@
 /turf/open/floor/carpet/blue,
 /area/awaymission/black_mesa/high_security_hallway)
 "bwz" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/entrance_internal_hall)
@@ -4530,7 +4609,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "bMJ" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/alien/weeds/xen,
@@ -4662,7 +4745,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/entrance_hall)
 "cak" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/electrolyzer,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/science_labs)
@@ -4704,6 +4791,14 @@
 /obj/structure/table/optable,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/xen/acid_lake_building)
+<<<<<<< HEAD
+=======
+"ccv" = (
+/obj/effect/spawner/liquids_spawner,
+/mob/living/basic/carp/mega,
+/turf/open/floor/iron/pool,
+/area/awaymission/black_mesa/deep_sci_feesh)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "ccX" = (
 /obj/structure/curtain/cloth{
 	color = "#556B2F"
@@ -4804,8 +4899,13 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/dorm_tunnel)
 "cjV" = (
+<<<<<<< HEAD
 /obj/structure/window/spawner/north,
 /obj/structure/window/spawner/west,
+=======
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/server{
 	anchored = 1
 	},
@@ -4816,7 +4916,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/xen/acid_lake_building)
 "ckJ" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/crate/bin,
 /obj/item/gun_maintenance_supplies,
 /turf/open/floor/iron/smooth_large,
@@ -4837,7 +4941,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/high_security_hallway)
 "cms" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/random_mob_placer/xen,
 /obj/machinery/light/broken,
 /obj/structure/alien/weeds/xen,
@@ -5148,6 +5256,7 @@
 /obj/machinery/computer,
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/black_ops_button)
+<<<<<<< HEAD
 "cRK" = (
 /obj/structure/closet/crate/secure/weapon,
 /obj/item/ammo_box/magazine/multi_sprite/ladon,
@@ -5169,6 +5278,8 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/black_mesa/black_ops_bus)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "cSu" = (
 /obj/structure/chair{
 	dir = 1
@@ -5233,11 +5344,14 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_bus)
+<<<<<<< HEAD
 "cXv" = (
 /obj/effect/spawner/liquids_spawner,
 /mob/living/simple_animal/hostile/carp/megacarp,
 /turf/open/floor/iron/pool,
 /area/awaymission/black_mesa/deep_sci_feesh)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "cXw" = (
 /obj/effect/turf_decal/stripes{
 	dir = 5
@@ -5349,7 +5463,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_hall)
 "djq" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/machinery/light/broken/directional/west,
@@ -5488,7 +5606,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/scientist_hall)
 "dvk" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/effect/random_mob_placer/xen,
@@ -5623,11 +5745,17 @@
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/acid_lake)
 "dIq" = (
+<<<<<<< HEAD
 /obj/structure/closet/secure_closet/security,
 /obj/item/clothing/mask/gas/syndicate/ds,
 /obj/item/storage/medkit/emergency,
 /obj/item/storage/backpack/satchel/sec/peacekeeper,
 /obj/item/storage/backpack/security/peacekeeper,
+=======
+/obj/structure/closet/secure_closet/security/black_mesa,
+/obj/item/clothing/mask/gas/syndicate/ds,
+/obj/item/storage/medkit/emergency,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/keycard/stockroom,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/dark,
@@ -5664,6 +5792,15 @@
 "dNA" = (
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/village_hallway)
+<<<<<<< HEAD
+=======
+"dOb" = (
+/obj/machinery/computer/records/security{
+	dir = 4
+	},
+/turf/open/floor/iron/textured,
+/area/awaymission/black_mesa/high_security_sec_point)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "dOR" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 4
@@ -5848,7 +5985,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_storage)
 "ebi" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/broken,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/entrance_internal_hall)
@@ -6072,7 +6213,11 @@
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/vortigaunt_village)
 "eBc" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/flora/biolumi/mine/weaklight,
@@ -6139,7 +6284,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/hecu_zone_tunnel)
 "eMn" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes{
 	dir = 8
 	},
@@ -6181,7 +6330,11 @@
 /turf/open/floor/wood/parquet,
 /area/awaymission/black_mesa/employee_dorm_room)
 "ePK" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/east,
@@ -6365,6 +6518,13 @@
 /obj/effect/random_mob_placer/xen,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/lambda_teleporter)
+<<<<<<< HEAD
+=======
+"fgR" = (
+/obj/machinery/smartfridge/chemistry/preloaded,
+/turf/open/floor/iron/dark,
+/area/awaymission/black_mesa/science_labs)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "fhE" = (
 /obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/tile/green/half/contrasted{
@@ -6495,7 +6655,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/genetics_elevator)
 "fpv" = (
+<<<<<<< HEAD
 /obj/item/clothing/gloves/color/latex/nitrile,
+=======
+/obj/item/clothing/gloves/latex/nitrile,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "fpy" = (
@@ -6523,7 +6687,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/deep_sci_turret)
 "fvE" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/machinery/light/broken/directional/west,
@@ -6604,7 +6772,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/black_ops_hall)
 "fBv" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/chair/sofa/bench/right,
@@ -6716,11 +6888,14 @@
 	dir = 5
 	},
 /area/awaymission/black_mesa/xen/lost_camp_hallway)
+<<<<<<< HEAD
 "fQk" = (
 /mob/living/simple_animal/hostile/carp/megacarp,
 /obj/effect/spawner/liquids_spawner,
 /turf/open/floor/iron/pool,
 /area/awaymission/black_mesa/deep_sci_feesh)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "fQo" = (
 /obj/structure/flora/biolumi/lamp/weaklight,
 /obj/structure/alien/weeds/xen,
@@ -6742,7 +6917,11 @@
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/science_decon_room)
 "fXG" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
@@ -7147,7 +7326,11 @@
 /turf/open/misc/ironsand/black_mesa,
 /area/awaymission/black_mesa/hecu_zone_towards_facility)
 "gKy" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/alien/weeds/xen,
@@ -7277,7 +7460,11 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/hecu_zone_infirmary)
 "gYK" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/machinery/light/broken/directional/north,
@@ -7402,7 +7589,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/black_mesa/black_ops_bus)
 "hhl" = (
+<<<<<<< HEAD
 /obj/structure/window/spawner/west,
+=======
+/obj/structure/window/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/window/spawner,
 /obj/structure/server{
 	anchored = 1
@@ -7878,6 +8069,17 @@
 /obj/structure/sign/warning/test_chamber,
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/deep_sci_hall)
+<<<<<<< HEAD
+=======
+"icZ" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = list("brig_entrance")
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron/textured,
+/area/awaymission/black_mesa/hecu_zone_external_sec)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "idt" = (
 /obj/effect/gibspawner/human/bodypartless,
 /obj/effect/mapping_helpers/broken_floor,
@@ -8239,12 +8441,15 @@
 /obj/structure/railing,
 /turf/open/floor/engine,
 /area/awaymission/black_mesa/xen/entering_zone)
+<<<<<<< HEAD
 "iRL" = (
 /obj/machinery/computer/secure_data{
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/hecu_zone_external_sec)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "iTd" = (
 /obj/structure/table,
 /obj/item/scalpel/alien,
@@ -8316,7 +8521,11 @@
 /turf/open/floor/engine,
 /area/awaymission/black_mesa/xen/entering_zone)
 "iYD" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table,
 /obj/item/stack/ore/bluespace_crystal,
 /turf/open/floor/iron/textured_large,
@@ -8401,7 +8610,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_hallway_two)
 "jdE" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
@@ -8454,8 +8667,18 @@
 /obj/structure/table,
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/employee_dorm_room)
+<<<<<<< HEAD
 "jki" = (
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+"jkg" = (
+/obj/structure/table,
+/obj/machinery/computer/records/medical/laptop,
+/turf/open/floor/iron/textured_large,
+/area/awaymission/black_mesa/hecu_zone_infirmary)
+"jki" = (
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/structure/alien/weeds/xen,
@@ -8526,7 +8749,11 @@
 /area/awaymission/black_mesa/genetics_elevator)
 "jrc" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/cold,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/scientist_hall)
@@ -8642,9 +8869,13 @@
 /area/awaymission/black_mesa/lambda_teleporter)
 "jyF" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/emitter/energycannon,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/scientist_hall)
@@ -8658,8 +8889,21 @@
 /obj/structure/flora/biolumi/mine/weaklight,
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/resonant_chamber)
+<<<<<<< HEAD
 "jBA" = (
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+"jBe" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = list("brig_entrance")
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron/smooth_large,
+/area/awaymission/black_mesa/gas_emitter_chamber)
+"jBA" = (
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/structure/railing{
@@ -8672,7 +8916,11 @@
 /turf/closed/mineral/black_mesa,
 /area/awaymission/black_mesa/deep_sci_hall)
 "jBF" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 9
 	},
 /obj/structure/flora/biolumi/mine/weaklight,
@@ -8737,7 +8985,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "jHm" = (
+<<<<<<< HEAD
 /obj/structure/window/spawner/north,
+=======
+/obj/structure/window/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/server{
 	anchored = 1
 	},
@@ -8830,7 +9082,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_turret)
 "jRH" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/broken,
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/smooth,
@@ -8858,7 +9114,11 @@
 /area/awaymission/black_mesa/xen/lost_camp_hallway)
 "jTe" = (
 /obj/structure/window/spawner,
+<<<<<<< HEAD
 /obj/structure/window/spawner/east,
+=======
+/obj/structure/window/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/server{
 	anchored = 1
 	},
@@ -8982,7 +9242,10 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/equipment_room)
 "kfF" = (
+<<<<<<< HEAD
 /obj/machinery/smartfridge/chemistry/preloaded,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/closed/wall,
 /area/awaymission/black_mesa/science_labs)
 "kfR" = (
@@ -9051,7 +9314,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "kmE" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/textured_large,
@@ -9088,7 +9355,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_feesh)
 "krt" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/east,
@@ -9105,9 +9376,15 @@
 /area/awaymission/black_mesa/xen/lost_camp)
 "kta" = (
 /obj/structure/window/reinforced/plasma/spawner,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/east,
 /obj/structure/window/reinforced/plasma/spawner/north,
 /obj/structure/window/reinforced/plasma/spawner/west,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/rack/shelf,
 /obj/item/gun/ballistic/automatic/laser/marksman,
 /obj/item/ammo_box/magazine/recharge/marksman,
@@ -9148,7 +9425,11 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/entrance_internal_hall)
 "kwF" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
 	},
@@ -9191,7 +9472,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/black_ops_server)
 "kAS" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/machinery/light/cold/directional/west,
@@ -9238,7 +9523,11 @@
 /area/awaymission/black_mesa/deep_sci_feesh)
 "kGj" = (
 /obj/structure/closet/crate/bin,
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 10
 	},
 /turf/open/floor/iron/smooth_large,
@@ -9255,7 +9544,11 @@
 	},
 /area/awaymission/black_mesa/xen/acid_lake_hallway)
 "kJN" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/machinery/light/broken/directional/east,
@@ -9287,11 +9580,14 @@
 /obj/item/gun/energy/laser/thermal/cryo,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/deep_sci_turret)
+<<<<<<< HEAD
 "kKi" = (
 /obj/structure/table,
 /obj/machinery/computer/secure_data/laptop,
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/mp5_outpost)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "kLj" = (
 /turf/open/floor/iron/stairs/medium{
 	dir = 4
@@ -9585,9 +9881,13 @@
 /area/awaymission/black_mesa/entrance_large_office)
 "lkr" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/emitter/energycannon{
 	dir = 1
 	},
@@ -9720,7 +10020,11 @@
 /turf/open/floor/iron/white,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "lyv" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes{
@@ -9738,7 +10042,11 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/black_mesa/equipment_room)
 "lzG" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/genetics_elevator)
@@ -9764,6 +10072,17 @@
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/hecu_zone_infirmary)
+<<<<<<< HEAD
+=======
+"lCv" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = list("brig_entrance")
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron/textured,
+/area/awaymission/black_mesa/high_security_sec_point)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "lCE" = (
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/textured_large,
@@ -10077,7 +10396,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/dorm_computers)
 "mmj" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
@@ -10108,7 +10431,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/resonant_chamber)
 "mnS" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/chair/sofa/bench{
 	dir = 1
 	},
@@ -10125,7 +10452,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/black_mesa/black_ops_bus)
 "mpE" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/entrance_internal_hall)
@@ -10150,8 +10481,13 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/genetics_elevator)
 "mrj" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/west,
 /obj/structure/window/reinforced/plasma/spawner/east,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/suit_storage_unit/open,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/equipment_room)
@@ -10190,12 +10526,15 @@
 /obj/structure/flora/tree/dead,
 /turf/open/misc/dirt/planet/xen,
 /area/awaymission/black_mesa/xen/vortigaunt_village)
+<<<<<<< HEAD
 "mwB" = (
 /obj/structure/cable,
 /obj/structure/table,
 /obj/machinery/computer/secure_data/laptop,
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/xen/lost_camp)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "mxf" = (
 /obj/structure/railing{
 	dir = 1
@@ -10240,7 +10579,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/high_security_hallway)
 "mFi" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/broken,
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/genetics_elevator)
@@ -10420,6 +10763,15 @@
 /obj/item/gun/energy/cell_loaded/medigun/upgraded,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/xen/acid_lake_building)
+<<<<<<< HEAD
+=======
+"nbu" = (
+/obj/structure/rack/gunrack,
+/obj/item/gun/ballistic/revolver/mateba,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/black_mesa/security_outpost)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "nbJ" = (
 /obj/structure/closet/crate/large,
 /obj/item/ammo_box/a357,
@@ -10619,7 +10971,11 @@
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/lost_camp)
 "nvW" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/alien/weeds/xen,
@@ -10696,7 +11052,11 @@
 /turf/open/misc/ironsand/black_mesa,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "nAh" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table,
 /obj/item/stack/ore/bluespace_crystal,
 /obj/effect/random_mob_placer/xen,
@@ -10744,8 +11104,13 @@
 /turf/open/floor/engine,
 /area/awaymission/black_mesa/hecu_zone_test_chambers)
 "nHG" = (
+<<<<<<< HEAD
 /obj/structure/window/spawner/north,
 /obj/structure/window/spawner/east,
+=======
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/server{
 	anchored = 1
 	},
@@ -10915,6 +11280,17 @@
 /obj/effect/baseturf_helper/black_mesa,
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/science_tunnel)
+<<<<<<< HEAD
+=======
+"nXY" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = list("brig_entrance")
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron/textured_large,
+/area/awaymission/black_mesa/black_ops_entrance)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "nZh" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -10982,7 +11358,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_hall)
 "ohO" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 5
 	},
 /obj/machinery/porta_turret/black_mesa,
@@ -11020,12 +11400,20 @@
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/deep_sci_medbay)
 "oos" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/genetics_elevator)
 "opB" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/reflector/box/anchored{
 	dir = 1
 	},
@@ -11038,7 +11426,11 @@
 	},
 /area/awaymission/black_mesa/xen/acid_lake_hallway)
 "oqM" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/flora/biolumi/lamp/weaklight,
 /obj/structure/alien/weeds/xen,
 /obj/structure/alien/weeds/xen,
@@ -11082,7 +11474,11 @@
 /area/awaymission/black_mesa/xen/lost_camp)
 "otO" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/emitter/energycannon{
 	dir = 4
 	},
@@ -11214,7 +11610,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/entrance_large_office)
 "oEl" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/textured_large,
@@ -11295,6 +11695,14 @@
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/entrance_hall)
+<<<<<<< HEAD
+=======
+"oQq" = (
+/mob/living/basic/carp/mega,
+/obj/effect/spawner/liquids_spawner,
+/turf/open/floor/iron/pool,
+/area/awaymission/black_mesa/deep_sci_feesh)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "oQy" = (
 /obj/effect/baseturf_helper/black_mesa,
 /turf/closed/wall/r_wall,
@@ -11369,6 +11777,7 @@
 /obj/machinery/light/cold,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/dorm_computers)
+<<<<<<< HEAD
 "oTw" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -11378,12 +11787,18 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/science_labs)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "oTZ" = (
 /obj/machinery/door/puzzle/keycard/icebox,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/high_security_armory)
 "oUx" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/genetics_elevator)
 "oVj" = (
@@ -11593,8 +12008,13 @@
 /area/awaymission/black_mesa/hecu_zone_atrium)
 "pso" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/window/reinforced/spawner/west,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_button)
 "pst" = (
@@ -11697,11 +12117,14 @@
 /obj/item/stack/telecrystal/twenty,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_storage)
+<<<<<<< HEAD
 "pCe" = (
 /obj/structure/table,
 /obj/machinery/computer/med_data/laptop,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/hecu_zone_infirmary)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "pCG" = (
 /obj/effect/turf_decal/stripes,
 /obj/structure/alien/weeds/xen,
@@ -12017,6 +12440,7 @@
 /obj/item/geiger_counter,
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/science_internal)
+<<<<<<< HEAD
 "qnK" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
@@ -12025,6 +12449,8 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/hecu_zone_external_sec)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "qnL" = (
 /obj/machinery/light/broken,
 /turf/open/floor/iron/dark,
@@ -12043,7 +12469,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/xen/acid_lake_building)
 "qpF" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/alien/weeds/xen,
@@ -12215,7 +12645,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_bus)
 "qGR" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/directional/west,
@@ -12308,7 +12742,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/science_tunnel)
 "qLz" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 10
 	},
 /obj/machinery/porta_turret/black_mesa,
@@ -12330,7 +12768,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/high_security_hallway)
 "qMF" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/railing{
@@ -12454,7 +12896,12 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_storage)
 "qXD" = (
+<<<<<<< HEAD
 /obj/effect/spawner/structure/window/reinforced/damaged,
+=======
+/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/mapping_helpers/damaged_window,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/hecu_zone_infirmary)
 "qXG" = (
@@ -12542,6 +12989,7 @@
 /obj/item/storage/box/cups,
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
+<<<<<<< HEAD
 "raw" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
@@ -12550,6 +12998,8 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_entrance)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "raX" = (
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/employee_dorm_room)
@@ -12644,7 +13094,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/xen/acid_lake)
 "rnF" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/chair/sofa/bench/left,
@@ -12708,7 +13162,11 @@
 /turf/open/floor/engine,
 /area/awaymission/black_mesa/lambda_teleporter)
 "rts" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/directional/west,
@@ -12966,7 +13424,11 @@
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/entrance_large_office)
 "rRB" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 10
 	},
 /turf/open/floor/iron/smooth,
@@ -13117,7 +13579,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/hecu_zone_atrium)
 "shY" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/closet/crate/bin,
@@ -13318,7 +13784,11 @@
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/entrance_large_office)
 "sCn" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/alien/weeds/xen,
@@ -13533,8 +14003,13 @@
 /area/awaymission/black_mesa/deep_sci_feesh)
 "sZG" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_button)
 "taR" = (
@@ -13566,6 +14041,14 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/resonant_chamber)
+<<<<<<< HEAD
+=======
+"tce" = (
+/obj/structure/table,
+/obj/machinery/computer/records/security/laptop,
+/turf/open/misc/xen,
+/area/awaymission/black_mesa/xen/mp5_outpost)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "tcp" = (
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/lambda_hallway)
@@ -13594,6 +14077,15 @@
 /obj/structure/sign/poster/random/directional/west,
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/hecu_zone_test_chambers)
+<<<<<<< HEAD
+=======
+"tgl" = (
+/obj/structure/cable,
+/obj/structure/table,
+/obj/machinery/computer/records/security/laptop,
+/turf/open/floor/iron/dark,
+/area/awaymission/black_mesa/xen/lost_camp)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "tgn" = (
 /obj/structure/fence{
 	dir = 4
@@ -13737,8 +14229,13 @@
 	},
 /area/awaymission/black_mesa/hecu_zone_infirmary)
 "tvo" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/east,
 /obj/structure/window/reinforced/plasma/spawner/west,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/suit_storage_unit/open,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/equipment_room)
@@ -13937,7 +14434,11 @@
 /turf/open/misc/ironsand/black_mesa,
 /area/awaymission/black_mesa/black_ops_bus)
 "tSn" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/structure/alien/weeds/xen,
@@ -14074,7 +14575,11 @@
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/entering_zone)
 "uhW" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/east,
@@ -14142,7 +14647,11 @@
 /area/awaymission/black_mesa/entrance_internal_hall)
 "upu" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/light/cold,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_button)
@@ -14186,6 +14695,16 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/hecu_zone_atrium)
+<<<<<<< HEAD
+=======
+"usf" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = list("brig_entrance")
+	},
+/turf/open/floor/iron,
+/area/awaymission/black_mesa/entrance_lobby)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "usi" = (
 /obj/item/ammo_box/magazine/multi_sprite/ladon,
 /turf/open/space/basic,
@@ -14316,7 +14835,11 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/black_ops_button)
 "uHk" = (
@@ -14326,9 +14849,13 @@
 /area/awaymission/black_mesa/xen/lost_camp)
 "uJi" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/reflector/box/anchored{
 	dir = 8
 	},
@@ -14435,14 +14962,22 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_chem)
 "uTE" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/chair/sofa/bench,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/entrance_internal_hall)
 "uUl" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/structure/alien/weeds/xen,
@@ -14502,6 +15037,15 @@
 "uYC" = (
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/black_ops_entrance)
+<<<<<<< HEAD
+=======
+"uYQ" = (
+/obj/machinery/computer/records/security{
+	dir = 4
+	},
+/turf/open/floor/iron/textured,
+/area/awaymission/black_mesa/gas_emitter_chamber)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "uZQ" = (
 /obj/effect/turf_decal/stripes{
 	dir = 10
@@ -14536,9 +15080,13 @@
 "vdJ" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/broken/directional/east,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/scientist_hall)
 "ved" = (
@@ -14617,7 +15165,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "vju" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes{
@@ -14755,8 +15307,13 @@
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/resonant_chamber)
 "vwx" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/west,
 /obj/structure/window/reinforced/plasma/spawner/east,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/suit_storage_unit/hev,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/equipment_room)
@@ -14788,6 +15345,16 @@
 "vyO" = (
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/high_security_emitter)
+<<<<<<< HEAD
+=======
+"vAe" = (
+/obj/machinery/computer/records/security{
+	dir = 1
+	},
+/obj/structure/alien/weeds/xen,
+/turf/open/floor/iron/dark,
+/area/awaymission/black_mesa/entrance_lobby)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "vAi" = (
 /obj/machinery/light/cold/directional/west,
 /obj/structure/sign/departments/science/alt{
@@ -14804,7 +15371,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "vAS" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
 	},
@@ -14839,6 +15410,7 @@
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/resonant_chamber)
+<<<<<<< HEAD
 "vDj" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
@@ -14847,6 +15419,8 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/high_security_sec_point)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "vEa" = (
 /obj/structure/table,
 /obj/item/storage/backpack/duffelbag/med/surgery,
@@ -14861,7 +15435,11 @@
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/science_decon_room)
 "vGc" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /obj/machinery/light/broken/directional/west,
@@ -14879,7 +15457,11 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/black_ops_hall)
 "vHB" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 1
 	},
 /obj/structure/alien/weeds/xen,
@@ -14948,7 +15530,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/genetics_sec)
 "vLL" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
@@ -15014,12 +15600,15 @@
 /obj/machinery/door/puzzle/keycard/blue_required,
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/employee_dorm_room)
+<<<<<<< HEAD
 "vRe" = (
 /obj/machinery/computer/secure_data{
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
 /area/awaymission/black_mesa/high_security_sec_point)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "vRk" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/structure/curtain/cloth{
@@ -15051,7 +15640,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "vTT" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
@@ -15114,7 +15707,11 @@
 /area/awaymission/black_mesa/xen/lost_camp_hallway)
 "vZt" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/emitter/energycannon{
 	dir = 8
 	},
@@ -15163,6 +15760,15 @@
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/science_labs)
+<<<<<<< HEAD
+=======
+"wfi" = (
+/obj/machinery/computer/records/security{
+	dir = 4
+	},
+/turf/open/floor/iron/textured,
+/area/awaymission/black_mesa/hecu_zone_external_sec)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "wft" = (
 /obj/machinery/modular_computer/console/preset/civilian{
 	dir = 4
@@ -15176,7 +15782,11 @@
 /turf/open/water/jungle,
 /area/awaymission/black_mesa/resonant_chamber)
 "wfY" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 5
 	},
 /obj/machinery/porta_turret/black_mesa,
@@ -15196,8 +15806,13 @@
 /area/awaymission/black_mesa/black_ops_turret_blockade)
 "wkE" = (
 /obj/structure/table,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/east,
 /obj/structure/window/reinforced/plasma/spawner/west,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/gloves/tackler/combat/insulated,
 /obj/structure/window/reinforced/plasma/spawner,
 /obj/item/clothing/shoes/combat/swat,
@@ -15213,7 +15828,11 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/genetics_elevator)
 "wmo" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/structure/alien/weeds/xen,
@@ -15241,7 +15860,11 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/science_decon_room)
 "wot" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 6
 	},
 /obj/structure/alien/weeds/xen,
@@ -15323,7 +15946,11 @@
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/black_ops_armory)
 "wye" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/corner,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/iron/smooth,
 /area/awaymission/black_mesa/genetics_elevator)
@@ -15418,7 +16045,11 @@
 /area/awaymission/black_mesa/hecu_zone_camp)
 "wJJ" = (
 /obj/structure/lattice/catwalk,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/scientist_hall)
 "wJU" = (
@@ -15731,6 +16362,29 @@
 /obj/item/rcd_ammo,
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/deep_sci_feesh)
+<<<<<<< HEAD
+=======
+"xjK" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/ammo_box/magazine/multi_sprite/ladon,
+/obj/item/ammo_box/magazine/multi_sprite/ladon,
+/obj/item/ammo_box/magazine/multi_sprite/ladon,
+/obj/item/gun_maintenance_supplies,
+/obj/item/gun_maintenance_supplies,
+/obj/item/gun_maintenance_supplies,
+/obj/item/ammo_box/magazine/mp5,
+/obj/item/ammo_box/magazine/mp5,
+/obj/item/ammo_box/magazine/m16,
+/obj/item/ammo_box/magazine/m16,
+/obj/item/gun/ballistic/automatic/pistol/g17/mesa{
+	burst_size = 3;
+	desc = "A weapon from bygone times, and this is the exact 21st century version. In fact, even more reliable, but it also can run full automatic fire mode. Chambered in 9mm.";
+	firing_burst = 1;
+	name = "\improper Glock-18"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/awaymission/black_mesa/black_ops_bus)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "xjM" = (
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/high_security_surgery)
@@ -15940,7 +16594,11 @@
 /turf/open/misc/ironsand/black_mesa,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "xIo" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line,
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/entrance_internal_hall)
 "xIS" = (
@@ -15948,7 +16606,11 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/hecu_zone_tunnel)
 "xJD" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/effect/random_mob_placer/xen,
@@ -16155,7 +16817,11 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/high_security_surgery)
 "yeu" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/darkblue/filled/line{
+=======
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dir = 4
 	},
 /obj/structure/alien/weeds/xen,
@@ -16216,6 +16882,7 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
+<<<<<<< HEAD
 "yiM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/window/reinforced/spawner/north{
@@ -16223,6 +16890,8 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/scientist_hall)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "yiT" = (
 /turf/open/floor/iron/stairs/medium,
 /area/awaymission/black_mesa/black_ops_downstairs_atrium)
@@ -22729,7 +23398,11 @@ ceE
 kYz
 uKr
 gdX
+<<<<<<< HEAD
 mwB
+=======
+tgl
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 gZV
 gZV
 pPh
@@ -23243,7 +23916,11 @@ ceE
 kYz
 gZV
 gdX
+<<<<<<< HEAD
 mwB
+=======
+tgl
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 gZV
 gZV
 ksv
@@ -27385,7 +28062,11 @@ arz
 aoE
 tTS
 nSi
+<<<<<<< HEAD
 kKi
+=======
+tce
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 rwu
 tTS
 tTS
@@ -48335,7 +49016,11 @@ abo
 aoy
 aaO
 aGy
+<<<<<<< HEAD
 aYe
+=======
+nbu
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 aGj
 aNo
 arz
@@ -53575,7 +54260,11 @@ gew
 jZi
 szg
 szg
+<<<<<<< HEAD
 pCe
+=======
+jkg
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 kxa
 dZv
 gew
@@ -56798,7 +57487,11 @@ akt
 aLp
 aLp
 aLp
+<<<<<<< HEAD
 aHj
+=======
+jBe
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 asS
 aqR
 aqR
@@ -57053,7 +57746,11 @@ arz
 aNo
 akt
 aMU
+<<<<<<< HEAD
 agf
+=======
+uYQ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 apk
 ahQ
 akt
@@ -60584,7 +61281,11 @@ sZq
 fGY
 fGY
 fGY
+<<<<<<< HEAD
 fQk
+=======
+oQq
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 fGY
 eZs
 fGY
@@ -61364,7 +62065,11 @@ fGY
 fGY
 fGY
 fGY
+<<<<<<< HEAD
 cXv
+=======
+ccv
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sZq
 aNo
 arz
@@ -62550,7 +63255,11 @@ aNo
 baR
 baR
 baR
+<<<<<<< HEAD
 raw
+=======
+nXY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 baR
 baR
 lCE
@@ -62867,7 +63576,11 @@ ian
 tVa
 olm
 olm
+<<<<<<< HEAD
 vDj
+=======
+lCv
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 nyu
 pUu
 pUu
@@ -63123,7 +63836,11 @@ pUu
 pUu
 tVa
 gvm
+<<<<<<< HEAD
 vRe
+=======
+dOb
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 hBp
 tVa
 afj
@@ -64091,7 +64808,11 @@ arz
 aNo
 baR
 baR
+<<<<<<< HEAD
 raw
+=======
+nXY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 baR
 baR
 baR
@@ -66188,7 +66909,11 @@ qym
 wth
 nRP
 wft
+<<<<<<< HEAD
 iRL
+=======
+wfi
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 jJB
 axF
 afj
@@ -66699,7 +67424,11 @@ afj
 afj
 wth
 olH
+<<<<<<< HEAD
 qnK
+=======
+icZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 sJE
 tMk
 sJE
@@ -66917,7 +67646,11 @@ vqZ
 aNo
 aNo
 baR
+<<<<<<< HEAD
 raw
+=======
+nXY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 baR
 baR
 oGD
@@ -67412,7 +68145,11 @@ arz
 aNo
 vqZ
 tRW
+<<<<<<< HEAD
 cRK
+=======
+xjK
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ltG
 ltG
 ltG
@@ -73239,7 +73976,11 @@ aBS
 acE
 aSD
 awn
+<<<<<<< HEAD
 apP
+=======
+vAe
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 aVn
 aNa
 aNa
@@ -73765,7 +74506,11 @@ aJb
 aLk
 aLk
 aLk
+<<<<<<< HEAD
 aRj
+=======
+usf
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 aYb
 aFj
 aSa
@@ -75725,7 +76470,11 @@ pJW
 rfj
 rbu
 lWX
+<<<<<<< HEAD
 oTw
+=======
+maZ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 rSl
 rSl
 rSl
@@ -76496,7 +77245,11 @@ bEa
 rfj
 rbu
 lgz
+<<<<<<< HEAD
 rfj
+=======
+fgR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 xei
 mmG
 vhN
@@ -77029,10 +77782,17 @@ xTs
 wnt
 gtN
 jyF
+<<<<<<< HEAD
 yiM
 uJi
 yiM
 yiM
+=======
+wJJ
+uJi
+wJJ
+wJJ
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 vdJ
 lkr
 vZt

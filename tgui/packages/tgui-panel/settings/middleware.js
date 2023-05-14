@@ -6,7 +6,11 @@
 
 import { storage } from 'common/storage';
 import { setClientTheme } from '../themes';
+<<<<<<< HEAD
 import { loadSettings, updateSettings } from './actions';
+=======
+import { loadSettings, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { selectSettings } from './selectors';
 import { FONTS_DISABLED } from './constants';
 
@@ -32,7 +36,17 @@ export const settingsMiddleware = (store) => {
         store.dispatch(loadSettings(settings));
       });
     }
+<<<<<<< HEAD
     if (type === updateSettings.type || type === loadSettings.type) {
+=======
+    if (
+      type === updateSettings.type ||
+      type === loadSettings.type ||
+      type === addHighlightSetting.type ||
+      type === removeHighlightSetting.type ||
+      type === updateHighlightSetting.type
+    ) {
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       // Set client theme
       const theme = payload?.theme;
       if (theme) {

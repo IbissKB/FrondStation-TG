@@ -14,7 +14,11 @@
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb_continuous = list("shoves", "bashes")
 	attack_verb_simple = list("shove", "bash")
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 80, ACID = 70)
+=======
+	armor_type = /datum/armor/item_shield
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// makes beam projectiles pass through the shield
 	var/transparent = FALSE
 	/// if the shield will break by sustaining damage
@@ -26,6 +30,17 @@
 	/// baton bash cooldown
 	COOLDOWN_DECLARE(baton_bash)
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_shield
+	melee = 50
+	bullet = 50
+	laser = 50
+	bomb = 30
+	fire = 80
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/shield/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(transparent && (hitby.pass_flags & PASSGLASS))
 		return FALSE
@@ -69,7 +84,11 @@
 	desc = "A medieval wooden buckler."
 	icon_state = "buckler"
 	inhand_icon_state = "buckler"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 10)
+=======
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FLAMMABLE
 	block_chance = 30
 	max_integrity = 55
@@ -80,7 +99,11 @@
 	desc = "Bears an inscription on the inside: <i>\"Romanes venio domus\"</i>."
 	icon_state = "roman_shield"
 	inhand_icon_state = "roman_shield"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=8500)
+=======
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.25)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 65
 	shield_break_sound = 'sound/effects/grillehit.ogg'
 	shield_break_leftover = /obj/item/stack/sheet/iron
@@ -88,7 +111,11 @@
 /obj/item/shield/roman/fake
 	desc = "Bears an inscription on the inside: <i>\"Romanes venio domus\"</i>. It appears to be a bit flimsy."
 	block_chance = 0
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 30
 
 /obj/item/shield/riot
@@ -96,7 +123,11 @@
 	desc = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
 	icon_state = "riot"
 	inhand_icon_state = "riot"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/glass=7500, /datum/material/iron=1000)
+=======
+	custom_materials = list(/datum/material/glass= SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	transparent = TRUE
 	max_integrity = 75
 	shield_break_sound = 'sound/effects/glassbr3.ogg'
@@ -279,7 +310,11 @@
 	icon_state = "teleriot"
 	inhand_icon_state = "teleriot"
 	worn_icon_state = "teleriot"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 3600, /datum/material/glass = 3600, /datum/material/silver = 270, /datum/material/titanium = 180)
+=======
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 3.6, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT * 3.6, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 2.7, /datum/material/titanium = SMALL_MATERIAL_AMOUNT * 1.8)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	slot_flags = null
 	force = 3
 	throwforce = 3

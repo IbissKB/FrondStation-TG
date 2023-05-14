@@ -83,6 +83,11 @@
 
 /obj/item/clothing/neck/tie/update_icon()
 	. = ..()
+<<<<<<< HEAD
+=======
+	if(clip_on)
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Normal strip & equip delay, along with 2 second self equip since you need to squeeze your head through the hole.
 	if(is_tied)
 		icon_state = "tie_greyscale_tied"
@@ -187,8 +192,13 @@
 	var/heart_strength = span_danger("no")
 	var/lung_strength = span_danger("no")
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/heart = carbon_patient.getorganslot(ORGAN_SLOT_HEART)
 	var/obj/item/organ/internal/lungs/lungs = carbon_patient.getorganslot(ORGAN_SLOT_LUNGS)
+=======
+	var/obj/item/organ/internal/heart/heart = carbon_patient.get_organ_slot(ORGAN_SLOT_HEART)
+	var/obj/item/organ/internal/lungs/lungs = carbon_patient.get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(carbon_patient.stat != DEAD && !(HAS_TRAIT(carbon_patient, TRAIT_FAKEDEATH)))
 		if(istype(heart))
@@ -211,6 +221,11 @@
 /obj/item/clothing/neck/scarf
 	name = "scarf"
 	icon_state = "scarf"
+<<<<<<< HEAD
+=======
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "scarf_cloth"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "A stylish scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks."
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
@@ -289,7 +304,11 @@
 	name = "suspicious looking striped scarf"
 	desc = "Ready to operate."
 	greyscale_colors = "#B40000#545350"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/large_scarf_syndie
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/neck/infinity_scarf
 	name = "infinity scarf"
@@ -307,6 +326,13 @@
 	icon_state = "petcollar"
 	var/tagname = null
 
+<<<<<<< HEAD
+=======
+/datum/armor/large_scarf_syndie
+	fire = 50
+	acid = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/neck/petcollar/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE)
 	if(!ismonkey(M))
 		return FALSE
@@ -342,6 +368,10 @@
 	. = ..()
 	if(!proximity)
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/export_report/ex = export_item_and_contents(I, delete_unsold = selling, dry_run = !selling)
 	var/price = 0
 	for(var/x in ex.total_amount)
@@ -354,7 +384,12 @@
 			new /obj/item/holochip(get_turf(user),true_price)
 	else
 		to_chat(user, span_warning("There is no export value for [I] or any items within it."))
+<<<<<<< HEAD
 
+=======
+		
+	return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/neck/beads
 	name = "plastic bead necklace"
@@ -363,7 +398,11 @@
 	icon_state = "beads"
 	color = "#ffffff"
 	custom_price = PAYCHECK_CREW * 0.2
+<<<<<<< HEAD
 	custom_materials = (list(/datum/material/plastic = 500))
+=======
+	custom_materials = (list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT*5))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/neck/beads/Initialize(mapload)
 	. = ..()

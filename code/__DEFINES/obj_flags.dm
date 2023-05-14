@@ -11,7 +11,13 @@
 #define BLOCK_Z_OUT_UP (1<<7) // Should this object block z uprise from loc?
 #define BLOCK_Z_IN_DOWN (1<<8) // Should this object block z falling from above?
 #define BLOCK_Z_IN_UP (1<<9) // Should this object block z uprise from below?
+<<<<<<< HEAD
 #define NO_BUILD (1<<10) // Can we build on this object?
+=======
+#define BLOCKS_CONSTRUCTION (1<<10) //! Does this object prevent things from being built on it?
+#define BLOCKS_CONSTRUCTION_DIR (1<<11) //! Does this object prevent same-direction things from being built on it?
+#define IGNORE_DENSITY (1<<12) //! Can we ignore density when building on this object? (for example, directional windows and grilles)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // If you add new ones, be sure to add them to /obj/Initialize as well for complete mapping support
 
@@ -38,6 +44,7 @@
 #define IGNORE_DIGITIGRADE (1<<18)
 /// Has contextual screentips when HOVERING OVER OTHER objects
 #define ITEM_HAS_CONTEXTUAL_SCREENTIPS (1 << 19)
+<<<<<<< HEAD
 
 // Flags for the clothing_flags var on /obj/item/clothing
 
@@ -67,6 +74,53 @@
 #define INEDIBLE_CLOTHING (1<<20)
 /// Headgear/helmet allows internals
 #define HEADINTERNALS (1<<21)
+=======
+/// No blood overlay is allowed to appear on this item, and it cannot gain blood DNA forensics
+#define NO_BLOOD_ON_ITEM (1 << 20)
+
+// Flags for the clothing_flags var on /obj/item/clothing
+
+/// SUIT and HEAD items which stop lava from hurting the wearer
+#define LAVAPROTECT (1<<0)
+/// SUIT and HEAD items which stop pressure damage.
+/// To stop you taking all pressure damage you must have both a suit and head item with this flag.
+#define STOPSPRESSUREDAMAGE (1<<1)
+/// blocks the effect that chemical clouds would have on a mob --glasses, mask and helmets ONLY!
+#define BLOCK_GAS_SMOKE_EFFECT (1<<2)
+/// mask allows internals
+#define MASKINTERNALS (1<<3)
+/// mask filters toxins and other harmful gases
+#define GAS_FILTERING (1<<4)
+/// prevents syringes, parapens and hypos if the external suit or helmet (if targeting head) has this flag.
+/// Example: space suits, biosuit, bombsuits, thick suits that cover your body.
+#define THICKMATERIAL (1<<5)
+/// The voicebox in this clothing can be toggled.
+#define VOICEBOX_TOGGLABLE (1<<6)
+/// The voicebox is currently turned off.
+#define VOICEBOX_DISABLED (1<<7)
+/// Prevents shovies against a dense object from knocking the wearer down.
+#define BLOCKS_SHOVE_KNOCKDOWN (1<<8)
+/// Prevents knock-off from things like hat-throwing.
+#define SNUG_FIT (1<<9)
+/// Hats with negative effects when worn (i.e the tinfoil hat).
+#define ANTI_TINFOIL_MANEUVER (1<<10)
+/// Clothes that cause a larger notification when placed on a person.
+#define DANGEROUS_OBJECT (1<<11)
+/// Clothes that use large icons, for applying the proper overlays like blood
+#define LARGE_WORN_ICON (1<<12)
+/// Clothes that block speech (i.e the muzzle). Can be applied to any clothing piece.
+#define BLOCKS_SPEECH (1<<13)
+/// prevents from placing on plasmaman helmet
+#define PLASMAMAN_HELMET_EXEMPT (1<<14)
+/// Prevents plasmamen from igniting when wearing this
+#define PLASMAMAN_PREVENT_IGNITION (1<<15)
+/// Usable as casting clothes by wizards (matters for suits, glasses and headwear)
+#define CASTING_CLOTHES (1<<16)
+///Moths can't eat the clothing that has this flag.
+#define INEDIBLE_CLOTHING (1<<17)
+/// Headgear/helmet allows internals
+#define HEADINTERNALS (1<<18)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Integrity defines for clothing (not flags but close enough)
 #define CLOTHING_PRISTINE 0 // We have no damage on the clothing

@@ -2,6 +2,10 @@
 	name = "critter crate"
 	desc = "A crate designed for safe transport of animals. It has an oxygen tank for safe transport in space."
 	icon_state = "crittercrate"
+<<<<<<< HEAD
+=======
+	base_icon_state = "crittercrate"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	horizontal = FALSE
 	allow_objects = FALSE
 	breakout_time = 600
@@ -13,9 +17,16 @@
 	open_sound_volume = 25
 	close_sound_volume = 50
 	contents_pressure_protection = 0.8
+<<<<<<< HEAD
 	var/obj/item/tank/internals/emergency_oxygen/tank
 	can_install_electronics = FALSE
 
+=======
+	can_install_electronics = FALSE
+
+	var/obj/item/tank/internals/emergency_oxygen/tank
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/crate/critter/Initialize(mapload)
 	. = ..()
 	tank = new

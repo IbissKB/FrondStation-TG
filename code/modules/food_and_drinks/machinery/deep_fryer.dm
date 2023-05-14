@@ -62,14 +62,24 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 
 /obj/machinery/deepfryer/deconstruct(disassembled)
 	// This handles nulling out frying via exited
+<<<<<<< HEAD
 	frying.forceMove(drop_location())
+=======
+	if(frying)
+		frying.forceMove(drop_location())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/machinery/deepfryer/RefreshParts()
 	. = ..()
 	var/oil_efficiency = 0
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
 		oil_efficiency += laser.rating
+=======
+	for(var/datum/stock_part/micro_laser/laser in component_parts)
+		oil_efficiency += laser.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	oil_use = initial(oil_use) - (oil_efficiency * 0.00475)
 	fry_speed = oil_efficiency
 
@@ -128,7 +138,11 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 
 	return ..()
 
+<<<<<<< HEAD
 /obj/machinery/deepfryer/process(delta_time)
+=======
+/obj/machinery/deepfryer/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 	var/datum/reagent/consumable/cooking_oil/frying_oil = reagents.has_reagent(/datum/reagent/consumable/cooking_oil)
 	if(!frying_oil)
@@ -137,8 +151,13 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	if(!frying)
 		return
 
+<<<<<<< HEAD
 	reagents.trans_to(frying, oil_use * delta_time, multiplier = fry_speed * 3) //Fried foods gain more of the reagent thanks to space magic
 	cook_time += fry_speed * delta_time
+=======
+	reagents.trans_to(frying, oil_use * seconds_per_tick, multiplier = fry_speed * 3) //Fried foods gain more of the reagent thanks to space magic
+	cook_time += fry_speed * seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(cook_time >= DEEPFRYER_COOKTIME && !frying_fried)
 		frying_fried = TRUE //frying... frying... fried
 		playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
@@ -183,7 +202,12 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	// Give them reagents to put frying oil in
 	if(isnull(frying.reagents))
 		frying.create_reagents(50, INJECTABLE)
+<<<<<<< HEAD
 	ADD_TRAIT(frying, TRAIT_FOOD_CHEF_MADE, REF(user))
+=======
+	if(user.mind)
+		ADD_TRAIT(frying, TRAIT_FOOD_CHEF_MADE, REF(user.mind))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SEND_SIGNAL(frying, COMSIG_ITEM_ENTERED_FRYER)
 
 	icon_state = "fryer_on"

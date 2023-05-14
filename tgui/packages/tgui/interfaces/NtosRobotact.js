@@ -3,10 +3,15 @@ import { AnimatedNumber, Box, Button, Flex, LabeledList, ProgressBar, Section, S
 import { NtosWindow } from '../layouts';
 
 export const NtosRobotact = (props, context) => {
+<<<<<<< HEAD
   const { act, data } = useBackend(context);
   const { PC_device_theme } = data;
   return (
     <NtosWindow width={800} height={600} theme={PC_device_theme}>
+=======
+  return (
+    <NtosWindow width={800} height={600}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <NtosWindow.Content>
         <NtosRobotactContent />
       </NtosWindow.Content>

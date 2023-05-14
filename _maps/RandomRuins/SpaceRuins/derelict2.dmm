@@ -3,9 +3,13 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/template_noop,
 /area/template_noop)
 "c" = (
@@ -13,6 +17,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/dinner_for_two)
 "d" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -25,6 +30,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/template_noop,
+/area/template_noop)
+"e" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/dinner_for_two)
 "f" = (
@@ -46,6 +59,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/dinner_for_two)
 "k" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /turf/template_noop,
 /area/template_noop)
@@ -54,6 +68,14 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/template_noop,
+/area/template_noop)
+"l" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/dinner_for_two)
 "m" = (
@@ -65,7 +87,11 @@
 /area/ruin/space/has_grav/powered/dinner_for_two)
 "n" = (
 /obj/structure/table,
+<<<<<<< HEAD
 /obj/item/candle{
+=======
+/obj/item/flashlight/flare/candle{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_y = 5
 	},
 /obj/item/plate{
@@ -84,9 +110,13 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/dinner_for_two)
 "p" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/template_noop,
 /area/template_noop)
 "q" = (

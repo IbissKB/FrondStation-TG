@@ -5,6 +5,10 @@
 	base_icon_state = "water"
 	anchored = TRUE
 	plane = FLOOR_PLANE
+<<<<<<< HEAD
+=======
+	layer = ABOVE_OPEN_TURF_LAYER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	color = "#DDF"
 
 	//For being on fire
@@ -13,8 +17,13 @@
 	light_color = LIGHT_COLOR_FIRE
 
 	smoothing_flags = SMOOTH_BITMASK
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_WATER)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WATER)
+=======
+	smoothing_groups = SMOOTH_GROUP_WATER
+	canSmoothWith = SMOOTH_GROUP_WATER + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/height = 1
@@ -89,7 +98,11 @@
 		if(LIQUID_FIRE_STATE_INFERNO)
 			set_light_range(LIGHT_RANGE_FIRE)
 	update_light()
+<<<<<<< HEAD
 	update_liquid_vis()
+=======
+	update_icon(UPDATE_OVERLAYS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/abstract/liquid_turf/proc/get_burn_power(hotspotted = FALSE)
 	//We are not on fire and werent ignited by a hotspot exposure, no fire pls
@@ -111,6 +124,10 @@
 	return total_burn_power
 
 /obj/effect/abstract/liquid_turf/extinguish()
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(fire_state)
 		set_fire_state(LIQUID_FIRE_STATE_NONE)
 
@@ -231,9 +248,20 @@
 
 /obj/effect/abstract/liquid_turf/proc/set_new_liquid_state(new_state)
 	liquid_state = new_state
+<<<<<<< HEAD
 	if(no_effects)
 		return
 	cut_overlays()
+=======
+	update_icon(UPDATE_OVERLAYS)
+
+/obj/effect/abstract/liquid_turf/update_overlays()
+	. = ..()
+
+	if(no_effects)
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(liquid_state)
 		if(LIQUID_STATE_ANKLES)
 			add_state_layer(1, has_top = TRUE)
@@ -244,6 +272,7 @@
 		if(LIQUID_STATE_FULLTILE)
 			add_state_layer(4, has_top = FALSE)
 
+<<<<<<< HEAD
 /obj/effect/abstract/liquid_turf/proc/update_liquid_vis()
 	if(no_effects)
 		return
@@ -261,12 +290,42 @@
 			SSvis_overlays.add_vis_overlay(src, icon, "fire_big", BELOW_MOB_LAYER, GAME_PLANE, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
 		if(LIQUID_FIRE_STATE_INFERNO)
 			SSvis_overlays.add_vis_overlay(src, icon, "fire_big", BELOW_MOB_LAYER, GAME_PLANE, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
+=======
+	var/mutable_appearance/shine = mutable_appearance(icon, "shine", offset_spokesman = src, alpha = 32, appearance_flags = RESET_COLOR|RESET_ALPHA)
+	shine.blend_mode = BLEND_ADD
+	. += shine
+
+	//Add a fire overlay too
+
+	if(fire_state == LIQUID_FIRE_STATE_NONE)
+		return
+
+	var/fire_icon_state
+	switch(fire_state)
+		if(LIQUID_FIRE_STATE_SMALL)
+			fire_icon_state = "fire_small"
+		if(LIQUID_FIRE_STATE_MILD)
+			fire_icon_state = "fire_small"
+		if(LIQUID_FIRE_STATE_MEDIUM)
+			fire_icon_state = "fire_medium"
+		if(LIQUID_FIRE_STATE_HUGE)
+			fire_icon_state = "fire_big"
+		if(LIQUID_FIRE_STATE_INFERNO)
+			fire_icon_state = "fire_big"
+
+	. += mutable_appearance(icon, fire_icon_state, BELOW_MOB_LAYER, src, GAME_PLANE, appearance_flags = RESET_COLOR|RESET_ALPHA)
+	. += emissive_appearance(icon, fire_icon_state, src, alpha = src.alpha)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Takes a flat of our reagents and returns it, possibly qdeling our liquids
 /obj/effect/abstract/liquid_turf/proc/take_reagents_flat(flat_amount)
 	var/datum/reagents/tempr = new(10000)
 	if(flat_amount >= total_reagents)
+<<<<<<< HEAD
 		tempr.add_reagent_list(reagent_list, no_react = TRUE)
+=======
+		tempr.add_noreact_reagent_list(reagent_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		qdel(src, TRUE)
 	else
 		var/fraction = flat_amount/total_reagents
@@ -276,7 +335,11 @@
 			reagent_list[reagent_type] -= amount
 			total_reagents -= amount
 			passed_list[reagent_type] = amount
+<<<<<<< HEAD
 		tempr.add_reagent_list(passed_list, no_react = TRUE)
+=======
+		tempr.add_noreact_reagent_list(passed_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		has_cached_share = FALSE
 	tempr.chem_temp = temp
 	return tempr
@@ -293,7 +356,11 @@
 		if(amount_threshold && amount < amount_threshold)
 			continue
 		passed_list[reagent_type] = amount
+<<<<<<< HEAD
 	tempr.add_reagent_list(passed_list, no_react = TRUE)
+=======
+	tempr.add_noreact_reagent_list(passed_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tempr.chem_temp = temp
 	return tempr
 
@@ -301,14 +368,22 @@
 /obj/effect/abstract/liquid_turf/proc/simulate_reagents_flat(flat_amount)
 	var/datum/reagents/tempr = new(10000)
 	if(flat_amount >= total_reagents)
+<<<<<<< HEAD
 		tempr.add_reagent_list(reagent_list, no_react = TRUE)
+=======
+		tempr.add_noreact_reagent_list(reagent_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		var/fraction = flat_amount/total_reagents
 		var/passed_list = list()
 		for(var/reagent_type in reagent_list)
 			var/amount = fraction * reagent_list[reagent_type]
 			passed_list[reagent_type] = amount
+<<<<<<< HEAD
 		tempr.add_reagent_list(passed_list, no_react = TRUE)
+=======
+		tempr.add_noreact_reagent_list(passed_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tempr.chem_temp = temp
 	return tempr
 
@@ -396,7 +471,11 @@
 					if(!AM.anchored && !AM.pulledby && !isobserver(AM) && (AM.move_resist < INFINITY))
 						if(iscarbon(AM))
 							var/mob/living/carbon/C = AM
+<<<<<<< HEAD
 							if(!(C.shoes && C.shoes.clothing_flags & NOSLIP))
+=======
+							if(!(C.shoes && C.shoes.clothing_flags))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 								step(C, dir)
 								if(prob(60) && C.body_position != LYING_DOWN)
 									to_chat(C, span_userdanger("The current knocks you down!"))
@@ -469,7 +548,11 @@
 
 		SEND_SIGNAL(my_turf, COMSIG_TURF_LIQUIDS_CREATION, src)
 
+<<<<<<< HEAD
 	update_liquid_vis()
+=======
+	update_icon(UPDATE_OVERLAYS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(z)
 		QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)

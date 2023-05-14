@@ -10,7 +10,11 @@
 	name = "small light fixture frame"
 	icon_state = "bulb-construct-item"
 	result_path = /obj/structure/light_construct/small
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
+=======
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/wallframe/light_fixture/try_build(turf/on_wall, user)
 	if(!..())

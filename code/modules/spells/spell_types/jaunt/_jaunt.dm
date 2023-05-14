@@ -57,8 +57,12 @@
 	var/obj/effect/dummy/phased_mob/jaunt = new jaunt_type(loc_override || get_turf(jaunter), jaunter)
 	RegisterSignal(jaunt, COMSIG_MOB_EJECTED_FROM_JAUNT, PROC_REF(on_jaunt_exited))
 	spell_requirements |= SPELL_CASTABLE_WHILE_PHASED
+<<<<<<< HEAD
 	ADD_TRAIT(jaunter, TRAIT_MAGICALLY_PHASED, REF(src))
 	ADD_TRAIT(jaunter, TRAIT_RUNECHAT_HIDDEN, REF(src))
+=======
+	jaunter.add_traits(list(TRAIT_MAGICALLY_PHASED, TRAIT_RUNECHAT_HIDDEN), REF(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Don't do the feedback until we have runechat hidden.
 	// Otherwise the text will follow the jaunt holder, which reveals where our caster is travelling.
 	spell_feedback()
@@ -102,8 +106,12 @@
 /datum/action/cooldown/spell/jaunt/proc/on_jaunt_exited(obj/effect/dummy/phased_mob/jaunt, mob/living/unjaunter)
 	SHOULD_CALL_PARENT(TRUE)
 	spell_requirements &= ~SPELL_CASTABLE_WHILE_PHASED
+<<<<<<< HEAD
 	REMOVE_TRAIT(unjaunter, TRAIT_MAGICALLY_PHASED, REF(src))
 	REMOVE_TRAIT(unjaunter, TRAIT_RUNECHAT_HIDDEN, REF(src))
+=======
+	unjaunter.remove_traits(list(TRAIT_MAGICALLY_PHASED, TRAIT_RUNECHAT_HIDDEN), REF(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// This needs to happen at the end, after all the traits and stuff is handled
 	SEND_SIGNAL(unjaunter, COMSIG_MOB_AFTER_EXIT_JAUNT, src)
 

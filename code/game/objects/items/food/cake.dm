@@ -2,7 +2,14 @@
 	icon = 'icons/obj/food/piecake.dmi'
 	bite_consumption = 3
 	max_volume = 80
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 1)
 	foodtypes = GRAIN | DAIRY
 	/// type is spawned 5 at a time and replaces this cake when processed by cutting tool
@@ -14,13 +21,24 @@
 	. = ..()
 	AddComponent(/datum/component/food_storage)
 
+<<<<<<< HEAD
 /obj/item/food/cake/MakeProcessable()
+=======
+/obj/item/food/cake/make_processable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (slice_type)
 		AddElement(/datum/element/processable, TOOL_KNIFE, slice_type, yield, 3 SECONDS, table_required = TRUE, screentip_verb = "Slice")
 
 /obj/item/food/cakeslice
 	icon = 'icons/obj/food/piecake.dmi'
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 1)
 	foodtypes = GRAIN | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
@@ -29,7 +47,14 @@
 	name = "plain cake"
 	desc = "A plain cake, not a lie."
 	icon_state = "plaincake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/nutriment/vitamin = 7)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 30,
+		/datum/reagent/consumable/nutriment/vitamin = 7,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("sweetness" = 2, "cake" = 5)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	burns_in_oven = TRUE
@@ -46,7 +71,10 @@
 	name = "carrot cake"
 	desc = "A favorite desert of a certain wascally wabbit. Not a lie."
 	icon_state = "carrotcake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 2, "carrot" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES | SUGAR
 	venue_value = FOOD_PRICE_CHEAP
@@ -56,7 +84,10 @@
 	name = "carrot cake slice"
 	desc = "Carrotty slice of Carrot Cake, carrots are good for your eyes! Also not a lie."
 	icon_state = "carrotcake_slice"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 2, "carrot" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES | SUGAR
 
@@ -64,7 +95,16 @@
 	name = "brain cake"
 	desc = "A squishy cake-thing."
 	icon_state = "braincake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/medicine/mannitol = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 15,
+		/datum/reagent/consumable/nutriment/protein = 5,
+		/datum/reagent/medicine/mannitol = 10,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 2, "brains" = 1)
 	foodtypes = GRAIN | DAIRY | MEAT | GORE | SUGAR
 	slice_type = /obj/item/food/cakeslice/brain
@@ -73,7 +113,16 @@
 	name = "brain cake slice"
 	desc = "Lemme tell you something about prions. THEY'RE DELICIOUS."
 	icon_state = "braincakeslice"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/medicine/mannitol = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/protein = 1,
+		/datum/reagent/medicine/mannitol = 2,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 2, "brains" = 1)
 	foodtypes = GRAIN | DAIRY | MEAT | GORE | SUGAR
 
@@ -81,7 +130,15 @@
 	name = "cheese cake"
 	desc = "DANGEROUSLY cheesy."
 	icon_state = "cheesecake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 8, /datum/reagent/consumable/nutriment/protein = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 8,
+		/datum/reagent/consumable/nutriment/protein = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 4, "cream cheese" = 3)
 	foodtypes = GRAIN | DAIRY
 	venue_value = FOOD_PRICE_CHEAP
@@ -91,15 +148,27 @@
 	name = "cheese cake slice"
 	desc = "Slice of pure cheestisfaction."
 	icon_state = "cheesecake_slice"
+<<<<<<< HEAD
 	tastes = list("cake" = 4, "cream cheese" = 3)
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/consumable/nutriment/vitamin = 1.3)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/protein = 1,
+		/datum/reagent/consumable/nutriment/vitamin = 1.3,
+	)
+	tastes = list("cake" = 4, "cream cheese" = 3)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	foodtypes = GRAIN | DAIRY
 
 /obj/item/food/cake/orange
 	name = "orange cake"
 	desc = "A cake with added orange."
 	icon_state = "orangecake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 2, "oranges" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR | ORANGES
 	venue_value = FOOD_PRICE_CHEAP
@@ -116,7 +185,14 @@
 	name = "lime cake"
 	desc = "A cake with added lime."
 	icon_state = "limecake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 10,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 2, "unbearable sourness" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	venue_value = FOOD_PRICE_CHEAP
@@ -133,7 +209,14 @@
 	name = "lemon cake"
 	desc = "A cake with added lemon."
 	icon_state = "lemoncake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 10,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 2, "sourness" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	venue_value = FOOD_PRICE_CHEAP
@@ -150,7 +233,14 @@
 	name = "chocolate cake"
 	desc = "A cake with added chocolate."
 	icon_state = "chocolatecake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 10,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1, "chocolate" = 4)
 	foodtypes = GRAIN | DAIRY | JUNKFOOD | SUGAR
 	venue_value = FOOD_PRICE_CHEAP
@@ -167,19 +257,39 @@
 	name = "birthday cake"
 	desc = "Happy Birthday little clown..."
 	icon_state = "birthdaycake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/sprinkles = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/sprinkles = 10,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1)
 	foodtypes = GRAIN | DAIRY | JUNKFOOD | SUGAR
 	slice_type = /obj/item/food/cakeslice/birthday
 
+<<<<<<< HEAD
 /obj/item/food/cake/birthday/make_microwavable() // super sekrit club
+=======
+/obj/item/food/cake/birthday/make_microwaveable() // super sekrit club
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/microwavable, /obj/item/clothing/head/utility/hardhat/cakehat)
 
 /obj/item/food/cakeslice/birthday
 	name = "birthday cake slice"
 	desc = "A slice of your birthday."
 	icon_state = "birthdaycakeslice"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sprinkles = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/sprinkles = 2,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1)
 	foodtypes = GRAIN | DAIRY | JUNKFOOD | SUGAR
 
@@ -189,11 +299,25 @@
 	icon_state = "energycake"
 	force = 5
 	hitsound = 'sound/weapons/blade1.ogg'
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/sprinkles = 10, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/pwr_game = 10, /datum/reagent/consumable/liquidelectricity/enriched = 10)
 	tastes = list("cake" = 3, "a Vlad's Salad" = 1)
 	slice_type = /obj/item/food/cakeslice/birthday/energy
 
 /obj/item/food/cake/birthday/energy/make_microwavable() //super sekriter club
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 10,
+		/datum/reagent/consumable/sprinkles = 10,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/consumable/pwr_game = 10,
+		/datum/reagent/consumable/liquidelectricity/enriched = 10,
+	)
+	tastes = list("cake" = 3, "a Vlad's Salad" = 1)
+	slice_type = /obj/item/food/cakeslice/birthday/energy
+
+/obj/item/food/cake/birthday/energy/make_microwaveable() //super sekriter club
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/microwavable, /obj/item/clothing/head/utility/hardhat/cakehat/energycake)
 
 /obj/item/food/cake/birthday/energy/proc/energy_bite(mob/living/user)
@@ -213,7 +337,17 @@
 	icon_state = "energycakeslice"
 	force = 2
 	hitsound = 'sound/weapons/blade1.ogg'
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sprinkles = 2, /datum/reagent/consumable/nutriment/vitamin = 1,  /datum/reagent/consumable/pwr_game = 2, /datum/reagent/consumable/liquidelectricity/enriched = 2)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/sprinkles = 2,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/consumable/pwr_game = 2,
+		/datum/reagent/consumable/liquidelectricity/enriched = 2,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 3, "a Vlad's Salad" = 1)
 
 /obj/item/food/cakeslice/birthday/energy/proc/energy_bite(mob/living/user)
@@ -231,8 +365,15 @@
 	name = "apple cake"
 	desc = "A cake centred with Apple."
 	icon_state = "applecake"
+<<<<<<< HEAD
 
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 10,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1, "apple" = 1)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	venue_value = FOOD_PRICE_CHEAP
@@ -249,7 +390,10 @@
 	name = "Slime cake"
 	desc = "A cake made of slimes. Probably not electrified."
 	icon_state = "slimecake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1, "slime" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	slice_type = /obj/item/food/cakeslice/slimecake
@@ -265,7 +409,10 @@
 	name = "pumpkin spice cake"
 	desc = "A hollow cake with real pumpkin."
 	icon_state = "pumpkinspicecake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1, "pumpkin" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES | SUGAR
 	venue_value = FOOD_PRICE_CHEAP
@@ -282,7 +429,10 @@
 	name = "blackberry and strawberry vanilla cake"
 	desc = "A plain cake, filled with assortment of blackberries and strawberries!"
 	icon_state = "blackbarry_strawberries_cake_vanilla_cake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("blackberry" = 2, "strawberries" = 2, "vanilla" = 2, "sweetness" = 2, "cake" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	slice_type = /obj/item/food/cakeslice/bsvc
@@ -298,14 +448,27 @@
 	name = "strawberry chocolate cake"
 	desc = "A chocolate cake with five strawberries on top. For some reason, this configuration of cake is particularly aesthetically pleasing to AIs in SELF."
 	icon_state = "liars_cake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/coco = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/consumable/coco = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("blackberry" = 2, "strawberries" = 2, "chocolate" = 2, "sweetness" = 2, "cake" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	slice_type = /obj/item/food/cakeslice/bscc
 
 /obj/item/food/cakeslice/bscc
 	name = "strawberry chocolate cake slice"
+<<<<<<< HEAD
 	desc = "Just a slice of cake with five strawberries on top. For some reason, this configuration of cake is particularly aesthetically pleasing to AIs in SELF." //yes, I know the one referenced has cherries, but I'm not implementing a new cake today.
+=======
+	desc = "Just a slice of cake with five strawberries on top. \
+		For some reason, this configuration of cake is particularly aesthetically pleasing to AIs in SELF."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "liars_slice"
 	tastes = list("strawberries" = 2, "chocolate" = 2, "sweetness" = 2, "cake" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
@@ -314,7 +477,15 @@
 	name = "angel food cake"
 	desc = "A cake made for angels and chaplains alike! Contains holy water."
 	icon_state = "holy_cake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/water/holywater = 10)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 1,
+		/datum/reagent/consumable/nutriment/vitamin = 3,
+		/datum/reagent/water/holywater = 10,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1, "clouds" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	slice_type = /obj/item/food/cakeslice/holy_cake_slice
@@ -330,7 +501,14 @@
 	name = "pound cake"
 	desc = "A condensed cake made for filling people up quickly."
 	icon_state = "pound_cake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 60, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 60,
+		/datum/reagent/consumable/nutriment/vitamin = 20,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 5, "batter" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR | JUNKFOOD
 	venue_value = FOOD_PRICE_CHEAP
@@ -341,15 +519,34 @@
 	name = "pound cake slice"
 	desc = "A slice of condensed cake made for filling people up quickly."
 	icon_state = "pound_cake_slice"
+<<<<<<< HEAD
 	tastes = list("cake" = 5, "sweetness" = 5, "batter" = 1)
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/nutriment/vitamin = 0.5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 9,
+		/datum/reagent/consumable/nutriment/vitamin = 4,
+	)
+	tastes = list("cake" = 5, "sweetness" = 5, "batter" = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	foodtypes = GRAIN | DAIRY | SUGAR | JUNKFOOD
 
 /obj/item/food/cake/hardware_cake
 	name = "hardware cake"
+<<<<<<< HEAD
 	desc = "A quote on quote cake that is made with electronic boards and leaks acid..."
 	icon_state = "hardware_cake"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/toxin/acid = 15, /datum/reagent/fuel/oil = 15)
+=======
+	desc = "A \"cake\" that is made with electronic boards and leaks acid..."
+	icon_state = "hardware_cake"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/toxin/acid = 15,
+		/datum/reagent/fuel/oil = 15,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("acid" = 3, "metal" = 4, "glass" = 5)
 	foodtypes = GRAIN | GROSS
 	slice_type = /obj/item/food/cakeslice/hardware_cake_slice
@@ -358,15 +555,34 @@
 	name = "hardware cake slice"
 	desc = "A slice of electronic boards and some acid."
 	icon_state = "hardware_cake_slice"
+<<<<<<< HEAD
 	tastes = list("acid" = 3, "metal" = 4, "glass" = 5)
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/toxin/acid = 3, /datum/reagent/fuel/oil = 3)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/toxin/acid = 3,
+		/datum/reagent/fuel/oil = 3,
+	)
+	tastes = list("acid" = 3, "metal" = 4, "glass" = 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	foodtypes = GRAIN | GROSS
 
 /obj/item/food/cake/vanilla_cake
 	name = "vanilla cake"
 	desc = "A vanilla frosted cake."
 	icon_state = "vanillacake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/sugar = 15, /datum/reagent/consumable/vanilla = 15)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/consumable/sugar = 15,
+		/datum/reagent/consumable/vanilla = 15,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 1, "sugar" = 1, "vanilla" = 10)
 	foodtypes = GRAIN | SUGAR | DAIRY
 	slice_type = /obj/item/food/cakeslice/vanilla_slice
@@ -375,7 +591,16 @@
 	name = "vanilla cake slice"
 	desc = "A slice of vanilla frosted cake."
 	icon_state = "vanillacake_slice"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/vanilla = 3)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/consumable/sugar = 3,
+		/datum/reagent/consumable/vanilla = 3,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 1, "sugar" = 1, "vanilla" = 10)
 	foodtypes = GRAIN | SUGAR | DAIRY
 
@@ -383,7 +608,15 @@
 	name = "clown cake"
 	desc = "A funny cake with a clown face on it."
 	icon_state = "clowncake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/sugar = 15)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/consumable/banana = 15,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 1, "sugar" = 1, "joy" = 10)
 	foodtypes = GRAIN | SUGAR | DAIRY
 	slice_type = /obj/item/food/cakeslice/clown_slice
@@ -392,7 +625,15 @@
 	name = "clown cake slice"
 	desc = "A slice of bad jokes, and silly props."
 	icon_state = "clowncake_slice"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/sugar = 3)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/consumable/banana = 3,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 1, "sugar" = 1, "joy" = 10)
 	foodtypes = GRAIN | SUGAR | DAIRY
 
@@ -400,7 +641,17 @@
 	name = "spaceman's cake"
 	desc = "A spaceman's trumpet frosted cake."
 	icon_state = "trumpetcake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/cream = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/berryjuice = 5)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/consumable/cream = 5,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/consumable/berryjuice = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 4, "violets" = 2, "jam" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	slice_type = /obj/item/food/cakeslice/trumpet
@@ -409,7 +660,17 @@
 	name = "spaceman's cake slice"
 	desc = "A spaceman's trumpet frosted cake."
 	icon_state = "trumpetcakeslice"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/cream = 1, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/berryjuice = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/consumable/cream = 1,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/consumable/berryjuice = 1,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 4, "violets" = 2, "jam" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 
@@ -417,7 +678,10 @@
 	name = "brioche cake"
 	desc = "A ring of sweet, glazed buns."
 	icon_state = "briochecake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 4, "butter" = 2, "cream" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	slice_type = /obj/item/food/cakeslice/brioche
@@ -427,7 +691,10 @@
 	name = "brioche cake slice"
 	desc = "Delicious sweet-bread. Who needs anything else?"
 	icon_state = "briochecake_slice"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 4, "butter" = 2, "cream" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 
@@ -435,18 +702,30 @@
 	name = "pavlova"
 	desc = "A sweet berry pavlova. Invented in New Zealand, but named after a Russian ballerina... And scientifically proven to be the best at dinner parties!"
 	icon_state = "pavlova"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("meringue" = 5, "creaminess" = 1, "berries" = 1)
 	foodtypes = DAIRY | FRUIT | SUGAR
 	slice_type = /obj/item/food/cakeslice/pavlova
 
 /obj/item/food/cake/pavlova/nuts
+<<<<<<< HEAD
+=======
+	name = "pavlova with nuts"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	foodtypes = NUTS | FRUIT | SUGAR
 	slice_type = /obj/item/food/cakeslice/pavlova/nuts
 
 /obj/item/food/cakeslice/pavlova
 	name = "pavlova slice"
+<<<<<<< HEAD
 	desc = "A cracked slice of pavlova stacked with berries. You even got it sliced in such a way that more berries ended up on your slice, how delightfully devilish."
+=======
+	desc = "A cracked slice of pavlova stacked with berries. \
+		You even got it sliced in such a way that more berries ended up on your slice, how delightfully devilish."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "pavlova_slice"
 	tastes = list("meringue" = 5, "creaminess" = 1, "berries" = 1)
 	foodtypes = DAIRY | FRUIT | SUGAR
@@ -458,7 +737,15 @@
 	name = "english fruitcake"
 	desc = "A proper good cake, innit?"
 	icon_state = "fruitcake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/sugar = 10, /datum/reagent/consumable/cherryjelly = 5, )
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 15,
+		/datum/reagent/consumable/sugar = 10,
+		/datum/reagent/consumable/cherryjelly = 5,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("dried fruit" = 5, "treacle" = 2, "christmas" = 2)
 	force = 7
 	throwforce = 7
@@ -483,7 +770,15 @@
 	name = "plum cake"
 	desc = "A cake centred with Plums."
 	icon_state = "plumcake"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/impurity/rosenol = 8)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 20,
+		/datum/reagent/consumable/nutriment/vitamin = 10,
+		/datum/reagent/impurity/rosenol = 8,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tastes = list("cake" = 5, "sweetness" = 1, "plum" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	venue_value = FOOD_PRICE_CHEAP
@@ -495,3 +790,26 @@
 	icon_state = "plumcakeslice"
 	tastes = list("cake" = 5, "sweetness" = 1, "plum" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
+<<<<<<< HEAD
+=======
+
+/obj/item/food/cake/wedding
+	name = "wedding cake"
+	desc = "An expensive, multi-tiered cake."
+	icon_state = "weddingcake"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 40,
+		/datum/reagent/consumable/sugar = 30,
+		/datum/reagent/consumable/nutriment/vitamin = 10,
+	)
+	tastes = list("cake" = 3, "frosting" = 1)
+	foodtypes = GRAIN | DAIRY | SUGAR
+	slice_type = /obj/item/food/cakeslice/wedding
+
+/obj/item/food/cakeslice/wedding
+	name = "wedding cake slice"
+	desc = "Traditionally, those getting married feed each other a slice of cake."
+	icon_state = "weddingcake_slice"
+	tastes = list("cake" = 3, "frosting" = 1)
+	foodtypes = GRAIN | DAIRY | SUGAR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

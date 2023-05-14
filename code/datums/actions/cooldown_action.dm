@@ -17,6 +17,11 @@
 	var/next_melee_use_time = 0
 	/// Whether or not you want the cooldown for the ability to display in text form
 	var/text_cooldown = TRUE
+<<<<<<< HEAD
+=======
+	/// Significant figures to round cooldown to
+	var/cooldown_rounding = 0.1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Shares cooldowns with other abiliies, bitflag
 	var/shared_cooldown
 	/// List of prerequisite actions that are used in this sequenced ability, you cannot put other sequenced abilities in this
@@ -76,7 +81,14 @@
 	if(!text_cooldown || !owner || time_left == 0 || time_left >= COOLDOWN_NO_DISPLAY_TIME)
 		button.maptext = ""
 	else
+<<<<<<< HEAD
 		button.maptext = MAPTEXT("<b>[round(time_left/10, 0.1)]</b>")
+=======
+		if (cooldown_rounding > 0)
+			button.maptext = MAPTEXT("<b>[round(time_left/10, cooldown_rounding)]</b>")
+		else
+			button.maptext = MAPTEXT("<b>[round(time_left/10)]</b>")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!IsAvailable() || !is_action_active(button))
 		return
@@ -330,3 +342,8 @@
 	SEND_SIGNAL(src, COMSIG_ACTION_SET_STATPANEL, stat_panel_data)
 
 	return stat_panel_data
+<<<<<<< HEAD
+=======
+
+#undef COOLDOWN_NO_DISPLAY_TIME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

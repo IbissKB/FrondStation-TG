@@ -20,7 +20,11 @@
 	var/msg = "[key_name(src)] has modified world.fps to [new_fps]"
 	log_admin(msg, 0)
 	message_admins(msg, 0)
+<<<<<<< HEAD
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Set Server FPS", "[new_fps]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+=======
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Set Server FPS", "[new_fps]")) // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	CONFIG_SET(number/fps, new_fps)
 	world.change_fps(new_fps)

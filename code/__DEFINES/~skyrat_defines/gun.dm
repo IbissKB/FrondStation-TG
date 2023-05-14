@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 #define SELECT_SEMI_AUTOMATIC 1
 #define SELECT_BURST_SHOT 2
 #define SELECT_FULLY_AUTOMATIC 3
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Bitflags for what company produces the gun
 #define COMPANY_CANTALAN (1<<0)
 #define COMPANY_ARMADYNE (1<<1)
@@ -18,3 +21,7 @@
 #define COMPANY_JARNSMIOUR (1<<13)
 #define COMPANY_ABDUCTOR (1<<14)
 #define COMPANY_REMOVED (1<<15)
+<<<<<<< HEAD
+=======
+#define COMPANY_TKACH (1<<16)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

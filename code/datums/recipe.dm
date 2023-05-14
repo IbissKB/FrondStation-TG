@@ -100,11 +100,19 @@
 		exact = -1
 	var/list/datum/recipe/possible_recipes = new
 	for (var/datum/recipe/recipe in avaiable_recipes)
+<<<<<<< HEAD
 		if (recipe.check_reagents(obj.reagents)==exact && recipe.check_items(obj)==exact)
 			possible_recipes+=recipe
 	if (possible_recipes.len==0)
 		return null
 	else if (possible_recipes.len==1)
+=======
+		if (recipe.check_reagents(obj.reagents) == exact && recipe.check_items(obj) == exact)
+			possible_recipes+=recipe
+	if (possible_recipes.len == 0)
+		return null
+	else if (possible_recipes.len == 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return possible_recipes[1]
 	else //okay, let's select the most complicated recipe
 		var/r_count = 0
@@ -113,7 +121,11 @@
 		for (var/datum/recipe/recipe in possible_recipes)
 			var/N_i = (recipe.items)?(recipe.items.len):0
 			var/N_r = (recipe.reagents_list)?(recipe.reagents_list.len):0
+<<<<<<< HEAD
 			if (N_i > i_count || (N_i== i_count && N_r > r_count ))
+=======
+			if (N_i > i_count || (N_i == i_count && N_r > r_count ))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				r_count = N_r
 				i_count = N_i
 				. = recipe

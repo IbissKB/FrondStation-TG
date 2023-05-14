@@ -1,6 +1,7 @@
 /mob/living/silicon/robot/deadchat_lawchange()
 	if(lawupdate)
 		return
+<<<<<<< HEAD
 	..()
 
 /mob/living/silicon/robot/show_laws(everyone = FALSE)
@@ -34,6 +35,42 @@
 	else
 		to_chat(who, "<b>Remember, you are not bound to any AI, you are not required to listen to them.</b>")
 
+=======
+
+	return ..()
+
+/mob/living/silicon/robot/show_laws()
+	if(lawupdate)
+		if (!QDELETED(connected_ai))
+			if(connected_ai.stat != CONSCIOUS || connected_ai.control_disabled)
+				to_chat(src, span_bold("AI signal lost, unable to sync laws."))
+
+			else
+				lawsync()
+				to_chat(src, span_bold("Laws synced with AI, be sure to note any changes."))
+		else
+			to_chat(src, span_bold("No AI selected to sync laws with, disabling lawsync protocol."))
+			lawupdate = FALSE
+
+	. = ..()
+
+	if (shell) //AI shell
+		to_chat(src, span_bold("Remember, you are an AI remotely controlling your shell, other AIs can be ignored."))
+	else if (connected_ai)
+		to_chat(src, span_bold("Remember, [connected_ai.name] is your master, other AIs can be ignored."))
+	else if (emagged)
+		to_chat(src, span_bold("Remember, you are not required to listen to the AI."))
+	else
+		to_chat(src, span_bold("Remember, you are not bound to any AI, you are not required to listen to them."))
+
+/mob/living/silicon/robot/try_sync_laws()
+	if(QDELETED(connected_ai) || !lawupdate)
+		return FALSE
+
+	lawsync()
+	law_change_counter++
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/silicon/robot/proc/lawsync()
 	laws_sanity_check()
@@ -72,7 +109,13 @@
 
 		var/datum/computer_file/program/robotact/program = modularInterface.get_robotact()
 		if(program)
+<<<<<<< HEAD
 			program.force_full_update()
+=======
+			var/datum/tgui/active_ui = SStgui.get_open_ui(src, program.computer)
+			if(active_ui)
+				active_ui.send_full_update()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	picturesync()
 

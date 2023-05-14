@@ -11,13 +11,30 @@
 		if(bodypart.body_zone == zone)
 			return bodypart
 
+<<<<<<< HEAD
 ///Replaces a single limb and deletes the old one if there was one
+=======
+/// Replaces a single limb and deletes the old one if there was one
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/carbon/proc/del_and_replace_bodypart(obj/item/bodypart/new_limb, special)
 	var/obj/item/bodypart/old_limb = get_bodypart(new_limb.body_zone)
 	if(old_limb)
 		qdel(old_limb)
 	new_limb.try_attach_limb(src, special = special)
 
+<<<<<<< HEAD
+=======
+/// Replaces a single limb and returns the old one if there was one
+/mob/living/carbon/proc/return_and_replace_bodypart(obj/item/bodypart/new_limb, special)
+	var/obj/item/bodypart/old_limb = get_bodypart(new_limb.body_zone)
+	if(!isnull(old_limb))
+		old_limb.drop_limb(special = special)
+		old_limb.moveToNullspace()
+
+	new_limb.try_attach_limb(src, special = special)
+	return old_limb // can be null
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/carbon/has_hand_for_held_index(i)
 	if(!i)
 		return FALSE
@@ -50,7 +67,11 @@
 	return FALSE
 
 
+<<<<<<< HEAD
 /mob/living/carbon/alien/larva/has_left_hand()
+=======
+/mob/living/carbon/alien/larva/has_left_hand(check_disabled = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 
@@ -66,7 +87,11 @@
 	return FALSE
 
 
+<<<<<<< HEAD
 /mob/living/carbon/alien/larva/has_right_hand()
+=======
+/mob/living/carbon/alien/larva/has_right_hand(check_disabled = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 

@@ -1,5 +1,6 @@
 
 // CENTCOM
+<<<<<<< HEAD
 
 /*
 Side note, be sure to change the network_root_id of any areas that are not a part of centcom
@@ -9,6 +10,8 @@ from everything anyway.
 The areas used here are STRICTLY on the CC Z level.
 */
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // CentCom itself
 /area/centcom
 	name = "CentCom"
@@ -147,12 +150,15 @@ The areas used here are STRICTLY on the CC Z level.
 	static_lighting = FALSE
 	base_lighting_alpha = 255
 
+<<<<<<< HEAD
 /area/centcom/tdome/arena_source
 	name = "Thunderdome Arena Template"
 	icon_state = "thunder"
 	static_lighting = FALSE
 	base_lighting_alpha = 255
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/centcom/tdome/tdome1
 	name = "Thunderdome (Team 1)"
 	icon_state = "thunder_team_one"
@@ -181,7 +187,11 @@ The areas used here are STRICTLY on the CC Z level.
 	has_gravity = STANDARD_GRAVITY
 	area_flags = UNIQUE_AREA | NOTELEPORT
 	flags_1 = NONE
+<<<<<<< HEAD
 	network_root_id = "MAGIC_NET"
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Abductors
 /area/centcom/abductor_ship
@@ -193,7 +203,10 @@ The areas used here are STRICTLY on the CC Z level.
 	base_lighting_alpha = 255
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
+<<<<<<< HEAD
 	network_root_id = "ALIENS"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Syndicates
 /area/centcom/syndicate_mothership
@@ -204,7 +217,10 @@ The areas used here are STRICTLY on the CC Z level.
 	area_flags = UNIQUE_AREA | NOTELEPORT
 	flags_1 = NONE
 	ambience_index = AMBIENCE_DANGER
+<<<<<<< HEAD
 	network_root_id = SYNDICATE_NETWORK_ROOT
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /area/centcom/syndicate_mothership/control
 	name = "Syndicate Control Room"

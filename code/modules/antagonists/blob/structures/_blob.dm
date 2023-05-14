@@ -14,7 +14,11 @@
 	/// How many points the blob gets back when it removes a blob of that type. If less than 0, blob cannot be removed.
 	var/point_return = 0
 	max_integrity = BLOB_REGULAR_MAX_HP
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 80, ACID = 70)
+=======
+	armor_type = /datum/armor/structure_blob
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// how much health this blob regens when pulsed
 	var/health_regen = BLOB_REGULAR_HP_REGEN
 	/// We got pulsed when?
@@ -32,6 +36,13 @@
 	var/mob/camera/blob/overmind
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/structure_blob
+	fire = 80
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/blob/Initialize(mapload, owner_overmind)
 	. = ..()
 	register_context()
@@ -228,7 +239,11 @@
 	return ..() //You don't get to do it for free
 
 /obj/structure/blob/extinguish()
+<<<<<<< HEAD
 	..()
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(overmind)
 		overmind.blobstrain.extinguish_reaction(src)
 
@@ -292,7 +307,11 @@
 			return 0
 	var/armor_protection = 0
 	if(damage_flag)
+<<<<<<< HEAD
 		armor_protection = armor.getRating(damage_flag)
+=======
+		armor_protection = get_armor_rating(damage_flag)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage_amount = round(damage_amount * (100 - armor_protection)*0.01, 0.1)
 	if(overmind && damage_flag)
 		damage_amount = overmind.blobstrain.damage_reaction(src, damage_amount, damage_type, damage_flag)
@@ -407,6 +426,7 @@
 	/// Range this blob free upgrades to reflector blobs at: for the core, and for strains
 	var/reflector_reinforce_range = 0
 
+<<<<<<< HEAD
 /obj/structure/blob/special/proc/reinforce_area(delta_time) // Used by cores and nodes to upgrade their surroundings
 	if(strong_reinforce_range)
 		for(var/obj/structure/blob/normal/B in range(strong_reinforce_range, src))
@@ -415,6 +435,16 @@
 	if(reflector_reinforce_range)
 		for(var/obj/structure/blob/shield/B in range(reflector_reinforce_range, src))
 			if(DT_PROB(BLOB_REINFORCE_CHANCE, delta_time))
+=======
+/obj/structure/blob/special/proc/reinforce_area(seconds_per_tick) // Used by cores and nodes to upgrade their surroundings
+	if(strong_reinforce_range)
+		for(var/obj/structure/blob/normal/B in range(strong_reinforce_range, src))
+			if(SPT_PROB(BLOB_REINFORCE_CHANCE, seconds_per_tick))
+				B.change_to(/obj/structure/blob/shield/core, overmind)
+	if(reflector_reinforce_range)
+		for(var/obj/structure/blob/shield/B in range(reflector_reinforce_range, src))
+			if(SPT_PROB(BLOB_REINFORCE_CHANCE, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				B.change_to(/obj/structure/blob/shield/reflective/core, overmind)
 
 /obj/structure/blob/special/proc/pulse_area(mob/camera/blob/pulsing_overmind, claim_range = 10, pulse_range = 3, expand_range = 2)

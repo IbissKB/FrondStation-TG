@@ -56,8 +56,18 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define IS_PLAYER_COLORABLE_1 (1<<17)
 /// Whether or not this atom has contextual screentips when hovered OVER
 #define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<18)
+<<<<<<< HEAD
 // Whether or not this atom is storing contents for a disassociated storage object
 #define HAS_DISASSOCIATED_STORAGE_1 (1<<19)
+=======
+/// Whether or not this atom is storing contents for a disassociated storage object
+#define HAS_DISASSOCIATED_STORAGE_1 (1<<19)
+/// If this atom has experienced a decal element "init finished" sourced appearance update
+/// We use this to ensure stacked decals don't double up appearance updates for no rasin
+/// Flag as an optimization, don't make this a trait without profiling
+/// Yes I know this is a stupid flag, no you can't take him from me
+#define DECAL_INIT_UPDATE_EXPERIENCED_1 (1<<20)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name
@@ -92,6 +102,11 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define NO_RUST (1<<5)
 /// Is this turf is "solid". Space and lava aren't for instance
 #define IS_SOLID (1<<6)
+<<<<<<< HEAD
+=======
+/// This turf will never be cleared away by other objects on Initialize.
+#define NO_CLEARING (1<<7)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ////////////////Area flags\\\\\\\\\\\\\\
 /// If it's a valid territory for cult summoning or the CRAB-17 phone to spawn
@@ -120,7 +135,11 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ABDUCTOR_PROOF (1<<11)
 /// If blood cultists can draw runes or build structures on this AREA.
 #define CULT_PERMITTED (1<<12)
+<<<<<<< HEAD
 ///Whther this area is iluminated by starlight
+=======
+///Whther this area is iluminated by starlight. Used by the aurora_caelus event
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define AREA_USES_STARLIGHT (1<<13)
 /// If engravings are persistent in this area
 #define PERSISTENT_ENGRAVINGS (1<<14)
@@ -161,7 +180,13 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define LAVA_PROOF (1<<0)
 /// 100% immune to fire damage (but not necessarily to lava or heat)
 #define FIRE_PROOF (1<<1)
+<<<<<<< HEAD
 #define FLAMMABLE (1<<2)
+=======
+/// atom is flammable and can have the burning component
+#define FLAMMABLE (1<<2)
+/// currently burning
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define ON_FIRE (1<<3)
 /// acid can't even appear on it, let alone melt it.
 #define UNACIDABLE (1<<4)
@@ -265,7 +290,11 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// 33554431 (2^24 - 1) is the maximum value our bitflags can reach.
 #define MAX_BITFLAG_DIGITS 8
 
+<<<<<<< HEAD
 // timed_action_flags parameter for `/proc/do_after_mob`, `/proc/do_mob` and `/proc/do_after`
+=======
+// timed_action_flags parameter for `/proc/do_after`
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Can do the action even if mob moves location
 #define IGNORE_USER_LOC_CHANGE (1<<0)
 /// Can do the action even if the target moves location

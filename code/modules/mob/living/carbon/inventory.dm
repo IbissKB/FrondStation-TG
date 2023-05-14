@@ -186,7 +186,11 @@
 
 /// Returns TRUE if a breathing tube is equipped.
 /mob/living/carbon/proc/can_breathe_tube()
+<<<<<<< HEAD
 	if (getorganslot(ORGAN_SLOT_BREATHING_TUBE))
+=======
+	if (get_organ_slot(ORGAN_SLOT_BREATHING_TUBE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 
 /// Returns TRUE if an air tank compatible mask or breathing tube is equipped.
@@ -362,7 +366,12 @@
 		return
 
 	var/obj/item/offered_item = get_active_held_item()
+<<<<<<< HEAD
 	if(!offered_item)
+=======
+	// if it's an abstract item, should consider it to be non-existent (unless it's a HAND_ITEM, which means it's an obj/item that is just a representation of our hand)
+	if(!offered_item || ((offered_item.item_flags & ABSTRACT) && !(offered_item.item_flags & HAND_ITEM)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(src, span_warning("You're not holding anything to offer!"))
 		return
 

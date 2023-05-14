@@ -14,7 +14,11 @@
 	hud_type = /datum/hud/ooze
 	minbodytemp = 250
 	maxbodytemp = INFINITY
+<<<<<<< HEAD
 	faction = list("slime")
+=======
+	faction = list(FACTION_SLIME)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	health = 200
@@ -49,7 +53,11 @@
 		return ..()
 
 ///Handles nutrition gain/loss of mob and also makes it take damage if it's too low on nutrition, only happens for sentient mobs.
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/ooze/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/simple_animal/hostile/ooze/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	if(!mind && stat != DEAD)//no mind no change
@@ -60,7 +68,11 @@
 	//Eat a bit of all the reagents we have. Gaining nutrition for actual nutritional ones.
 	for(var/i in reagents.reagent_list)
 		var/datum/reagent/reagent = i
+<<<<<<< HEAD
 		var/consumption_amount = min(reagents.get_reagent_amount(reagent.type), ooze_metabolism_modifier * REAGENTS_METABOLISM * delta_time)
+=======
+		var/consumption_amount = min(reagents.get_reagent_amount(reagent.type), ooze_metabolism_modifier * REAGENTS_METABOLISM * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(istype(reagent, /datum/reagent/consumable))
 			var/datum/reagent/consumable/consumable = reagent
 			nutrition_change += consumption_amount * consumable.nutriment_factor
@@ -68,7 +80,11 @@
 	adjust_ooze_nutrition(nutrition_change)
 
 	if(ooze_nutrition <= 0)
+<<<<<<< HEAD
 		adjustBruteLoss(0.25 * delta_time)
+=======
+		adjustBruteLoss(0.25 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Does ooze_nutrition + supplied amount and clamps it within 0 and 500
 /mob/living/simple_animal/hostile/ooze/proc/adjust_ooze_nutrition(amount)
@@ -195,7 +211,11 @@
 	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
 	button_icon_state = "consume"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
+=======
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE|AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///The mob thats being consumed by this creature
 	var/mob/living/vored_mob
 
@@ -305,7 +325,11 @@
 	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
 	button_icon_state = "globules"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS
+=======
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cooldown_time = 5 SECONDS
 	click_to_activate = TRUE
 
@@ -361,6 +385,11 @@
 	globule.def_zone = caller.zone_selected
 	globule.fire()
 
+<<<<<<< HEAD
+=======
+	StartCooldown()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 // Needs to return TRUE otherwise PreActivate() will fail, see above
@@ -373,7 +402,10 @@
 	icon_state = "glob_projectile"
 	shrapnel_type = /obj/item/mending_globule
 	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0.5)
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 0
 
 ///This item is what is embedded into the mob, and actually handles healing of mending globules
@@ -419,7 +451,11 @@
 	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
 	button_icon_state = "gel_cocoon"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
+=======
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE|AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cooldown_time = 10 SECONDS
 
 /datum/action/cooldown/gel_cocoon/Activate(atom/target)

@@ -6,7 +6,11 @@
 	impressiveness = 18 // Carved from the bones of a massive creature, it's going to be a specticle to say the least
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/bone=MINERAL_MATERIAL_AMOUNT*5)
+=======
+	custom_materials = list(/datum/material/bone=SHEET_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	abstract_type = /obj/structure/statue/bone
 
 /obj/structure/statue/bone/Initialize(mapload)
@@ -17,13 +21,22 @@
 /obj/structure/statue/bone/rib
 	name = "colossal rib"
 	desc = "It's staggering to think that something this big could have lived, let alone died."
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/bone=MINERAL_MATERIAL_AMOUNT*4)
 	icon = 'icons/obj/art/statuelarge.dmi'
 	icon_state = "rib"
+=======
+	custom_materials = list(/datum/material/bone=SHEET_MATERIAL_AMOUNT*4)
+	icon = 'icons/obj/art/statuelarge.dmi'
+	icon_state = "rib"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "rib"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/statue/bone/skull
 	name = "colossal skull"
 	desc = "The gaping maw of a dead, titanic monster."
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/bone=MINERAL_MATERIAL_AMOUNT*12)
 	icon = 'icons/obj/art/statuelarge.dmi'
 	icon_state = "skull"
@@ -33,6 +46,21 @@
 	custom_materials = list(/datum/material/bone=MINERAL_MATERIAL_AMOUNT*6)
 	icon = 'icons/obj/art/statuelarge.dmi'
 	icon_state = "skull-half"
+=======
+	custom_materials = list(/datum/material/bone=SHEET_MATERIAL_AMOUNT*12)
+	icon = 'icons/obj/art/statuelarge.dmi'
+	icon_state = "skull"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "skull"
+
+/obj/structure/statue/bone/skull/half
+	desc = "The gaping maw of a dead, titanic monster. This one is cracked in half."
+	custom_materials = list(/datum/material/bone=SHEET_MATERIAL_AMOUNT*6)
+	icon = 'icons/obj/art/statuelarge.dmi'
+	icon_state = "skull-half"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "halfskull"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //***Wasteland floor and rock turfs here.
 /turf/open/misc/asteroid/basalt/wasteland //Like a more fun version of living in Arizona.
@@ -41,7 +69,11 @@
 	icon_state = "wasteland"
 	base_icon_state = "wasteland"
 	baseturfs = /turf/open/misc/asteroid/basalt/wasteland
+<<<<<<< HEAD
 	digResult = /obj/item/stack/ore/glass/basalt
+=======
+	dig_result = /obj/item/stack/ore/glass/basalt
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	slowdown = 0.5
 	floor_variance = 30
@@ -122,20 +154,55 @@
 	desc = "A marked patch of soil, showing signs of a burial long ago. You wouldn't disturb a grave... right?"
 	icon = 'icons/obj/storage/crates.dmi'
 	icon_state = "grave"
+<<<<<<< HEAD
+=======
+	base_icon_state = "grave"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	dense_when_open = TRUE
 	material_drop = /obj/item/stack/ore/glass/basalt
 	material_drop_amount = 5
 	anchorable = FALSE
 	anchored = TRUE
+<<<<<<< HEAD
 	locked = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	divable = FALSE //As funny as it may be, it would make little sense how you got yourself inside it in first place.
 	breakout_time = 90 SECONDS
 	open_sound = 'sound/effects/shovel_dig.ogg'
 	close_sound = 'sound/effects/shovel_dig.ogg'
 	cutting_tool = /obj/item/shovel
+<<<<<<< HEAD
 	var/lead_tomb = FALSE
 	var/first_open = FALSE
 	can_install_electronics = FALSE
+=======
+	can_install_electronics = FALSE
+	paint_jobs = null
+
+	var/lead_tomb = FALSE
+	var/first_open = FALSE
+	var/grave_dug_open = FALSE
+
+/obj/structure/closet/crate/grave/before_open(mob/living/user, force)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	if(!force && !grave_dug_open)
+		balloon_alert(user, "use a shovel!")
+		return FALSE
+
+	return TRUE
+
+/obj/structure/closet/crate/grave/before_close(mob/living/user)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	balloon_alert(user, "already open!")
+	return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/grave/filled/PopulateContents()  //GRAVEROBBING IS NOW A FEATURE
 	..()
@@ -166,12 +233,15 @@
 			//empty grave
 			return
 
+<<<<<<< HEAD
 /obj/structure/closet/crate/grave/open(mob/living/user, obj/item/S, force = FALSE)
 	if(!opened)
 		to_chat(user, span_notice("The ground here is too hard to dig up with your bare hands. You'll need a shovel."))
 	else
 		to_chat(user, span_notice("The grave has already been dug up."))
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/crate/grave/closet_update_overlays(list/new_overlays)
 	return
 
@@ -181,10 +251,15 @@
 			if(istype(S,cutting_tool) && S.tool_behaviour == TOOL_SHOVEL)
 				to_chat(user, span_notice("You start start to dig open \the [src]  with \the [S]..."))
 				if (do_after(user,20, target = src))
+<<<<<<< HEAD
 					opened = TRUE
 					locked = TRUE
 					dump_contents()
 					update_appearance()
+=======
+					grave_dug_open = TRUE
+					open(user, force = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					user.add_mood_event("graverobbing", /datum/mood_event/graverobbing)
 					if(lead_tomb == TRUE && first_open == TRUE)
 						user.gain_trauma(/datum/brain_trauma/magic/stalker)
@@ -209,6 +284,7 @@
 				return 1
 	return
 
+<<<<<<< HEAD
 /obj/structure/closet/crate/grave/bust_open()
 	..()
 	opened = TRUE
@@ -216,6 +292,8 @@
 	dump_contents()
 	return
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/crate/grave/filled/lead_researcher
 	name = "ominous burial mound"
 	desc = "Even in a place filled to the brim with graves, this one shows a level of preperation and planning that fills you with dread."

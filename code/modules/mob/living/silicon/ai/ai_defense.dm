@@ -52,7 +52,11 @@
 			if (stat != DEAD)
 				adjustBruteLoss(30)
 
+<<<<<<< HEAD
 
+=======
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/silicon/ai/bullet_act(obj/projectile/Proj)
 	. = ..(Proj)

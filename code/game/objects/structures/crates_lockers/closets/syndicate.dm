@@ -2,6 +2,20 @@
 	name = "armory closet"
 	desc = "Why is this here?"
 	icon_state = "syndicate"
+<<<<<<< HEAD
+=======
+	armor_type = /datum/armor/closet_syndicate
+	paint_jobs = null
+
+/datum/armor/closet_syndicate
+	melee = 70
+	bullet = 40
+	laser = 40
+	energy = 30
+	bomb = 30
+	fire = 70
+	acid = 70
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/syndicate/personal
 	desc = "It's a personal storage unit for operative gear."

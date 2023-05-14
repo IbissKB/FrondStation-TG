@@ -12,13 +12,21 @@
 
 /obj/item/ai_module/remove/attack_self(mob/user)
 	lawpos = tgui_input_number(user, "Law to delete", "Law Removal", lawpos, 50)
+<<<<<<< HEAD
 	if(!lawpos || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+	if(!lawpos || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	to_chat(user, span_notice("Law [lawpos] selected."))
 	..()
 
 /obj/item/ai_module/remove/install(datum/ai_laws/law_datum, mob/user)
+<<<<<<< HEAD
 	if(lawpos > (law_datum.get_law_amount(list(LAW_INHERENT = 1, LAW_SUPPLIED = 1))))
+=======
+	if(lawpos > law_datum.get_law_amount(list(LAW_INHERENT, LAW_SUPPLIED)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_warning("There is no law [lawpos] to delete!"))
 		return
 	..()
@@ -62,4 +70,7 @@
 	else
 		law_datum.clear_inherent_laws()
 		law_datum.clear_zeroth_law(0)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

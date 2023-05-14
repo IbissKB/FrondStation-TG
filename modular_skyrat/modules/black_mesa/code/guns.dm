@@ -42,11 +42,17 @@
 	righthand_file ='modular_skyrat/modules/gunsgalore/icons/guns/gunsgalore_righthand.dmi'
 	icon_state = "mp5"
 	inhand_icon_state = "mp5"
+<<<<<<< HEAD
 	selector_switch_icon = TRUE
 	mag_type = /obj/item/ammo_box/magazine/mp5
 	bolt_type = BOLT_TYPE_LOCKING
 	can_suppress = TRUE
 	burst_size = 3
+=======
+	mag_type = /obj/item/ammo_box/magazine/mp5
+	bolt_type = BOLT_TYPE_LOCKING
+	can_suppress = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fire_delay = 1.25
 	spread = 2.5
 	mag_display = TRUE
@@ -65,6 +71,14 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	projectile_damage_multiplier = 0.7
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/automatic/mp5/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/ammo_box/magazine/mp5
 	name = "MP5 magazine (10mm Auto)"
 	desc = "Magazines taking 10mm ammunition; it fits in the MP5."
@@ -73,4 +87,8 @@
 	ammo_type = /obj/item/ammo_casing/c10mm
 	caliber = CALIBER_10MM
 	max_ammo = 30
+<<<<<<< HEAD
 	multiple_sprites = AMMO_BOX_FULL_EMPTY_BASIC
+=======
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

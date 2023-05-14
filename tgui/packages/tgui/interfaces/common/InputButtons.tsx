@@ -1,13 +1,24 @@
+<<<<<<< HEAD
 import { useBackend } from '../../backend';
 import { Box, Button, Flex } from '../../components';
 
+=======
+import { Box, Button, Flex } from '../../components';
+
+import { useBackend } from '../../backend';
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 type InputButtonsData = {
   large_buttons: boolean;
   swapped_buttons: boolean;
 };
 
 type InputButtonsProps = {
+<<<<<<< HEAD
   input: string | number;
+=======
+  input: string | number | string[];
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   message?: string;
 };
 

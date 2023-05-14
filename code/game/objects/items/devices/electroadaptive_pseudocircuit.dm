@@ -5,7 +5,11 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "boris"
 	w_class = WEIGHT_CLASS_TINY
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron = 50, /datum/material/glass = 300)
+=======
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/recharging = FALSE
 	var/circuits = 5 //How many circuits the pseudocircuit has left
 	var/static/recycleable_circuits = typecacheof(list(
@@ -54,6 +58,10 @@
 	. = ..()
 	if(!proximity)
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!is_type_in_typecache(target, recycleable_circuits))
 		return
 	circuits++

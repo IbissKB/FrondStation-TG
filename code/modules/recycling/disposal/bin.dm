@@ -5,12 +5,17 @@
 /obj/machinery/disposal
 	icon = 'icons/obj/atmospherics/pipes/disposal.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
 	density = TRUE
+<<<<<<< HEAD
 	armor = list(MELEE = 25, BULLET = 10, LASER = 10, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 90, ACID = 30)
+=======
+	armor_type = /datum/armor/machinery_disposal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_integrity = 200
 	resistance_flags = FIRE_PROOF
 	interaction_flags_machine = INTERACT_MACHINE_OPEN | INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
 	obj_flags = CAN_BE_HIT | USES_TGUI
 
+<<<<<<< HEAD
 	var/datum/gas_mixture/air_contents // internal reservoir
 	var/full_pressure = FALSE
 	var/pressure_charging = TRUE
@@ -24,6 +29,39 @@
 	// create a new disposal
 	// find the attached trunk (if present) and init gas resvr.
 
+=======
+	/// The internal air reservoir of the disposal
+	var/datum/gas_mixture/air_contents
+	/// Is the disposal at full pressure
+	var/full_pressure = FALSE
+	/// Is the pressure charging
+	var/pressure_charging = TRUE
+	// True if flush handle is pulled
+	var/flush = FALSE
+	/// The attached pipe trunk
+	var/obj/structure/disposalpipe/trunk/trunk = null
+	/// True if flushing in progress
+	var/flushing = FALSE
+	/// Every 30 ticks it will look whether it is ready to flush
+	var/flush_every_ticks = 30
+	/// This var adds 1 once per tick. When it reaches flush_every_ticks it resets and tries to flush.
+	var/flush_count = 0
+	/// The last time a sound was played
+	var/last_sound = 0
+	/// The stored disposal construction pipe
+	var/obj/structure/disposalconstruct/stored
+
+/datum/armor/machinery_disposal
+	melee = 25
+	bullet = 10
+	laser = 10
+	energy = 100
+	fire = 90
+	acid = 30
+
+// create a new disposal
+// find the attached trunk (if present) and init gas resvr.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/Initialize(mapload, obj/structure/disposalconstruct/make_from)
 	. = ..()
 
@@ -48,6 +86,10 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	return INITIALIZE_HINT_LATELOAD //we need turfs to have air
 
+<<<<<<< HEAD
+=======
+/// Checks if there a connecting trunk diposal pipe under the disposal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/trunk_check()
 	var/obj/structure/disposalpipe/trunk/found_trunk = locate() in loc
 	if(!found_trunk)
@@ -91,7 +133,11 @@
 	add_fingerprint(user)
 	if(!pressure_charging && !full_pressure && !flush)
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
+<<<<<<< HEAD
 			panel_open = !panel_open
+=======
+			toggle_panel_open()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			I.play_tool_sound(src)
 			to_chat(user, span_notice("You [panel_open ? "remove":"attach"] the screws around the power connection."))
 			return
@@ -100,7 +146,11 @@
 				return
 
 			to_chat(user, span_notice("You start slicing the floorweld off \the [src]..."))
+<<<<<<< HEAD
 			if(I.use_tool(src, user, 20, volume=100) && panel_open)
+=======
+			if(I.use_tool(src, user, 20, volume=SMALL_MATERIAL_AMOUNT) && panel_open)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				to_chat(user, span_notice("You slice the floorweld off \the [src]."))
 				deconstruct()
 			return
@@ -114,6 +164,7 @@
 	else
 		return ..()
 
+<<<<<<< HEAD
 /obj/machinery/disposal/proc/rat_rummage(mob/living/simple_animal/hostile/regalrat/king)
 	king.visible_message(span_warning("[king] starts rummaging through [src]."),span_notice("You rummage through [src]..."))
 	if (do_mob(king, src, 2 SECONDS, interaction_key = "regalrat"))
@@ -133,15 +184,47 @@
 				to_chat(king, span_notice("You just find more garbage and dirt. Lovely, but beneath you now."))
 				new pickedtrash(get_turf(king))
 
+=======
+/// The regal rat spawns ratty treasures from the disposal
+/obj/machinery/disposal/proc/rat_rummage(mob/living/simple_animal/hostile/regalrat/king)
+	king.visible_message(span_warning("[king] starts rummaging through [src]."),span_notice("You rummage through [src]..."))
+	if (!do_after(king, 2 SECONDS, src, interaction_key = "regalrat"))
+		return
+	var/loot = rand(1,100)
+	switch(loot)
+		if(1 to 5)
+			to_chat(king, span_notice("You find some leftover coins. More for the royal treasury!"))
+			var/pickedcoin = pick(GLOB.ratking_coins)
+			for(var/i = 1 to rand(1,3))
+				new pickedcoin(get_turf(king))
+		if(6 to 33)
+			king.say(pick("Treasure!","Our precious!","Cheese!"), ignore_spam = TRUE, forced = "regal rat rummaging")
+			to_chat(king, span_notice("Score! You find some cheese!"))
+			new /obj/item/food/cheese/wedge(get_turf(king))
+		else
+			var/pickedtrash = pick(GLOB.ratking_trash)
+			to_chat(king, span_notice("You just find more garbage and dirt. Lovely, but beneath you now."))
+			new pickedtrash(get_turf(king))
+
+/// Moves an item into the diposal bin
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/place_item_in_disposal(obj/item/I, mob/user)
 	I.forceMove(src)
 	user.visible_message(span_notice("[user.name] places \the [I] into \the [src]."), span_notice("You place \the [I] into \the [src]."))
 
+<<<<<<< HEAD
 //mouse drop another mob or self
+=======
+/// Mouse drop another mob or self
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/MouseDrop_T(mob/living/target, mob/living/user)
 	if(istype(target))
 		stuff_mob_in(target, user)
 
+<<<<<<< HEAD
+=======
+/// Handles stuffing a grabbed mob into the disposal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/stuff_mob_in(mob/living/target, mob/living/user)
 	var/ventcrawler = HAS_TRAIT(user, TRAIT_VENTCRAWLER_ALWAYS) || HAS_TRAIT(user, TRAIT_VENTCRAWLER_NUDE)
 	if(!iscarbon(user) && !ventcrawler) //only carbon and ventcrawlers can climb into disposal by themselves.
@@ -163,7 +246,11 @@
 		user.visible_message(span_warning("[user] starts climbing into [src]."), span_notice("You start climbing into [src]..."))
 	else
 		target.visible_message(span_danger("[user] starts putting [target] into [src]."), span_userdanger("[user] starts putting you into [src]!"))
+<<<<<<< HEAD
 	if(do_mob(user, target, 20))
+=======
+	if(do_after(user, 2 SECONDS, target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if (!loc)
 			return
 		target.forceMove(src)
@@ -184,12 +271,20 @@
 /obj/machinery/disposal/container_resist_act(mob/living/user)
 	attempt_escape(user)
 
+<<<<<<< HEAD
+=======
+/// Checks if a mob can climb out of the disposal, and lets them if they can
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/attempt_escape(mob/user)
 	if(flushing)
 		return
 	go_out(user)
 
+<<<<<<< HEAD
 // leave the disposal
+=======
+/// Makes a mob in the disposal climb out
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/go_out(mob/user)
 	user.forceMove(loc)
 	update_appearance()
@@ -204,11 +299,19 @@
 	update_appearance()
 
 
+<<<<<<< HEAD
 // eject the contents of the disposal unit
+=======
+/// Ejects the contents of the disposal unit
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/eject()
 	pipe_eject(src, FALSE, FALSE)
 	update_appearance()
 
+<<<<<<< HEAD
+=======
+/// Plays the animations and sounds for flushing, and initializes the diposal holder object
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/flush()
 	flushing = TRUE
 	flushAnimation()
@@ -227,15 +330,29 @@
 	flushing = FALSE
 	flush = FALSE
 
+<<<<<<< HEAD
 /obj/machinery/disposal/proc/newHolderDestination(obj/structure/disposalholder/H)
+=======
+/// Sets the default destinationTag of the disposal holder object
+/obj/machinery/disposal/proc/newHolderDestination(obj/structure/disposalholder/H)
+	H.destinationTag = SORT_TYPE_DISPOSALS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/item/delivery/O in src)
 		H.tomail = TRUE
 		return
 
+<<<<<<< HEAD
 /obj/machinery/disposal/proc/flushAnimation()
 	flick("[icon_state]-flush", src)
 
 // called when holder is expelled from a disposal
+=======
+/// Plays the flushing animation of the disposal
+/obj/machinery/disposal/proc/flushAnimation()
+	flick("[icon_state]-flush", src)
+
+/// Called when holder is expelled from a disposal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/expel(obj/structure/disposalholder/H)
 	H.active = FALSE
 
@@ -259,7 +376,11 @@
 		AM.forceMove(T)
 	..()
 
+<<<<<<< HEAD
 //How disposal handles getting a storage dump from a storage object
+=======
+///How disposal handles getting a storage dump from a storage object
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/on_storage_dump(datum/source, obj/item/storage_source, mob/user)
 	SIGNAL_HANDLER
 
@@ -292,11 +413,17 @@
 // attack by item places it in to disposal
 /obj/machinery/disposal/bin/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/storage/bag/trash)) //Not doing component overrides because this is a specific type.
+<<<<<<< HEAD
 		var/obj/item/storage/bag/trash/T = I
 		to_chat(user, span_warning("You empty the bag."))
 		for(var/obj/item/O in T.contents)
 			T.atom_storage.attempt_remove(O,src)
 		T.update_appearance()
+=======
+		var/obj/item/storage/bag/trash/bag = I
+		to_chat(user, span_warning("You empty the bag."))
+		bag.atom_storage.remove_all(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_appearance()
 	else
 		return ..()
@@ -356,7 +483,11 @@
 
 /obj/machinery/disposal/bin/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(isitem(AM) && AM.CanEnterDisposals())
+<<<<<<< HEAD
 		if(prob(75))
+=======
+		if((throwingdatum.thrower && HAS_TRAIT(throwingdatum.thrower, TRAIT_THROWINGARM)) || prob(75))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			AM.forceMove(src)
 			visible_message(span_notice("[AM] lands in [src]."))
 			update_appearance()
@@ -405,13 +536,21 @@
 		. += "dispover-ready"
 		. += emissive_appearance(icon, "dispover-ready-glow", src, alpha = src.alpha)
 
+<<<<<<< HEAD
+=======
+/// Initiates flushing
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/bin/proc/do_flush()
 	set waitfor = FALSE
 	flush()
 
 //timed process
 //charge the gas reservoir and perform flush if ready
+<<<<<<< HEAD
 /obj/machinery/disposal/bin/process(delta_time)
+=======
+/obj/machinery/disposal/bin/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(machine_stat & BROKEN) //nothing can happen if broken
 		return
 
@@ -443,7 +582,11 @@
 		return
 	var/pressure_delta = (SEND_PRESSURE*1.01) - air_contents.return_pressure()
 
+<<<<<<< HEAD
 	var/transfer_moles = 0.05 * delta_time * (pressure_delta*air_contents.volume)/(env.temperature * R_IDEAL_GAS_EQUATION)
+=======
+	var/transfer_moles = 0.05 * seconds_per_tick * (pressure_delta*air_contents.volume)/(env.temperature * R_IDEAL_GAS_EQUATION)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//Actually transfer the gas
 	var/datum/gas_mixture/removed = env.remove(transfer_moles)
@@ -503,6 +646,10 @@
 		M.forceMove(src)
 	flush()
 
+<<<<<<< HEAD
+=======
+/// Called to check if an atom can fit inside the diposal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /atom/movable/proc/CanEnterDisposals()
 	return TRUE
 
@@ -515,6 +662,7 @@
 /obj/vehicle/sealed/mecha/CanEnterDisposals()
 	return
 
+<<<<<<< HEAD
 /obj/machinery/disposal/bin/newHolderDestination(obj/structure/disposalholder/H)
 	H.destinationTag = 1
 
@@ -522,11 +670,18 @@
 	H.destinationTag = 1
 
 
+=======
+/// Handles the signal for the rat king looking inside the disposal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/on_rat_rummage(datum/source, mob/living/simple_animal/hostile/regalrat/king)
 	SIGNAL_HANDLER
 
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/disposal/, rat_rummage), king)
 
+<<<<<<< HEAD
+=======
+/// Handles a carbon mob getting shoved into the disposal bin
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/disposal/proc/trash_carbon(datum/source, mob/living/carbon/shover, mob/living/carbon/target, shove_blocked)
 	SIGNAL_HANDLER
 	if(!shove_blocked)
@@ -538,3 +693,8 @@
 	to_chat(src, span_danger("You shove [target.name] into \the [src]!"))
 	log_combat(src, target, "shoved", "into [src] (disposal bin)")
 	return COMSIG_CARBON_SHOVE_HANDLED
+<<<<<<< HEAD
+=======
+
+#undef SEND_PRESSURE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

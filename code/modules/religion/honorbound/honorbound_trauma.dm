@@ -5,6 +5,10 @@
 	scan_desc = "damaged frontal lobe"
 	gain_text = span_notice("You feel honorbound!")
 	lose_text = span_warning("You feel unshackled from your code of honor!")
+<<<<<<< HEAD
+=======
+	random_gain = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// list of guilty people
 	var/list/guilty = list()
 
@@ -24,8 +28,13 @@
 
 	//signal that checks for dishonorable attacks
 	RegisterSignal(owner, COMSIG_MOB_CLICKON, PROC_REF(attack_honor))
+<<<<<<< HEAD
 	var/datum/action/cooldown/spell/pointed/declare_evil = new(src)
 	declare_evil.Grant(owner)
+=======
+	var/datum/action/cooldown/spell/pointed/declare_evil/declare = new(owner)
+	declare.Grant(owner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/brain_trauma/special/honorbound/on_lose(silent)
@@ -148,9 +157,15 @@
 	))
 	if(!is_type_in_typecache(proj, guilty_projectiles))
 		return
+<<<<<<< HEAD
 	if((proj.damage_type == STAMINA))
 		return
 	if(!proj.nodamage && proj.damage < shot_honorbound.health && isliving(proj.firer))
+=======
+	if(proj.damage_type == STAMINA || !proj.is_hostile_projectile())
+		return
+	if(proj.damage > 0 && proj.damage < shot_honorbound.health && isliving(proj.firer))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		guilty(proj.firer)
 
 /datum/brain_trauma/special/honorbound/proc/thrown_guilt(datum/source, atom/movable/thrown_movable, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
@@ -224,6 +239,7 @@
 	. = ..()
 	declaration = "By the divine light of [GLOB.deity], you are an evil of this world that must be wrought low!"
 
+<<<<<<< HEAD
 /datum/action/cooldown/spell/pointed/declare_evil/Destroy()
 	// If we had an owner, Destroy() called Remove(), and already handled this
 	if(honor_trauma)
@@ -231,6 +247,8 @@
 		honor_trauma = null
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/action/cooldown/spell/pointed/declare_evil/Grant(mob/grant_to)
 	if(!ishuman(grant_to))
 		return FALSE
@@ -260,6 +278,14 @@
 	if(!.)
 		return FALSE
 
+<<<<<<< HEAD
+=======
+	if(!GLOB.religious_sect)
+		if(feedback)
+			to_chat(owner, span_warning("There are no deities around to approve your declaration!"))
+		return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(GLOB.religious_sect.favor < required_favor)
 		if(feedback)
 			to_chat(owner, span_warning("You need at least 150 favor to declare someone evil!"))

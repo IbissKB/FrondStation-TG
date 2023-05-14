@@ -197,6 +197,10 @@
 	key_mode = KEY_MODE_TYPE
 	value_mode = VALUE_MODE_NUM
 	default = list( //DEFAULTS
+<<<<<<< HEAD
+=======
+	/mob/living/basic = 1,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/mob/living/simple_animal = 1,
 	/mob/living/silicon/pai = 1,
 	/mob/living/carbon/alien/adult/hunter = -1,
@@ -319,7 +323,10 @@
 /datum/config_entry/string/overflow_job
 	default = JOB_ASSISTANT
 
+<<<<<<< HEAD
 /datum/config_entry/flag/starlight
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/config_entry/flag/grey_assistants
 
 /datum/config_entry/number/lavaland_budget
@@ -339,6 +346,11 @@
 
 /datum/config_entry/flag/allow_random_events // Enables random events mid-round when set
 
+<<<<<<< HEAD
+=======
+/datum/config_entry/flag/forbid_station_traits
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/config_entry/number/events_min_time_mul // Multipliers for random events minimal starting time and minimal players amounts
 	default = 1
 	min_val = 0
@@ -379,6 +391,14 @@
 
 /datum/config_entry/flag/shift_time_realtime
 
+<<<<<<< HEAD
+=======
+/datum/config_entry/number/shift_time_start_hour
+	default = 12
+	min_val = 0
+	max_val = 23
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/config_entry/number/monkeycap
 	default = 64
 	min_val = 0
@@ -412,3 +432,7 @@
 
 /datum/config_entry/flag/disallow_circuit_sounds
 
+<<<<<<< HEAD
+=======
+/datum/config_entry/flag/give_tutorials_without_db
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -82,6 +82,7 @@
 #define FACEHAIR 3
 #define EYECOLOR 4
 #define LIPS 5
+<<<<<<< HEAD
 #define NOBLOOD 6
 #define NOTRANSSTING 7
 #define NOZOMBIE 8
@@ -110,6 +111,29 @@
 /// Stops species from spawning with tongue. Doesn't actually make the species able to talk with no tongue
 #define NO_TONGUE 22
 #define NOAPPENDIX 23
+=======
+#define NOTRANSSTING 7
+#define NOZOMBIE 8
+#define NO_UNDERWEAR 9
+#define NO_DNA_COPY 10
+#define DRINKSBLOOD 11
+
+/// Use this if you want to change the race's color without the player being able to pick their own color. AKA special color shifting
+#define DYNCOLORS 12
+#define AGENDER 13
+/// Do not draw eyes or eyeless overlay
+#define NOEYESPRITES 14
+///If we have a limb-specific overlay sprite
+#define HAS_MARKINGS 15
+/// Do not draw blood overlay
+#define NOBLOODOVERLAY 16
+///No augments, for monkeys in specific because they will turn into fucking freakazoids https://cdn.discordapp.com/attachments/326831214667235328/791313258912153640/102707682-fa7cad80-4294-11eb-8f13-8c689468aeb0.png
+#define NOAUGMENTS 17
+///will be assigned a universal vampire themed last name shared by their department. this is preferenced!
+#define BLOOD_CLANS 18
+/// Similar to NOEYESPRITES but only excludes the eyeless overlay
+#define NOEYEHOLES 19
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //organ slots
 #define ORGAN_SLOT_ADAMANTINE_RESONATOR "adamantine_resonator"
@@ -172,7 +196,11 @@
 #define G_FEMALE 2
 #define G_PLURAL 3
 
+<<<<<<< HEAD
 /// Defines how a mob's internal_organs_slot is ordered
+=======
+/// Defines how a mob's organs_slot is ordered
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Exists so Life()'s organ process order is consistent
 GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_BRAIN,
@@ -207,6 +235,7 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 
 //Defines for Golem Species IDs
 #define SPECIES_GOLEM "golem"
+<<<<<<< HEAD
 #define SPECIES_GOLEM_ADAMANTINE "a_golem"
 #define SPECIES_GOLEM_PLASMA "p_golem"
 #define SPECIES_GOLEM_DIAMOND "diamond_golem"
@@ -232,6 +261,8 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 #define SPECIES_GOLEM_BONE "b_golem"
 #define SPECIES_GOLEM_SNOW "sn_golem"
 #define SPECIES_GOLEM_HYDROGEN "metallic_hydrogen_golem"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Defines for used in creating "perks" for the species preference pages.
 /// A key that designates UI icon displayed on the perk.
@@ -248,3 +279,66 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 #define SPECIES_POSITIVE_PERK "positive"
 #define SPECIES_NEGATIVE_PERK "negative"
 #define SPECIES_NEUTRAL_PERK "neutral"
+<<<<<<< HEAD
+=======
+
+/// Golem food defines
+#define GOLEM_FOOD_IRON "golem_food_iron"
+#define GOLEM_FOOD_GLASS "golem_food_glass"
+#define GOLEM_FOOD_URANIUM "golem_food_uranium"
+#define GOLEM_FOOD_SILVER "golem_food_silver"
+#define GOLEM_FOOD_PLASMA "golem_food_plasma"
+#define GOLEM_FOOD_GOLD "golem_food_gold"
+#define GOLEM_FOOD_DIAMOND "golem_food_diamond"
+#define GOLEM_FOOD_TITANIUM "golem_food_titanium"
+#define GOLEM_FOOD_PLASTEEL "golem_food_plasteel"
+#define GOLEM_FOOD_BANANIUM "golem_food_bananium"
+#define GOLEM_FOOD_BLUESPACE "golem_food_bluespace"
+#define GOLEM_FOOD_GIBTONITE "golem_food_gibtonite"
+#define GOLEM_FOOD_LIGHTBULB "golem_food_lightbulb"
+
+/// Golem food datum singletons
+GLOBAL_LIST_INIT(golem_stack_food_types, list(
+	GOLEM_FOOD_IRON = new /datum/golem_food_buff/iron(),
+	GOLEM_FOOD_GLASS = new /datum/golem_food_buff/glass(),
+	GOLEM_FOOD_URANIUM = new /datum/golem_food_buff/uranium(),
+	GOLEM_FOOD_SILVER = new /datum/golem_food_buff/silver(),
+	GOLEM_FOOD_PLASMA = new /datum/golem_food_buff/plasma(),
+	GOLEM_FOOD_GOLD = new /datum/golem_food_buff/gold(),
+	GOLEM_FOOD_DIAMOND = new /datum/golem_food_buff/diamond(),
+	GOLEM_FOOD_TITANIUM = new /datum/golem_food_buff/titanium(),
+	GOLEM_FOOD_PLASTEEL = new /datum/golem_food_buff/plasteel(),
+	GOLEM_FOOD_BANANIUM = new /datum/golem_food_buff/bananium(),
+	GOLEM_FOOD_BLUESPACE = new /datum/golem_food_buff/bluespace(),
+	GOLEM_FOOD_GIBTONITE = new /datum/golem_food_buff/gibtonite(),
+	GOLEM_FOOD_LIGHTBULB = new /datum/golem_food_buff/lightbulb(),
+))
+
+/// Associated list of stack types to a golem food
+GLOBAL_LIST_INIT(golem_stack_food_directory, list(
+	/obj/item/gibtonite = GLOB.golem_stack_food_types[GOLEM_FOOD_GIBTONITE],
+	/obj/item/light = GLOB.golem_stack_food_types[GOLEM_FOOD_LIGHTBULB],
+	/obj/item/stack/sheet/iron = GLOB.golem_stack_food_types[GOLEM_FOOD_IRON],
+	/obj/item/stack/ore/iron = GLOB.golem_stack_food_types[GOLEM_FOOD_IRON],
+	/obj/item/stack/sheet/glass = GLOB.golem_stack_food_types[GOLEM_FOOD_GLASS],
+	/obj/item/stack/sheet/mineral/uranium = GLOB.golem_stack_food_types[GOLEM_FOOD_URANIUM],
+	/obj/item/stack/ore/uranium = GLOB.golem_stack_food_types[GOLEM_FOOD_URANIUM],
+	/obj/item/stack/sheet/mineral/silver = GLOB.golem_stack_food_types[GOLEM_FOOD_SILVER],
+	/obj/item/stack/ore/silver = GLOB.golem_stack_food_types[GOLEM_FOOD_SILVER],
+	/obj/item/stack/sheet/mineral/plasma = GLOB.golem_stack_food_types[GOLEM_FOOD_PLASMA],
+	/obj/item/stack/ore/plasma = GLOB.golem_stack_food_types[GOLEM_FOOD_PLASMA],
+	/obj/item/stack/sheet/mineral/gold = GLOB.golem_stack_food_types[GOLEM_FOOD_GOLD],
+	/obj/item/stack/ore/gold = GLOB.golem_stack_food_types[GOLEM_FOOD_GOLD],
+	/obj/item/stack/sheet/mineral/diamond = GLOB.golem_stack_food_types[GOLEM_FOOD_DIAMOND],
+	/obj/item/stack/ore/diamond = GLOB.golem_stack_food_types[GOLEM_FOOD_DIAMOND],
+	/obj/item/stack/sheet/mineral/titanium = GLOB.golem_stack_food_types[GOLEM_FOOD_TITANIUM],
+	/obj/item/stack/ore/titanium = GLOB.golem_stack_food_types[GOLEM_FOOD_TITANIUM],
+	/obj/item/stack/sheet/plasteel = GLOB.golem_stack_food_types[GOLEM_FOOD_PLASTEEL],
+	/obj/item/stack/ore/bananium = GLOB.golem_stack_food_types[GOLEM_FOOD_BANANIUM],
+	/obj/item/stack/sheet/mineral/bananium = GLOB.golem_stack_food_types[GOLEM_FOOD_BANANIUM],
+	/obj/item/stack/ore/bluespace_crystal = GLOB.golem_stack_food_types[GOLEM_FOOD_BLUESPACE],
+	/obj/item/stack/ore/bluespace_crystal/refined = GLOB.golem_stack_food_types[GOLEM_FOOD_BLUESPACE],
+	/obj/item/stack/ore/bluespace_crystal/artificial = GLOB.golem_stack_food_types[GOLEM_FOOD_BLUESPACE],
+	/obj/item/stack/sheet/bluespace_crystal = GLOB.golem_stack_food_types[GOLEM_FOOD_BLUESPACE],
+))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

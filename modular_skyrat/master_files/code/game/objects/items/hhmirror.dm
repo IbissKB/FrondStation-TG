@@ -42,7 +42,11 @@
 
 			if(!newname)
 				return
+<<<<<<< HEAD
 			if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			human_user.real_name = newname
 			human_user.name = newname
@@ -58,7 +62,11 @@
 
 			if(!newrace)
 				return
+<<<<<<< HEAD
 			if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			human_user.set_species(newrace, icon_update = 0)
 
@@ -88,7 +96,11 @@
 		if("gender")
 			if(!(human_user.gender in list("male", "female"))) // blame the patriarchy
 				return
+<<<<<<< HEAD
 			if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			if(human_user.gender == "male")
 				if(alert(human_user, "Become a Witch?", "Confirmation", "Yes", "No") == "Yes")
@@ -109,7 +121,11 @@
 
 		if("hair")
 			var/hairchoice = tgui_alert(human_user, "Hair style or hair color?", "Change Hair", list("Style", "Color"))
+<<<<<<< HEAD
 			if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			if(hairchoice == "Style") // So you just want to use a mirror then?
 				..()
@@ -127,7 +143,11 @@
 
 		if(BODY_ZONE_PRECISE_EYES)
 			var/new_eye_color = input(human_user, "Choose your eye color", "Eye Color", human_user.eye_color_left) as color|null
+<<<<<<< HEAD
 			if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return TRUE
 			if(new_eye_color)
 				human_user.eye_color_left = sanitize_hexcolor(new_eye_color)
@@ -160,7 +180,11 @@
 
 				if(!newname)
 					return
+<<<<<<< HEAD
 				if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				human_user.real_name = newname
 				human_user.name = newname
@@ -172,7 +196,11 @@
 			if("gender")
 				if(!(human_user.gender in list("male", "female"))) // blame the patriarchy
 					return
+<<<<<<< HEAD
 				if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				if(human_user.gender == "male")
 					if(alert(human_user, "Become a Witch?", "Confirmation", "Yes", "No") == "Yes")
@@ -193,7 +221,11 @@
 
 			if("hair")
 				var/hairchoice = tgui_alert(human_user, "Hair style or hair color?", "Change Hair", list("Style", "Color"))
+<<<<<<< HEAD
 				if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return
 				if(hairchoice == "Style") // So you just want to use a mirror then?
 					..()
@@ -211,7 +243,11 @@
 
 			if(BODY_ZONE_PRECISE_EYES)
 				var/new_eye_color = input(human_user, "Choose your eye color", "Eye Color", human_user.eye_color_left) as color|null
+<<<<<<< HEAD
 				if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
+=======
+				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					return TRUE
 				if(new_eye_color)
 					human_user.eye_color_left = sanitize_hexcolor(new_eye_color)

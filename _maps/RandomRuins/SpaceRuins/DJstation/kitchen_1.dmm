@@ -13,16 +13,20 @@
 /turf/template_noop,
 /area/space/nearstation)
 "l" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table,
 /obj/item/storage/box/donkpockets{
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/donkpockets,
+<<<<<<< HEAD
 /turf/open/floor/iron,
 /area/ruin/space/djstation)
 "n" = (
@@ -50,6 +54,27 @@
 /obj/effect/turf_decal/tile/bar,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/bin,
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/turf/open/floor/iron,
+/area/ruin/space/djstation)
+"n" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/machinery/light/directional/south,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/turf/open/floor/iron,
+/area/ruin/space/djstation)
+"o" = (
+/obj/structure/table,
+/obj/machinery/cell_charger,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/turf/open/floor/iron,
+/area/ruin/space/djstation)
+"u" = (
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/space/djstation)
 "x" = (
@@ -90,10 +115,14 @@
 /turf/template_noop,
 /area/template_noop)
 "P" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/space/djstation)
 "S" = (
@@ -105,14 +134,21 @@
 /turf/template_noop,
 /area/space/nearstation)
 "W" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table,
 /obj/machinery/microwave{
 	pixel_y = 8
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/ruin/space/djstation)
 

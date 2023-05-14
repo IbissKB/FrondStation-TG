@@ -23,7 +23,11 @@
 	if(!istype(signal) || !is_freq_listening(signal))
 		return
 
+<<<<<<< HEAD
 	if(change_frequency && signal.frequency != FREQ_SYNDICATE)
+=======
+	if(change_frequency && !(signal.frequency in banned_frequencies))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		signal.frequency = change_frequency
 
 	if(!istype(machine_from, /obj/machinery/telecomms/processor) && machine_from != src) // Signal must be ready (stupid assuming machine), let's send it

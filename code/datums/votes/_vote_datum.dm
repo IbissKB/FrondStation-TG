@@ -28,6 +28,11 @@
 	var/started_time
 	/// The time remaining in this vote's run.
 	var/time_remaining
+<<<<<<< HEAD
+=======
+	/// The counting method we use for votes.
+	var/count_method = VOTE_COUNT_METHOD_SINGLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Used to determine if this vote is a possible

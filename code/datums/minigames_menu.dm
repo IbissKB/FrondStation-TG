@@ -33,11 +33,22 @@
 			ui.close()
 			ctf()
 			return TRUE
+<<<<<<< HEAD
+=======
+		if("basketball")
+			ui.close()
+			basketball()
+			return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/minigames_menu/proc/mafia()
 	var/datum/mafia_controller/game = GLOB.mafia_game //this needs to change if you want multiple mafia games up at once.
 	if(!game)
+<<<<<<< HEAD
 		game = create_mafia_game("mafia")
+=======
+		game = create_mafia_game()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	game.ui_interact(usr)
 
 /datum/minigames_menu/proc/ctf()
@@ -45,3 +56,12 @@
 	if(!ctf_panel)
 		ctf_panel = new(src)
 	ctf_panel.ui_interact(usr)
+<<<<<<< HEAD
+=======
+
+/datum/minigames_menu/proc/basketball()
+	var/datum/basketball_controller/game = GLOB.basketball_game
+	if(!game)
+		game = create_basketball_game()
+	game.ui_interact(usr)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

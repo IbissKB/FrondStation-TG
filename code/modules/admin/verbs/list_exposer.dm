@@ -53,8 +53,13 @@
 		return
 	var/data = "<b>Showing Crew Manifest.</b><hr>"
 	data += "<table cellspacing=5 border=1><tr><th>Name</th><th>Position</th></tr>"
+<<<<<<< HEAD
 	for(var/datum/data/record/entry in GLOB.data_core.general)
 		data += "<tr><td>[entry.fields["name"]]</td><td>[entry.fields["rank"]][entry.fields["rank"] != entry.fields["trim"] ? " ([entry.fields["trim"]])" : ""]</td></tr>"
+=======
+	for(var/datum/record/crew/entry in GLOB.manifest.general)
+		data += "<tr><td>[entry.name]</td><td>[entry.rank][entry.rank != entry.trim ? " ([entry.trim])" : ""]</td></tr>"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data += "</table>"
 	usr << browse(data, "window=manifest;size=440x410")
 

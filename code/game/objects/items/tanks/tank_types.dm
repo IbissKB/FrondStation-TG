@@ -11,7 +11,11 @@
 /// Allows carbon to toggle internals via AltClick of the equipped tank.
 /obj/item/tank/internals/AltClick(mob/user)
 	..()
+<<<<<<< HEAD
 	if((loc == user) && user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE, need_hands = TRUE))
+=======
+	if((loc == user) && user.can_perform_action(src, FORBID_TELEKINESIS_REACH|NEED_HANDS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		toggle_internals(user)
 
 /obj/item/tank/internals/examine(mob/user)
@@ -92,7 +96,11 @@
 /obj/item/tank/internals/plasma/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/flamethrower))
 		var/obj/item/flamethrower/F = W
+<<<<<<< HEAD
 		if ((!F.status)||(F.ptank))
+=======
+		if ((!F.status) || (F.ptank))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 		if(!user.transferItemToLoc(src, F))
 			return

@@ -2,13 +2,30 @@
 	name = "Abductor"
 	id = SPECIES_ABDUCTOR
 	sexes = FALSE
+<<<<<<< HEAD
 	species_traits = list(NOBLOOD, NOEYESPRITES, NOSTOMACH)
+=======
+	species_traits = list(
+		NOEYESPRITES,
+		NO_UNDERWEAR,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inherent_traits = list(
 		TRAIT_NOBREATH,
 		TRAIT_NOHUNGER,
 		TRAIT_VIRUSIMMUNE,
+<<<<<<< HEAD
 	)
 	mutanttongue = /obj/item/organ/internal/tongue/abductor
+=======
+		TRAIT_NOBLOOD,
+		TRAIT_NO_DEBRAIN_OVERLAY,
+	)
+	mutanttongue = /obj/item/organ/internal/tongue/abductor
+	mutantstomach = null
+	mutantheart = null
+	mutantlungs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	ass_image = 'icons/ass/assgrey.png'
 

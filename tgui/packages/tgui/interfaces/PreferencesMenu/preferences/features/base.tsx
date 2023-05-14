@@ -155,12 +155,22 @@ export const StandardizedDropdown = (props: {
   displayNames: Record<string, InfernoNode>;
   onSetValue: (newValue: string) => void;
   value: string;
+<<<<<<< HEAD
 }) => {
   const { choices, disabled, displayNames, onSetValue, value } = props;
+=======
+  buttons?: boolean;
+}) => {
+  const { choices, disabled, buttons, displayNames, onSetValue, value } = props;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
   return (
     <Dropdown
       disabled={disabled}
+<<<<<<< HEAD
+=======
+      buttons={buttons}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       selected={value}
       onSelected={onSetValue}
       width="100%"
@@ -178,6 +188,10 @@ export const StandardizedDropdown = (props: {
 export const FeatureDropdownInput = (
   props: FeatureValueProps<string, string, FeatureChoicedServerData> & {
     disabled?: boolean;
+<<<<<<< HEAD
+=======
+    buttons?: boolean;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   }
 ) => {
   const serverData = props.serverData;
@@ -198,6 +212,10 @@ export const FeatureDropdownInput = (
     <StandardizedDropdown
       choices={sortStrings(serverData.choices)}
       disabled={props.disabled}
+<<<<<<< HEAD
+=======
+      buttons={props.buttons}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       displayNames={displayNames}
       onSetValue={props.handleSetValue}
       value={props.value}

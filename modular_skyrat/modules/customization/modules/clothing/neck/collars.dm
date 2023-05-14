@@ -28,7 +28,11 @@
 
 /obj/item/clothing/neck/human_petcollar/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/small/collar)
+=======
+	create_storage(storage_type = /datum/storage/pockets/small/collar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(treat_path)
 		new treat_path(src)
 
@@ -66,7 +70,11 @@
 /obj/item/clothing/neck/human_petcollar/locked/Initialize(mapload)
 	. = ..()
 
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/small/collar/locked)
+=======
+	create_storage(storage_type = /datum/storage/pockets/small/collar/locked)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/neck/human_petcollar/locked/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/key/collar))

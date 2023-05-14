@@ -125,12 +125,20 @@ GLOBAL_VAR_INIT(glowshrooms, 0)
  * Causes glowshroom spreading across the floor/walls.
  */
 
+<<<<<<< HEAD
 /obj/structure/glowshroom/process(delta_time)
+=======
+/obj/structure/glowshroom/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(COOLDOWN_FINISHED(src, spread_cooldown))
 		COOLDOWN_START(src, spread_cooldown, rand(min_delay_spread, max_delay_spread))
 		Spread()
 
+<<<<<<< HEAD
 	Decay(rand(idle_decay_min, idle_decay_max) * delta_time)
+=======
+	Decay(rand(idle_decay_min, idle_decay_max) * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 
@@ -209,7 +217,11 @@ GLOBAL_VAR_INIT(glowshrooms, 0)
 
 	var/list/dir_list = list()
 
+<<<<<<< HEAD
 	for(var/i=1,i<=16,i <<= 1)
+=======
+	for(var/i=1,i <= 16,i <<= 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(direction & i)
 			dir_list += i
 

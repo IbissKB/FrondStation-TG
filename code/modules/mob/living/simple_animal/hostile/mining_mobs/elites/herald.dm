@@ -19,11 +19,20 @@
 /mob/living/simple_animal/hostile/asteroid/elite/herald
 	name = "herald"
 	desc = "A monstrous beast which fires deadly projectiles at threats and prey."
+<<<<<<< HEAD
+=======
+	icon = 'icons/mob/simple/lavaland/lavaland_elites_64.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "herald"
 	icon_living = "herald"
 	icon_aggro = "herald"
 	icon_dead = "herald_dying"
 	icon_gib = "syndicate_gib"
+<<<<<<< HEAD
+=======
+	pixel_x = -16
+	base_pixel_x = -16
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	health_doll_icon = "herald"
 	maxHealth = 1000
 	health = 1000
@@ -199,6 +208,11 @@
 	maxHealth = 60
 	icon_state = "herald_mirror"
 	icon_aggro = "herald_mirror"
+<<<<<<< HEAD
+=======
+	pixel_x = -16
+	base_pixel_x = -16
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	death_message = "shatters violently!"
 	death_sound = 'sound/effects/glassbr1.ogg'
 	del_on_death = TRUE
@@ -226,21 +240,37 @@
 	damage_type = BRUTE
 	pass_flags = PASSTABLE
 
+<<<<<<< HEAD
 /obj/projectile/herald/teleshot
 	name ="golden bolt"
 	damage = 0
 	color = rgb(255,255,102)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/projectile/herald/on_hit(atom/target, blocked = FALSE)
 	if(ismob(target) && ismob(firer))
 		var/mob/living/mob_target = target
 		if(mob_target.faction_check_mob(firer))
+<<<<<<< HEAD
 			nodamage = TRUE
+=======
+			damage = 0
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(ismineralturf(target))
 		var/turf/closed/mineral/rock_target = target
 		rock_target.gets_drilled()
 
+<<<<<<< HEAD
+=======
+/obj/projectile/herald/teleshot
+	name = "golden bolt"
+	damage = 0
+	color = rgb(255,255,102)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/projectile/herald/teleshot/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	firer.forceMove(get_turf(src))
@@ -270,9 +300,21 @@
 
 /obj/item/clothing/neck/cloak/herald_cloak/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	. = ..()
+<<<<<<< HEAD
 	if(rand(1,100) > hit_reaction_chance)
+=======
+	if(prob(hit_reaction_chance))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	owner.visible_message(span_danger("[owner]'s [src] emits a loud noise as [owner] is struck!"))
 	var/static/list/directional_shot_angles = list(0, 45, 90, 135, 180, 225, 270, 315)
 	playsound(get_turf(owner), 'sound/magic/clockwork/invoke_general.ogg', 20, TRUE)
 	addtimer(CALLBACK(src, PROC_REF(reactionshot), owner), 10)
+<<<<<<< HEAD
+=======
+
+#undef HERALD_TRISHOT
+#undef HERALD_DIRECTIONALSHOT
+#undef HERALD_TELESHOT
+#undef HERALD_MIRROR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -23,6 +23,7 @@
 	else
 		user_by_item -= source
 
+<<<<<<< HEAD
 /datum/element/earhealing/process(delta_time)
 	for(var/i in user_by_item)
 		var/mob/living/carbon/user = user_by_item[i]
@@ -31,4 +32,14 @@
 			continue
 		ears.deaf = max(ears.deaf - 0.25 * delta_time, (ears.damage < ears.maxHealth ? 0 : 1)) // Do not clear deafness if our ears are too damaged
 		ears.applyOrganDamage(-0.025 * delta_time)
+=======
+/datum/element/earhealing/process(seconds_per_tick)
+	for(var/i in user_by_item)
+		var/mob/living/carbon/user = user_by_item[i]
+		var/obj/item/organ/internal/ears/ears = user.get_organ_slot(ORGAN_SLOT_EARS)
+		if(!ears || !ears.damage || ears.organ_flags & ORGAN_FAILING)
+			continue
+		ears.deaf = max(ears.deaf - 0.25 * seconds_per_tick, (ears.damage < ears.maxHealth ? 0 : 1)) // Do not clear deafness if our ears are too damaged
+		ears.apply_organ_damage(-0.025 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		CHECK_TICK

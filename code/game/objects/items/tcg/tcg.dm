@@ -15,6 +15,11 @@
 	var/flipped = FALSE
 	///Has this card been "tapped"? AKA, is it horizontal?
 	var/tapped = FALSE
+<<<<<<< HEAD
+=======
+	///Cached icon used for inspecting the card
+	var/icon/cached_flat_icon
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/tcgcard/Initialize(mapload, datum_series, datum_id)
 	. = ..()
@@ -61,8 +66,20 @@
 	name_chaser += "Power/Resolve: [data_holder.power]/[data_holder.resolve]"
 	if(data_holder.rules) //This can sometimes be empty
 		name_chaser += "Ruleset: [data_holder.rules]"
+<<<<<<< HEAD
 	return name_chaser
 
+=======
+	name_chaser += list("[icon2html(get_cached_flat_icon(), user, "extra_classes" = "hugeicon")]")
+
+	return name_chaser
+
+/obj/item/tcgcard/proc/get_cached_flat_icon()
+	if(!cached_flat_icon)
+		cached_flat_icon = getFlatIcon(src)
+	return cached_flat_icon
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 
 /obj/item/tcgcard/attack_hand(mob/user, list/modifiers)
@@ -186,7 +203,11 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 
 /obj/item/tcgcard_deck/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/tcg)
+=======
+	create_storage(storage_type = /datum/storage/tcg)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/tcgcard_deck/update_icon_state()
 	if(!flipped)
@@ -195,11 +216,19 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 
 	switch(contents.len)
 		if(1 to 10)
+<<<<<<< HEAD
 			icon_state = "[icon_state]_tcg_low"
 		if(11 to 20)
 			icon_state = "[icon_state]_tcg_half"
 		if(21 to INFINITY)
 			icon_state = "[icon_state]_tcg_full"
+=======
+			icon_state = "[base_icon_state]_tcg_low"
+		if(11 to 20)
+			icon_state = "[base_icon_state]_tcg_half"
+		if(21 to INFINITY)
+			icon_state = "[base_icon_state]_tcg_full"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			icon_state = "[base_icon_state]_tcg"
 	return ..()
@@ -246,7 +275,11 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 /obj/item/tcgcard_deck/attackby(obj/item/item, mob/living/user, params)
 	. = ..()
 	if(istype(item, /obj/item/tcgcard))
+<<<<<<< HEAD
 		if(contents.len > 30)
+=======
+		if(contents.len >= 30)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_notice("This pile has too many cards for a regular deck!"))
 			return FALSE
 		var/obj/item/tcgcard/new_card = item
@@ -311,7 +344,11 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	icon = 'icons/obj/toys/tcgmisc.dmi'
 	icon_state = "error"
 	w_class = WEIGHT_CLASS_TINY
+<<<<<<< HEAD
 	custom_price = PAYCHECK_CREW * 2 //Effectively expensive as long as you're not a very high paying job... in which case, why are you playing trading card games?
+=======
+	custom_price = PAYCHECK_CREW * 0.75 //Price reduced from * 2 to * 0.75, this is planned as a temporary measure until card persistance is added.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///The card series to look in
 	var/series = "MEME"
 	///Chance of the pack having a coin in it out of 10
@@ -386,9 +423,16 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	desc = "A TGC flipper, for deciding who gets to go first. Also conveniently acts as a counter, for various purposes."
 	icon = 'icons/obj/toys/tcgmisc.dmi'
 	icon_state = "coin_nanotrasen"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/plastic = 400)
 	material_flags = NONE
 	sideslist = list("nanotrasen", "syndicate")
+=======
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT*5)
+	material_flags = NONE
+	sideslist = list("nanotrasen", "syndicate")
+	override_material_worth = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/card_binder
 	name = "card binder"
@@ -470,6 +514,14 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	///The rarity of this card, determines how much (or little) it shows up in packs. Rarities are common, uncommon, rare, epic, legendary and misprint.
 	var/rarity = "uber rare to the extreme"
 
+<<<<<<< HEAD
+=======
+	///Icon file that summons are pulled from
+	var/summon_icon_file = "icons/obj/toys/tcgmisc.dmi"
+	///Icon state for summons to use
+	var/summon_icon_state = "template"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/card/New(list/data = list(), list/templates = list())
 	applyTemplates(data, templates)
 	apply(data)
@@ -495,3 +547,8 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 			continue
 		vars[name] = SStrading_card_game.resolve_keywords(value)
 
+<<<<<<< HEAD
+=======
+#undef TAPPED_ANGLE
+#undef UNTAPPED_ANGLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

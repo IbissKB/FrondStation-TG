@@ -1,9 +1,16 @@
 /mob/living/simple_animal/hostile/biohazard_blob
 	gold_core_spawnable = HOSTILE_SPAWN
+<<<<<<< HEAD
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	see_in_dark = 4
 	mob_biotypes = MOB_ORGANIC
 	gold_core_spawnable = NO_SPAWN
+=======
+	lighting_cutoff_red = 0
+	lighting_cutoff_green = 35
+	lighting_cutoff_blue = 20
+	mob_biotypes = MOB_ORGANIC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'modular_skyrat/modules/biohazard_blob/icons/blob_mobs.dmi'
 	vision_range = 5
 	aggro_vision_range = 8
@@ -30,6 +37,10 @@
 	attack_sound = 'sound/effects/attackblob.ogg'
 	melee_damage_type = BURN
 	del_on_death = TRUE
+<<<<<<< HEAD
+=======
+	death_message = "evaporates!"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_system = MOVABLE_LIGHT
 	light_range = 2
 	light_power = 1
@@ -44,10 +55,13 @@
 	. = ..()
 	update_overlays()
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/biohazard_blob/oil_shambler/Destroy()
 	visible_message(span_warning("The [src] evaporates!"))
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/hostile/biohazard_blob/oil_shambler/update_overlays()
 	. = ..()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
@@ -69,6 +83,10 @@
 	icon_state = "diseased_rat"
 	icon_living = "diseased_rat"
 	icon_dead = "diseased_rat_dead"
+<<<<<<< HEAD
+=======
+	gold_core_spawnable = NO_SPAWN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	speak_emote = list("chitters")
 	emote_hear = list("chitters")
 	speak_chance = 5
@@ -93,7 +111,11 @@
 		var/mob/living/carbon/C = target
 		if(src.can_inject(target))
 			to_chat(C, span_danger("[src] manages to penetrate your clothing with it's teeth!"))
+<<<<<<< HEAD
 			C.ForceContractDisease(new /datum/disease/cordyceps(), FALSE, TRUE)
+=======
+			C.ForceContractDisease(new /datum/disease/cryptococcus(), FALSE, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/biohazard_blob/electric_mosquito
 	name = "electric mosquito"
@@ -152,7 +174,11 @@
 	light_color = LIGHT_COLOR_GREEN
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 1, STAMINA = 0, OXY = 0)
 	gender = NEUTER
+<<<<<<< HEAD
 	wound_bonus = 30
+=======
+	wound_bonus = 15
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = INFINITY

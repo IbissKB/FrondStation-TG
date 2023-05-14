@@ -20,10 +20,13 @@
 	/// Encryption key
 	var/datum/port/input/enc_key
 
+<<<<<<< HEAD
 /obj/item/circuit_component/ntnet_send/Initialize(mapload)
 	. = ..()
 	init_network_id(__NETWORK_CIRCUITS)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/circuit_component/ntnet_send/populate_options()
 	list_options = add_option_port("List Type", GLOB.wiremod_basic_types)
 
@@ -37,4 +40,10 @@
 		data_package.set_datatype(PORT_TYPE_LIST(new_datatype))
 
 /obj/item/circuit_component/ntnet_send/input_received(datum/port/input/port)
+<<<<<<< HEAD
 	ntnet_send(list("data" = data_package.value, "enc_key" = enc_key.value, "port" = WEAKREF(data_package)))
+=======
+	if(!find_functional_ntnet_relay())
+		return
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CIRCUIT_NTNET_DATA_SENT, list("data" = data_package.value, "enc_key" = enc_key.value, "port" = WEAKREF(data_package)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

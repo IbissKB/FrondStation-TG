@@ -21,11 +21,19 @@
 
 /datum/outfit/oldsec
 	name = "Ancient Security"
+<<<<<<< HEAD
 	uniform = /obj/item/clothing/under/rank/security/officer
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/away/old/sec
 	r_pocket = /obj/item/restraints/handcuffs
 	l_pocket = /obj/item/assembly/flash/handheld
+=======
+	id = /obj/item/card/id/away/old/sec
+	uniform = /obj/item/clothing/under/rank/security/officer
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_pocket = /obj/item/assembly/flash/handheld
+	r_pocket = /obj/item/restraints/handcuffs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/oldeng
 	name = "old cryogenics pod"
@@ -48,10 +56,17 @@
 
 /datum/outfit/oldeng
 	name = "Ancient Engineer"
+<<<<<<< HEAD
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
 	shoes = /obj/item/clothing/shoes/workboots
 	id = /obj/item/card/id/away/old/eng
 	gloves = /obj/item/clothing/gloves/color/fyellow/old
+=======
+	id = /obj/item/card/id/away/old/eng
+	uniform = /obj/item/clothing/under/rank/engineering/engineer
+	gloves = /obj/item/clothing/gloves/color/fyellow/old
+	shoes = /obj/item/clothing/shoes/workboots
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	l_pocket = /obj/item/tank/internals/emergency_oxygen
 
 /datum/outfit/oldeng/mod
@@ -82,9 +97,15 @@
 
 /datum/outfit/oldsci
 	name = "Ancient Scientist"
+<<<<<<< HEAD
 	uniform = /obj/item/clothing/under/rank/rnd/scientist
 	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id/away/old/sci
+=======
+	id = /obj/item/card/id/away/old/sci
+	uniform = /obj/item/clothing/under/rank/rnd/scientist
+	shoes = /obj/item/clothing/shoes/laceup
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	l_pocket = /obj/item/stack/medical/bruise_pack
 
 ///asteroid comms agent
@@ -97,7 +118,11 @@
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space/Initialize(mapload)
 	. = ..()
 	if(prob(85)) //only has a 15% chance of existing, otherwise it'll just be a NPC syndie.
+<<<<<<< HEAD
 		new /mob/living/simple_animal/hostile/syndicate/ranged(get_turf(src))
+=======
+		new /mob/living/basic/syndicate/ranged(get_turf(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return INITIALIZE_HINT_QDEL
 
 ///battlecruiser stuff
@@ -132,6 +157,7 @@
 	mob_mind.add_antag_datum(antag_datum_to_give, antag_team)
 	antag_team.players_spawned += (spawned_mob.ckey)
 
+<<<<<<< HEAD
 /datum/team/battlecruiser
 	name = "\improper Battlecruiser Crew"
 	member_name = "crewmember"
@@ -198,6 +224,15 @@
 	r_pocket = /obj/item/knife/combat/survival
 	box = /obj/item/storage/box/survival/syndie
 	belt = /obj/item/storage/belt/military/assault
+=======
+/datum/outfit/syndicate_empty/battlecruiser
+	name = "Syndicate Battlecruiser Ship Operative"
+	belt = /obj/item/storage/belt/military/assault
+	l_pocket = /obj/item/gun/ballistic/automatic/pistol/clandestine
+	r_pocket = /obj/item/knife/combat/survival
+
+	box = /obj/item/storage/box/survival/syndie
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/syndicate/battlecruiser/assault
 	name = "Syndicate Battlecruiser Assault Operative"
@@ -211,6 +246,7 @@
 /datum/outfit/syndicate_empty/battlecruiser/assault
 	name = "Syndicate Battlecruiser Assault Operative"
 	uniform = /obj/item/clothing/under/syndicate/combat
+<<<<<<< HEAD
 	l_pocket = /obj/item/uplink/nuclear
 	r_pocket = /obj/item/modular_computer/pda/nukeops
 	belt = /obj/item/storage/belt/military
@@ -218,6 +254,15 @@
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/clandestine
 	back = /obj/item/storage/backpack
 	mask = /obj/item/clothing/mask/gas/syndicate
+=======
+	suit = /obj/item/clothing/suit/armor/vest
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/clandestine
+	back = /obj/item/storage/backpack
+	belt = /obj/item/storage/belt/military
+	mask = /obj/item/clothing/mask/gas/syndicate
+	l_pocket = /obj/item/uplink/nuclear
+	r_pocket = /obj/item/modular_computer/pda/nukeops
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/syndicate/battlecruiser/captain
 	name = "Syndicate Battlecruiser Captain"
@@ -232,6 +277,7 @@
 
 /datum/outfit/syndicate_empty/battlecruiser/assault/captain
 	name = "Syndicate Battlecruiser Captain"
+<<<<<<< HEAD
 	l_pocket = /obj/item/melee/energy/sword/saber/red
 	r_pocket = /obj/item/melee/baton/telescopic
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
@@ -243,3 +289,16 @@
 	glasses = /obj/item/clothing/glasses/thermal/eyepatch
 	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
 	id_trim = /datum/id_trim/battlecruiser/captain
+=======
+	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
+	id_trim = /datum/id_trim/battlecruiser/captain
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
+	suit_store = /obj/item/gun/ballistic/revolver/mateba
+	back = /obj/item/storage/backpack/satchel/leather
+	ears = /obj/item/radio/headset/syndicate/alt/leader
+	glasses = /obj/item/clothing/glasses/thermal/eyepatch
+	head = /obj/item/clothing/head/hats/hos/cap/syndicate
+	mask = /obj/item/clothing/mask/cigarette/cigar/havana
+	l_pocket = /obj/item/melee/energy/sword/saber/red
+	r_pocket = /obj/item/melee/baton/telescopic
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -75,8 +75,13 @@
 	if(!locked)
 		open_machine()
 
+<<<<<<< HEAD
 /obj/machinery/interrogator/open_machine(drop)
 	..()
+=======
+/obj/machinery/interrogator/open_machine(drop = TRUE, density_to_set = FALSE)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	human_occupant = null
 
 /obj/machinery/interrogator/proc/stop_extract()

@@ -73,7 +73,11 @@
 	},
 /area/ruin/powered/shuttle)
 "qd" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/tree,
+=======
+/mob/living/basic/tree,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "sF" = (
@@ -128,6 +132,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
+<<<<<<< HEAD
 /obj/item/candle{
 	pixel_x = -8;
 	pixel_y = 13
@@ -136,6 +141,13 @@
 	name = "porridge";
 	pixel_y = 3
 	},
+=======
+/obj/item/flashlight/flare/candle{
+	pixel_x = -8;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/cup/bowl/soup/stew,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/wood/large{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -191,7 +203,11 @@
 /obj/item/storage/book/bible{
 	pixel_y = 5
 	},
+<<<<<<< HEAD
 /obj/item/candle{
+=======
+/obj/item/flashlight/flare/candle{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = -10;
 	pixel_y = 5
 	},

@@ -25,8 +25,13 @@
 	. = ..()
 	interval = 0
 	var/max_time = 40
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
 		max_time -= L.rating
+=======
+	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
+		max_time -= micro_laser.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	interval = max(max_time,1)
 
 /obj/machinery/harvester/update_icon_state()
@@ -42,7 +47,11 @@
 	icon_state = base_icon_state
 	return ..()
 
+<<<<<<< HEAD
 /obj/machinery/harvester/open_machine(drop = TRUE)
+=======
+/obj/machinery/harvester/open_machine(drop = TRUE, density_to_set = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(panel_open)
 		return
 	. = ..()
@@ -104,11 +113,19 @@
 	warming_up = FALSE
 	update_appearance()
 	if(!harvesting || state_open || !powered() || !occupant || !iscarbon(occupant))
+<<<<<<< HEAD
+=======
+		end_harvesting(success = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	playsound(src, 'sound/machines/juicer.ogg', 20, TRUE)
 	var/mob/living/carbon/C = occupant
 	if(!LAZYLEN(operation_order)) //The list is empty, so we're done here
+<<<<<<< HEAD
 		end_harvesting()
+=======
+		end_harvesting(success = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/turf/target
 	for(var/adir in list(EAST,NORTH,SOUTH,WEST))
@@ -135,12 +152,25 @@
 	use_power(active_power_usage)
 	addtimer(CALLBACK(src, PROC_REF(harvest)), interval)
 
+<<<<<<< HEAD
 /obj/machinery/harvester/proc/end_harvesting()
 	warming_up = FALSE
 	harvesting = FALSE
 	open_machine()
 	say("Subject has been successfully harvested.")
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
+=======
+/obj/machinery/harvester/proc/end_harvesting(success = TRUE)
+	warming_up = FALSE
+	harvesting = FALSE
+	open_machine()
+	if (!success)
+		say("Protocol interrupted. Aborting harvest.")
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+	else
+		say("Subject has been successfully harvested.")
+		playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/harvester/screwdriver_act(mob/living/user, obj/item/I)
 	. = TRUE
@@ -187,6 +217,10 @@
 /obj/machinery/harvester/Exited(atom/movable/gone, direction)
 	if (!state_open && gone == occupant)
 		container_resist_act(gone)
+<<<<<<< HEAD
+=======
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/harvester/relaymove(mob/living/user, direction)
 	if (!state_open)

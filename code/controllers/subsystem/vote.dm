@@ -93,7 +93,14 @@ SUBSYSTEM_DEF(vote)
 	if (final_winner) // if no one voted final_winner will be null
 		current_vote.finalize_vote(final_winner)
 
+<<<<<<< HEAD
 /datum/controller/subsystem/vote/proc/submit_vote(mob/voter, their_vote)
+=======
+/**
+ * One selection per person, and the selection with the most votes wins.
+ */
+/datum/controller/subsystem/vote/proc/submit_single_vote(mob/voter, their_vote)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!current_vote)
 		return
 	if(!voter?.ckey)
@@ -111,6 +118,34 @@ SUBSYSTEM_DEF(vote)
 
 	current_vote.choices_by_ckey[voter.ckey] = their_vote
 	current_vote.choices[their_vote]++
+<<<<<<< HEAD
+=======
+
+	return TRUE
+
+/**
+ * Any number of selections per person, and the selection with the most votes wins.
+ */
+/datum/controller/subsystem/vote/proc/submit_multi_vote(mob/voter, their_vote)
+	if(!current_vote)
+		return
+	if(!voter?.ckey)
+		return
+	if(CONFIG_GET(flag/no_dead_vote) && voter.stat == DEAD && !voter.client?.holder)
+		return
+
+	else
+		voted += voter.ckey
+
+	if(current_vote.choices_by_ckey[voter.ckey + their_vote] == 1)
+		current_vote.choices_by_ckey[voter.ckey + their_vote] = 0
+		current_vote.choices[their_vote]--
+
+	else
+		current_vote.choices_by_ckey[voter.ckey + their_vote] = 1
+		current_vote.choices[their_vote]++
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /**
@@ -217,10 +252,19 @@ SUBSYSTEM_DEF(vote)
 	var/is_upper_admin = check_rights_for(user.client, R_ADMIN)
 
 	data["user"] = list(
+<<<<<<< HEAD
 		"isLowerAdmin" = is_lower_admin,
 		"isUpperAdmin" = is_upper_admin,
 		// What the current user has selected in any ongoing votes.
 		"selectedChoice" = current_vote?.choices_by_ckey[user.client?.ckey],
+=======
+		"ckey" = user.client?.ckey,
+		"isLowerAdmin" = is_lower_admin,
+		"isUpperAdmin" = is_upper_admin,
+		// What the current user has selected in any ongoing votes.
+		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey],
+		"multiSelection" = current_vote?.choices_by_ckey,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 
 	data["voting"]= is_lower_admin ? voting : list()
@@ -250,6 +294,10 @@ SUBSYSTEM_DEF(vote)
 				"name" = current_vote.name,
 				"question" = current_vote.override_question,
 				"timeRemaining" = current_vote.time_remaining,
+<<<<<<< HEAD
+=======
+				"countMethod" = current_vote.count_method,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				"choices" = choices,
 				"vote" = vote_data,
 			)
@@ -293,8 +341,16 @@ SUBSYSTEM_DEF(vote)
 			// meaning you can't spoof initiate a vote you're not supposed to be able to
 			return initiate_vote(selected, voter.key, voter)
 
+<<<<<<< HEAD
 		if("vote")
 			return submit_vote(voter, params["voteOption"])
+=======
+		if("voteSingle")
+			return submit_single_vote(voter, params["voteOption"])
+
+		if("voteMulti")
+			return submit_multi_vote(voter, params["voteOption"])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/controller/subsystem/vote/ui_close(mob/user)
 	voting -= user.client?.ckey

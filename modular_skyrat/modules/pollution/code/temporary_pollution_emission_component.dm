@@ -21,13 +21,21 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /datum/component/temporary_pollution_emission/process(delta_time = SSOBJ_DT)
+=======
+/datum/component/temporary_pollution_emission/process(seconds_per_tick = SSOBJ_DT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/turf/my_turf = get_turf(parent)
 	if(!my_turf || world.time >= expiry_time)
 		qdel(src)
 		return
 
+<<<<<<< HEAD
 	my_turf.pollute_turf(pollutant_type, pollutant_amount * delta_time)
+=======
+	my_turf.pollute_turf(pollutant_type, pollutant_amount * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/temporary_pollution_emission/proc/wash_off()
 	SIGNAL_HANDLER

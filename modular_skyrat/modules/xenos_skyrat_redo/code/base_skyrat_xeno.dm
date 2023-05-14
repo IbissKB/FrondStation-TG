@@ -139,7 +139,11 @@
 		evolver.balloon_alert(evolver, "too many of our evolution already")
 		return FALSE
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/alien/hivenode/node = evolver.getorgan(/obj/item/organ/internal/alien/hivenode)
+=======
+	var/obj/item/organ/internal/alien/hivenode/node = evolver.get_organ_by_type(/obj/item/organ/internal/alien/hivenode)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!node)
 		to_chat(evolver, span_bolddanger("We can't sense our node's connection to the hive... We can't evolve!"))
 		return FALSE
@@ -197,7 +201,11 @@
 	apply_overlay(HANDS_LAYER)
 
 /mob/living/carbon/proc/get_max_plasma()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/alien/plasmavessel/vessel = getorgan(/obj/item/organ/internal/alien/plasmavessel)
+=======
+	var/obj/item/organ/internal/alien/plasmavessel/vessel = get_organ_by_type(/obj/item/organ/internal/alien/plasmavessel)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!vessel)
 		return -1
 	return vessel.max_plasma

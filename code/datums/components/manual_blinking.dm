@@ -15,7 +15,11 @@
 		return COMPONENT_INCOMPATIBLE
 
 	var/mob/living/carbon/C = parent
+<<<<<<< HEAD
 	E = C.getorganslot(ORGAN_SLOT_EYES)
+=======
+	E = C.get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(E)
 		START_PROCESSING(SSdcs, src)
@@ -60,7 +64,11 @@
 			to_chat(C, span_userdanger("Your eyes begin to wither, you need to blink!"))
 			warn_dying = TRUE
 
+<<<<<<< HEAD
 		E.applyOrganDamage(damage_rate)
+=======
+		E.apply_organ_damage(damage_rate)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(world.time > (last_blink + check_every))
 		if(!warn_grace)
 			to_chat(C, span_danger("You feel a need to blink!"))

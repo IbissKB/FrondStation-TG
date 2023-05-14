@@ -48,6 +48,19 @@
 /// Just a conversion factor that ensures there's no weird floating point errors when blood is draining.
 #define FLOATING_POINT_ERROR_AVOIDING_FACTOR 1000
 
+<<<<<<< HEAD
+=======
+/// The minimum ratio of reagents that need to have the `REAGENT_BLOOD_REGENERATING` chemical_flags for the Hemophage not to violently vomit upon consumption.
+#define MINIMUM_BLOOD_REGENING_REAGENT_RATIO 0.75
+/// How much disgust we're at after eating/drinking something the tumor doesn't like.
+#define TUMOR_DISLIKED_FOOD_DISGUST DISGUST_LEVEL_GROSS + 15
+/// The ratio of reagents that get purged while a Hemophage vomits from trying to eat/drink something that their tumor doesn't like.
+#define HEMOPHAGE_VOMIT_PURGE_RATIO 0.95
+/// The multiplier for blood received by Hemophages out of humans with ckeys.
+#define BLOOD_DRAIN_MULTIPLIER_CKEY 1.5
+/// The rate at which blood metabolizes in a Hemophage's stomach subtype.
+#define BLOOD_METABOLIZATION_RATE (0.1 * REAGENTS_METABOLISM)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/species/hemophage
 	name = "Hemophage"
@@ -58,8 +71,11 @@
 		FACEHAIR,
 		LIPS,
 		DRINKSBLOOD,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -70,8 +86,15 @@
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_LITERATE,
 	)
+<<<<<<< HEAD
 	inherent_biotypes = MOB_HUMANOID
 	mutant_bodyparts = list("wings" = "None")
+=======
+	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
+	default_mutant_bodyparts = list(
+		"legs" = "Normal Legs"
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	exotic_bloodtype = "U"
 	use_skintones = TRUE
 	mutantheart = /obj/item/organ/internal/heart/hemophage
@@ -81,6 +104,10 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
+<<<<<<< HEAD
+=======
+	liked_food = BLOODY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Current multiplier for how fast their blood drains on spec_life(). Higher values mean it goes down faster.
 	var/bloodloss_speed_multiplier = 1
 	/// Current multiplier for how much blood they spend healing themselves for every point of damage healed.
@@ -105,7 +132,11 @@
 	new_hemophage.set_safe_hunger_level()
 
 
+<<<<<<< HEAD
 /datum/species/hemophage/spec_life(mob/living/carbon/human/hemophage, delta_time, times_fired)
+=======
+/datum/species/hemophage/spec_life(mob/living/carbon/human/hemophage, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(hemophage.stat >= DEAD)
 		return
@@ -114,11 +145,19 @@
 	if(tumor_status == PULSATING_TUMOR_MISSING)
 		var/static/list/tumor_reliant_organ_slots = list(ORGAN_SLOT_LIVER, ORGAN_SLOT_STOMACH)
 		for(var/organ_slot in tumor_reliant_organ_slots)
+<<<<<<< HEAD
 			var/obj/item/organ/affected_organ = hemophage.getorganslot(organ_slot)
 			if(!affected_organ || !(affected_organ.organ_flags & ORGAN_TUMOR_CORRUPTED))
 				continue
 
 			hemophage.adjustOrganLoss(organ_slot, TUMORLESS_ORGAN_DAMAGE * delta_time, TUMORLESS_ORGAN_DAMAGE_MAX)
+=======
+			var/obj/item/organ/affected_organ = hemophage.get_organ_slot(organ_slot)
+			if(!affected_organ || !(affected_organ.organ_flags & ORGAN_TUMOR_CORRUPTED))
+				continue
+
+			hemophage.adjustOrganLoss(organ_slot, TUMORLESS_ORGAN_DAMAGE * seconds_per_tick, TUMORLESS_ORGAN_DAMAGE_MAX)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		return // We don't actually want to do any healing or blood loss without a tumor, y'know.
 
@@ -133,7 +172,11 @@
 
 		// We have to check for the damaged bodyparts like this as well, to account for robotic bodyparts, as we don't want to heal those. Stupid, I know, but that's the best proc we got to check that currently.
 		if(brute_damage && length(hemophage.get_damaged_bodyparts(brute = TRUE, burn = FALSE, required_bodytype = BODYTYPE_ORGANIC)))
+<<<<<<< HEAD
 			brutes_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_BRUTE_AMOUNT, brute_damage) * delta_time)
+=======
+			brutes_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_BRUTE_AMOUNT, brute_damage) * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			blood_used += brutes_to_heal * blood_to_health_multiplier
 			max_blood_for_regen -= brutes_to_heal * blood_to_health_multiplier
 
@@ -141,7 +184,11 @@
 		var/burn_damage = hemophage.getFireLoss()
 
 		if(burn_damage && max_blood_for_regen > NONE && length(hemophage.get_damaged_bodyparts(brute = FALSE, burn = TRUE, required_bodytype = BODYTYPE_ORGANIC)))
+<<<<<<< HEAD
 			burns_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_BURN_AMOUNT, burn_damage) * delta_time)
+=======
+			burns_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_BURN_AMOUNT, burn_damage) * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			blood_used += burns_to_heal * blood_to_health_multiplier
 			max_blood_for_regen -= burns_to_heal * blood_to_health_multiplier
 
@@ -151,7 +198,11 @@
 		var/toxin_damage = hemophage.getToxLoss()
 
 		if(toxin_damage && max_blood_for_regen > NONE)
+<<<<<<< HEAD
 			var/toxins_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_TOXIN_AMOUNT, toxin_damage) * delta_time)
+=======
+			var/toxins_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_TOXIN_AMOUNT, toxin_damage) * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			blood_used += toxins_to_heal * blood_to_health_multiplier
 			max_blood_for_regen -= toxins_to_heal * blood_to_health_multiplier
 			hemophage.adjustToxLoss(-toxins_to_heal)
@@ -159,7 +210,11 @@
 		var/cellular_damage = hemophage.getCloneLoss()
 
 		if(cellular_damage && max_blood_for_regen > NONE)
+<<<<<<< HEAD
 			var/cells_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_TOXIN_AMOUNT, cellular_damage) * delta_time)
+=======
+			var/cells_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_TOXIN_AMOUNT, cellular_damage) * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			blood_used += cells_to_heal * blood_to_health_multiplier
 			max_blood_for_regen -= cells_to_heal * blood_to_health_multiplier
 			hemophage.adjustCloneLoss(-cells_to_heal)
@@ -175,7 +230,11 @@
 	if(in_closet(hemophage)) // No regular bloodloss if you're in a closet
 		return
 
+<<<<<<< HEAD
 	hemophage.blood_volume = (hemophage.blood_volume * FLOATING_POINT_ERROR_AVOIDING_FACTOR - NORMAL_BLOOD_DRAIN * delta_time * bloodloss_speed_multiplier * FLOATING_POINT_ERROR_AVOIDING_FACTOR) / FLOATING_POINT_ERROR_AVOIDING_FACTOR
+=======
+	hemophage.blood_volume = (hemophage.blood_volume * FLOATING_POINT_ERROR_AVOIDING_FACTOR - NORMAL_BLOOD_DRAIN * seconds_per_tick * bloodloss_speed_multiplier * FLOATING_POINT_ERROR_AVOIDING_FACTOR) / FLOATING_POINT_ERROR_AVOIDING_FACTOR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(hemophage.blood_volume <= BLOOD_VOLUME_SURVIVE)
 		to_chat(hemophage, span_danger("You ran out of blood!"))
@@ -273,7 +332,11 @@
 	human.skin_tone = "albino"
 	human.hair_color = "#1d1d1d"
 	human.hairstyle = "Pompadour (Big)"
+<<<<<<< HEAD
 	human.update_mutant_bodyparts(TRUE)
+=======
+	regenerate_organs(human, src, visual_only = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	human.update_body(TRUE)
 
 
@@ -399,7 +462,45 @@
 	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 
 
+<<<<<<< HEAD
 // This one will eventually have some mechanics tied to it, but for now it's just going to be black.
+=======
+/obj/item/organ/internal/liver/hemophage/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
+	. = ..()
+
+	RegisterSignal(reciever, COMSIG_GLASS_DRANK, PROC_REF(handle_drink))
+
+
+/obj/item/organ/internal/liver/hemophage/Remove(mob/living/carbon/organ_owner, special)
+	. = ..()
+
+	UnregisterSignal(organ_owner, COMSIG_GLASS_DRANK)
+
+
+/**
+ * Handles reacting to drinks based on their content, to see if the tumor likes what's in it or not.
+ */
+/obj/item/organ/internal/liver/hemophage/proc/handle_drink(mob/living/target_mob, obj/item/reagent_containers/cup/container, mob/living/user)
+	SIGNAL_HANDLER
+
+	if(HAS_TRAIT(owner, TRAIT_AGEUSIA)) // They don't taste anything, their body shouldn't react strongly to the taste of that stuff.
+		return
+
+	if(container.reagents.has_chemical_flag_skyrat(REAGENT_BLOOD_REGENERATING, container.reagents.total_volume * MINIMUM_BLOOD_REGENING_REAGENT_RATIO)) // At least 75% of the content of the cup needs to be something that's counting as blood-regenerating for the tumor not to freak out.
+		return
+
+	var/mob/living/carbon/body = owner
+	ASSERT(istype(body))
+
+	owner.set_disgust(max(owner.disgust, TUMOR_DISLIKED_FOOD_DISGUST))
+
+	to_chat(owner, span_warning("That tasted awful..."))
+
+	// We don't lose nutrition because we don't even use nutrition as Hemopahges. It WILL however purge nearly all of what's in their stomach.
+	body.vomit(lost_nutrition = 0, stun = FALSE, distance = 1, force = TRUE, purge_ratio = HEMOPHAGE_VOMIT_PURGE_RATIO)
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/organ/internal/stomach/hemophage
 	name = "corrupted stomach"
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
@@ -407,6 +508,38 @@
 	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 
 
+<<<<<<< HEAD
+=======
+/obj/item/organ/internal/stomach/hemophage/after_eat(atom/edible)
+	if(!istype(edible, /obj/item/food))
+		return
+
+	var/obj/item/food/eaten = edible
+
+	if(BLOODY & eaten.foodtypes) // They're good if it's BLOODY food, they're less good if it isn't.
+		return
+
+	if(HAS_TRAIT(owner, TRAIT_AGEUSIA)) // They don't taste anything, their body shouldn't react strongly to the taste of that stuff.
+		return
+
+	var/mob/living/carbon/body = owner
+	ASSERT(istype(body))
+
+	owner.set_disgust(max(owner.disgust, TUMOR_DISLIKED_FOOD_DISGUST))
+
+	to_chat(owner, span_warning("That tasted awful..."))
+
+	// We don't lose nutrition because we don't even use nutrition as hemopahges. It WILL however purge nearly all of what's in their stomach.
+	body.vomit(lost_nutrition = 0, stun = FALSE, distance = 1, force = TRUE, purge_ratio = HEMOPHAGE_VOMIT_PURGE_RATIO)
+	return ..()
+
+/obj/item/organ/internal/stomach/hemophage/on_life(seconds_per_tick, times_fired)
+	var/datum/reagent/blood/blood = reagents.get_reagent(/datum/reagent/blood)
+	if(blood)
+		blood.metabolization_rate = BLOOD_METABOLIZATION_RATE
+	..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/organ/internal/tongue/hemophage
 	name = "corrupted tongue"
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
@@ -420,6 +553,16 @@
 	button_icon_state = null
 
 
+<<<<<<< HEAD
+=======
+/datum/action/cooldown/hemophage/New(Target)
+	. = ..()
+
+	if(target && isnull(button_icon_state))
+		AddComponent(/datum/component/action_item_overlay, target)
+
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/action/cooldown/hemophage/drain_victim
 	name = "Drain Victim"
 	desc = "Leech blood from any carbon victim you are passively grabbing."
@@ -444,7 +587,11 @@
 		hemophage.balloon_alert(hemophage, "needs a living victim!")
 		return
 
+<<<<<<< HEAD
 	if(!victim.blood_volume || (victim.dna && ((NOBLOOD in victim.dna.species.species_traits) || victim.dna.species.exotic_blood)))
+=======
+	if(!victim.blood_volume || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD)) || victim.dna.species.exotic_blood)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		hemophage.balloon_alert(hemophage, "[victim] doesn't have blood!")
 		return
 
@@ -480,9 +627,17 @@
 		return
 
 	var/drained_blood = min(victim.blood_volume, HEMOPHAGE_DRAIN_AMOUNT, blood_volume_difference)
+<<<<<<< HEAD
 
 	victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 	hemophage.blood_volume = clamp(hemophage.blood_volume + drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
+=======
+	// if you drained from a human w/ a client, congrats
+	var/drained_multiplier = (is_target_human_with_client ? BLOOD_DRAIN_MULTIPLIER_CKEY : 1)
+
+	victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
+	hemophage.blood_volume = clamp(hemophage.blood_volume + (drained_blood * drained_multiplier), 0, BLOOD_VOLUME_MAXIMUM)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	log_combat(hemophage, victim, "drained [drained_blood]u of blood from", addition = " (NEW BLOOD VOLUME: [victim.blood_volume] cL)")
 	victim.show_message(span_danger("[hemophage] drains some of your blood!"))
@@ -545,7 +700,11 @@
 // We need to override it here because we changed their vampire heart with an Hemophage heart
 /mob/living/carbon/get_status_tab_items()
 	. = ..()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/hemophage/tumor_heart = getorgan(/obj/item/organ/internal/heart/hemophage)
+=======
+	var/obj/item/organ/internal/heart/hemophage/tumor_heart = get_organ_by_type(/obj/item/organ/internal/heart/hemophage)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(tumor_heart)
 		. += "Current blood level: [blood_volume]/[BLOOD_VOLUME_MAXIMUM]"
 
@@ -554,7 +713,11 @@
 
 /datum/status_effect/blood_thirst_satiated
 	id = "blood_thirst_satiated"
+<<<<<<< HEAD
 	duration = 20 MINUTES
+=======
+	duration = 30 MINUTES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = /atom/movable/screen/alert/status_effect/blood_thirst_satiated
 	/// What will the bloodloss_speed_multiplier of the Hemophage be changed by upon receiving this status effect?
@@ -618,7 +781,11 @@
 	if(!linked_alert)
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/hemophage/tumor_heart = owner.getorgan(/obj/item/organ/internal/heart/hemophage)
+=======
+	var/obj/item/organ/internal/heart/hemophage/tumor_heart = owner.get_organ_by_type(/obj/item/organ/internal/heart/hemophage)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(tumor_heart)
 		var/old_layer = tumor_heart.layer
 		var/old_plane = tumor_heart.plane
@@ -646,6 +813,10 @@
 /datum/movespeed_modifier/hemophage_dormant_state
 	id = "hemophage_dormant_state"
 	multiplicative_slowdown = 3 // Yeah, they'll be quite significantly slower when in their dormant state.
+<<<<<<< HEAD
+=======
+	blacklisted_movetypes = FLOATING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /atom/movable/screen/alert/status_effect/blood_thirst_satiated
@@ -690,3 +861,13 @@
 #undef ORGAN_TUMOR_CORRUPTED
 
 #undef FLOATING_POINT_ERROR_AVOIDING_FACTOR
+<<<<<<< HEAD
+=======
+
+#undef HEMOPHAGE_VOMIT_PURGE_RATIO
+#undef TUMOR_DISLIKED_FOOD_DISGUST
+#undef MINIMUM_BLOOD_REGENING_REAGENT_RATIO
+
+#undef BLOOD_DRAIN_MULTIPLIER_CKEY
+#undef BLOOD_METABOLIZATION_RATE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

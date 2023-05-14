@@ -48,10 +48,17 @@
 	color = COLOR_BLUE
 	ambientsounds = AMBIENCE_CREEPY
 /obj/machinery/door/poddoor/shutters
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_SHUTTERS)
 
 /turf/closed/wall/r_wall/syndicate/cruiser
 	canSmoothWith = list(SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_SYNDICATE_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS, SMOOTH_GROUP_SHUTTERS)
+=======
+	smoothing_groups = SMOOTH_GROUP_SHUTTERS
+
+/turf/closed/wall/r_wall/syndicate/cruiser
+	canSmoothWith = SMOOTH_GROUP_SHUTTERS + SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_PLASTITANIUM_WALLS + SMOOTH_GROUP_SYNDICATE_WALLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/landmark/start/assaultop
 	name = "assaultop"

@@ -54,8 +54,14 @@
 
 /datum/hud/proc/apply_parallax_pref(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
+<<<<<<< HEAD
 
 	if(SSmapping.level_trait(screenmob.z, ZTRAIT_NOPARALLAX))
+=======
+	var/turf/screen_location = get_turf(screenmob)
+
+	if(SSmapping.level_trait(screen_location?.z, ZTRAIT_NOPARALLAX))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		for(var/atom/movable/screen/plane_master/white_space as anything in get_true_plane_masters(PLANE_SPACE))
 			white_space.hide_plane(screenmob)
 		return FALSE

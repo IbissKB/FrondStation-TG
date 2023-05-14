@@ -9,7 +9,11 @@
 
 /datum/action/changeling/regenerate/sting_action(mob/living/user)
 	if(!iscarbon(user))
+<<<<<<< HEAD
 		to_chat(user, span_notice("You have nothing to regenerate in this state!"))
+=======
+		user.balloon_alert(user, "nothing missing!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	..()
@@ -29,7 +33,11 @@
 
 	// Make sure the brain's nonvital
 	// Shouldn't be necessary but you can never be certain with lingcode
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/replacement_brain = user.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/replacement_brain = user.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	replacement_brain.organ_flags &= ~ORGAN_VITAL
 	replacement_brain.decoy_override = TRUE
 

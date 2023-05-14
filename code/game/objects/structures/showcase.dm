@@ -124,7 +124,11 @@
 	name = "seppuku katana"
 	density = 0
 	desc = "Welp, only one way to recover your honour."
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/weapons/sword.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "katana"
 
 //Deconstructing
@@ -170,3 +174,9 @@
 			. += "It has its screws loosened."
 		else
 			. += "If you see this, something is wrong."
+<<<<<<< HEAD
+=======
+
+#undef SHOWCASE_CONSTRUCTED
+#undef SHOWCASE_SCREWDRIVERED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

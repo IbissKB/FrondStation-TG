@@ -2,6 +2,14 @@
 # Basically, a list of ckeys who make it past user connection                                 #
 # Case is not important for ckey.                                                             #
 ###############################################################################################
+<<<<<<< HEAD
 Ibiss
 PK_Sonikal
 Pitzaya
+=======
+#Optimumtact
+#kevinz000
+#Iamgoofball
+#Rshoe95
+#That one penguin who became an admin
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

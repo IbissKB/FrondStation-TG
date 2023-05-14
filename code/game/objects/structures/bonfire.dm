@@ -135,15 +135,23 @@
 		start_burning()
 		visible_message(span_notice("[entered]'s fire spreads to [src], setting it ablaze!"))
 
+<<<<<<< HEAD
 /obj/structure/bonfire/proc/bonfire_burn(delta_time = 2)
 	var/turf/current_location = get_turf(src)
 	if(!grill)
 		current_location.hotspot_expose(1000, 250 * delta_time, 1)
+=======
+/obj/structure/bonfire/proc/bonfire_burn(seconds_per_tick = 2)
+	var/turf/current_location = get_turf(src)
+	if(!grill)
+		current_location.hotspot_expose(1000, 250 * seconds_per_tick, 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/burn_target in current_location)
 		if(burn_target == src)
 			continue
 		else if(isliving(burn_target))
 			var/mob/living/burn_victim = burn_target
+<<<<<<< HEAD
 			burn_victim.adjust_fire_stacks(BONFIRE_FIRE_STACK_STRENGTH * 0.5 * delta_time)
 			burn_victim.ignite_mob()
 		else if(isobj(burn_target))
@@ -155,6 +163,19 @@
 			burned_object.fire_act(1000, 250 * delta_time)
 
 /obj/structure/bonfire/process(delta_time)
+=======
+			burn_victim.adjust_fire_stacks(BONFIRE_FIRE_STACK_STRENGTH * 0.5 * seconds_per_tick)
+			burn_victim.ignite_mob()
+		else
+			var/atom/movable/burned_movable = burn_target
+			if(grill && isitem(burned_movable))
+				var/obj/item/grilled_item = burned_movable
+				SEND_SIGNAL(grilled_item, COMSIG_ITEM_GRILL_PROCESS, src, seconds_per_tick) //Not a big fan, maybe make this use fire_act() in the future.
+				continue
+			burned_movable.fire_act(1000, 250 * seconds_per_tick)
+
+/obj/structure/bonfire/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!check_oxygen())
 		extinguish()
 		return
@@ -163,6 +184,7 @@
 	if(istype(my_turf) && !my_turf.planetary_atmos && !is_centcom_level(my_turf.z)) //Pollute, but only when we're not on planetary atmos or on CentCom
 		my_turf.pollute_turf_list(list(/datum/pollutant/smoke = 15, /datum/pollutant/carbon_air_pollution = 5), POLLUTION_ACTIVE_EMITTER_CAP)
 	//SKYRAT EDIT END
+<<<<<<< HEAD
 	bonfire_burn(delta_time)
 
 /obj/structure/bonfire/extinguish()
@@ -172,6 +194,19 @@
 		set_light(0)
 		QDEL_NULL(particles)
 		STOP_PROCESSING(SSobj, src)
+=======
+	bonfire_burn(seconds_per_tick)
+
+/obj/structure/bonfire/extinguish()
+	. = ..()
+	if(!burning)
+		return
+	icon_state = "bonfire"
+	burning = FALSE
+	set_light(0)
+	QDEL_NULL(particles)
+	STOP_PROCESSING(SSobj, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/bonfire/buckle_mob(mob/living/buckled_mob, force = FALSE, check_loc = TRUE)
 	if(..())
@@ -181,6 +216,7 @@
 	if(..())
 		buckled_mob.pixel_y -= 13
 
+<<<<<<< HEAD
 /particles/bonfire
 	icon = 'icons/effects/particles/bonfire.dmi'
 	icon_state = "bonfire"
@@ -198,3 +234,6 @@
 	scale = generator(GEN_VECTOR, list(0.3, 0.3), list(1,1), NORMAL_RAND)
 	rotation = 30
 	spin = generator(GEN_NUM, -20, 20)
+=======
+#undef BONFIRE_FIRE_STACK_STRENGTH
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

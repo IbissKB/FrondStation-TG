@@ -7,7 +7,11 @@
 	/// what slots it needs to be equipped to to work
 	var/slot_equip
 
+<<<<<<< HEAD
 /datum/component/onwear_mood/Initialize(datum/mood_event/saved_event, examine_string, slot_equip = ITEM_SLOT_ON_BODY)
+=======
+/datum/component/onwear_mood/Initialize(datum/mood_event/saved_event_type, examine_string, slot_equip = ITEM_SLOT_ON_BODY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE

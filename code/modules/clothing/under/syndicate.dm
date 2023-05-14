@@ -4,38 +4,89 @@
 	icon_state = "syndicate"
 	inhand_icon_state = "bl_suit"
 	has_sensor = NO_SENSORS
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/under_syndicate
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	alt_covers_chest = TRUE
 	icon = 'icons/obj/clothing/under/syndicate.dmi'
 	worn_icon = 'icons/mob/clothing/under/syndicate.dmi'
 
+<<<<<<< HEAD
+=======
+/datum/armor/under_syndicate
+	melee = 10
+	bio = 10
+	fire = 50
+	acid = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/syndicate/skirt
 	name = "tactical skirtleneck"
 	desc = "A non-descript and slightly suspicious looking skirtleneck."
 	icon_state = "syndicate_skirt"
 	inhand_icon_state = "bl_suit"
 	has_sensor = NO_SENSORS
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/syndicate_skirt
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
+=======
+/datum/armor/syndicate_skirt
+	melee = 10
+	bio = 10
+	fire = 50
+	acid = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/syndicate/bloodred
 	name = "blood-red sneaksuit"
 	desc = "It still counts as stealth if there are no witnesses."
 	icon_state = "bloodred_pajamas"
 	inhand_icon_state = "bl_suit"
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 10, LASER = 10,ENERGY = 10, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	can_adjust = FALSE
 
+=======
+	armor_type = /datum/armor/syndicate_bloodred
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	can_adjust = FALSE
+
+/datum/armor/syndicate_bloodred
+	melee = 10
+	bullet = 10
+	laser = 10
+	energy = 10
+	bio = 10
+	fire = 50
+	acid = 40
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/syndicate/bloodred/sleepytime
 	name = "blood-red pajamas"
 	desc = "Do operatives dream of nuclear sheep?"
 	icon_state = "bloodred_pajamas"
 	inhand_icon_state = "bl_suit"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/bloodred_sleepytime
+
+/datum/armor/bloodred_sleepytime
+	bio = 10
+	fire = 50
+	acid = 40
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/syndicate/tacticool
 	name = "tacticool turtleneck"
@@ -43,21 +94,64 @@
 	icon_state = "tactifool"
 	inhand_icon_state = "bl_suit"
 	has_sensor = HAS_SENSORS
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/syndicate_tacticool
+	stubborn_stains = TRUE
+
+/datum/armor/syndicate_tacticool
+	bio = 10
+	fire = 50
+	acid = 40
+
+/obj/item/clothing/under/syndicate/tacticool/examine(mob/user)
+	. = ..()
+	. += "It has a label that says cleaning this 'genuine' Waffle Corp. product with cleaning solutions other than Grime Liberator telelocational podcrystals will void the warranty."
+	. += "What on earth is a <font color='red'>tele</font>locational pod<font color='red'>crystal</font>?"
+
+/obj/item/clothing/under/syndicate/tacticool/dye_item(dye_color, dye_key_override)
+	if(dye_color == DYE_SYNDICATE)
+		if(dying_key == DYE_REGISTRY_JUMPSKIRT)
+			special_wash(/obj/item/clothing/under/syndicate/skirt)
+		else
+			special_wash(/obj/item/clothing/under/syndicate)
+		qdel(src)
+		return
+	return ..()
+
+/obj/item/clothing/under/syndicate/tacticool/proc/special_wash(obj/item/clothing/under/syndicate/our_jumpsuit)
+	new our_jumpsuit(loc)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/under/syndicate/tacticool/skirt
 	name = "tacticool skirtleneck"
 	desc = "Just looking at it makes you want to buy an SKS, go into the woods, and -operate-."
 	icon_state = "tactifool_skirt"
 	inhand_icon_state = "bl_suit"
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/tacticool_skirt
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
 /obj/item/clothing/under/syndicate/sniper
 	name = "tactical turtleneck suit"
 	desc = "A double seamed tactical turtleneck disguised as a civilian grade silk suit. Intended for the most formal operator. The collar is really sharp."
+=======
+/datum/armor/tacticool_skirt
+	bio = 10
+	fire = 50
+	acid = 40
+
+/obj/item/clothing/under/syndicate/sniper
+	name = "tactical turtleneck suit"
+	desc = "A double seamed tactical turtleneck disguised as a civilian-grade silk suit. Intended for the most formal operator. The collar is really sharp."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "tactical_suit"
 	inhand_icon_state = "bl_suit"
 	can_adjust = FALSE
@@ -74,9 +168,19 @@
 	desc = "Badly translated labels tell you to clean this in Vodka. Great for squatting in."
 	icon_state = "trackpants"
 	can_adjust = FALSE
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 0)
 	resistance_flags = NONE
 
+=======
+	armor_type = /datum/armor/syndicate_soviet
+	resistance_flags = NONE
+
+/datum/armor/syndicate_soviet
+	melee = 10
+	bio = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/syndicate/combat
 	name = "combat uniform"
 	desc = "With a suit lined with this many pockets, you are ready to operate."
@@ -88,9 +192,19 @@
 	desc = "Military grade tracksuits for frontline squatting."
 	icon_state = "rus_under"
 	can_adjust = FALSE
+<<<<<<< HEAD
 	armor = list(MELEE = 5, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 0)
 	resistance_flags = NONE
 
+=======
+	armor_type = /datum/armor/syndicate_rus_army
+	resistance_flags = NONE
+
+/datum/armor/syndicate_rus_army
+	melee = 5
+	bio = 10
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/syndicate/scrubs
 	name = "tactical scrubs"
 	desc = "A deep burgundy set of scrubs, made tactically for tactical reasons."
@@ -98,4 +212,14 @@
 	worn_icon = 'icons/mob/clothing/under/medical.dmi'
 	icon_state = "scrubswine"
 	can_adjust = FALSE
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 50, ACID = 40)
+=======
+	armor_type = /datum/armor/syndicate_scrubs
+
+/datum/armor/syndicate_scrubs
+	melee = 10
+	bio = 50
+	fire = 50
+	acid = 40
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

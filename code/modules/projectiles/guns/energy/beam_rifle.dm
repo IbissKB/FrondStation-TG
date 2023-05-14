@@ -10,9 +10,14 @@
 
 /obj/item/gun/energy/beam_rifle
 	name = "particle acceleration rifle"
+<<<<<<< HEAD
 	desc = "An energy-based anti material marksman rifle that uses highly charged particle beams moving at extreme velocities to decimate whatever is unfortunate enough to be targeted by one. \
 		<span class='boldnotice'>Hold down left click while scoped to aim, when weapon is fully aimed (Tracer goes from red to green as it charges), release to fire. Moving while aiming or \
 		changing where you're pointing at while aiming will delay the aiming process depending on how much you changed.</span>"
+=======
+	desc = "An energy-based anti material marksman rifle that uses highly charged particle beams moving at extreme velocities to decimate whatever is unfortunate enough to be targeted by one."
+	desc_controls = "Hold down left click while scoped to aim, when weapon is fully aimed (Tracer goes from red to green as it charges), release to fire. Moving while aiming or changing where you're pointing at while aiming will delay the aiming process depending on how much you changed."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/weapons/guns/energy.dmi'
 	icon_state = "esniper"
 	inhand_icon_state = null
@@ -303,6 +308,10 @@
 	return ..()
 
 /obj/item/gun/energy/beam_rifle/afterattack(atom/target, mob/living/user, flag, params, passthrough = FALSE)
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(flag) //It's adjacent, is the user, or is on the user's person
 		if(target in user.contents) //can't shoot stuff inside us.
 			return
@@ -488,7 +497,11 @@
 
 /obj/projectile/beam/beam_rifle/proc/handle_hit(atom/target, piercing_hit = FALSE)
 	set waitfor = FALSE
+<<<<<<< HEAD
 	if(nodamage)
+=======
+	if(!is_hostile_projectile())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	playsound(src, 'sound/effects/explosion3.ogg', 100, TRUE)
 	if(!do_pierce)
@@ -500,6 +513,12 @@
 	handle_hit(target, piercing_hit)
 	return ..()
 
+<<<<<<< HEAD
+=======
+/obj/projectile/beam/beam_rifle/is_hostile_projectile()
+	return TRUE // on hit = boom fire
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/projectile/beam/beam_rifle/hitscan
 	icon_state = ""
 	hitscan = TRUE
@@ -527,7 +546,10 @@
 	name = "aiming beam"
 	hitsound = null
 	hitsound_wall = null
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 0
 	constant_tracer = TRUE
 	hitscan_light_range = 0
@@ -535,9 +557,25 @@
 	hitscan_light_color_override = "#99ff99"
 	reflectable = REFLECT_FAKEPROJECTILE
 
+<<<<<<< HEAD
+=======
+/obj/projectile/beam/beam_rifle/hitscan/aiming_beam/is_hostile_projectile()
+	return FALSE // just an aiming reticle
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/projectile/beam/beam_rifle/hitscan/aiming_beam/prehit_pierce(atom/target)
 	return PROJECTILE_DELETE_WITHOUT_HITTING
 
 /obj/projectile/beam/beam_rifle/hitscan/aiming_beam/on_hit()
 	qdel(src)
 	return BULLET_ACT_BLOCK
+<<<<<<< HEAD
+=======
+
+#undef AIMING_BEAM_ANGLE_CHANGE_THRESHOLD
+#undef AUTOZOOM_PIXEL_STEP_FACTOR
+#undef ZOOM_LOCK_AUTOZOOM_ANGLELOCK
+#undef ZOOM_LOCK_AUTOZOOM_FREEMOVE
+#undef ZOOM_LOCK_CENTER_VIEW
+#undef ZOOM_LOCK_OFF
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

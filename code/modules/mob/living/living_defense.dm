@@ -46,6 +46,7 @@
 		return 1
 	return 0
 
+<<<<<<< HEAD
 /mob/living/proc/is_mouth_covered(head_only = 0, mask_only = 0)
 	return FALSE
 
@@ -53,12 +54,60 @@
 	return FALSE
 /mob/living/proc/is_pepper_proof(check_head = TRUE, check_mask = TRUE)
 	return FALSE
+=======
+/**
+ * Checks if our mob has their mouth covered.
+ *
+ * Note that we only care about [ITEM_SLOT_HEAD] and [ITEM_SLOT_MASK].
+ *  (so if you check all slots, it'll return head, then mask)
+ *That is also the priority order
+ * Arguments
+ * * check_flags: What item slots should we check?
+ *
+ * Retuns a truthy value (a ref to what is covering mouth), or a falsy value (null)
+ */
+/mob/living/proc/is_mouth_covered(check_flags = ALL)
+	return null
+
+/**
+ * Checks if our mob has their eyes covered.
+ *
+ * Note that we only care about [ITEM_SLOT_HEAD], [ITEM_SLOT_MASK], and [ITEM_SLOT_GLASSES].
+ * That is also the priority order (so if you check all slots, it'll return head, then mask, then glasses)
+ *
+ * Arguments
+ * * check_flags: What item slots should we check?
+ *
+ * Retuns a truthy value (a ref to what is covering eyes), or a falsy value (null)
+ */
+/mob/living/proc/is_eyes_covered(check_flags = ALL)
+	return null
+
+/**
+ * Checks if our mob is protected from pepper spray.
+ *
+ * Note that we only care about [ITEM_SLOT_HEAD] and [ITEM_SLOT_MASK].
+ * That is also the priority order (so if you check all slots, it'll return head, then mask)
+ *
+ * Arguments
+ * * check_flags: What item slots should we check?
+ *
+ * Retuns a truthy value (a ref to what is protecting us), or a falsy value (null)
+ */
+/mob/living/proc/is_pepper_proof(check_flags = ALL)
+	return null
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/proc/on_hit(obj/projectile/P)
 	return BULLET_ACT_HIT
 
 /mob/living/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
+<<<<<<< HEAD
 	if(!P.nodamage && (. != BULLET_ACT_BLOCK))
+=======
+	if(P.is_hostile_projectile() && (. != BULLET_ACT_BLOCK))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/attack_direction = get_dir(P.starting, src)
 		// we need a second, silent armor check to actually know how much to reduce damage taken, as opposed to
 		// on [/atom/proc/bullet_act] where it's just to pass it to the projectile's on_hit().
@@ -183,7 +232,11 @@
 				log_combat(user, src, "attempted to neck grab", addition="neck grab")
 			if(GRAB_NECK)
 				log_combat(user, src, "attempted to strangle", addition="kill grab")
+<<<<<<< HEAD
 		if(!do_mob(user, src, grab_upgrade_time))
+=======
+		if(!do_after(user, grab_upgrade_time, src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 		if(!user.pulling || user.pulling != src || user.grab_state != old_grab_state)
 			return FALSE
@@ -242,6 +295,7 @@
 		to_chat(M, span_danger("You glomp [src]!"))
 		return TRUE
 
+<<<<<<< HEAD
 /mob/living/attack_basic_mob(mob/living/basic/user, list/modifiers)
 	. = ..()
 	if(user.melee_damage_upper == 0)
@@ -263,6 +317,8 @@
 	log_combat(user, src, "attacked")
 	return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	. = ..()
 	user.face_atom(src)
@@ -310,7 +366,11 @@
 		to_chat(user, span_warning("You don't want to hurt anyone!"))
 		return FALSE
 
+<<<<<<< HEAD
 	if(user.is_muzzled() || user.is_mouth_covered(FALSE, TRUE))
+=======
+	if(user.is_muzzled() || user.is_mouth_covered(ITEM_SLOT_MASK))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_warning("You can't bite with your mouth covered!"))
 		return FALSE
 	user.do_attack_animation(src, ATTACK_EFFECT_BITE)
@@ -523,3 +583,13 @@
 	for(var/reagent in reagents)
 		var/datum/reagent/R = reagent
 		. |= R.expose_mob(src, methods, reagents[R], show_message, touch_protection)
+<<<<<<< HEAD
+=======
+
+/// Simplified ricochet angle calculation for mobs (also the base version doesn't work on mobs)
+/mob/living/handle_ricochet(obj/projectile/ricocheting_projectile)
+	var/face_angle = get_angle_raw(ricocheting_projectile.x, ricocheting_projectile.pixel_x, ricocheting_projectile.pixel_y, ricocheting_projectile.p_y, x, y, pixel_x, pixel_y)
+	var/new_angle_s = SIMPLIFY_DEGREES(face_angle + GET_ANGLE_OF_INCIDENCE(face_angle, (ricocheting_projectile.Angle + 180)))
+	ricocheting_projectile.set_angle(new_angle_s)
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -54,10 +54,21 @@
 /datum/outfit/hotelstaff
 	name = "Hotel Staff"
 	uniform = /obj/item/clothing/under/misc/assistantformal
+<<<<<<< HEAD
 	shoes = /obj/item/clothing/shoes/laceup
 	r_pocket = /obj/item/radio/off
 	back = /obj/item/storage/backpack
 	implants = list(/obj/item/implant/mindshield, /obj/item/implant/exile/noteleport)
+=======
+	back = /obj/item/storage/backpack
+	shoes = /obj/item/clothing/shoes/laceup
+	r_pocket = /obj/item/radio/off
+
+	implants = list(
+		/obj/item/implant/exile/noteleport,
+		/obj/item/implant/mindshield,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff/security
 	name = "hotel security sleeper"
@@ -71,11 +82,19 @@
 /datum/outfit/hotelstaff/security
 	name = "Hotel Security"
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt
+<<<<<<< HEAD
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt
 	head = /obj/item/clothing/head/helmet/blueshirt
 	back = /obj/item/storage/backpack/security
 	belt = /obj/item/storage/belt/security/full
+=======
+	suit = /obj/item/clothing/suit/armor/vest/blueshirt
+	back = /obj/item/storage/backpack/security
+	belt = /obj/item/storage/belt/security/full
+	head = /obj/item/clothing/head/helmet/blueshirt
+	shoes = /obj/item/clothing/shoes/jackboots
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate(get_turf(src))
@@ -93,6 +112,7 @@
 
 /datum/outfit/syndicate_empty
 	name = "Syndicate Operative Empty"
+<<<<<<< HEAD
 	uniform = /obj/item/clothing/under/syndicate
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -101,6 +121,17 @@
 	implants = list(/obj/item/implant/weapons_auth)
 	id = /obj/item/card/id/advanced/chameleon
 	id_trim = /datum/id_trim/chameleon/operative
+=======
+	id = /obj/item/card/id/advanced/chameleon
+	id_trim = /datum/id_trim/chameleon/operative
+	uniform = /obj/item/clothing/under/syndicate
+	back = /obj/item/storage/backpack
+	ears = /obj/item/radio/headset/syndicate/alt
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	shoes = /obj/item/clothing/shoes/combat
+
+	implants = list(/obj/item/implant/weapons_auth)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/syndicate_empty/post_equip(mob/living/carbon/human/H)
 	H.faction |= ROLE_SYNDICATE
@@ -125,10 +156,17 @@
 /datum/outfit/cryobartender
 	name = "Cryogenic Bartender"
 	uniform = /obj/item/clothing/under/rank/civilian/bartender
+<<<<<<< HEAD
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	suit = /obj/item/clothing/suit/armor/vest
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent
+=======
+	suit = /obj/item/clothing/suit/armor/vest
+	back = /obj/item/storage/backpack
+	glasses = /obj/item/clothing/glasses/sunglasses/reagent
+	shoes = /obj/item/clothing/shoes/sneakers/black
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Timeless prisons: Spawns in Wish Granter prisons in lavaland. Ghosts become age-old users of the Wish Granter and are advised to seek repentance for their past.
 /obj/effect/mob_spawn/ghost_role/human/exile
@@ -167,7 +205,11 @@
 	name = "sleeper"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
+<<<<<<< HEAD
 	faction = list("nanotrasenprivate")
+=======
+	faction = list(FACTION_NANOTRASEN_PRIVATE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	prompt_name = "a private security officer"
 	you_are_text = "You are a Nanotrasen Private Security Officer!"
 	flavour_text = "If higher command has an assignment for you, it's best you follow that. Otherwise, death to The Syndicate."
@@ -241,6 +283,7 @@
 
 /datum/outfit/snowsyndie
 	name = "Syndicate Snow Operative"
+<<<<<<< HEAD
 	uniform = /obj/item/clothing/under/syndicate/coldres
 	shoes = /obj/item/clothing/shoes/combat/coldres
 	ears = /obj/item/radio/headset/syndicate/alt
@@ -248,6 +291,16 @@
 	id = /obj/item/card/id/advanced/chameleon
 	implants = list(/obj/item/implant/exile)
 	id_trim = /datum/id_trim/chameleon/operative
+=======
+	id = /obj/item/card/id/advanced/chameleon
+	id_trim = /datum/id_trim/chameleon/operative
+	uniform = /obj/item/clothing/under/syndicate/coldres
+	ears = /obj/item/radio/headset/syndicate/alt
+	shoes = /obj/item/clothing/shoes/combat/coldres
+	r_pocket = /obj/item/gun/ballistic/automatic/pistol
+
+	implants = list(/obj/item/implant/exile)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Forgotten syndicate ship
 
@@ -265,7 +318,11 @@
 
 /obj/effect/mob_spawn/ghost_role/human/syndicatespace/special(mob/living/new_spawn)
 	. = ..()
+<<<<<<< HEAD
 	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
+=======
+	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_SPAWNER) // SKYRAT EDIT CHANGE - ORIGINAL: new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/job/spawn_job = SSjob.GetJobType(spawner_job_path)
 	var/policy = get_policy(spawn_job.policy_index)
 	if(policy)
@@ -286,6 +343,7 @@
 
 /datum/outfit/syndicatespace
 	name = "Syndicate Ship Base"
+<<<<<<< HEAD
 	uniform = /obj/item/clothing/under/syndicate/combat
 	ears = /obj/item/radio/headset/syndicate/alt
 	shoes = /obj/item/clothing/shoes/combat
@@ -293,6 +351,16 @@
 	back = /obj/item/storage/backpack
 	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/advanced/black/syndicate_command/crew_id
+=======
+	id = /obj/item/card/id/advanced/black/syndicate_command/crew_id
+	uniform = /obj/item/clothing/under/syndicate/combat
+	back = /obj/item/storage/backpack
+	belt = /obj/item/storage/belt/military/assault
+	ears = /obj/item/radio/headset/syndicate/alt
+	gloves = /obj/item/clothing/gloves/combat
+	shoes = /obj/item/clothing/shoes/combat
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	implants = list(/obj/item/implant/weapons_auth)
 
 /datum/outfit/syndicatespace/post_equip(mob/living/carbon/human/syndie_scum)
@@ -307,6 +375,7 @@
 
 /datum/outfit/syndicatespace/syndicaptain
 	name = "Syndicate Ship Captain"
+<<<<<<< HEAD
 	uniform = /obj/item/clothing/under/syndicate/combat
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	head = /obj/item/clothing/head/hos/beret/syndicate
@@ -314,3 +383,16 @@
 	r_pocket = /obj/item/knife/combat/survival
 	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
 	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps)
+=======
+	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
+	uniform = /obj/item/clothing/under/syndicate/combat
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
+	ears = /obj/item/radio/headset/syndicate/alt/leader
+	head = /obj/item/clothing/head/hats/hos/beret/syndicate
+	r_pocket = /obj/item/knife/combat/survival
+	backpack_contents = list(
+		/obj/item/documents/syndicate/red,
+		/obj/item/gun/ballistic/automatic/pistol/aps,
+		/obj/item/paper/fluff/ruins/forgottenship/password,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

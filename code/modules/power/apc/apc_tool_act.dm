@@ -23,10 +23,16 @@
 	if(!opened || has_electronics != APC_ELECTRONICS_INSTALLED)
 		return
 	if(terminal)
+<<<<<<< HEAD
 		balloon_alert(user, "disconnect the wires first!")
 		return
 	crowbar.play_tool_sound(src)
 	balloon_alert(user, "removing the board")
+=======
+		balloon_alert(user, "disconnect wires first!")
+		return
+	crowbar.play_tool_sound(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!crowbar.use_tool(src, user, 50))
 		return
 	if(has_electronics != APC_ELECTRONICS_INSTALLED)
@@ -60,10 +66,17 @@
 
 	if(!opened)
 		if(obj_flags & EMAGGED)
+<<<<<<< HEAD
 			balloon_alert(user, "the interface is broken!")
 			return
 		panel_open = !panel_open
 		balloon_alert(user, "wires are [panel_open ? "exposed" : "unexposed"]")
+=======
+			balloon_alert(user, "interface is broken!")
+			return
+		toggle_panel_open()
+		balloon_alert(user, "wires [panel_open ? "exposed" : "unexposed"]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_appearance()
 		return
 
@@ -111,7 +124,11 @@
 	balloon_alert(user, "welding the APC frame")
 	if(!welder.use_tool(src, user, 50, volume=50, amount=3))
 		return
+<<<<<<< HEAD
 	if((machine_stat & BROKEN) || opened==APC_COVER_REMOVED)
+=======
+	if((machine_stat & BROKEN) || opened == APC_COVER_REMOVED)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		new /obj/item/stack/sheet/iron(loc)
 		user.visible_message(span_notice("[user.name] cuts [src] apart with [welder]."))
 		balloon_alert(user, "disassembled the broken frame")
@@ -130,20 +147,34 @@
 		if(machine_stat & BROKEN)
 			balloon_alert(user, "frame is too damaged!")
 			return FALSE
+<<<<<<< HEAD
 		return list("mode" = RCD_UPGRADE_SIMPLE_CIRCUITS, "delay" = 20, "cost" = 1)
+=======
+		return list("mode" = RCD_WALLFRAME, "delay" = 20, "cost" = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!cell)
 		if(machine_stat & MAINT)
 			balloon_alert(user, "no board for a cell!")
 			return FALSE
+<<<<<<< HEAD
 		return list("mode" = RCD_UPGRADE_SIMPLE_CIRCUITS, "delay" = 50, "cost" = 10) //16 for a wall
+=======
+		return list("mode" = RCD_WALLFRAME, "delay" = 50, "cost" = 10)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	balloon_alert(user, "has both board and cell!")
 	return FALSE
 
 /obj/machinery/power/apc/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
+<<<<<<< HEAD
 	if(!(passed_mode & RCD_UPGRADE_SIMPLE_CIRCUITS))
 		return FALSE
+=======
+	if(!(the_rcd.upgrade & RCD_UPGRADE_SIMPLE_CIRCUITS) || passed_mode != RCD_WALLFRAME)
+		return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!has_electronics)
 		if(machine_stat & BROKEN)
 			balloon_alert(user, "frame is too damaged!")
@@ -175,9 +206,15 @@
 		return
 
 	if(opened)
+<<<<<<< HEAD
 		balloon_alert(user, "must close the cover to swipe!")
 	else if(panel_open)
 		balloon_alert(user, "must close the panel first!")
+=======
+		balloon_alert(user, "close the cover first!")
+	else if(panel_open)
+		balloon_alert(user, "close the panel first!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(machine_stat & (BROKEN|MAINT))
 		balloon_alert(user, "nothing happens!")
 	else
@@ -209,15 +246,25 @@
 	if(obj_flags & EMAGGED)
 		balloon_alert(user, "interface is broken!")
 	else if(opened)
+<<<<<<< HEAD
 		balloon_alert(user, "must close the cover to swipe!")
 	else if(panel_open)
 		balloon_alert(user, "must close the panel!")
+=======
+		balloon_alert(user, "close the cover first!")
+	else if(panel_open)
+		balloon_alert(user, "close the panel first!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(machine_stat & (BROKEN|MAINT))
 		balloon_alert(user, "nothing happens!")
 	else
 		if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN) && !malfhack && !remote_control_user)
 			locked = !locked
+<<<<<<< HEAD
 			balloon_alert(user, "APC [ locked ? "locked" : "unlocked"]")
+=======
+			balloon_alert(user, locked ? "locked" : "unlocked")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			update_appearance()
 			if(!locked)
 				ui_interact(user)

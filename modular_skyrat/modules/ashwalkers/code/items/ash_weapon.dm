@@ -26,3 +26,7 @@
 		/obj/item/stack/sheet/animalhide/goliath_hide = 2,
 	)
 	always_available = FALSE
+<<<<<<< HEAD
+=======
+	category = CAT_WEAPON_MELEE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

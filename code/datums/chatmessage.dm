@@ -4,6 +4,11 @@
 #define CHAT_MESSAGE_LIFESPAN (5 SECONDS)
 /// How long the chat message's end of life fading animation will occur for
 #define CHAT_MESSAGE_EOL_FADE (0.7 SECONDS)
+<<<<<<< HEAD
+=======
+/// Grace period for fade before we actually delete the chat message
+#define CHAT_MESSAGE_GRACE_PERIOD (0.2 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Factor of how much the message index (number of messages) will account to exponential decay
 #define CHAT_MESSAGE_EXP_DECAY 0.7
 /// Factor of how much height will account to exponential decay
@@ -12,8 +17,11 @@
 #define CHAT_MESSAGE_APPROX_LHEIGHT 11
 /// Max width of chat message in pixels
 #define CHAT_MESSAGE_WIDTH 96
+<<<<<<< HEAD
 /// Max length of chat message in characters
 #define CHAT_MESSAGE_MAX_LENGTH 110
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// The dimensions of the chat message icons
 #define CHAT_MESSAGE_ICON_SIZE 9
 
@@ -50,10 +58,17 @@
 	var/datum/chatmessage/prev
 	/// The current index used for adjusting the layer of each sequential chat message such that recent messages will overlay older ones
 	var/static/current_z_idx = 0
+<<<<<<< HEAD
 	/// Contains ID of assigned timer for end_of_life fading event
 	var/fadertimer = null
 	/// States if end_of_life is being executed
 	var/isFading = FALSE
+=======
+	/// When we started animating the message
+	var/animate_start = 0
+	/// Our animation lifespan, how long this message will last
+	var/animate_lifespan = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Constructs a chat message overlay
@@ -77,6 +92,11 @@
 	INVOKE_ASYNC(src, PROC_REF(generate_image), text, target, owner, language, extra_classes, lifespan)
 
 /datum/chatmessage/Destroy()
+<<<<<<< HEAD
+=======
+	if(REALTIMEOFDAY < animate_start + animate_lifespan)
+		stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (owned_by)
 		if (owned_by.seen_messages)
 			LAZYREMOVEASSOC(owned_by.seen_messages, message_loc, src)
@@ -173,7 +193,11 @@
 	WXH_TO_HEIGHT(owned_by.MeasureText(complete_text, null, CHAT_MESSAGE_WIDTH), mheight)
 
 
+<<<<<<< HEAD
 	if(!TICK_CHECK)
+=======
+	if(!VERB_SHOULD_YIELD)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return finish_image_generation(mheight, target, owner, complete_text, lifespan)
 
 	var/datum/callback/our_callback = CALLBACK(src, PROC_REF(finish_image_generation), mheight, target, owner, complete_text, lifespan)
@@ -183,7 +207,11 @@
 ///finishes the image generation after the MeasureText() call in generate_image().
 ///necessary because after that call the proc can resume at the end of the tick and cause overtime.
 /datum/chatmessage/proc/finish_image_generation(mheight, atom/target, mob/owner, complete_text, lifespan)
+<<<<<<< HEAD
 
+=======
+	var/rough_time = REALTIMEOFDAY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	approx_lines = max(1, mheight / CHAT_MESSAGE_APPROX_LHEIGHT)
 
 	// Translate any existing messages upwards, apply exponential decay factors to timers
@@ -192,6 +220,7 @@
 		var/idx = 1
 		var/combined_height = approx_lines
 		for(var/datum/chatmessage/m as anything in owned_by.seen_messages[message_loc])
+<<<<<<< HEAD
 			animate(m.message, pixel_y = m.message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME)
 			combined_height += m.approx_lines
 
@@ -205,6 +234,34 @@
 					m.fadertimer = addtimer(CALLBACK(m, PROC_REF(end_of_life)), remaining_time, TIMER_STOPPABLE|TIMER_DELETE_ME, SSrunechat)
 				else
 					m.end_of_life()
+=======
+			combined_height += m.approx_lines
+
+			var/time_spent = rough_time - m.animate_start
+			var/time_before_fade = m.animate_lifespan - CHAT_MESSAGE_EOL_FADE
+
+			// When choosing to update the remaining time we have to be careful not to update the
+			// scheduled time once the EOL has been executed.
+			if (time_spent >= time_before_fade)
+				animate(m.message, pixel_y = m.message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME, flags = ANIMATION_PARALLEL)
+				continue
+
+			var/remaining_time = time_before_fade * (CHAT_MESSAGE_EXP_DECAY ** idx++) * (CHAT_MESSAGE_HEIGHT_DECAY ** combined_height)
+			// Ensure we don't accidentially spike alpha up or something silly like that
+			m.message.alpha = m.get_current_alpha(time_spent)
+			if (remaining_time > 0)
+				// Stay faded in for a while, then
+				animate(m.message, alpha = 255, remaining_time)
+				// Fade out
+				animate(alpha = 0, time = CHAT_MESSAGE_EOL_FADE)
+				m.animate_lifespan = remaining_time + CHAT_MESSAGE_EOL_FADE
+			else
+				// Your time has come my son
+				animate(alpha = 0, time = CHAT_MESSAGE_EOL_FADE)
+			// We run this after the alpha animate, because we don't want to interrup it, but also don't want to block it by running first
+			// Sooo instead we do this. bit messy but it fuckin works
+			animate(m.message, pixel_y = m.message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME, flags = ANIMATION_PARALLEL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// Reset z index if relevant
 	if (current_z_idx >= CHAT_LAYER_MAX_Z)
@@ -216,12 +273,17 @@
 	message.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	message.alpha = 0
 	message.pixel_y = target.maptext_height
+<<<<<<< HEAD
 	message.pixel_x = (target.maptext_width * 0.5) - 16
+=======
+	message.pixel_x = -target.base_pixel_x
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	message.maptext_width = CHAT_MESSAGE_WIDTH
 	message.maptext_height = mheight
 	message.maptext_x = (CHAT_MESSAGE_WIDTH - owner.bound_width) * -0.5
 	message.maptext = MAPTEXT(complete_text)
 
+<<<<<<< HEAD
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
@@ -243,6 +305,36 @@
 	isFading = TRUE
 	animate(message, alpha = 0, time = fadetime, flags = ANIMATION_PARALLEL)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), fadetime, TIMER_DELETE_ME, SSrunechat)
+=======
+	animate_start = rough_time
+	animate_lifespan = lifespan
+
+	// View the message
+	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
+	owned_by.images |= message
+
+	// Fade in
+	animate(message, alpha = 255, time = CHAT_MESSAGE_SPAWN_TIME)
+	var/time_before_fade = lifespan - CHAT_MESSAGE_SPAWN_TIME - CHAT_MESSAGE_EOL_FADE
+	// Stay faded in
+	animate(alpha = 255, time = time_before_fade)
+	// Fade out
+	animate(alpha = 0, time = CHAT_MESSAGE_EOL_FADE)
+	RegisterSignal(message_loc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(loc_z_changed))
+
+	// Register with the runechat SS to handle destruction
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_DELETE_ME, SSrunechat)
+
+/datum/chatmessage/proc/get_current_alpha(time_spent)
+	if(time_spent < CHAT_MESSAGE_SPAWN_TIME)
+		return (time_spent / CHAT_MESSAGE_SPAWN_TIME) * 255
+
+	var/time_before_fade = animate_lifespan - CHAT_MESSAGE_EOL_FADE
+	if(time_spent <= time_before_fade)
+		return 255
+
+	return (1 - ((time_spent - time_before_fade) / CHAT_MESSAGE_EOL_FADE)) * 255
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/chatmessage/proc/loc_z_changed(datum/source, turf/old_turf, turf/new_turf, same_z_layer)
 	SIGNAL_HANDLER
@@ -334,6 +426,7 @@
 		if(5)
 			return "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
 
+<<<<<<< HEAD
 #undef CHAT_MESSAGE_SPAWN_TIME
 #undef CHAT_MESSAGE_LIFESPAN
 #undef CHAT_MESSAGE_EOL_FADE
@@ -344,3 +437,21 @@
 #undef CHAT_LAYER_Z_STEP
 #undef CHAT_LAYER_MAX_Z
 #undef CHAT_MESSAGE_ICON_SIZE
+=======
+
+#undef CHAT_LAYER_MAX_Z
+#undef CHAT_LAYER_Z_STEP
+#undef CHAT_MESSAGE_APPROX_LHEIGHT
+#undef CHAT_MESSAGE_GRACE_PERIOD 
+#undef CHAT_MESSAGE_EOL_FADE
+#undef CHAT_MESSAGE_EXP_DECAY
+#undef CHAT_MESSAGE_HEIGHT_DECAY
+#undef CHAT_MESSAGE_ICON_SIZE
+#undef CHAT_MESSAGE_LIFESPAN
+#undef CHAT_MESSAGE_SPAWN_TIME
+#undef CHAT_MESSAGE_WIDTH
+#undef CM_COLOR_LUM_MAX
+#undef CM_COLOR_LUM_MIN
+#undef CM_COLOR_SAT_MAX
+#undef CM_COLOR_SAT_MIN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

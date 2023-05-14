@@ -26,6 +26,7 @@ type ActiveVote = {
   question: string | null;
   timeRemaining: number;
   choices: Option[];
+<<<<<<< HEAD
 };
 
 type UserData = {
@@ -34,6 +35,25 @@ type UserData = {
   selectedChoice: string | null;
 };
 
+=======
+  countMethod: number;
+};
+
+type UserData = {
+  ckey: string;
+  isLowerAdmin: BooleanLike;
+  isUpperAdmin: BooleanLike;
+  singleSelection: string | null;
+  multiSelection: string[] | null;
+  countMethod: VoteSystem;
+};
+
+enum VoteSystem {
+  VOTE_SINGLE = 1,
+  VOTE_MULTI = 2,
+}
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 type Data = {
   currentVote: ActiveVote;
   possibleVotes: Vote[];
@@ -156,8 +176,18 @@ const ChoicesPanel = (props, context) => {
 
   return (
     <Stack.Item grow>
+<<<<<<< HEAD
       <Section fill scrollable title="Choices">
         {currentVote && currentVote.choices.length !== 0 ? (
+=======
+      <Section fill scrollable title="Active Vote">
+        {currentVote && currentVote.countMethod === VoteSystem.VOTE_SINGLE ? (
+          <NoticeBox success>Select one option</NoticeBox>
+        ) : null}
+        {currentVote &&
+        currentVote.choices.length !== 0 &&
+        currentVote.countMethod === VoteSystem.VOTE_SINGLE ? (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           <LabeledList>
             {currentVote.choices.map((choice) => (
               <Box key={choice.name}>
@@ -166,15 +196,26 @@ const ChoicesPanel = (props, context) => {
                   textAlign="right"
                   buttons={
                     <Button
+<<<<<<< HEAD
                       disabled={user.selectedChoice === choice.name}
                       onClick={() => {
                         act('vote', { voteOption: choice.name });
+=======
+                      disabled={user.singleSelection === choice.name}
+                      onClick={() => {
+                        act('voteSingle', { voteOption: choice.name });
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                       }}>
                       Vote
                     </Button>
                   }>
+<<<<<<< HEAD
                   {user.selectedChoice &&
                     choice.name === user.selectedChoice && (
+=======
+                  {user.singleSelection &&
+                    choice.name === user.singleSelection && (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                       <Icon
                         alignSelf="right"
                         mr={2}
@@ -192,11 +233,56 @@ const ChoicesPanel = (props, context) => {
               </Box>
             ))}
           </LabeledList>
+<<<<<<< HEAD
         ) : (
           <NoticeBox>
             {currentVote ? 'No choices available!' : 'No vote active!'}
           </NoticeBox>
         )}
+=======
+        ) : null}
+        {currentVote && currentVote.countMethod === VoteSystem.VOTE_MULTI ? (
+          <NoticeBox success>Select any number of options</NoticeBox>
+        ) : null}
+        {currentVote &&
+        currentVote.choices.length !== 0 &&
+        currentVote.countMethod === VoteSystem.VOTE_MULTI ? (
+          <LabeledList>
+            {currentVote.choices.map((choice) => (
+              <Box key={choice.name}>
+                <LabeledList.Item
+                  label={choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                  textAlign="right"
+                  buttons={
+                    <Button
+                      onClick={() => {
+                        act('voteMulti', { voteOption: choice.name });
+                      }}>
+                      Vote
+                    </Button>
+                  }>
+                  {user.multiSelection &&
+                  user.multiSelection[user.ckey.concat(choice.name)] === 1 ? (
+                    <Icon
+                      alignSelf="right"
+                      mr={2}
+                      color="blue"
+                      name="vote-yea"
+                    />
+                  ) : null}
+                  {
+                    user.isLowerAdmin
+                      ? `${choice.votes} Votes`
+                      : '' /* SKYRAT EDIT*/
+                  }
+                </LabeledList.Item>
+                <LabeledList.Divider />
+              </Box>
+            ))}
+          </LabeledList>
+        ) : null}
+        {currentVote ? null : <NoticeBox>No vote active!</NoticeBox>}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       </Section>
     </Stack.Item>
   );

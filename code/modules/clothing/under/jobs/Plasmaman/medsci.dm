@@ -4,6 +4,15 @@
 	icon_state = "doctor_envirosuit"
 	inhand_icon_state = null
 
+<<<<<<< HEAD
+=======
+/obj/item/clothing/under/plasmaman/coroner
+	name = "coroner plasma envirosuit"
+	desc = "A plasmaman envirosuit made for morticians."
+	icon_state = "coroner_envirosuit"
+	inhand_icon_state = null
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/under/plasmaman/paramedic
 	name = "paramedic envirosuit"
 	desc = "A suit designed for the station's plasmaman paramedics."

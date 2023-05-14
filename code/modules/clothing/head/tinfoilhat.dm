@@ -3,12 +3,23 @@
 	desc = "Thought control rays, psychotronic scanning. Don't mind that, I'm protected cause I made this hat."
 	icon_state = "foilhat"
 	inhand_icon_state = null
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = -5,ENERGY = -15, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/costume_foilhat
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	equip_delay_other = 140
 	clothing_flags = ANTI_TINFOIL_MANEUVER
 	var/datum/brain_trauma/mild/phobia/conspiracies/paranoia
 	var/warped = FALSE
 
+<<<<<<< HEAD
+=======
+/datum/armor/costume_foilhat
+	laser = -5
+	energy = -15
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/costume/foilhat/Initialize(mapload)
 	. = ..()
 	if(!warped)
@@ -101,7 +112,13 @@
 		";WE REPEAT OUR LIVES DAILY WITHOUT FURTHER QUESTIONS!!"
 	)
 	user.say(pick(conspiracy_line), forced=type)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/brain = user.getorganslot(ORGAN_SLOT_BRAIN)
 	if(brain)
 		brain.setOrganDamage(BRAIN_DAMAGE_DEATH)
+=======
+	var/obj/item/organ/internal/brain/brain = user.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(brain)
+		brain.set_organ_damage(BRAIN_DAMAGE_DEATH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return OXYLOSS

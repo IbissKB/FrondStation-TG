@@ -15,14 +15,22 @@
 	var/poison_amount = 5
 	slot = ORGAN_SLOT_STOMACH_AID
 
+<<<<<<< HEAD
 /obj/item/organ/internal/cyberimp/chest/nutriment/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/cyberimp/chest/nutriment/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(synthesizing)
 		return
 
 	if(owner.nutrition <= hunger_threshold)
 		synthesizing = TRUE
 		to_chat(owner, span_notice("You feel less hungry..."))
+<<<<<<< HEAD
 		owner.adjust_nutrition(25 * delta_time)
+=======
+		owner.adjust_nutrition(25 * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		addtimer(CALLBACK(src, PROC_REF(synth_cool)), 50)
 
 /obj/item/organ/internal/cyberimp/chest/nutriment/proc/synth_cool()
@@ -55,7 +63,11 @@
 	COOLDOWN_DECLARE(reviver_cooldown)
 
 
+<<<<<<< HEAD
 /obj/item/organ/internal/cyberimp/chest/reviver/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/cyberimp/chest/reviver/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(reviving)
 		switch(owner.stat)
 			if(UNCONSCIOUS, HARD_CRIT)
@@ -66,7 +78,11 @@
 				to_chat(owner, span_notice("Your reviver implant shuts down and starts recharging. It will be ready again in [DisplayTimeText(revive_cost)]."))
 		return
 
+<<<<<<< HEAD
 	if(!COOLDOWN_FINISHED(src, reviver_cooldown) || owner.suiciding)
+=======
+	if(!COOLDOWN_FINISHED(src, reviver_cooldown) || HAS_TRAIT(owner, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	switch(owner.stat)

@@ -10,6 +10,10 @@
 /datum/symptom/beard
 	name = "Facial Hypertrichosis"
 	desc = "The virus increases hair production significantly, causing rapid beard growth."
+<<<<<<< HEAD
+=======
+	illness = "Man-Mouth"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = 0
 	resistance = 3
 	stage_speed = 2

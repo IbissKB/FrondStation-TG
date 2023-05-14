@@ -19,7 +19,11 @@
 	merge_type = /obj/item/stack/sheet/spaceshipglass
 
 GLOBAL_LIST_INIT(spaceshipglass_recipes, list(
+<<<<<<< HEAD
 	new/datum/stack_recipe("spaceship window", /obj/structure/window/reinforced/shuttle/spaceship/unanchored, 2, time = 4 SECONDS, on_solid_ground = TRUE, window_checks = TRUE), \
+=======
+	new/datum/stack_recipe("spaceship window", /obj/structure/window/reinforced/shuttle/spaceship/unanchored, 2, time = 4 SECONDS, on_solid_ground = TRUE, is_fulltile = TRUE, category = CAT_WINDOWS), \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	))
 
 /obj/item/stack/sheet/spaceshipglass/get_main_recipes()

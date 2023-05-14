@@ -4,6 +4,7 @@
 
 	icon_state = "" //Remove the inherent human icon that is visible on the map editor. We're rendering ourselves limb by limb, having it still be there results in a bug where the basic human icon appears below as south in all directions and generally looks nasty.
 
+<<<<<<< HEAD
 	//initialize limbs first
 	create_bodyparts()
 
@@ -17,6 +18,21 @@
 
 	//initialise organs
 	create_internal_organs() //most of it is done in set_species now, this is only for parent call
+=======
+	setup_mood()
+	// This needs to be called very very early in human init (before organs / species are created at the minimum)
+	setup_organless_effects()
+
+	create_dna()
+	dna.species.create_fresh_body(src)
+	setup_human_dna()
+
+	create_carbon_reagents()
+	set_species(dna.species.type)
+
+	prepare_huds() //Prevents a nasty runtime on human init
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	physiology = new()
 
 	. = ..()
@@ -41,9 +57,23 @@
 		return
 	mob_mood = new /datum/mood(src)
 
+<<<<<<< HEAD
 /mob/living/carbon/human/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code
 	create_dna(src)
+=======
+/// This proc is for holding effects applied when a mob is missing certain organs
+/// It is called very, very early in human init because all humans innately spawn with no organs and gain them during init
+/// Gaining said organs removes these effects
+/mob/living/carbon/human/proc/setup_organless_effects()
+	// All start without eyes, and get them via set species
+	become_blind(NO_EYES)
+	// Mobs cannot taste anything without a tongue; the tongue organ removes this on Insert
+	ADD_TRAIT(src, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
+
+/mob/living/carbon/human/proc/setup_human_dna()
+	//initialize dna. for spawned humans; overwritten by other code
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	randomize_human(src)
 	dna.initialize_dna()
 
@@ -61,7 +91,11 @@
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
 	if(stat != CONSCIOUS || levels > 1) // you're not The One
 		return ..()
+<<<<<<< HEAD
 	var/obj/item/organ/external/wings/gliders = getorgan(/obj/item/organ/external/wings)
+=======
+	var/obj/item/organ/external/wings/gliders = get_organ_by_type(/obj/item/organ/external/wings)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(HAS_TRAIT(src, TRAIT_FREERUNNING) || gliders?.can_soften_fall()) // the power of parkour or wings allows falling short distances unscathed
 		visible_message(span_danger("[src] makes a hard landing on [T] but remains unharmed from the fall."), \
 						span_userdanger("You brace for the fall. You make a hard landing on [T] but remain unharmed."))
@@ -107,6 +141,7 @@
 		if((text2num(href_list["examine_time"]) + 1 MINUTES) < world.time)
 			to_chat(human_user, "[span_notice("It's too late to use this now!")]")
 			return
+<<<<<<< HEAD
 		//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
 		//var/datum/data/record/target_record = find_record("name", perpname, GLOB.data_core.general) // SKYRAT EDIT CHANGE ORIGINAL
 		var/datum/data/record/general_record = find_record("name", perpname, GLOB.data_core.general)
@@ -116,15 +151,25 @@
 		if(href_list["photo_front"] || href_list["photo_side"])
 			if(!general_record) //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 				return
+=======
+		var/datum/record/crew/target_record = find_record(perpname)
+		if(href_list["photo_front"] || href_list["photo_side"])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(!human_user.canUseHUD())
 				return
 			if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD) && !HAS_TRAIT(human_user, TRAIT_MEDICAL_HUD))
 				return
 			var/obj/item/photo/photo_from_record = null
 			if(href_list["photo_front"])
+<<<<<<< HEAD
 				photo_from_record = general_record.get_front_photo() // SKYRAT EDIT - Examine Records - ORIGINAL: photo_from_record = target_record.get_front_photo()
 			else if(href_list["photo_side"])
 				photo_from_record = general_record.get_side_photo() // SKYRAT EDIT - Examine Records - ORIGINAL: photo_from_record = target_record.get_side_photo()
+=======
+				photo_from_record = target_record.get_front_photo()
+			else if(href_list["photo_side"])
+				photo_from_record = target_record.get_side_photo()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(photo_from_record)
 				photo_from_record.show(human_user)
 			return
@@ -181,6 +226,7 @@
 			if(!(ACCESS_MEDICAL in access))
 				to_chat(human_user, span_warning("ERROR: Invalid access"))
 				return
+<<<<<<< HEAD
 			if(href_list["p_stat"])
 				var/health_status = input(human_user, "Specify a new physical status for this person.", "Medical HUD", general_record.fields["p_stat"]) in list("Active", "Physically Unfit", "*Unconscious*", "*Deceased*", "Cancel")
 				if(!general_record) // SKYRAT EDIT CHANGE
@@ -203,6 +249,25 @@
 				if(health_status && health_status != "Cancel")
 					general_record.fields["m_stat"] = health_status //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 				return
+=======
+
+			if(href_list["physical_status"])
+				var/health_status = tgui_input_list(human_user, "Specify a new physical status for this person.", "Medical HUD", PHYSICAL_STATUSES, target_record.physical_status)
+				if(!health_status || !target_record || !human_user.canUseHUD() || !HAS_TRAIT(human_user, TRAIT_MEDICAL_HUD))
+					return
+
+				target_record.physical_status = health_status
+				return
+
+			if(href_list["mental_status"])
+				var/health_status = tgui_input_list(human_user, "Specify a new mental status for this person.", "Medical HUD", MENTAL_STATUSES, target_record.mental_status)
+				if(!health_status || !target_record || !human_user.canUseHUD() || !HAS_TRAIT(human_user, TRAIT_MEDICAL_HUD))
+					return
+
+				target_record.mental_status = health_status
+				return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(href_list["quirk"])
 				var/quirkstring = get_quirk_string(TRUE, CAT_QUIRK_ALL)
 				if(quirkstring)
@@ -211,9 +276,15 @@
 					to_chat(usr,  "<span class='notice ml-1'>No physiological traits found.</span>")
 			//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(href_list["medrecords"])
+<<<<<<< HEAD
 				to_chat(usr, "<b>Medical Record:</b> [med_record.fields["past_records"]]")
 			if(href_list["genrecords"])
 				to_chat(usr, "<b>General Record:</b> [general_record.fields["past_records"]]")
+=======
+				to_chat(usr, "<b>Medical Record:</b> [target_record.past_medical_records]")
+			if(href_list["genrecords"])
+				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			//SKYRAT EDIT END
 			return //Medical HUD ends here.
 
@@ -240,6 +311,7 @@
 			if(!perpname)
 				to_chat(human_user, span_warning("ERROR: Can not identify target."))
 				return
+<<<<<<< HEAD
 			/* ORIGINAL
 			target_record = find_record("name", perpname, GLOB.data_core.security)
 			if(!target_record)
@@ -259,6 +331,25 @@
 					investigate_log("has been set from [sec_record.fields["criminal"]] to [setcriminal] by [key_name(human_user)].", INVESTIGATE_RECORDS) //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 					sec_record.fields["criminal"] = setcriminal //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 					sec_hud_set_security_status()
+=======
+			target_record = find_record(perpname)
+			if(!target_record)
+				to_chat(usr, span_warning("ERROR: Unable to locate data core entry for target."))
+				return
+			if(href_list["status"])
+				var/new_status = tgui_input_list(human_user, "Specify a new criminal status for this person.", "Security HUD", WANTED_STATUSES(), target_record.wanted_status)
+				if(!new_status || !target_record || !human_user.canUseHUD() || !HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					return
+
+				if(new_status == WANTED_ARREST)
+					var/datum/crime/new_crime = new(author = human_user, details = "Set by SecHUD.")
+					target_record.crimes += new_crime
+					investigate_log("SecHUD auto-crime | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
+
+				investigate_log("has been set from [target_record.wanted_status] to [new_status] via HUD by [key_name(human_user)].", INVESTIGATE_RECORDS)
+				target_record.wanted_status = new_status
+				sec_hud_set_security_status()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 
 			if(href_list["view"])
@@ -266,6 +357,7 @@
 					return
 				if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
 					return
+<<<<<<< HEAD
 				to_chat(usr, "<b>Name:</b> [sec_record.fields["name"]] <b>Criminal Status:</b> [sec_record.fields["criminal"]]") //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 				for(var/datum/data/crime/c in sec_record.fields["crim"]) //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 					to_chat(usr, "<b>Crime:</b> [c.crimeName]")
@@ -276,6 +368,24 @@
 					to_chat(human_user, "Added by [c.author] at [c.time]")
 					to_chat(human_user, "----------")
 				to_chat(human_user, "<b>Notes:</b> [sec_record.fields["notes"]]") //SKYRAT EDIT CHANGE - EXAMINE RECORDS
+=======
+				to_chat(human_user, "<b>Name:</b> [target_record.name]")
+				to_chat(human_user, "<b>Criminal Status:</b> [target_record.wanted_status]")
+				to_chat(human_user, "<b>Citations:</b> [length(target_record.citations)]")
+				to_chat(human_user, "<b>Note:</b> [target_record.security_note || "None"]")
+				to_chat(human_user, "<b>Rapsheet:</b> [length(target_record.crimes)] incidents")
+				if(length(target_record.crimes))
+					for(var/datum/crime/crime in target_record.crimes)
+						if(!crime.valid)
+							to_chat(human_user, span_notice("-- REDACTED --"))
+							continue
+
+						to_chat(human_user, "<b>Crime:</b> [crime.name]")
+						to_chat(human_user, "<b>Details:</b> [crime.details]")
+						to_chat(human_user, "Added by [crime.author] at [crime.time]")
+				to_chat(human_user, "----------")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 
 			//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
@@ -284,13 +394,18 @@
 					return
 				if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
 					return
+<<<<<<< HEAD
 				to_chat(usr, "<b>General Record:</b> [general_record.fields["past_records"]]")
+=======
+				to_chat(human_user, "<b>General Record:</b> [target_record.past_general_records]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			if(href_list["secrecords"])
 				if(!human_user.canUseHUD())
 					return
 				if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
 					return
+<<<<<<< HEAD
 				to_chat(usr, "<b>Security Record:</b> [sec_record.fields["past_records"]]")
 			//SKYRAT EDIT END
 
@@ -380,12 +495,54 @@
 					counter++
 				sec_record.fields[text("com_[]", counter)] = text("Made by [] on [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), CURRENT_STATION_YEAR, t1) //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 				to_chat(human_user, span_notice("Successfully added comment."))
+=======
+				to_chat(human_user, "<b>Security Record:</b> [target_record.past_security_records]")
+			//SKYRAT EDIT END
+
+			if(href_list["add_citation"])
+				var/max_fine = CONFIG_GET(number/maxfine)
+				var/citation_name = tgui_input_text(human_user, "Citation crime", "Security HUD")
+				var/fine = tgui_input_number(human_user, "Citation fine", "Security HUD", 50, max_fine, 5)
+				if(!fine || !target_record || !citation_name || !allowed_access || !isnum(fine) || fine > max_fine || fine <= 0 || !human_user.canUseHUD() || !HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					return
+
+				var/datum/crime/citation/new_citation = new(name = citation_name, author = allowed_access, fine = fine)
+
+				target_record.citations += new_citation
+				new_citation.alert_owner(usr, src, target_record.name, "You have been fined [fine] credits for '[citation_name]'. Fines may be paid at security.")
+				investigate_log("New Citation: <strong>[citation_name]</strong> Fine: [fine] | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
+				SSblackbox.ReportCitation(REF(new_citation), human_user.ckey, human_user.real_name, target_record.name, citation_name, fine)
+
+				return
+
+			if(href_list["add_crime"])
+				var/crime_name = tgui_input_text(human_user, "Crime name", "Security HUD")
+				if(!target_record || !crime_name || !allowed_access || !human_user.canUseHUD() || !HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					return
+
+				var/datum/crime/new_crime = new(name = crime_name, author = allowed_access)
+
+				target_record.crimes += new_crime
+				investigate_log("New Crime: <strong>[crime_name]</strong> | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
+				to_chat(human_user, span_notice("Successfully added a crime."))
+
+				return
+
+			if(href_list["add_note"])
+				var/new_note = tgui_input_text(human_user, "Security note", "Security Records", multiline = TRUE)
+				if(!target_record || !new_note || !allowed_access || !human_user.canUseHUD() || !HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					return
+
+				target_record.security_note = new_note
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 
 	//SKYRAT EDIT ADDITION BEGIN - VIEW RECORDS
 	if(href_list["bgrecords"])
 		if(isobserver(usr) || usr.mind.can_see_exploitables || usr.mind.has_exploitables_override)
 			var/examined_name = get_face_name(get_id_name(""))
+<<<<<<< HEAD
 			var/datum/data/record/target_general_records = find_record("name", examined_name, GLOB.data_core.general)
 			to_chat(usr, "<b>Background information:</b> [target_general_records.fields["background_records"]]")
 	if(href_list["exprecords"])
@@ -393,6 +550,15 @@
 			var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
 			var/datum/data/record/target_general_records = find_record("name", examined_name, GLOB.data_core.general)
 			to_chat(usr, "<b>Exploitable information:</b> [target_general_records.fields["exploitable_records"]]")
+=======
+			var/datum/record/crew/target_record = find_record(examined_name)
+			to_chat(usr, "<b>Background information:</b> [target_record.background_information]")
+	if(href_list["exprecords"])
+		if(isobserver(usr) || usr.mind.can_see_exploitables || usr.mind.has_exploitables_override)
+			var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
+			var/datum/record/crew/target_record = find_record(examined_name)
+			to_chat(usr, "<b>Exploitable information:</b> [target_record.exploitable_information]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//SKYRAT EDIT END
 
 	..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that.
@@ -459,7 +625,11 @@
 
 	//Check for ID
 	var/obj/item/card/id/idcard = get_idcard(FALSE)
+<<<<<<< HEAD
 	if( (judgement_criteria & JUDGE_IDCHECK) && !idcard && name=="Unknown")
+=======
+	if( (judgement_criteria & JUDGE_IDCHECK) && !idcard && name == "Unknown")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		threatcount += 4
 
 	//Check for weapons
@@ -474,6 +644,7 @@
 	//Check for arrest warrant
 	if(judgement_criteria & JUDGE_RECORDCHECK)
 		var/perpname = get_face_name(get_id_name())
+<<<<<<< HEAD
 		var/datum/data/record/sec_record = find_record("name", perpname, GLOB.data_core.security) //SKYRAT EDIT CHANGE - EXAMINE RECORDS
 
 		if(sec_record?.fields["criminal"]) //SKYRAT EDIT CHANGE - EXAMINE RECORDS
@@ -485,6 +656,18 @@
 				if("Suspected")
 					threatcount += 2
 				if("Paroled")
+=======
+		var/datum/record/crew/record = find_record(perpname)
+		if(record?.wanted_status)
+			switch(record.wanted_status)
+				if(WANTED_ARREST)
+					threatcount += 5
+				if(WANTED_PRISONER)
+					threatcount += 2
+				if(WANTED_SUSPECT)
+					threatcount += 2
+				if(WANTED_PAROLE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					threatcount += 2
 
 	//Check for dresscode violations
@@ -549,7 +732,11 @@
 			to_chat(src, span_warning("Remove [p_their()] mask first!"))
 			return FALSE
 
+<<<<<<< HEAD
 		if (!getorganslot(ORGAN_SLOT_LUNGS))
+=======
+		if (!get_organ_slot(ORGAN_SLOT_LUNGS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(src, span_warning("You have no lungs to breathe with, so you cannot perform CPR!"))
 			return FALSE
 
@@ -560,7 +747,11 @@
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
 						span_notice("You try to perform CPR on [target.name]... Hold still!"))
 
+<<<<<<< HEAD
 		if (!do_mob(src, target, time = panicking ? CPR_PANIC_SPEED : (3 SECONDS)))
+=======
+		if (!do_after(src, delay = panicking ? CPR_PANIC_SPEED : (3 SECONDS), target = target))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(src, span_warning("You fail to perform CPR on [target]!"))
 			return FALSE
 
@@ -573,7 +764,11 @@
 
 		if (HAS_TRAIT(target, TRAIT_NOBREATH))
 			to_chat(target, span_unconscious("You feel a breath of fresh air... which is a sensation you don't recognise..."))
+<<<<<<< HEAD
 		else if (!target.getorganslot(ORGAN_SLOT_LUNGS))
+=======
+		else if (!target.get_organ_slot(ORGAN_SLOT_LUNGS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(target, span_unconscious("You feel a breath of fresh air... but you don't feel any better..."))
 		else
 			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))
@@ -650,7 +845,11 @@
 	if(!is_mouth_covered() && clean_lips())
 		. = TRUE
 
+<<<<<<< HEAD
 	if(glasses && is_eyes_covered(FALSE, TRUE, TRUE) && glasses.wash(clean_types))
+=======
+	if(glasses && is_eyes_covered(ITEM_SLOT_MASK|ITEM_SLOT_HEAD) && glasses.wash(clean_types))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_worn_glasses()
 		. = TRUE
 
@@ -693,6 +892,7 @@
 //Turns a mob black, flashes a skeleton overlay
 //Just like a cartoon!
 /mob/living/carbon/human/proc/electrocution_animation(anim_duration)
+<<<<<<< HEAD
 	//Handle mutant parts if possible
 	if(dna?.species)
 		add_atom_colour("#000000", TEMPORARY_COLOUR_PRIORITY)
@@ -705,6 +905,29 @@
 
 	else //or just do a generic animation
 		flick_overlay_view("electrocuted_generic", src, anim_duration, ABOVE_MOB_LAYER)
+=======
+	var/mutable_appearance/zap_appearance
+
+	// If we have a species, we need to handle mutant parts and stuff
+	if(dna?.species)
+		add_atom_colour("#000000", TEMPORARY_COLOUR_PRIORITY)
+		var/static/mutable_appearance/shock_animation_dna
+		if(!shock_animation_dna)
+			shock_animation_dna = mutable_appearance(icon, "electrocuted_base")
+			shock_animation_dna.appearance_flags |= RESET_COLOR|KEEP_APART
+		zap_appearance = shock_animation_dna
+
+	// Otherwise do a generic animation
+	else
+		var/static/mutable_appearance/shock_animation_generic
+		if(!shock_animation_generic)
+			shock_animation_generic = mutable_appearance(icon, "electrocuted_generic")
+			shock_animation_generic.appearance_flags |= RESET_COLOR|KEEP_APART
+		zap_appearance = shock_animation_generic
+
+	add_overlay(zap_appearance)
+	addtimer(CALLBACK(src, PROC_REF(end_electrocution_animation), zap_appearance), anim_duration)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/human/proc/end_electrocution_animation(mutable_appearance/MA)
 	remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#000000")
@@ -735,6 +958,7 @@
 		return TRUE
 	//SKYRAT ERP UPDATE ADDITION END
 
+<<<<<<< HEAD
 /mob/living/carbon/human/replace_records_name(oldname,newname) // Only humans have records right now, move this up if changed.
 	for(var/list/L in list(GLOB.data_core.general,GLOB.data_core.medical,GLOB.data_core.security,GLOB.data_core.locked))
 		var/datum/data/record/general_record = find_record("name", oldname, L)
@@ -745,6 +969,16 @@
 	. = ..()
 	if(glasses)
 		. += glasses.tint
+=======
+/mob/living/carbon/human/replace_records_name(oldname, newname) // Only humans have records right now, move this up if changed.
+	var/datum/record/crew/crew_record = find_record(oldname)
+	var/datum/record/locked/locked_record = find_record(oldname, locked_only = TRUE)
+
+	if(crew_record)
+		crew_record.name = newname
+	if(locked_record)
+		locked_record.name = newname
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/human/update_health_hud()
 	if(!client || !hud_used)
@@ -802,6 +1036,7 @@
 
 	return ..()
 
+<<<<<<< HEAD
 /mob/living/carbon/human/is_nearsighted()
 	var/obj/item/clothing/glasses/eyewear = glasses
 	if(istype(eyewear) && eyewear.vision_correction)
@@ -810,6 +1045,10 @@
 
 /mob/living/carbon/human/vomit(lost_nutrition = 10, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, vomit_type = VOMIT_TOXIC, harm = TRUE, force = FALSE, purge_ratio = 0.1)
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
+=======
+/mob/living/carbon/human/vomit(lost_nutrition = 10, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, vomit_type = VOMIT_TOXIC, harm = TRUE, force = FALSE, purge_ratio = 0.1)
+	if(blood && HAS_TRAIT(src, TRAIT_NOBLOOD) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(message)
 			visible_message(span_warning("[src] dry heaves!"), \
 							span_userdanger("You try to throw up, but there's nothing in your stomach!"))
@@ -818,6 +1057,29 @@
 		return 1
 	..()
 
+<<<<<<< HEAD
+=======
+/mob/living/carbon/human/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, mob_height))
+		var/static/list/heights = list(
+			HUMAN_HEIGHT_SHORTEST,
+			HUMAN_HEIGHT_SHORT,
+			HUMAN_HEIGHT_MEDIUM,
+			HUMAN_HEIGHT_TALL,
+			HUMAN_HEIGHT_TALLEST
+		)
+		if(!(var_value in heights))
+			return
+
+		. = set_mob_height(var_value)
+
+	if(!isnull(.))
+		datum_flags |= DF_VAR_EDITED
+		return
+
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/carbon/human/vv_get_dropdown()
 	. = ..()
 	VV_DROPDOWN_OPTION("", "---------")
@@ -1045,12 +1307,20 @@
 	return ..()
 
 /mob/living/carbon/human/is_bleeding()
+<<<<<<< HEAD
 	if(NOBLOOD in dna.species.species_traits)
+=======
+	if(HAS_TRAIT(src, TRAIT_NOBLOOD))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return ..()
 
 /mob/living/carbon/human/get_total_bleed_rate()
+<<<<<<< HEAD
 	if(NOBLOOD in dna.species.species_traits)
+=======
+	if(HAS_TRAIT(src, TRAIT_NOBLOOD))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return ..()
 
@@ -1067,9 +1337,16 @@
 	var/race = null
 	var/use_random_name = TRUE
 
+<<<<<<< HEAD
 /mob/living/carbon/human/species/Initialize(mapload)
 	. = ..()
 	INVOKE_ASYNC(src, PROC_REF(set_species), race)
+=======
+/mob/living/carbon/human/species/create_dna()
+	dna = new /datum/dna(src)
+	if (!isnull(race))
+		dna.species = new race
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // SKYRAT EDIT - Customization
 	. = ..()
@@ -1094,6 +1371,7 @@
 /mob/living/carbon/human/species/golem
 	race = /datum/species/golem
 
+<<<<<<< HEAD
 /mob/living/carbon/human/species/golem/adamantine
 	race = /datum/species/golem/adamantine
 
@@ -1166,6 +1444,8 @@
 /mob/living/carbon/human/species/golem/snow
 	race = /datum/species/golem/snow
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/carbon/human/species/jelly
 	race = /datum/species/jelly
 

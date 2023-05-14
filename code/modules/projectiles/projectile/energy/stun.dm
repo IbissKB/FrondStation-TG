@@ -2,7 +2,10 @@
 	name = "electrode"
 	icon_state = "spark"
 	color = "#FFFF00"
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stamina = 80 // SKYRAT EDIT CHANGE
 	stutter = 10 SECONDS
 	jitter = 40 SECONDS

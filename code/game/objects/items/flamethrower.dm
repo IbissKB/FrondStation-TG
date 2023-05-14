@@ -12,7 +12,11 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=500)
+=======
+	custom_materials = list(/datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT * 0.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 	trigger_guard = TRIGGER_GUARD_NORMAL
 	light_system = MOVABLE_LIGHT
@@ -33,7 +37,11 @@
 
 /obj/item/flamethrower/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDS)
+=======
+	AddElement(/datum/element/update_icon_updates_onmob)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/flamethrower/Destroy()
 	if(weldtool)
@@ -72,11 +80,17 @@
 
 /obj/item/flamethrower/afterattack(atom/target, mob/user, flag)
 	. = ..()
+<<<<<<< HEAD
 	if(flag)
 		return // too close
 	if(ishuman(user))
 		if(!can_trigger_gun(user))
 			return
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+	if(flag)
+		return // too close
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("You can't bring yourself to fire \the [src]! You don't want to risk harming anyone..."))
 		return
@@ -152,7 +166,11 @@
 	toggle_igniter(user)
 
 /obj/item/flamethrower/AltClick(mob/user)
+<<<<<<< HEAD
 	if(ptank && isliving(user) && user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = TRUE))
+=======
+	if(ptank && isliving(user) && user.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		user.put_in_hands(ptank)
 		ptank = null
 		to_chat(user, span_notice("You remove the plasma tank from [src]!"))

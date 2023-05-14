@@ -44,6 +44,11 @@
 /datum/component/reagent_refiller/proc/refill()
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
+=======
+	. |= COMPONENT_AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/reagent_containers/container = parent
 	var/refill = container.reagents.get_master_reagent_id()
 	var/amount = min((container.amount_per_transfer_from_this + container.reagents.total_volume), container.reagents.total_volume)

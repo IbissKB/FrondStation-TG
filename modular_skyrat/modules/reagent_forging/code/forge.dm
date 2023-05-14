@@ -266,7 +266,11 @@
 	var/obj/item/stack/sheet/mineral/coal/spawn_coal = new(get_turf(src))
 	spawn_coal.name = "charcoal"
 
+<<<<<<< HEAD
 /obj/structure/reagent_forge/process(delta_time)
+=======
+/obj/structure/reagent_forge/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!COOLDOWN_FINISHED(src, forging_cooldown))
 		return
 
@@ -285,10 +289,17 @@
 		set_smoke_state(SMOKE_STATE_NONE)
 		return
 
+<<<<<<< HEAD
 	handle_baking_things(delta_time)
 
 /// Sends signals to bake and items on the used tray, setting the smoke state of the forge according to the most cooked item in it
 /obj/structure/reagent_forge/proc/handle_baking_things(delta_time)
+=======
+	handle_baking_things(seconds_per_tick)
+
+/// Sends signals to bake and items on the used tray, setting the smoke state of the forge according to the most cooked item in it
+/obj/structure/reagent_forge/proc/handle_baking_things(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(forge_temperature < MIN_FORGE_TEMP) // If we are below minimum forge temp, don't continue on to cooking
 		return
 
@@ -296,7 +307,11 @@
 	var/worst_cooked_food_state = 0
 	for(var/obj/item/baked_item as anything in used_tray.contents)
 
+<<<<<<< HEAD
 		var/signal_result = SEND_SIGNAL(baked_item, COMSIG_ITEM_BAKED, src, delta_time)
+=======
+		var/signal_result = SEND_SIGNAL(baked_item, COMSIG_ITEM_OVEN_PROCESS, src, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(signal_result & COMPONENT_HANDLED_BAKING)
 			if(signal_result & COMPONENT_BAKING_GOOD_RESULT && worst_cooked_food_state < SMOKE_STATE_GOOD)
@@ -308,7 +323,11 @@
 		worst_cooked_food_state = SMOKE_STATE_BAD
 		baked_item.fire_act(1000) // Overcooked food really does burn, hot hot hot!
 
+<<<<<<< HEAD
 		if(DT_PROB(10, delta_time))
+=======
+		if(SPT_PROB(10, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			visible_message(span_danger("You smell a burnt smell coming from [src]!")) // Give indication that something is burning in the oven
 	set_smoke_state(worst_cooked_food_state)
 
@@ -417,7 +436,11 @@
 
 /obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(!used_tray && istype(attacking_item, /obj/item/plate/oven_tray))
+<<<<<<< HEAD
 		add_tray_to_forge(attacking_item)
+=======
+		add_tray_to_forge(user, attacking_item)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 
 	if(in_use) // If the forge is currently in use by someone (or there is a tray in it) then we cannot use it
@@ -461,12 +484,26 @@
 	return ..()
 
 /// Take the given tray and place it inside the forge, updating everything relevant to that
+<<<<<<< HEAD
 /obj/structure/reagent_forge/proc/add_tray_to_forge(obj/item/plate/oven_tray/tray)
+=======
+/obj/structure/reagent_forge/proc/add_tray_to_forge(mob/living/user, obj/item/plate/oven_tray/tray)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(used_tray) // This shouldn't be able to happen but just to be safe
 		balloon_alert_to_viewers("already has tray")
 		return
 
+<<<<<<< HEAD
 	tray.forceMove(src)
+=======
+	if(!user.transferItemToLoc(tray, src, silent = FALSE))
+		return
+
+	// need to send the right signal for each item in the tray
+	for(var/obj/item/baked_item in tray.contents)
+		SEND_SIGNAL(baked_item, COMSIG_ITEM_OVEN_PLACED_IN, src, user)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	balloon_alert_to_viewers("put [tray] in [src]")
 	used_tray = tray
 	in_use = TRUE // You can't use the forge if there's a tray sitting in it
@@ -592,6 +629,10 @@
 /// Handles clothing imbuing, extremely similar to weapon imbuing but not in the same proc because of how uhh... goofy the way this has to be done is
 /obj/structure/reagent_forge/proc/handle_clothing_imbue(obj/attacking_item, mob/living/user)
 	in_use = TRUE
+<<<<<<< HEAD
+=======
+	balloon_alert_to_viewers("imbuing...")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/obj/item/attacking_clothing = attacking_item
 
@@ -618,14 +659,23 @@
 			attacking_clothing.reagents.remove_all_type(clothing_reagent.type)
 			continue
 
+<<<<<<< HEAD
 			clothing_component.imbued_reagent += clothing_reagent.type
 			attacking_clothing.name = "[clothing_reagent.name] [attacking_clothing.name]"
+=======
+		clothing_component.imbued_reagent += clothing_reagent.type
+		attacking_clothing.name = "[clothing_reagent.name] [attacking_clothing.name]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	attacking_clothing.color = mix_color_from_reagents(attacking_clothing.reagents.reagent_list)
 	balloon_alert_to_viewers("imbued [attacking_clothing]")
 	user.mind.adjust_experience(/datum/skill/smithing, 60)
 	playsound(src, 'sound/magic/demon_consume.ogg', 50, TRUE)
 	in_use = FALSE
+<<<<<<< HEAD
+=======
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Sets ceramic items from their unusable state into their finished form
 /obj/structure/reagent_forge/proc/handle_ceramics(obj/attacking_item, mob/living/user)
@@ -677,6 +727,10 @@
 	var/obj/item/glassblowing/molten_glass/spawned_glass = new /obj/item/glassblowing/molten_glass(get_turf(src))
 	user.mind.adjust_experience(/datum/skill/production, 10)
 	COOLDOWN_START(spawned_glass, remaining_heat, glassblowing_amount)
+<<<<<<< HEAD
+=======
+	spawned_glass.total_time = glassblowing_amount
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Handles creating molten glass from a metal cup filled with sand
 /obj/structure/reagent_forge/proc/handle_metal_cup_melting(obj/attacking_item, mob/living/user)
@@ -706,6 +760,10 @@
 	var/obj/item/glassblowing/molten_glass/spawned_glass = new /obj/item/glassblowing/molten_glass(get_turf(src))
 	user.mind.adjust_experience(/datum/skill/production, 10)
 	COOLDOWN_START(spawned_glass, remaining_heat, glassblowing_amount)
+<<<<<<< HEAD
+=======
+	spawned_glass.total_time = glassblowing_amount
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/reagent_forge/billow_act(mob/living/user, obj/item/tool)
 	if(in_use) // Preventing billow use if the forge is in use to prevent spam
@@ -785,11 +843,19 @@
 		var/list/material_list = list()
 
 		if(search_stack.material_type)
+<<<<<<< HEAD
 			material_list[GET_MATERIAL_REF(search_stack.material_type)] = MINERAL_MATERIAL_AMOUNT
 
 		else
 			for(var/material as anything in search_stack.custom_materials)
 				material_list[material] = MINERAL_MATERIAL_AMOUNT
+=======
+			material_list[GET_MATERIAL_REF(search_stack.material_type)] = SHEET_MATERIAL_AMOUNT
+
+		else
+			for(var/material as anything in search_stack.custom_materials)
+				material_list[material] = SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		if(!search_stack.use(1))
 			fail_message(user, "not enough of [search_stack]")
@@ -853,6 +919,10 @@
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
 	COOLDOWN_START(find_glass, remaining_heat, glassblowing_amount)
+<<<<<<< HEAD
+=======
+	find_glass.total_time = glassblowing_amount
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(user, span_notice("You finish heating up [blowing_item]."))
 	user.mind.adjust_experience(/datum/skill/smithing, 5)
 	user.mind.adjust_experience(/datum/skill/production, 10)

@@ -5,6 +5,7 @@
 	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/horns.dmi'
 	default_color = "#555555"
 	genetic = TRUE
+<<<<<<< HEAD
 
 /datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer, obj/item/bodypart/bodypart)
 	if(!wearer.head || !bodypart)
@@ -13,6 +14,29 @@
 	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
 
+=======
+	organ_type = /obj/item/organ/external/horns
+
+/datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer)
+	if(!wearer.head && !wearer.wear_mask)
+		return FALSE
+
+	// Can hide if wearing hat
+	if(key in wearer.try_hide_mutant_parts)
+		return TRUE
+
+	// Exception for MODs
+	if(istype(wearer.head, /obj/item/clothing/head/mod))
+		return FALSE
+
+	// Hide accessory if flagged to do so
+	if((wearer.head?.flags_inv & HIDEHAIR || wearer.wear_mask?.flags_inv & HIDEHAIR) \
+		&& !(wearer.wear_mask && wearer.wear_mask.flags_inv & SHOWSPRITEEARS))
+		return TRUE
+
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sprite_accessory/horns/angler
 	default_color = DEFAULT_SECONDARY
@@ -79,3 +103,10 @@
 /datum/sprite_accessory/horns/upwards
 	name = "Upwards"
 	icon_state = "upwardshorns"
+<<<<<<< HEAD
+=======
+
+/datum/sprite_accessory/horns/sideswept
+	name = "Side swept back"
+	icon_state = "sideswept"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

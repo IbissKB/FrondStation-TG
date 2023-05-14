@@ -12,7 +12,11 @@
 	power_channel = AREA_USAGE_ENVIRON
 	pass_flags_self = PASSDOORS
 	max_integrity = 350
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 0, FIRE = 80, ACID = 70)
+=======
+	armor_type = /datum/armor/machinery_door
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_atmos_pass = ATMOS_PASS_DENSITY
 	flags_1 = PREVENT_CLICK_UNDER_1
 	receive_ricochet_chance_mod = 0.8
@@ -44,14 +48,46 @@
 	var/unres_sides = NONE
 	var/can_crush = TRUE /// Whether or not the door can crush mobs.
 	var/can_open_with_hands = TRUE /// Whether or not the door can be opened by hand (used for blast doors and shutters)
+<<<<<<< HEAD
 
 /obj/machinery/door/Initialize(mapload)
+=======
+	/// Whether or not this door can be opened through a door remote, ever
+	var/opens_with_door_remote = FALSE
+	/// Special operating mode for elevator doors
+	var/elevator_mode = FALSE
+	/// Current elevator status for processing
+	var/elevator_status
+	/// What specific lift ID do we link with?
+	var/elevator_linked_id
+
+/datum/armor/machinery_door
+	melee = 30
+	bullet = 30
+	laser = 20
+	energy = 20
+	bomb = 10
+	fire = 80
+	acid = 70
+
+/obj/machinery/door/Initialize(mapload)
+	AddElement(/datum/element/blocks_explosives)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	set_init_door_layer()
 	update_freelook_sight()
 	air_update_turf(TRUE, TRUE)
 	register_context()
 	GLOB.airlocks += src
+<<<<<<< HEAD
+=======
+	if(elevator_mode)
+		if(elevator_linked_id)
+			elevator_status = LIFT_PLATFORM_LOCKED
+			GLOB.elevator_doors += src
+		else
+			stack_trace("Elevator door [src] has no linked elevator ID!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	spark_system = new /datum/effect_system/spark_spread
 	spark_system.set_up(2, 1, src)
 	if(density)
@@ -61,7 +97,11 @@
 
 	//doors only block while dense though so we have to use the proc
 	real_explosion_block = explosion_block
+<<<<<<< HEAD
 	explosion_block = EXPLOSION_BLOCK_PROC
+=======
+	update_explosive_block()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(check_security_level))
 
 	var/static/list/loc_connections = list(
@@ -106,6 +146,11 @@
 /obj/machinery/door/Destroy()
 	update_freelook_sight()
 	GLOB.airlocks -= src
+<<<<<<< HEAD
+=======
+	if(elevator_mode)
+		GLOB.elevator_doors -= src
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(spark_system)
 		qdel(spark_system)
 		spark_system = null
@@ -198,7 +243,13 @@
 	if(!density || (obj_flags & EMAGGED))
 		return
 
+<<<<<<< HEAD
 	if(requiresID() && allowed(user))
+=======
+	if(elevator_mode && elevator_status == LIFT_PLATFORM_UNLOCKED)
+		open()
+	else if(requiresID() && allowed(user))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		open()
 	else
 		do_animate("deny")
@@ -271,6 +322,7 @@
 	try_to_crowbar(tool, user, forced_open)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
+<<<<<<< HEAD
 /obj/machinery/door/attackby(obj/item/I, mob/living/user, params)
 	if(!user.combat_mode && istype(I, /obj/item/fireaxe))
 		try_to_crowbar(I, user, FALSE)
@@ -278,6 +330,18 @@
 	else if(I.item_flags & NOBLUDGEON || user.combat_mode)
 		return ..()
 	else if(!user.combat_mode && istype(I, /obj/item/stack/sheet/mineral/wood))
+=======
+/obj/machinery/door/attackby(obj/item/weapon, mob/living/user, params)
+	if(istype(weapon, /obj/item/access_key))
+		var/obj/item/access_key/key = weapon
+		return key.attempt_open_door(user, src)
+	else if(!user.combat_mode && istype(weapon, /obj/item/fireaxe))
+		try_to_crowbar(weapon, user, FALSE)
+		return TRUE
+	else if(weapon.item_flags & NOBLUDGEON || user.combat_mode)
+		return ..()
+	else if(!user.combat_mode && istype(weapon, /obj/item/stack/sheet/mineral/wood))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return ..() // we need this so our can_barricade element can be called using COMSIG_PARENT_ATTACKBY
 	else if(try_to_activate_door(user))
 		return TRUE
@@ -345,12 +409,22 @@
 			if(!machine_stat)
 				flick("door_deny", src)
 
+<<<<<<< HEAD
 
 /obj/machinery/door/proc/open()
 	if(!density)
 		return 1
 	if(operating)
 		return
+=======
+/// Public proc that simply handles opening the door. Returns TRUE if the door was opened, FALSE otherwise.
+/// Use argument "forced" in conjunction with try_to_force_door_open if you want/need additional checks depending on how sorely you need the door opened.
+/obj/machinery/door/proc/open(forced = DEFAULT_DOOR_CHECKS)
+	if(!density)
+		return TRUE
+	if(operating)
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	operating = TRUE
 	use_power(active_power_usage)
 	do_animate("opening")
@@ -367,6 +441,7 @@
 	update_freelook_sight()
 	if(autoclose)
 		autoclose_in(DOOR_CLOSE_WAIT)
+<<<<<<< HEAD
 	return 1
 
 /obj/machinery/door/proc/close()
@@ -374,12 +449,32 @@
 		return TRUE
 	if(operating || welded)
 		return
+=======
+	return TRUE
+
+/// Private proc that runs a series of checks to see if we should forcibly open the door. Returns TRUE if we should open the door, FALSE otherwise. Implemented in child types.
+/// In case a specific behavior isn't covered, we should default to TRUE just to be safe (simply put, this proc should have an explicit reason to return FALSE).
+/obj/machinery/door/proc/try_to_force_door_open(force_type = DEFAULT_DOOR_CHECKS)
+	return TRUE // the base "door" can always be forced open since there's no power or anything like emagging it to prevent an open, not even invoked on the base type anyways.
+
+/// Public proc that simply handles closing the door. Returns TRUE if the door was closed, FALSE otherwise.
+/// Use argument "forced" in conjuction with try_to_force_door_shut if you want/need additional checks depending on how sorely you need the door closed.
+/obj/machinery/door/proc/close(forced = DEFAULT_DOOR_CHECKS)
+	if(density)
+		return TRUE
+	if(operating || welded)
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(safe)
 		for(var/atom/movable/M in get_turf(src))
 			if(M.density && M != src) //something is blocking the door
 				if(autoclose)
 					autoclose_in(DOOR_CLOSE_WAIT)
+<<<<<<< HEAD
 				return
+=======
+				return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	operating = TRUE
 
@@ -405,6 +500,14 @@
 		crush()
 	return TRUE
 
+<<<<<<< HEAD
+=======
+/// Private proc that runs a series of checks to see if we should forcibly shut the door. Returns TRUE if we should shut the door, FALSE otherwise. Implemented in child types.
+/// In case a specific behavior isn't covered, we should default to TRUE just to be safe (simply put, this proc should have an explicit reason to return FALSE).
+/obj/machinery/door/proc/try_to_force_door_shut(force_type = DEFAULT_DOOR_CHECKS)
+	return TRUE // the base "door" can always be forced shut
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/proc/CheckForMobs()
 	if(locate(/mob/living) in get_turf(src))
 		sleep(0.1 SECONDS)
@@ -483,9 +586,12 @@
 	//if it blows up a wall it should blow up a door
 	return ..(severity ? min(EXPLODE_DEVASTATE, severity + 1) : EXPLODE_NONE, target)
 
+<<<<<<< HEAD
 /obj/machinery/door/GetExplosionBlock()
 	return density ? real_explosion_block : 0
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/power_change()
 	. = ..()
 	if(. && !(machine_stat & NOPOWER))
@@ -501,4 +607,22 @@
 
 	INVOKE_ASYNC(src, PROC_REF(open))
 
+<<<<<<< HEAD
+=======
+/obj/machinery/door/set_density(new_value)
+	. = ..()
+	update_explosive_block()
+
+/obj/machinery/door/proc/update_explosive_block()
+	set_explosion_block(real_explosion_block)
+
+// Kinda roundabout, essentially if we're dense, we respect real_explosion_block
+// Otherwise, we block nothing
+/obj/machinery/door/set_explosion_block(explosion_block)
+	real_explosion_block = explosion_block
+	if(density)
+		return ..()
+	return ..(0)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef DOOR_CLOSE_WAIT

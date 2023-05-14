@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/body_bag
 	name = "body bag"
 	desc = "A plastic bag designed for the storage and transportation of cadavers."
@@ -17,10 +20,21 @@
 	cutting_tool = null // Bodybags are not deconstructed by cutting
 	drag_slowdown = 0
 	has_closed_overlay = FALSE
+<<<<<<< HEAD
 	var/foldedbag_path = /obj/item/bodybag
 	var/obj/item/bodybag/foldedbag_instance = null
 	var/tagged = FALSE // so closet code knows to put the tag overlay back
 	can_install_electronics = FALSE
+=======
+	can_install_electronics = FALSE
+	paint_jobs = null
+
+	var/foldedbag_path = /obj/item/bodybag
+	var/obj/item/bodybag/foldedbag_instance = null
+	/// The tagged name of the bodybag, also used to check if the bodybag IS tagged.
+	var/tag_name
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/body_bag/Initialize(mapload)
 	. = ..()
@@ -49,24 +63,39 @@
 		var/t = tgui_input_text(user, "What would you like the label to be?", name, max_length = 53)
 		if(user.get_active_held_item() != interact_tool)
 			return
+<<<<<<< HEAD
 		if(!user.canUseTopic(src, be_close = TRUE))
 			return
 		handle_tag("[t ? t : initial(name)]")
 		return
 	if(!tagged)
+=======
+		if(!user.can_perform_action(src))
+			return
+		handle_tag("[t ? t : initial(name)]")
+		return
+	if(!tag_name)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(interact_tool.tool_behaviour == TOOL_WIRECUTTER || interact_tool.get_sharpness())
 		to_chat(user, span_notice("You cut the tag off [src]."))
 		handle_tag()
 
 ///Handles renaming of the bodybag's examine tag.
+<<<<<<< HEAD
 /obj/structure/closet/body_bag/proc/handle_tag(tag_name)
 	name = tag_name ? "[initial(name)] - [tag_name]" : initial(name)
 	tagged = !!tag_name
+=======
+/obj/structure/closet/body_bag/proc/handle_tag(new_name)
+	tag_name = new_name
+	name = tag_name ? "[initial(name)] - [tag_name]" : initial(name)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 
 /obj/structure/closet/body_bag/update_overlays()
 	. = ..()
+<<<<<<< HEAD
 	if(tagged)
 		. += "bodybag_label"
 
@@ -74,6 +103,14 @@
 	. = ..()
 	if(.)
 		set_density(FALSE)
+=======
+	if(tag_name)
+		. += "bodybag_label"
+
+/obj/structure/closet/body_bag/after_close(mob/living/user)
+	. = ..()
+	set_density(FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/body_bag/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -255,6 +292,21 @@
 		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while its straps are fastened."))
 	return ..()
 
+<<<<<<< HEAD
+=======
+/obj/structure/closet/body_bag/environmental/prisoner/before_open(mob/living/user, force)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	if(sinched && !force)
+		to_chat(user, span_danger("The buckles on [src] are sinched down, preventing it from opening."))
+		return FALSE
+
+	sinched = FALSE //in case it was forced open unsinch it
+	return TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/body_bag/environmental/prisoner/update_icon()
 	. = ..()
 	if(sinched)
@@ -262,6 +314,7 @@
 	else
 		icon_state = initial(icon_state)
 
+<<<<<<< HEAD
 /obj/structure/closet/body_bag/environmental/prisoner/open(mob/living/user, force = FALSE)
 	if(sinched && !force)
 		to_chat(user, span_danger("The buckles on [src] are sinched down, preventing it from opening."))
@@ -278,6 +331,8 @@
 	after_open(user, force)
 	return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/body_bag/environmental/prisoner/container_resist_act(mob/living/user)
 	/// copy-pasted with changes because flavor text as well as some other misc stuff
 	if(opened)
@@ -289,7 +344,11 @@
 		location.relay_container_resist_act(user, src)
 		return
 	if(!sinched)
+<<<<<<< HEAD
 		open()
+=======
+		open(user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	user.changeNext_move(CLICK_CD_BREAKOUT)
@@ -315,7 +374,11 @@
 	open()
 
 /obj/structure/closet/body_bag/environmental/prisoner/attack_hand_secondary(mob/user, modifiers)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE) || !isturf(loc))
+=======
+	if(!user.can_perform_action(src) || !isturf(loc))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	togglelock(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

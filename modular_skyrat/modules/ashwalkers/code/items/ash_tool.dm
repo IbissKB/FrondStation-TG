@@ -62,6 +62,10 @@
 /obj/item/cursed_dagger
 	name = "cursed ash dagger"
 	desc = "A blunted dagger that seems to cause the shadows near it to tremble."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/sword.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "crysknife"
 	inhand_icon_state = "crysknife"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'

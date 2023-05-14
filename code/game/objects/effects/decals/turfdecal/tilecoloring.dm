@@ -20,12 +20,47 @@
 
 #undef PRIDE_ALPHA
 
+<<<<<<< HEAD
 /// Blue tiles
 
+=======
+/// Automatically generates all subtypes for a decal with the given path.
+#define TILE_DECAL_SUBTYPE_HELPER(path)\
+##path/opposingcorners {\
+	icon_state = "tile_opposing_corners";\
+}\
+##path/half {\
+	icon_state = "tile_half";\
+}\
+##path/half/contrasted {\
+	icon_state = "tile_half_contrasted";\
+}\
+##path/anticorner {\
+	icon_state = "tile_anticorner";\
+}\
+##path/anticorner/contrasted {\
+	icon_state = "tile_anticorner_contrasted";\
+}\
+##path/fourcorners {\
+	icon_state = "tile_fourcorners";\
+}\
+##path/full {\
+	icon_state = "tile_full";\
+}\
+##path/diagonal_centre {\
+	icon_state = "diagonal_centre";\
+}\
+##path/diagonal_edge {\
+	icon_state = "diagonal_edge";\
+}
+
+/// Blue tiles
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/blue
 	name = "blue corner"
 	color = "#52B4E9"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue/opposingcorners //Two corners on opposite ends of each other (i.e. Top Right to Bottom Left). Allows for faster mapping and less complicated turf decal storage.
 	icon_state = "tile_opposing_corners"
 	name = "opposing blue corners"
@@ -64,10 +99,16 @@
 
 /// Dark blue tiles
 
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/blue)
+
+/// Dark blue tiles
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/dark_blue
 	name = "dark blue corner"
 	color = "#486091"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing dark blue corners"
@@ -103,6 +144,9 @@
 /obj/effect/turf_decal/tile/dark_blue/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "dark blue diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/dark_blue)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Green tiles
 
@@ -110,6 +154,7 @@
 	name = "green corner"
 	color = "#9FED58"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/green/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing green corners"
@@ -145,6 +190,9 @@
 /obj/effect/turf_decal/tile/green/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "green diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/green)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Dark green tiles
 
@@ -152,6 +200,7 @@
 	name = "dark green corner"
 	color = "#439C1E"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_green/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing dark green corners"
@@ -187,6 +236,9 @@
 /obj/effect/turf_decal/tile/dark_green/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "dark green diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/dark_green)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Yellow tiles
 
@@ -194,6 +246,7 @@
 	name = "yellow corner"
 	color = "#EFB341"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/yellow/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing yellow corners"
@@ -229,6 +282,9 @@
 /obj/effect/turf_decal/tile/yellow/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "yellow diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/yellow)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Red tiles
 
@@ -236,6 +292,7 @@
 	name = "red corner"
 	color = "#486091" //SKYRAT EDIT CHANGE
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/red/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing red corners"
@@ -271,6 +328,9 @@
 /obj/effect/turf_decal/tile/red/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "red diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/red)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Dark red tiles
 
@@ -278,6 +338,7 @@
 	name = "dark red corner"
 	color = "#B11111"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark_red/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing dark_red corners"
@@ -313,6 +374,9 @@
 /obj/effect/turf_decal/tile/dark_red/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "dark red diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/dark_red)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Bar tiles
 
@@ -321,6 +385,7 @@
 	color = "#791500"
 	alpha = 130
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing bar corners"
@@ -356,6 +421,9 @@
 /obj/effect/turf_decal/tile/bar/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "bar diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/bar)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Purple tiles
 
@@ -363,6 +431,7 @@
 	name = "purple corner"
 	color = "#D381C9"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/purple/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing purple corners"
@@ -398,6 +467,9 @@
 /obj/effect/turf_decal/tile/purple/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "bar diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/purple)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Brown tiles
 
@@ -405,6 +477,7 @@
 	name = "brown corner"
 	color = "#A46106"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing brown corners"
@@ -439,6 +512,9 @@
 /obj/effect/turf_decal/tile/brown/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "brown diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/brown)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Neutral tiles
 
@@ -447,6 +523,7 @@
 	color = "#D4D4D4"
 	alpha = 50
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/neutral/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing neutral corners"
@@ -482,6 +559,9 @@
 /obj/effect/turf_decal/tile/neutral/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "neutral diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/neutral)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Dark tiles
 
@@ -489,6 +569,7 @@
 	name = "dark corner"
 	color = "#0e0f0f"
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/dark/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing dark corners"
@@ -524,6 +605,9 @@
 /obj/effect/turf_decal/tile/dark/diagonal_edge
 	icon_state = "diagonal_edge"
 	name = "dark diagonal edge"
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/dark)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Random tiles
 
@@ -531,6 +615,7 @@
 	name = "colorful corner"
 	color = "#E300FF" //bright pink as default for mapping
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/random/opposingcorners
 	icon_state = "tile_opposing_corners"
 	name = "opposing colorful corners"
@@ -573,6 +658,17 @@
 
 /// Trimlines
 
+=======
+TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/random)
+
+/obj/effect/turf_decal/tile/random/Initialize(mapload)
+	color = "#[random_short_color()]"
+	return ..()
+
+#undef TILE_DECAL_SUBTYPE_HELPER
+
+/// Trimlines
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/trimline
 	layer = TURF_PLATING_DECAL_LAYER
 	alpha = 110
@@ -581,6 +677,7 @@
 /obj/effect/turf_decal/trimline/Initialize(mapload)
 	if(check_holidays(APRIL_FOOLS))
 		color = "#[random_short_color()]"
+<<<<<<< HEAD
 	. = ..()
 
 /// White trimlines
@@ -1149,10 +1246,134 @@
 
 /// Neutral trimlines
 
+=======
+	return ..()
+
+/// Automatically generates all trimlines for a decal with the given path.
+#define TRIMLINE_SUBTYPE_HELPER(path)\
+##path/line {\
+	icon_state = "trimline";\
+}\
+##path/corner {\
+	icon_state = "trimline_corner";\
+}\
+##path/end {\
+	icon_state = "trimline_end";\
+}\
+##path/arrow_cw {\
+	icon_state = "trimline_arrow_cw";\
+}\
+##path/arrow_ccw {\
+	icon_state = "trimline_arrow_ccw";\
+}\
+##path/warning {\
+	icon_state = "trimline_warn";\
+}\
+##path/tram {\
+	icon_state = "trimline_tram";\
+}\
+##path/mid_joiner {\
+	icon_state = "trimline_mid";\
+}\
+##path/filled {\
+	icon_state = "trimline_box_fill";\
+}\
+##path/filled/line {\
+	icon_state = "trimline_fill";\
+}\
+##path/filled/corner {\
+	icon_state = "trimline_corner_fill";\
+}\
+##path/filled/end {\
+	icon_state = "trimline_end_fill";\
+}\
+##path/filled/arrow_cw {\
+	icon_state = "trimline_arrow_cw_fill";\
+}\
+##path/filled/arrow_ccw {\
+	icon_state = "trimline_arrow_ccw_fill";\
+}\
+##path/filled/warning {\
+	icon_state = "trimline_warn_fill";\
+}\
+##path/filled/mid_joiner {\
+	icon_state = "trimline_mid_fill";\
+}\
+##path/filled/shrink_cw {\
+	icon_state = "trimline_shrink_cw";\
+}\
+##path/filled/shrink_ccw {\
+	icon_state = "trimline_shrink_ccw";\
+}
+
+
+/// White trimlines
+/obj/effect/turf_decal/trimline/white
+	color = "#FFFFFF"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/white)
+
+/// Red trimlines
+/obj/effect/turf_decal/trimline/red
+	color = "#486091" //SKYRAT EDIT CHANGE
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/red)
+
+/// Dark red trimlines
+/obj/effect/turf_decal/trimline/dark_red
+	color = "#B11111"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark_red)
+
+/// Green trimlines
+/obj/effect/turf_decal/trimline/green
+	color = "#9FED58"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/green)
+
+/// Dark green Trimlines
+/obj/effect/turf_decal/trimline/dark_green
+	color = "#439C1E"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark_green)
+
+/// Blue trimlines
+/obj/effect/turf_decal/trimline/blue
+	color = "#52B4E9"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/blue)
+
+/// Dark blue trimlines
+/obj/effect/turf_decal/trimline/dark_blue
+	color = "#486091"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark_blue)
+
+/// Yellow trimlines
+/obj/effect/turf_decal/trimline/yellow
+	color = "#EFB341"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/yellow)
+
+/// Purple trimlines
+/obj/effect/turf_decal/trimline/purple
+	color = "#D381C9"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/purple)
+
+/// Brown trimlines
+/obj/effect/turf_decal/trimline/brown
+	color = "#A46106"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/brown)
+
+/// Neutral trimlines
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/trimline/neutral
 	color = "#D4D4D4"
 	alpha = 50
 
+<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/neutral/line
 	icon_state = "trimline"
 
@@ -1259,3 +1480,14 @@
 
 /obj/effect/turf_decal/trimline/dark/filled/shrink_ccw
 	icon_state = "trimline_shrink_ccw"
+=======
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/neutral)
+
+/// Dark trimlines
+/obj/effect/turf_decal/trimline/dark
+	color = "#0e0f0f"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark)
+
+#undef TRIMLINE_SUBTYPE_HELPER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

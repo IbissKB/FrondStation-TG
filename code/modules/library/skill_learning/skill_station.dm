@@ -48,7 +48,11 @@
 /obj/machinery/skill_station/relaymove(mob/living/user, direction)
 	open_machine()
 
+<<<<<<< HEAD
 /obj/machinery/skill_station/open_machine()
+=======
+/obj/machinery/skill_station/open_machine(drop = TRUE, density_to_set = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	interrupt_operation()
 
@@ -63,7 +67,11 @@
 	if(working)
 		interrupt_operation()
 
+<<<<<<< HEAD
 /obj/machinery/skill_station/close_machine(atom/movable/target)
+=======
+/obj/machinery/skill_station/close_machine(atom/movable/target, density_to_set = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(occupant)
 		ui_interact(occupant)
@@ -228,7 +236,11 @@
 		.["slots_max"] = null
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+	var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// If there's no brain, we don't need to worry either.
 	if(QDELETED(occupant_brain))
@@ -271,7 +283,11 @@
 				return TRUE
 			var/chipref = params["ref"]
 			var/mob/living/carbon/carbon_occupant = occupant
+<<<<<<< HEAD
 			var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+			var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(QDELETED(carbon_occupant) || QDELETED(occupant_brain))
 				return TRUE
 			var/obj/item/skillchip/to_be_removed = locate(chipref) in occupant_brain.skillchips
@@ -296,7 +312,11 @@
 				stack_trace("[usr] tried to toggle skillchip activation when [src] was in an invalid state.")
 				return TRUE
 			var/mob/living/carbon/carbon_occupant = occupant
+<<<<<<< HEAD
 			var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.getorganslot(ORGAN_SLOT_BRAIN)
+=======
+			var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(QDELETED(carbon_occupant) || QDELETED(occupant_brain))
 				return TRUE
 			var/obj/item/skillchip/to_be_removed = locate(chipref) in occupant_brain.skillchips
@@ -305,3 +325,8 @@
 			toggle_chip_active(to_be_removed)
 			return TRUE
 
+<<<<<<< HEAD
+=======
+#undef SKILLCHIP_IMPLANT_TIME
+#undef SKILLCHIP_REMOVAL_TIME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

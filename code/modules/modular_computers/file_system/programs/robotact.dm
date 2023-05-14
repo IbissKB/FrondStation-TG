@@ -20,13 +20,21 @@
 	. = ..()
 	if(.)
 		var/obj/item/modular_computer/pda/silicon/tablet = computer
+<<<<<<< HEAD
 		if(tablet.device_theme == "syndicate")
+=======
+		if(tablet.device_theme == PDA_THEME_SYNDICATE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			program_icon_state = "command-syndicate"
 		return TRUE
 	return FALSE
 
 /datum/computer_file/program/robotact/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!iscyborg(user))
 		return data
 
@@ -84,10 +92,14 @@
 	data["borgUpgrades"] = cyborg.upgrades
 	return data
 
+<<<<<<< HEAD
 /datum/computer_file/program/robotact/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
+=======
+/datum/computer_file/program/robotact/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Implied type, memes
 	var/obj/item/modular_computer/pda/silicon/tablet = computer
 	var/mob/living/silicon/robot/cyborg = tablet.silicon_owner
@@ -140,6 +152,7 @@
 				return
 			if(cyborg.emagged || istype(cyborg, /mob/living/silicon/robot/model/syndicate)) //This option shouldn't even be showing otherwise
 				cyborg.self_destruct(cyborg)
+<<<<<<< HEAD
 
 /**
  * Forces a full update of the UI, if currently open.
@@ -154,3 +167,5 @@
 	var/datum/tgui/active_ui = SStgui.get_open_ui(tablet.silicon_owner, src)
 	if(active_ui)
 		active_ui.send_full_update()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

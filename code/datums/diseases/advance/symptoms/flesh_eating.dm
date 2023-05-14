@@ -10,7 +10,12 @@ Bonus
 */
 /datum/symptom/flesh_eating
 	name = "Necrotizing Fasciitis"
+<<<<<<< HEAD
 	desc = "The virus aggressively attacks body cells, necrotizing tissues and organs."
+=======
+	desc = "The virus aggressively attacks bone cells, causing excessive wobbliness and falling down a lot."
+	illness = "Jellyitis"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -3
 	resistance = -4
 	stage_speed = 0
@@ -82,6 +87,10 @@ Bonus
 
 	name = "Autophagocytosis Necrosis"
 	desc = "The virus rapidly consumes infected cells, leading to heavy and widespread damage."
+<<<<<<< HEAD
+=======
+	illness = "Premature Mummification"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	stealth = -2
 	resistance = -2
 	stage_speed = 1

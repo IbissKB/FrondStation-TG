@@ -50,7 +50,11 @@
 	using.hud = src
 	static_inventory += using
 
+<<<<<<< HEAD
 	mymob.client.screen = list()
+=======
+	mymob.client.clear_screen()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)

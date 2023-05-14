@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /obj/item/food/soup
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/food/soupsalad.dmi'
@@ -11,20 +12,39 @@
 	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/soup/wish
+=======
+/obj/item/food/bowled
+	w_class = WEIGHT_CLASS_NORMAL
+	icon = 'icons/obj/food/soupsalad.dmi'
+	bite_consumption = 5
+	max_volume = 80
+	foodtypes = NONE
+	eatverbs = list("slurp", "sip", "inhale", "drink")
+	venue_value = FOOD_PRICE_CHEAP
+
+/obj/item/food/bowled/wish
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "wish soup"
 	desc = "I wish this was soup."
 	icon_state = "wishsoup"
 	food_reagents = list(/datum/reagent/water = 10)
 	tastes = list("wishes" = 1)
 
+<<<<<<< HEAD
 /obj/item/food/soup/wish/Initialize(mapload)
 	. = ..()
 	var/wish_true = prob(25)
 	if(wish_true)
+=======
+/obj/item/food/bowled/wish/Initialize(mapload)
+	. = ..()
+	if(prob(25))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		desc = "A wish come true!"
 		reagents.add_reagent(/datum/reagent/consumable/nutriment, 9)
 		reagents.add_reagent(/datum/reagent/consumable/nutriment/vitamin, 1)
 
+<<<<<<< HEAD
 /obj/item/food/soup/meatball
 	name = "meatball soup"
 	desc = "You've got balls kid, BALLS!"
@@ -190,19 +210,45 @@
 
 
 /obj/item/food/soup/spacylibertyduff
+=======
+/obj/item/food/bowled/mammi
+	name = "Mammi"
+	desc = "A bowl of mushy bread and milk. It reminds you, not too fondly, of a bowel movement."
+	icon_state = "mammi"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 11,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+	foodtypes = SUGAR | DAIRY
+
+/obj/item/food/bowled/spacylibertyduff
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "spacy liberty duff"
 	desc = "Jello gelatin, from Alfred Hubbard's cookbook."
 	icon_state = "spacylibertyduff"
 	bite_consumption = 3
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/drug/mushroomhallucinogen = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("jelly" = 1, "mushroom" = 1)
 	foodtypes = VEGETABLES
 
 /obj/item/food/soup/amanitajelly
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/drug/mushroomhallucinogen = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+	tastes = list("jelly" = 1, "mushroom" = 1)
+	foodtypes = VEGETABLES
+
+/obj/item/food/bowled/amanitajelly
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "amanita jelly"
 	desc = "Looks curiously toxic."
 	icon_state = "amanitajelly"
 	bite_consumption = 3
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/drug/mushroomhallucinogen = 3, /datum/reagent/toxin/amatoxin = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("jelly" = 1, "mushroom" = 1)
 	foodtypes = VEGETABLES | TOXIC
@@ -330,3 +376,13 @@
 	food_reagents = list (/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 8, /datum/reagent/consumable/nutriment/protein = 6)
 	tastes = list("creamy broth"= 1, "bacon" = 1, "mixed vegetables" = 1)
 	foodtypes = VEGETABLES | MEAT
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 7,
+		/datum/reagent/drug/mushroomhallucinogen = 3,
+		/datum/reagent/toxin/amatoxin = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+	tastes = list("jelly" = 1, "mushroom" = 1)
+	foodtypes = VEGETABLES | TOXIC
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

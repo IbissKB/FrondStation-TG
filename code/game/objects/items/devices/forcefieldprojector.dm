@@ -10,7 +10,11 @@
 	worn_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=250, /datum/material/glass=500)
+=======
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 2.5, /datum/material/glass= SMALL_MATERIAL_AMOUNT * 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/max_shield_integrity = 250
 	var/shield_integrity = 250
 	var/max_fields = 3
@@ -25,6 +29,10 @@
 	. = ..()
 	if(!check_allowed_items(target, not_inside = TRUE))
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(istype(target, /obj/structure/projected_forcefield))
 		var/obj/structure/projected_forcefield/F = target
 		if(F.generator == src)
@@ -82,11 +90,19 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/forcefield_projector/process(delta_time)
 	if(!LAZYLEN(current_fields))
 		shield_integrity = min(shield_integrity + delta_time * 2, max_shield_integrity)
 	else
 		shield_integrity = max(shield_integrity - LAZYLEN(current_fields) * delta_time * 0.5, 0) //fields degrade slowly over time
+=======
+/obj/item/forcefield_projector/process(seconds_per_tick)
+	if(!LAZYLEN(current_fields))
+		shield_integrity = min(shield_integrity + seconds_per_tick * 2, max_shield_integrity)
+	else
+		shield_integrity = max(shield_integrity - LAZYLEN(current_fields) * seconds_per_tick * 0.5, 0) //fields degrade slowly over time
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/structure/projected_forcefield/F in current_fields)
 		if(shield_integrity <= 0 || get_dist(F,src) > field_distance_limit)
 			qdel(F)
@@ -104,9 +120,23 @@
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	resistance_flags = INDESTRUCTIBLE
 	can_atmos_pass = ATMOS_PASS_DENSITY
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 25, LASER = 50, ENERGY = 50, BOMB = 25, BIO = 0, FIRE = 100, ACID = 100)
 	var/obj/item/forcefield_projector/generator
 
+=======
+	armor_type = /datum/armor/structure_projected_forcefield
+	var/obj/item/forcefield_projector/generator
+
+/datum/armor/structure_projected_forcefield
+	bullet = 25
+	laser = 50
+	energy = 50
+	bomb = 25
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/projected_forcefield/Initialize(mapload, obj/item/forcefield_projector/origin)
 	. = ..()
 	generator = origin

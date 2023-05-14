@@ -4,9 +4,13 @@
 /turf/open/floor/holofloor/basalt,
 /area/template_noop)
 "c" = (
+<<<<<<< HEAD
 /obj/structure/window{
 	dir = 1
 	},
+=======
+/obj/structure/window/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor/basalt,
 /area/template_noop)
 "h" = (
@@ -26,7 +30,11 @@
 /turf/open/floor/holofloor/basalt,
 /area/template_noop)
 "x" = (
+<<<<<<< HEAD
 /obj/structure/window,
+=======
+/obj/structure/window/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/holofloor/basalt,
 /area/template_noop)
 "B" = (

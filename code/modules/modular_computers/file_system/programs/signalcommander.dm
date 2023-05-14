@@ -19,12 +19,20 @@
 	. = ..()
 	set_frequency(signal_frequency)
 
+<<<<<<< HEAD
 /datum/computer_file/program/signal_commander/kill_program(forced)
+=======
+/datum/computer_file/program/signal_commander/kill_program()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	SSradio.remove_object(computer, signal_frequency)
 
 /datum/computer_file/program/signal_commander/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["frequency"] = signal_frequency
 	data["code"] = signal_code
 	data["minFrequency"] = MIN_FREE_FREQ
@@ -32,9 +40,12 @@
 	return data
 
 /datum/computer_file/program/signal_commander/ui_act(action, list/params)
+<<<<<<< HEAD
 	. = ..()
 	if(.)
 		return
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("signal")
 			INVOKE_ASYNC(src, PROC_REF(signal))

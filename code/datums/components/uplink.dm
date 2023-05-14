@@ -65,6 +65,11 @@
 		RegisterSignal(parent, COMSIG_RADIO_NEW_MESSAGE, PROC_REF(new_message))
 	else if(istype(parent, /obj/item/pen))
 		RegisterSignal(parent, COMSIG_PEN_ROTATED, PROC_REF(pen_rotation))
+<<<<<<< HEAD
+=======
+	else if(istype(parent, /obj/item/uplink/replacement))
+		RegisterSignal(parent, COMSIG_MOVABLE_HEAR, PROC_REF(on_heard))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(owner)
 		src.owner = owner
@@ -86,6 +91,10 @@
 	else
 		uplink_handler = uplink_handler_override
 	RegisterSignal(uplink_handler, COMSIG_UPLINK_HANDLER_ON_UPDATE, PROC_REF(handle_uplink_handler_update))
+<<<<<<< HEAD
+=======
+	RegisterSignal(uplink_handler, COMSIG_UPLINK_HANDLER_REPLACEMENT_ORDERED, PROC_REF(handle_uplink_replaced))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!lockable)
 		active = TRUE
 		locked = FALSE
@@ -96,6 +105,22 @@
 	SIGNAL_HANDLER
 	SStgui.update_uis(src)
 
+<<<<<<< HEAD
+=======
+/// When a new uplink is made via the syndicate beacon it locks all lockable uplinks and destroys replacement uplinks
+/datum/component/uplink/proc/handle_uplink_replaced()
+	SIGNAL_HANDLER
+	if(lockable)
+		lock_uplink()
+	if(!istype(parent, /obj/item/uplink/replacement))
+		return
+	var/obj/item/uplink_item = parent
+	do_sparks(number = 3, cardinal_only = FALSE, source = uplink_item)
+	uplink_item.visible_message(span_warning("The [uplink_item] suddenly combusts!"), vision_distance = COMBAT_MESSAGE_RANGE)
+	new /obj/effect/decal/cleanable/ash(get_turf(uplink_item))
+	qdel(uplink_item)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Adds telecrystals to the uplink. It is bad practice to use this outside of the component itself.
 /datum/component/uplink/proc/add_telecrystals(telecrystals_added)
 	set_telecrystals(uplink_handler.telecrystals + telecrystals_added)
@@ -230,11 +255,21 @@
 		))
 
 	var/list/remaining_stock = list()
+<<<<<<< HEAD
 	for(var/datum/uplink_item/item as anything in stock_list)
 		remaining_stock[item.type] = stock_list[item]
 	data["extra_purchasable"] = extra_purchasable
 	data["extra_purchasable_stock"] = extra_purchasable_stock
 	data["current_stock"] = remaining_stock
+=======
+	for(var/item as anything in stock_list)
+		remaining_stock[item] = stock_list[item]
+	data["extra_purchasable"] = extra_purchasable
+	data["extra_purchasable_stock"] = extra_purchasable_stock
+	data["current_stock"] = remaining_stock
+	data["shop_locked"] = uplink_handler.shop_locked
+	data["purchased_items"] = length(uplink_handler.purchase_log?.purchase_log)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return data
 
 /datum/component/uplink/ui_static_data(mob/user)
@@ -275,9 +310,13 @@
 		if("lock")
 			if(!lockable)
 				return TRUE
+<<<<<<< HEAD
 			active = FALSE
 			locked = TRUE
 			SStgui.close_uis(src)
+=======
+			lock_uplink()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!uplink_handler.has_objectives)
 		return TRUE
@@ -319,6 +358,15 @@
 			uplink_handler.abort_objective(objective)
 	return TRUE
 
+<<<<<<< HEAD
+=======
+/// Proc that locks uplinks
+/datum/component/uplink/proc/lock_uplink()
+	active = FALSE
+	locked = TRUE
+	SStgui.close_uis(src)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Implant signal responses
 /datum/component/uplink/proc/implant_activation()
 	SIGNAL_HANDLER
@@ -385,7 +433,11 @@
 	if(ismob(master.loc))
 		interact(null, master.loc)
 
+<<<<<<< HEAD
 /datum/component/uplink/proc/new_message(datum/source, user, message, channel)
+=======
+/datum/component/uplink/proc/new_message(datum/source, mob/living/user, message, channel)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 
 	if(channel != RADIO_CHANNEL_UPLINK)
@@ -393,7 +445,11 @@
 
 	if(!findtext(lowertext(message), lowertext(unlock_code)))
 		if(failsafe_code && findtext(lowertext(message), lowertext(failsafe_code)))
+<<<<<<< HEAD
 			failsafe()  // no point returning cannot radio, youre probably ded
+=======
+			failsafe(user)  // no point returning cannot radio, youre probably ded
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	locked = FALSE
 	interact(null, user)
@@ -457,6 +513,20 @@
 
 	return returnable_code
 
+<<<<<<< HEAD
+=======
+/// Proc that unlocks a locked replacement uplink when it hears the unlock code from their datum
+/datum/component/uplink/proc/on_heard(datum/source, list/hearing_args)
+	SIGNAL_HANDLER
+	if(!locked)
+		return
+	if(!findtext(hearing_args[HEARING_RAW_MESSAGE], unlock_code))
+		return
+	var/atom/replacement_uplink = parent
+	locked = FALSE
+	replacement_uplink.balloon_alert_to_viewers("beep", vision_distance = COMBAT_MESSAGE_RANGE)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/uplink/proc/failsafe(mob/living/carbon/user)
 	if(!parent)
 		return
@@ -468,3 +538,8 @@
 
 	explosion(parent, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3)
 	qdel(parent) //Alternatively could brick the uplink.
+<<<<<<< HEAD
+=======
+
+#undef PEN_ROTATIONS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -38,15 +38,28 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 5
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=500)
 	breakouttime = 1 MINUTES
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50)
+=======
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 5)
+	breakouttime = 1 MINUTES
+	armor_type = /datum/armor/restraints_handcuffs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	custom_price = PAYCHECK_COMMAND * 0.35
 	///Sound that plays when starting to put handcuffs on someone
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
 	///If set, handcuffs will be destroyed on application and leave behind whatever this is set to.
 	var/trashtype = null
 
+<<<<<<< HEAD
+=======
+/datum/armor/restraints_handcuffs
+	fire = 50
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/restraints/handcuffs/attack(mob/living/carbon/C, mob/living/user)
 	if(!istype(C))
 		return
@@ -66,7 +79,11 @@
 				to_chat(C, span_userdanger("As you feel someone grab your wrists, [src] start digging into your skin!"))
 			playsound(loc, cuffsound, 30, TRUE, -2)
 			log_combat(user, C, "attempted to handcuff")
+<<<<<<< HEAD
 			if(do_mob(user, C, 30, timed_action_flags = IGNORE_SLOWDOWNS) && C.canBeHandcuffed())
+=======
+			if(do_after(user, 3 SECONDS, C, timed_action_flags = IGNORE_SLOWDOWNS) && C.canBeHandcuffed())
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(iscyborg(user))
 					apply_cuffs(C, user, TRUE)
 				else
@@ -144,7 +161,11 @@
 	var/cable_color = CABLE_COLOR_RED
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=150, /datum/material/glass=75)
+=======
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 1.5, /datum/material/glass= SMALL_MATERIAL_AMOUNT * 0.75)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	breakouttime = 30 SECONDS
 	cuffsound = 'sound/weapons/cablecuff.ogg'
 
@@ -162,7 +183,11 @@
 	)
 
 	AddElement(/datum/element/contextual_screentip_item_typechecks, hovering_item_typechecks)
+<<<<<<< HEAD
 	AddElement(/datum/element/update_icon_updates_onmob, (slot_flags|ITEM_SLOT_HANDCUFFED))
+=======
+	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDCUFFED)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(new_color)
 		set_cable_color(new_color)
@@ -415,6 +440,7 @@
 	update_appearance()
 	playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 
+<<<<<<< HEAD
 /obj/item/restraints/legcuffs/beartrap/proc/spring_trap(datum/source, atom/movable/AM, thrown_at = FALSE)
 	SIGNAL_HANDLER
 	if(!armed || !isturf(loc) || !isliving(AM))
@@ -451,6 +477,40 @@
 			L.visible_message(span_danger("\The [src] ensnares [L]!"), \
 					span_userdanger("\The [src] ensnares you!"))
 		L.apply_damage(trap_damage, BRUTE, def_zone)
+=======
+/obj/item/restraints/legcuffs/beartrap/proc/spring_trap(datum/source, atom/movable/target, thrown_at = FALSE)
+	SIGNAL_HANDLER
+	if(!armed || !isturf(loc) || !isliving(target))
+		return
+	var/mob/living/victim = target
+	if(istype(victim.buckled, /obj/vehicle))
+		var/obj/vehicle/ridden_vehicle = victim.buckled
+		if(!ridden_vehicle.are_legs_exposed) //close the trap without injuring/trapping the rider if their legs are inside the vehicle at all times.
+			close_trap()
+			ridden_vehicle.visible_message(span_danger("[ridden_vehicle] triggers \the [src]."))
+			return
+
+	//don't close the trap if they're as small as a mouse, or not touching the ground
+	if(victim.mob_size <= MOB_SIZE_TINY || (!thrown_at && victim.movement_type & (FLYING|FLOATING)))
+		return
+
+	close_trap()
+	if(thrown_at)
+		victim.visible_message(span_danger("\The [src] ensnares [victim]!"), \
+				span_userdanger("\The [src] ensnares you!"))
+	else
+		victim.visible_message(span_danger("[victim] triggers \the [src]."), \
+				span_userdanger("You trigger \the [src]!"))
+	var/def_zone = BODY_ZONE_CHEST
+	if(iscarbon(victim) && victim.body_position == STANDING_UP)
+		var/mob/living/carbon/carbon_victim = victim
+		def_zone = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+		if(!carbon_victim.legcuffed && carbon_victim.num_legs >= 2) //beartrap can't cuff your leg if there's already a beartrap or legcuffs, or you don't have two legs.
+			INVOKE_ASYNC(carbon_victim, TYPE_PROC_REF(/mob/living/carbon, equip_to_slot), src, ITEM_SLOT_LEGCUFFED)
+			SSblackbox.record_feedback("tally", "handcuffs", 1, type)
+
+	victim.apply_damage(trap_damage, BRUTE, def_zone)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * # Energy snare
@@ -494,6 +554,10 @@
 	name = "bola"
 	desc = "A restraining device designed to be thrown at the target. Upon connecting with said target, it will wrap around their legs, making it difficult for them to move quickly."
 	icon_state = "bola"
+<<<<<<< HEAD
+=======
+	icon_state_preview = "bola_preview"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = "bola"
 	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/thrown_righthand.dmi'
@@ -572,6 +636,10 @@
 	name = "gonbola"
 	desc = "Hey, if you have to be hugged in the legs by anything, it might as well be this little guy."
 	icon_state = "gonbola"
+<<<<<<< HEAD
+=======
+	icon_state_preview = "gonbola_preview"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = "bola_r"
 	breakouttime = 30 SECONDS
 	slowdown = 0

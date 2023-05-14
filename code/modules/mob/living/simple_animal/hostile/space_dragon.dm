@@ -59,7 +59,11 @@
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
+<<<<<<< HEAD
 	faction = list("carp")
+=======
+	faction = list(FACTION_CARP)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pressure_resistance = 200
 	/// How much endlag using Wing Gust should apply.  Each use of wing gust increments this, and it decreases over time.
 	var/tiredness = 0
@@ -85,9 +89,13 @@
 /mob/living/simple_animal/hostile/space_dragon/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_HEALS_FROM_CARP_RIFTS, INNATE_TRAIT)
+=======
+	add_traits(list(TRAIT_SPACEWALK, TRAIT_FREE_HYPERSPACE_MOVEMENT, TRAIT_NO_FLOATING_ANIM, TRAIT_HEALS_FROM_CARP_RIFTS), INNATE_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/content_barfer)
 	small_sprite = new
 	small_sprite.Grant(src)
@@ -103,9 +111,15 @@
 	var/damage_coefficient = rand(devastation_damage_min_percentage, devastation_damage_max_percentage)
 	adjustBruteLoss(initial(maxHealth)*damage_coefficient)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/space_dragon/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	tiredness = max(tiredness - (0.5 * delta_time), 0)
+=======
+/mob/living/simple_animal/hostile/space_dragon/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	. = ..()
+	tiredness = max(tiredness - (0.5 * seconds_per_tick), 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/mob/living/consumed_mob in src)
 		if(consumed_mob.stat == DEAD)
 			continue
@@ -174,9 +188,18 @@
 	UnregisterSignal(small_sprite, COMSIG_ACTION_TRIGGER)
 
 /mob/living/simple_animal/hostile/space_dragon/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
+<<<<<<< HEAD
 	. = ..()
 	add_dragon_overlay()
 	RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, PROC_REF(add_dragon_overlay))
+=======
+	var/was_dead = stat == DEAD
+	. = ..()
+	add_dragon_overlay()
+
+	if (was_dead)
+		RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, PROC_REF(add_dragon_overlay))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Allows space dragon to choose its own name.
@@ -302,6 +325,11 @@
 	for(var/mob/living/L in T.contents)
 		if(L in hit_list)
 			continue
+<<<<<<< HEAD
+=======
+		if(L.mind?.has_antag_datum(/datum/antagonist/space_carp))
+			continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		hit_list += L
 		L.adjustFireLoss(30)
 		to_chat(L, span_userdanger("You're hit by [src]'s fire breath!"))

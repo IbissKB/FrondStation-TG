@@ -12,6 +12,10 @@
 // Base type. Subtypes are found in /grown dir. Lavaland-based subtypes can be found in mining/ash_flora.dm
 /obj/item/food/grown
 	icon = 'icons/obj/hydroponics/harvest.dmi'
+<<<<<<< HEAD
+=======
+	icon_state = "berrypile"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	worn_icon = 'icons/mob/clothing/head/hydroponics.dmi'
 	name = "fresh produce" // so recipe text doesn't say 'snack'
 	max_volume = PLANT_REAGENT_VOLUME
@@ -39,6 +43,11 @@
 	var/filling_color
 	/// If the grown food has an alternaitve icon state to use in places.
 	var/alt_icon
+<<<<<<< HEAD
+=======
+	/// Should we pixel offset ourselves at init? for mapping
+	var/offset_at_init = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/food/grown/Initialize(mapload, obj/item/seeds/new_seed)
 	if(!tastes)
@@ -55,8 +64,14 @@
 		stack_trace("Grown object created without a seed. WTF")
 		return INITIALIZE_HINT_QDEL
 
+<<<<<<< HEAD
 	pixel_x = base_pixel_x + rand(-5, 5)
 	pixel_y = base_pixel_y + rand(-5, 5)
+=======
+	if(offset_at_init)
+		pixel_x = base_pixel_x + rand(-5, 5)
+		pixel_y = base_pixel_y + rand(-5, 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	make_dryable()
 
@@ -85,7 +100,11 @@
 /obj/item/food/grown/proc/make_dryable()
 	AddElement(/datum/element/dryable, type)
 
+<<<<<<< HEAD
 /obj/item/food/grown/MakeLeaveTrash()
+=======
+/obj/item/food/grown/make_leave_trash()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(trash_type)
 		AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_OPENABLE, TYPE_PROC_REF(/obj/item/food/grown/, generate_trash))
 	return

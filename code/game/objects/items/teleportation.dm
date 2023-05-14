@@ -23,7 +23,11 @@
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	throw_speed = 3
 	throw_range = 7
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=400)
+=======
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/tracking_range = 20
 
 /obj/item/locator/ui_interact(mob/user, datum/tgui/ui)
@@ -110,8 +114,13 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 5
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=10000)
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT * 5)
+	armor_type = /datum/armor/item_hand_tele
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	var/list/active_portal_pairs
 	var/max_portal_pairs = 3
@@ -125,6 +134,14 @@
 	*/
 	var/last_portal_location
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_hand_tele
+	bomb = 30
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/hand_tele/Initialize(mapload)
 	. = ..()
 	active_portal_pairs = list()
@@ -316,7 +333,11 @@
 
 /obj/item/syndicate_teleporter
 	name = "experimental teleporter"
+<<<<<<< HEAD
 	desc = "A reverse-engineered version of the Nanotrasen portable handheld teleporter. Lacks the advanced safety features of its counterpart. A three-headed serpent can be seen on the back."
+=======
+	desc = "A reverse-engineered version of the Nanotrasen handheld teleporter. Lacks the advanced safety features of its counterpart. A three-headed serpent can be seen on the back."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/device.dmi'
 	icon_state = "syndi-tele"
 	throwforce = 5
@@ -357,8 +378,13 @@
 	attempt_teleport(user = user, triggered_by_emp = FALSE)
 	return TRUE
 
+<<<<<<< HEAD
 /obj/item/syndicate_teleporter/process(delta_time, times_fired)
 	if(DT_PROB(10, delta_time) && charges < max_charges)
+=======
+/obj/item/syndicate_teleporter/process(seconds_per_tick, times_fired)
+	if(SPT_PROB(10, seconds_per_tick) && charges < max_charges)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		charges++
 		if(ishuman(loc))
 			var/mob/living/carbon/human/holder = loc
@@ -424,6 +450,10 @@
 		charges = max(charges - 1, 0)
 		new /obj/effect/temp_visual/teleport_abductor/syndi_teleporter(current_location)
 		new /obj/effect/temp_visual/teleport_abductor/syndi_teleporter(destination)
+<<<<<<< HEAD
+=======
+		make_bloods(current_location, destination, user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(current_location, SFX_SPARKS, 50, 1, SHORT_RANGE_SOUND_EXTRARANGE)
 		playsound(destination, 'sound/effects/phasein.ogg', 25, 1, SHORT_RANGE_SOUND_EXTRARANGE)
 		playsound(destination, SFX_SPARKS, 50, 1, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -459,6 +489,10 @@
 		new /obj/effect/temp_visual/teleport_abductor/syndi_teleporter(mobloc)
 		new /obj/effect/temp_visual/teleport_abductor/syndi_teleporter(emergency_destination)
 		balloon_alert(user, "emergency teleport triggered!")
+<<<<<<< HEAD
+=======
+		make_bloods(mobloc, emergency_destination, user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(mobloc, SFX_SPARKS, 50, 1, SHORT_RANGE_SOUND_EXTRARANGE)
 		playsound(emergency_destination, 'sound/effects/phasein.ogg', 25, 1, SHORT_RANGE_SOUND_EXTRARANGE)
 		playsound(emergency_destination, SFX_SPARKS, 50, 1, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -490,6 +524,16 @@
 		victim.Paralyze(6 SECONDS)
 		to_chat(victim, span_warning("[user] teleports into you, knocking you to the floor with the bluespace wave!"))
 
+<<<<<<< HEAD
+=======
+///Bleed and make blood splatters at tele start and end points
+/obj/item/syndicate_teleporter/proc/make_bloods(turf/old_location, turf/new_location, mob/user)
+	var/mob/living/carbon/carbon_user = user
+	carbon_user.add_splatter_floor(old_location)
+	carbon_user.add_splatter_floor(new_location)
+	carbon_user.bleed(10)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/paper/syndicate_teleporter
 	name = "Teleporter Guide"
 	default_raw_text = {"
@@ -502,6 +546,11 @@
 		<b>Warning:</b> Teleporting into walls will activate a failsafe teleport parallel up to 3 meters, but the user will be ripped apart if it fails to find a safe location.<br>
 		<br>
 		Do not expose the teleporter to electromagnetic pulses. Unwanted malfunctions may occur.
+<<<<<<< HEAD
+=======
+		<br>
+		Final word of caution: the technology involved is experimental in nature. Although many years of research have allowed us to prevent leaving your organs behind, it simply cannot account for all of the liquid in your body.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"}
 
 /obj/item/storage/box/syndie_kit/syndicate_teleporter
@@ -516,3 +565,9 @@
 
 #undef PORTAL_LOCATION_DANGEROUS
 #undef PORTAL_DANGEROUS_EDGE_LIMIT
+<<<<<<< HEAD
+=======
+
+#undef SOURCE_PORTAL
+#undef DESTINATION_PORTAL
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

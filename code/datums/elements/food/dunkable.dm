@@ -23,6 +23,7 @@
 		return
 	var/obj/item/reagent_containers/container = target // the container we're trying to dunk into
 	if(istype(container) && container.reagent_flags & DUNKABLE) // container should be a valid target for dunking
+<<<<<<< HEAD
 		if(!container.is_drainable())
 			to_chat(user, span_warning("[container] is unable to be dunked in!"))
 			return
@@ -30,7 +31,21 @@
 		if(container.reagents.trans_to(I, dunk_amount, transfered_by = user)) //if reagents were transfered, show the message
 			to_chat(user, span_notice("You dunk \the [I] into \the [container]."))
 			return
+=======
+		. = COMPONENT_AFTERATTACK_PROCESSED_ITEM
+		if(!container.is_drainable())
+			to_chat(user, span_warning("[container] is unable to be dunked in!"))
+			return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+		var/obj/item/I = source // the item that has the dunkable element
+		if(container.reagents.trans_to(I, dunk_amount, transfered_by = user)) //if reagents were transfered, show the message
+			to_chat(user, span_notice("You dunk \the [I] into \the [container]."))
+			return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(!container.reagents.total_volume)
 			to_chat(user, span_warning("[container] is empty!"))
 		else
 			to_chat(user, span_warning("[I] is full!"))
+<<<<<<< HEAD
+=======
+		return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

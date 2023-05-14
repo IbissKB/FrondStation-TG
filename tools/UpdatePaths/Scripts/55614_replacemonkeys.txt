@@ -1,5 +1,9 @@
 #comment This replaces the monkeys pre-species refactor to the monkeys post-species refactor https://github.com/tgstation/tgstation/pull/55614
 
+<<<<<<< HEAD
 /mob/living/carbon/monkey : /mob/living/carbon/human/species/monkey
 /mob/living/carbon/monkey/angry : /mob/living/carbon/human/species/monkey/angry
 /mob/living/carbon/monkey/punpun : /mob/living/carbon/human/species/monkey/punpun
+=======
+/mob/living/carbon/monkey/@SUBTYPES : /mob/living/carbon/human/species/monkey/@SUBTYPES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

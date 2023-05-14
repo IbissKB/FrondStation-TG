@@ -15,6 +15,10 @@
 	. = ..()
 	if(!proximity)
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!target.reagents)
 		return
 

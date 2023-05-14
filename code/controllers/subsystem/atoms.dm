@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 #define BAD_INIT_QDEL_BEFORE 1
 #define BAD_INIT_DIDNT_INIT 2
 #define BAD_INIT_SLEPT 4
 #define BAD_INIT_NO_HINT 8
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 SUBSYSTEM_DEF(atoms)
 	name = "Atoms"
 	init_order = INIT_ORDER_ATOMS
@@ -22,6 +25,11 @@ SUBSYSTEM_DEF(atoms)
 	/// Atoms that will be deleted once the subsystem is initialized
 	var/list/queued_deletions = list()
 
+<<<<<<< HEAD
+=======
+	var/init_start_time
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	#ifdef PROFILE_MAPLOAD_INIT_ATOM
 	var/list/mapload_init_times = list()
 	#endif
@@ -29,6 +37,10 @@ SUBSYSTEM_DEF(atoms)
 	initialized = INITIALIZATION_INSSATOMS
 
 /datum/controller/subsystem/atoms/Initialize()
+<<<<<<< HEAD
+=======
+	init_start_time = world.time
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	setupGenetics() //to set the mutations' sequence
 
 	initialized = INITIALIZATION_INNEW_MAPLOAD
@@ -37,6 +49,7 @@ SUBSYSTEM_DEF(atoms)
 
 	return SS_INIT_SUCCESS
 
+<<<<<<< HEAD
 #ifdef PROFILE_MAPLOAD_INIT_ATOM
 #define PROFILE_INIT_ATOM_BEGIN(...) var/__profile_stat_time = TICK_USAGE
 #define PROFILE_INIT_ATOM_END(atom) mapload_init_times[##atom.type] += TICK_USAGE_TO_MS(__profile_stat_time)
@@ -45,6 +58,8 @@ SUBSYSTEM_DEF(atoms)
 #define PROFILE_INIT_ATOM_END(...)
 #endif
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms, list/atoms_to_return)
 	if(initialized == INITIALIZATION_INSSATOMS)
 		return
@@ -122,8 +137,16 @@ SUBSYSTEM_DEF(atoms)
 /// Init this specific atom
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, from_template = FALSE, list/arguments)
 	var/the_type = A.type
+<<<<<<< HEAD
 	if(QDELING(A))
 		BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
+=======
+
+	if(QDELING(A))
+		// Check init_start_time to not worry about atoms created before the atoms SS that are cleaned up before this
+		if (A.gc_destroyed > init_start_time)
+			BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 
 	// This is handled and battle tested by dreamchecker. Limit to UNIT_TESTS just in case that ever fails.

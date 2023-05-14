@@ -18,6 +18,11 @@
 	var/delusion_icon_file
 	/// The icon state of the delusion image
 	var/delusion_icon_state
+<<<<<<< HEAD
+=======
+	/// Do we use a generated icon? If yes no icon file or state needed.
+	var/dynamic_icon = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// The name of the delusion image
 	var/delusion_name
 
@@ -94,7 +99,11 @@
 	return TRUE
 
 /datum/hallucination/delusion/proc/make_delusion_image(mob/over_who)
+<<<<<<< HEAD
 	var/image/funny_image = image(delusion_icon_file, over_who, delusion_icon_state)
+=======
+	var/image/funny_image = image(delusion_icon_file, over_who, dynamic_icon ? "" : delusion_icon_state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	funny_image.name = delusion_name
 	funny_image.override = TRUE
 	return funny_image
@@ -196,13 +205,18 @@
 
 /datum/hallucination/delusion/preset/syndies
 	random_hallucination_weight = 1
+<<<<<<< HEAD
 	delusion_icon_file = 'icons/mob/simple/simple_human.dmi'
 	delusion_icon_state = "syndicate_space"
+=======
+	dynamic_icon = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	delusion_name = "Syndicate"
 	affects_others = TRUE
 	affects_us = FALSE
 
 /datum/hallucination/delusion/preset/syndies/make_delusion_image(mob/over_who)
+<<<<<<< HEAD
 	var/static/list/syndicate_icon_states
 
 	if(!syndicate_icon_states)
@@ -218,5 +232,21 @@
 		delusion_icon_state = pick(syndicate_icon_states)
 	else
 		stack_trace("Hey! The hallucination [type] couldn't find a single icon state to use, it'll be invisible. Correct this.")
+=======
+	delusion_icon_file = getFlatIcon(get_dynamic_human_appearance(
+		mob_spawn_path = pick(
+			/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
+			/obj/effect/mob_spawn/corpse/human/syndicatecommando,
+			/obj/effect/mob_spawn/corpse/human/syndicatestormtrooper,
+		),
+		r_hand = pick(
+			/obj/item/knife/combat/survival,
+			/obj/item/melee/energy/sword/saber,
+			/obj/item/gun/ballistic/automatic/pistol,
+			/obj/item/gun/ballistic/automatic/c20r,
+			/obj/item/gun/ballistic/shotgun/bulldog,
+		),
+	))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return ..()

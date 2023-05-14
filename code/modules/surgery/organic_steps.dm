@@ -31,7 +31,11 @@
 /datum/surgery_step/incise/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if ishuman(target)
 		var/mob/living/carbon/human/human_target = target
+<<<<<<< HEAD
 		if (!(NOBLOOD in human_target.dna.species.species_traits))
+=======
+		if (!HAS_TRAIT(human_target, TRAIT_NOBLOOD))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			display_results(
 				user,
 				target,
@@ -156,7 +160,11 @@
 		/obj/item/fireaxe = 50,
 		/obj/item/hatchet = 35,
 		/obj/item/knife/butcher = 25,
+<<<<<<< HEAD
 		/obj/item = 20) //20% success (sort of) with any sharp item with a force>=10
+=======
+		/obj/item = 20) //20% success (sort of) with any sharp item with a force >= 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	time = 54
 	preop_sound = list(
 		/obj/item/circular_saw = 'sound/surgery/saw.ogg',

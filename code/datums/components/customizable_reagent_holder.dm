@@ -124,6 +124,12 @@
 	SIGNAL_HANDLER
 
 	if (!valid_ingredient(ingredient))
+<<<<<<< HEAD
+=======
+		if (ingredient.is_drainable()) // For stuff like adding flour from a flour sack into a bowl, we handle the transfer of the reagent elsewhere, but we shouldn't regard it beyond some user feedback.
+			attacker.balloon_alert(attacker, "transferring...")
+			return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		attacker.balloon_alert(attacker, "doesn't go on that!")
 		return
 

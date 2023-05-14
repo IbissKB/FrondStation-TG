@@ -145,6 +145,14 @@
 	access_list += ACCESS_MORGUE
 	return access_list
 
+<<<<<<< HEAD
+=======
+/obj/effect/mapping_helpers/airlock/access/any/medical/coroner/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_MORGUE_SECURE
+	return access_list
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mapping_helpers/airlock/access/any/medical/chemistry/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_PLUMBING
@@ -616,6 +624,14 @@
 	access_list += ACCESS_MORGUE
 	return access_list
 
+<<<<<<< HEAD
+=======
+/obj/effect/mapping_helpers/airlock/access/all/medical/coroner/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_MORGUE_SECURE
+	return access_list
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mapping_helpers/airlock/access/all/medical/chemistry/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_PLUMBING

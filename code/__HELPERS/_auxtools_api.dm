@@ -2,8 +2,17 @@
 #define AUXTOOLS_PARTIAL_INIT 1
 
 GLOBAL_LIST_EMPTY(auxtools_initialized)
+<<<<<<< HEAD
 
 #define AUXTOOLS_CHECK(LIB)\
+=======
+GLOBAL_PROTECT(auxtools_initialized)
+
+#define AUXTOOLS_CHECK(LIB)\
+	if (!CONFIG_GET(flag/auxtools_enabled)) {\
+		CRASH("Auxtools is not enabled in config!");\
+	}\
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (GLOB.auxtools_initialized[LIB] != AUXTOOLS_FULL_INIT) {\
 		if (fexists(LIB)) {\
 			var/string = LIBCALL(LIB,"auxtools_init")();\
@@ -27,4 +36,17 @@ GLOBAL_LIST_EMPTY(auxtools_initialized)
 	if (GLOB.auxtools_initialized[LIB] && fexists(LIB)){\
 		LIBCALL(LIB,"auxtools_full_shutdown")();\
 		GLOB.auxtools_initialized[LIB] = FALSE;\
+<<<<<<< HEAD
 	}\
+=======
+	}
+
+/proc/auxtools_stack_trace(msg)
+	CRASH(msg)
+
+/proc/auxtools_expr_stub()
+	CRASH("auxtools not loaded")
+
+/proc/enable_debugging(mode, port)
+	CRASH("auxtools not loaded")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

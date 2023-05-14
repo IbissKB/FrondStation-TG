@@ -6,7 +6,11 @@
 	var/list/ooc_information = list()
 	ooc_information["server_name"] = CONFIG_GET(string/cross_server_name) ? CONFIG_GET(string/cross_server_name) : station_name()
 	ooc_information["expected_name"] = exp_name
+<<<<<<< HEAD
 	send2otherserver(html_decode(ooc_information["server_name"]), message, "incoming_ooc_message", "all", additional_data = ooc_information)
+=======
+	send2otherserver(source = html_decode(ooc_information["server_name"]), msg = message, type = "incoming_ooc_message", additional_data = ooc_information)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /datum/world_topic/incoming_ooc_message
@@ -37,7 +41,11 @@
 	var/list/asay_information = list()
 	asay_information["server_name"] = CONFIG_GET(string/cross_server_name) ? CONFIG_GET(string/cross_server_name) : station_name()
 	asay_information["expected_name"] = exp_name
+<<<<<<< HEAD
 	send2otherserver(html_decode(asay_information["server_name"]), message, "incoming_asay_message", "all", additional_data = asay_information)
+=======
+	send2otherserver(source = html_decode(asay_information["server_name"]), msg = message, type = "incoming_asay_message", additional_data = asay_information)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /datum/world_topic/incoming_asay_message
@@ -81,7 +89,11 @@
 	var/list/asay_information = list()
 	asay_information["server_name"] = CONFIG_GET(string/cross_server_name) ? CONFIG_GET(string/cross_server_name) : station_name()
 	asay_information["expected_name"] = exp_name
+<<<<<<< HEAD
 	send2otherserver(html_decode(asay_information["server_name"]), message, "incoming_help_request", "all", additional_data = asay_information)
+=======
+	send2otherserver(source = html_decode(asay_information["server_name"]), msg = message, type = "incoming_help_request", additional_data = asay_information)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /datum/world_topic/incoming_help_request

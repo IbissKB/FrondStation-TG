@@ -116,6 +116,7 @@
 	draining = FALSE
 	essence_drained = 0
 
+<<<<<<< HEAD
 //Toggle night vision: lets the revenant toggle its night vision
 /datum/action/cooldown/spell/night_vision/revenant
 	name = "Toggle Darkvision"
@@ -126,6 +127,8 @@
 	button_icon_state = "r_nightvision"
 	toggle_span = "revennotice"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Transmit: the revemant's only direct way to communicate. Sends a single message silently to a single mob
 /datum/action/cooldown/spell/list_target/telepathy/revenant
 	name = "Revenant Transmit"

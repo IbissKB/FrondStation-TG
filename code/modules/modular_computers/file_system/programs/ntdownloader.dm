@@ -6,7 +6,10 @@
 	undeletable = TRUE
 	size = 4
 	requires_ntnet = TRUE
+<<<<<<< HEAD
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	available_on_ntnet = FALSE
 	ui_header = "downloader_finished.gif"
 	tgui_id = "NtosNetDownloader"
@@ -17,7 +20,10 @@
 	var/download_completion = FALSE //GQ of downloaded data.
 	var/download_netspeed = 0
 	var/downloaderror = ""
+<<<<<<< HEAD
 	var/emagged = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/main_repo
 	var/list/antag_repo
 
@@ -34,6 +40,7 @@
 	main_repo = SSmodular_computers.available_station_software
 	antag_repo = SSmodular_computers.available_antag_software
 
+<<<<<<< HEAD
 /datum/computer_file/program/ntnetdownload/run_emag()
 	if(emagged)
 		return FALSE
@@ -41,6 +48,8 @@
 	return TRUE
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/computer_file/program/ntnetdownload/proc/begin_file_download(filename)
 	if(downloaded_file)
 		return FALSE
@@ -51,7 +60,11 @@
 		return FALSE
 
 	// Attempting to download antag only program, but without having emagged/syndicate computer. No.
+<<<<<<< HEAD
 	if(PRG.available_on_syndinet && !emagged)
+=======
+	if(PRG.available_on_syndinet && !(computer.obj_flags & EMAGGED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	if(!computer || !computer.can_store_file(PRG))
@@ -90,7 +103,11 @@
 	download_completion = FALSE
 	ui_header = "downloader_finished.gif"
 
+<<<<<<< HEAD
 /datum/computer_file/program/ntnetdownload/process_tick(delta_time)
+=======
+/datum/computer_file/program/ntnetdownload/process_tick(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!downloaded_file)
 		return
 	if(download_completion >= downloaded_file.size)
@@ -107,10 +124,14 @@
 			download_netspeed = NTNETSPEED_ETHERNET
 	download_completion += download_netspeed
 
+<<<<<<< HEAD
 /datum/computer_file/program/ntnetdownload/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
+=======
+/datum/computer_file/program/ntnetdownload/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("PRG_downloadfile")
 			if(!downloaded_file)
@@ -126,7 +147,11 @@
 	return FALSE
 
 /datum/computer_file/program/ntnetdownload/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/access = computer.GetAccess()
 
 	data["downloading"] = !!downloaded_file
@@ -142,7 +167,11 @@
 
 	data["disk_size"] = computer.max_capacity
 	data["disk_used"] = computer.used_capacity
+<<<<<<< HEAD
 	data["emagged"] = emagged
+=======
+	data["emagged"] = (computer.obj_flags & EMAGGED)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/list/repo = antag_repo | main_repo
 	var/list/program_categories = list()
@@ -159,7 +188,11 @@
 			"installed" = !!computer.find_file_by_name(programs.filename),
 			"compatible" = check_compatibility(programs),
 			"size" = programs.size,
+<<<<<<< HEAD
 			"access" = emagged && programs.available_on_syndinet ? TRUE : programs.can_run(user,transfer = TRUE, access = access),
+=======
+			"access" = (computer.obj_flags & EMAGGED) && programs.available_on_syndinet ? TRUE : programs.can_run(user, transfer = TRUE, access = access),
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			"verifiedsource" = programs.available_on_ntnet,
 		))
 
@@ -174,6 +207,7 @@
 		return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 /datum/computer_file/program/ntnetdownload/kill_program(forced)
 	abort_file_download()
 	return ..()
@@ -198,3 +232,8 @@
 	. = ..()
 	main_repo = SSmodular_computers.available_antag_software
 	antag_repo = null
+=======
+/datum/computer_file/program/ntnetdownload/kill_program()
+	abort_file_download()
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

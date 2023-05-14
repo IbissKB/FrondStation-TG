@@ -130,7 +130,11 @@
 	icon_state = "clockwork_helmet_old"
 	clothing_flags = SNUG_FIT
 	flags_inv = HIDEEARS|HIDEHAIR
+<<<<<<< HEAD
 	armor = list(MELEE = 5, BULLET = 0, LASER = -5, ENERGY = -15, BOMB = 10, BIO = 0, FIRE = 20, ACID = 20)
+=======
+	armor_type = /datum/armor/costume_bronze
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/costume/fancy
 	name = "fancy hat"
@@ -161,6 +165,17 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	var/has_fov = TRUE
 
+<<<<<<< HEAD
+=======
+/datum/armor/costume_bronze
+	melee = 5
+	laser = -5
+	energy = -15
+	bomb = 10
+	fire = 20
+	acid = 20
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/costume/tv_head/Initialize(mapload)
 	. = ..()
 	if(has_fov)

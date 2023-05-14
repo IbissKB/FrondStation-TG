@@ -73,6 +73,10 @@
 	cooldown_time = 15 SECONDS
 	spell_requirements = NONE
 
+<<<<<<< HEAD
+=======
+	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	invocation_type = INVOCATION_NONE
 	antimagic_flags = NONE
 	aoe_radius = 2

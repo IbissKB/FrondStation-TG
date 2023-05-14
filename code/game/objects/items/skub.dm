@@ -1,7 +1,11 @@
 /obj/item/skub
 	desc = "It's skub."
 	name = "skub"
+<<<<<<< HEAD
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/objects.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "skub"
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb_continuous = list("skubs")

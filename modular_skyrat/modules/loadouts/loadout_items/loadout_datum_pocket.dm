@@ -8,6 +8,12 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 /datum/loadout_item/pocket_items
 	category = LOADOUT_ITEM_MISC
 
+<<<<<<< HEAD
+=======
+/datum/loadout_item/pocket_items/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // these go in the backpack
+	return FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // The wallet loadout item is special, and puts the player's ID and other small items into it on initialize (fancy!)
 /datum/loadout_item/pocket_items/wallet
 	name = "Wallet"
@@ -126,10 +132,13 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 	name = "Flask"
 	item_path = /obj/item/reagent_containers/cup/glass/flask
 
+<<<<<<< HEAD
 /datum/loadout_item/pocket_items/skub
 	name = "Skub"
 	item_path = /obj/item/skub
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/loadout_item/pocket_items/multipen
 	name = "Multicolored Pen"
 	item_path = /obj/item/pen/fourcolor
@@ -140,7 +149,11 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/pocket_items/modular_laptop
 	name = "Modular Laptop"
+<<<<<<< HEAD
 	item_path = /obj/item/modular_computer/laptop/preset/civilian
+=======
+	item_path = /obj/item/modular_computer/laptop/preset/civilian/closed
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/loadout_item/pocket_items/ringbox_gold
 	name = "Gold Ring Box"

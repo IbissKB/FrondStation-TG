@@ -106,8 +106,15 @@
 
 	// Paper guide
 	new /obj/item/paper/contractor_guide/midround(src)
+<<<<<<< HEAD
 	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
 	new /obj/item/lighter(src)
 	new /obj/item/jammer(src)
+=======
+	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
+	new /obj/item/jammer(src)
+	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
+	new /obj/item/lighter(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #undef SMALL_ITEM_AMOUNT

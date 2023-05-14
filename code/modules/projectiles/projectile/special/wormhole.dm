@@ -3,7 +3,10 @@
 	icon_state = "spark"
 	hitsound = SFX_SPARKS
 	damage = 0
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pass_flags = PASSGLASS | PASSTABLE | PASSGRILLE | PASSMOB
 	//Weakref to the thing that shot us
 	var/datum/weakref/gun

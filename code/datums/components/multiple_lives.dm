@@ -24,12 +24,20 @@
 
 /// Stops a dying station pet from overriding persistence data before we respawn it and thus causing issues.
 /datum/component/multiple_lives/proc/on_write_memory(mob/living/source, dead, gibbed)
+<<<<<<< HEAD
 	if(dead && !source.suiciding)
+=======
+	if(dead && !HAS_TRAIT(source, TRAIT_SUICIDED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return COMPONENT_DONT_WRITE_MEMORY
 
 /datum/component/multiple_lives/proc/respawn(mob/living/source, gibbed)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	if(source.suiciding) //Freed from this mortail coil.
+=======
+	if(HAS_TRAIT(source, TRAIT_SUICIDED)) //Freed from this mortail coil.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		qdel(src)
 		return
 	//Gives the old mob this trait in case it gets revived, so we won't end up eventually overriding data

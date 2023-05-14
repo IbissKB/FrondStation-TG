@@ -60,7 +60,11 @@
 	/// the modifier to resonance_damage; affected by the quick_burst_mod from the resonator
 	var/damage_multiplier = 1
 	/// the parent creator (user) of this field
+<<<<<<< HEAD
 	var/creator
+=======
+	var/mob/creator
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// the parent resonator of this field
 	var/obj/item/resonator/parent_resonator
 	/// whether the field is rupturing currently or not (to prevent recursion)
@@ -127,6 +131,10 @@
 	for(var/mob/living/attacked_living in src_turf)
 		if(creator)
 			log_combat(creator, attacked_living, "used a resonator field on", "resonator")
+<<<<<<< HEAD
+=======
+			SEND_SIGNAL(creator, COMSIG_LIVING_RESONATOR_BURST, creator, attacked_living)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(attacked_living, span_userdanger("[src] ruptured with you in it!"))
 		attacked_living.apply_damage(resonance_damage, BRUTE)
 		attacked_living.add_movespeed_modifier(/datum/movespeed_modifier/resonance)

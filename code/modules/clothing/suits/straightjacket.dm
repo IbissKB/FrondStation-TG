@@ -5,7 +5,17 @@
 	inhand_icon_state = "straight_jacket"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+<<<<<<< HEAD
 	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = 50
 	strip_delay = 60
 	breakouttime = 5 MINUTES
+=======
+	equip_delay_self = 50
+	strip_delay = 60
+	breakouttime = 5 MINUTES
+
+/obj/item/clothing/suit/jacket/straight_jacket/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_DANGEROUS_OBJECT, INNATE_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

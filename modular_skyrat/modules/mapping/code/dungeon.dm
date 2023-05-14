@@ -8,7 +8,11 @@
 	icon = 'modular_skyrat/modules/mapping/icons/unique/dungeon.dmi'
 	icon_state = "wall"
 	base_icon_state = "wall"
+<<<<<<< HEAD
 	explosion_block = INFINITY
+=======
+	explosive_resistance = INFINITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/closed/indestructible/dungeon/corner
 	icon_state = "wall-corner"
@@ -115,6 +119,10 @@
 	desc = "A brick that's stuck out of the wall. Huh."
 	icon = 'modular_skyrat/modules/mapping/icons/unique/dungeon.dmi'
 	icon_state = "doorctrl"
+<<<<<<< HEAD
+=======
+	light_mask = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	power_channel = AREA_USAGE_ENVIRON
 	use_power = NO_POWER_USE
 	idle_power_usage = 0

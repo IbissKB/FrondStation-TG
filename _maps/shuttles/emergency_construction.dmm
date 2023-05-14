@@ -15,7 +15,11 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/escape)
 "d" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 1
 	},

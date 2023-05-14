@@ -34,7 +34,11 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/djstation)
 "h" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/freezer,
 /area/ruin/space/djstation)
 "i" = (
@@ -55,7 +59,11 @@
 /turf/closed/wall,
 /area/ruin/space/djstation)
 "z" = (
+<<<<<<< HEAD
 /obj/machinery/oven,
+=======
+/obj/machinery/oven/range,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white,
 /area/ruin/space/djstation)
 "A" = (

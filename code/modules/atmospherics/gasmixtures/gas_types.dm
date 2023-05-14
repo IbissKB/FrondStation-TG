@@ -40,10 +40,17 @@
 /*||||||||||||||/----------\||||||||||||||*\
 ||||||||||||||||[GAS DATUMS]||||||||||||||||
 ||||||||||||||||\__________/||||||||||||||||
+<<<<<<< HEAD
 ||||These should never be instantiated. ||||
 ||||They exist only to make it easier   ||||
 ||||to add a new gas. They are accessed ||||
 ||||only by meta_gas_list().            ||||
+=======
+|||| These should never be instantiated. ||||
+|||| They exist only to make it easier   ||||
+|||| to add a new gas. They are accessed ||||
+|||| only by meta_gas_list().            ||||
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 \*||||||||||||||||||||||||||||||||||||||||*/
 
 //This is a plot created using the values for gas exports. Each gas has a value that works as it's kind of soft-cap, which limits you from making billions of credits per sale, based on the base_value variable on the gasses themselves. Most of these gasses as a result have a rather low value when sold, like nitrogen and oxygen at 1500 and 600 respectively at their maximum value. The
@@ -124,7 +131,10 @@
 	name = "Hyper-noblium"
 	gas_overlay = "freon"
 	moles_visible = MOLES_GAS_VISIBLE
+<<<<<<< HEAD
 	dangerous = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fusion_power = 10
 	rarity = 50
 	base_value = 2.5

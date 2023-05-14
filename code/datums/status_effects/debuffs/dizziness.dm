@@ -40,7 +40,12 @@
 	var/next_amount = max((amount - (dizziness_strength * time_between_ticks * 0.1)), 0)
 
 	// If we have a dizziness strength > 1, we will subtract ticks off of the total duration
+<<<<<<< HEAD
 	duration -= ((dizziness_strength - 1) * time_between_ticks)
+=======
+	if(remove_duration((dizziness_strength - 1) * time_between_ticks))
+		return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// Now we can do the actual dizzy effects.
 	// Don't bother animating if they're clientless.

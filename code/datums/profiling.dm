@@ -1,5 +1,9 @@
 //these are real globals so you can use profiling to profile early world init stuff.
+<<<<<<< HEAD
 GLOBAL_REAL_VAR(list/PROFILE_STORE)
+=======
+GLOBAL_REAL(PROFILE_STORE, /list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 GLOBAL_REAL_VAR(PROFILE_LINE)
 GLOBAL_REAL_VAR(PROFILE_FILE)
 GLOBAL_REAL_VAR(PROFILE_SLEEPCHECK)

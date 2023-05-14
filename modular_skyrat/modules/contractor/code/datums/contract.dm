@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #define RANSOM_LOWER 25
 #define RANSOM_UPPER 75
+=======
+#define RANSOM_LOWER 75
+#define RANSOM_UPPER 150
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define CONTRACTOR_RANSOM_CUT 0.35
 
 /datum/syndicate_contract
@@ -11,7 +16,11 @@
 	var/datum/objective/contract/contract = new()
 	/// Target's job
 	var/target_rank
+<<<<<<< HEAD
 	/// A number in multiples of 100, anywhere from 2500 credits to 7500, station cost when someone is kidnapped
+=======
+	/// A number in multiples of 100, anywhere from 7500 credits to 15000, station cost when someone is kidnapped
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/ransom = 0
 	/// TC payout size, will be small, medium, or large.
 	var/payout_type
@@ -30,12 +39,21 @@
 /datum/syndicate_contract/proc/generate(blacklist)
 	contract.find_target(null, blacklist)
 
+<<<<<<< HEAD
 	var/datum/data/record/record
 	if (contract.target)
 		record = find_record("name", contract.target.name, GLOB.data_core.general)
 
 	if (record)
 		target_rank = record.fields["rank"]
+=======
+	var/datum/record/crew/record
+	if (contract.target)
+		record = find_record(contract.target.name)
+
+	if (record)
+		target_rank = record.rank
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		target_rank = "Unknown"
 
@@ -160,6 +178,7 @@
 
 /// Called when person is finished shoving in, awards ransome money
 /datum/syndicate_contract/proc/finish_enter()
+<<<<<<< HEAD
 
 	// Pay contractor their portion of ransom
 	if(!(status == CONTRACT_STATUS_COMPLETE))
@@ -167,10 +186,27 @@
 	var/obj/item/card/id/owner_id = contract.owner.current?.get_idcard(TRUE)
 
 	if(owner_id?.registered_account)
+=======
+	// Pay contractor their portion of ransom
+	if(status != CONTRACT_STATUS_COMPLETE)
+		return
+
+	var/obj/item/card/id/owner_id = contract.owner.current?.get_idcard(TRUE)
+
+	if(owner_id?.registered_account.account_id) // why do we check for account id? because apparently unset agent IDs have existing bank accounts that can't be accessed. this is suboptimal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		owner_id.registered_account.adjust_money(ransom * CONTRACTOR_RANSOM_CUT)
 
 		owner_id.registered_account.bank_card_talk("We've processed the ransom, agent. Here's your cut - your balance is now \
 		[owner_id.registered_account.account_balance] credits.", TRUE)
+<<<<<<< HEAD
+=======
+	else
+		to_chat(contract.owner.current, span_notice("A briefcase appears at your feet!"))
+		var/obj/item/storage/secure/briefcase/case = new(get_turf(contract.owner.current))
+		for(var/i in 1 to (round((ransom * CONTRACTOR_RANSOM_CUT) / 1000))) // Gets slightly less/more but whatever
+			new /obj/item/stack/spacecash/c1000(case)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// They're off to holding - handle the return timer and give some text about what's going on.
 /datum/syndicate_contract/proc/handle_victim_experience(mob/living/target)
@@ -190,14 +226,38 @@
 
 	target.flash_act()
 	target.adjust_confusion(10 SECONDS)
+<<<<<<< HEAD
 	target.blur_eyes(5)
+=======
+	target.set_eye_blur_if_lower(10 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(target, span_warning("You feel strange..."))
 	addtimer(CALLBACK(src, PROC_REF(victim_stage_two), target), 6 SECONDS)
 
 /// Continued victim handling
 /datum/syndicate_contract/proc/victim_stage_two(mob/living/target)
+<<<<<<< HEAD
 	to_chat(target, span_warning("That pod did something to you..."))
 	target.set_dizzy(70 SECONDS)
+=======
+	var/list/parts_to_fuck_up = list(
+		BODY_ZONE_L_ARM,
+		BODY_ZONE_R_ARM,
+		BODY_ZONE_L_LEG,
+		BODY_ZONE_R_LEG,
+	)
+
+	to_chat(target, span_warning("That pod did something to you..."))
+	target.set_dizzy(70 SECONDS)
+
+	for(var/i in 1 to 2)
+		var/obj/item/bodypart/limb = target.get_bodypart(pick_n_take(parts_to_fuck_up))
+		var/datum/wound/blunt/severe/severe_wound_type = /datum/wound/blunt/severe
+		var/datum/wound/blunt/critical/critical_wound_type = /datum/wound/blunt/critical
+		limb.receive_damage(brute = WOUND_MINIMUM_DAMAGE, wound_bonus = rand(initial(severe_wound_type.threshold_minimum), initial(critical_wound_type.threshold_minimum) + 10))
+		target.update_damage_overlays()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	addtimer(CALLBACK(src, PROC_REF(victim_stage_three), target), 6 SECONDS)
 
 /// Continued victim handling, flashes them as well
@@ -205,12 +265,37 @@
 	to_chat(target, span_warning("Your head pounds... It feels like it's going to burst out your skull!"))
 	target.flash_act()
 	target.adjust_confusion(20 SECONDS)
+<<<<<<< HEAD
 	target.blur_eyes(3)
+=======
+	target.set_eye_blur_if_lower(6 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	addtimer(CALLBACK(src, PROC_REF(victim_stage_four), target), 3 SECONDS)
 
 /// Continued victim handling
 /datum/syndicate_contract/proc/victim_stage_four(mob/living/target)
 	to_chat(target, span_warning("Your head pounds..."))
+<<<<<<< HEAD
+=======
+
+	if(iscarbon(target))
+		var/mob/living/carbon/carbon_target = target
+		switch(rand(1, 100))
+			if(1 to 45)
+				carbon_target.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_SURGERY)
+
+			if(46 to 73)
+				carbon_target.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_SURGERY)
+				carbon_target.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_SURGERY)
+
+			if(74 to 94)
+				carbon_target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_SURGERY)
+
+			if(75 to 100)
+				carbon_target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_SURGERY)
+				carbon_target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_SURGERY)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	addtimer(CALLBACK(src, PROC_REF(victim_stage_five), target), 10 SECONDS)
 
 /// Continued victim handling, some unconsciousness
@@ -220,7 +305,11 @@
 	to_chat(target, span_hypnophrase(span_reallybig("A million voices echo in your head... <i>\"Your mind held many valuable secrets - \
 				we thank you for providing them. Your value is expended, and you will be ransomed back to your station. We always get paid, \
 				so it's only a matter of time before we ship you back...\"</i>")))
+<<<<<<< HEAD
 	target.blur_eyes(10)
+=======
+	target.set_eye_blur_if_lower(20 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.set_dizzy_if_lower(30 SECONDS)
 	target.adjust_confusion(20 SECONDS)
 
@@ -261,7 +350,11 @@
 		target.forceMove(return_pod)
 
 		target.flash_act()
+<<<<<<< HEAD
 		target.blur_eyes(30)
+=======
+		target.set_eye_blur_if_lower(60 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		target.set_dizzy_if_lower(70 SECONDS)
 		target.adjust_confusion(20 SECONDS)
 

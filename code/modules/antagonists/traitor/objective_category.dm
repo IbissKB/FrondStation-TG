@@ -48,7 +48,11 @@
 			var/list/result = filter_invalid_objective_list(value, progression_points)
 			if(!length(result))
 				continue
+<<<<<<< HEAD
 			filtered_objectives[value] = objectives[value]
+=======
+			filtered_objectives[result] = objectives[value]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			if(!objective_valid(value, progression_points))
 				continue

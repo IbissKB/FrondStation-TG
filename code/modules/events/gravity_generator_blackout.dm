@@ -4,8 +4,15 @@
 	weight = 30
 	category = EVENT_CATEGORY_ENGINEERING
 	description = "Turns off the gravity generator."
+<<<<<<< HEAD
 
 /datum/round_event_control/gravity_generator_blackout/can_spawn_event(players_amt)
+=======
+	min_wizard_trigger_potency = 0
+	max_wizard_trigger_potency = 4
+
+/datum/round_event_control/gravity_generator_blackout/can_spawn_event(players_amt, allow_magic = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return .

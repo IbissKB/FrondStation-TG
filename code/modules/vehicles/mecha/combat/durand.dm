@@ -6,7 +6,11 @@
 	movedelay = 4
 	max_integrity = 400
 	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_SECURITY)
+<<<<<<< HEAD
 	armor = list(MELEE = 40, BULLET = 35, LASER = 15, ENERGY = 10, BOMB = 20, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/mecha_durand
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_temperature = 30000
 	force = 40
 	destruction_sleep_duration = 40
@@ -20,6 +24,17 @@
 	)
 	var/obj/durand_shield/shield
 
+<<<<<<< HEAD
+=======
+/datum/armor/mecha_durand
+	melee = 40
+	bullet = 35
+	laser = 15
+	energy = 10
+	bomb = 20
+	fire = 100
+	acid = 100
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/vehicle/sealed/mecha/durand/Initialize(mapload)
 	. = ..()
@@ -104,9 +119,14 @@ Expects a turf. Returns true if the attack should be blocked, false if not.*/
 /obj/vehicle/sealed/mecha/durand/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, armor_penetration = 0)
 	if(defense_check(user.loc))
 		log_message("Attack absorbed by defense field. Attacker - [user].", LOG_MECHA, color="orange")
+<<<<<<< HEAD
 		shield.attack_generic(user, damage_amount, damage_type, damage_flag, sound_effect, armor_penetration)
 	else
 		. = ..()
+=======
+		return shield.attack_generic(user, damage_amount, damage_type, damage_flag, sound_effect, armor_penetration)
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/vehicle/sealed/mecha/durand/blob_act(obj/structure/blob/B)
 	if(defense_check(B.loc))
@@ -169,13 +189,21 @@ own integrity back to max. Shield is automatically dropped if we run out of powe
 /obj/durand_shield/Initialize(mapload, chassis, plane, layer, dir)
 	. = ..()
 	src.chassis = chassis
+<<<<<<< HEAD
 	src.layer = layer
 	SET_PLANE_EXPLICIT(src, plane, src)
+=======
+	src.layer = ABOVE_MOB_LAYER
+	SET_PLANE_IMPLICIT(src, plane)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	setDir(dir)
 	RegisterSignal(src, COMSIG_MECHA_ACTION_TRIGGER, PROC_REF(activate))
 	RegisterSignal(chassis, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, PROC_REF(shield_glide_size_update))
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/durand_shield/Destroy()
 	UnregisterSignal(src, COMSIG_MECHA_ACTION_TRIGGER)
 	if(chassis)
@@ -228,13 +256,21 @@ own integrity back to max. Shield is automatically dropped if we run out of powe
 		invisibility = 0
 		flick("shield_raise", src)
 		playsound(src, 'sound/mecha/mech_shield_raise.ogg', 50, FALSE)
+<<<<<<< HEAD
 		set_light(l_range = MINIMUM_USEFUL_LIGHT_RANGE , l_power = 5, l_color = "#00FFFF")
 		icon_state = "shield"
+=======
+		icon_state = "shield"
+		resetdir(chassis, dir, dir) // to set the plane for the shield properly when it's turned on
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		RegisterSignal(chassis, COMSIG_ATOM_DIR_CHANGE, PROC_REF(resetdir))
 	else
 		flick("shield_drop", src)
 		playsound(src, 'sound/mecha/mech_shield_drop.ogg', 50, FALSE)
+<<<<<<< HEAD
 		set_light(0)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		icon_state = "shield_null"
 		addtimer(CALLBACK(src, PROC_REF(make_invisible)), 1 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)
 		UnregisterSignal(chassis, COMSIG_ATOM_DIR_CHANGE)
@@ -253,6 +289,10 @@ own integrity back to max. Shield is automatically dropped if we run out of powe
 
 /obj/durand_shield/proc/resetdir(datum/source, olddir, newdir)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	setDir(newdir)
 
 /obj/durand_shield/take_damage()

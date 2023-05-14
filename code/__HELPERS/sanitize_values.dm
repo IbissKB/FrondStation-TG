@@ -9,7 +9,11 @@
 /proc/sanitize_float(number, min=0, max=1, accuracy=1, default=0)
 	if(isnum(number))
 		number = round(number, accuracy)
+<<<<<<< HEAD
 		if(min <= number && number <= max)
+=======
+		if(round(min, accuracy) <= number && number <= round(max, accuracy))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return number
 	return default
 

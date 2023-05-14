@@ -26,7 +26,11 @@ SUBSYSTEM_DEF(title)
 
 	for(var/S in provisional_title_screens)
 		var/list/L = splittext(S,"+")
+<<<<<<< HEAD
 		if((L.len == 1 && (L[1] != "exclude" && L[1] != "blank.png"))|| (L.len > 1 && ((use_rare_screens && lowertext(L[1]) == "rare") || (lowertext(L[1]) == lowertext(SSmapping.config.map_name)))))
+=======
+		if((L.len == 1 && (L[1] != "exclude" && L[1] != "blank.png")) || (L.len > 1 && ((use_rare_screens && lowertext(L[1]) == "rare") || (lowertext(L[1]) == lowertext(SSmapping.config.map_name)))))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			title_screens += S
 
 	if(length(title_screens))

@@ -14,6 +14,7 @@
 	desc = "Better keep this safe."
 	icon_state = "nucleardisk"
 	max_integrity = 250
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 100, ACID = 100)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	/// Whether we're a real nuke disk or not.
@@ -22,6 +23,17 @@
 	var/turf/last_secured_location
 	/// The last world time the disk moved.
 	var/last_disk_move
+=======
+	armor_type = /datum/armor/disk_nuclear
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	/// Whether we're a real nuke disk or not.
+	var/fake = FALSE
+
+/datum/armor/disk_nuclear
+	bomb = 30
+	fire = 100
+	acid = 100
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/disk/nuclear/Initialize(mapload)
 	. = ..()
@@ -29,6 +41,7 @@
 	AddComponent(/datum/component/stationloving, !fake)
 
 	if(!fake)
+<<<<<<< HEAD
 		SSpoints_of_interest.make_point_of_interest(src)
 		last_disk_move = world.time
 		START_PROCESSING(SSobj, src)
@@ -77,6 +90,41 @@
 		return FALSE
 
 	return TRUE
+=======
+		AddComponent(/datum/component/keep_me_secure, CALLBACK(src, PROC_REF(secured_process)), CALLBACK(src, PROC_REF(unsecured_process)))
+		SSpoints_of_interest.make_point_of_interest(src)
+	else
+		AddComponent(/datum/component/keep_me_secure)
+
+/obj/item/disk/nuclear/proc/secured_process(last_move)
+	var/turf/new_turf = get_turf(src)
+	var/datum/round_event_control/operative/loneop = locate(/datum/round_event_control/operative) in SSevents.control
+	if(istype(loneop) && loneop.occurrences < loneop.max_occurrences && prob(loneop.weight))
+		loneop.weight = max(loneop.weight - 1, 0)
+		if(loneop.weight % 5 == 0 && SSticker.totalPlayers > 1)
+			message_admins("[src] is secured (currently in [ADMIN_VERBOSEJMP(new_turf)]). The weight of Lone Operative is now [loneop.weight].")
+		log_game("[src] being secured has reduced the weight of the Lone Operative event to [loneop.weight].")
+
+/obj/item/disk/nuclear/proc/unsecured_process(last_move)
+	var/turf/new_turf = get_turf(src)
+	/// How comfy is our disk?
+	var/disk_comfort_level = 0
+
+	//Go through and check for items that make disk comfy
+	for(var/obj/comfort_item in loc)
+		if(istype(comfort_item, /obj/item/bedsheet) || istype(comfort_item, /obj/structure/bed))
+			disk_comfort_level++
+
+	if(last_move < world.time - 500 SECONDS && prob((world.time - 500 SECONDS - last_move)*0.0001))
+		var/datum/round_event_control/operative/loneop = locate(/datum/round_event_control/operative) in SSevents.control
+		if(istype(loneop) && loneop.occurrences < loneop.max_occurrences)
+			loneop.weight += 1
+			if(loneop.weight % 5 == 0 && SSticker.totalPlayers > 1)
+				if(disk_comfort_level >= 2)
+					visible_message(span_notice("[src] sleeps soundly. Sleep tight, disky."))
+				message_admins("[src] is unsecured in [ADMIN_VERBOSEJMP(new_turf)]. The weight of Lone Operative is now [loneop.weight].")
+			log_game("[src] was left unsecured in [loc_name(new_turf)]. Weight of the Lone Operative event increased to [loneop.weight].")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/disk/nuclear/examine(mob/user)
 	. = ..()

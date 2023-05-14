@@ -26,5 +26,12 @@
 	juice_results = list(/datum/reagent/consumable/aloejuice = 0)
 	distill_reagent = /datum/reagent/consumable/ethanol/tequila
 
+<<<<<<< HEAD
 /obj/item/food/grown/aloe/make_microwavable()
+=======
+/obj/item/food/grown/aloe/make_bakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/stack/medical/aloe/fresh, rand(15 SECONDS, 20 SECONDS), TRUE, TRUE)
+
+/obj/item/food/grown/aloe/make_microwaveable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/microwavable, /obj/item/stack/medical/aloe/fresh)

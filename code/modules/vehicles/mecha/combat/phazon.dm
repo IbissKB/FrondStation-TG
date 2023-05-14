@@ -6,7 +6,11 @@
 	movedelay = 2
 	step_energy_drain = 3
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/mecha_phazon
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	max_temperature = 25000
 	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_SECURITY)
 	destruction_sleep_duration = 40
@@ -21,6 +25,18 @@
 	)
 	phase_state = "phazon-phase"
 
+<<<<<<< HEAD
+=======
+/datum/armor/mecha_phazon
+	melee = 30
+	bullet = 30
+	laser = 30
+	energy = 30
+	bomb = 30
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/mecha/phazon/generate_actions()
 	. = ..()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_toggle_phasing)

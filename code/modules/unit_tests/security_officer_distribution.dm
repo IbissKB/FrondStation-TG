@@ -108,3 +108,7 @@
 	test("a", list("a", "a", "b", "b", "c", "c", "d", "d"), "a")
 
 #undef SECURITY_OFFICER_DEPARTMENTS
+<<<<<<< HEAD
+=======
+#undef SECURITY_OFFICER_DEPARTMENTS_TO_NAMES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

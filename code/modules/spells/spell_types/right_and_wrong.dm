@@ -47,7 +47,11 @@ GLOBAL_LIST_INIT(summoned_guns, list(
 	/obj/item/gun/ballistic/shotgun/bulldog,
 	/obj/item/gun/ballistic/revolver/grenadelauncher,
 	/obj/item/gun/ballistic/revolver/golden,
+<<<<<<< HEAD
 	/obj/item/gun/ballistic/automatic/sniper_rifle,
+=======
+	/obj/item/gun/ballistic/rifle/sniper_rifle,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/obj/item/gun/ballistic/rocketlauncher,
 	/obj/item/gun/medbeam,
 	/obj/item/gun/energy/laser/scatter,
@@ -67,6 +71,10 @@ GLOBAL_LIST_INIT(summoned_magic, list(
 	/obj/item/book/granter/action/spell/barnyard,
 	/obj/item/book/granter/action/spell/charge,
 	/obj/item/book/granter/action/spell/summonitem,
+<<<<<<< HEAD
+=======
+	/obj/item/book/granter/action/spell/lightningbolt,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/obj/item/gun/magic/wand/nothing,
 	/obj/item/gun/magic/wand/death,
 	/obj/item/gun/magic/wand/resurrection,
@@ -167,7 +175,11 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 		else
 			message_admins("Summon Ghosts was triggered!")
 			log_game("Summon Ghosts was triggered!")
+<<<<<<< HEAD
 		ghost_event.runEvent()
+=======
+		ghost_event.run_event(event_cause = "a wizard's incantation")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		stack_trace("Unable to run summon ghosts, due to being unable to locate the associated event.")
 		if(user)

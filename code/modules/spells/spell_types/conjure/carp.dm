@@ -10,4 +10,8 @@
 	invocation_type = INVOCATION_SHOUT
 
 	summon_radius = 1
+<<<<<<< HEAD
 	summon_type = list(/mob/living/simple_animal/hostile/carp)
+=======
+	summon_type = list(/mob/living/basic/carp)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

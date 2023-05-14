@@ -39,3 +39,10 @@
 	smoothing_iterations = 50
 	birth_limit = 4
 	death_limit = 3
+<<<<<<< HEAD
+=======
+
+/datum/map_generator/cave_generator/lavaland/ruin_version
+	weighted_open_turf_types = list(/turf/open/misc/asteroid/basalt/lava_land_surface/no_ruins = 1)
+	weighted_closed_turf_types = list(/turf/closed/mineral/random/volcanic/do_not_chasm = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

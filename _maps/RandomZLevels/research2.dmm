@@ -26,6 +26,7 @@
 	dir = 8
 	},
 /mob/living/carbon/human/species/monkey,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -40,6 +41,17 @@
 	layer = 2.9
 	},
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron/white,
+/area/awaymission/research/interior/genetics)
+"ag" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east{
+	layer = 2.9
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/window/right/directional/west{
 	dir = 1
 	},
@@ -71,9 +83,13 @@
 	dir = 8
 	},
 /mob/living/carbon/human/species/monkey,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/genetics)
 "aj" = (
@@ -87,9 +103,13 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/genetics)
 "ak" = (
@@ -150,7 +170,11 @@
 /turf/open/floor/plating,
 /area/awaymission/research/interior/engineering)
 "aL" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/west,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/awaymission/research/interior/engineering)
@@ -231,12 +255,19 @@
 /turf/closed/wall/r_wall,
 /area/awaymission/research/interior/gateway)
 "bm" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc/highcap/ten_k{
 	auto_name = 1;
 	dir = 4;
 	name = "Engineering APC";
 	pixel_x = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/east{
+	auto_name = 1
+	},
+/obj/effect/mapping_helpers/apc/cell_10k,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/research/interior/engineering)
@@ -350,7 +381,11 @@
 /obj/machinery/door/airlock/engineering/glass/critical{
 	heat_proof = 1;
 	name = "Supermatter Chamber";
+<<<<<<< HEAD
 	req_one_access_txt = "10;24"
+=======
+	req_one_access = list("engineering","atmospherics")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/engine,
 /area/awaymission/research/interior/engineering)
@@ -463,11 +498,16 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/gateway)
 "cb" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc/highcap/ten_k{
 	dir = 4;
 	name = "Gateway APC";
 	pixel_x = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/apc/cell_10k,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/gateway)
@@ -484,12 +524,20 @@
 /area/awaymission/research/interior/maint)
 "ci" = (
 /obj/machinery/light/directional/west,
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/emcloset,
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/gateway)
 "cj" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/awaystart,
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/gateway)
@@ -503,7 +551,11 @@
 /area/awaymission/research/interior/gateway)
 "cl" = (
 /obj/machinery/light/directional/east,
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/gateway)
@@ -666,11 +718,16 @@
 /turf/open/floor/plating,
 /area/awaymission/research/interior/gateway)
 "cS" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;
 	name = "Genetics APC";
 	pixel_x = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/apc/cell_5k,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/research/interior/genetics)
@@ -813,9 +870,13 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/genetics)
 "di" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -867,9 +928,13 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/genetics)
 "dr" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -893,9 +958,13 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/genetics)
 "dv" = (
@@ -1054,9 +1123,13 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/genetics)
 "dQ" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -1473,11 +1546,16 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior)
 "fa" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;
 	name = "Cryostatis APC";
 	pixel_x = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/apc/cell_5k,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -1502,6 +1580,7 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/cryo)
 "fc" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
 	layer = 2.9
@@ -1512,6 +1591,13 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+	layer = 2.9
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/window/right/directional/west{
 	dir = 2
 	},
@@ -1658,11 +1744,16 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/secure)
 "fy" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc/highcap/ten_k{
 	dir = 4;
 	name = "Vault APC";
 	pixel_x = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/apc/cell_10k,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/secure)
@@ -1948,7 +2039,11 @@
 "gn" = (
 /obj/machinery/door/airlock/research{
 	name = "Secure Storage";
+<<<<<<< HEAD
 	req_access_txt = "9,63"
+=======
+	req_access = list("genetics","brig_entrance")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -2621,9 +2716,13 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/research/interior/genetics)
 "hW" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -2666,9 +2765,13 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior)
 "ib" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -2855,11 +2958,15 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior)
 "iF" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Security APC";
 	pixel_y = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/research/interior/security)
@@ -3411,11 +3518,16 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/medbay)
 "kp" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;
 	name = "Dorms APC";
 	pixel_x = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/apc/cell_5k,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/research/interior/dorm)
@@ -3600,7 +3712,11 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior/medbay)
 "lc" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/wardrobe/mixed,
 /turf/open/floor/iron{
 	dir = 4
@@ -3803,8 +3919,12 @@
 /turf/open/floor/wood,
 /area/awaymission/research/interior/dorm)
 "lN" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /obj/machinery/airalarm/directional/east{
@@ -3864,11 +3984,15 @@
 	},
 /area/awaymission/research/interior/dorm)
 "lW" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Medbay APC";
 	pixel_y = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/research/interior/medbay)
@@ -3884,11 +4008,15 @@
 	},
 /area/awaymission/research/interior/dorm)
 "lZ" = (
+<<<<<<< HEAD
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Escape APC";
 	pixel_y = 25
 	},
+=======
+/obj/machinery/power/apc/auto_name/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/research/interior/escapepods)
@@ -4140,27 +4268,42 @@
 /area/awaymission/research/interior/escapepods)
 "mK" = (
 /obj/structure/flora/bush/flowers_br,
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/grass,
 /area/awaymission/research/interior/escapepods)
 "mL" = (
 /obj/structure/flora/bush/ferny,
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/grass,
 /area/awaymission/research/interior/escapepods)
 "mM" = (
 /obj/structure/flora/bush/grassy,
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = 2.9
 	},
 /turf/open/floor/grass,
@@ -4276,7 +4419,11 @@
 /turf/open/floor/mineral/plasma,
 /area/space/nearstation)
 "nc" = (
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/netherworld,
+=======
+/mob/living/basic/creature,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/plasma,
 /area/space/nearstation)
 "nd" = (
@@ -4327,7 +4474,11 @@
 /turf/open/floor/iron/white,
 /area/awaymission/research/interior)
 "sM" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/landmark/awaystart,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -4409,10 +4560,15 @@
 /turf/open/floor/plating,
 /area/awaymission/research/interior/escapepods)
 "yr" = (
+<<<<<<< HEAD
 /obj/machinery/airalarm/engine{
 	pixel_y = 23;
 	dir = 1
 	},
+=======
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/engine_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/engine,
 /area/awaymission/research/interior/engineering)
 "zn" = (
@@ -4686,7 +4842,11 @@
 /obj/machinery/door/airlock/engineering/glass/critical{
 	heat_proof = 1;
 	name = "Supermatter Chamber";
+<<<<<<< HEAD
 	req_one_access_txt = "10;24"
+=======
+	req_one_access = list("engineering","atmospherics")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/engine,
 /area/awaymission/research/interior/engineering)

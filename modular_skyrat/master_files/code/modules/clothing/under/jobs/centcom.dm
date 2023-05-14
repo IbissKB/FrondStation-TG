@@ -38,4 +38,8 @@
 /*
 *	MISC
 */
+<<<<<<< HEAD
 //ORION TODO: pizza and other misc ERTs in this file too? see /obj/item/clothing/under/pizza (also repath this)
+=======
+// pizza and other misc ERTs in this file too?
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

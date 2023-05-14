@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #define ADMIN_CANCEL_MIDROUND_TIME (60 SECONDS) //SKYRAT EDIT - ORIGINAL 10 SECONDS
+=======
+#define ADMIN_CANCEL_MIDROUND_TIME (180 SECONDS) //SKYRAT EDIT - ORIGINAL 10 SECONDS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// From a list of rulesets, returns one based on weight and availability.
 /// Mutates the list that is passed into it to remove invalid rules.
@@ -52,13 +56,40 @@
 		ADMIN_CANCEL_MIDROUND_TIME, \
 		TIMER_STOPPABLE, \
 	)
+<<<<<<< HEAD
 
+=======
+	// SKYRAT EDIT REMOVAL BEGIN - Event notification
+	/**
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	log_dynamic("[rule] ruleset executing...")
 	message_admins("DYNAMIC: Executing midround ruleset [rule] in [DisplayTimeText(ADMIN_CANCEL_MIDROUND_TIME)]. \
 		<a href='?src=[REF(src)];cancelmidround=[midround_injection_timer_id]'>CANCEL</a> | \
 		<a href='?src=[REF(src)];differentmidround=[midround_injection_timer_id]'>SOMETHING ELSE</a>")
 
 	return rule
+<<<<<<< HEAD
+=======
+	*/
+	// SKYRAT EDIT REMOVAL END - Event notification
+
+	// SKYRAT EDIT ADDITION BEGIN - Event notification
+	message_admins("<font color='[COLOR_ADMIN_PINK]'>Dynamic Event triggering in [DisplayTimeText(ADMIN_CANCEL_MIDROUND_TIME)]: [rule]. (\
+		<a href='?src=[REF(src)];cancelmidround=[midround_injection_timer_id]'>CANCEL</a> | \
+		<a href='?src=[REF(src)];differentmidround=[midround_injection_timer_id]'>SOMETHING ELSE</a>)</font>")
+	for(var/client/staff as anything in GLOB.admins)
+		if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
+			SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
+	sleep(ADMIN_CANCEL_MIDROUND_TIME * 0.5)
+
+	if(!midround_injection_timer_id == null)
+		message_admins("<font color='[COLOR_ADMIN_PINK]'>Dynamic Event triggering in [DisplayTimeText(ADMIN_CANCEL_MIDROUND_TIME * 0.5)]: [rule]. (\
+		<a href='?src=[REF(src)];cancelmidround=[midround_injection_timer_id]'>CANCEL</a> | \
+		<a href='?src=[REF(src)];differentmidround=[midround_injection_timer_id]'>SOMETHING ELSE</a>)</font>")
+
+	return rule
+	// SKYRAT EDIT ADDITION END - Event notification
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Fired after admins do not cancel a midround injection.
 /datum/game_mode/dynamic/proc/execute_midround_rule(datum/dynamic_ruleset/rule)

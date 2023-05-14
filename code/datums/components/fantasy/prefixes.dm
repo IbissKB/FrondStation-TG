@@ -107,6 +107,10 @@
 	master.RemoveElement(/datum/element/beauty, min(comp.quality, -1) * 250)
 
 /datum/fantasy_affix/venomous
+<<<<<<< HEAD
+=======
+	name = "<poisonname>-laced (picked from small pool of toxins)"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	placement = AFFIX_PREFIX
 	alignment = AFFIX_GOOD
 

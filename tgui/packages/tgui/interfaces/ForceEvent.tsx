@@ -1,4 +1,8 @@
 import { paginate } from 'common/collections';
+<<<<<<< HEAD
+=======
+import { BooleanLike } from 'common/react';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { useBackend, useLocalState } from '../backend';
 import { Stack, Button, Icon, Input, Section, Tabs } from '../components';
 import { Window } from '../layouts';
@@ -48,6 +52,10 @@ type Event = {
   description: string;
   type: string;
   category: string;
+<<<<<<< HEAD
+=======
+  has_customization: BooleanLike;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 type Category = {
@@ -123,7 +131,11 @@ export const EventSection = (props, context) => {
   const preparedEvents = paginateEvents(
     events.filter((event) => {
       // remove events not in the category you're looking at
+<<<<<<< HEAD
       if (event.category !== category.name) {
+=======
+      if (!searchQuery && event.category !== category.name) {
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         return false;
       }
       // remove events not being searched for, if a search is active
@@ -135,12 +147,19 @@ export const EventSection = (props, context) => {
     EVENT_PAGE_ITEMS
   );
 
+<<<<<<< HEAD
   return (
     <Section
       scrollable
       fill
       title={category.name + ' Events'}
       buttons={<PanelOptions />}>
+=======
+  const sectionTitle = searchQuery ? 'Searching...' : category.name + ' Events';
+
+  return (
+    <Section scrollable fill title={sectionTitle} buttons={<PanelOptions />}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <Stack vertical>
         {preparedEvents.map((eventPage, i) => (
           <Stack.Item key={i}>
@@ -148,8 +167,21 @@ export const EventSection = (props, context) => {
               {eventPage.map((event) => (
                 <Stack.Item grow key={event.type}>
                   <Button
+<<<<<<< HEAD
                     tooltip={event.description}
                     fluid
+=======
+                    className="Button__rightIcon"
+                    tooltip={
+                      event.description +
+                      (event.has_customization
+                        ? ' Includes admin customization.'
+                        : '')
+                    }
+                    fluid
+                    icon={event.has_customization ? 'gear' : undefined}
+                    iconPosition="right"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                     onClick={() =>
                       act('forceevent', {
                         type: event.type,

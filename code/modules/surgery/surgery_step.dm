@@ -15,7 +15,11 @@
 
 /datum/surgery_step/proc/try_op(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	var/success = FALSE
+<<<<<<< HEAD
 	if(surgery.organ_to_manipulate && !target.getorganslot(surgery.organ_to_manipulate))
+=======
+	if(surgery.organ_to_manipulate && !target.get_organ_slot(surgery.organ_to_manipulate))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_warning("[target] seems to be missing the organ necessary to complete this surgery!"))
 		return FALSE
 
@@ -65,6 +69,11 @@
 
 #define SURGERY_SLOWDOWN_CAP_MULTIPLIER 2 //increase to make surgery slower but fail less, and decrease to make surgery faster but fail more
 #define SURGERY_SPEEDUP_AREA 0.5 // Skyrat Edit Addition - reward for doing surgery in surgery
+<<<<<<< HEAD
+=======
+///Modifier given to surgery speed for dissected bodies.
+#define SURGERY_DISSECTION_MODIFIER 1.2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/surgery_step/proc/initiate(mob/living/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	// Only followers of Asclepius have the ability to use Healing Touch and perform miracle feats of surgery.
@@ -84,6 +93,12 @@
 	if(tool)
 		speed_mod = tool.toolspeed
 
+<<<<<<< HEAD
+=======
+	if(HAS_TRAIT(target, TRAIT_DISSECTED))
+		speed_mod /= SURGERY_DISSECTION_MODIFIER
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/implement_speed_mod = 1
 	if(implement_type) //this means it isn't a require hand or any item step.
 		implement_speed_mod = implements[implement_type] / 100.0
@@ -140,6 +155,11 @@
 	surgery.step_in_progress = FALSE
 	return advance
 
+<<<<<<< HEAD
+=======
+#undef SURGERY_SPEEDUP_AREA // SKYRAT EDIT ADDITION
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
 		user,
@@ -267,3 +287,9 @@
 	if(prob(30))
 		target.emote("scream")
 //SKYRAT EDIT END
+<<<<<<< HEAD
+=======
+
+#undef SURGERY_DISSECTION_MODIFIER
+#undef SURGERY_SLOWDOWN_CAP_MULTIPLIER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

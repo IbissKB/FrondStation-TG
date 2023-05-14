@@ -18,7 +18,11 @@
 		story_list = generate_stories()
 
 /datum/computer_file/program/news_archive/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return data
 
 /datum/computer_file/program/news_archive/ui_static_data(mob/user)

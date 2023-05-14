@@ -28,9 +28,15 @@
 	// Always consume at least 2kJ of energy if we have at least that much stored
 	return min(stored_energy, (stored_energy*ACCUMULATOR_STORED_OUTPUT)+joules_to_energy(2000))
 
+<<<<<<< HEAD
 /obj/machinery/power/energy_accumulator/process(delta_time)
 	// NB: stored_energy is stored in energy units, a unit of measurement which already includes SSmachines.wait
 	// Do not multiply by delta_time here. It is already accounted for by being energy units.
+=======
+/obj/machinery/power/energy_accumulator/process(seconds_per_tick)
+	// NB: stored_energy is stored in energy units, a unit of measurement which already includes SSmachines.wait
+	// Do not multiply by seconds_per_tick here. It is already accounted for by being energy units.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/power_produced = get_power_output()
 	release_energy(power_produced)
 	stored_energy -= power_produced

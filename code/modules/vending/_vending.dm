@@ -59,10 +59,17 @@
 	verb_exclaim = "beeps"
 	max_integrity = 300
 	integrity_failure = 0.33
+<<<<<<< HEAD
 	armor = list(MELEE = 20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 70)
 	circuit = /obj/item/circuitboard/machine/vendor
 	payment_department = ACCOUNT_SRV
 	light_power = 0.5
+=======
+	armor_type = /datum/armor/machinery_vending
+	circuit = /obj/item/circuitboard/machine/vendor
+	payment_department = ACCOUNT_SRV
+	light_power = 0.7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 
 	/// Is the machine active (No sales pitches if off)!
@@ -169,10 +176,13 @@
 	///A variable to change on a per instance basis on the map that allows the instance to force cost and ID requirements
 	var/onstation_override = FALSE //change this on the object on the map to override the onstation check. DO NOT APPLY THIS GLOBALLY.
 
+<<<<<<< HEAD
 	///ID's that can load this vending machine wtih refills
 	var/list/canload_access_list
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/vending_machine_input = list()
 	///Display header on the input view
 	var/input_display_header = "Custom Vendor"
@@ -199,6 +209,14 @@
  * * FALSE - if the machine was maploaded on a zlevel that doesn't pass the is_station_level check
  * * TRUE - all other cases
  */
+<<<<<<< HEAD
+=======
+/datum/armor/machinery_vending
+	melee = 20
+	fire = 50
+	acid = 70
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/vending/Initialize(mapload)
 	var/build_inv = FALSE
 	if(!refill_canister)
@@ -329,7 +347,10 @@
 			if (dump_amount >= 16)
 				return
 
+<<<<<<< HEAD
 GLOBAL_LIST_EMPTY(vending_products)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Build the inventory of the vending machine from it's product and record lists
  *
@@ -357,7 +378,10 @@ GLOBAL_LIST_EMPTY(vending_products)
 
 		var/obj/item/temp = typepath
 		var/datum/data/vending_product/R = new /datum/data/vending_product()
+<<<<<<< HEAD
 		GLOB.vending_products[typepath] = 1
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		R.name = initial(temp.name)
 		R.product_path = typepath
 		if(!start_empty)
@@ -616,6 +640,14 @@ GLOBAL_LIST_EMPTY(vending_products)
 	else
 		. = ..()
 		if(tiltable && !tilted && I.force)
+<<<<<<< HEAD
+=======
+			if(isclosedturf(get_turf(user))) //If the attacker is inside of a wall, immediately fall in the other direction, with no chance for goodies.
+				var/opposite_direction = REVERSE_DIR(get_dir(src, user))
+				var/target = get_step(src, opposite_direction)
+				tilt(get_turf(target))
+				return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			switch(rand(1, 100))
 				if(1 to 5)
 					freebie(user, 3)
@@ -720,7 +752,11 @@ GLOBAL_LIST_EMPTY(vending_products)
 							var/obj/item/bodypart/squish_part = i
 							if(IS_ORGANIC_LIMB(squish_part))
 								var/type_wound = pick(list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate))
+<<<<<<< HEAD
 								squish_part.force_wound_upwards(type_wound)
+=======
+								squish_part.force_wound_upwards(type_wound, wound_source = "crushing by vending machine")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 							else
 								squish_part.receive_damage(brute=30)
 						C.visible_message(span_danger("[C]'s body is maimed underneath the mass of [src]!"), \
@@ -755,7 +791,11 @@ GLOBAL_LIST_EMPTY(vending_products)
 			. = TRUE
 			playsound(L, 'sound/effects/blobattack.ogg', 40, TRUE)
 			playsound(L, 'sound/effects/splat.ogg', 50, TRUE)
+<<<<<<< HEAD
 			add_memory_in_range(L, 7, MEMORY_VENDING_CRUSHED, list(DETAIL_PROTAGONIST = L, DETAIL_WHAT_BY = src), story_value = STORY_VALUE_AMAZING, memory_flags = MEMORY_CHECK_BLINDNESS, protagonist_memory_flags = MEMORY_SKIP_UNCONSCIOUS)
+=======
+			add_memory_in_range(L, 7, /datum/memory/witness_vendor_crush, protagonist = L, antagonist = src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/matrix/M = matrix()
 	M.Turn(pick(90, 270))
@@ -803,12 +843,17 @@ GLOBAL_LIST_EMPTY(vending_products)
 	. = ..()
 
 /**
+<<<<<<< HEAD
  * Is the passed in user allowed to load this vending machines compartments
+=======
+ * Is the passed in user allowed to load this vending machines compartments? This only is ran if we are using a /obj/item/storage/bag to load the vending machine, and not a dedicated restocker.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  *
  * Arguments:
  * * user - mob that is doing the loading of the vending machine
  */
 /obj/machinery/vending/proc/compartmentLoadAccessCheck(mob/user)
+<<<<<<< HEAD
 	if(!canload_access_list)
 		return TRUE
 	else
@@ -827,6 +872,13 @@ GLOBAL_LIST_EMPTY(vending_products)
 		else
 			to_chat(user, span_warning("[src]'s input compartment blinks red: Access denied."))
 			return FALSE
+=======
+	if(!req_access || allowed(user) || (obj_flags & EMAGGED) || !scan_id)
+		return TRUE
+
+	to_chat(user, span_warning("[src]'s input compartment blinks red: Access denied."))
+	return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/vending/exchange_parts(mob/user, obj/item/storage/part_replacer/W)
 	if(!istype(W))
@@ -1075,7 +1127,11 @@ GLOBAL_LIST_EMPTY(vending_products)
 			speak("You are not of legal age to purchase [R.name].")
 			if(!(usr in GLOB.narcd_underages))
 				if (isnull(sec_radio))
+<<<<<<< HEAD
 					sec_radio = new
+=======
+					sec_radio = new (src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 					sec_radio.set_listening(FALSE)
 				sec_radio.set_frequency(FREQ_SECURITY)
 				sec_radio.talk_into(src, "SECURITY ALERT: [usr] recorded attempting to purchase [R.name] in [get_area(src)]. Please watch for substance abuse.", FREQ_SECURITY) // SKYRAT EDIT CHANGE
@@ -1128,7 +1184,11 @@ GLOBAL_LIST_EMPTY(vending_products)
 	SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[R.product_path]"))
 	vend_ready = TRUE
 
+<<<<<<< HEAD
 /obj/machinery/vending/process(delta_time)
+=======
+/obj/machinery/vending/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(machine_stat & (BROKEN|NOPOWER))
 		return PROCESS_KILL
 	if(!active)
@@ -1138,12 +1198,20 @@ GLOBAL_LIST_EMPTY(vending_products)
 		seconds_electrified--
 
 	//Pitch to the people!  Really sell it!
+<<<<<<< HEAD
 	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
+=======
+	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && SPT_PROB(2.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/slogan = pick(slogan_list)
 		speak(slogan)
 		last_slogan = world.time
 
+<<<<<<< HEAD
 	if(shoot_inventory && DT_PROB(shoot_inventory_chance, delta_time))
+=======
+	if(shoot_inventory && SPT_PROB(shoot_inventory_chance, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		throw_item()
 /**
  * Speak the given message verbally
@@ -1442,12 +1510,20 @@ GLOBAL_LIST_EMPTY(vending_products)
 	max_integrity = 700
 	max_loaded_items = 40
 	light_mask = "greed-light-mask"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/gold = MINERAL_MATERIAL_AMOUNT * 5)
+=======
+	custom_materials = list(/datum/material/gold = SHEET_MATERIAL_AMOUNT * 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/vending/custom/greed/Initialize(mapload)
 	. = ..()
 	//starts in a state where you can move it
+<<<<<<< HEAD
 	panel_open = TRUE
+=======
+	set_panel_open(TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	set_anchored(FALSE)
 	add_overlay(panel_type)
 	//and references the deity
@@ -1456,3 +1532,8 @@ GLOBAL_LIST_EMPTY(vending_products)
 	slogan_list = list("[GLOB.deity] says: It's your divine right to buy!")
 	add_filter("vending_outline", 9, list("type" = "outline", "color" = COLOR_VERY_SOFT_YELLOW))
 	add_filter("vending_rays", 10, list("type" = "rays", "size" = 35, "color" = COLOR_VIVID_YELLOW))
+<<<<<<< HEAD
+=======
+
+#undef MAX_VENDING_INPUT_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

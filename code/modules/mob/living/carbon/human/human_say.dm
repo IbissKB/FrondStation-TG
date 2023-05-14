@@ -10,7 +10,11 @@
 	return ..()
 
 /mob/living/carbon/human/say_mod(input, list/message_mods = list())
+<<<<<<< HEAD
 	var/obj/item/organ/internal/tongue/tongue = getorganslot(ORGAN_SLOT_TONGUE)
+=======
+	var/obj/item/organ/internal/tongue/tongue = get_organ_slot(ORGAN_SLOT_TONGUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!tongue)
 		if(HAS_TRAIT(src, TRAIT_SIGN_LANG))
 			verb_say = "signs"

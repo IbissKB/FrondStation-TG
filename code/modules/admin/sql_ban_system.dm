@@ -1125,4 +1125,9 @@
 			if(kick_banned_players && (!is_admin || (is_admin && applies_to_admins)))
 				qdel(other_player_client)
 
+<<<<<<< HEAD
+=======
+#undef MAX_ADMINBANS_PER_ADMIN
+#undef MAX_ADMINBANS_PER_HEADMIN
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #undef MAX_REASON_LENGTH

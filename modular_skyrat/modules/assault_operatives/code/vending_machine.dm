@@ -64,7 +64,10 @@
 		var/atom/temp = typepath
 		var/datum/data/vending_product/vending_product = new /datum/data/vending_product()
 
+<<<<<<< HEAD
 		GLOB.vending_products[typepath] = 1
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		vending_product.name = initial(temp.name)
 		vending_product.product_path = typepath
 		if(!start_empty)

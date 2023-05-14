@@ -268,7 +268,11 @@
 	SIGNAL_HANDLER
 	flick("[base_icon_state]_enabled", src)
 	set_button_status(TRUE)
+<<<<<<< HEAD
 	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enable_observing))
+=======
+	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /atom/movable/screen/lobby/button/settings
 	icon = 'icons/hud/lobby/bottom_buttons.dmi'

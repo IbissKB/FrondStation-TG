@@ -3,17 +3,27 @@
 	name = "moth wings"
 	desc = "Spread your wings and FLOOOOAAAAAT!"
 
+<<<<<<< HEAD
 	feature_key = "moth_wings"
 	preference = "feature_moth_wings"
 	layers = EXTERNAL_BEHIND | EXTERNAL_FRONT
 
 	//dna_block = DNA_MOTH_WINGS_BLOCK // SKYRAT EDIT REMOVAL
 
+=======
+	preference = "feature_moth_wings"
+
+	//dna_block = DNA_MOTH_WINGS_BLOCK // SKYRAT EDIT REMOVAL
+
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/moth
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///Are we burned?
 	var/burnt = FALSE
 	///Store our old datum here for if our burned wings are healed
 	var/original_sprite_datum
 
+<<<<<<< HEAD
 /obj/item/organ/external/wings/moth/get_global_feature_list()
 	return GLOB.sprite_accessories["wings"] //SKYRAT EDIT CHANGE
 
@@ -32,6 +42,16 @@
 /obj/item/organ/external/wings/moth/Remove(mob/living/carbon/organ_owner, special, moving)
 	. = ..()
 
+=======
+/obj/item/organ/external/wings/moth/on_insert(mob/living/carbon/receiver)
+	. = ..()
+	RegisterSignal(receiver, COMSIG_HUMAN_BURNING, PROC_REF(try_burn_wings))
+	RegisterSignal(receiver, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(heal_wings))
+	RegisterSignal(receiver, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(update_float_move))
+
+/obj/item/organ/external/wings/moth/on_remove(mob/living/carbon/organ_owner)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	UnregisterSignal(organ_owner, list(COMSIG_HUMAN_BURNING, COMSIG_LIVING_POST_FULLY_HEAL, COMSIG_MOVABLE_PRE_MOVE))
 	REMOVE_TRAIT(organ_owner, TRAIT_FREE_FLOAT_MOVEMENT, REF(src))
 
@@ -63,11 +83,18 @@
 
 ///burn the wings off
 /obj/item/organ/external/wings/moth/proc/burn_wings()
+<<<<<<< HEAD
 	burnt = TRUE
 
 	original_sprite_datum = sprite_datum
 	simple_change_sprite(/datum/sprite_accessory/moth_wings/burnt_off)
 
+=======
+	var/datum/bodypart_overlay/mutant/wings/moth/wings = bodypart_overlay
+	wings.burnt = TRUE
+	burnt = TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///heal our wings back up!!
 /obj/item/organ/external/wings/moth/proc/heal_wings(datum/source, heal_flags)
 	SIGNAL_HANDLER
@@ -76,5 +103,36 @@
 		return
 
 	if(heal_flags & (HEAL_LIMBS|HEAL_ORGANS))
+<<<<<<< HEAD
 		burnt = FALSE
 		simple_change_sprite(original_sprite_datum)
+=======
+		var/datum/bodypart_overlay/mutant/wings/moth/wings = bodypart_overlay
+		wings.burnt = FALSE
+		burnt = FALSE
+
+///Moth wing bodypart overlay, including burn functionality!
+/datum/bodypart_overlay/mutant/wings/moth
+	feature_key = "wings" // SKYRAT EDIT - Customization - ORIGINAL: feature_key = "moth_wings"
+	layers = EXTERNAL_BEHIND | EXTERNAL_FRONT
+	///Accessory datum of the burn sprite
+	var/datum/sprite_accessory/burn_datum = /datum/sprite_accessory/moth_wings/burnt_off
+	///Are we burned? If so we draw differently
+	var/burnt
+
+/datum/bodypart_overlay/mutant/wings/moth/New()
+	. = ..()
+
+	burn_datum = fetch_sprite_datum(burn_datum)
+
+/datum/bodypart_overlay/mutant/wings/moth/get_global_feature_list()
+	return GLOB.sprite_accessories["wings"] //SKYRAT EDIT - Customization - ORIGINAL: return GLOB.moth_wings_list
+
+/datum/bodypart_overlay/mutant/wings/moth/can_draw_on_bodypart(mob/living/carbon/human/human)
+	if(!(human.wear_suit?.flags_inv & HIDEMUTWINGS))
+		return TRUE
+	return FALSE
+
+/datum/bodypart_overlay/mutant/wings/moth/get_base_icon_state()
+	return burnt ? burn_datum.icon_state : sprite_datum.icon_state
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

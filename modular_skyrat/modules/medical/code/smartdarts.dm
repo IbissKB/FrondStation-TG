@@ -46,13 +46,23 @@
 	w_class = WEIGHT_CLASS_NORMAL //I might need to look into changing this later depending on feedback
 	icon = 'modular_skyrat/modules/medical/icons/obj/dartguns.dmi'
 	icon_state = "smartdartgun"
+<<<<<<< HEAD
 	has_gun_safety = TRUE
+=======
+	worn_icon_state = "medicalsyringegun"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	item_flags = null
 
 /obj/item/gun/syringe/smartdart/Initialize(mapload)
 	. = ..()
 	chambered = new /obj/item/ammo_casing/syringegun/dart(src)
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/syringe/smartdart/give_gun_safeties()
+	return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/syringe/smartdart/attackby(obj/item/container, mob/user, params, show_msg = TRUE)
 	if(istype(container, /obj/item/reagent_containers/syringe/smartdart))
 		..()

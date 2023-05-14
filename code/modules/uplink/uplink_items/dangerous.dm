@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // File organised based on progression
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //All bundles and telecrystals
 /datum/uplink_category/dangerous
 	name = "Conspicuous Weapons"
@@ -8,8 +11,11 @@
 /datum/uplink_item/dangerous
 	category = /datum/uplink_category/dangerous
 
+<<<<<<< HEAD
 // No progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/dangerous/foampistol
 	name = "Toy Pistol with Riot Darts"
 	desc = "An innocent-looking toy pistol designed to fire foam darts. Comes loaded with riot-grade \
@@ -19,8 +25,11 @@
 	surplus = 10
 	purchasable_from = ~UPLINK_NUKE_OPS
 
+<<<<<<< HEAD
 // Low progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/dangerous/pistol
 	name = "Makarov Pistol"
 	desc = "A small, easily concealable handgun that uses 9mm auto rounds in 8-round magazines and is compatible \
@@ -66,9 +75,12 @@
 	item = /obj/item/clothing/gloves/rapid
 	cost = 8
 
+<<<<<<< HEAD
 
 // Medium progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/dangerous/doublesword
 	name = "Double-Bladed Energy Sword"
 	desc = "The double-bladed energy sword does slightly more damage than a standard energy sword and will deflect \
@@ -79,15 +91,30 @@
 	cost = 16
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
+<<<<<<< HEAD
 /datum/uplink_item/dangerous/doublesword/get_discount()
 	return pick(4;0.8,2;0.65,1;0.5)
+=======
+/datum/uplink_item/dangerous/doublesword/get_discount_value(discount_type)
+	switch(discount_type)
+		if(TRAITOR_DISCOUNT_BIG)
+			return 0.5
+		if(TRAITOR_DISCOUNT_AVERAGE)
+			return 0.35
+		else
+			return 0.2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/uplink_item/dangerous/guardian
 	name = "Holoparasites"
 	desc = "Though capable of near sorcerous feats via use of hardlight holograms and nanomachines, they require an \
 			organic host as a home base and source of fuel. Holoparasites come in various types and share damage with their host."
 	progression_minimum = 30 MINUTES
+<<<<<<< HEAD
 	item = /obj/item/storage/box/syndie_kit/guardian
+=======
+	item = /obj/item/guardiancreator/tech/choose/traitor
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = 18
 	surplus = 0
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)

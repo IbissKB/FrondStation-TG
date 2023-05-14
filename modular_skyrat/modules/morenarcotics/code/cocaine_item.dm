@@ -45,9 +45,15 @@
 	if(!iscarbon(user))
 		return
 	var/covered = ""
+<<<<<<< HEAD
 	if(user.is_mouth_covered(head_only = 1))
 		covered = "headgear"
 	else if(user.is_mouth_covered(mask_only = 1))
+=======
+	if(user.is_mouth_covered(ITEM_SLOT_HEAD))
+		covered = "headgear"
+	else if(user.is_mouth_covered(ITEM_SLOT_MASK))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		covered = "mask"
 	if(covered)
 		to_chat(user, span_warning("You have to remove your [covered] first!"))

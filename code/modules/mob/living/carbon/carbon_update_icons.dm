@@ -29,9 +29,50 @@
 		update_worn_undersuit()
 	if(slot_flags & ITEM_SLOT_SUITSTORE)
 		update_suit_storage()
+<<<<<<< HEAD
 	if(slot_flags & ITEM_SLOT_LPOCKET || slot_flags & ITEM_SLOT_RPOCKET)
 		update_pockets()
 
+=======
+	if(slot_flags & (ITEM_SLOT_LPOCKET|ITEM_SLOT_RPOCKET))
+		update_pockets()
+
+/// Updates features and clothing attached to a specific limb with limb-specific offsets
+/mob/living/carbon/proc/update_features(feature_key)
+	switch(feature_key)
+		if(OFFSET_UNIFORM)
+			update_worn_undersuit()
+		if(OFFSET_ID)
+			update_worn_id()
+		if(OFFSET_GLOVES)
+			update_worn_gloves()
+		if(OFFSET_GLASSES)
+			update_worn_glasses()
+		if(OFFSET_EARS)
+			update_inv_ears()
+		if(OFFSET_SHOES)
+			update_worn_shoes()
+		if(OFFSET_S_STORE)
+			update_suit_storage()
+		if(OFFSET_FACEMASK)
+			update_worn_mask()
+		if(OFFSET_HEAD)
+			update_worn_head()
+		if(OFFSET_FACE)
+			dna?.species?.handle_body(src) // updates eye icon
+			update_worn_mask()
+		if(OFFSET_BELT)
+			update_worn_belt()
+		if(OFFSET_BACK)
+			update_worn_back()
+		if(OFFSET_SUIT)
+			update_worn_oversuit()
+		if(OFFSET_NECK)
+			update_worn_neck()
+		if(OFFSET_HELD)
+			update_held_items()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //IMPORTANT: Multiple animate() calls do not stack well, so try to do them all at once if you can.
 /mob/living/carbon/perform_update_transform()
 	var/matrix/ntransform = matrix(transform) //aka transform.Copy()
@@ -457,6 +498,7 @@
 /mob/living/carbon/proc/update_hud_back(obj/item/I)
 	return
 
+<<<<<<< HEAD
 
 
 //Overlays for the worn overlay so you can overlay while you overlay
@@ -465,14 +507,29 @@
 //SKYRAT EDIT CHANGE - CUSTOMIZATION
 ///obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file) (original)
 /obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, mutant_styles = NONE)
+=======
+//Overlays for the worn overlay so you can overlay while you overlay
+//eg: ammo counters, primed grenade flashing, etc.
+//"icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file
+// SKYRAT EDIT CHANGE BEGIN - CUSTOMIZATION
+// obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file) - original
+/obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, mutant_styles = NONE)
+// SKYRAT EDIT CHANGE END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/list)
 
 	. = list()
+<<<<<<< HEAD
 	if(!blocks_emissive)
 		return
 
 	. += emissive_blocker(standing.icon, standing.icon_state, src, alpha = standing.alpha)
+=======
+	if(blocks_emissive)
+		. += emissive_blocker(standing.icon, standing.icon_state, src, alpha = standing.alpha)
+	SEND_SIGNAL(src, COMSIG_ITEM_GET_WORN_OVERLAYS, ., standing, isinhands, icon_file)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ///Checks to see if any bodyparts need to be redrawn, then does so. update_limb_data = TRUE redraws the limbs to conform to the owner.
 /mob/living/carbon/proc/update_body_parts(update_limb_data)
@@ -480,6 +537,7 @@
 	update_wound_overlays()
 	var/list/needs_update = list()
 	var/limb_count_update = FALSE
+<<<<<<< HEAD
 	var/obj/item/bodypart/leg/left/left_leg
 	var/obj/item/bodypart/leg/right/right_leg
 	var/old_left_leg_key
@@ -505,12 +563,24 @@
 	// Here we handle legs differently, because legs are a mess due to layering code. So we got to process the left leg first. Thanks BYOND.
 	var/legs_need_redrawn = update_legs(right_leg, left_leg, old_left_leg_key)
 
+=======
+	for(var/obj/item/bodypart/limb as anything in bodyparts)
+		limb.update_limb(is_creating = update_limb_data) //Update limb actually doesn't do much, get_limb_icon is the cpu eater.
+
+		var/old_key = icon_render_keys?[limb.body_zone] //Checks the mob's icon render key list for the bodypart
+		icon_render_keys[limb.body_zone] = (limb.is_husked) ? limb.generate_husk_key().Join() : limb.generate_icon_key().Join() //Generates a key for the current bodypart
+
+		if(icon_render_keys[limb.body_zone] != old_key || get_top_offset() != last_top_offset) //If the keys match, that means the limb doesn't need to be redrawn
+			needs_update += limb
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/missing_bodyparts = get_missing_limbs()
 	if(((dna ? dna.species.max_bodypart_count : BODYPARTS_DEFAULT_MAXIMUM) - icon_render_keys.len) != missing_bodyparts.len) //Checks to see if the target gained or lost any limbs.
 		limb_count_update = TRUE
 		for(var/missing_limb in missing_bodyparts)
 			icon_render_keys -= missing_limb //Removes dismembered limbs from the key list
 
+<<<<<<< HEAD
 	if(!needs_update.len && !limb_count_update && !legs_need_redrawn)
 		return
 
@@ -520,10 +590,29 @@
 	for(var/obj/item/bodypart/limb as anything in bodyparts)
 		if(limb in needs_update) //Checks to see if the limb needs to be redrawn
 			var/bodypart_icon = limb.get_limb_icon()
+=======
+	if(!needs_update.len && !limb_count_update)
+		return
+
+	//GENERATE NEW LIMBS
+	var/list/new_limbs = list()
+	for(var/obj/item/bodypart/limb as anything in bodyparts)
+		if(limb in needs_update)
+			var/bodypart_icon = limb.get_limb_icon()
+			if(!istype(limb, /obj/item/bodypart/leg))
+				var/top_offset = get_top_offset()
+				for(var/image/image as anything in bodypart_icon)
+					image.pixel_y += top_offset
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			new_limbs += bodypart_icon
 			limb_icon_cache[icon_render_keys[limb.body_zone]] = bodypart_icon //Caches the icon with the bodypart key, as it is new
 		else
 			new_limbs += limb_icon_cache[icon_render_keys[limb.body_zone]] //Pulls existing sprites from the cache
+<<<<<<< HEAD
+=======
+		last_top_offset = get_top_offset()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	remove_overlay(BODYPARTS_LAYER)
 
@@ -532,6 +621,7 @@
 
 	apply_overlay(BODYPARTS_LAYER)
 
+<<<<<<< HEAD
 
 /**
  * Here we update the legs separately from the other bodyparts. Thanks BYOND for so little support for dir layering.
@@ -570,6 +660,20 @@
 
 	return legs_need_redrawn
 
+=======
+/// This looks at the chest and legs of the mob and decides how much our chest, arms, and head should be adjusted. This is useful for limbs that are larger or smaller than the scope of normal human height while keeping the feet anchored to the bottom of the tile
+/mob/living/carbon/proc/get_top_offset()
+	var/from_chest
+	var/from_leg
+	for(var/obj/item/bodypart/leg/leg_checked in bodyparts)
+		if(leg_checked.top_offset > from_leg || isnull(from_leg)) // We find the tallest leg available
+			from_leg = leg_checked.top_offset
+	if(isnull(from_leg))
+		from_leg = 0 // If we have no legs, we set this to zero to avoid any math issues that might stem from it being NULL
+	for(var/obj/item/bodypart/chest/chest_checked in bodyparts) // Take the height from the chest
+		from_chest = chest_checked.top_offset
+	return (from_chest + from_leg) // The total hight of the chest and legs together
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /////////////////////////
 // Limb Icon Cache 2.0 //
@@ -595,6 +699,7 @@
 		. += "-[draw_color]"
 	if(is_invisible)
 		. += "-invisible"
+<<<<<<< HEAD
 	for(var/obj/item/organ/external/external_organ as anything in external_organs)
 		if(!external_organ.can_draw_on_bodypart(owner))
 			continue
@@ -635,6 +740,15 @@
 		. += "digitigrade"
 	// SKYRAT EDIT END
 
+=======
+	for(var/datum/bodypart_overlay/overlay as anything in bodypart_overlays)
+		if(!overlay.can_draw_on_bodypart(owner))
+			continue
+		. += "-[jointext(overlay.generate_icon_cache(), "-")]"
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		. += "-[human_owner.get_mob_height()]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return .
 
 ///Generates a cache key specifically for husks
@@ -644,6 +758,12 @@
 	. += "[husk_type]"
 	. += "-husk"
 	. += "-[body_zone]"
+<<<<<<< HEAD
+=======
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		. += "-[human_owner.get_mob_height()]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return .
 
 /obj/item/bodypart/head/generate_icon_key()
@@ -656,8 +776,11 @@
 			. += "-[facial_hair_gradient_color]"
 	if(facial_hair_hidden)
 		. += "-FACIAL_HAIR_HIDDEN"
+<<<<<<< HEAD
 	if(is_blushing)
 		. += "-IS_BLUSHING"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(show_debrained)
 		. += "-SHOW_DEBRAINED"
 		return .
@@ -673,6 +796,7 @@
 
 	return .
 
+<<<<<<< HEAD
 /obj/item/bodypart/leg/right/generate_icon_key()
 	RETURN_TYPE(/list)
 	. = ..()
@@ -730,3 +854,55 @@
 	var/icon/new_mask_icon = icon(icon = 'icons/mob/left_leg_mask_base.dmi', icon_state = "mask_rest")
 	new_mask_icon.Blend(crop_mask_icon, ICON_OR)
 	return new_mask_icon
+=======
+GLOBAL_LIST_EMPTY(masked_leg_icons_cache)
+
+/**
+ * This proc serves as a way to ensure that legs layer properly on a mob.
+ * To do this, two separate images are created - A low layer one, and a normal layer one.
+ * Each of the image will appropriately crop out dirs that are not used on that given layer.
+ *
+ * Arguments:
+ * * limb_overlay - The limb image being masked, not necessarily the original limb image as it could be an overlay on top of it
+ * * image_dir - Direction of the masked images.
+ *
+ * Returns the list of masked images, or `null` if the limb_overlay didn't exist
+ */
+/obj/item/bodypart/leg/proc/generate_masked_leg(mutable_appearance/limb_overlay, image_dir = NONE)
+	RETURN_TYPE(/list)
+	if(!limb_overlay)
+		return
+	. = list()
+
+	var/icon_cache_key = "[limb_overlay.icon]-[limb_overlay.icon_state]-[body_zone]"
+	var/icon/new_leg_icon
+	var/icon/new_leg_icon_lower
+
+	//in case we do not have a cached version of the two cropped icons for this key, we have to create it
+	if(!GLOB.masked_leg_icons_cache[icon_cache_key])
+		var/icon/leg_crop_mask = (body_zone == BODY_ZONE_R_LEG ? icon('icons/mob/leg_masks.dmi', "right_leg") : icon('icons/mob/leg_masks.dmi', "left_leg"))
+		var/icon/leg_crop_mask_lower = (body_zone == BODY_ZONE_R_LEG ? icon('icons/mob/leg_masks.dmi', "right_leg_lower") : icon('icons/mob/leg_masks.dmi', "left_leg_lower"))
+
+		new_leg_icon = icon(limb_overlay.icon, limb_overlay.icon_state)
+		new_leg_icon.Blend(leg_crop_mask, ICON_MULTIPLY)
+
+		new_leg_icon_lower = icon(limb_overlay.icon, limb_overlay.icon_state)
+		new_leg_icon_lower.Blend(leg_crop_mask_lower, ICON_MULTIPLY)
+
+		GLOB.masked_leg_icons_cache[icon_cache_key] = list(new_leg_icon, new_leg_icon_lower)
+	new_leg_icon = GLOB.masked_leg_icons_cache[icon_cache_key][1]
+	new_leg_icon_lower = GLOB.masked_leg_icons_cache[icon_cache_key][2]
+
+	//this could break layering in oddjob cases, but i'm sure it will work fine most of the time... right?
+	var/mutable_appearance/new_leg_appearance = new(limb_overlay)
+	new_leg_appearance.icon = new_leg_icon
+	new_leg_appearance.layer = -BODYPARTS_LAYER
+	new_leg_appearance.dir = image_dir //for some reason, things do not work properly otherwise
+	. += new_leg_appearance
+	var/mutable_appearance/new_leg_appearance_lower = new(limb_overlay)
+	new_leg_appearance_lower.icon = new_leg_icon_lower
+	new_leg_appearance_lower.layer = -BODYPARTS_LOW_LAYER
+	new_leg_appearance_lower.dir = image_dir
+	. += new_leg_appearance_lower
+	return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

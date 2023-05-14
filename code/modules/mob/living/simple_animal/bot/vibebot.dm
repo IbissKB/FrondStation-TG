@@ -2,7 +2,12 @@
 	name = "\improper Vibebot"
 	desc = "A little robot. It's just vibing, doing its thing."
 	icon = 'icons/mob/silicon/aibots.dmi'
+<<<<<<< HEAD
 	icon_state = "vibebot"
+=======
+	icon_state = "vibebot1"
+	base_icon_state = "vibebot"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = FALSE
 	anchored = FALSE
 	health = 25
@@ -24,9 +29,15 @@
 
 /mob/living/simple_animal/bot/vibebot/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	update_appearance()
 	vibe_ability = new(src)
 	vibe_ability.Grant(src)
+=======
+	vibe_ability = new(src)
+	vibe_ability.Grant(src)
+	update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/bot/vibebot/Destroy()
 	QDEL_NULL(vibe_ability)

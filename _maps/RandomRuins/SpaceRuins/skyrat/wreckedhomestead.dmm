@@ -91,9 +91,13 @@
 /area/ruin/unpowered)
 "on" = (
 /obj/structure/closet/secure_closet/brig,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered)
 "oB" = (
@@ -230,12 +234,17 @@
 /turf/open/misc/asteroid/airless,
 /area/ruin/unpowered)
 "Mk" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "Mn" = (

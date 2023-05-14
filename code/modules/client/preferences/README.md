@@ -248,7 +248,11 @@ For example, `/datum/preference/numeric/age` contains:
 
 If your preference is `PREFERENCE_CHARACTER`, it MUST override `apply_to_human`, even if just to immediately `return`.
 
+<<<<<<< HEAD
 You can also read preferences directly with `preferences.read_preference(/datum/preference/type/here)`, which will return the stored value.
+=======
+You can also read preferences directly with `prefs.read_preference(/datum/preference/type/here)`, which will return the stored value.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 ## Categories
 Every preference needs to be in a `category`. These can be found in `code/__DEFINES/preferences.dm`.

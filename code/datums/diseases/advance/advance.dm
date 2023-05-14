@@ -33,6 +33,7 @@
 	var/mutable = TRUE //set to FALSE to prevent most in-game methods of altering the disease via virology
 	var/oldres //To prevent setting new cures unless resistance changes.
 
+<<<<<<< HEAD
 	// The order goes from easy to cure to hard to cure. Keep in mind that sentient diseases pick two cures from tier 6 and up, ensure they won't react away in bodies.
 	var/static/list/advance_cures = list(
 									list( // level 1
@@ -69,6 +70,78 @@
 										/datum/reagent/medicine/modafinil, /datum/reagent/toxin/anacea
 									)
 								)
+=======
+	///Lists of cures and how hard we expect them to be to cure. Sentient diseases will pick two from 6+
+	var/static/list/advance_cures = list(
+		list( // level 1
+			/datum/reagent/carbon,
+			/datum/reagent/copper,
+			/datum/reagent/iodine,
+			/datum/reagent/iron,
+			/datum/reagent/silver,
+		),
+		list( // level 2
+			/datum/reagent/consumable/ethanol,
+			/datum/reagent/acetone,
+			/datum/reagent/bromine,
+			/datum/reagent/lithium,
+			/datum/reagent/potassium,
+			/datum/reagent/silicon,
+		),
+		list( // level 3
+			/datum/reagent/consumable/milk,
+			/datum/reagent/consumable/orangejuice,
+			/datum/reagent/consumable/salt,
+			/datum/reagent/consumable/sugar,
+			/datum/reagent/consumable/tomatojuice,
+		),
+		list( //level 4
+			/datum/reagent/fuel/oil,
+			/datum/reagent/medicine/c2/multiver,
+			/datum/reagent/medicine/epinephrine,
+			/datum/reagent/medicine/haloperidol,
+			/datum/reagent/medicine/mine_salve,
+			/datum/reagent/medicine/salglu_solution,
+		),
+		list( //level 5
+			/datum/reagent/drug/space_drugs,
+			/datum/reagent/medicine/mannitol,
+			/datum/reagent/medicine/synaptizine,
+			/datum/reagent/cryptobiolin,
+		),
+		list( // level 6
+			/datum/reagent/medicine/antihol,
+			/datum/reagent/medicine/inacusiate,
+			/datum/reagent/medicine/oculine,
+			/datum/reagent/phenol,
+		),
+		list( // level 7
+			/datum/reagent/medicine/higadrite,
+			/datum/reagent/medicine/leporazine,
+			/datum/reagent/toxin/mindbreaker,
+			/datum/reagent/acetaldehyde,
+		),
+		list( // level 8
+			/datum/reagent/drug/happiness,
+			/datum/reagent/medicine/ephedrine,
+			/datum/reagent/pax,
+		),
+		list( // level 9
+			/datum/reagent/medicine/sal_acid,
+			/datum/reagent/toxin/chloralhydrate,
+			/datum/reagent/toxin/lipolicide,
+		),
+		list( // level 10
+			/datum/reagent/drug/aranesp,
+			/datum/reagent/medicine/diphenhydramine,
+			/datum/reagent/pentaerythritol,
+		),
+		list( //level 11
+			/datum/reagent/medicine/c2/tirimol,
+			/datum/reagent/medicine/modafinil,
+		),
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 
@@ -105,7 +178,11 @@
 
 
 // Randomly pick a symptom to activate.
+<<<<<<< HEAD
 /datum/disease/advance/stage_act(delta_time, times_fired)
+=======
+/datum/disease/advance/stage_act(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return
@@ -196,7 +273,11 @@
 
 /datum/disease/advance/proc/Refresh(new_name = FALSE)
 	GenerateProperties()
+<<<<<<< HEAD
 	AssignProperties()
+=======
+	assign_properties()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(processing && symptoms?.len)
 		for(var/datum/symptom/S in symptoms)
 			S.Start(src)
@@ -223,7 +304,11 @@
 			properties["severity"] = max(properties["severity"], S.severity) // severity is based on the highest severity non-neutered symptom
 
 // Assign the properties that are in the list.
+<<<<<<< HEAD
 /datum/disease/advance/proc/AssignProperties()
+=======
+/datum/disease/advance/proc/assign_properties()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(properties?.len)
 		if(properties["stealth"] >= 2)
@@ -231,6 +316,7 @@
 		else
 			visibility_flags &= ~HIDDEN_SCANNER
 
+<<<<<<< HEAD
 		if(properties["transmittable"]>=11)
 			SetSpread(DISEASE_SPREAD_AIRBORNE)
 		else if(properties["transmittable"]>=7)
@@ -239,18 +325,37 @@
 			SetSpread(DISEASE_SPREAD_CONTACT_FLUIDS)
 		else
 			SetSpread(DISEASE_SPREAD_BLOOD)
+=======
+		if(properties["transmittable"] >= 11)
+			set_spread(DISEASE_SPREAD_AIRBORNE)
+		else if(properties["transmittable"] >= 7)
+			set_spread(DISEASE_SPREAD_CONTACT_SKIN)
+		else if(properties["transmittable"] >= 3)
+			set_spread(DISEASE_SPREAD_CONTACT_FLUIDS)
+		else
+			set_spread(DISEASE_SPREAD_BLOOD)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		spreading_modifier = max(CEILING(0.4 * properties["transmittable"], 1), 1)
 		cure_chance = clamp(7.5 - (0.5 * properties["resistance"]), 5, 10) // can be between 5 and 10
 		stage_prob = max(0.5 * properties["stage_rate"], 1)
+<<<<<<< HEAD
 		SetSeverity(properties["severity"])
 		GenerateCure(properties)
+=======
+		set_severity(properties["severity"])
+		generate_cure(properties)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		CRASH("Our properties were empty or null!")
 
 
 // Assign the spread type and give it the correct description.
+<<<<<<< HEAD
 /datum/disease/advance/proc/SetSpread(spread_id)
+=======
+/datum/disease/advance/proc/set_spread(spread_id)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(spread_id)
 		if(DISEASE_SPREAD_NON_CONTAGIOUS)
 			spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS
@@ -266,12 +371,21 @@
 			spread_text = "Fluids"
 		if(DISEASE_SPREAD_CONTACT_SKIN)
 			spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS | DISEASE_SPREAD_CONTACT_SKIN
+<<<<<<< HEAD
 			spread_text = "On contact"
 		if(DISEASE_SPREAD_AIRBORNE)
 			spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_AIRBORNE
 			spread_text = "Airborne"
 
 /datum/disease/advance/proc/SetSeverity(level_sev)
+=======
+			spread_text = "Skin contact"
+		if(DISEASE_SPREAD_AIRBORNE)
+			spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_AIRBORNE
+			spread_text = "Respiration"
+
+/datum/disease/advance/proc/set_severity(level_sev)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	switch(level_sev)
 
@@ -294,7 +408,11 @@
 
 
 // Will generate a random cure, the more resistance the symptoms have, the harder the cure.
+<<<<<<< HEAD
 /datum/disease/advance/proc/GenerateCure()
+=======
+/datum/disease/advance/proc/generate_cure()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(properties?.len)
 		var/res = clamp(properties["resistance"] - (symptoms.len / 2), 1, advance_cures.len)
 		if(res == oldres)
@@ -499,3 +617,19 @@
 
 /datum/disease/advance/proc/totalTransmittable()
 	return properties["transmittable"]
+<<<<<<< HEAD
+=======
+
+/**
+ *  Make virus visible to heath scanners
+ */
+/datum/disease/advance/proc/make_visible()
+	visibility_flags &= ~HIDDEN_SCANNER
+	for(var/datum/disease/advance/virus in SSdisease.active_diseases)
+		if(!virus.id)
+			stack_trace("Advanced virus ID is empty or null!")
+			return
+
+		if(virus.id == id)
+			virus.visibility_flags &= ~HIDDEN_SCANNER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

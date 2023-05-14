@@ -23,11 +23,19 @@
 /datum/mutation/human/clever/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
 		return
+<<<<<<< HEAD
 	ADD_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, GENETIC_MUTATION)
 	ADD_TRAIT(owner, TRAIT_LITERATE, GENETIC_MUTATION)
+=======
+	owner.add_traits(list(TRAIT_ADVANCEDTOOLUSER, TRAIT_LITERATE), GENETIC_MUTATION)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/mutation/human/clever/on_losing(mob/living/carbon/human/owner)
 	if(..())
 		return
+<<<<<<< HEAD
 	REMOVE_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, GENETIC_MUTATION)
 	REMOVE_TRAIT(owner, TRAIT_LITERATE, GENETIC_MUTATION)
+=======
+	owner.remove_traits(list(TRAIT_ADVANCEDTOOLUSER, TRAIT_LITERATE), GENETIC_MUTATION)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

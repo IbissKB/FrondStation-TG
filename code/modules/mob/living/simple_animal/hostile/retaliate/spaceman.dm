@@ -27,6 +27,7 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	del_on_death = 0
 	footstep_type = FOOTSTEP_MOB_SHOE
+<<<<<<< HEAD
 
 /mob/living/simple_animal/hostile/retaliate/nanotrasenpeace //this should be in a different file
 	name = "\improper Nanotrasen Private Security Officer"
@@ -76,3 +77,5 @@
 	projectilesound = 'sound/weapons/gun/smg/shot.ogg'
 	loot = list(/obj/item/gun/ballistic/automatic/wt550,
 				/obj/effect/mob_spawn/corpse/human/nanotrasensoldier)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -14,6 +14,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		qdel(thing, force=TRUE)
 
 	if(turf_type)
+<<<<<<< HEAD
 		var/turf/newT = ChangeTurf(turf_type, baseturf_type, flags)
 		SSair.remove_from_active(newT)
 		CALCULATE_ADJACENT_TURFS(newT, KILL_EXCITED)
@@ -42,6 +43,35 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		if (copy_air)
 			var/turf/open/openTurf = T
 			openTurf.air.copy_from(air)
+=======
+		var/turf/new_turf = ChangeTurf(turf_type, baseturf_type, flags)
+		SSair.remove_from_active(new_turf)
+		CALCULATE_ADJACENT_TURFS(new_turf, KILL_EXCITED)
+
+/turf/proc/copyTurf(turf/copy_to_turf)
+	if(copy_to_turf.type != type)
+		copy_to_turf.ChangeTurf(type)
+	if(copy_to_turf.icon_state != icon_state)
+		copy_to_turf.icon_state = icon_state
+	if(copy_to_turf.icon != icon)
+		copy_to_turf.icon = icon
+	if(color)
+		copy_to_turf.atom_colours = atom_colours.Copy()
+		copy_to_turf.update_atom_colour()
+	if(copy_to_turf.dir != dir)
+		copy_to_turf.setDir(dir)
+	return copy_to_turf
+
+/turf/open/copyTurf(turf/open/copy_to_turf, copy_air = FALSE)
+	. = ..()
+	ASSERT(istype(copy_to_turf, /turf/open))
+	var/datum/component/wet_floor/slip = GetComponent(/datum/component/wet_floor)
+	if(slip)
+		var/datum/component/wet_floor/new_wet_floor_component = copy_to_turf.AddComponent(/datum/component/wet_floor)
+		new_wet_floor_component.InheritComponent(slip)
+	if (copy_air)
+		copy_to_turf.air.copy_from(air)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //wrapper for ChangeTurf()s that you want to prevent/affect without overriding ChangeTurf() itself
 /turf/proc/TerraformTurf(path, new_baseturf, flags)
@@ -83,7 +113,18 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		lgroup.remove_from_group(src)
 	//SKYRAT EDIT END
 	var/old_rcd_memory = rcd_memory
+<<<<<<< HEAD
 	var/old_always_lit = always_lit
+=======
+	var/old_explosion_throw_details = explosion_throw_details
+	var/old_opacity = opacity
+	// I'm so sorry brother
+	// This is used for a starlight optimization
+	var/old_light_range = light_range
+	// We get just the bits of explosive_resistance that aren't the turf
+	var/old_explosive_resistance = explosive_resistance - get_explosive_block()
+	var/old_lattice_underneath = lattice_underneath
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/old_bp = blueprint_data
 	blueprint_data = null
@@ -99,12 +140,17 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	//We do this here so anything that doesn't want to persist can clear itself
 	var/list/old_comp_lookup = comp_lookup?.Copy()
 	var/list/old_signal_procs = signal_procs?.Copy()
+<<<<<<< HEAD
 	var/turf/W = new path(src)
+=======
+	var/turf/new_turf = new path(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// WARNING WARNING
 	// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
 	// It's possible because turfs are fucked, and if you have one in a list and it's replaced with another one, the list ref points to the new turf
 	if(old_comp_lookup)
+<<<<<<< HEAD
 		LAZYOR(W.comp_lookup, old_comp_lookup)
 	if(old_signal_procs)
 		LAZYOR(W.signal_procs, old_signal_procs)
@@ -122,6 +168,27 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	W.blueprint_data = old_bp
 	W.rcd_memory = old_rcd_memory
+=======
+		LAZYOR(new_turf.comp_lookup, old_comp_lookup)
+	if(old_signal_procs)
+		LAZYOR(new_turf.signal_procs, old_signal_procs)
+
+	for(var/datum/callback/callback as anything in post_change_callbacks)
+		callback.InvokeAsync(new_turf)
+
+	if(new_baseturfs)
+		new_turf.baseturfs = baseturfs_string_list(new_baseturfs, new_turf)
+	else
+		new_turf.baseturfs = baseturfs_string_list(old_baseturfs, new_turf) //Just to be safe
+
+	if(!(flags & CHANGETURF_DEFER_CHANGE))
+		new_turf.AfterChange(flags, old_type)
+
+	new_turf.blueprint_data = old_bp
+	new_turf.rcd_memory = old_rcd_memory
+	new_turf.explosion_throw_details = old_explosion_throw_details
+	new_turf.explosive_resistance += old_explosive_resistance
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	lighting_corner_NE = old_lighting_corner_NE
 	lighting_corner_SE = old_lighting_corner_SE
@@ -130,6 +197,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	dynamic_lumcount = old_dynamic_lumcount
 
+<<<<<<< HEAD
 	if(W.always_lit)
 		// We are guarenteed to have these overlays because of how generation works
 		var/mutable_appearance/overlay = GLOB.fullbright_overlays[GET_TURF_PLANE_OFFSET(src) + 1]
@@ -140,6 +208,17 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	if(SSlighting.initialized)
 		W.lighting_object = old_lighting_object
+=======
+	lattice_underneath = old_lattice_underneath
+
+	if(SSlighting.initialized)
+		// Space tiles should never have lighting objects
+		if(!space_lit)
+			// Should have a lighting object if we never had one
+			lighting_object = old_lighting_object || new /datum/lighting_object(src)
+		else if (old_lighting_object)
+			qdel(old_lighting_object, force = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		directional_opacity = old_directional_opacity
 		recalculate_directional_opacity()
@@ -147,16 +226,46 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		if(lighting_object && !lighting_object.needs_update)
 			lighting_object.update()
 
+<<<<<<< HEAD
 		for(var/turf/open/space/space_tile in RANGE_TURFS(1, src))
 			space_tile.update_starlight()
 	//SKYRAT EDIT ADDITION
 	if(old_liquids)
 		if(W.liquids)
 			var/liquid_cache = W.liquids //Need to cache and re-set some vars due to the cleaning on Destroy(), and turf references
+=======
+	// If we're space, then we're either lit, or not, and impacting our neighbors, or not
+	if(isspaceturf(src))
+		var/turf/open/space/lit_turf = src
+		// This also counts as a removal, so we need to do a full rebuild
+		if(!ispath(old_type, /turf/open/space))
+			lit_turf.update_starlight()
+			for(var/turf/open/space/space_tile in RANGE_TURFS(1, src) - src)
+				space_tile.update_starlight()
+		else if(old_light_range)
+			lit_turf.enable_starlight()
+
+	// If we're a cordon we count against a light, but also don't produce any ourselves
+	else if (istype(src, /turf/cordon))
+		// This counts as removing a source of starlight, so we need to update the space tile to inform it
+		if(!ispath(old_type, /turf/open/space))
+			for(var/turf/open/space/space_tile in RANGE_TURFS(1, src))
+				space_tile.update_starlight()
+
+	// If we're not either, but were formerly a space turf, then we want light
+	else if(ispath(old_type, /turf/open/space))
+		for(var/turf/open/space/space_tile in RANGE_TURFS(1, src))
+			space_tile.enable_starlight()
+	//SKYRAT EDIT ADDITION
+	if(old_liquids)
+		if(new_turf.liquids)
+			var/liquid_cache = new_turf.liquids //Need to cache and re-set some vars due to the cleaning on Destroy(), and turf references
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(old_liquids.immutable)
 				old_liquids.remove_turf(src)
 			else
 				qdel(old_liquids, TRUE)
+<<<<<<< HEAD
 			W.liquids = liquid_cache
 			W.liquids.my_turf = W
 		else
@@ -167,6 +276,18 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 					W.convert_immutable_liquids()
 				else
 					W.reasses_liquids()
+=======
+			new_turf.liquids = liquid_cache
+			new_turf.liquids.my_turf = new_turf
+		else
+			if(flags & CHANGETURF_INHERIT_AIR)
+				new_turf.liquids = old_liquids
+				old_liquids.my_turf = new_turf
+				if(old_liquids.immutable)
+					new_turf.convert_immutable_liquids()
+				else
+					new_turf.reasses_liquids()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			else
 				if(old_liquids.immutable)
 					old_liquids.remove_turf(src)
@@ -174,6 +295,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 					qdel(old_liquids, TRUE)
 	//SKYRAT EDIT END
 
+<<<<<<< HEAD
 	// We will only run this logic if the tile is not on the prime z layer, since we use area overlays to cover that
 	if(SSmapping.z_level_to_plane_offset[z])
 		var/area/thisarea = get_area(W)
@@ -184,6 +306,23 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	QUEUE_SMOOTH(src)
 
 	return W
+=======
+	if(old_opacity != opacity && SSticker)
+		GLOB.cameranet.bareMajorChunkChange(src)
+
+	// We will only run this logic if the tile is not on the prime z layer, since we use area overlays to cover that
+	if(SSmapping.z_level_to_plane_offset[z])
+		var/area/our_area = new_turf.loc
+		if(our_area.lighting_effects)
+			new_turf.add_overlay(our_area.lighting_effects[SSmapping.z_level_to_plane_offset[z] + 1])
+
+	// only queue for smoothing if SSatom initialized us, and we'd be changing smoothing state
+	if(flags_1 & INITIALIZED_1)
+		QUEUE_SMOOTH_NEIGHBORS(src)
+		QUEUE_SMOOTH(src)
+
+	return new_turf
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/ChangeTurf(path, list/new_baseturfs, flags) //Resist the temptation to make this default to keeping air.
 	if ((flags & CHANGETURF_INHERIT_AIR) && ispath(path, /turf/open))
@@ -195,6 +334,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		. = ..() //If path == type this will return us, don't bank on making a new type
 		if (!.) // changeturf failed or didn't do anything
 			return
+<<<<<<< HEAD
 		var/turf/open/newTurf = .
 		//SKYRAT EDIT ADDITION
 		if(stashed_pollution)
@@ -211,16 +351,40 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		if(stashed_group)
 			if(stashed_group.should_display || SSair.display_all_groups)
 				stashed_group.display_turf(newTurf)
+=======
+		var/turf/open/new_turf = .
+		//SKYRAT EDIT ADDITION
+		if(stashed_pollution)
+			new_turf.pollution = stashed_pollution
+			stashed_pollution.handle_overlay()
+		//SKYRAT EDIT END
+		new_turf.air.copy_from(stashed_air)
+		new_turf.excited = stashed_state
+		new_turf.excited_group = stashed_group
+		#ifdef VISUALIZE_ACTIVE_TURFS
+		if(stashed_state)
+			new_turf.add_atom_colour(COLOR_VIBRANT_LIME, TEMPORARY_COLOUR_PRIORITY)
+		#endif
+		if(stashed_group)
+			if(stashed_group.should_display || SSair.display_all_groups)
+				stashed_group.display_turf(new_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		//SKYRAT EDIT ADDITION
 		if(pollution)
 			qdel(pollution)
 		//SKYRAT EDIT END
+<<<<<<< HEAD
 		SSair.remove_from_active(src) //Clean up wall excitement, and refresh excited groups
+=======
+		if(excited || excited_group)
+			SSair.remove_from_active(src) //Clean up wall excitement, and refresh excited groups
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(ispath(path,/turf/closed) || ispath(path,/turf/cordon))
 			flags |= CHANGETURF_RECALC_ADJACENT
 		return ..()
 
+<<<<<<< HEAD
 /// Take off the top layer turf and replace it with the next baseturf down
 /turf/proc/ScrapeAway(amount=1, flags)
 	if(!amount)
@@ -338,6 +502,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	return newT
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //If you modify this function, ensure it works correctly with lateloaded map templates.
 /turf/proc/AfterChange(flags, oldType) //called after a turf has been replaced in ChangeTurf()
 	levelupdate()
@@ -347,6 +513,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			SSair.add_to_active(src)
 	else //In effect, I want closed turfs to make their tile active when sheered, but we need to queue it since they have no adjacent turfs
 		CALCULATE_ADJACENT_TURFS(src, (!(ispath(oldType, /turf/closed) && isopenturf(src)) ? NORMAL_TURF : MAKE_ACTIVE))
+<<<<<<< HEAD
 	//update firedoor adjacency
 	var/list/turfs_to_check = get_adjacent_open_turfs(src) | src
 	for(var/I in turfs_to_check)
@@ -355,6 +522,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			FD.CalculateAffectingAreas()
 
 	HandleTurfChange(src)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/AfterChange(flags, oldType)
 	..()
@@ -376,10 +545,16 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/energy = 0
 	var/heat_cap = 0
 
+<<<<<<< HEAD
 	for(var/t in turf_list)
 		var/turf/open/T = t
 		//Cache?
 		var/datum/gas_mixture/turf/mix = T.air
+=======
+	for(var/turf/open/turf in turf_list)
+		//Cache?
+		var/datum/gas_mixture/turf/mix = turf.air
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		//"borrowing" this code from merge(), I need to play with the temp portion. Lets expand it out
 		//temperature = (giver.temperature * giver_heat_capacity + temperature * self_heat_capacity) / combined_heat_capacity
 		var/capacity = mix.heat_capacity()
@@ -388,13 +563,18 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 		var/list/giver_gases = mix.gases
 		for(var/giver_id in giver_gases)
+<<<<<<< HEAD
 			ASSERT_GAS(giver_id, total)
+=======
+			ASSERT_GAS_IN_LIST(giver_id, total_gases)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			total_gases[giver_id][MOLES] += giver_gases[giver_id][MOLES]
 
 	total.temperature = energy / heat_cap
 	for(var/id in total_gases)
 		total_gases[id][MOLES] /= turflen
 
+<<<<<<< HEAD
 	for(var/t in turf_list)
 		var/turf/open/T = t
 		T.air.copy_from(total)
@@ -404,3 +584,18 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 /turf/proc/ReplaceWithLattice()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 	new /obj/structure/lattice(locate(x, y, z))
+=======
+	for(var/turf/open/turf in turf_list)
+		turf.air.copy_from(total)
+		turf.update_visuals()
+		SSair.add_to_active(turf)
+
+/// Attempts to replace a tile with lattice. Amount is the amount of tiles to scrape away.
+/turf/proc/attempt_lattice_replacement(amount = 2)
+	if(lattice_underneath)
+		var/turf/new_turf = ScrapeAway(amount, flags = CHANGETURF_INHERIT_AIR)
+		if(!istype(new_turf, /turf/open/floor))
+			new /obj/structure/lattice(src)
+	else
+		ScrapeAway(amount, flags = CHANGETURF_INHERIT_AIR)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

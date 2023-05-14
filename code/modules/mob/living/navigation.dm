@@ -41,8 +41,13 @@
 		balloon_alert(src, "no navigation signals!")
 		return
 
+<<<<<<< HEAD
 	var/destination_id = tgui_input_list(src, "Select a location", "Navigate", sort_list(destination_list))
 	var/navigate_target = destination_list[destination_id]
+=======
+	var/platform_code = tgui_input_list(src, "Select a location", "Navigate", sort_list(destination_list))
+	var/navigate_target = destination_list[platform_code]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(isnull(navigate_target))
 		return

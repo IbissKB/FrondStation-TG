@@ -4,7 +4,11 @@
 /obj/item/reagent_containers/cup/glass
 	name = "drink"
 	desc = "yummy"
+<<<<<<< HEAD
 	icon = 'icons/obj/drinks.dmi'
+=======
+	icon = 'icons/obj/drinks/drinks.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = null
 	possible_transfer_amounts = list(5,10,15,20,25,30,50)
 	resistance_flags = NONE
@@ -32,7 +36,13 @@
 
 /obj/item/reagent_containers/cup/glass/bullet_act(obj/projectile/P)
 	. = ..()
+<<<<<<< HEAD
 	if(!(P.nodamage) && P.damage_type == BRUTE && !QDELETED(src))
+=======
+	if(QDELETED(src))
+		return
+	if(P.damage > 0 && P.damage_type == BRUTE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/atom/T = get_turf(src)
 		smash(T)
 
@@ -40,12 +50,20 @@
 /obj/item/reagent_containers/cup/glass/trophy
 	name = "pewter cup"
 	desc = "Everyone gets a trophy."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "pewter_cup"
 	w_class = WEIGHT_CLASS_TINY
 	force = 1
 	throwforce = 1
 	amount_per_transfer_from_this = 5
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=100)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	possible_transfer_amounts = list(5)
 	volume = 5
 	flags_1 = CONDUCT_1
@@ -56,36 +74,60 @@
 /obj/item/reagent_containers/cup/glass/trophy/gold_cup
 	name = "gold cup"
 	desc = "You're winner!"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "golden_cup"
 	inhand_icon_state = "golden_cup"
 	w_class = WEIGHT_CLASS_BULKY
 	force = 14
 	throwforce = 10
 	amount_per_transfer_from_this = 20
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/gold=1000)
+=======
+	custom_materials = list(/datum/material/gold=HALF_SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	volume = 150
 
 /obj/item/reagent_containers/cup/glass/trophy/silver_cup
 	name = "silver cup"
 	desc = "Best loser!"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "silver_cup"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 10
 	throwforce = 8
 	amount_per_transfer_from_this = 15
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/silver=800)
+=======
+	custom_materials = list(/datum/material/silver=SMALL_MATERIAL_AMOUNT*8)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	volume = 100
 
 
 /obj/item/reagent_containers/cup/glass/trophy/bronze_cup
 	name = "bronze cup"
 	desc = "At least you ranked!"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "bronze_cup"
 	w_class = WEIGHT_CLASS_SMALL
 	force = 5
 	throwforce = 4
 	amount_per_transfer_from_this = 10
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=400)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 4)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	volume = 25
 
 ///////////////////////////////////////////////Drinks
@@ -96,7 +138,13 @@
 /obj/item/reagent_containers/cup/glass/coffee
 	name = "robust coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
+<<<<<<< HEAD
 	icon_state = "coffee"
+=======
+	icon = 'icons/obj/drinks/coffee.dmi'
+	icon_state = "coffee"
+	base_icon_state = "coffee"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	list_reagents = list(/datum/reagent/consumable/coffee = 30)
 	spillable = TRUE
 	resistance_flags = FREEZE_PROOF
@@ -120,9 +168,15 @@
 
 /obj/item/reagent_containers/cup/glass/coffee/update_icon_state()
 	if(lid_open)
+<<<<<<< HEAD
 		icon_state = reagents.total_volume ? "coffee_full" : "coffee_empty"
 	else
 		icon_state = "coffee"
+=======
+		icon_state = reagents.total_volume ? "[base_icon_state]_full" : "[base_icon_state]_empty"
+	else
+		icon_state = base_icon_state
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/reagent_containers/cup/glass/ice
@@ -137,11 +191,19 @@
 /obj/item/reagent_containers/cup/glass/ice/prison
 	name = "dirty ice cup"
 	desc = "Either Nanotrasen's water supply is contaminated, or this machine actually vends lemon, chocolate, and cherry snow cones."
+<<<<<<< HEAD
 	list_reagents = list(/datum/reagent/consumable/ice = 25, /datum/reagent/liquidgibs = 5)
+=======
+	list_reagents = list(/datum/reagent/consumable/ice = 25, /datum/reagent/consumable/liquidgibs = 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/cup/glass/mug // parent type is literally just so empty mug sprites are a thing
 	name = "mug"
 	desc = "A drink served in a classy mug."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/drinks/coffee.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "tea_empty"
 	base_icon_state = "tea"
 	inhand_icon_state = "coffee"
@@ -175,14 +237,24 @@
 /obj/item/reagent_containers/cup/glass/coffee_cup
 	name = "coffee cup"
 	desc = "A heat-formed plastic coffee cup. Can theoretically be used for other hot drinks, if you're feeling adventurous."
+<<<<<<< HEAD
 	icon_state = "coffee_cup_e"
+=======
+	icon = 'icons/obj/drinks/coffee.dmi'
+	icon_state = "coffee_cup_e"
+	base_icon_state = "coffee_cup"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	possible_transfer_amounts = list(10)
 	volume = 30
 	spillable = TRUE
 	isGlass = FALSE
 
 /obj/item/reagent_containers/cup/glass/coffee_cup/update_icon_state()
+<<<<<<< HEAD
 	icon_state = reagents.total_volume ? "coffee_cup" : "coffee_cup_e"
+=======
+	icon_state = reagents.total_volume ? base_icon_state : "[base_icon_state]_e"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/item/reagent_containers/cup/glass/dry_ramen
@@ -197,16 +269,28 @@
 /obj/item/reagent_containers/cup/glass/waterbottle
 	name = "bottle of water"
 	desc = "A bottle of water filled at an old Earth bottling facility."
+<<<<<<< HEAD
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "smallbottle"
 	inhand_icon_state = null
 	list_reagents = list(/datum/reagent/water = 49.5, /datum/reagent/fluorine = 0.5)//see desc, don't think about it too hard
 	custom_materials = list(/datum/material/plastic=1000)
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+	icon_state = "smallbottle"
+	inhand_icon_state = null
+	list_reagents = list(/datum/reagent/water = 49.5, /datum/reagent/fluorine = 0.5)//see desc, don't think about it too hard
+	custom_materials = list(/datum/material/plastic=HALF_SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	volume = 50
 	amount_per_transfer_from_this = 10
 	fill_icon_thresholds = list(0, 10, 25, 50, 75, 80, 90)
 	isGlass = FALSE
 	// The 2 bottles have separate cap overlay icons because if the bottle falls over while bottle flipping the cap stays fucked on the moved overlay
+<<<<<<< HEAD
+=======
+	var/cap_icon = 'icons/obj/drinks/drink_effects.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/cap_icon_state = "bottle_cap_small"
 	var/cap_on = TRUE
 	var/cap_lost = FALSE
@@ -216,7 +300,11 @@
 
 /obj/item/reagent_containers/cup/glass/waterbottle/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	cap_overlay = mutable_appearance(icon, cap_icon_state)
+=======
+	cap_overlay = mutable_appearance(cap_icon, cap_icon_state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(cap_on)
 		spillable = FALSE
 		update_appearance()
@@ -251,6 +339,10 @@
 			cap_lost = TRUE
 		else
 			to_chat(user, span_notice("You remove the cap from [src]."))
+<<<<<<< HEAD
+=======
+			playsound(loc, 'sound/effects/can_open1.ogg', 50, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		cap_on = TRUE
 		spillable = FALSE
@@ -278,6 +370,11 @@
 	return ..()
 
 /obj/item/reagent_containers/cup/glass/waterbottle/afterattack(obj/target, mob/living/user, proximity)
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(cap_on && (target.is_refillable() || target.is_drainable() || (reagents.total_volume && !user.combat_mode)))
 		to_chat(user, span_warning("You must remove the cap before you can do that!"))
 		return
@@ -288,7 +385,11 @@
 			to_chat(user, span_warning("[other_bottle] has a cap firmly twisted on!"))
 			return
 
+<<<<<<< HEAD
 	return ..()
+=======
+	return . | ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // heehoo bottle flipping
 /obj/item/reagent_containers/cup/glass/waterbottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -316,7 +417,11 @@
 /obj/item/reagent_containers/cup/glass/waterbottle/large
 	desc = "A fresh commercial-sized bottle of water."
 	icon_state = "largebottle"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/plastic=3000)
+=======
+	custom_materials = list(/datum/material/plastic=SHEET_MATERIAL_AMOUNT * 1.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	list_reagents = list(/datum/reagent/water = 100)
 	volume = 100
 	amount_per_transfer_from_this = 10
@@ -355,6 +460,7 @@
 	icon_state = reagents.total_volume ? "water_cup" : "water_cup_e"
 	return ..()
 
+<<<<<<< HEAD
 /obj/item/reagent_containers/cup/glass/sillycup/smallcarton
 	name = "small carton"
 	desc = "A small carton, intended for holding drinks."
@@ -454,6 +560,26 @@
 			icon_state = "juicebox"
 
 /obj/item/reagent_containers/cup/glass/sillycup/smallcarton/smash(atom/target, mob/thrower, ranged = FALSE)
+=======
+/obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton
+	name = "small carton"
+	desc = "A small carton, intended for holding drinks."
+	icon = 'icons/obj/drinks/boxes.dmi'
+	icon_state = "juicebox"
+	volume = 15
+	drink_type = NONE
+
+/obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton/Initialize(mapload, vol)
+	. = ..()
+	AddComponent( \
+		/datum/component/takes_reagent_appearance, \
+		on_icon_changed = CALLBACK(src, PROC_REF(on_cup_change)), \
+		on_icon_reset = CALLBACK(src, PROC_REF(on_cup_reset)), \
+		base_container_type = /obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton, \
+	)
+
+/obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton/smash(atom/target, mob/thrower, ranged = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(bartender_check(target) && ranged)
 		return
 	SplashReagents(target, ranged, override_spillable = TRUE)
@@ -465,10 +591,17 @@
 /obj/item/reagent_containers/cup/glass/colocup
 	name = "colo cup"
 	desc = "A cheap, mass produced style of cup, typically used at parties. They never seem to come out red, for some reason..."
+<<<<<<< HEAD
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "colocup"
 	inhand_icon_state = "colocup"
 	custom_materials = list(/datum/material/plastic = 1000)
+=======
+	icon = 'icons/obj/drinks/colo.dmi'
+	icon_state = "colocup"
+	inhand_icon_state = "colocup"
+	custom_materials = list(/datum/material/plastic =HALF_SHEET_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	possible_transfer_amounts = list(5, 10, 15, 20)
 	volume = 20
 	amount_per_transfer_from_this = 5
@@ -494,8 +627,14 @@
 /obj/item/reagent_containers/cup/glass/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
+<<<<<<< HEAD
 	icon_state = "shaker"
 	custom_materials = list(/datum/material/iron=1500)
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+	icon_state = "shaker"
+	custom_materials = list(/datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT * 1.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	amount_per_transfer_from_this = 10
 	volume = 100
 	isGlass = FALSE
@@ -503,16 +642,27 @@
 /obj/item/reagent_containers/cup/glass/shaker/Initialize(mapload)
 	. = ..()
 	if(prob(10))
+<<<<<<< HEAD
 		name = "\improper NanoTrasen 20th Anniversary Shaker"
 		desc += " It has an emblazoned NanoTrasen logo on it."
+=======
+		name = "\improper Nanotrasen 20th Anniversary Shaker"
+		desc += " It has an emblazoned Nanotrasen logo on it."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		icon_state = "shaker_n"
 
 /obj/item/reagent_containers/cup/glass/flask
 	name = "flask"
 	desc = "Every good spaceman knows it's a good idea to bring along a couple of pints of whiskey wherever they go."
 	custom_price = PAYCHECK_COMMAND * 2
+<<<<<<< HEAD
 	icon_state = "flask"
 	custom_materials = list(/datum/material/iron=250)
+=======
+	icon = 'icons/obj/drinks/bottles.dmi'
+	icon_state = "flask"
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*2.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	volume = 60
 	isGlass = FALSE
 
@@ -520,7 +670,11 @@
 	name = "captain's flask"
 	desc = "A gold flask belonging to the captain."
 	icon_state = "flask_gold"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/gold=500)
+=======
+	custom_materials = list(/datum/material/gold=SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/reagent_containers/cup/glass/flask/det
 	name = "detective's flask"
@@ -528,9 +682,21 @@
 	icon_state = "detflask"
 	list_reagents = list(/datum/reagent/consumable/ethanol/whiskey = 30)
 
+<<<<<<< HEAD
 /obj/item/reagent_containers/cup/glass/britcup
 	name = "cup"
 	desc = "A cup with the british flag emblazoned on it."
 	icon_state = "britcup"
+=======
+/obj/item/reagent_containers/cup/glass/flask/det/minor
+	list_reagents = list(/datum/reagent/consumable/applejuice = 30)
+
+/obj/item/reagent_containers/cup/glass/mug/britcup
+	name = "cup"
+	desc = "A cup with the british flag emblazoned on it."
+	icon = 'icons/obj/drinks/coffee.dmi'
+	icon_state = "britcup_empty"
+	base_icon_state = "britcup"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	volume = 30
 	spillable = TRUE

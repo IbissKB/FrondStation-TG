@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // File ordered by progression
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_category/ammo
 	name = "Ammunition"
 	weight = 7
@@ -8,8 +11,11 @@
 	category = /datum/uplink_category/ammo
 	surplus = 40
 
+<<<<<<< HEAD
 // No progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/ammo/toydarts
 	name = "Box of Riot Darts"
 	desc = "A box of 40 Donksoft riot darts, for reloading any compatible foam dart magazine. Don't forget to share!"
@@ -19,8 +25,11 @@
 	illegal_tech = FALSE
 	purchasable_from = ~UPLINK_NUKE_OPS
 
+<<<<<<< HEAD
 // Low progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/ammo/pistol
 	name = "9mm Handgun Magazine"
 	desc = "An additional 8-round 9mm magazine, compatible with the Makarov pistol."
@@ -30,8 +39,11 @@
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 	illegal_tech = FALSE
 
+<<<<<<< HEAD
 // Medium progression cost
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/ammo/pistolap
 	name = "9mm Armour Piercing Magazine"
 	desc = "An additional 8-round 9mm magazine, compatible with the Makarov pistol. \

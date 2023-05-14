@@ -10,7 +10,11 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	lights_power = 7
 	step_energy_drain = 15 //slightly higher energy drain since you movin those wheels FAST
+<<<<<<< HEAD
 	armor = list(MELEE = 20, BULLET = 10, LASER = 20, ENERGY = 10, BOMB = 60, BIO = 0, FIRE = 100, ACID = 100) //low armor to compensate for fire protection and speed
+=======
+	armor_type = /datum/armor/working_clarke
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	equip_by_category = list(
 		MECHA_L_ARM = null,
 		MECHA_R_ARM = null,
@@ -29,6 +33,18 @@
 	mecha_flags = ADDING_ACCESS_POSSIBLE | IS_ENCLOSED | HAS_LIGHTS | MMI_COMPATIBLE | OMNIDIRECTIONAL_ATTACKS
 	internals_req_access = list(ACCESS_MECH_ENGINE, ACCESS_MECH_SCIENCE, ACCESS_MECH_MINING)
 
+<<<<<<< HEAD
+=======
+/datum/armor/working_clarke
+	melee = 20
+	bullet = 10
+	laser = 20
+	energy = 10
+	bomb = 60
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/sealed/mecha/working/clarke/Initialize(mapload)
 	. = ..()
 	box = new(src)

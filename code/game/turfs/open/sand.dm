@@ -1,7 +1,11 @@
 /turf/open/misc/beach
 	name = "beach"
 	desc = "Sandy."
+<<<<<<< HEAD
 	icon = 'icons/misc/beach.dmi'
+=======
+	icon = 'icons/turf/sand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_1 = NONE
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_SAND
@@ -10,7 +14,11 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/misc/beach/ex_act(severity, target)
+<<<<<<< HEAD
 	return
+=======
+	return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/misc/beach/sand
 	gender = PLURAL
@@ -20,6 +28,7 @@
 	base_icon_state = "sand"
 	baseturfs = /turf/open/misc/beach/sand
 
+<<<<<<< HEAD
 /turf/open/misc/beach/coastline_t
 	name = "coastline"
 	desc = "Tide's high tonight. Charge your batons."
@@ -47,6 +56,35 @@
 /turf/open/misc/beach/sand/coastline_b/break_tile()
 	. = ..()
 	icon_state = "sandwater_b"
+=======
+/turf/open/misc/beach/sand/Initialize(mapload)
+	. = ..()
+	if(prob(15))
+		icon_state = "sand[rand(1,4)]"
+
+/turf/open/misc/beach/coast
+	name = "coastline"
+	desc = "Tide's high tonight. Charge your batons."
+	icon = 'icons/turf/beach.dmi'
+	icon_state = "beach"
+	base_icon_state = "beach"
+	footstep = FOOTSTEP_WATER
+	barefootstep = FOOTSTEP_WATER
+	clawfootstep = FOOTSTEP_WATER
+	heavyfootstep = FOOTSTEP_WATER
+
+/turf/open/misc/beach/coast/break_tile()
+	. = ..()
+	icon_state = "beach"
+
+/turf/open/misc/beach/coast/corner
+	icon_state = "beach-corner"
+	base_icon_state = "beach-corner"
+
+/turf/open/misc/beach/coast/corner/break_tile()
+	. = ..()
+	icon_state = "beach-corner"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/misc/sandy_dirt
 	gender = PLURAL

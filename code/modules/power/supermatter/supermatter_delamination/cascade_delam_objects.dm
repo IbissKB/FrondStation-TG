@@ -83,7 +83,11 @@
 	var/mob/living/carbon/jedi = user
 	to_chat(jedi, span_userdanger("That was a really dense idea."))
 	jedi.ghostize()
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.internal_organs
+=======
+	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.organs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(rip_u)
 		rip_u.Remove(jedi)
 		qdel(rip_u)

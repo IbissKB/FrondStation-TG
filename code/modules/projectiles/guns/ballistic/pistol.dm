@@ -8,7 +8,11 @@
 	can_suppress = TRUE
 	burst_size = 1
 	fire_delay = 0
+<<<<<<< HEAD
 	fire_select_modes = list(SELECT_SEMI_AUTOMATIC) //SKYRAT EDIT CHANGE
+=======
+	actions_types = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
@@ -85,6 +89,27 @@
 	show_bolt_icon = FALSE
 	// SKYRAT EDIT END
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/automatic/pistol/deagle/regal
+	name = "\improper Regal Condor"
+	desc = "Unlike the Desert Eagle, this weapon seems to utilize some kind of advance internal stabilization system to significantly \
+		reduce felt recoil and substantially increases overall accuracy, though at the cost of using a smaller caliber. This modification does \
+		allow it to fire in a 2-round burst. Uses 10mm ammo."
+	icon_state = "reagle"
+	inhand_icon_state = "deagleg"
+	burst_size = 2
+	fire_delay = 1
+	spread = 10
+	projectile_damage_multiplier = 1.25
+	mag_type = /obj/item/ammo_box/magazine/r10mm
+	actions_types = list(/datum/action/item_action/toggle_firemode)
+	obj_flags = UNIQUE_RENAME // if you did the sidequest, you get the customization
+
+/obj/item/gun/ballistic/automatic/pistol/deagle/regal/no_mag
+	spawnwithmagazine = FALSE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/automatic/pistol/aps
 	name = "\improper Stechkin APS machine pistol"
 	desc = "A modernized reproduction of an old Soviet machine pistol. It fires quickly, but kicks like a mule. Uses 9mm ammo. Has a threaded barrel for suppressors." //SKYRAT EDIT
@@ -95,7 +120,11 @@
 	burst_size = 3
 	fire_delay = 3 //SKYRAT EDIT - Original: 1
 	spread = 10
+<<<<<<< HEAD
 	//actions_types = list(/datum/action/item_action/toggle_firemode) SKYRAT EDIT REMOVAL
+=======
+	actions_types = list(/datum/action/item_action/toggle_firemode)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	suppressor_x_offset = 6
 
 /obj/item/gun/ballistic/automatic/pistol/stickman

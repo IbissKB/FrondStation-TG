@@ -34,6 +34,28 @@
 
 	use_power(idle_power_usage)
 
+<<<<<<< HEAD
+=======
+/obj/machinery/telecomms/hub/update_power()
+	var/old_on = on
+	if (toggled && (machine_stat & (BROKEN|NOPOWER|EMPED)))
+		on = FALSE
+		soundloop.stop()
+	else
+		on = TRUE
+		soundloop.start()
+	if(old_on != on)
+		update_appearance()
+
+/obj/machinery/telecomms/hub/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, on)
+
+/obj/machinery/telecomms/hub/Destroy()
+	QDEL_NULL(soundloop)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Preset HUB
 
 /obj/machinery/telecomms/hub/preset

@@ -20,7 +20,11 @@
 
 	return ..()
 
+<<<<<<< HEAD
 /datum/element/radioactive/process(delta_time)
+=======
+/datum/element/radioactive/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for (var/radioactive_object in radioactive_objects)
 		if (world.time - radioactive_objects[radioactive_object] < DELAY_BETWEEN_RADIATION_PULSES)
 			continue

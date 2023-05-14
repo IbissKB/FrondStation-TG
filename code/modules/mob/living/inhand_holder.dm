@@ -89,6 +89,10 @@
 	release()
 
 /obj/item/clothing/head/mob_holder/Exited(atom/movable/gone, direction)
+<<<<<<< HEAD
+=======
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(held_mob && held_mob == gone)
 		release()
 

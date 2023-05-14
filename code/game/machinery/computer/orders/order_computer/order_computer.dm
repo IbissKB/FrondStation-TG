@@ -1,5 +1,9 @@
 ///List of all items that can be found in the different types of order consoles, to purchase.
 GLOBAL_LIST_EMPTY(order_console_products)
+<<<<<<< HEAD
+=======
+#define CREDIT_TYPE_CREDIT "credit"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/computer/order_console
 	name = "Orders Console"
@@ -7,27 +11,54 @@ GLOBAL_LIST_EMPTY(order_console_products)
 	icon_screen = "request"
 	icon_keyboard = "generic_key"
 	light_color = LIGHT_COLOR_ORANGE
+<<<<<<< HEAD
+=======
+	///Tooltip for the express button in TGUI
+	var/express_tooltip = @{"Sends your purchases instantly,
+	but locks the console longer and increases the price!"}
+	///Tooltip for the purchase button in TGUI
+	var/purchase_tooltip = @{"Your purchases will arrive at cargo,
+	and hopefully get delivered by them."}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///Cooldown between order uses.
 	COOLDOWN_DECLARE(order_cooldown)
 	///Cooldown time between uses, express console will have extra time depending on express_cost_multiplier.
 	var/cooldown_time = 60 SECONDS
+<<<<<<< HEAD
 	///Boolean on whether they can bluespace orders using a '/obj/machinery/mining_ltsrbt'
 	var/uses_ltsrbt = FALSE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	///The radio the console can speak into
 	var/obj/item/radio/radio
 	///The channel we will attempt to speak into through our radio.
 	var/radio_channel = RADIO_CHANNEL_SUPPLY
 
+<<<<<<< HEAD
 	///Whether the console can only use express mode ONLY
 	var/forced_express = FALSE
 	///Multiplied cost to use express mode
+=======
+	///The kind of cash does the console use.
+	var/credit_type = CREDIT_TYPE_CREDIT
+	///Whether the console can only use express mode ONLY
+	var/forced_express = FALSE
+	///Multiplied cost to use for cargo mode
+	var/cargo_cost_multiplier = 1
+	///Multiplied cost to use for express mode
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/express_cost_multiplier = 2
 	///The categories of orderable items this console can view and purchase.
 	var/list/order_categories = list()
 	///The current list of things we're trying to order, waiting for checkout.
 	var/list/datum/orderable_item/grocery_list = list()
+<<<<<<< HEAD
+=======
+	///For blackbox logging, what kind of order is this? set nothing to not tally, like golem orders
+	var/blackbox_key
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/computer/order_console/Initialize(mapload)
 	. = ..()
@@ -61,36 +92,81 @@ GLOBAL_LIST_EMPTY(order_console_products)
 		ui = new(user, src, "ProduceConsole", name)
 		ui.open()
 
+<<<<<<< HEAD
+=======
+/**
+ * points is any type of currency this machine accepts(money, mining points etc) which is displayed on the ui
+ * Args:
+ * card - The ID card we retrive these points from
+ */
+/obj/machinery/computer/order_console/proc/retrive_points(obj/item/card/id/id_card)
+	return round(id_card.registered_account?.account_balance)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/order_console/ui_data(mob/user)
 	var/list/data = list()
 	data["total_cost"] = get_total_cost()
 	data["off_cooldown"] = COOLDOWN_FINISHED(src, order_cooldown)
 
+<<<<<<< HEAD
 	if(!isliving(user))
 		return data
 	var/mob/living/living_user = user
 	var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
 	if(id_card)
 		data["points"] = id_card.registered_account?.account_balance
+=======
+	for(var/datum/orderable_item/item as anything in GLOB.order_console_products)
+		if(!(item.category_index in order_categories))
+			continue
+		data["item_amts"] += list(list(
+			"name" = item.name,
+			"amt" = grocery_list[item],
+		))
+	if(isliving(user))
+		var/mob/living/living_user = user
+		var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
+		if(id_card)
+			data["points"] = retrive_points(id_card)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return data
 
 /obj/machinery/computer/order_console/ui_static_data(mob/user)
 	var/list/data = list()
+<<<<<<< HEAD
 	data["ltsrbt_available"] = (uses_ltsrbt && GLOB.mining_ltsrbt.len)
 	data["forced_express"] = forced_express
+=======
+	data["credit_type"] = credit_type
+	data["express_tooltip"] = express_tooltip
+	data["purchase_tooltip"] = purchase_tooltip
+	data["forced_express"] = forced_express
+	data["cargo_value"] = CARGO_CRATE_VALUE
+	data["cargo_cost_multiplier"] = cargo_cost_multiplier
+	data["express_cost_multiplier"] = express_cost_multiplier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["order_categories"] = order_categories
 	data["order_datums"] = list()
 	for(var/datum/orderable_item/item as anything in GLOB.order_console_products)
 		if(!(item.category_index in order_categories))
 			continue
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		data["order_datums"] += list(list(
 			"name" = item.name,
 			"desc" = item.desc,
 			"cat" = item.category_index,
 			"ref" = REF(item),
+<<<<<<< HEAD
 			"cost" = item.cost_per_order,
 			"amt" = grocery_list[item],
+=======
+			"cost" = round(item.cost_per_order * cargo_cost_multiplier),
+			"product_icon" = icon2base64(getFlatIcon(image(icon = initial(item.item_path.icon), icon_state = initial(item.item_path.icon_state)), no_anim=TRUE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		))
 	return data
 
@@ -102,29 +178,58 @@ GLOBAL_LIST_EMPTY(order_console_products)
 		return
 	var/mob/living/living_user = usr
 	switch(action)
+<<<<<<< HEAD
+=======
+		if("add_one")
+			var/datum/orderable_item/wanted_item = locate(params["target"]) in GLOB.order_console_products
+			grocery_list[wanted_item] += 1
+		if("remove_one")
+			var/datum/orderable_item/wanted_item = locate(params["target"]) in GLOB.order_console_products
+			if(!grocery_list[wanted_item])
+				return
+			grocery_list[wanted_item] -= 1
+			if(!grocery_list[wanted_item])
+				grocery_list -= wanted_item
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("cart_set")
 			//this is null if the action doesn't need it (purchase, quickpurchase)
 			var/datum/orderable_item/wanted_item = locate(params["target"]) in GLOB.order_console_products
 			grocery_list[wanted_item] = clamp(params["amt"], 0, 20)
 			if(!grocery_list[wanted_item])
 				grocery_list -= wanted_item
+<<<<<<< HEAD
 			update_static_data(living_user)
 		if("purchase", "ltsrbt_deliver")
+=======
+		if("purchase")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(!grocery_list.len || !COOLDOWN_FINISHED(src, order_cooldown))
 				return
 			if(forced_express)
 				return ui_act(action = "express")
+<<<<<<< HEAD
+=======
+			//So miners cant spam buy crates for a very low price
+			if(get_total_cost() < CARGO_CRATE_VALUE)
+				return
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/obj/item/card/id/used_id_card = living_user.get_idcard(TRUE)
 			if(!used_id_card || !used_id_card.registered_account)
 				say("No bank account detected!")
 				return
 			if(!purchase_items(used_id_card))
 				return
+<<<<<<< HEAD
 			//So miners cant spam buy crates for a very low price
 			if(get_total_cost() < CARGO_CRATE_VALUE)
 				say("For the delivery order needs to cost more or equal to [CARGO_CRATE_VALUE] points!")
 				return
 			order_groceries(living_user, used_id_card, grocery_list, ltsrbt_delivered = (action == "ltsrbt_deliver"))
+=======
+			if(blackbox_key)
+				SSblackbox.record_feedback("tally", "non_express_[blackbox_key]_order", 1, name)
+			order_groceries(living_user, used_id_card, grocery_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			grocery_list.Cut()
 			COOLDOWN_START(src, order_cooldown, cooldown_time)
 		if("express")
@@ -138,9 +243,17 @@ GLOBAL_LIST_EMPTY(order_console_products)
 				return
 			var/say_message = "Thank you for your purchase!"
 			if(express_cost_multiplier > 1)
+<<<<<<< HEAD
 				say_message += "Please note: The charge of this purchase and machine cooldown has been multiplied by [express_cost_multiplier]!"
 			COOLDOWN_START(src, order_cooldown, cooldown_time * express_cost_multiplier)
 			say(say_message)
+=======
+				say_message += " Please note: The charge of this purchase and machine cooldown has been multiplied by [express_cost_multiplier]!"
+			COOLDOWN_START(src, order_cooldown, cooldown_time * express_cost_multiplier)
+			say(say_message)
+			if(blackbox_key)
+				SSblackbox.record_feedback("tally", "express_[blackbox_key]_order", 1, name)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/list/ordered_paths = list()
 			for(var/datum/orderable_item/item as anything in grocery_list)//every order
 				if(!(item.category_index in order_categories))
@@ -166,6 +279,7 @@ GLOBAL_LIST_EMPTY(order_console_products)
  * returns TRUE if we can afford, FALSE otherwise.
  */
 /obj/machinery/computer/order_console/proc/purchase_items(obj/item/card/id/card, express = FALSE)
+<<<<<<< HEAD
 	var/final_cost = get_total_cost()
 	var/failure_message = "Sorry, but you do not have enough money."
 	if(express)
@@ -178,3 +292,32 @@ GLOBAL_LIST_EMPTY(order_console_products)
 
 /obj/machinery/computer/order_console/proc/order_groceries(mob/living/purchaser, obj/item/card/id/card, list/groceries, ltsrbt_delivered = FALSE)
 	return
+=======
+	var/final_cost = round(get_total_cost() * (express ? express_cost_multiplier : cargo_cost_multiplier))
+	if(subtract_points(final_cost, card))
+		return TRUE
+	say("Sorry, but you do not have enough [credit_type].")
+	return FALSE
+
+/**
+ * whatever type of points was retrived in retrive_points() subtract those type of points from the card upon confirming order
+ * Args:
+ * final_cost - amount of points to subtract from this card
+ * card - The ID card to subtract these points from
+ * returns TRUE if successfull
+ */
+/obj/machinery/computer/order_console/proc/subtract_points(final_cost, obj/item/card/id/card)
+	return card.registered_account.adjust_money(-final_cost, "[name]: Purchase")
+
+/**
+ * start of the shipment of your order
+ * Args:
+ * purchaser - The mob who is making this purchase
+ * card - The card used to place this order
+ * groceries - the list of orders to be placed
+ */
+/obj/machinery/computer/order_console/proc/order_groceries(mob/living/purchaser, obj/item/card/id/card, list/groceries)
+	return
+
+#undef CREDIT_TYPE_CREDIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

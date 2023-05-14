@@ -62,10 +62,25 @@
 	icon_state = "turnbuckle"
 	density = TRUE
 	anchored = TRUE
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
 	max_integrity = 75
 	var/ini_dir
 
+=======
+	armor_type = /datum/armor/structure_wrestling_corner
+	max_integrity = 75
+	var/ini_dir
+
+/datum/armor/structure_wrestling_corner
+	melee = 50
+	bullet = 70
+	laser = 70
+	energy = 100
+	bomb = 10
+	bio = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/wrestling_corner/Initialize(mapload)
 	. = ..()
 	ini_dir = dir

@@ -7,7 +7,11 @@
 	category = EVENT_CATEGORY_BUREAUCRATIC
 	description = "A sketchy but legit insurance offer."
 
+<<<<<<< HEAD
 /datum/round_event_control/shuttle_insurance/can_spawn_event(players)
+=======
+/datum/round_event_control/shuttle_insurance/can_spawn_event(players, allow_magic = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return .

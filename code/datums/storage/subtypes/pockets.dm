@@ -76,10 +76,19 @@
 	set_holdable(list(
 		/obj/item/knife,
 		/obj/item/switchblade,
+<<<<<<< HEAD
 		/obj/item/pen,
 		/obj/item/scalpel,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/dnainjector,
+=======
+		/obj/item/boxcutter,
+		/obj/item/pen,
+		/obj/item/scalpel,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/pill,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/implanter,
@@ -90,6 +99,10 @@
 		/obj/item/ammo_box/magazine/m9mm,
 		/obj/item/ammo_box/magazine/m10mm,
 		/obj/item/ammo_box/magazine/m45,
+<<<<<<< HEAD
+=======
+		/obj/item/ammo_box/magazine/toy/pistol,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/ammo_casing,
 		/obj/item/lipstick,
 		/obj/item/clothing/mask/cigarette,

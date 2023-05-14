@@ -5,3 +5,11 @@
 #define DICE_BASICALLY_RIGGED 2
 /// Dice has a 100% chance to land on a rigged value
 #define DICE_TOTALLY_RIGGED 3
+<<<<<<< HEAD
+=======
+
+/// card is considered face down
+#define CARD_FACEDOWN 0
+/// card is considered face up
+#define CARD_FACEUP 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

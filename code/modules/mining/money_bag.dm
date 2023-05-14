@@ -2,6 +2,10 @@
 
 /obj/item/storage/bag/money
 	name = "money bag"
+<<<<<<< HEAD
+=======
+	desc = "A bag for storing your profits."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "moneybag"
 	worn_icon_state = "moneybag"
 	force = 10

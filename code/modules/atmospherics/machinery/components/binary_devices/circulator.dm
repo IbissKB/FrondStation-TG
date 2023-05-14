@@ -1,7 +1,10 @@
 //node2, air2, network2 correspond to input
 //node1, air1, network1 correspond to output
+<<<<<<< HEAD
 #define CIRCULATOR_HOT 0
 #define CIRCULATOR_COLD 1
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/atmospherics/components/binary/circulator
 	name = "circulator/heat exchanger"
@@ -147,15 +150,25 @@
 	if(generator)
 		disconnectFromGenerator()
 	mode = !mode
+<<<<<<< HEAD
 	to_chat(user, span_notice("You set [src] to [mode?"cold":"hot"] mode."))
+=======
+	to_chat(user, span_notice("You set [src] to [mode ? "cold" : "hot"] mode."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/machinery/atmospherics/components/binary/circulator/screwdriver_act(mob/user, obj/item/I)
 	if(..())
 		return TRUE
+<<<<<<< HEAD
 	panel_open = !panel_open
 	I.play_tool_sound(src)
 	to_chat(user, span_notice("You [panel_open?"open":"close"] the panel on [src]."))
+=======
+	toggle_panel_open()
+	I.play_tool_sound(src)
+	to_chat(user, span_notice("You [panel_open ? "open" : "close"] the panel on [src]."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return TRUE
 
 /obj/machinery/atmospherics/components/binary/circulator/crowbar_act(mob/user, obj/item/I)

@@ -42,6 +42,11 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 
 #define isfloorturf(A) (istype(A, /turf/open/floor))
 
+<<<<<<< HEAD
+=======
+#define ismiscturf(A) (istype(A, /turf/open/misc))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define isclosedturf(A) (istype(A, /turf/closed))
 
 #define isindestructiblewall(A) (istype(A, /turf/closed/indestructible))
@@ -90,6 +95,11 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 #define isdullahan(A) (is_species(A, /datum/species/dullahan))
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
+<<<<<<< HEAD
+=======
+#define isnightmare(A) (is_species(A, /datum/species/shadow/nightmare))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //More carbon mobs
 #define isalien(A) (istype(A, /mob/living/carbon/alien))
@@ -163,7 +173,11 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 
 #define isclown(A) (istype(A, /mob/living/simple_animal/hostile/retaliate/clown))
 
+<<<<<<< HEAD
 #define isspider(A) (istype(A, /mob/living/simple_animal/hostile/giant_spider))
+=======
+#define isspider(A) (istype(A, /mob/living/basic/giant_spider))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 //Misc mobs
@@ -255,7 +269,11 @@ GLOBAL_LIST_INIT(glass_sheet_types, typecacheof(list(
 
 #define isblobmonster(O) (istype(O, /mob/living/simple_animal/hostile/blob))
 
+<<<<<<< HEAD
 #define isshuttleturf(T) (length(T.baseturfs) && (/turf/baseturf_skipover/shuttle in T.baseturfs))
+=======
+#define isshuttleturf(T) (!isnull(T.depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 #define isProbablyWallMounted(O) (O.pixel_x > 20 || O.pixel_x < -20 || O.pixel_y > 20 || O.pixel_y < -20)
 #define isbook(O) (is_type_in_typecache(O, GLOB.book_types))
@@ -279,3 +297,7 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 #define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
 
 #define isprojectilespell(thing) (istype(thing, /datum/action/cooldown/spell/pointed/projectile))
+<<<<<<< HEAD
+=======
+#define is_multi_tile_object(atom) (atom.bound_width > world.icon_size || atom.bound_height > world.icon_size)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

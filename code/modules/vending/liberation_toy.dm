@@ -27,10 +27,25 @@
 		/obj/item/dualsaber/toy = 5,
 		/obj/item/toy/cards/deck/syndicate = 10, //Gambling and it hurts, making it a +18 item
 	)
+<<<<<<< HEAD
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 100, ACID = 50)
+=======
+	armor_type = /datum/armor/vending_toyliberationstation
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 	refill_canister = /obj/item/vending_refill/donksoft
 	default_price = PAYCHECK_COMMAND
 	extra_price = PAYCHECK_COMMAND
 	payment_department = ACCOUNT_SRV
 	light_mask = "donksoft-light-mask"
+<<<<<<< HEAD
+=======
+
+/datum/armor/vending_toyliberationstation
+	melee = 100
+	bullet = 100
+	laser = 100
+	energy = 100
+	fire = 100
+	acid = 50
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

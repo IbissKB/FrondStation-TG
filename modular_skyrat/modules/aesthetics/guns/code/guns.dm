@@ -71,7 +71,13 @@
 	inhand_icon_state = "riot_shotgun_syndie"
 	can_be_sawn_off = FALSE
 	can_suppress = FALSE
+<<<<<<< HEAD
 	company_flag = COMPANY_SCARBOROUGH
+=======
+
+/obj/item/gun/ballistic/shotgun/riot/syndicate/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_SCARBOROUGH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/shotgun/automatic/combat
 	name = "\improper Peacekeeper combat shotgun"
@@ -109,6 +115,12 @@
 /obj/item/gun/ballistic/automatic/pistol
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/automatic/pistol/deagle/regal
+	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/energy/e_gun/nuclear
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/nucgun.dmi'
 	ammo_x_offset = 2
@@ -194,6 +206,7 @@
 	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/laser_cannon_fire.ogg'
 
 /obj/item/gun/ballistic/automatic/sniper_rifle
+<<<<<<< HEAD
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper"
 	fire_delay = 6 SECONDS
@@ -202,12 +215,63 @@
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper2"
 	fire_delay = 5.5 SECONDS
+=======
+	name = "sniper rifle"
+	desc = "A long ranged weapon that does significant damage. No, you can't quickscope."
+	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
+	icon_state = "sniper"
+	w_class = WEIGHT_CLASS_BULKY
+	inhand_icon_state = "sniper"
+	worn_icon_state = null
+	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
+	fire_sound_volume = 90
+	load_sound = 'sound/weapons/gun/sniper/mag_insert.ogg'
+	rack_sound = 'sound/weapons/gun/sniper/rack.ogg'
+	suppressed_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg'
+	recoil = 2
+	weapon_weight = WEAPON_HEAVY
+	mag_type = /obj/item/ammo_box/magazine/sniper_rounds
+	fire_delay = 6 SECONDS
+	burst_size = 1
+	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_BACK
+	actions_types = list()
+	mag_display = TRUE
+	suppressor_x_offset = 3
+	suppressor_y_offset = 3
+
+/obj/item/gun/ballistic/automatic/sniper_rifle/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
+
+/obj/item/gun/ballistic/automatic/sniper_rifle/reset_semicd()
+	. = ..()
+	if(suppressed)
+		playsound(src, 'sound/machines/eject.ogg', 25, TRUE, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
+	else
+		playsound(src, 'sound/machines/eject.ogg', 50, TRUE)
+
+/obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
+	name = "syndicate sniper rifle"
+	desc = "An illegally modified .50 cal sniper rifle with suppression compatibility. Quickscoping still doesn't work."
+	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
+	icon_state = "sniper2"
+	worn_icon_state = "sniper"
+	fire_delay = 5.5 SECONDS
+	can_suppress = TRUE
+	can_unsuppress = TRUE
+	pin = /obj/item/firing_pin/implant/pindicate
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/modular
 	name = "AUS-107 anti-materiel rifle"
 	desc = "A devastating Aussec Armory heavy sniper rifle, fitted with a modern scope."
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper"
+<<<<<<< HEAD
+=======
+	worn_icon_state = "sniper"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle.ogg'
 	suppressed_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
 	w_class = WEIGHT_CLASS_BULKY
@@ -225,7 +289,13 @@
 	can_suppress = TRUE
 	can_unsuppress = TRUE
 	weapon_weight = WEAPON_LIGHT
+<<<<<<< HEAD
 	company_flag = COMPANY_SCARBOROUGH
+=======
+
+/obj/item/gun/ballistic/automatic/sniper_rifle/modular/syndicate/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_SCARBOROUGH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/modular/blackmarket  //Normal sniper but epic
 	name = "SA-107 anti-materiel rifle"
@@ -246,7 +316,10 @@
 	fire_delay = 55 //Slightly smaller than standard sniper
 	burst_size = 1
 	slot_flags = ITEM_SLOT_BACK
+<<<<<<< HEAD
 	fire_select_modes = list(SELECT_SEMI_AUTOMATIC) //SKYRAT EDIT CHANGE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mag_display = TRUE
 
 /obj/item/gun/ballistic/automatic/ar/modular
@@ -268,6 +341,7 @@
 	sawn_desc = "An extremely sawn-off Sportiv rifle, popularly known as an \"obrez\". There was probably a reason it wasn't manufactured this short to begin with."
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
 
+<<<<<<< HEAD
 /obj/item/gun/ballistic/rifle/boltaction/brand_new
 	name = "\improper NT Sportsman rifle"
 	desc = "A freshly-produced Sportiv precision rifle variant issued by Nanotrasen for their interns.\
@@ -282,12 +356,29 @@
 	<br><br>\
 	<i>BRAND NEW: Cannot be sawn off.</i>"
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+=======
+/obj/item/gun/ballistic/rifle/boltaction/surplus
+	desc = "An unnervingly antique sporting rifle dating back to the 2400s chambered for .244 Acia. 'НРИ - Оборонная Коллегия' is etched on the bolt. It looks poorly kept, \
+	and feels uncomfortably moist."
+	sawn_desc = "An extremely sawn-off, unnervingly antique Sportiv rifle, popularly known as an \"obrez\". \
+	There was probably a reason it wasn't manufactured this short to begin with, especially not after what can only be assumed was years of negligence. \
+	It still feels uncomfortably moist."
+
+/obj/item/gun/ballistic/rifle/boltaction/quartermaster
+	name = "\improper FTU 'Archangel' precision rifle"
+	desc = "A very... \"modernized\" Sportiv rifle, the frame even feels a little flimsy. This thing was probably built with a conversion kit from a shady NTnet site.\
+	<br><br>\
+	<i>BRAND NEW: Cannot be sawn off.</i>"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "bubba"
 	worn_icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_back.dmi'
 	worn_icon_state = "bubba"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/bubba
 	can_be_sawn_off = FALSE
+<<<<<<< HEAD
 	company_flag = null //Cargonia's own
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_box/magazine/internal/boltaction/bubba
 	name = "sportiv extended internal magazine"
@@ -311,10 +402,20 @@
 	fire_delay = 5
 	fire_sound_volume = 90
 	mag_type = /obj/item/ammo_box/magazine/multi_sprite/ostwind/arg75
+<<<<<<< HEAD
 	company_flag = COMPANY_NANOTRASEN
 
 /obj/item/ammo_box/magazine/multi_sprite/ostwind/arg75
 	name = "\improper ARG-75 magazine"
+=======
+
+/obj/item/gun/ballistic/automatic/ar/modular/model75/give_manufacturer_examine()
+	AddComponent(/datum/component/manufacturer_examine, COMPANY_NANOTRASEN)
+
+/obj/item/ammo_box/magazine/multi_sprite/ostwind/arg75
+	name = "\improper ARG-75 magazine"
+	desc = "A twenty round double-stack magazine for the NT ARG-75 rifle. Chambered in .244 Acia."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'modular_skyrat/modules/sec_haul/icons/guns/mags.dmi'
 	icon_state = "pcr"
 	ammo_type = /obj/item/ammo_casing/a762
@@ -324,9 +425,19 @@
 // GUBMAN3 - FULL BULLET RENAME
 
 /obj/item/ammo_casing/a762
+<<<<<<< HEAD
 	name = ".244 Acia polymer casing"
 	desc = "A .244 bullet casing."
 
+=======
+	name = ".244 Acia casing"
+	desc = "A .244 bullet casing."
+
+/obj/item/ammo_casing/a762/surplus
+	name = ".244 Acia surplus casing"
+	desc = "A .244 surplus bullet casing."
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/ammo_casing/a556
 	name = ".277 Aestus polymer casing"
 	desc = "A .277 bullet casing."
@@ -341,13 +452,25 @@
 	name = "shotgun slug"
 	desc = "A 12 gauge tungsten slug."
 
+<<<<<<< HEAD
 /obj/item/ammo_casing/shotgun/executioner
 	name = "expanding shotgun slug"
 	desc = "A 12 gauge fragmenting slug purpose-built to annihilate flesh on impact."
+=======
+// THE BELOW TWO SLUGS ARE NOTED AS ADMINONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
+/obj/item/ammo_casing/shotgun/executioner
+	name = "expanding shotgun slug"
+	desc = "A 12 gauge fragmenting slug purpose-built to annihilate flesh on impact."
+	can_be_printed = FALSE // noted as adminonly in code/modules/projectiles/projectile/bullets/shotgun.dm.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/shotgun/pulverizer
 	name = "pulverizer shotgun slug"
 	desc = "A 12 gauge uranium slug purpose-built to break bones on impact."
+<<<<<<< HEAD
+=======
+	can_be_printed = FALSE // noted as adminonly in code/modules/projectiles/projectile/bullets/shotgun.dm
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/shotgun/incendiary
 	name = "incendiary slug"
@@ -355,27 +478,74 @@
 	<br><br>\
 	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 
+<<<<<<< HEAD
 /obj/item/ammo_casing/shotgun/stunslug
 	name = "taser slug"
 	desc = "A 12 gauge silver slug with electrical microcomponents meant to incapacitate targets."
+=======
+/obj/item/ammo_casing/shotgun/techshell
+	can_be_printed = FALSE // techshell... casing! so not really usable on its own but if you're gonna make these go raid a seclathe.
+
+/obj/item/ammo_casing/shotgun/improvised
+	can_be_printed = FALSE // this is literally made out of scrap why would you use this if you have a perfectly good ammolathe
+
+/obj/item/ammo_casing/shotgun/dart/bioterror
+	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
+
+/obj/item/ammo_casing/shotgun/dragonsbreath
+	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+
+/obj/item/ammo_casing/shotgun/stunslug
+	name = "taser slug"
+	desc = "A 12 gauge silver slug with electrical microcomponents meant to incapacitate targets."
+	can_be_printed = FALSE // comment out if you want rocket tag shotgun ammo being printable
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/shotgun/meteorslug
 	name = "meteor slug"
 	desc = "A 12 gauge shell rigged with CMC technology which launches a heap of matter with great force when fired.\
 	<br><br>\
 	<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
+<<<<<<< HEAD
+=======
+	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/shotgun/frag12
 	name = "FRAG-12 slug"
 	desc = "A 12 gauge shell containing high explosives designed for defeating some barriers and light vehicles, disrupting IEDs, or intercepting assistants.\
 	<br><br>\
 	<i>HIGH EXPLOSIVE: Explodes on impact.</i>"
+<<<<<<< HEAD
 
 /obj/item/ammo_casing/shotgun/incapacitate
 	name = "hornet's nest shell"
 	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets.\
 	<br><br>\
 	<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
+=======
+	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+
+/obj/item/ammo_casing/shotgun/pulseslug
+	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+
+/obj/item/ammo_casing/shotgun/laserslug
+	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+
+/obj/item/ammo_casing/shotgun/ion
+	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+
+/obj/item/ammo_casing/shotgun/incapacitate
+	name = "hornet's nest shell"
+	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets, \
+	sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
+	<br><br>\
+	<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
+	// ...you know what if you're confident you can get up in there, you might as well get to use it if you're able to print Weird Shells.
+
+// i'd've put more can_be_printed overrides for the cargo shells but, like... some of them actually do have defined materials so you can't just shit them out with metal?
+// kinda weird that none of these others do but, whatever??
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/ammo_casing/p50
 	name = ".416 Stabilis polymer casing"
@@ -454,6 +624,12 @@
 /obj/projectile/bullet/a762
 	name = ".244 bullet"
 
+<<<<<<< HEAD
+=======
+/obj/projectile/bullet/a762/surplus
+	name = ".244 surplus bullet"
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/projectile/bullet/a762/enchanted
 	name = "enchanted .244 bullet"
 
@@ -547,3 +723,12 @@
 
 /obj/item/ammo_box/a762
 	name = "stripper clip (.244 Acia)"
+<<<<<<< HEAD
+=======
+
+/obj/item/ammo_box/a762/surplus
+	name = "stripper clip (.244 Acia surplus)"
+
+/obj/item/storage/toolbox/a762
+	name = ".244 Acia ammo box (Surplus?)"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

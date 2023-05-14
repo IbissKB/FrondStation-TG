@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /obj/item/clothing/under/blastwave //ORION TODO: remove (these can all use Utility uniforms and have the helmet/suit be the color; they already pretty much do)
+=======
+/obj/item/clothing/under/blastwave
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "blastwave uniform"
 	desc = "An utilitarian uniform of rugged warfare."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/uniforms.dmi'

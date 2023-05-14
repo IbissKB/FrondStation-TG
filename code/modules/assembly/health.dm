@@ -2,7 +2,11 @@
 	name = "health sensor"
 	desc = "Used for scanning and monitoring health."
 	icon_state = "health"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=800, /datum/material/glass=200)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*8, /datum/material/glass=SMALL_MATERIAL_AMOUNT * 2)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attachable = TRUE
 
 	var/scanning = FALSE
@@ -81,7 +85,11 @@
 	if (secured)
 		balloon_alert(user, "scanning [scanning ? "disabled" : "enabled"]")
 	else
+<<<<<<< HEAD
 		balloon_alert(user, span_warning("secure it first!"))
+=======
+		balloon_alert(user, "secure it first!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	toggle_scan()
 
 /obj/item/assembly/health/proc/get_status_tab_item(mob/living/carbon/source, list/items)

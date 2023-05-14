@@ -82,6 +82,10 @@
 	if(S && istype(S))
 		assemblies -= color
 		S.connected = null
+<<<<<<< HEAD
+=======
+		S.holder = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		S.forceMove(holder.drop_location())
 		var/obj/item/grenade/chem_grenade/G = holder
 		G.landminemode = null

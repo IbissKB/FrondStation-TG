@@ -170,9 +170,15 @@ def sort_score_by_event_times(score):
             key=lambda indx: score[indx][0])
         ))
 
+<<<<<<< HEAD
 def convert_into_delta_times(score):
     """
     Transform start_time into delta_time and returns new score
+=======
+def convert_into_seconds_per_ticks(score):
+    """
+    Transform start_time into seconds_per_tick and returns new score
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     """
     return list(map(
         lambda super_event: (
@@ -300,7 +306,11 @@ def main_cycle():
         score = filter_empty_tracks(score)
         score = merge_events(score)
         score = sort_score_by_event_times(score)
+<<<<<<< HEAD
         score = convert_into_delta_times(score)
+=======
+        score = convert_into_seconds_per_ticks(score)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         score = perform_roundation(score)
         most_frequent_dur = obtain_common_duration(score)
         score = reduce_score_to_chords(score)

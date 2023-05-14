@@ -4,10 +4,17 @@
  * @license MIT
  */
 
+<<<<<<< HEAD
 import { canRender, classes } from 'common/react';
 import { Component, createRef, InfernoNode, RefObject } from 'inferno';
 import { addScrollableNode, removeScrollableNode } from '../events';
 import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+=======
+import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { Component, InfernoNode, RefObject, createRef } from 'inferno';
+import { addScrollableNode, removeScrollableNode } from '../events';
+import { canRender, classes } from 'common/react';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 type SectionProps = BoxProps & {
   className?: string;
@@ -18,9 +25,15 @@ type SectionProps = BoxProps & {
   scrollable?: boolean;
   scrollableHorizontal?: boolean;
   /** @deprecated This property no longer works, please remove it. */
+<<<<<<< HEAD
   level?: boolean;
   /** @deprecated Please use `scrollable` property */
   overflowY?: any;
+=======
+  level?: never;
+  /** @deprecated Please use `scrollable` property */
+  overflowY?: never;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   /** @member Allows external control of scrolling. */
   scrollableRef?: RefObject<HTMLDivElement>;
   /** @member Callback function for the `scroll` event */
@@ -43,7 +56,11 @@ export class Section extends Component<SectionProps> {
 
   componentDidMount() {
     if (this.scrollable || this.scrollableHorizontal) {
+<<<<<<< HEAD
       addScrollableNode(this.scrollableRef.current);
+=======
+      addScrollableNode(this.scrollableRef.current as HTMLElement);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       if (this.onScroll && this.scrollableRef.current) {
         this.scrollableRef.current.onscroll = this.onScroll;
       }
@@ -52,7 +69,11 @@ export class Section extends Component<SectionProps> {
 
   componentWillUnmount() {
     if (this.scrollable || this.scrollableHorizontal) {
+<<<<<<< HEAD
       removeScrollableNode(this.scrollableRef.current);
+=======
+      removeScrollableNode(this.scrollableRef.current as HTMLElement);
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     }
   }
 

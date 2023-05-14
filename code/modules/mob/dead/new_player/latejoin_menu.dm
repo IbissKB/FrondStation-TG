@@ -26,6 +26,10 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		// In case they reopen the GUI
+<<<<<<< HEAD
+=======
+		// FIXME: this can cause a runtime since user can be a living mob
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(istype(user))
 			user.jobs_menu_mounted = FALSE
 			addtimer(CALLBACK(src, PROC_REF(scream_at_player), user), 5 SECONDS)
@@ -66,6 +70,13 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 		departments[department.department_name] = department_data
 
 		for(var/datum/job/job_datum as anything in department.department_jobs)
+<<<<<<< HEAD
+=======
+			//Jobs under multiple departments should only be displayed if this is their first department or the command department
+			if(LAZYLEN(job_datum.departments_list) > 1 && job_datum.departments_list[1] != department.type && !(job_datum.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND))
+				continue
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/job_availability = owner.IsJobUnavailable(job_datum.title, latejoin = TRUE)
 
 			var/list/job_data = list(
@@ -100,22 +111,36 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 		departments[department.department_name] = department_data
 
 		for(var/datum/job/job_datum as anything in department.department_jobs)
+<<<<<<< HEAD
 			var/datum/outfit/outfit = job_datum.outfit
 			var/datum/id_trim/trim = initial(outfit.id_trim)
+=======
+			//Jobs under multiple departments should only be displayed if this is their first department or the command department
+			if(LAZYLEN(job_datum.departments_list) > 1 && job_datum.departments_list[1] != department.type && !(job_datum.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND))
+				continue
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			var/list/job_data = list(
 				"command" = !!(job_datum.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND),
 				"description" = job_datum.description,
+<<<<<<< HEAD
 				"icon" = initial(trim.orbit_icon),
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			)
 
 			department_jobs[job_datum.title] = job_data
 
 	return list("departments_static" = departments)
 
+<<<<<<< HEAD
 // we can't use GLOB.new_player_state here since it also allows any admin to see the ui, which will cause runtimes
 /datum/latejoin_menu/ui_status(mob/user)
 	return isnewplayer(user) ? UI_INTERACTIVE : UI_CLOSE
+=======
+/datum/latejoin_menu/ui_state(mob/user)
+	return GLOB.new_player_state
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/latejoin_menu/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -166,8 +191,11 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 
 			// SAFETY: AttemptLateSpawn has it's own sanity checks. This is perfectly safe.
 			owner.AttemptLateSpawn(params["job"])
+<<<<<<< HEAD
 			return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("viewpoll")
 			var/datum/poll_question/poll = locate(params["viewpoll"]) in GLOB.polls
 			if(!poll)

@@ -19,6 +19,15 @@
 	cost = 6
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
+<<<<<<< HEAD
+=======
+/datum/uplink_item/suits/noslip
+	name = "MODsuit Anti-Slip Module"
+	desc = "A MODsuit module preventing the user from slipping on water."
+	item = /obj/item/mod/module/noslip
+	cost = 2
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/suits/space_suit
 	name = "Syndicate Space Suit"
 	desc = "This red and black Syndicate space suit is less encumbering than Nanotrasen variants, \
@@ -27,7 +36,10 @@
 	item = /obj/item/storage/box/syndie_kit/space
 	cost = 4
 
+<<<<<<< HEAD
 // Low progression cost
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/uplink_item/suits/modsuit
 	name = "Syndicate MODsuit"
@@ -35,47 +47,69 @@
 	item = /obj/item/mod/control/pre_equipped/traitor
 	cost = 8
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS) //you can't buy it in nuke, because the elite modsuit costs the same while being better
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/uplink_item/suits/thermal
 	name = "MODsuit Thermal Visor Module"
 	desc = "A visor for a MODsuit. Lets you see living beings through walls."
 	item = /obj/item/mod/module/visor/thermal
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = 3
 
 /datum/uplink_item/suits/night
 	name = "MODsuit Night Visor Module"
 	desc = "A visor for a MODsuit. Lets you see clearer in the dark."
 	item = /obj/item/mod/module/visor/night
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = 2
 
 /datum/uplink_item/suits/chameleon
 	name = "MODsuit Chameleon Module"
 	desc = "A MODsuit module that lets the suit disguise itself as other objects."
 	item = /obj/item/mod/module/chameleon
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cost = 2
 
 /datum/uplink_item/suits/plate_compression
 	name = "MODsuit Plate Compression Module"
 	desc = "A MODsuit module that lets the suit compress into a smaller size. Not compatible with storage modules or the Infiltrator MODsuit."
 	item = /obj/item/mod/module/plate_compression
+<<<<<<< HEAD
 	progression_minimum = 20 MINUTES
 	cost = 2
 
 // Medium progression cost
+=======
+	cost = 2
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/uplink_item/suits/noslip
 	name = "MODsuit Anti-Slip Module"
 	desc = "A MODsuit module preventing the user from slipping on water."
 	item = /obj/item/mod/module/noslip
+<<<<<<< HEAD
 	progression_minimum = 90 MINUTES
 	cost = 2
 
 // Very high progression cost
 
+=======
+	cost = 2
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/uplink_item/suits/modsuit/elite_traitor
 	name = "Elite Syndicate MODsuit"
 	desc = "An upgraded, elite version of the Syndicate MODsuit. It features fireproofing, and also \

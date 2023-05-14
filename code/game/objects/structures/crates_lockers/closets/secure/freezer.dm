@@ -1,11 +1,31 @@
 /obj/structure/closet/secure_closet/freezer
 	icon_state = "freezer"
+<<<<<<< HEAD
+=======
+	base_icon_state = "freezer"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 	door_anim_squish = 0.22
 	door_anim_angle = 123
 	door_anim_time = 4
 	/// If FALSE, we will protect the first person in the freezer from an explosion / nuclear blast.
 	var/jones = FALSE
+<<<<<<< HEAD
+=======
+	paint_jobs = null
+
+/obj/structure/closet/secure_closet/freezer/before_open(mob/living/user, force)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	toggle_organ_decay(src)
+	return TRUE
+
+/obj/structure/closet/secure_closet/freezer/after_close(mob/living/user)
+	. = ..()
+	toggle_organ_decay(src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/freezer/Destroy()
 	toggle_organ_decay(src)
@@ -15,6 +35,7 @@
 	. = ..()
 	toggle_organ_decay(src)
 
+<<<<<<< HEAD
 /obj/structure/closet/secure_closet/freezer/open(mob/living/user, force = FALSE)
 	if(opened || !can_open(user, force)) //dupe check just so we don't let the organs decay when someone fails to open the locker
 		return FALSE
@@ -25,11 +46,22 @@
 	if(..()) //if we actually closed the locker
 		toggle_organ_decay(src)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/secure_closet/freezer/ex_act()
 	if(jones)
 		return ..()
 	jones = TRUE
 	flags_1 &= ~PREVENT_CONTENTS_EXPLOSION_1
+<<<<<<< HEAD
+=======
+	return FALSE
+
+/obj/structure/closet/secure_closet/freezer/deconstruct(disassembled)
+	if (!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/assembly/igniter/condenser(drop_location())
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/freezer/empty
 	name = "empty freezer"
@@ -75,8 +107,13 @@
 		new /obj/item/food/meat/slab/monkey(src)
 
 /obj/structure/closet/secure_closet/freezer/meat/open
+<<<<<<< HEAD
 	req_access = list()
 	locked = FALSE
+=======
+	locked = FALSE
+	req_access = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/secure_closet/freezer/gulag_fridge
 	name = "refrigerator"
@@ -102,6 +139,14 @@
 	req_access = null
 	locked = FALSE
 
+<<<<<<< HEAD
+=======
+/obj/structure/closet/secure_closet/freezer/fridge/preopen
+	req_access = null
+	locked = FALSE
+	opened = TRUE
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/secure_closet/freezer/money
 	name = "freezer"
 	desc = "This contains cold hard cash."

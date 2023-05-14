@@ -1,7 +1,14 @@
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { BlockQuote, Box, Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
 import { multiline } from 'common/string';
+=======
+import { BlockQuote, Box, Button, Section, Stack, Tabs } from '../components';
+import { Window } from '../layouts';
+import { multiline } from 'common/string';
+import { paginate, range } from 'common/collections';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 type Entry = {
   name: string;
@@ -9,12 +16,17 @@ type Entry = {
   desc: string;
   threshold_desc: string;
   qualities: string[];
+<<<<<<< HEAD
+=======
+  tier: number;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 type DnaInfuserData = {
   entries: Entry[];
 };
 
+<<<<<<< HEAD
 export const InfuserBook = (props, context) => {
   const { data } = useBackend<DnaInfuserData>(context);
   const { entries } = data;
@@ -38,22 +50,184 @@ export const InfuserBook = (props, context) => {
           </Stack.Item>
           <Stack.Item>
             <InfuserEntry entry={entries[entryIndex]} />
+=======
+type BookPosition = {
+  chapter: number;
+  pageInChapter: number;
+};
+
+type TierData = {
+  desc: string;
+  icon: string;
+  name: string;
+};
+
+const PAGE_HEIGHT = '235px';
+
+const TIER2TIERDATA: TierData[] = [
+  {
+    name: 'Lesser Mutant',
+    desc: multiline`
+      Lesser Mutants usually have a smaller list of potential mutations, and
+      do not have bonuses for infusing many organs. Common species, cosmetics,
+      and things of that sort are here. Always available!
+    `,
+    icon: 'circle-o',
+  },
+  {
+    name: 'Regular Mutant',
+    desc: multiline`
+      Regular Mutants all have bonuses for infusing DNA into yourself, and are
+      common enough to find consistently in a shift. Always available!
+    `,
+    icon: 'circle-half-stroke',
+  },
+  {
+    name: 'Greater Mutant',
+    desc: multiline`
+      Greater Mutants have stronger upsides and downsides along with their
+      bonus, and are harder to find in a shift. Must be unlocked by first
+      unlocking a DNA Mutant bonus of a lower tier.
+    `,
+    icon: 'circle',
+  },
+  {
+    name: 'Abberation',
+    desc: multiline`
+      We've been able to get stronger mutants out of vatgrown specimen,
+      henceforth named "Abberations". Abberations have either strong utility
+      purpose, anomalous qualities, or deadly capabilities.
+    `,
+    icon: 'teeth',
+  },
+];
+
+export const InfuserBook = (props, context) => {
+  const { data } = useBackend<DnaInfuserData>(context);
+  const { entries } = data;
+
+  const [bookPosition, setBookPosition] = useLocalState<BookPosition>(
+    context,
+    'bookPosition',
+    {
+      chapter: 0,
+      pageInChapter: 0,
+    }
+  );
+  const { chapter, pageInChapter } = bookPosition;
+
+  const paginatedEntries = paginateEntries(entries);
+
+  let currentEntry = paginatedEntries[chapter][pageInChapter];
+
+  const switchChapter = (newChapter) => {
+    setBookPosition({ chapter: newChapter, pageInChapter: 0 });
+  };
+
+  const setPage = (newPage) => {
+    const newBookPosition: BookPosition = { ...bookPosition };
+    if (newPage < 0) {
+      if (newBookPosition.chapter === 0) {
+        return;
+      }
+      newBookPosition.chapter = chapter - 1;
+      newBookPosition.pageInChapter = paginatedEntries[chapter - 1].length - 1;
+      if (newBookPosition.pageInChapter < 0) {
+        newBookPosition.pageInChapter = 0;
+      }
+    } else if (newPage > paginatedEntries[chapter].length - 1) {
+      if (newBookPosition.chapter === 3) {
+        return;
+      } else {
+        newBookPosition.pageInChapter = 0;
+        newBookPosition.chapter = chapter + 1;
+      }
+    } else {
+      newBookPosition.pageInChapter = newPage;
+    }
+    setBookPosition(newBookPosition);
+  };
+
+  const tabs = [
+    'Introduction',
+    'Tier 0 - Lesser Mutants',
+    'Tier 1 - Regular Mutants',
+    'Tier 2 - Greater Mutants',
+    'Tier 3 - Abberations - RESTRICTED',
+  ];
+
+  const paginatedTabs = paginate(tabs, 3);
+
+  const restrictedNext = chapter === 3 && pageInChapter === 0;
+
+  return (
+    <Window title="DNA Infusion Manual" width={620} height={375}>
+      <Window.Content>
+        <Stack vertical>
+          <Stack.Item mb={-1}>
+            {paginatedTabs.map((tabRow, i) => (
+              <Tabs height="30px" mb="0px" fill fluid key={i}>
+                {tabRow.map((tab) => {
+                  const tabIndex = tabs.indexOf(tab);
+                  const tabIcon = TIER2TIERDATA[tabIndex - 1]
+                    ? TIER2TIERDATA[tabIndex - 1].icon
+                    : 'info';
+                  return (
+                    <Tabs.Tab
+                      icon={tabIcon}
+                      key={tabIndex}
+                      selected={chapter === tabIndex}
+                      onClick={
+                        tabIndex === 4 ? null : () => switchChapter(tabIndex)
+                      }>
+                      <Box color={tabIndex === 4 && 'red'}>{tab}</Box>
+                    </Tabs.Tab>
+                  );
+                })}
+              </Tabs>
+            ))}
+          </Stack.Item>
+          <Stack.Item>
+            {chapter === 0 ? (
+              <InfuserInstructions />
+            ) : (
+              <InfuserEntry entry={currentEntry} />
+            )}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           </Stack.Item>
           <Stack.Item textAlign="center">
             <Stack fontSize="18px" fill>
               <Stack.Item grow={2}>
+<<<<<<< HEAD
                 <Button onClick={() => wrapEntries(entryIndex - 1)} fluid>
                   Last Entry
+=======
+                <Button onClick={() => setPage(pageInChapter - 1)} fluid>
+                  Last Page
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                 </Button>
               </Stack.Item>
               <Stack.Item grow={1}>
                 <Section fitted fill pt="3px">
+<<<<<<< HEAD
                   Entry {entryIndex + 1}/{entries.length}
                 </Section>
               </Stack.Item>
               <Stack.Item grow={2}>
                 <Button onClick={() => wrapEntries(entryIndex + 1)} fluid>
                   Next Entry
+=======
+                  Page {pageInChapter + 1}/
+                  {paginatedEntries[chapter].length + (chapter === 0 ? 1 : 0)}
+                </Section>
+              </Stack.Item>
+              <Stack.Item grow={2}>
+                <Button
+                  color={restrictedNext && 'black'}
+                  onClick={() => setPage(pageInChapter + 1)}
+                  fluid>
+                  {restrictedNext ? 'RESTRICTED' : 'Next Page'}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                 </Button>
               </Stack.Item>
             </Stack>
@@ -66,7 +240,11 @@ export const InfuserBook = (props, context) => {
 
 export const InfuserInstructions = (props, context) => {
   return (
+<<<<<<< HEAD
     <Section title="DNA Infusion Guide">
+=======
+    <Section title="DNA Infusion Guide" height={PAGE_HEIGHT}>
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       <Stack vertical>
         <Stack.Item fontSize="16px">What does it do?</Stack.Item>
         <Stack.Item color="label">
@@ -105,6 +283,7 @@ type InfuserEntryProps = {
 
 const InfuserEntry = (props: InfuserEntryProps, context) => {
   const { entry } = props;
+<<<<<<< HEAD
   const isLesser = !entry.threshold_desc;
   const lesserDesc = multiline`
     Lesser Mutants usually have a smaller list of potential mutations, and
@@ -115,10 +294,16 @@ const InfuserEntry = (props: InfuserEntryProps, context) => {
     to infuse overall, and come with special bonuses for infusing enough DNA
     into yourself.
   `;
+=======
+
+  const tierData = TIER2TIERDATA[entry.tier];
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   return (
     <Section
       fill
       title={entry.name + ' Mutant'}
+<<<<<<< HEAD
       height="225px"
       buttons={
         <Button
@@ -126,13 +311,23 @@ const InfuserEntry = (props: InfuserEntryProps, context) => {
           icon={isLesser ? 'minus-circle' : 'plus-circle'}
           color={isLesser ? 'red' : 'green'}>
           {isLesser ? 'Lesser' : 'Greater'} Mutant
+=======
+      height={PAGE_HEIGHT}
+      buttons={
+        <Button tooltip={tierData.desc} icon={tierData.icon}>
+          {tierData.name}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         </Button>
       }>
       <Stack vertical fill>
         <Stack.Item>
           <BlockQuote>
             {entry.desc}{' '}
+<<<<<<< HEAD
             {!isLesser && (
+=======
+            {entry.threshold_desc && (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               <>If a subject infuses with enough DNA, {entry.threshold_desc}</>
             )}
           </BlockQuote>
@@ -159,3 +354,24 @@ const InfuserEntry = (props: InfuserEntryProps, context) => {
     </Section>
   );
 };
+<<<<<<< HEAD
+=======
+
+const paginateEntries = (collection: Entry[]): Entry[][] => {
+  const pages: Entry[][] = [];
+  let maxTier = -1;
+  // find highest tier entry
+  collection.forEach((entry) => {
+    if (entry.tier > maxTier) {
+      maxTier = entry.tier;
+    }
+  });
+  // negative 1 to account for introduction, which has no entries
+  let tier = -1;
+  for (let _ in range(tier, maxTier + 1)) {
+    pages.push(collection.filter((entry) => entry.tier === tier));
+    tier++;
+  }
+  return pages;
+};
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

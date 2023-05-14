@@ -21,8 +21,15 @@
 	Or perhaps more exotic customers are in local space...?"
 	important_text = "You are not an antagonist."
 	outfit = /datum/outfit/black_market
+<<<<<<< HEAD
 	quirks_enabled = TRUE
 	random_appearance = FALSE
+=======
+	spawner_job_path = /datum/job/blackmarket
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+	loadout_enabled = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/black_market
 	name = "Black Market Trader"
@@ -30,14 +37,28 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id/away/blackmarket
 
+<<<<<<< HEAD
 /obj/effect/mob_spawn/ghost_role/human/ds2
 	name = "DS2 personnel"
+=======
+/datum/outfit/black_market/post_equip(mob/living/carbon/human/shady, visualsOnly)
+	handlebank(shady)
+	return ..()
+
+/obj/effect/mob_spawn/ghost_role/human/ds2
+	name = "DS2 personnel"
+	use_outfit_name = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	prompt_name = "DS2 personnel"
 	you_are_text = "You are a syndicate operative, employed in a top secret research facility developing biological weapons."
 	flavour_text = "Unfortunately, your hated enemy, Nanotrasen, has begun mining in this sector. Continue operating as best you can, and try to keep a low profile."
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/service/dorms
+<<<<<<< HEAD
+=======
+	spawner_job_path = /datum/job/ds2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/prisoner
 	name = "Syndicate Prisoner"
@@ -47,7 +68,13 @@
 	important_text = "You are still subject to standard prisoner policy and must Adminhelp before antagonizing DS2."
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
+<<<<<<< HEAD
 	outfit = /datum/outfit/ds2/prisoner
+=======
+	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/security/prison
+	outfit = /datum/outfit/ds2/prisoner
+	spawner_job_path = /datum/job/ds2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate
 	name = "Syndicate Operative"
@@ -58,6 +85,11 @@
 	flavour_text = "The Sothran Syndicate has found it fit to send a forward operating base to Sector 13 to monitor NT's operations. Your orders are maintaining the ship's integrity and keeping a low profile as well as possible."
 	important_text = "You are not an antagonist. Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate
+<<<<<<< HEAD
+=======
+	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/halls
+	spawner_job_path = /datum/job/ds2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command
@@ -69,15 +101,28 @@
 	flavour_text = "The Sothran Syndicate has found it fit to send you to help command the forward operating base in Sector 13. Your orders are commanding the crew of DS-2 while keeping a low profile as well as possible."
 	important_text = "Keep yourself to the same standards as Command Policy. You are not an antagonist and must Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate_command
+<<<<<<< HEAD
+=======
+	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/halls
+	spawner_job_path = /datum/job/ds2
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/new_spawn)
 	. = ..()
+<<<<<<< HEAD
 	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/special(mob/living/new_spawn)
 	. = ..()
 	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
+=======
+	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_SPAWNER)
+
+/obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/special(mob/living/new_spawn)
+	. = ..()
+	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_SPAWNER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/service
 	outfit = /datum/outfit/ds2/syndicate/service
@@ -139,6 +184,10 @@
 		id_card.update_label()
 		id_card.update_icon()
 
+<<<<<<< HEAD
+=======
+	handlebank(syndicate)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 //DS-2 Hostage
@@ -216,7 +265,11 @@
 	id_trim = /datum/id_trim/syndicom/skyrat/ds2/medicalofficer
 	suit = /obj/item/clothing/suit/toggle/labcoat/interdyne
 	belt = /obj/item/storage/belt/medical/paramedic
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile/ntrauma
+=======
+	gloves = /obj/item/clothing/gloves/latex/nitrile/ntrauma
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -264,7 +317,11 @@
 	suit = /obj/item/clothing/suit/armor/vest/warden/syndicate
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
 	back = /obj/item/storage/backpack/satchel/sec/redsec
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/hos/beret/syndicate
+=======
+	head = /obj/item/clothing/head/hats/hos/beret/syndicate
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	r_pocket = /obj/item/flashlight/seclite
 	implants = list(
 		/obj/item/implant/weapons_auth,
@@ -274,7 +331,11 @@
 /datum/outfit/ds2/syndicate_command/corporateliaison
 	name = "DS-2 Corporate Liasion"
 	uniform = /obj/item/clothing/under/syndicate/sniper
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/fedora/fedblack
+=======
+	head = /obj/item/clothing/head/fedora
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
 	id_trim = /datum/id_trim/syndicom/skyrat/ds2/corporateliasion
@@ -285,7 +346,11 @@
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/gun/ballistic/automatic/pistol/aps
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/hats/hos/syndicate
+=======
+	head = /obj/item/clothing/head/hats/hos/cap/syndicate
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	id = /obj/item/card/id/advanced/gold/generic
 	id_trim = /datum/id_trim/syndicom/skyrat/ds2/stationadmiral
 
@@ -303,6 +368,10 @@
 		id_card.update_label()
 		id_card.update_icon()
 
+<<<<<<< HEAD
+=======
+	handlebank(staff)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /datum/outfit/hotelstaff/manager
@@ -326,6 +395,10 @@
 	desc = "A humming cryo pod. There's a freight hauler inside."
 	mob_name = "Freighter Crew"
 	outfit = /datum/outfit/freighter_crew
+<<<<<<< HEAD
+=======
+	spawner_job_path = /datum/job/freighter_crew
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
@@ -333,21 +406,45 @@
 	flavour_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
 	important_text = "Work with your crew and don't abandon them. You are not directly working with NT, you are an independent freighter crew for the ship's Chief. Your job was merely being a deckhand doing freight work and helping with kitchen prep."
 	random_appearance = FALSE
+<<<<<<< HEAD
+=======
+	quirks_enabled = TRUE
+	loadout_enabled = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/freighter_crew
 	name = "Freighter Crew"
 	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/casualman
 	shoes = /obj/item/clothing/shoes/workboots
 	back = /obj/item/storage/backpack
+<<<<<<< HEAD
 	backpack_contents = list(/obj/item/armament_token/sidearm_blackmarket)
 	id = /obj/item/card/id/away/freightcrew
 
+=======
+	id = /obj/item/card/id/away/freightcrew
+
+/datum/outfit/freighter_crew/post_equip(mob/living/carbon/human/crewman, visualsOnly)
+	var/obj/item/card/id/id_card = crewman.wear_id
+	if(istype(id_card))
+		id_card.registered_name = crewman.real_name
+		id_card.update_label()
+		id_card.update_icon()
+
+	handlebank(crewman)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mob_spawn/ghost_role/human/lostminer
 	name = "freighter cryo excavator pod"
 	prompt_name = "a lost miner"
 	desc = "A humming cryo pod. There's an excavation worker inside."
 	mob_name = "Freighter Excavator"
 	outfit = /datum/outfit/freighter_excavator
+<<<<<<< HEAD
+=======
+	spawner_job_path = /datum/job/freighter_crew
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
@@ -355,6 +452,11 @@
 	flavour_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
 	important_text = "Work with your crew and don't abandon them. You are not directly working with NT, you are an independent freighter crew working under the ship Chief. Your role was to be an excavation and salvage worker for the ship."
 	random_appearance = FALSE
+<<<<<<< HEAD
+=======
+	quirks_enabled = TRUE
+	loadout_enabled = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/freighter_excavator
 	name = "Freighter Excavator"
@@ -366,17 +468,39 @@
 		/obj/item/mining_voucher=1,
 		/obj/item/t_scanner/adv_mining_scanner/lesser=1,
 		/obj/item/gun/energy/recharge/kinetic_accelerator=1,\
+<<<<<<< HEAD
 		/obj/item/stack/marker_beacon/ten=1,\
 		/obj/item/armament_token/sidearm_blackmarket)
 	r_pocket = /obj/item/storage/bag/ore
 	id = /obj/item/card/id/away/freightmine
 
+=======
+		/obj/item/stack/marker_beacon/ten=1,
+		)
+	r_pocket = /obj/item/storage/bag/ore
+	id = /obj/item/card/id/away/freightmine
+
+/datum/outfit/freighter_excavator/post_equip(mob/living/carbon/human/crewman, visualsOnly)
+	var/obj/item/card/id/id_card = crewman.wear_id
+	if(istype(id_card))
+		id_card.registered_name = crewman.real_name
+		id_card.update_label()
+		id_card.update_icon()
+
+	handlebank(crewman)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/mob_spawn/ghost_role/human/lostcargoqm
 	name = "freighter cryo boss pod"
 	prompt_name = "a lost Quartermaster"
 	desc = "A humming cryo pod. You see someone who looks In Charge inside."
 	mob_name = "Freighter Chief"
 	outfit = /datum/outfit/freighter_boss
+<<<<<<< HEAD
+=======
+	spawner_job_path = /datum/job/freighter_crew
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
@@ -384,6 +508,11 @@
 	flavour_text = "You and your crew were running a normal freight haul until a pirate attack knocked out the engines. All you can do now is try and survive and keep your crew alive."
 	important_text = "Do not abandon your crew, lead them and work with them to survive. You are not directly working with NT, you are an independent freighter crew. You are the captain of the ship, which you purchased a while ago, and are in charge of the crew."
 	random_appearance = FALSE
+<<<<<<< HEAD
+=======
+	quirks_enabled = TRUE
+	loadout_enabled = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/freighter_boss
 	name = "Freighter Boss"
@@ -392,11 +521,27 @@
 	neck = /obj/item/clothing/neck/cloak/qm
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
+<<<<<<< HEAD
 		/obj/item/armament_token/energy=1,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/megaphone/cargo=1,
 		)
 	id = /obj/item/card/id/away/silver/freightqm
 
+<<<<<<< HEAD
+=======
+/datum/outfit/freighter_boss/post_equip(mob/living/carbon/human/crewman, visualsOnly)
+	var/obj/item/card/id/id_card = crewman.wear_id
+	if(istype(id_card))
+		id_card.registered_name = crewman.real_name
+		id_card.update_label()
+		id_card.update_icon()
+
+	handlebank(crewman)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //Port Tarkon, 6 people trapped in a revamped charlie-station like ghost role. Survive the aliens and threats, Fix the port and/or finish construction
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon
@@ -408,6 +553,10 @@
 	flavour_text = "Something went wrong. Morality of experiments went awry, expansions were made before scans were fully done and now you have to deal with the aftermath of your past crews exodus. Bring P-T to the success it was ment to be, or die trying. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
 	important_text = "DO NOT abandon the port, PERIOD, but using the ship to buy more items or get help is good, if not ideal. Do not trade special equipment to the station. Unwelcomed and uninvited guests are not obligated to your kindness."
 	outfit = /datum/outfit/tarkon
+<<<<<<< HEAD
+=======
+	spawner_job_path = /datum/job/tarkon
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
@@ -435,6 +584,10 @@
 	target_radio.set_frequency(FREQ_TARKON)
 	target_radio.recalculateChannels()
 
+<<<<<<< HEAD
+=======
+	handlebank(tarkon)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon/sci
@@ -499,6 +652,10 @@
 	flavour_text = "The rest of command bailed, and left as nothing more than a glorified assistant, you are held responsible should you be unable to wrangle what hopes of success Headquarters has. Find the blueprints and keep them close, Lest looters and raiders plan to seize what isn't theirs. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
 	important_text = "People aren't obligated to listen to you, and you are, otherwise, just another body with some remnant of control. Make sure important items aren't traded and do your best to survive in the hellscape left for you. Unwelcomed and uninvited guests are not obligated to your kindness."
 	outfit = /datum/outfit/tarkon/ensign
+<<<<<<< HEAD
+=======
+	spawner_job_path = /datum/job/tarkon
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/outfit/tarkon/ensign //jack of all trades, master of none, spent all his credits, every last one
 	name = "Port Tarkon Ensigns Outfit"
@@ -511,6 +668,20 @@
 	r_pocket = null
 	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
+<<<<<<< HEAD
+=======
+/datum/outfit/proc/handlebank(mob/living/carbon/human/owner)
+	var/datum/bank_account/offstation_bank_account = new(owner.real_name)
+	owner.account_id = offstation_bank_account.account_id
+	offstation_bank_account.replaceable = FALSE
+	offstation_bank_account.account_job = new /datum/job/ghost_role //note to self: Replace later
+	owner.add_mob_memory(/datum/memory/key/account, remembered_id = owner.account_id)
+	if(owner.wear_id)
+		var/obj/item/card/id/id_card = owner.wear_id
+		id_card.registered_account = offstation_bank_account
+	return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //ITEMS//
 /obj/item/radio/headset/cybersun
 	keyslot = new /obj/item/encryptionkey/headset_syndicate/cybersun
@@ -573,15 +744,27 @@
 
 /datum/id_trim/away/hotel
 	assignment = "Hotel Staff"
+<<<<<<< HEAD
 
 /datum/id_trim/away/hotel/manager
 	assignment = "Hotel Manager"
+=======
+	access = list(ACCESS_TWIN_NEXUS_STAFF)
+
+/datum/id_trim/away/hotel/manager
+	assignment = "Hotel Manager"
+	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/id_trim/away/hotel/security
 	assignment = "Hotel Security"
 
 /datum/id_trim/away/tarkon
+<<<<<<< HEAD
 	assignment = "P-T Cargo Personell"
+=======
+	assignment = "P-T Cargo Personnel"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	access = list(ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
 
 /datum/id_trim/away/tarkon/sec
@@ -640,7 +823,17 @@
 	announcement_channel = RADIO_CHANNEL_INTERDYNE
 	req_one_access = list("syndicate_leader")
 
+<<<<<<< HEAD
+=======
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/interdyne, 32)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/cryopod/tarkon
 	radio = /obj/item/radio/headset/tarkon
 	announcement_channel = RADIO_CHANNEL_TARKON
 	req_one_access = list("tarkon")
+<<<<<<< HEAD
+=======
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

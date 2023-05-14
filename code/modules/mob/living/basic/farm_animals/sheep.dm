@@ -9,7 +9,10 @@
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST
 	speak_emote = list("baas","bleats")
 	speed = 1.1
+<<<<<<< HEAD
 	see_in_dark = 6
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	butcher_results = list(/obj/item/food/meat/slab = 3)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
@@ -43,6 +46,10 @@
 		item_harvest_time = 5 SECONDS, \
 		item_harvest_sound = 'sound/surgery/scalpel1.ogg', \
 	)
+<<<<<<< HEAD
+=======
+	AddElement(/datum/element/ai_retaliate)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(src, COMSIG_LIVING_CULT_SACRIFICED, PROC_REF(on_sacrificed))
 
 /mob/living/basic/sheep/update_overlays()
@@ -80,9 +87,22 @@
 		update_appearance(UPDATE_ICON)
 
 /datum/ai_controller/basic_controller/sheep
+<<<<<<< HEAD
+=======
+	blackboard = list(
+		BB_BASIC_MOB_FLEEING = TRUE,
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/ignore_faction(),
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ai_traits = STOP_MOVING_WHEN_PULLED
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
+<<<<<<< HEAD
 		/datum/ai_planning_subtree/random_speech/sheep
+=======
+		/datum/ai_planning_subtree/random_speech/sheep,
+		/datum/ai_planning_subtree/find_nearest_thing_which_attacked_me_to_flee,
+		/datum/ai_planning_subtree/flee_target,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)

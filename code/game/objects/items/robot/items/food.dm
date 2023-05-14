@@ -123,17 +123,29 @@
 		var/mob/living/silicon/robot/robot_user = user
 		if(!robot_user.cell.use(12))
 			to_chat(user, span_warning("Not enough power."))
+<<<<<<< HEAD
 			return FALSE
 	switch(mode)
 		if(DISPENSE_LOLLIPOP_MODE, DISPENSE_ICECREAM_MODE)
 			if(!proximity)
 				return FALSE
+=======
+			return AFTERATTACK_PROCESSED_ITEM
+	switch(mode)
+		if(DISPENSE_LOLLIPOP_MODE, DISPENSE_ICECREAM_MODE)
+			if(!proximity)
+				return AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			dispense(target, user)
 		if(THROW_LOLLIPOP_MODE)
 			shootL(target, user, click_params)
 		if(THROW_GUMBALL_MODE)
 			shootG(target, user, click_params)
+<<<<<<< HEAD
 	return ..()
+=======
+	return ..() | AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/borg/lollipop/attack_self(mob/living/user)
 	switch(mode)
@@ -165,12 +177,18 @@
 	desc = "Oh noes! A fast-moving gumball!"
 	icon_state = "gumball"
 	ammo_type = /obj/item/food/gumball
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 0
 	speed = 0.5
 
 /obj/projectile/bullet/reusable/gumball/harmful
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 10
 
 /obj/projectile/bullet/reusable/gumball/handle_drop()
@@ -194,7 +212,10 @@
 	desc = "Oh noes! A fast-moving lollipop!"
 	icon_state = "lollipop_1"
 	ammo_type = /obj/item/food/lollipop/cyborg
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	damage = 0
 	speed = 0.5
 	var/color2 = rgb(0, 0, 0)
@@ -210,7 +231,10 @@
 		rip_time = 10,
 	)
 	damage = 10
+<<<<<<< HEAD
 	nodamage = FALSE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	embed_falloff_tile = 0
 
 /obj/projectile/bullet/reusable/lollipop/Initialize(mapload)

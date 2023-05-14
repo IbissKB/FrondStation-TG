@@ -1,5 +1,9 @@
 /datum/species/lizard/ashwalker
+<<<<<<< HEAD
 	mutanteyes = /obj/item/organ/internal/eyes/night_vision
+=======
+	mutanteyes = /obj/item/organ/internal/eyes/night_vision/ashwalker
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	burnmod = 0.8
 	brutemod = 0.9
 

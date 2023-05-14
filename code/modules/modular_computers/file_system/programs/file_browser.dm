@@ -13,11 +13,15 @@
 	var/open_file
 	var/error
 
+<<<<<<< HEAD
 /datum/computer_file/program/filemanager/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
+=======
+/datum/computer_file/program/filemanager/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("PRG_deletefile")
 			var/datum/computer_file/file = computer.find_file_by_name(params["name"])
@@ -70,6 +74,11 @@
 			var/datum/computer_file/F = computer.find_file_by_name(params["name"], computer.inserted_disk)
 			if(!F || !istype(F))
 				return
+<<<<<<< HEAD
+=======
+			if(!computer.can_store_file(F))
+				return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/datum/computer_file/C = F.clone(FALSE)
 			computer.store_file(C)
 			return TRUE
@@ -80,7 +89,11 @@
 			binary.alert_silenced = !binary.alert_silenced
 
 /datum/computer_file/program/filemanager/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(error)
 		data["error"] = error
 	if(!computer)

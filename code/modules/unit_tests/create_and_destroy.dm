@@ -30,6 +30,12 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/merge_conflict_marker,
 		//briefcase launchpads erroring
 		/obj/machinery/launchpad/briefcase,
+<<<<<<< HEAD
+=======
+		//Both are abstract types meant to scream bloody murder if spawned in raw
+		/obj/item/organ/external,
+		/obj/item/organ/external/wings,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	)
 	//Say it with me now, type template
 	ignore += typesof(/obj/effect/mapping_helpers)
@@ -49,8 +55,11 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	//Same to above. Needs a client / mob / hallucination to observe it to exist.
 	ignore += typesof(/obj/projectile/hallucination)
 	ignore += typesof(/obj/item/hallucinated)
+<<<<<<< HEAD
 	//Can't pass in a thing to glow
 	ignore += typesof(/obj/effect/abstract/eye_lighting)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//We don't have a pod
 	ignore += typesof(/obj/effect/pod_landingzone_effect)
 	ignore += typesof(/obj/effect/pod_landingzone)
@@ -102,6 +111,14 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/turf/open/openspace/ocean)
 	//Baseturf editors can only go up to ten, stop this.
 	ignore += typesof(/obj/effect/baseturf_helper)
+<<<<<<< HEAD
+=======
+	// It's the abstract base type, it shouldn't be spawned.
+	ignore += /obj/item/organ/external/genital
+	// These two are locked to one type only, and shouldn't be widely available, hence why they runtime otherwise.
+	// Can't be bothered adding more to them.
+	ignore += list(/obj/item/organ/external/neck_accessory, /obj/item/organ/external/head_accessory)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//SKYRAT EDIT END
 	//Needs cards passed into the initilazation args
 	ignore += typesof(/obj/item/toy/cards/cardhand)
@@ -111,6 +128,11 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/structure/industrial_lift)
 	// Runtimes if the associated machinery does not exist, but not the base type
 	ignore += subtypesof(/obj/machinery/airlock_controller)
+<<<<<<< HEAD
+=======
+	// Always ought to have an associated escape menu. Any references it could possibly hold would need one regardless.
+	ignore += subtypesof(/atom/movable/screen/escape_menu)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/original_turf_type = spawn_at.type
@@ -147,13 +169,25 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	GLOB.running_create_and_destroy = FALSE
 	//Hell code, we're bound to have ended the round somehow so let's stop if from ending while we work
 	SSticker.delay_end = TRUE
+<<<<<<< HEAD
+=======
+
+	// Drastically lower the amount of time it takes to GC, since we don't have clients that can hold it up.
+	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = 10 SECONDS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Prevent the garbage subsystem from harddeling anything, if only to save time
 	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = 10000 HOURS
 	//Clear it, just in case
 	cached_contents.Cut()
 
 	//Now that we've qdel'd everything, let's sleep until the gc has processed all the shit we care about
+<<<<<<< HEAD
 	var/time_needed = SSgarbage.collection_timeout[GC_QUEUE_CHECK]
+=======
+	// + 2 seconds to ensure that everything gets in the queue.
+	var/time_needed = SSgarbage.collection_timeout[GC_QUEUE_CHECK] + 2 SECONDS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/start_time = world.time
 	var/garbage_queue_processed = FALSE
 
@@ -205,4 +239,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 	SSticker.delay_end = FALSE
 	//This shouldn't be needed, but let's be polite
+<<<<<<< HEAD
 	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = 10 SECONDS
+=======
+	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = GC_CHECK_QUEUE
+	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = GC_DEL_QUEUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -38,7 +38,11 @@
 		return
 
 	var/mob/living/carbon/human/H = L
+<<<<<<< HEAD
 	if(!H.dna || HAS_TRAIT(H, TRAIT_GENELESS) || H.status_flags & GODMODE)
+=======
+	if(!H.can_mutate() || H.status_flags & GODMODE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	if(HAS_TRAIT(H, TRAIT_RADIMMUNE))

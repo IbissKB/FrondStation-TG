@@ -6,12 +6,22 @@
 	min_players = 40 // To avoid shafting lowpop
 	category = EVENT_CATEGORY_HEALTH
 	description = "A random crewmember's heart gives out."
+<<<<<<< HEAD
 	///Candidates for recieving a healthy dose of heart disease
 	var/list/heart_attack_candidates = list()
 	///Number of candidates to be smote
 	var/quantity = 1
 
 /datum/round_event_control/heart_attack/can_spawn_event(players_amt)
+=======
+	min_wizard_trigger_potency = 6
+	max_wizard_trigger_potency = 7
+	admin_setup = list(/datum/event_admin_setup/minimum_candidate_requirement/heart_attack, /datum/event_admin_setup/input_number/heart_attack)
+	///Candidates for recieving a healthy dose of heart disease
+	var/list/heart_attack_candidates = list()
+
+/datum/round_event_control/heart_attack/can_spawn_event(players_amt, allow_magic = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(!.)
 		return .
@@ -19,6 +29,7 @@
 	if(length(heart_attack_candidates))
 		return TRUE
 
+<<<<<<< HEAD
 /datum/round_event_control/heart_attack/admin_setup()
 	if(!check_rights(R_FUN))
 		return ADMIN_CANCEL_EVENT
@@ -30,6 +41,8 @@
 		return ADMIN_CANCEL_EVENT
 	quantity = tgui_input_number(usr, "There are [length(heart_attack_candidates)] crewmembers eligible for a heart attack. Please select how many people's days you wish to ruin.", "Shia Hato Atakku!", 1, length(heart_attack_candidates))
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * Performs initial analysis of which living players are eligible to be selected for a heart attack.
  *
@@ -38,6 +51,10 @@
  * later, at the round_event level, so this proc mostly just checks users for whether or not a heart attack should be possible.
  */
 /datum/round_event_control/heart_attack/proc/generate_candidates()
+<<<<<<< HEAD
+=======
+	heart_attack_candidates.Cut()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/mob/living/carbon/human/candidate in shuffle(GLOB.player_list))
 		if(candidate.stat == DEAD || HAS_TRAIT(candidate, TRAIT_CRITICAL_CONDITION) || !candidate.can_heartattack() || (/datum/disease/heart_failure in candidate.diseases) || candidate.undergoing_cardiac_arrest())
 			continue
@@ -52,6 +69,7 @@
 	///A list of prime candidates for heart attacking
 	var/list/victims = list()
 	///Number of heart attacks to distribute
+<<<<<<< HEAD
 	var/attacks_left = 1
 
 /datum/round_event/heart_attack/start()
@@ -65,6 +83,19 @@
 	while(attacks_left > 0 && length(victims))
 		if(attack_heart())
 			attacks_left--
+=======
+	var/quantity = 1
+
+
+/datum/round_event/heart_attack/start()
+	var/datum/round_event_control/heart_attack/heart_control = control
+	victims += heart_control.heart_attack_candidates
+	heart_control.heart_attack_candidates.Cut()
+
+	while(quantity > 0 && length(victims))
+		if(attack_heart())
+			quantity--
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Picks a victim from a list and attempts to give them a heart attack
@@ -76,7 +107,11 @@
 /datum/round_event/heart_attack/proc/attack_heart()
 	var/mob/living/carbon/human/winner = pick_weight(victims)
 	if(winner.has_status_effect(/datum/status_effect/exercised)) //Stuff that should "block" a heart attack rather than just deny eligibility for one goes here.
+<<<<<<< HEAD
 		winner.visible_message(span_warning("[winner] grunts and clutches their chest for a moment, catching their breath."), span_medal("Your chest lurches in pain for a brief moment, which quickly fades. \
+=======
+		winner.visible_message(span_warning("[winner] grunts and clutches their chest for a moment, catching [winner.p_their()] breath."), span_medal("Your chest lurches in pain for a brief moment, which quickly fades. \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 								You feel like you've just avoided a serious health disaster."), span_hear("You hear someone's breathing sharpen for a moment, followed by a sigh of relief."), 4)
 		winner.playsound_local(get_turf(winner), 'sound/health/slowbeat.ogg', 40, 0, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
 		winner.Stun(3 SECONDS)
@@ -91,3 +126,28 @@
 		victims -= winner
 		return TRUE
 	return FALSE
+<<<<<<< HEAD
+=======
+
+/datum/event_admin_setup/minimum_candidate_requirement/heart_attack
+	output_text = "There are no candidates eligible to recieve a heart attack!"
+
+/datum/event_admin_setup/minimum_candidate_requirement/heart_attack/count_candidates()
+	var/datum/round_event_control/heart_attack/heart_control = event_control
+	heart_control.generate_candidates() //can_spawn_event() is bypassed by admin_setup, so this makes sure that the candidates are still generated
+	return length(heart_control.heart_attack_candidates)
+
+/datum/event_admin_setup/input_number/heart_attack
+	input_text = "Please select how many people's days you wish to ruin."
+	default_value = 0
+	max_value = 90 //Will be overridden
+	min_value = 0
+
+/datum/event_admin_setup/input_number/heart_attack/prompt_admins()
+	var/datum/round_event_control/heart_attack/heart_control = event_control
+	max_value = length(heart_control.heart_attack_candidates)
+	return ..()
+
+/datum/event_admin_setup/input_number/heart_attack/apply_to_event(datum/round_event/heart_attack/event)
+	event.quantity = chosen_value
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

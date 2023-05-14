@@ -37,9 +37,16 @@
 /obj/item/clothing/head/helmet/swat/ds
 	name = "SWAT helmet"
 	desc = "A robust and spaceworthy helmet with a small cross on it along with 'IP' written across the earpad."
+<<<<<<< HEAD
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "swat_ds"
+=======
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+	icon_state = "swat_ds"
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/beret/sec/syndicate
 	name = "brig officer's beret"
@@ -66,7 +73,11 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
 
+<<<<<<< HEAD
 /obj/item/clothing/shoes/combat
+=======
+/obj/item/clothing/shoes/combat //TO-DO: Move these overrides out of a syndicate file!
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "combat"
@@ -75,6 +86,10 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
+<<<<<<< HEAD
+=======
+	worn_icon_teshari = TESHARI_HANDS_ICON
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/gloves/combat/wizard
 	icon = 'icons/obj/clothing/gloves.dmi'
@@ -129,3 +144,75 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "dssoft"
 	soft_type = "ds"
+<<<<<<< HEAD
+=======
+
+//Maid Outfit
+/obj/item/clothing/head/costume/maidheadband/syndicate
+	name = "tactical maid headband"
+	desc = "Tacticute."
+	icon_state = "syndimaid_headband"
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
+
+/obj/item/clothing/gloves/combat/maid
+	name = "combat maid sleeves"
+	desc = "These 'tactical' gloves and sleeves are fireproof and electrically insulated. Warm to boot."
+	icon_state = "syndimaid_arms"
+
+/obj/item/clothing/under/syndicate/skyrat/maid
+	name = "tactical maid outfit"
+	desc = "A 'tactical' skirtleneck fashioned to the likeness of a maid outfit. Why the Syndicate has these, you'll never know."
+	icon_state = "syndimaid"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/syndicate/skyrat/maid/Initialize(mapload)
+	. = ..()
+	var/obj/item/clothing/accessory/maidcorset/syndicate/A = new (src)
+	attach_accessory(A)
+
+/obj/item/clothing/accessory/maidcorset/syndicate
+	name = "syndicate maid apron"
+	desc = "Practical? No. Tactical? Also no. Cute? Most definitely yes."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/accessories.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/accessories.dmi'
+	icon_state = "syndimaid_corset"
+	minimize_when_attached = FALSE
+	attachment_slot = null
+
+//Wintercoat & Hood
+/obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate
+	name = "syndicate winter coat"
+	desc = "A sinister black coat with red accents and a fancy mantle, it feels like it can take a hit. The zipper tab looks like a triple headed snake in the shape of an S, spooky."
+	icon_state = "coatsyndie"
+	inhand_icon_state = "coatwinter"
+	armor_type = /datum/armor/wintercoat_syndicate
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/skyrat/syndicate
+
+/datum/armor/wintercoat_syndicate
+	melee = 25
+	bullet = 15
+	laser = 30
+	energy = 40
+	bomb = 25
+	acid = 45
+
+/obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate/Initialize(mapload)
+	. = ..()
+	allowed += GLOB.security_wintercoat_allowed
+
+/obj/item/clothing/head/hooded/winterhood/skyrat/syndicate
+	desc = "A sinister black hood with armor padding."
+	icon_state = "hood_syndie"
+	armor_type = /datum/armor/winterhood_syndicate
+
+/datum/armor/winterhood_syndicate
+	melee = 25
+	bullet = 15
+	laser = 30
+	energy = 40
+	bomb = 25
+	acid = 45
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

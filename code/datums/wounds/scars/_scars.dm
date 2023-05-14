@@ -17,7 +17,11 @@
 	var/precise_location
 
 	/// These scars are assumed to come from changeling disguises, rather than from persistence or wounds. As such, they are deleted by dropping changeling disguises, and are ignored by persistence
+<<<<<<< HEAD
 	var/fake=FALSE
+=======
+	var/fake = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// How many tiles away someone can see this scar, goes up with severity. Clothes covering this limb will decrease visibility by 1 each, except for the head/face which is a binary "is mask obscuring face" check
 	var/visibility = 2
 	/// Whether this scar can actually be covered up by clothing
@@ -59,9 +63,15 @@
 		if(victim)
 			LAZYADD(victim.all_scars, src)
 
+<<<<<<< HEAD
 	biology = victim?.get_biological_state() || BIO_FLESH_BONE
 
 	if(biology == BIO_JUST_BONE)
+=======
+	biology = limb?.biological_state || BIO_FLESH_BONE
+
+	if((biology & BIO_BONE) && !(biology & BIO_FLESH))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		description = pick_list(BONE_SCAR_FILE, W.scar_keyword) || "general disfigurement"
 	else // no specific support for flesh w/o bone scars since it's not really useful
 		description = pick_list(FLESH_SCAR_FILE, W.scar_keyword) || "general disfigurement"
@@ -95,7 +105,11 @@
 	RegisterSignal(limb, COMSIG_PARENT_QDELETING, PROC_REF(limb_gone))
 	if(limb.owner)
 		victim = limb.owner
+<<<<<<< HEAD
 		if(victim.get_biological_state() != biology)
+=======
+		if(limb.biological_state != biology)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			qdel(src)
 			return
 		LAZYADD(victim.all_scars, src)

@@ -44,7 +44,11 @@ SUBSYSTEM_DEF(nightshift)
 	if(nightshift_active != night_time)
 		update_nightshift(night_time, announcing)
 
+<<<<<<< HEAD
 /datum/controller/subsystem/nightshift/proc/update_nightshift(active, announce = TRUE, resumed = FALSE)
+=======
+/datum/controller/subsystem/nightshift/proc/update_nightshift(active, announce = TRUE, resumed = FALSE, forced = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!resumed)
 		currentrun = GLOB.apcs_list.Copy()
 		nightshift_active = active
@@ -57,5 +61,9 @@ SUBSYSTEM_DEF(nightshift)
 		currentrun -= APC
 		if (APC.area && (APC.area.type in GLOB.the_station_areas))
 			APC.set_nightshift(nightshift_active)
+<<<<<<< HEAD
 		if(MC_TICK_CHECK)
+=======
+		if(MC_TICK_CHECK && !forced) // subsystem will be in state SS_IDLE if forced by an admin
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return

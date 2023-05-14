@@ -104,7 +104,11 @@ Then the player gets the profit from selling his own wasted time.
 /datum/export/proc/get_cost(obj/O, apply_elastic = TRUE)
 	var/amount = get_amount(O)
 	if(apply_elastic)
+<<<<<<< HEAD
 		if(k_elasticity!=0)
+=======
+		if(k_elasticity != 0)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return round((cost/k_elasticity) * (1 - NUM_E**(-1 * k_elasticity * amount))) //anti-derivative of the marginal cost function
 		else
 			return round(cost * amount) //alternative form derived from L'Hopital to avoid division by 0

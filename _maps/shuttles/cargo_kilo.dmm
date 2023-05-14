@@ -3,6 +3,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
 "b" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -67,6 +68,51 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+=======
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"c" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"d" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"e" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"f" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"g" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"h" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "i" = (
@@ -88,16 +134,20 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "k" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "l" = (
@@ -105,10 +155,20 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"l" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/machinery/light/directional/east,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "m" = (
@@ -123,16 +183,20 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "n" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "o" = (
@@ -150,6 +214,19 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"o" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"p" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -165,6 +242,7 @@
 	pixel_y = -8;
 	req_access = list("cargo")
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "q" = (
@@ -172,10 +250,20 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"q" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/structure/sign/departments/cargo/directional/east,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "r" = (
@@ -187,14 +275,21 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "s" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "t" = (
@@ -216,6 +311,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "v" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -241,6 +337,24 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+=======
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"w" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/supply)
+"x" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "y" = (
@@ -248,11 +362,16 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/supply)
 "z" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
+=======
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/supply)
 "A" = (

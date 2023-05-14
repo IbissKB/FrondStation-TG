@@ -87,11 +87,19 @@
 	new/obj/effect/temp_visual/hierophant/telegraph(get_turf(user))
 	playsound(user,'sound/machines/airlockopen.ogg', 75, TRUE)
 	user.visible_message(span_hierophant_warning("[user] fades out, leaving [user.p_their()] belongings behind!"))
+<<<<<<< HEAD
 	for(var/obj/item/I in user)
 		if(I != src)
 			user.dropItemToGround(I)
 	for(var/turf/T in RANGE_TURFS(1, user))
 		new /obj/effect/temp_visual/hierophant/blast/visual(T, user, TRUE)
+=======
+	for(var/obj/item/user_item in user)
+		if(user_item != src)
+			user.dropItemToGround(user_item)
+	for(var/turf/blast_turf in RANGE_TURFS(1, user))
+		new /obj/effect/temp_visual/hierophant/blast/visual(blast_turf, user, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	user.dropItemToGround(src) //Drop us last, so it goes on top of their stuff
 	qdel(user)
 
@@ -101,6 +109,10 @@
 
 /obj/item/hierophant_club/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// If our target is the beacon and the hierostaff is next to the beacon, we're trying to pick it up.
 	if((target == beacon) && target.Adjacent(src))
 		return
@@ -120,14 +132,25 @@
 			user.visible_message(span_hierophant_warning("[user] starts fiddling with [src]'s pommel..."), \
 			span_notice("You start detaching the hierophant beacon..."))
 			if(do_after(user, 50, target = user) && !beacon)
+<<<<<<< HEAD
 				var/turf/T = get_turf(user)
 				playsound(T,'sound/magic/blind.ogg', 200, TRUE, -4)
 				new /obj/effect/temp_visual/hierophant/telegraph/teleport(T, user)
 				beacon = new/obj/effect/hierophant(T)
+=======
+				var/turf/user_turf = get_turf(user)
+				playsound(user_turf,'sound/magic/blind.ogg', 200, TRUE, -4)
+				new /obj/effect/temp_visual/hierophant/telegraph/teleport(user_turf, user)
+				beacon = new/obj/effect/hierophant(user_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				user.update_mob_action_buttons()
 				user.visible_message(span_hierophant_warning("[user] places a strange machine beneath [user.p_their()] feet!"), \
 				"[span_hierophant("You detach the hierophant beacon, allowing you to teleport yourself and any allies to it at any time!")]\n\
 				[span_notice("You can remove the beacon to place it again by striking it with the club.")]")
+<<<<<<< HEAD
+=======
+				update_appearance(UPDATE_ICON_STATE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		else
 			to_chat(user, span_warning("You need to be on solid ground to detach the beacon!"))
 		return
@@ -145,20 +168,35 @@
 	user.update_mob_action_buttons()
 	user.visible_message(span_hierophant_warning("[user] starts to glow faintly..."))
 	beacon.icon_state = "hierophant_tele_on"
+<<<<<<< HEAD
 	var/obj/effect/temp_visual/hierophant/telegraph/edge/TE1 = new /obj/effect/temp_visual/hierophant/telegraph/edge(user.loc)
 	var/obj/effect/temp_visual/hierophant/telegraph/edge/TE2 = new /obj/effect/temp_visual/hierophant/telegraph/edge(beacon.loc)
 	if(do_after(user, 40, target = user) && user && beacon)
 		var/turf/T = get_turf(beacon)
 		var/turf/source = get_turf(user)
 		if(T.is_blocked_turf(TRUE))
+=======
+	var/obj/effect/temp_visual/hierophant/telegraph/edge/user_telegraph = new /obj/effect/temp_visual/hierophant/telegraph/edge(user.loc)
+	var/obj/effect/temp_visual/hierophant/telegraph/edge/beacon_telegraph = new /obj/effect/temp_visual/hierophant/telegraph/edge(beacon.loc)
+	if(do_after(user, 40, target = user) && user && beacon)
+		var/turf/destination = get_turf(beacon)
+		var/turf/source = get_turf(user)
+		if(destination.is_blocked_turf(TRUE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			teleporting = FALSE
 			to_chat(user, span_warning("The beacon is blocked by something, preventing teleportation!"))
 			user.update_mob_action_buttons()
 			beacon.icon_state = "hierophant_tele_off"
 			return
+<<<<<<< HEAD
 		new /obj/effect/temp_visual/hierophant/telegraph(T, user)
 		new /obj/effect/temp_visual/hierophant/telegraph(source, user)
 		playsound(T,'sound/magic/wand_teleport.ogg', 200, TRUE)
+=======
+		new /obj/effect/temp_visual/hierophant/telegraph(destination, user)
+		new /obj/effect/temp_visual/hierophant/telegraph(source, user)
+		playsound(destination,'sound/magic/wand_teleport.ogg', 200, TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		playsound(source,'sound/machines/airlockopen.ogg', 200, TRUE)
 		if(!do_after(user, 3, target = user) || !user || !beacon || QDELETED(beacon)) //no walking away shitlord
 			teleporting = FALSE
@@ -167,13 +205,18 @@
 			if(beacon)
 				beacon.icon_state = "hierophant_tele_off"
 			return
+<<<<<<< HEAD
 		if(T.is_blocked_turf(TRUE))
+=======
+		if(destination.is_blocked_turf(TRUE))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			teleporting = FALSE
 			to_chat(user, span_warning("The beacon is blocked by something, preventing teleportation!"))
 			user.update_mob_action_buttons()
 			beacon.icon_state = "hierophant_tele_off"
 			return
 		user.log_message("teleported self from [AREACOORD(source)] to [beacon].", LOG_GAME)
+<<<<<<< HEAD
 		new /obj/effect/temp_visual/hierophant/telegraph/teleport(T, user)
 		new /obj/effect/temp_visual/hierophant/telegraph/teleport(source, user)
 		for(var/t in RANGE_TURFS(1, T))
@@ -182,12 +225,27 @@
 			new /obj/effect/temp_visual/hierophant/blast/visual(t, user, TRUE)
 		for(var/mob/living/L in range(1, source))
 			INVOKE_ASYNC(src, PROC_REF(teleport_mob), source, L, T, user)
+=======
+		new /obj/effect/temp_visual/hierophant/telegraph/teleport(destination, user)
+		new /obj/effect/temp_visual/hierophant/telegraph/teleport(source, user)
+		for(var/turf_near_beacon in RANGE_TURFS(1, destination))
+			new /obj/effect/temp_visual/hierophant/blast/visual(turf_near_beacon, user, TRUE)
+		for(var/turf_near_source in RANGE_TURFS(1, source))
+			new /obj/effect/temp_visual/hierophant/blast/visual(turf_near_source, user, TRUE)
+		for(var/mob/living/mob_to_teleport in range(1, source))
+			INVOKE_ASYNC(src, PROC_REF(teleport_mob), source, mob_to_teleport, destination, user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		sleep(0.6 SECONDS) //at this point the blasts detonate
 		if(beacon)
 			beacon.icon_state = "hierophant_tele_off"
 	else
+<<<<<<< HEAD
 		qdel(TE1)
 		qdel(TE2)
+=======
+		qdel(user_telegraph)
+		qdel(beacon_telegraph)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(beacon)
 		beacon.icon_state = "hierophant_tele_off"
 	teleporting = FALSE
@@ -218,7 +276,11 @@
 	if(user != teleporting && success)
 		log_combat(user, teleporting, "teleported", null, "from [AREACOORD(source)]")
 
+<<<<<<< HEAD
 /obj/item/hierophant_club/pickup(mob/living/user)
+=======
+/obj/item/hierophant_club/equipped(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	blink.Grant(user, src)
 	user.update_icons()
@@ -253,7 +315,11 @@
 	desc = "Hostile Environment Cross-Kinetic Suit: A suit designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner."
 	icon_state = "hostile_env"
 	hoodtype = /obj/item/clothing/head/hooded/hostile_environment
+<<<<<<< HEAD
 	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/hooded_hostile_environment
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -261,7 +327,11 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	clothing_flags = THICKMATERIAL
 	resistance_flags = FIRE_PROOF|LAVA_PROOF|ACID_PROOF
+<<<<<<< HEAD
 	transparent_protection = HIDEGLOVES|HIDESUITSTORAGE|HIDEJUMPSUIT|HIDESHOES
+=======
+	transparent_protection = HIDESUITSTORAGE|HIDEJUMPSUIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/recharge/kinetic_accelerator, /obj/item/pickaxe)
 	greyscale_colors = "#4d4d4d#808080"
 	greyscale_config = /datum/greyscale_config/heck_suit
@@ -269,15 +339,34 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/heck_suit/worn/digi //SKYRAT EDIT ADDITION - DigiGreyscale
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+<<<<<<< HEAD
+=======
+/datum/armor/hooded_hostile_environment
+	melee = 70
+	bullet = 40
+	laser = 10
+	energy = 20
+	bomb = 50
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/hostile_environment/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/radiation_protected_clothing)
 	AddComponent(/datum/component/gags_recolorable)
 
+<<<<<<< HEAD
 /obj/item/clothing/suit/hooded/hostile_environment/process(delta_time)
 	. = ..()
 	var/mob/living/carbon/wearer = loc
 	if(istype(wearer) && DT_PROB(1, delta_time)) //cursed by bubblegum
+=======
+/obj/item/clothing/suit/hooded/hostile_environment/process(seconds_per_tick)
+	. = ..()
+	var/mob/living/carbon/wearer = loc
+	if(istype(wearer) && SPT_PROB(1, seconds_per_tick)) //cursed by bubblegum
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(prob(7.5))
 			wearer.cause_hallucination(/datum/hallucination/oh_yeah, "H.E.C.K suit", haunt_them = TRUE)
 		else
@@ -290,7 +379,11 @@
 	desc = "Hostile Environiment Cross-Kinetic Helmet: A helmet designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner."
 	icon_state = "hostile_env"
 	w_class = WEIGHT_CLASS_NORMAL
+<<<<<<< HEAD
 	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 0, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/hooded_hostile_environment
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = HEAD
@@ -303,6 +396,10 @@
 	greyscale_colors = "#4d4d4d#808080#ff3300"
 	greyscale_config = /datum/greyscale_config/heck_helmet
 	greyscale_config_worn = /datum/greyscale_config/heck_helmet/worn
+<<<<<<< HEAD
+=======
+	greyscale_config_worn_digi = /datum/greyscale_config/heck_helmet/worn/snouted //SKYRAT EDIT ADDITION - MuzzledGreyscale (Why does this use worn_digi)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/hooded/hostile_environment/Initialize(mapload)
@@ -377,6 +474,10 @@
 	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED, PROC_REF(on_attack))
 	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED_SECONDARY, PROC_REF(on_secondary_attack))
 	RegisterSignal(src, COMSIG_ATOM_INTEGRITY_CHANGED, PROC_REF(on_integrity_change))
+<<<<<<< HEAD
+=======
+	AddElement(/datum/element/bane, mob_biotypes = MOB_PLANT, damage_multiplier = 0.5, requires_combat_mode = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/soulscythe/examine(mob/user)
 	. = ..()
@@ -582,10 +683,17 @@
 	. = ..()
 	. += "Blood: [blood_level]/[MAX_BLOOD_LEVEL]"
 
+<<<<<<< HEAD
 /mob/living/simple_animal/soulscythe/Life(delta_time, times_fired)
 	. = ..()
 	if(!stat)
 		blood_level = min(MAX_BLOOD_LEVEL, blood_level + round(1 * delta_time))
+=======
+/mob/living/simple_animal/soulscythe/Life(seconds_per_tick, times_fired)
+	. = ..()
+	if(!stat)
+		blood_level = min(MAX_BLOOD_LEVEL, blood_level + round(1 * seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/projectile/soulscythe
 	name = "soulslash"
@@ -608,6 +716,10 @@
 /obj/item/melee/ghost_sword
 	name = "\improper spectral blade"
 	desc = "A rusted and dulled blade. It doesn't look like it'd do much damage. It glows weakly."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/sword.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "spectral"
 	inhand_icon_state = "spectral"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
@@ -771,6 +883,10 @@
 	. = ..()
 	if(timer > world.time)
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(is_type_in_typecache(target, banned_turfs))
 		return
 	if(target in view(user.client.view, get_turf(user)))
@@ -835,7 +951,11 @@
 	/// Whether the saw is open or not
 	var/is_open = FALSE
 	/// List of factions we deal bonus damage to
+<<<<<<< HEAD
 	var/list/nemesis_factions = list("mining", "boss")
+=======
+	var/list/nemesis_factions = list(FACTION_MINING, FACTION_BOSS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// Amount of damage we deal to the above factions
 	var/faction_bonus_force = 30
 	/// Whether the cleaver is actively AoE swiping something.
@@ -1001,6 +1121,10 @@
 
 /obj/item/storm_staff/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!thunder_charges)
 		balloon_alert(user, "needs to charge!")
 		return
@@ -1049,7 +1173,11 @@
 		new /obj/effect/temp_visual/electricity(turf)
 		for(var/mob/living/hit_mob in turf)
 			to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
+<<<<<<< HEAD
 			hit_mob.electrocute_act(15 * (isanimal(hit_mob) ? 3 : 1) * (turf == target ? 2 : 1) * (boosted ? 2 : 1), src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
+=======
+			hit_mob.electrocute_act(15 * (isanimal_or_basicmob(hit_mob) ? 3 : 1) * (turf == target ? 2 : 1) * (boosted ? 2 : 1), src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 		for(var/obj/hit_thing in turf)
 			hit_thing.take_damage(20, BURN, ENERGY, FALSE)

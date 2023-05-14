@@ -123,7 +123,11 @@
 	if(!proximity)
 		return NONE
 	eat_lights(target, source)
+<<<<<<< HEAD
 	return NONE
+=======
+	return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Called when a source object is used to block a thrown object, projectile, or attack

@@ -57,6 +57,10 @@ type BodyZoneSelectorProps = {
   onClick?: (zone: BodyZone) => void;
   scale?: number;
   selectedZone: BodyZone | null;
+<<<<<<< HEAD
+=======
+  theme?: string;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 };
 
 type BodyZoneSelectorState = {
@@ -74,7 +78,11 @@ export class BodyZoneSelector extends Component<
 
   render() {
     const { hoverZone } = this.state;
+<<<<<<< HEAD
     const { scale = 3, selectedZone } = this.props;
+=======
+    const { scale = 3, selectedZone, theme = 'midnight' } = this.props;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
     return (
       <div
@@ -86,7 +94,11 @@ export class BodyZoneSelector extends Component<
         }}>
         <Box
           as="img"
+<<<<<<< HEAD
           src={resolveAsset('body_zones.base.png')}
+=======
+          src={resolveAsset(`body_zones.base_${theme}.png`)}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           onClick={() => {
             const onClick = this.props.onClick;
             if (onClick && this.state.hoverZone) {

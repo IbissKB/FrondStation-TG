@@ -14,12 +14,21 @@
 	metabolization_rate = 0.1 * REM //default impurity is 0.75, so we get 25% converted. Default metabolisation rate is 0.4, so we're 4 times slower.
 	var/liver_damage = 0.5
 
+<<<<<<< HEAD
 /datum/reagent/impurity/on_mob_life(mob/living/carbon/affected_mob, delta_time, times_fired)
 	var/obj/item/organ/internal/liver/L = affected_mob.getorganslot(ORGAN_SLOT_LIVER)
 	if(!L)//Though, lets be safe
 		affected_mob.adjustToxLoss(1 * REM * delta_time, FALSE, required_biotype = affected_biotype)//Incase of no liver!
 		return ..()
 	affected_mob.adjustOrganLoss(ORGAN_SLOT_LIVER, liver_damage * REM * delta_time, required_organtype = affected_organtype)
+=======
+/datum/reagent/impurity/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	var/obj/item/organ/internal/liver/L = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(!L)//Though, lets be safe
+		affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype)//Incase of no liver!
+		return ..()
+	affected_mob.adjustOrganLoss(ORGAN_SLOT_LIVER, liver_damage * REM * seconds_per_tick, required_organtype = affected_organtype)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 //Basically just so people don't forget to adjust metabolization_rate
@@ -34,8 +43,13 @@
 	var/tox_damage = 1
 
 
+<<<<<<< HEAD
 /datum/reagent/inverse/on_mob_life(mob/living/carbon/affected_mob, delta_time, times_fired)
 	affected_mob.adjustToxLoss(tox_damage * REM * delta_time, FALSE, required_biotype = affected_biotype)
+=======
+/datum/reagent/inverse/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	affected_mob.adjustToxLoss(tox_damage * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return ..()
 
 //Failed chems - generally use inverse if you want to use a impure subtype for it
@@ -49,6 +63,10 @@
 	taste_description = "an awful, strongly chemical taste"
 	color = "#270d03"
 	glass_price = DRINK_PRICE_HIGH
+<<<<<<< HEAD
+=======
+	fallback_icon = 'icons/obj/drinks/drink_effects.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fallback_icon_state = "failed_reaction_fallback"
 
 // Unique
@@ -104,7 +122,11 @@
 	cryostylane_alert.attached_effect = src //so the alert can reference us, if it needs to
 	..()
 
+<<<<<<< HEAD
 /datum/reagent/inverse/cryostylane/on_mob_life(mob/living/carbon/affected_mob, delta_time, times_fired)
+=======
+/datum/reagent/inverse/cryostylane/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!cube || affected_mob.loc != cube)
 		affected_mob.reagents.remove_reagent(type, volume) //remove it all if we're past 60s
 	if(current_cycle > 60)

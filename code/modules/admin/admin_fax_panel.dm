@@ -10,7 +10,11 @@
 
 	var/datum/fax_panel_interface/ui = new(usr)
 	ui.ui_interact(usr)
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Admin Fax Panel. Tool for sending fax messages faster.
 /datum/fax_panel_interface
 	/// All faxes in from machinery list()
@@ -30,14 +34,22 @@
 	//Get all faxes, and save them to our list.
 	for(var/obj/machinery/fax/fax in GLOB.machines)
 		available_faxes += WEAKREF(fax)
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Get all stamps
 	for(var/stamp in subtypesof(/obj/item/stamp))
 		var/obj/item/stamp/real_stamp = new stamp()
 		if(!istype(real_stamp, /obj/item/stamp/chameleon) && !istype(real_stamp, /obj/item/stamp/mod))
 			var/stamp_detail = real_stamp.get_writing_implement_details()
 			stamp_list += list(list(real_stamp.name, real_stamp.icon_state, stamp_detail["stamp_class"]))
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Give our paper special status, to read everywhere.
 	fax_paper.request_state = TRUE
 
@@ -74,12 +86,20 @@
 
 	for(var/stamp in stamp_list)
 		data["stamps"] += list(stamp[1]) // send only names.
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/datum/weakref/weakrefed_fax as anything in available_faxes)
 		var/obj/machinery/fax/another_fax = weakrefed_fax.resolve()
 		if(another_fax && istype(another_fax))
 			data["faxes"] += list(another_fax.fax_name)
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return data
 
 /datum/fax_panel_interface/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -88,12 +108,21 @@
 
 	if(!check_rights(R_ADMIN))
 		return
+<<<<<<< HEAD
 	
 	var/obj/machinery/fax/action_fax
 
 	if(params["faxName"])
 		action_fax = get_fax_by_name(params["faxName"]) 
 	
+=======
+
+	var/obj/machinery/fax/action_fax
+
+	if(params["faxName"])
+		action_fax = get_fax_by_name(params["faxName"])
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 
 		if("follow")
@@ -101,20 +130,34 @@
 				usr.client?.admin_ghost()
 
 			usr.client?.admin_follow(action_fax)
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("preview") // see saved variant
 			if(!fax_paper)
 				return
 			fax_paper.ui_interact(usr)
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("save") // save paper
 			if(params["paperName"])
 				default_paper_name = params["paperName"]
 			if(params["fromWho"])
 				sending_fax_name = params["fromWho"]
+<<<<<<< HEAD
 			
 			fax_paper.clear_paper()
 			var/stamp 
+=======
+
+			fax_paper.clear_paper()
+			var/stamp
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			var/stamp_class
 
 			for(var/needed_stamp in stamp_list)
@@ -122,6 +165,7 @@
 					stamp = needed_stamp[2]
 					stamp_class = needed_stamp[3]
 					break
+<<<<<<< HEAD
 			
 			fax_paper.name = "paper — [default_paper_name]"
 			fax_paper.add_raw_text(params["rawText"])
@@ -131,15 +175,32 @@
 			
 			fax_paper.update_static_data(usr) // OK, it's work, and update UI. 
 			
+=======
+
+			fax_paper.name = "paper — [default_paper_name]"
+			fax_paper.add_raw_text(params["rawText"], advanced_html = TRUE)
+
+			if(stamp)
+				fax_paper.add_stamp(stamp_class, params["stampX"], params["stampY"], params["stampAngle"], stamp)
+
+			fax_paper.update_static_data(usr) // OK, it's work, and update UI.
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("send")
 			//copy
 			var/obj/item/paper/our_fax = fax_paper.copy(/obj/item/paper)
 			our_fax.name = fax_paper.name
 			//send
 			action_fax.receive(our_fax, sending_fax_name)
+<<<<<<< HEAD
 			message_admins("[key_name_admin(usr)] has send custom fax message to [action_fax.name][ADMIN_FLW(action_fax)][ADMIN_SHOW_PAPER(fax_paper)].")
 			log_admin("[key_name(usr)] has send custom fax message to [action_fax.name]")
 		
+=======
+			message_admins("[key_name_admin(usr)] has sent a custom fax message to [action_fax.name][ADMIN_FLW(action_fax)][ADMIN_SHOW_PAPER(fax_paper)].")
+			log_admin("[key_name(usr)] has sent a custom fax message to [action_fax.name]")
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if("createPaper")
 			var/obj/item/paper/our_paper = fax_paper.copy(/obj/item/paper, usr.loc)
 			our_paper.name = fax_paper.name

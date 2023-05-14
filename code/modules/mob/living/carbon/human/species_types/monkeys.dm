@@ -13,8 +13,11 @@
 	meat = /obj/item/food/meat/slab/monkey
 	knife_butcher_results = list(/obj/item/food/meat/slab/monkey = 5, /obj/item/stack/sheet/animalhide/monkey = 1)
 	species_traits = list(
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		NO_UNDERWEAR,
 		LIPS,
 		NOEYESPRITES,
@@ -234,6 +237,7 @@
 	build_all_button_icons()
 
 
+<<<<<<< HEAD
 /obj/item/organ/internal/brain/primate/Insert(mob/living/carbon/primate, special = FALSE, drop_if_replaced = FALSE, no_id_transfer = FALSE)
 	. = ..()
 	RegisterSignal(primate, COMSIG_MOVABLE_CROSS, PROC_REF(on_crossed), TRUE)
@@ -241,6 +245,15 @@
 /obj/item/organ/internal/brain/primate/Remove(mob/living/carbon/primate, special = FALSE, no_id_transfer = FALSE)
 	UnregisterSignal(primate, COMSIG_MOVABLE_CROSS)
 	return ..()
+=======
+/obj/item/organ/internal/brain/primate/on_insert(mob/living/carbon/primate)
+	. = ..()
+	RegisterSignal(primate, COMSIG_MOVABLE_CROSS, PROC_REF(on_crossed), TRUE)
+
+/obj/item/organ/internal/brain/primate/on_remove(mob/living/carbon/primate)
+	. = ..()
+	UnregisterSignal(primate, COMSIG_MOVABLE_CROSS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/organ/internal/brain/primate/proc/on_crossed(datum/source, atom/movable/crossed)
 	SIGNAL_HANDLER

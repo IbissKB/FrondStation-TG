@@ -14,7 +14,11 @@
 #define MONKEY_SYRINGE_RETALIATION_PROB 20
 
 // Probability per Life tick that the monkey will:
+<<<<<<< HEAD
 ///  probability that monkey aggro against the mob pulling it
+=======
+/// probability that monkey aggro against the mob pulling it
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define MONKEY_PULL_AGGRO_PROB 5
 /// probability that monkey will get into mischief, i.e. finding/stealing items
 #define MONKEY_SHENANIGAN_PROB 20

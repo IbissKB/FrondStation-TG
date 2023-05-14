@@ -7,14 +7,23 @@
 	icon_state = "chasms-255"
 	base_icon_state = "chasms"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_TURF_CHASM)
 	canSmoothWith = list(SMOOTH_GROUP_TURF_CHASM)
+=======
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_TURF_CHASM
+	canSmoothWith = SMOOTH_GROUP_TURF_CHASM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = TRUE //This will prevent hostile mobs from pathing into chasms, while the canpass override will still let it function like an open turf
 	bullet_bounce_sound = null //abandon all hope ye who enter
 
 /turf/open/chasm/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	AddComponent(/datum/component/chasm, SSmapping.get_turf_below(src))
+=======
+	apply_components()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /// Lets people walk into chasms.
 /turf/open/chasm/CanAllowThrough(atom/movable/mover, border_dir)
@@ -75,6 +84,13 @@
 	else if(istype(C, /obj/item/stack/tile/iron))
 		build_with_floor_tiles(C, user)
 
+<<<<<<< HEAD
+=======
+/// Handles adding the chasm component to the turf (So stuff falls into it!)
+/turf/open/chasm/proc/apply_components()
+	AddComponent(/datum/component/chasm, SSmapping.get_turf_below(src))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Chasms for Lavaland, with planetary atmos and lava glow
 /turf/open/chasm/lavaland
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
@@ -109,3 +125,13 @@
 	underlay_appearance.icon = 'icons/turf/floors.dmi'
 	underlay_appearance.icon_state = "dirt"
 	return TRUE
+<<<<<<< HEAD
+=======
+
+// Chasm that doesn't do any z-level nonsense and just kills/stores whoever steps into it.
+/turf/open/chasm/true
+	desc = "There's nothing at the bottom. Absolutely nothing."
+
+/turf/open/chasm/true/apply_components()
+	AddComponent(/datum/component/chasm) //Don't pass anything for below_turf.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

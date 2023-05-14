@@ -15,6 +15,11 @@
 /datum/targetting_datum/basic
 	/// When we do our basic faction check, do we look for exact faction matches?
 	var/check_factions_exactly = FALSE
+<<<<<<< HEAD
+=======
+	/// Minimum status to attack living beings
+	var/stat_attack = CONSCIOUS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/targetting_datum/basic/can_attack(mob/living/living_mob, atom/the_target)
 	if(isturf(the_target) || !the_target) // bail out on invalids
@@ -38,7 +43,11 @@
 
 	if(isliving(the_target)) //Targeting vs living mobs
 		var/mob/living/L = the_target
+<<<<<<< HEAD
 		if(faction_check(living_mob, L) || L.stat)
+=======
+		if(faction_check(living_mob, L)  || (L.stat > stat_attack))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 		return TRUE
 
@@ -80,3 +89,34 @@
 
 /datum/targetting_datum/basic/ignore_faction/faction_check(mob/living/living_mob, mob/living/the_target)
 	return FALSE
+<<<<<<< HEAD
+=======
+
+/// Subtype which searches for mobs of a size relative to ours
+/datum/targetting_datum/basic/of_size
+	/// If true, we will return mobs which are smaller than us. If false, larger.
+	var/find_smaller = TRUE
+	/// If true, we will return mobs which are the same size as us.
+	var/inclusive = TRUE
+
+/datum/targetting_datum/basic/of_size/can_attack(mob/living/owner, atom/target)
+	if(!isliving(target))
+		return FALSE
+	. = ..()
+	if(!.)
+		return FALSE
+
+	var/mob/living/mob_target = target
+	if(inclusive && owner.mob_size == mob_target.mob_size)
+		return TRUE
+	if(owner.mob_size > mob_target.mob_size)
+		return find_smaller
+	return !find_smaller
+
+// This is just using the default values but the subtype makes it clearer
+/datum/targetting_datum/basic/of_size/ours_or_smaller
+
+/datum/targetting_datum/basic/of_size/larger
+	find_smaller = FALSE
+	inclusive = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

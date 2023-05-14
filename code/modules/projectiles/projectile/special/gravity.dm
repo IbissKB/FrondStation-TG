@@ -5,7 +5,10 @@
 	hitsound = 'sound/weapons/wave.ogg'
 	damage = 0
 	damage_type = BRUTE
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	color = "#33CCFF"
 	var/turf/T
 	var/power = 4
@@ -40,7 +43,10 @@
 	hitsound = 'sound/weapons/wave.ogg'
 	damage = 0
 	damage_type = BRUTE
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	color = "#FF6600"
 	var/turf/T
 	var/power = 4
@@ -74,7 +80,10 @@
 	hitsound = 'sound/weapons/wave.ogg'
 	damage = 0
 	damage_type = BRUTE
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	color = "#101010"
 	var/turf/T
 	var/power = 4
@@ -90,7 +99,11 @@
 	. = ..()
 	T = get_turf(src)
 	for(var/atom/movable/A in range(T, power))
+<<<<<<< HEAD
 		if(A == src|| (firer && A == src.firer) || A.anchored || thrown_items[A])
+=======
+		if(A == src || (firer && A == src.firer) || A.anchored || thrown_items[A])
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			continue
 		if(ismob(A))
 			var/mob/M = A

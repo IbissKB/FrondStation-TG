@@ -43,8 +43,14 @@
 		return
 	if(!HAS_TRAIT(user,TRAIT_WEB_WEAVER))
 		return
+<<<<<<< HEAD
 	user.visible_message(span_notice("[user] begins weaving [src] into cloth."), span_notice("You begin weaving [src] into cloth."))
 	if(!do_after(user, 2 SECONDS))
+=======
+	user.balloon_alert_to_viewers("weaving...")
+	if(!do_after(user, 2 SECONDS))
+		user.balloon_alert(user, "interrupted!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	qdel(src)
 	var/obj/item/stack/sheet/cloth/woven_cloth = new /obj/item/stack/sheet/cloth
@@ -64,10 +70,17 @@
 	if(isspider(mover))
 		return TRUE
 	else if(isliving(mover))
+<<<<<<< HEAD
 		if(istype(mover.pulledby, /mob/living/simple_animal/hostile/giant_spider))
 			return TRUE
 		if(prob(50))
 			to_chat(mover, span_danger("You get stuck in \the [src] for a moment."))
+=======
+		if(istype(mover.pulledby, /mob/living/basic/giant_spider))
+			return TRUE
+		if(prob(50))
+			balloon_alert(mover, "stuck in web!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 	else if(isprojectile(mover))
 		return prob(30)
@@ -95,11 +108,16 @@
 		if(mover.pulledby == allowed_mob)
 			return TRUE
 		if(prob(50))
+<<<<<<< HEAD
 			to_chat(mover, span_danger("You get stuck in \the [src] for a moment."))
+=======
+			balloon_alert(mover, "stuck in web!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return FALSE
 	else if(isprojectile(mover))
 		return prob(30)
 
+<<<<<<< HEAD
 /obj/structure/spider/spiderling
 	name = "spiderling"
 	desc = "It never stays still for long."
@@ -226,6 +244,8 @@
 			S.directive = directive
 			qdel(src)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/spider/cocoon
 	name = "cocoon"
 	desc = "Something wrapped in silky spider web."

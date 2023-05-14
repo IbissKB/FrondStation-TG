@@ -32,7 +32,11 @@
 		update_appearance()
 		geyserless = FALSE //we switched state, so lets just set this back aswell
 
+<<<<<<< HEAD
 /obj/machinery/plumbing/liquid_pump/process(delta_time)
+=======
+/obj/machinery/plumbing/liquid_pump/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!anchored || panel_open || geyserless)
 		return
 
@@ -46,6 +50,7 @@
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 			return
 
+<<<<<<< HEAD
 	pump(delta_time)
 
 ///pump up that sweet geyser nectar
@@ -53,6 +58,15 @@
 	if(!geyser || !geyser.reagents)
 		return
 	geyser.reagents.trans_to(src, pump_power * delta_time)
+=======
+	pump(seconds_per_tick)
+
+///pump up that sweet geyser nectar
+/obj/machinery/plumbing/liquid_pump/proc/pump(seconds_per_tick)
+	if(!geyser || !geyser.reagents)
+		return
+	geyser.reagents.trans_to(src, pump_power * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/plumbing/liquid_pump/update_icon_state()
 	if(geyser)

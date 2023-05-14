@@ -1,7 +1,11 @@
 /obj/item/melee/energy
 	icon = 'icons/obj/weapons/transforming_energy.dmi'
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 30)
+=======
+	armor_type = /datum/armor/melee_energy
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attack_verb_continuous = list("hits", "taps", "pokes")
 	attack_verb_simple = list("hit", "tap", "poke")
 	resistance_flags = FIRE_PROOF
@@ -12,6 +16,10 @@
 	bare_wound_bonus = 20
 	stealthy_audio = TRUE
 	w_class = WEIGHT_CLASS_SMALL
+<<<<<<< HEAD
+=======
+	item_flags = NO_BLOOD_ON_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// The color of this energy based sword, for use in editing the icon_state.
 	var/sword_color_icon
@@ -40,6 +48,13 @@
 
 	// SKYRAT EDIT ADD END
 
+<<<<<<< HEAD
+=======
+/datum/armor/melee_energy
+	fire = 100
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/melee/energy/Initialize(mapload)
 	. = ..()
 	make_transformable()
@@ -64,7 +79,13 @@
 		hitsound_on = active_hitsound, \
 		w_class_on = active_w_class, \
 		attack_verb_continuous_on = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts"), \
+<<<<<<< HEAD
 		attack_verb_simple_on = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut"))
+=======
+		attack_verb_simple_on = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut"), \
+		inhand_icon_change = FALSE, \
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/melee/energy/suicide_act(mob/living/user)
@@ -73,10 +94,14 @@
 	user.visible_message(span_suicide("[user] is [pick("slitting [user.p_their()] stomach open with", "falling on")] [src]! It looks like [user.p_theyre()] trying to commit seppuku!"))
 	return (BRUTELOSS|FIRELOSS)
 
+<<<<<<< HEAD
 /obj/item/melee/energy/add_blood_DNA(list/blood_dna)
 	return FALSE
 
 /obj/item/melee/energy/process(delta_time)
+=======
+/obj/item/melee/energy/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(heat)
 		open_flame()
 
@@ -110,7 +135,11 @@
 	if(active)
 		if(sword_color_icon)
 			icon_state = "[icon_state]_[sword_color_icon]"
+<<<<<<< HEAD
 			inhand_icon_state = "[inhand_icon_state]_[sword_color_icon]"
+=======
+			inhand_icon_state = "[inhand_icon_state]_on_[sword_color_icon]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			if(ismob(loc))
 				var/mob/loc_mob = loc
 				loc_mob.update_held_items()

@@ -3,6 +3,7 @@ export const ANTAG2COLOR = {
   'Ash Walkers': 'olive',
   'Biohazards': 'brown',
   'CentCom': 'teal',
+<<<<<<< HEAD
 } as const;
 
 export const ANTAG2GROUP = {
@@ -44,6 +45,9 @@ export const ANTAG2GROUP = {
   'Space Wizard': 'Wizard Federation',
   'Wizard Apprentice': 'Wizard Federation',
   'Wizard Minion': 'Wizard Federation',
+=======
+  'Emergency Response Team': 'teal',
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 } as const;
 
 export const THREAT = {
@@ -53,6 +57,10 @@ export const THREAT = {
 } as const;
 
 export const HEALTH = {
+<<<<<<< HEAD
   Good: 69,
+=======
+  Good: 69, // nice
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   Average: 19,
 } as const;

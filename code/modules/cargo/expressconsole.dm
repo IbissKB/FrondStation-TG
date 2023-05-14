@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #define MAX_EMAG_ROCKETS 5
 #define BEACON_COST 500
 #define SP_LINKED 1
@@ -6,6 +7,8 @@
 #define SP_UNLINK 4
 #define SP_UNREADY 5
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/computer/cargo/express
 	name = "express supply console"
 	desc = "This console allows the user to purchase a package \
@@ -32,7 +35,11 @@
 	. = ..()
 	packin_up()
 
+<<<<<<< HEAD
 /obj/machinery/computer/cargo/express/on_construction()
+=======
+/obj/machinery/computer/cargo/express/on_construction(mob/user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	packin_up()
 
@@ -230,3 +237,7 @@
 							. = TRUE
 							update_appearance()
 							CHECK_TICK
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

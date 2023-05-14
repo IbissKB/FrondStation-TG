@@ -86,6 +86,21 @@
 	icon_state = "medbox"
 
 /*
+<<<<<<< HEAD
+=======
+// Engineering
+*/
+/obj/item/storage/box/metalfoam
+	icon_state = "engibox"
+
+/obj/item/storage/box/smart_metal_foam
+	icon_state = "engibox"
+
+/obj/item/storage/box/material
+	icon_state = "engibox"
+
+/*
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Security
 */
 /obj/item/storage/box/rubbershot

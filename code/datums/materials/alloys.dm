@@ -46,7 +46,11 @@
 	if(!istype(target_item))
 		return
 
+<<<<<<< HEAD
 	target_item.slowdown += MATERIAL_SLOWDOWN_PLASTEEL * amount / MINERAL_MATERIAL_AMOUNT
+=======
+	target_item.slowdown += MATERIAL_SLOWDOWN_PLASTEEL * amount / SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/material/alloy/plasteel/on_removed_obj(obj/item/target_item, amount, material_flags)
 	. = ..()
@@ -54,7 +58,11 @@
 	if(!istype(target_item))
 		return
 
+<<<<<<< HEAD
 	target_item.slowdown -= MATERIAL_SLOWDOWN_PLASTEEL * amount / MINERAL_MATERIAL_AMOUNT
+=======
+	target_item.slowdown -= MATERIAL_SLOWDOWN_PLASTEEL * amount / SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /** Plastitanium
  *
@@ -84,11 +92,19 @@
 	color = "#ff80f4"
 	greyscale_colors = "#ff80f496"
 	alpha = 150
+<<<<<<< HEAD
+=======
+	starlight_color = COLOR_STRONG_MAGENTA
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	init_flags = MATERIAL_INIT_MAPLOAD
 	integrity_modifier = 0.5
 	armor_modifiers = list(MELEE = 0.8, BULLET = 0.8, LASER = 1.2, ENERGY = 1.2, BOMB = 0.3, BIO = 1.2, FIRE = 2, ACID = 2)
 	sheet_type = /obj/item/stack/sheet/plasmaglass
 	shard_type = /obj/item/shard/plasma
+<<<<<<< HEAD
+=======
+	debris_type = /obj/effect/decal/cleanable/glass/plasma
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	value_per_unit = 0.075
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	composition = list(/datum/material/glass=1, /datum/material/plasma=0.5)
@@ -103,10 +119,18 @@
 	color = "#cfbee0"
 	greyscale_colors = "#cfbee096"
 	alpha = 150
+<<<<<<< HEAD
+=======
+	starlight_color = COLOR_COMMAND_BLUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	init_flags = MATERIAL_INIT_MAPLOAD
 	armor_modifiers = list(MELEE = 1.2, BULLET = 1.2, LASER = 0.8, ENERGY = 0.8, BOMB = 0.5, BIO = 1.2, FIRE = 0.8, ACID = 2)
 	sheet_type = /obj/item/stack/sheet/titaniumglass
 	shard_type = /obj/item/shard/titanium
+<<<<<<< HEAD
+=======
+	debris_type = /obj/effect/decal/cleanable/glass/titanium
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	value_per_unit = 0.04
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	composition = list(/datum/material/glass=1, /datum/material/titanium=0.5)
@@ -120,12 +144,20 @@
 	desc = "A specialized silicate-plastitanium alloy."
 	color = "#5d3369"
 	greyscale_colors = "#5d336996"
+<<<<<<< HEAD
+=======
+	starlight_color = COLOR_CENTCOM_BLUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	alpha = 150
 	init_flags = MATERIAL_INIT_MAPLOAD
 	integrity_modifier = 1.1
 	armor_modifiers = list(MELEE = 1.2, BULLET = 1.2, LASER = 1.2, ENERGY = 1.2, BOMB = 0.5, BIO = 1.2, FIRE = 2, ACID = 2)
 	sheet_type = /obj/item/stack/sheet/plastitaniumglass
 	shard_type = /obj/item/shard/plastitanium
+<<<<<<< HEAD
+=======
+	debris_type = /obj/effect/decal/cleanable/glass/plastitanium
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	value_per_unit = 0.125
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	composition = list(/datum/material/glass=1, /datum/material/alloy/plastitanium=0.5)
@@ -157,7 +189,11 @@
 	if(!istype(target_item))
 		return
 
+<<<<<<< HEAD
 	target_item.slowdown += MATERIAL_SLOWDOWN_ALIEN_ALLOY * amount / MINERAL_MATERIAL_AMOUNT
+=======
+	target_item.slowdown += MATERIAL_SLOWDOWN_ALIEN_ALLOY * amount / SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/material/alloy/alien/on_removed_obj(obj/item/target_item, amount, material_flags)
 	. = ..()
@@ -166,4 +202,8 @@
 	if(!istype(target_item))
 		return
 
+<<<<<<< HEAD
 	target_item.slowdown -= MATERIAL_SLOWDOWN_ALIEN_ALLOY * amount / MINERAL_MATERIAL_AMOUNT
+=======
+	target_item.slowdown -= MATERIAL_SLOWDOWN_ALIEN_ALLOY * amount / SHEET_MATERIAL_AMOUNT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

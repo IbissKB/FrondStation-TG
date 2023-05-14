@@ -83,6 +83,12 @@
  */
 /datum/experiment/proc/finish_experiment(datum/component/experiment_handler/experiment_handler)
 	completed = TRUE
+<<<<<<< HEAD
 	experiment_handler.announce_message_to_all("The [name] has been completed!")
 	experiment_handler.selected_experiment = null
 	experiment_handler.linked_web.complete_experiment(src)
+=======
+	experiment_handler.selected_experiment = null
+	var/announcetext = experiment_handler.linked_web.complete_experiment(src)
+	experiment_handler.announce_message_to_all(announcetext)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

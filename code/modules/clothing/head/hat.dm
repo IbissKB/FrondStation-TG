@@ -8,9 +8,24 @@
 	desc = "It's good to be emperor."
 	inhand_icon_state = "that"
 	flags_inv = 0
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
 	strip_delay = 80
 
+=======
+	armor_type = /datum/armor/hats_centhat
+	strip_delay = 80
+
+/datum/armor/hats_centhat
+	melee = 30
+	bullet = 15
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/costume/constable
 	name = "constable helmet"
 	desc = "A british looking helmet."
@@ -47,9 +62,18 @@
 	desc = "These were once used by plague doctors. Will protect you from exposure to the Pestilence."
 	icon_state = "plaguedoctor"
 	clothing_flags = THICKMATERIAL | BLOCK_GAS_SMOKE_EFFECT | SNUG_FIT | PLASMAMAN_HELMET_EXEMPT
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	flags_inv = NONE
 
+=======
+	armor_type = /datum/armor/bio_hood_plague
+	flags_inv = NONE
+
+/datum/armor/bio_hood_plague
+	bio = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/costume/nursehat
 	name = "nurse's hat"
 	desc = "It allows quick identification of trained medical personnel."
@@ -85,9 +109,21 @@
 	icon_state = "cowboy"
 	worn_icon_state = "hunter"
 	inhand_icon_state = null
+<<<<<<< HEAD
 	armor = list(MELEE = 5, BULLET = 5, LASER = 5, ENERGY = 15, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
+=======
+	armor_type = /datum/armor/head_cowboy
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+
+/datum/armor/head_cowboy
+	melee = 5
+	bullet = 5
+	laser = 5
+	energy = 15
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/cowboy/black
 	name = "desperado hat"
 	desc = "People with ropes around their necks don't always hang."
@@ -182,7 +218,20 @@
 	desc = "A cap for a party coordinator, stylish!."
 	icon_state = "capcap"
 	inhand_icon_state = "that"
+<<<<<<< HEAD
 	armor = list(MELEE = 25, BULLET = 15, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
+=======
+	armor_type = /datum/armor/hats_coordinator
+
+/datum/armor/hats_coordinator
+	melee = 25
+	bullet = 15
+	laser = 25
+	energy = 35
+	bomb = 25
+	fire = 50
+	acid = 50
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/costume/jackbros
 	name = "frosty hat"
@@ -202,10 +251,26 @@
 	desc = "Worn by the finest of CentCom commanders. Inside the lining of the cap, lies two faint initials."
 	inhand_icon_state = "that"
 	flags_inv = 0
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
 	strip_delay = (8 SECONDS)
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON //SKYRAT EDIT lets anthros wear the hat
 
+=======
+	armor_type = /datum/armor/hats_centcom_cap
+	strip_delay = (8 SECONDS)
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON //SKYRAT EDIT lets anthros wear the hat
+
+/datum/armor/hats_centcom_cap
+	melee = 30
+	bullet = 15
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/fedora/human_leather
 	name = "human skin hat"
 	desc = "This will scare them. All will know my power."

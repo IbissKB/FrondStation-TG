@@ -194,11 +194,19 @@
 
 /obj/item/fishing_rod/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// Reel in if able
 	if(currently_hooked_item)
 		reel(user)
+<<<<<<< HEAD
 		return
+=======
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	/// If the line to whatever that is is clear and we're not already busy, try fishing in it
 	if(!casting && !currently_hooked_item && !proximity_flag && CheckToolReach(user, target, cast_range))
@@ -215,6 +223,11 @@
 		cast_projectile.preparePixelProjectile(target, user)
 		cast_projectile.fire()
 
+<<<<<<< HEAD
+=======
+	return .
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Called by hook projectile when hitting things
 /obj/item/fishing_rod/proc/hook_hit(atom/atom_hit_by_hook_projectile)
 	var/mob/user = loc
@@ -406,7 +419,11 @@
 	reqs = list(/obj/item/stack/sheet/leather = 1,
 				/obj/item/stack/sheet/sinew = 2,
 				/obj/item/stack/sheet/bone = 2)
+<<<<<<< HEAD
 	category = CAT_PRIMAL
+=======
+	category = CAT_TOOLS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/fishing_rod/master
 	name = "master fishing rod"
@@ -445,7 +462,10 @@
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "hook_projectile"
 	damage = 0
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	range = 5
 	suppressed =  SUPPRESSED_VERY
 	can_hit_turfs = TRUE
@@ -527,4 +547,7 @@
 
 	var/lefthand_n_px = 13
 	var/lefthand_n_py = 15
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -125,7 +125,11 @@
 	result = /obj/item/banner/medical/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
+<<<<<<< HEAD
 				/obj/item/clothing/under/rank/medical = 1)
+=======
+				/obj/item/clothing/under/rank/medical/doctor = 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = CAT_MISC
 
 /obj/item/banner/medical/special_inspiration(mob/living/carbon/human/H)
@@ -272,11 +276,28 @@
 	name = "Crusader's Hood"
 	desc = "A brownish hood."
 	icon = 'icons/obj/clothing/head/chaplain.dmi'
+<<<<<<< HEAD
+=======
+	worn_icon = 'icons/mob/clothing/head/chaplain.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "crusader"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 60, BIO = 0, FIRE = 60, ACID = 60)
+=======
+	armor_type = /datum/armor/plate_crusader
+
+/datum/armor/plate_crusader
+	melee = 50
+	bullet = 50
+	laser = 50
+	energy = 50
+	bomb = 60
+	fire = 60
+	acid = 60
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/helmet/plate/crusader/blue
 	icon_state = "crusader-blue"
@@ -291,11 +312,30 @@
 	name = "Prophet's Hat"
 	desc = "A religious-looking hat."
 	icon_state = null
+<<<<<<< HEAD
 	inhand_icon_state = null
 	flags_1 = 0
 	armor = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 70, BIO = 50, FIRE = 60, ACID = 60) //religion protects you from disease, honk.
 	worn_y_offset = 6
 
+=======
+	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
+	inhand_icon_state = null
+	flags_1 = 0
+	armor_type = /datum/armor/crusader_prophet
+	worn_y_offset = 6
+
+/datum/armor/crusader_prophet
+	melee = 60
+	bullet = 60
+	laser = 60
+	energy = 60
+	bomb = 70
+	bio = 50
+	fire = 60
+	acid = 60
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/helmet/plate/crusader/prophet/red
 	icon_state = "prophet-red"
 	inhand_icon_state = null
@@ -308,6 +348,10 @@
 /obj/item/godstaff
 	name = "godstaff"
 	desc = "It's a stick..?"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/staff.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "godstaff-red"
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
@@ -315,11 +359,18 @@
 	var/staffcooldown = 0
 	var/staffwait = 30
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/godstaff/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
 	if(staffcooldown + staffwait > world.time)
 		return
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	user.visible_message(span_notice("[user] chants deeply and waves [user.p_their()] staff!"))
 	if(do_after(user, 2 SECONDS, src))
 		target.add_atom_colour(conversion_color, WASHABLE_COLOUR_PRIORITY) //wololo
@@ -354,13 +405,30 @@
 	desc = "Metal boots, they look heavy."
 	icon_state = "crusader"
 	w_class = WEIGHT_CLASS_NORMAL
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 60, BIO = 0, FIRE = 60, ACID = 60) //does this even do anything on boots?
 	clothing_flags = NOSLIP
+=======
+	armor_type = /datum/armor/shoes_plate
+	clothing_traits = list(TRAIT_NO_SLIP_WATER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
 	heat_protection = FEET
 	max_heat_protection_temperature = SHOES_MAX_TEMP_PROTECT
 
+<<<<<<< HEAD
+=======
+/datum/armor/shoes_plate
+	melee = 50
+	bullet = 50
+	laser = 50
+	energy = 50
+	bomb = 60
+	fire = 60
+	acid = 60
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/shoes/plate/red
 	icon_state = "crusader-red"
 

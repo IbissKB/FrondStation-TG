@@ -40,8 +40,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/netherworld/migo{
 	environment_smash = 0
+=======
+/mob/living/basic/migo{
+	obj_damage = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
@@ -63,14 +68,23 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "eE" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/corner{
 	dir = 4
 	},
@@ -91,9 +105,12 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "fL" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -105,6 +122,12 @@
 	},
 /obj/item/organ/internal/stomach,
 /obj/item/trash/syndi_cakes,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/corner{
 	dir = 4
 	},
@@ -163,9 +186,12 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/abandoned/engine)
 "ig" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -173,8 +199,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	pixel_y = -24
+=======
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/iron/white/corner{
 	dir = 8
@@ -215,12 +248,19 @@
 /obj/machinery/microwave{
 	pixel_y = 5
 	},
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 6
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/cafeteria{
 	dir = 1
 	},
@@ -268,9 +308,12 @@
 /turf/open/floor/bamboo,
 /area/shuttle/abandoned/bar)
 "lg" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes{
 	dir = 9
@@ -280,6 +323,12 @@
 	dir = 1
 	},
 /obj/structure/cable,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/cafeteria{
 	dir = 1
 	},
@@ -305,10 +354,15 @@
 /obj/effect/decal/cleanable/vomit/old,
 /obj/machinery/light/small/broken/directional/west,
 /obj/structure/cable,
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	dir = 8;
 	pixel_x = -24
 	},
+=======
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/pod/light,
 /area/shuttle/abandoned/crew)
 "mH" = (
@@ -381,8 +435,13 @@
 /obj/structure/chair/office/light{
 	dir = 4
 	},
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/netherworld/blankbody{
 	environment_smash = 0
+=======
+/mob/living/basic/blankbody{
+	obj_damage = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/item/paper/crumpled/bloody{
@@ -433,8 +492,13 @@
 /obj/structure/chair{
 	dir = 4
 	},
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/netherworld/migo{
 	environment_smash = 0
+=======
+/mob/living/basic/migo{
+	obj_damage = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/bamboo,
 /area/shuttle/abandoned/bar)
@@ -565,6 +629,7 @@
 	icon_state = "medium"
 	},
 /obj/item/stack/cable_coil/cut,
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	pixel_y = -24
 	},
@@ -572,6 +637,13 @@
 /area/shuttle/abandoned/bridge)
 "zu" = (
 /obj/effect/turf_decal/tile/brown,
+=======
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/pod/light,
+/area/shuttle/abandoned/bridge)
+"zu" = (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/cell_charger,
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -579,6 +651,10 @@
 	pixel_y = 7;
 	pixel_x = 5
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -614,10 +690,15 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	dir = 8;
 	pixel_x = -24
 	},
+=======
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "BS" = (
@@ -739,11 +820,18 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "Jd" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/brown,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/gum/happiness,
 /obj/item/stack/cable_coil/five,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/brown,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -753,8 +841,13 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/netherworld{
 	environment_smash = 0
+=======
+/mob/living/basic/creature{
+	obj_damage = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /obj/effect/decal/cleanable/greenglow,
 /turf/open/floor/plating,
@@ -767,12 +860,19 @@
 /obj/item/food/sausage,
 /obj/item/reagent_containers/cup/glass/bottle/beer,
 /obj/item/food/sandwich,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 10
 	},
 /obj/machinery/light/warm/no_nightlight/directional/north,
 /obj/item/food/grown/potato,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/cafeteria{
 	dir = 1
 	},
@@ -870,9 +970,13 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -913,9 +1017,13 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -1075,10 +1183,15 @@
 /obj/item/storage/box/stockparts/basic{
 	pixel_y = 6
 	},
+<<<<<<< HEAD
 /obj/machinery/airalarm/all_access{
 	dir = 1;
 	pixel_y = 22
 	},
+=======
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/pod/dark,
 /area/shuttle/abandoned/engine)
 "Tg" = (
@@ -1112,8 +1225,13 @@
 /area/shuttle/abandoned/engine)
 "Wj" = (
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/netherworld{
 	environment_smash = 0
+=======
+/mob/living/basic/creature{
+	obj_damage = 0
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)

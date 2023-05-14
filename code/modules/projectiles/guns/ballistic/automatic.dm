@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* SKYRAT EDIT REMOVAL - MOVED TO MODULAR AUTOMATIC.DM
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/automatic
 	w_class = WEIGHT_CLASS_NORMAL
 	can_suppress = TRUE
@@ -96,8 +99,17 @@
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/wt550
+<<<<<<< HEAD
 	name = "security auto rifle"
 	desc = "An outdated personal defence weapon. Uses 4.6x30mm rounds and is designated the WT-550 Automatic Rifle."
+=======
+	name = "\improper WT-550 Autorifle"
+	desc = "Recalled by Nanotrasen due to public backlash around heat distribution resulting in unintended discombobulation. \
+		This outcry was fabricated through various Syndicate-backed misinformation operations to force Nanotrasen to abandon \
+		its ballistics weapon program, cornering them into the energy weapons market. Most often found today in the hands of pirates, \
+		underfunded security personnel, cargo technicians, theoritical physicists and gang bangers out on the rim. \
+		Light-weight and fully automatic. Uses 4.6x30mm rounds."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "wt550"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"
@@ -145,7 +157,12 @@
 
 /obj/item/gun/ballistic/automatic/m90
 	name = "\improper M-90gl Carbine"
+<<<<<<< HEAD
 	desc = "A three-round burst 5.56 toploading carbine, designated 'M-90gl'. Has an attached underbarrel grenade launcher which can be fired using right click."
+=======
+	desc = "A three-round burst 5.56 toploading carbine, designated 'M-90gl'. Has an attached underbarrel grenade launcher."
+	desc_controls = "Right-click to use grenade launcher."
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "m90"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "m90"
@@ -166,6 +183,13 @@
 	underbarrel = new /obj/item/gun/ballistic/revolver/grenadelauncher(src)
 	update_appearance()
 
+<<<<<<< HEAD
+=======
+/obj/item/gun/ballistic/automatic/m90/Destroy()
+	QDEL_NULL(underbarrel)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/gun/ballistic/automatic/m90/unrestricted
 	pin = /obj/item/firing_pin
 
@@ -270,7 +294,11 @@
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/AltClick(mob/user)
+<<<<<<< HEAD
 	if(!user.canUseTopic(src))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	cover_open = !cover_open
 	balloon_alert(user, "cover [cover_open ? "opened" : "closed"]")
@@ -287,11 +315,20 @@
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params)
+<<<<<<< HEAD
+=======
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(cover_open)
 		balloon_alert(user, "close the cover!")
 		return
 	else
+<<<<<<< HEAD
 		. = ..()
+=======
+		. |= ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		update_appearance()
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
@@ -310,6 +347,7 @@
 		return
 	..()
 
+<<<<<<< HEAD
 
 
 // SNIPER //
@@ -356,6 +394,8 @@
 	can_unsuppress = TRUE
 	pin = /obj/item/firing_pin/implant/pindicate
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Old Semi-Auto Rifle //
 
 /obj/item/gun/ballistic/automatic/surplus
@@ -391,4 +431,7 @@
 	actions_types = list()
 	fire_sound = 'sound/weapons/laser.ogg'
 	casing_ejector = FALSE
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

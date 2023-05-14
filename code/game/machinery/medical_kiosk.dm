@@ -125,7 +125,11 @@
 	return ..()
 
 /obj/machinery/medical_kiosk/AltClick(mob/living/carbon/user)
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(!scanner_wand)
 		to_chat(user, span_warning("The scanner wand is currently removed from the machine."))
@@ -229,7 +233,11 @@
 
 	var/trauma_status = "Patient is free of unique brain trauma."
 	var/clone_loss = patient.getCloneLoss()
+<<<<<<< HEAD
 	var/brain_loss = patient.getOrganLoss(ORGAN_SLOT_BRAIN)
+=======
+	var/brain_loss = patient.get_organ_loss(ORGAN_SLOT_BRAIN)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/brain_status = "Brain patterns normal."
 	if(LAZYLEN(patient.get_traumas()))
 		var/list/trauma_text = list()
@@ -264,7 +272,11 @@
 			chemical_list += list(list("name" = reagent.name, "volume" = round(reagent.volume, 0.01)))
 			if(reagent.overdosed)
 				overdose_list += list(list("name" = reagent.name))
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/belly = patient.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/belly = patient.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(belly?.reagents.reagent_list.len) //include the stomach contents if it exists
 		for(var/bile in belly.reagents.reagent_list)
 			var/datum/reagent/bit = bile
@@ -377,3 +389,12 @@
 			patient_ref = null
 			clearScans()
 			. = TRUE
+<<<<<<< HEAD
+=======
+
+
+#undef KIOSK_SCANNING_GENERAL
+#undef KIOSK_SCANNING_NEURORAD
+#undef KIOSK_SCANNING_REAGENTS
+#undef KIOSK_SCANNING_SYMPTOMS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

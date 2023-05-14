@@ -8,6 +8,11 @@
 	worn_icon = 'icons/mob/clothing/head/hydroponics.dmi'
 	resistance_flags = FLAMMABLE
 	var/obj/item/seeds/seed = null // type path, gets converted to item on New(). It's safe to assume it's always a seed item.
+<<<<<<< HEAD
+=======
+	/// Should we pixel offset ourselves at init? for mapping
+	var/offset_at_init = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/grown/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
@@ -21,8 +26,14 @@
 		seed = new seed()
 		seed.adjust_potency(50-seed.potency)
 
+<<<<<<< HEAD
 	pixel_x = base_pixel_x + rand(-5, 5)
 	pixel_y = base_pixel_y + rand(-5, 5)
+=======
+	if(offset_at_init)
+		pixel_x = base_pixel_x + rand(-5, 5)
+		pixel_y = base_pixel_y + rand(-5, 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(seed)
 		// Go through all traits in their genes and call on_new_plant from them.

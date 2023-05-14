@@ -6,6 +6,7 @@
 	max_occurrences = 5
 	weight = 20
 	description = "This anomaly shocks and explodes."
+<<<<<<< HEAD
 
 /datum/round_event/anomaly/anomaly_flux
 	start_when = 10
@@ -14,3 +15,15 @@
 
 /datum/round_event/anomaly/anomaly_flux/announce(fake)
 	priority_announce("Localized hyper-energetic flux wave detected on long range scanners. Expected location: [impact_area.name].", "Anomaly Alert", ANNOUNCER_FLUXANOMALIES) //SKYRAT EDIT CHANGE
+=======
+	min_wizard_trigger_potency = 1
+	max_wizard_trigger_potency = 4
+
+/datum/round_event/anomaly/anomaly_flux
+	start_when = ANOMALY_START_DANGEROUS_TIME
+	announce_when = ANOMALY_ANNOUNCE_DANGEROUS_TIME
+	anomaly_path = /obj/effect/anomaly/flux
+
+/datum/round_event/anomaly/anomaly_flux/announce(fake)
+	priority_announce("Hyper-energetic flux wave detected on [ANOMALY_ANNOUNCE_DANGEROUS_TEXT]. [impact_area.name].", "Anomaly Alert", ANNOUNCER_FLUXANOMALIES) //SKYRAT EDIT CHANGE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -33,7 +33,11 @@
 	juice_results = list(/datum/reagent/consumable/watermelonjuice = 0)
 	wine_power = 40
 
+<<<<<<< HEAD
 /obj/item/food/grown/watermelon/MakeProcessable()
+=======
+/obj/item/food/grown/watermelon/make_processable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/watermelonslice, 5, 20, screentip_verb = "Slice")
 
 /obj/item/food/grown/watermelon/make_dryable()
@@ -68,7 +72,11 @@
 /obj/item/food/grown/holymelon/make_dryable()
 	return //No drying
 
+<<<<<<< HEAD
 /obj/item/food/grown/holymelon/MakeEdible()
+=======
+/obj/item/food/grown/holymelon/make_edible()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	AddComponent(/datum/component/edible, check_liked = CALLBACK(src, PROC_REF(check_holyness)))
 

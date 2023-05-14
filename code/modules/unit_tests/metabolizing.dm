@@ -51,6 +51,7 @@
 	var/mob/living/carbon/human/syringe_user = allocate(/mob/living/carbon/human/consistent)
 	var/mob/living/carbon/human/pill_syringe_user = allocate(/mob/living/carbon/human/consistent)
 
+<<<<<<< HEAD
 	var/datum/mind/pill_mind = new /datum/mind("Mothcocks")
 	pill_mind.active = TRUE
 	pill_mind.transfer_to(pill_user)
@@ -60,6 +61,17 @@
 	syringe_mind.transfer_to(syringe_user)
 
 	var/datum/mind/pill_syringe_mind = new /datum/mind("Mothcocks")
+=======
+	var/datum/mind/pill_mind = new /datum/mind(null)
+	pill_mind.active = TRUE
+	pill_mind.transfer_to(pill_user)
+
+	var/datum/mind/syringe_mind = new /datum/mind(null)
+	syringe_mind.active = TRUE
+	syringe_mind.transfer_to(syringe_user)
+
+	var/datum/mind/pill_syringe_mind = new /datum/mind(null)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pill_syringe_mind.active = TRUE
 	pill_syringe_mind.transfer_to(pill_syringe_user)
 
@@ -80,7 +92,11 @@
 	pill.attack(pill_user, pill_user)
 
 	// Set the metabolism efficiency to 1.0 so it transfers all reagents to the body in one go.
+<<<<<<< HEAD
 	var/obj/item/organ/internal/stomach/pill_belly = pill_user.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	var/obj/item/organ/internal/stomach/pill_belly = pill_user.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pill_belly.metabolism_efficiency = 1
 
 	pill_user.Life()
@@ -109,7 +125,11 @@
 	syringe.melee_attack_chain(pill_syringe_user, pill_syringe_user)
 
 	// Set the metabolism efficiency to 1.0 so it transfers all reagents to the body in one go.
+<<<<<<< HEAD
 	pill_belly = pill_syringe_user.getorganslot(ORGAN_SLOT_STOMACH)
+=======
+	pill_belly = pill_syringe_user.get_organ_slot(ORGAN_SLOT_STOMACH)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pill_belly.metabolism_efficiency = 1
 
 	pill_syringe_user.Life()

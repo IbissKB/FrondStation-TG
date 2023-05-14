@@ -42,7 +42,11 @@
 				bot_count += 1 // this counts the number of bots so we don't launch if there multiple bots.
 				possible_bot = ROI  // We don't change the launched_bot var here because we are not sure if there is another bot on the pad.
 			else
+<<<<<<< HEAD
 				user?.balloon_alert(user, "There is an unidentified life form on the pad!")
+=======
+				user?.balloon_alert(user, "unidentified life form on the pad!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 	if(bot_count == 1)
 		launched_bot = possible_bot
@@ -54,6 +58,7 @@
 		))
 		use_power(active_power_usage)
 	else
+<<<<<<< HEAD
 		user?.balloon_alert(user, "There is more than one bot on the pad!")
 
 /obj/machinery/botpad/proc/recall(mob/living/user)
@@ -61,6 +66,15 @@
 		user?.balloon_alert(user, "No bots detected on the pad!")
 		return
 	user?.balloon_alert(user, "Sending the bot back to its pad")
+=======
+		user?.balloon_alert(user, "too many bots on the pad!")
+
+/obj/machinery/botpad/proc/recall(mob/living/user)
+	if(!launched_bot)
+		user?.balloon_alert(user, "no bots detected on the pad!")
+		return
+	user?.balloon_alert(user, "bot sent back to pad")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	launched_bot.call_bot(src,  get_turf(src))
 
 /obj/structure/closet/supplypod/botpod

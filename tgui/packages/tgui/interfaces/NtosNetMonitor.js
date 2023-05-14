@@ -1,5 +1,9 @@
 import { useBackend, useSharedState } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, LabeledList, NoticeBox, NumberInput, Icon, Section, Stack, Tabs } from '../components';
+=======
+import { Box, Button, LabeledList, NoticeBox, Icon, Section, Stack, Tabs } from '../components';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { NtosWindow } from '../layouts';
 
 export const NtosNetMonitor = (props, context) => {
@@ -7,6 +11,7 @@ export const NtosNetMonitor = (props, context) => {
   const [tab_main, setTab_main] = useSharedState(context, 'tab_main', 1);
   const {
     ntnetrelays,
+<<<<<<< HEAD
     ntnetstatus,
     config_softwaredownload,
     config_communication,
@@ -15,6 +20,10 @@ export const NtosNetMonitor = (props, context) => {
     ntnetmaxlogs,
     maxlogs,
     minlogs,
+=======
+    idsalarm,
+    idsstatus,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     ntnetlogs = [],
     tablets = [],
   } = data;
@@ -43,6 +52,7 @@ export const NtosNetMonitor = (props, context) => {
           <Stack.Item>
             <MainPage
               ntnetrelays={ntnetrelays}
+<<<<<<< HEAD
               ntnetstatus={ntnetstatus}
               config_softwaredownload={config_softwaredownload}
               config_communication={config_communication}
@@ -51,6 +61,10 @@ export const NtosNetMonitor = (props, context) => {
               ntnetmaxlogs={ntnetmaxlogs}
               maxlogs={maxlogs}
               minlogs={minlogs}
+=======
+              idsalarm={idsalarm}
+              idsstatus={idsstatus}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               ntnetlogs={ntnetlogs}
             />
           </Stack.Item>
@@ -66,6 +80,7 @@ export const NtosNetMonitor = (props, context) => {
 };
 
 const MainPage = (props, context) => {
+<<<<<<< HEAD
   const {
     ntnetrelays,
     ntnetstatus,
@@ -78,6 +93,9 @@ const MainPage = (props, context) => {
     minlogs,
     ntnetlogs = [],
   } = props;
+=======
+  const { ntnetrelays, idsalarm, idsstatus, ntnetlogs = [] } = props;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   const { act, data } = useBackend(context);
   return (
     <Section>
@@ -86,6 +104,7 @@ const MainPage = (props, context) => {
         may prevent you from reenabling them!
       </NoticeBox>
       <Section title="Wireless Connectivity">
+<<<<<<< HEAD
         {ntnetrelays ? (
           <LabeledList>
             <LabeledList.Item label="Active NTNet Relays">
@@ -121,6 +140,25 @@ const MainPage = (props, context) => {
             }
           />
         </LabeledList>
+=======
+        {ntnetrelays.map((relay) => (
+          <Section
+            key={relay.ref}
+            title={relay.name}
+            buttons={
+              <Button.Confirm
+                color={relay.is_operational ? 'good' : 'bad'}
+                content={relay.is_operational ? 'ENABLED' : 'DISABLED'}
+                onClick={() =>
+                  act('toggle_relay', {
+                    ref: relay.ref,
+                  })
+                }
+              />
+            }
+          />
+        ))}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
       </Section>
       <Section title="Security Systems">
         {!!idsalarm && (
@@ -152,6 +190,7 @@ const MainPage = (props, context) => {
               </>
             }
           />
+<<<<<<< HEAD
           <LabeledList.Item
             label="Max Log Count"
             buttons={
@@ -172,6 +211,11 @@ const MainPage = (props, context) => {
         <Section
           title="System Log"
           level={2}
+=======
+        </LabeledList>
+        <Section
+          title="System Log"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
           buttons={
             <Button.Confirm
               icon="trash"

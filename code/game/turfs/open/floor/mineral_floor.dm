@@ -21,7 +21,11 @@
 	. = ..()
 	icons = typelist("icons", icons)
 
+<<<<<<< HEAD
 /turf/open/floor/mineral/setup_broken_states()
+=======
+/turf/open/floor/mineral/broken_states()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return list("[initial(icon_state)]_dam")
 
 /turf/open/floor/mineral/update_icon_state()
@@ -36,7 +40,11 @@
 	icon_state = "plasma"
 	floor_tile = /obj/item/stack/tile/mineral/plasma
 	icons = list("plasma","plasma_dam")
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/plasma = 500)
+=======
+	custom_materials = list(/datum/material/plasma = SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Plasma floor that can't be removed, for disco inferno
 
@@ -51,7 +59,11 @@
 	icon_state = "gold"
 	floor_tile = /obj/item/stack/tile/mineral/gold
 	icons = list("gold","gold_dam")
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/gold = 500)
+=======
+	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //SILVER
 
@@ -60,7 +72,11 @@
 	icon_state = "silver"
 	floor_tile = /obj/item/stack/tile/mineral/silver
 	icons = list("silver","silver_dam")
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/silver = 500)
+=======
+	custom_materials = list(/datum/material/silver = SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //TITANIUM (shuttle)
 
@@ -68,9 +84,15 @@
 	name = "shuttle floor"
 	icon_state = "titanium"
 	floor_tile = /obj/item/stack/tile/mineral/titanium
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/titanium = 500)
 
 /turf/open/floor/mineral/titanium/setup_broken_states()
+=======
+	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT*5)
+
+/turf/open/floor/mineral/titanium/broken_states()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")
 
 /turf/open/floor/mineral/titanium/rust_heretic_act()
@@ -113,7 +135,11 @@
 	icon_state = "titanium_tiled"
 	floor_tile = /obj/item/stack/tile/mineral/titanium/tiled
 
+<<<<<<< HEAD
 /turf/open/floor/mineral/titanium/tiled/setup_broken_states()
+=======
+/turf/open/floor/mineral/titanium/tiled/broken_states()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")
 
 /turf/open/floor/mineral/titanium/tiled/airless
@@ -152,9 +178,15 @@
 	name = "shuttle floor"
 	icon_state = "plastitanium"
 	floor_tile = /obj/item/stack/tile/mineral/plastitanium
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/alloy/plastitanium = 500)
 
 /turf/open/floor/mineral/plastitanium/setup_broken_states()
+=======
+	custom_materials = list(/datum/material/alloy/plastitanium = SMALL_MATERIAL_AMOUNT*5)
+
+/turf/open/floor/mineral/plastitanium/broken_states()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")
 
 /turf/open/floor/mineral/plastitanium/rust_heretic_act()
@@ -174,9 +206,12 @@
 /turf/open/floor/mineral/plastitanium/red/snow_cabin
 	temperature = 180
 
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig
 	name = "brig floor"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 //BANANIUM
 
 /turf/open/floor/mineral/bananium
@@ -184,7 +219,11 @@
 	icon_state = "bananium"
 	floor_tile = /obj/item/stack/tile/mineral/bananium
 	icons = list("bananium","bananium_dam")
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/bananium = 500)
+=======
+	custom_materials = list(/datum/material/bananium = SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	material_flags = NONE //The slippery comp makes it unpractical for good clown decor. The custom mat one should still slip.
 	var/sound_cooldown = 0
 
@@ -230,7 +269,11 @@
 	icon_state = "diamond"
 	floor_tile = /obj/item/stack/tile/mineral/diamond
 	icons = list("diamond","diamond_dam")
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/diamond = 500)
+=======
+	custom_materials = list(/datum/material/diamond = SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //URANIUM
 
@@ -240,7 +283,11 @@
 	icon_state = "uranium"
 	floor_tile = /obj/item/stack/tile/mineral/uranium
 	icons = list("uranium","uranium_dam")
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/uranium = 500)
+=======
+	custom_materials = list(/datum/material/uranium = SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/last_event = 0
 	var/active = null
 
@@ -290,7 +337,11 @@
 	floor_tile = /obj/item/stack/tile/mineral/abductor
 	icons = list("alienpod1", "alienpod2", "alienpod3", "alienpod4", "alienpod5", "alienpod6", "alienpod7", "alienpod8", "alienpod9")
 	baseturfs = /turf/open/floor/plating/abductor2
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/alloy/alien = 500)
+=======
+	custom_materials = list(/datum/material/alloy/alien = SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/floor/mineral/abductor/Initialize(mapload)
 	. = ..()

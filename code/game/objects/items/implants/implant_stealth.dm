@@ -19,19 +19,30 @@
 	move_speed_multiplier = 0.5
 	enable_door_overlay = FALSE
 
+<<<<<<< HEAD
 /obj/structure/closet/cardboard/agent/proc/go_invisible()
 	animate(src, , alpha = 0, time = 20)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/closet/cardboard/agent/Initialize(mapload)
 	. = ..()
 	go_invisible()
 
+<<<<<<< HEAD
 /obj/structure/closet/cardboard/agent/open(mob/living/user, force = FALSE)
 	. = ..()
 
 	if(!.)
 		return
 
+=======
+/obj/structure/closet/cardboard/agent/proc/go_invisible()
+	animate(src, alpha = 0, time = 20)
+
+/obj/structure/closet/cardboard/agent/after_open(mob/living/user)
+	. = ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	qdel(src)
 
 /obj/structure/closet/cardboard/agent/process()

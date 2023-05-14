@@ -3,7 +3,11 @@ import { Box, Button, StyleableSection, Icon, Stack, NoticeBox } from '../compon
 import { Window } from '../layouts';
 import { Color } from 'common/color';
 import { SFC } from 'inferno';
+<<<<<<< HEAD
 import { JobToIcon } from './common/JobToIcon';
+=======
+import { JOB2ICON } from './common/JobToIcon';
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 import { deepMerge } from 'common/collections';
 import { BooleanLike } from 'common/react';
 
@@ -12,7 +16,10 @@ type Job = {
   command: BooleanLike;
   open_slots: number;
   used_slots: number;
+<<<<<<< HEAD
   icon: string;
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   prioritized: BooleanLike;
   description: string;
 };
@@ -43,7 +50,11 @@ export const JobEntry: SFC<{
   const jobName = data.jobName;
   const job = data.job;
   const department = data.department;
+<<<<<<< HEAD
   const jobIcon = job.icon || JobToIcon[jobName] || null;
+=======
+  const jobIcon = JOB2ICON[jobName] || null;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   return (
     <Button
       fluid

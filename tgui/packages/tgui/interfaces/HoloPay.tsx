@@ -109,7 +109,11 @@ const TerminalDisplay = (props, context) => {
       title="Terminal">
       <Stack fill vertical>
         <Stack.Item align="center">
+<<<<<<< HEAD
           <Icon color="good" name={shop_logo} size="5" />
+=======
+          <Icon color="good" name={shop_logo} size={5} />
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
         </Stack.Item>
         <Stack.Item grow textAlign="center">
           <Tooltip content={description} position="bottom">

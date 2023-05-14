@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 heatmelt.ogg - 	from https://freesound.org/people/toiletrolltube/sounds/181483/
 		from https://freesound.org/people/MrVasLuk/sounds/304619/
 		from https://freesound.org/people/Benboncan/sounds/74899/
 		from bubbles2.ogg
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 heatacid.ogg - 	from https://freesound.org/people/klankbeeld/sounds/233697/
 	        from bubbles2.ogg
 	        from fuse.ogg		

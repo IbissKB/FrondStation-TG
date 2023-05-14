@@ -444,7 +444,11 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 	/// The amount of uses left in this fuel pellet.
 	var/uses = 5
 
+<<<<<<< HEAD
 /obj/item/fuel_pellet/use()
+=======
+/obj/item/fuel_pellet/use(used)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	uses--
 	if(uses <= 0)
 		qdel(src)

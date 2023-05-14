@@ -5,6 +5,10 @@
 	desc = "A nicely-crafted wooden dresser. It's filled with lots of undies."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "dresser"
+<<<<<<< HEAD
+=======
+	resistance_flags = FLAMMABLE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	density = TRUE
 	anchored = TRUE
 

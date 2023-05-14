@@ -31,7 +31,11 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/mince_pie
+<<<<<<< HEAD
 	subcategory = CAT_PASTRY
+=======
+	category = CAT_PASTRY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/food/mimce_pie
 	name = "Mimce pie"
@@ -42,4 +46,8 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/mimce_pie
+<<<<<<< HEAD
 	subcategory = CAT_PASTRY
+=======
+	category = CAT_PASTRY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

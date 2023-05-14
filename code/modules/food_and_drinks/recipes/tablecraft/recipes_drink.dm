@@ -111,10 +111,17 @@
 
 /datum/crafting_recipe/smallcarton
 	name = "Small Carton"
+<<<<<<< HEAD
 	result = /obj/item/reagent_containers/cup/glass/sillycup/smallcarton
 	time = 10
 	reqs = list(/obj/item/stack/sheet/cardboard = 1)
 	category = CAT_DRINK
+=======
+	result = /obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton
+	time = 10
+	reqs = list(/obj/item/stack/sheet/cardboard = 1)
+	category = CAT_CONTAINERS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/crafting_recipe/candycornliquor
 	name = "candy corn liquor"

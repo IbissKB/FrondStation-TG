@@ -69,6 +69,7 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 /datum/action/changeling/proc/can_sting(mob/living/user, mob/living/target)
 	if(!can_be_used_by(user))
 		return FALSE
+<<<<<<< HEAD
 	var/datum/antagonist/changeling/c = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	if(c.chem_charges < chemical_cost)
 		to_chat(user, span_warning("We require at least [chemical_cost] unit\s of chemicals to do that!"))
@@ -84,6 +85,23 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 		return FALSE
 	if((HAS_TRAIT(user, TRAIT_DEATHCOMA)) && (!ignores_fakedeath))
 		to_chat(user, span_warning("We are incapacitated."))
+=======
+	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
+	if(changeling.chem_charges < chemical_cost)
+		user.balloon_alert(user, "needs [chemical_cost] chemicals!")
+		return FALSE
+	if(changeling.absorbed_count < req_dna)
+		user.balloon_alert(user, "needs [req_dna] dna sample\s!")
+		return FALSE
+	if(changeling.true_absorbs < req_absorbs)
+		user.balloon_alert(user, "needs [req_absorbs] absorption\s!")
+		return FALSE
+	if(req_stat < user.stat)
+		user.balloon_alert(user, "incapacitated!")
+		return FALSE
+	if((HAS_TRAIT(user, TRAIT_DEATHCOMA)) && (!ignores_fakedeath))
+		user.balloon_alert(user, "playing dead!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return TRUE
 
@@ -93,6 +111,10 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 	if(!ishuman(user))
 		return FALSE
 	if(req_human && ismonkey(user))
+<<<<<<< HEAD
 		to_chat(user, span_warning("This ability requires you be in human form!"))
+=======
+		user.balloon_alert(user, "become human!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return TRUE

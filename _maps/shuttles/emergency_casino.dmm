@@ -49,12 +49,17 @@
 /area/shuttle/escape)
 "bT" = (
 /obj/machinery/computer/slot_machine,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/carpet/green,
 /area/shuttle/escape)
 "cb" = (
@@ -100,7 +105,11 @@
 /area/shuttle/escape)
 "dp" = (
 /obj/effect/decal/cleanable/blood/splatter,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "dr" = (
 /obj/structure/window/reinforced/tinted{
@@ -109,7 +118,11 @@
 /turf/open/floor/carpet/green,
 /area/shuttle/escape)
 "dy" = (
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "dL" = (
 /obj/machinery/space_heater,
@@ -123,7 +136,11 @@
 "ep" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/decal/cleanable/blood,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "et" = (
 /obj/structure/chair/sofa/corp{
@@ -144,6 +161,7 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
+<<<<<<< HEAD
 "fu" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -151,6 +169,8 @@
 /obj/effect/turf_decal/tile/bar,
 /turf/open/floor/iron,
 /area/shuttle/escape)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 "fI" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/directional/north,
@@ -324,11 +344,16 @@
 /area/shuttle/escape)
 "jH" = (
 /obj/structure/table/reinforced,
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/structure/reagent_dispensers/beerkeg,
+=======
+/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "jQ" = (
@@ -367,7 +392,11 @@
 "kn" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/light/directional/north,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "kz" = (
 /obj/structure/chair/stool/directional/west,
@@ -375,9 +404,13 @@
 /area/shuttle/escape)
 "kA" = (
 /obj/structure/chair/stool/directional/north,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/carpet/green,
 /area/shuttle/escape)
 "kM" = (
@@ -445,6 +478,7 @@
 /area/shuttle/escape)
 "lB" = (
 /obj/structure/chair/stool/directional/north,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -460,6 +494,17 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/carpet/green,
+/area/shuttle/escape)
+"mc" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/shower/directional/west{
+	name = "emergency shower"
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
@@ -499,12 +544,17 @@
 /area/shuttle/escape)
 "mx" = (
 /obj/machinery/computer/slot_machine,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/carpet/green,
 /area/shuttle/escape)
 "mz" = (
@@ -518,10 +568,15 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "ni" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
+=======
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/shower/directional/west{
 	name = "emergency shower"
 	},
@@ -550,7 +605,11 @@
 	pixel_y = 4
 	},
 /obj/item/clothing/head/collectable/police,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "ok" = (
 /obj/structure/chair/stool/bar/directional/west,
@@ -558,6 +617,7 @@
 /area/shuttle/escape)
 "oz" = (
 /obj/effect/decal/cleanable/blood/old,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "oB" = (
@@ -565,6 +625,13 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"oB" = (
+/obj/machinery/computer/slot_machine,
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/carpet/green,
 /area/shuttle/escape)
 "pg" = (
@@ -688,7 +755,11 @@
 /obj/item/grown/bananapeel,
 /obj/item/bikehorn,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "sj" = (
 /obj/effect/spawner/random/entertainment/arcade,
@@ -725,7 +796,11 @@
 "vi" = (
 /obj/structure/table,
 /obj/item/toy/gun,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "vn" = (
 /obj/effect/turf_decal/siding{
@@ -742,11 +817,16 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "vD" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/machinery/door/window,
+=======
+/obj/machinery/door/window,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "vI" = (
@@ -761,7 +841,11 @@
 /obj/item/hemostat{
 	pixel_x = -4
 	},
+<<<<<<< HEAD
 /obj/item/clothing/gloves/color/latex,
+=======
+/obj/item/clothing/gloves/latex,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/mask/surgical,
 /obj/item/surgicaldrill,
 /obj/item/cautery,
@@ -773,7 +857,11 @@
 	name = "Brig"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "vL" = (
 /obj/structure/table/optable,
@@ -922,7 +1010,11 @@
 	use_power = 0
 	},
 /obj/item/toy/figure/clown,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "Ab" = (
 /obj/effect/turf_decal/siding/wood,
@@ -934,12 +1026,18 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "Aw" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade,
+=======
+/obj/structure/table/reinforced,
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "AA" = (
@@ -992,20 +1090,29 @@
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "Cz" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/machinery/vending/boozeomat,
+=======
+/obj/machinery/vending/boozeomat,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "Dv" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma{
 	dir = 4
 	},
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)
 "DA" = (
@@ -1063,7 +1170,11 @@
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/light/directional/north,
 /obj/item/radio/intercom/directional/north,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "Ff" = (
 /obj/machinery/light/directional/east,
@@ -1172,15 +1283,22 @@
 /turf/open/floor/carpet/royalblue,
 /area/shuttle/escape)
 "KN" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/table/reinforced,
 /obj/machinery/chem_dispenser/drinks/fullupgrade,
 /obj/structure/sign/poster/official/cohiba_robusto_ad{
 	pixel_y = 32
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "Lb" = (
@@ -1193,7 +1311,11 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "Lz" = (
 /obj/effect/turf_decal/siding/wood{
@@ -1246,7 +1368,11 @@
 	idle_power_usage = 0;
 	use_power = 0
 	},
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "Nw" = (
 /obj/effect/turf_decal/siding/thinplating{
@@ -1305,7 +1431,11 @@
 /area/shuttle/escape)
 "Pg" = (
 /obj/structure/extinguisher_cabinet/directional/west,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "Pj" = (
 /obj/machinery/recharge_station,
@@ -1330,10 +1460,13 @@
 /turf/open/floor/carpet/royalblue,
 /area/shuttle/escape)
 "Pv" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/chem_master/condimaster{
 	desc = "Looks like a knock-off chem-master. Perhaps useful for separating liquids when mixing drinks precisely. Also dispenses condiments.";
 	name = "HoochMaster Deluxe"
@@ -1341,6 +1474,10 @@
 /obj/machinery/status_display/evac/directional/north,
 /obj/item/storage/box/drinkingglasses,
 /obj/item/reagent_containers/cup/glass/shaker,
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "PM" = (
@@ -1367,7 +1504,11 @@
 /area/shuttle/escape)
 "PW" = (
 /obj/structure/reagent_dispensers/wall/peppertank/directional/east,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "Qk" = (
 /obj/effect/turf_decal/siding{
@@ -1383,7 +1524,11 @@
 /area/shuttle/escape)
 "Ru" = (
 /obj/structure/chair/comfy/shuttle,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "RQ" = (
 /obj/structure/table,
@@ -1418,7 +1563,11 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "Tb" = (
 /obj/structure/chair/stool/directional/north,
@@ -1500,10 +1649,14 @@
 /turf/open/floor/carpet/green,
 /area/shuttle/escape)
 "Xr" = (
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+=======
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "Xv" = (
@@ -1556,7 +1709,11 @@
 /obj/item/storage/box/handcuffs,
 /obj/machinery/status_display/evac/directional/south,
 /obj/item/coin/antagtoken,
+<<<<<<< HEAD
 /turf/open/floor/mineral/plastitanium/red/brig,
+=======
+/turf/open/floor/mineral/plastitanium/red,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /area/shuttle/escape/brig)
 "YF" = (
 /obj/structure/table/wood/poker,
@@ -1565,7 +1722,11 @@
 /area/shuttle/escape)
 "YN" = (
 /obj/structure/table/wood,
+<<<<<<< HEAD
 /obj/item/candle,
+=======
+/obj/item/flashlight/flare/candle,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "YS" = (
@@ -1935,7 +2096,11 @@ mz
 (17,1,1) = {"
 Uu
 Pv
+<<<<<<< HEAD
 fu
+=======
+Xr
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 jH
 Cz
 Xr

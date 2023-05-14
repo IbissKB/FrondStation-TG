@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(research)
 	//TECHWEB STATIC
 	var/list/techweb_nodes = list() //associative id = node datum
 	var/list/techweb_designs = list() //associative id = node datum
+<<<<<<< HEAD
 	var/list/datum/techweb/techwebs = list()
 	var/datum/techweb/science/science_tech
 	var/datum/techweb/admin/admin_tech
@@ -16,6 +17,19 @@ SUBSYSTEM_DEF(research)
 	///List of all research servers.
 	var/list/obj/machinery/rnd/server/servers = list()
 
+=======
+
+	///List of all techwebs.
+	var/list/datum/techweb/techwebs = list()
+	///The default Science Techweb.
+	var/datum/techweb/science/science_tech
+	///The default Admin Techweb.
+	var/datum/techweb/admin/admin_tech
+
+	var/datum/techweb_node/error_node/error_node //These two are what you get if a node/design is deleted and somehow still stored in a console.
+	var/datum/design/error_design/error_design
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//ERROR LOGGING
 	///associative id = number of times
 	var/list/invalid_design_ids = list()
@@ -42,6 +56,7 @@ SUBSYSTEM_DEF(research)
 	var/list/point_types = list() //typecache style type = TRUE list
 	//----------------------------------------------
 	var/list/single_server_income = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_SINGLE_SERVER_INCOME)
+<<<<<<< HEAD
 	var/last_income
 	//^^^^^^^^ ALL OF THESE ARE PER SECOND! ^^^^^^^^
 
@@ -50,6 +65,10 @@ SUBSYSTEM_DEF(research)
 	/// A multiplier applied to all research gain.
 	var/income_modifier = 1
 
+=======
+	//^^^^^^^^ ALL OF THESE ARE PER SECOND! ^^^^^^^^
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Aiming for 1.5 hours to max R&D
 	//[88nodes * 5000points/node] / [1.5hr * 90min/hr * 60s/min]
 	//Around 450000 points max???
@@ -86,6 +105,7 @@ SUBSYSTEM_DEF(research)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/research/fire()
+<<<<<<< HEAD
 	var/list/bitcoins = list()
 	for(var/obj/machinery/rnd/server/miner as anything in servers)
 		if(miner.working)
@@ -108,6 +128,25 @@ SUBSYSTEM_DEF(research)
 	var/coeff = 100
 	coeff = sqrt(coeff / amt)
 	return coeff
+=======
+	for(var/datum/techweb/techweb_list as anything in techwebs)
+		if(!techweb_list.should_generate_points)
+			continue
+		var/list/bitcoins = list()
+		for(var/obj/machinery/rnd/server/miner as anything in techweb_list.techweb_servers)
+			if(miner.working)
+				bitcoins = single_server_income.Copy()
+				break //Just need one to work.
+
+		if(!isnull(techweb_list.last_income))
+			var/income_time_difference = world.time - techweb_list.last_income
+			techweb_list.last_bitcoins = bitcoins  // Doesn't take tick drift into account
+			for(var/i in bitcoins)
+				bitcoins[i] *= (income_time_difference / 10) * techweb_list.income_modifier
+			techweb_list.add_point_list(bitcoins)
+
+		techweb_list.last_income = world.time
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/controller/subsystem/research/proc/autosort_categories()
 	for(var/i in techweb_nodes)

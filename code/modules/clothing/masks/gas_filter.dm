@@ -111,3 +111,13 @@
 		/datum/gas/carbon_dioxide,
 		/datum/gas/nitrous_oxide
 		)
+<<<<<<< HEAD
+=======
+
+#undef HIGH_FILTERING_MOLES
+#undef HIGH_FILTERING_RATIO
+#undef LOW_FILTERING_MOLES
+#undef LOW_FILTERING_RATIO
+#undef MID_FILTERING_MOLES
+#undef FILTERS_CONSTANT_WEAR
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

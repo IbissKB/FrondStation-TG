@@ -1,7 +1,12 @@
 /obj/item/spanking_pad
 	name = "spanking pad"
 	desc = "A leather pad with a handle."
+<<<<<<< HEAD
 	icon_state = "spankpad"
+=======
+	icon_state = "spankpad_pink"
+	base_icon_state = "spankpad"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = "spankpad_pink"
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
@@ -39,8 +44,13 @@
 
 /obj/item/spanking_pad/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)]_[current_color]"
 	inhand_icon_state = "[initial(icon_state)]_[current_color]"
+=======
+	icon_state = "[base_icon_state]_[current_color]"
+	inhand_icon_state = "[base_icon_state]_[current_color]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/spanking_pad/AltClick(mob/user)
 	if(color_changed)

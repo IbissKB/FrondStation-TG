@@ -26,12 +26,20 @@
 	UnregisterSignal(target, COMSIG_LIVING_HANDLE_BREATHING)
 
 ///signal called by the living mob's life() while non stasis
+<<<<<<< HEAD
 /datum/element/atmos_requirements/proc/on_non_stasis_life(mob/living/target, delta_time = SSMOBS_DT)
+=======
+/datum/element/atmos_requirements/proc/on_non_stasis_life(mob/living/target, seconds_per_tick = SSMOBS_DT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	SIGNAL_HANDLER
 	if(is_breathable_atmos(target))
 		target.clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
 		return
+<<<<<<< HEAD
 	target.adjustBruteLoss(unsuitable_atmos_damage * delta_time)
+=======
+	target.adjustBruteLoss(unsuitable_atmos_damage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	target.throw_alert(ALERT_NOT_ENOUGH_OXYGEN, /atom/movable/screen/alert/not_enough_oxy)
 
 /datum/element/atmos_requirements/proc/is_breathable_atmos(mob/living/target)

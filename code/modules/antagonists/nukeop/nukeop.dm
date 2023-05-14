@@ -1,7 +1,11 @@
 /datum/antagonist/nukeop
 	name = ROLE_NUCLEAR_OPERATIVE
 	roundend_category = "syndicate operatives" //just in case
+<<<<<<< HEAD
 	antagpanel_category = "NukeOp"
+=======
+	antagpanel_category = ANTAG_GROUP_SYNDICATE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	job_rank = ROLE_OPERATIVE
 	antag_hud_name = "synd"
 	antag_moodlet = /datum/mood_event/focused
@@ -25,16 +29,36 @@
 	/// The amount of limited discounts that the team get
 	var/discount_limited_amount = 10
 
+<<<<<<< HEAD
+=======
+/datum/antagonist/nukeop/New()
+	if(send_to_spawnpoint) // lets get the loading started now, but don't block waiting for it
+		INVOKE_ASYNC(SSmapping, TYPE_PROC_REF(/datum/controller/subsystem/mapping, lazy_load_template), LAZY_TEMPLATE_KEY_NUKIEBASE)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/antagonist/nukeop/proc/equip_op()
 	if(!ishuman(owner.current))
 		return
 
 	var/mob/living/carbon/human/operative = owner.current
+<<<<<<< HEAD
+=======
+	ADD_TRAIT(operative, TRAIT_NOFEAR_HOLDUPS, INNATE_TRAIT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!nukeop_outfit) // this variable is null in instances where an antagonist datum is granted via enslaving the mind (/datum/mind/proc/enslave_mind_to_creator), like in golems.
 		return
 
+<<<<<<< HEAD
 	operative.set_species(/datum/species/human) //Plasmamen burn up otherwise, and besides, all other species are vulnerable to asimov AIs. Let's standardize all operatives being human.
+=======
+	// SKYRAT EDIT START
+	//operative.set_species(/datum/species/human) //Plasmamen burn up otherwise, and besides, all other species are vulnerable to asimov AIs. Let's standardize all operatives being human.
+	if(isplasmaman(operative))
+		operative.equipOutfit(/datum/outfit/plasmaman) // they lose the turtleneck but that's fine
+	// SKYRAT EDIT END
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	operative.equipOutfit(nukeop_outfit)
 	return TRUE
@@ -105,16 +129,24 @@
 			number = nuke_team.members.Find(owner)
 			owner.current.real_name = "[nuke_team.syndicate_name] Operative #[number]"
 
+<<<<<<< HEAD
 
 
 /datum/antagonist/nukeop/proc/memorize_code()
 	if(nuke_team && nuke_team.tracked_nuke && nuke_team.memorized_code)
 		antag_memory += "<B>[nuke_team.tracked_nuke] Code</B>: [nuke_team.memorized_code]<br>"
 		owner.add_memory(MEMORY_NUKECODE, list(DETAIL_NUKE_CODE = nuke_team.memorized_code, DETAIL_PROTAGONIST = owner.current), story_value = STORY_VALUE_AMAZING, memory_flags = MEMORY_FLAG_NOLOCATION | MEMORY_FLAG_NOMOOD | MEMORY_FLAG_NOPERSISTENCE)
+=======
+/datum/antagonist/nukeop/proc/memorize_code()
+	if(nuke_team && nuke_team.tracked_nuke && nuke_team.memorized_code)
+		antag_memory += "<B>[nuke_team.tracked_nuke] Code</B>: [nuke_team.memorized_code]<br>"
+		owner.add_memory(/datum/memory/key/nuke_code, nuclear_code = nuke_team.memorized_code)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(owner, "The nuclear authorization code is: <B>[nuke_team.memorized_code]</B>")
 	else
 		to_chat(owner, "Unfortunately the syndicate was unable to provide you with nuclear authorization code.")
 
+<<<<<<< HEAD
 /datum/antagonist/nukeop/proc/forge_objectives()
 	if(nuke_team)
 		objectives |= nuke_team.objectives
@@ -127,6 +159,32 @@
 
 /datum/antagonist/nukeop/leader/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.nukeop_leader_start))
+=======
+/datum/antagonist/nukeop/forge_objectives()
+	if(nuke_team)
+		objectives |= nuke_team.objectives
+
+/// Actually moves our nukie to where they should be
+/datum/antagonist/nukeop/proc/move_to_spawnpoint()
+	// Ensure that the nukiebase is loaded, and wait for it if required
+	SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_NUKIEBASE)
+	var/turf/destination = get_spawnpoint()
+	owner.current.forceMove(destination)
+	if(!owner.current.onSyndieBase())
+		message_admins("[ADMIN_LOOKUPFLW(owner.current)] is a NUKE OP and move_to_spawnpoint put them somewhere that isn't the syndie base, help please.")
+		stack_trace("Nuke op move_to_spawnpoint resulted in a location not on the syndicate base. (Was moved to: [destination])")
+
+/// Gets the position we spawn at
+/datum/antagonist/nukeop/proc/get_spawnpoint()
+	var/team_number = 1
+	if(nuke_team)
+		team_number = nuke_team.members.Find(owner)
+
+	return GLOB.nukeop_start[((team_number - 1) % GLOB.nukeop_start.len) + 1]
+
+/datum/antagonist/nukeop/leader/get_spawnpoint()
+	return pick(GLOB.nukeop_leader_start)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/antagonist/nukeop/create_team(datum/team/nuclear/new_team)
 	if(!new_team)
@@ -162,7 +220,11 @@
 
 /datum/antagonist/nukeop/proc/admin_tell_code(mob/admin)
 	var/code
+<<<<<<< HEAD
 	for (var/obj/machinery/nuclearbomb/bombue in GLOB.machines)
+=======
+	for (var/obj/machinery/nuclearbomb/bombue as anything in GLOB.nuke_list)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if (length(bombue.r_code) <= 5 && bombue.r_code != initial(bombue.r_code))
 			code = bombue.r_code
 			break
@@ -361,8 +423,14 @@
 
 /datum/team/nuclear/proc/get_result()
 	var/shuttle_evacuated = EMERGENCY_ESCAPED_OR_ENDGAMED
+<<<<<<< HEAD
 	var/disk_rescued = is_disk_rescued()
 	var/syndies_didnt_escape = !is_infiltrator_docked_at_centcom()
+=======
+	var/shuttle_landed_base = SSshuttle.emergency.is_hijacked()
+	var/disk_rescued = is_disk_rescued()
+	var/syndies_didnt_escape = !is_infiltrator_docked_at_syndiebase()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/team_is_dead = are_all_operatives_dead()
 	var/station_was_nuked = GLOB.station_was_nuked
 	var/station_nuke_source = GLOB.station_nuke_source
@@ -389,6 +457,16 @@
 		else
 			return NUKE_RESULT_WRONG_STATION
 
+<<<<<<< HEAD
+=======
+	// Nuke didn't blow, but nukies somehow hijacked the emergency shuttle to land at the base anyways.
+	else if(shuttle_landed_base)
+		if(disk_rescued)
+			return NUKE_RESULT_HIJACK_DISK
+		else
+			return NUKE_RESULT_HIJACK_NO_DISK
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// No nuke went off, the station rescued the disk
 	else if(disk_rescued)
 		// No nuke went off, the shuttle left, and the team is dead
@@ -429,6 +507,15 @@
 		if(NUKE_RESULT_WRONG_STATION_DEAD)
 			parts += "<span class='redtext big'>[syndicate_name] operatives have earned Darwin Award!</span>"
 			parts += "<B>[syndicate_name] operatives blew up something that wasn't [station_name()] and got caught in the explosion.</B> Next time, don't do that!"
+<<<<<<< HEAD
+=======
+		if(NUKE_RESULT_HIJACK_DISK)
+			parts += "<span class='greentext big'>Syndicate Miniscule Victory!</span>"
+			parts += "<B>[syndicate_name] operatives failed to destroy [station_name()], but they managed to secure the disk and hijack the emergency shuttle, causing it to land on the syndicate base. Good job?</B>"
+		if(NUKE_RESULT_HIJACK_NO_DISK)
+			parts += "<span class='greentext big'>Syndicate Insignificant Victory!</span>"
+			parts += "<B>[syndicate_name] operatives failed to destroy [station_name()] or secure the disk, but they managed to hijack the emergency shuttle, causing it to land on the syndicate base. Good job?</B>"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(NUKE_RESULT_CREW_WIN_SYNDIES_DEAD)
 			parts += "<span class='redtext big'>Crew Major Victory!</span>"
 			parts += "<B>The Research Staff has saved the disk and killed the [syndicate_name] Operatives</B>"
@@ -495,8 +582,23 @@
 	return common_part + disk_report + challenge_report
 
 /// Returns whether or not syndicate operatives escaped.
+<<<<<<< HEAD
 /proc/is_infiltrator_docked_at_centcom()
 	var/obj/docking_port/mobile/infiltrator/infiltrator_port = SSshuttle.getShuttle("syndicate")
 	var/obj/docking_port/stationary/transit/infiltrator_dock = locate() in infiltrator_port.loc
 
 	return infiltrator_port && (is_centcom_level(infiltrator_port.z) || infiltrator_dock)
+=======
+/proc/is_infiltrator_docked_at_syndiebase()
+	var/obj/docking_port/mobile/infiltrator/infiltrator_port = SSshuttle.getShuttle("syndicate")
+
+	var/datum/lazy_template/nukie_base/nukie_template = GLOB.lazy_templates[LAZY_TEMPLATE_KEY_NUKIEBASE]
+	if(!nukie_template)
+		return FALSE // if its not even loaded, cant be docked
+
+	for(var/datum/turf_reservation/loaded_area as anything in nukie_template.reservations)
+		var/infiltrator_turf = get_turf(infiltrator_port)
+		if(infiltrator_turf in loaded_area.reserved_turfs)
+			return TRUE
+	return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -2,7 +2,20 @@
 	name = "vending"
 
 /datum/asset/spritesheet/vending/create_spritesheets()
+<<<<<<< HEAD
 	for (var/k in GLOB.vending_products)
+=======
+	// initialising the list of items we need
+	var/target_items = list()
+	for(var/obj/machinery/vending/vendor as anything in typesof(/obj/machinery/vending))
+		vendor = new vendor() // It seems `initial(list var)` has nothing. need to make a type.
+		for(var/each in list(vendor.products, vendor.premium, vendor.contraband))
+			target_items |= each
+		qdel(vendor)
+
+	// building icons for each item
+	for (var/k in target_items)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/atom/item = k
 		if (!ispath(item, /atom))
 			continue

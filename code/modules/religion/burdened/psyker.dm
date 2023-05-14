@@ -10,31 +10,52 @@
 	organ_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_LITERATE, TRAIT_CAN_STRIP, TRAIT_ANTIMAGIC_NO_SELFBLOCK)
 	w_class = WEIGHT_CLASS_NORMAL
 
+<<<<<<< HEAD
 /obj/item/organ/internal/brain/psyker/Insert(mob/living/carbon/inserted_into, special, drop_if_replaced, no_id_transfer)
+=======
+/obj/item/organ/internal/brain/psyker/on_insert(mob/living/carbon/inserted_into)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	inserted_into.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DUMB, echo_group = "psyker", echo_icon = "psyker", color_path = /datum/client_colour/psyker)
 	inserted_into.AddComponent(/datum/component/anti_magic, antimagic_flags = MAGIC_RESISTANCE_MIND)
 
+<<<<<<< HEAD
 /obj/item/organ/internal/brain/psyker/Remove(mob/living/carbon/removed_from, special, no_id_transfer)
+=======
+/obj/item/organ/internal/brain/psyker/on_remove(mob/living/carbon/removed_from)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	qdel(removed_from.GetComponent(/datum/component/echolocation))
 	qdel(removed_from.GetComponent(/datum/component/anti_magic))
 
+<<<<<<< HEAD
 /obj/item/organ/internal/brain/psyker/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/brain/psyker/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/obj/item/bodypart/head/psyker/psyker_head = owner.get_bodypart(zone)
 	if(istype(psyker_head))
 		return
+<<<<<<< HEAD
 	if(!DT_PROB(2, delta_time))
 		return
 	to_chat(owner, span_userdanger("Your head hurts... It can't fit your brain!"))
 	owner.adjust_disgust(33 * delta_time)
 	applyOrganDamage(5 * delta_time, 199)
+=======
+	if(!SPT_PROB(2, seconds_per_tick))
+		return
+	to_chat(owner, span_userdanger("Your head hurts... It can't fit your brain!"))
+	owner.adjust_disgust(33 * seconds_per_tick)
+	apply_organ_damage(5 * seconds_per_tick, 199)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/bodypart/head/psyker
 	limb_id = BODYPART_ID_PSYKER
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
+<<<<<<< HEAD
 	bodypart_traits = list(TRAIT_DISFIGURED, TRAIT_BALD, TRAIT_SHAVED, TRAIT_BLIND)
 
 /obj/item/bodypart/head/psyker/try_attach_limb(mob/living/carbon/new_head_owner, special, abort)
@@ -44,6 +65,33 @@
 	new_head_owner.dna.species.species_traits |= NOEYESPRITES //MAKE VISUALS TIED TO BODYPARTS ARGHH
 	new_head_owner.update_body()
 
+=======
+	bodypart_traits = list(TRAIT_DISFIGURED, TRAIT_BALD, TRAIT_SHAVED)
+
+/obj/item/bodypart/head/psyker/try_attach_limb(mob/living/carbon/new_head_owner, special, abort)
+	. = ..()
+	if(!.)
+		return
+	new_head_owner.become_blind(limb_id)
+	if(!new_head_owner.dna?.species)
+		return
+
+	new_head_owner.dna.species.species_traits |= NOEYESPRITES //MAKE VISUALS TIED TO BODYPARTS ARGHH
+	new_head_owner.update_body()
+
+/obj/item/bodypart/head/psyker/drop_limb(special, dismembered)
+	owner.cure_blind(limb_id)
+	if(!owner.dna?.species)
+		return ..()
+
+	if(initial(owner.dna.species.species_traits) & NOEYESPRITES)
+		return ..()
+
+	owner.dna.species.species_traits &= ~NOEYESPRITES
+	owner.update_body()
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// flavorful variant of psykerizing that deals damage and sends messages before calling psykerize()
 /mob/living/carbon/human/proc/slow_psykerize()
 	if(stat == DEAD || !get_bodypart(BODY_ZONE_HEAD) || istype(get_bodypart(BODY_ZONE_HEAD), /obj/item/bodypart/head/psyker))
@@ -68,8 +116,13 @@
 /// Proc with no side effects that turns someone into a psyker. returns FALSE if it could not psykerize.
 /mob/living/carbon/human/proc/psykerize()
 	var/obj/item/bodypart/head/old_head = get_bodypart(BODY_ZONE_HEAD)
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/old_brain = getorganslot(ORGAN_SLOT_BRAIN)
 	var/obj/item/organ/internal/old_eyes = getorganslot(ORGAN_SLOT_EYES)
+=======
+	var/obj/item/organ/internal/brain/old_brain = get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/internal/old_eyes = get_organ_slot(ORGAN_SLOT_EYES)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(stat == DEAD || !old_head || !old_brain)
 		return FALSE
 	var/obj/item/bodypart/head/psyker/psyker_head = new()
@@ -290,7 +343,11 @@
 	game_plane_master_controller.remove_filter("psychic_blur")
 	game_plane_master_controller.remove_filter("psychic_wave")
 
+<<<<<<< HEAD
 /datum/status_effect/psychic_projection/tick(delta_time, times_fired)
+=======
+/datum/status_effect/psychic_projection/tick(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/gun/held_gun = owner?.is_holding_item_of_type(/obj/item/gun)
 	if(!held_gun)
 		return

@@ -8,7 +8,12 @@
 	worn_icon_taur_paw = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
 	worn_icon_taur_hoof = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
+<<<<<<< HEAD
 	icon_state = "sleepbag"
+=======
+	icon_state = "sleepbag_pink_deflated_folded"
+	base_icon_state = "sleepbag"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	w_class = WEIGHT_CLASS_SMALL
 	var/bag_state = "deflated"
 	var/bag_fold = TRUE
@@ -97,8 +102,13 @@
 
 /obj/item/clothing/suit/straight_jacket/kinky_sleepbag/update_icon_state()
 	. = ..()
+<<<<<<< HEAD
 	icon_state = "[initial(icon_state)]_[bag_color]_[bag_state]_[bag_fold? "folded" : "unfolded"]"
 	inhand_icon_state = "[initial(icon_state)]_[bag_color]_[bag_state]_[bag_fold? "folded" : "unfolded"]"
+=======
+	icon_state = "[base_icon_state]_[bag_color]_[bag_state]_[bag_fold? "folded" : "unfolded"]"
+	inhand_icon_state = "[base_icon_state]_[bag_color]_[bag_state]_[bag_fold? "folded" : "unfolded"]"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/straight_jacket/kinky_sleepbag/equipped(mob/user, slot)
 	var/mob/living/carbon/human/affected_human = user
@@ -182,15 +192,25 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
+<<<<<<< HEAD
 /obj/item/clothing/suit/straight_jacket/kinky_sleepbag/process(delta_time)
+=======
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(time_to_sound_left <= 0)
 		if(tt <= 0)
 			playsound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 100, TRUE, ignore_walls = FALSE)
 			tt = rand(15, 35) //to do random funny sounds when character inside that thing.
 		else
+<<<<<<< HEAD
 			tt -= delta_time
 	else
 		time_to_sound_left -= delta_time
+=======
+			tt -= seconds_per_tick
+	else
+		time_to_sound_left -= seconds_per_tick
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /obj/item/clothing/suit/straight_jacket/kinky_sleepbag/doStrip(mob/stripper, mob/owner)

@@ -21,6 +21,7 @@
 		game_plane_master_controller.add_filter("quaalude_wave", 10, wave_filter(300, 300, 3, 0, WAVE_SIDEWAYS))
 
 
+<<<<<<< HEAD
 /datum/reagent/drug/quaalude/on_mob_life(mob/living/carbon/affected_carbon, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
 		var/high_message = pick("You feel relaxed.", "You feel like you're on the moon.", "You feel like you could walk 20 miles for a quaalude.")
@@ -35,6 +36,22 @@
 		affected_carbon.emote(pick("laugh", "drool"))
 
 	if(DT_PROB(1, delta_time) && !HAS_TRAIT(affected_carbon, TRAIT_FLOORED))
+=======
+/datum/reagent/drug/quaalude/on_mob_life(mob/living/carbon/affected_carbon, seconds_per_tick, times_fired)
+	if(SPT_PROB(2.5, seconds_per_tick))
+		var/high_message = pick("You feel relaxed.", "You feel like you're on the moon.", "You feel like you could walk 20 miles for a quaalude.")
+		to_chat(affected_carbon, span_notice(high_message))
+
+	affected_carbon.set_drugginess(1 MINUTES * REM * seconds_per_tick)
+	affected_carbon.adjust_slurring_up_to(30 SECONDS, 2 MINUTES)
+	affected_carbon.set_dizzy_if_lower(5 * REM * seconds_per_tick * 2 SECONDS)
+	affected_carbon.adjustStaminaLoss(-5 * REM * seconds_per_tick, 0)
+
+	if(SPT_PROB(3.5, seconds_per_tick))
+		affected_carbon.emote(pick("laugh", "drool"))
+
+	if(SPT_PROB(1, seconds_per_tick) && !HAS_TRAIT(affected_carbon, TRAIT_FLOORED))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_carbon.visible_message(span_danger("[affected_carbon]'s legs become too weak to carry their own weight!"))
 		affected_carbon.Knockdown(90, TRUE)
 		affected_carbon.drop_all_held_items()
@@ -48,6 +65,7 @@
 		game_plane_master_controller.remove_filter("quaalude_wave")
 
 
+<<<<<<< HEAD
 /datum/reagent/drug/quaalude/overdose_process(mob/living/affected_carbon, delta_time, times_fired)
 	var/kidfrombrooklyn_message = pick("BRING BACK THE FUCKING QUAALUDES!", "I'd walk 20 miles for a quaalude, let me tell ya'!", "There's nothing like a fuckin' quaalude!")
 
@@ -59,6 +77,19 @@
 	affected_carbon.adjust_drowsyness(0.25 * REM * normalise_creation_purity() * delta_time)
 
 	if(DT_PROB(3.5, delta_time))
+=======
+/datum/reagent/drug/quaalude/overdose_process(mob/living/affected_carbon, seconds_per_tick, times_fired)
+	var/kidfrombrooklyn_message = pick("BRING BACK THE FUCKING QUAALUDES!", "I'd walk 20 miles for a quaalude, let me tell ya'!", "There's nothing like a fuckin' quaalude!")
+
+	if(SPT_PROB(1.5, seconds_per_tick))
+		affected_carbon.say(kidfrombrooklyn_message)
+
+	affected_carbon.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25 * REM * seconds_per_tick)
+	affected_carbon.adjustToxLoss(0.25 * REM * seconds_per_tick, 0)
+	affected_carbon.adjust_drowsiness(0.5 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
+
+	if(SPT_PROB(3.5, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		affected_carbon.emote("twitch")
 
 	return TRUE

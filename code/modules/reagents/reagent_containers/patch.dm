@@ -2,7 +2,11 @@
 	name = "chemical patch"
 	desc = "A chemical patch for touch based applications."
 	icon = 'icons/obj/medical/chemical.dmi'
+<<<<<<< HEAD
 	icon_state = "bandaid"
+=======
+	icon_state = "bandaid_blank"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = null
 	possible_transfer_amounts = list()
 	volume = 40

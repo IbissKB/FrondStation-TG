@@ -102,7 +102,11 @@
 	if(HAS_TRAIT(user, TRAIT_RESTRAINED)) // hiding takes twice as long when restrained.
 		adjusted_dive_time *= 2
 
+<<<<<<< HEAD
 	if(do_mob(user, user, adjusted_dive_time))
+=======
+	if(do_after(user, adjusted_dive_time, user))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(src.loc) // Checking if structure has been destroyed
 			if(do_dive(user))
 				user.forceMove(src)
@@ -116,7 +120,11 @@
 	if(!user.combat_mode)
 		if(can_hide_item(hidden_item))
 			balloon_alert(user, "hiding item...")
+<<<<<<< HEAD
 			if(do_mob(user, user, hide_item_time))
+=======
+			if(do_after(user, hide_item_time, user))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(src.loc)
 					if(user.transferItemToLoc(hidden_item, src))
 						balloon_alert(user, "item hidden")

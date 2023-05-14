@@ -32,10 +32,17 @@
 		return
 	end_life(source)
 
+<<<<<<< HEAD
 /obj/effect/decal/chempuff/proc/check_move(datum/move_loop/source, succeeded)
 	if(QDELETED(src)) //Reasons PLEASE WORK I SWEAR TO GOD
 		return
 	if(!succeeded) //If we hit something
+=======
+/obj/effect/decal/chempuff/proc/check_move(datum/move_loop/source, result)
+	if(QDELETED(src)) //Reasons PLEASE WORK I SWEAR TO GOD
+		return
+	if(result == MOVELOOP_FAILURE) //If we hit something
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		end_life(source)
 		return
 

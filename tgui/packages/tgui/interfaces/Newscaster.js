@@ -348,7 +348,11 @@ const NewscasterChannelBox = (props, context) => {
     channelAuthor,
     channelCensored,
     viewing_channel,
+<<<<<<< HEAD
     security_mode,
+=======
+    admin_mode,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     photo_data,
     paper,
     user,
@@ -393,16 +397,27 @@ const NewscasterChannelBox = (props, context) => {
               }
               onClick={() => act('togglePhoto')}
             />
+<<<<<<< HEAD
             {!!security_mode && (
+=======
+            {!!admin_mode && (
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
               <Button
                 icon="ban"
                 content={'D-Notice'}
                 tooltip="Censor the whole channel and it's \
                   contents as dangerous to the station. Cannot be undone."
+<<<<<<< HEAD
                 disabled={!security_mode || !viewing_channel}
                 onClick={() =>
                   act('channelDNotice', {
                     secure: security_mode,
+=======
+                disabled={!admin_mode || !viewing_channel}
+                onClick={() =>
+                  act('channelDNotice', {
+                    secure: admin_mode,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                     channel: viewing_channel,
                   })
                 }
@@ -426,7 +441,11 @@ const NewscasterChannelBox = (props, context) => {
 /** Channel select is the left-hand menu where all the channels are listed. */
 const NewscasterChannelSelector = (props, context) => {
   const { act, data } = useBackend(context);
+<<<<<<< HEAD
   const { channels = [], viewing_channel, security_mode, wanted = [] } = data;
+=======
+  const { channels = [], viewing_channel, wanted = [] } = data;
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   return (
     <Section minHeight="100%" width={window.innerWidth - 410 + 'px'}>
       <Tabs vertical>
@@ -493,7 +512,11 @@ const NewscasterChannelMessages = (props, context) => {
   const {
     messages = [],
     viewing_channel,
+<<<<<<< HEAD
     security_mode,
+=======
+    admin_mode,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
     channelCensored,
     channelLocked,
     channelAuthor,
@@ -533,11 +556,19 @@ const NewscasterChannelMessages = (props, context) => {
             }
             buttons={
               <>
+<<<<<<< HEAD
                 {!!security_mode && (
                   <Button
                     icon="comment-slash"
                     tooltip="Censor Story"
                     disabled={!security_mode}
+=======
+                {!!admin_mode && (
+                  <Button
+                    icon="comment-slash"
+                    tooltip="Censor Story"
+                    disabled={!admin_mode}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                     onClick={() =>
                       act('storyCensor', {
                         messageID: message.ID,
@@ -545,11 +576,19 @@ const NewscasterChannelMessages = (props, context) => {
                     }
                   />
                 )}
+<<<<<<< HEAD
                 {!!security_mode && (
                   <Button
                     icon="user-slash"
                     tooltip="Censor Author"
                     disabled={!security_mode}
+=======
+                {!!admin_mode && (
+                  <Button
+                    icon="user-slash"
+                    tooltip="Censor Author"
+                    disabled={!admin_mode}
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
                     onClick={() =>
                       act('authorCensor', {
                         messageID: message.ID,

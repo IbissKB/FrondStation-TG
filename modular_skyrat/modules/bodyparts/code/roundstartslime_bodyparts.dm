@@ -1,5 +1,6 @@
 // Roundstartslimes!
 
+<<<<<<< HEAD
 /obj/item/bodypart/head/roundstartslime
 	limb_id = SPECIES_SLIMEPERSON // same icon state, no real reason to make a new define
 	is_dimorphic = TRUE
@@ -25,3 +26,30 @@
 /obj/item/bodypart/leg/right/roundstartslime
 	limb_id = SPECIES_SLIMEPERSON
 	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+=======
+/obj/item/bodypart/head/slime/roundstart
+	is_dimorphic = TRUE
+	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	biological_state = BIO_FLESH
+
+/obj/item/bodypart/chest/slime/roundstart
+	is_dimorphic = TRUE
+	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	biological_state = BIO_FLESH
+
+/obj/item/bodypart/arm/left/slime/roundstart
+	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	biological_state = BIO_FLESH
+
+/obj/item/bodypart/arm/right/slime/roundstart
+	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	biological_state = BIO_FLESH
+
+/obj/item/bodypart/leg/left/slime/roundstart
+	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	biological_state = BIO_FLESH
+
+/obj/item/bodypart/leg/right/slime/roundstart
+	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	biological_state = BIO_FLESH
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

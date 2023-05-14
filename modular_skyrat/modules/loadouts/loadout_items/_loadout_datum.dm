@@ -62,7 +62,11 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
  *
  * By default, just adds the item into the outfit's backpack contents, if non-visual.
  *
+<<<<<<< HEAD
  * equipper - If we're equipping out outfit onto a mob at the time, this is the mob it is equipped on. Can be null.
+=======
+ * equipper - If we're equipping our outfit onto a mob at the time, this is the mob it is equipped on. Can be null.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * outfit - The outfit we're equipping our items into.
  * visual - If TRUE, then our outfit is only for visual use (for example, a preview).
  */
@@ -71,6 +75,25 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
 		LAZYADD(outfit.backpack_contents, item_path)
 
 /*
+<<<<<<< HEAD
+=======
+ * To be called before insert_path_into_outfit()
+ *
+ * Checks if an important_for_life item exists and puts the loadout item into the backpack if they would take up the same slot as it.
+ *
+ * equipper - If we're equipping our outfit onto a mob at the time, this is the mob it is equipped on. Can be null.
+ * outfit - The outfit we're equipping our items into.
+ * outfit_important_for_life - The outfit whose slots we want to make sure we don't equip an item into.
+ * visual - If TRUE, then our outfit is only for visual use (for example, a preview).
+ *
+ * Returns TRUE if there is an important_for_life item in the slot that the loadout item would normally occupy, FALSE otherwise
+ */
+/datum/loadout_item/proc/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
+	if(!visuals_only)
+		LAZYADD(outfit.backpack_contents, item_path)
+
+/*
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
  * Called When the item is equipped on [equipper].
  */
 /datum/loadout_item/proc/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only = FALSE)

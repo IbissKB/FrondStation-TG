@@ -1,5 +1,9 @@
 /datum/design/borg_snack_dispenser
+<<<<<<< HEAD
 	name = "Cyborg Upgrade (Snack Dispenser)"
+=======
+	name = "Snack Dispenser Module"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	id = "borg_upgrade_snacks"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/snack_dispenser
@@ -8,7 +12,11 @@
 	category = list(RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL)
 
 /obj/item/borg/upgrade/snack_dispenser
+<<<<<<< HEAD
 	name = "Cyborg Upgrade (Snack Dispenser)"
+=======
+	name = "Snack Dispenser Module"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	desc = "Gives any borg the ability to dispense speciality snacks."
 	/// For storing modules that we remove, since the upgraded snack dispensor automatically removes inferior versions
 	var/list/removed_modules = list()

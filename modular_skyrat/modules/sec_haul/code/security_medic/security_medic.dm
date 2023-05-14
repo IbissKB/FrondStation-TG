@@ -7,7 +7,10 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_HOS
+<<<<<<< HEAD
 	selection_color = "#ffeeee"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	minimal_player_age = 7
 	exp_requirements = 120
 	exp_required_type = EXP_TYPE_CREW
@@ -51,7 +54,11 @@
 	belt = /obj/item/modular_computer/pda/security
 	ears = /obj/item/radio/headset/headset_medsec
 	uniform = /obj/item/clothing/under/rank/security/peacekeeper/security_medic
+<<<<<<< HEAD
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile
+=======
+	gloves = /obj/item/clothing/gloves/latex/nitrile
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	shoes = /obj/item/clothing/shoes/jackboots/sec
 	glasses = /obj/item/clothing/glasses/hud/health/sunglasses
 	suit = /obj/item/clothing/suit/armor/vest/peacekeeper/security_medic

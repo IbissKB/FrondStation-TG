@@ -54,7 +54,11 @@
 	greyscale_colors = "#FFFFFF"
 	greyscale_config = /datum/greyscale_config/fancyheels
 	greyscale_config_worn = /datum/greyscale_config/fancyheels/worn
+<<<<<<< HEAD
 	greyscale_config_worn_digi = /datum/greyscale_config/fancyheels/worn
+=======
+	greyscale_config_worn_digi = /datum/greyscale_config/fancyheels/worn/digi
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/discoshoes
@@ -86,7 +90,11 @@
 /obj/item/clothing/shoes/jungleboots/Initialize(mapload)
 	. = ..()
 
+<<<<<<< HEAD
 	create_storage(type = /datum/storage/pockets/shoes)
+=======
+	create_storage(storage_type = /datum/storage/pockets/shoes)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/shoes/jackboots/black
 	name = "dark jackboots"

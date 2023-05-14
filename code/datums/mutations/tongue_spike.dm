@@ -15,7 +15,11 @@
 	button_icon = 'icons/mob/actions/actions_genetic.dmi'
 	button_icon_state = "spike"
 
+<<<<<<< HEAD
 	cooldown_time = 10 SECONDS
+=======
+	cooldown_time = 1 SECONDS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	spell_requirements = SPELL_REQUIRES_HUMAN
 
 	/// The type-path to what projectile we spawn to throw at someone.
@@ -30,7 +34,11 @@
 		to_chat(cast_on, span_notice("You concentrate really hard, but nothing happens."))
 		return
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/tongue/to_fire = locate() in cast_on.internal_organs
+=======
+	var/obj/item/organ/internal/tongue/to_fire = locate() in cast_on.organs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!to_fire)
 		to_chat(cast_on, span_notice("You don't have a tongue to shoot!"))
 		return
@@ -43,19 +51,34 @@
 /obj/item/hardened_spike
 	name = "biomass spike"
 	desc = "Hardened biomass, shaped into a spike. Very pointy!"
+<<<<<<< HEAD
 	icon_state = "tonguespike"
 	force = 2
 	throwforce = 15 //15 + 2 (WEIGHT_CLASS_SMALL) * 4 (EMBEDDED_IMPACT_PAIN_MULTIPLIER) = i didnt do the math
 	throw_speed = 4
 	embedding = list(
 		"embedded_pain_multiplier" = 4,
+=======
+	icon = 'icons/obj/weapons/thrown.dmi'
+	icon_state = "tonguespike"
+	force = 2
+	throwforce = 25
+	throw_speed = 4
+	embedding = list(
+		"impact_pain_mult" = 0,
+		"embedded_pain_multiplier" = 15,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"embed_chance" = 100,
 		"embedded_fall_chance" = 0,
 		"embedded_ignore_throwspeed_threshold" = TRUE,
 	)
 	w_class = WEIGHT_CLASS_SMALL
 	sharpness = SHARP_POINTY
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/biomass = 500)
+=======
+	custom_materials = list(/datum/material/biomass = SMALL_MATERIAL_AMOUNT * 5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	/// What mob "fired" our tongue
 	var/datum/weakref/fired_by_ref
 	/// if we missed our target
@@ -106,8 +129,14 @@
 	name = "chem spike"
 	desc = "Hardened biomass, shaped into... something."
 	icon_state = "tonguespikechem"
+<<<<<<< HEAD
 	throwforce = 2 //2 + 2 (WEIGHT_CLASS_SMALL) * 0 (EMBEDDED_IMPACT_PAIN_MULTIPLIER) = i didnt do the math again but very low or smthin
 	embedding = list(
+=======
+	throwforce = 2
+	embedding = list(
+		"impact_pain_mult" = 0,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"embedded_pain_multiplier" = 0,
 		"embed_chance" = 100,
 		"embedded_fall_chance" = 0,

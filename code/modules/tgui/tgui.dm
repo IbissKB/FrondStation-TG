@@ -11,7 +11,11 @@
 	var/mob/user
 	/// The object which owns the UI.
 	var/datum/src_object
+<<<<<<< HEAD
 	/// The title of te UI.
+=======
+	/// The title of the UI.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/title
 	/// The window_id for browse() and onclose().
 	var/datum/tgui_window/window
@@ -103,6 +107,7 @@
 			))
 	else
 		window.send_message("ping")
+<<<<<<< HEAD
 	var/flush_queue = window.send_asset(get_asset_datum(
 		/datum/asset/simple/namespaced/fontawesome))
 	flush_queue |= window.send_asset(get_asset_datum(
@@ -111,6 +116,9 @@
 		flush_queue |= window.send_asset(asset)
 	if (flush_queue)
 		user.client.browse_queue_flush()
+=======
+	send_assets()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	window.send_message("update", get_payload(
 		with_data = TRUE,
 		with_static_data = TRUE))
@@ -120,6 +128,19 @@
 
 	return TRUE
 
+<<<<<<< HEAD
+=======
+/datum/tgui/proc/send_assets()
+	var/flush_queue = window.send_asset(get_asset_datum(
+		/datum/asset/simple/namespaced/fontawesome))
+	flush_queue |= window.send_asset(get_asset_datum(
+		/datum/asset/simple/namespaced/tgfont))
+	for(var/datum/asset/asset in src_object.ui_assets(user))
+		flush_queue |= window.send_asset(asset)
+	if (flush_queue)
+		user.client.browse_queue_flush()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /**
  * public
  *
@@ -275,7 +296,11 @@
  * Run an update cycle for this UI. Called internally by SStgui
  * every second or so.
  */
+<<<<<<< HEAD
 /datum/tgui/process(delta_time, force = FALSE)
+=======
+/datum/tgui/process(seconds_per_tick, force = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(closing)
 		return
 	var/datum/host = src_object.ui_host(user)

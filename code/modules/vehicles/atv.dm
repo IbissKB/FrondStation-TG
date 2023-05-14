@@ -4,11 +4,26 @@
 	desc = "An all-terrain vehicle built for traversing rough terrain with ease. One of the few old-Earth technologies that are still relevant on most planet-bound outposts."
 	icon_state = "atv"
 	max_integrity = 150
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 25, LASER = 20, ENERGY = 0, BOMB = 50, BIO = 0, FIRE = 60, ACID = 60)
+=======
+	armor_type = /datum/armor/ridden_atv
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	key_type = /obj/item/key/atv
 	integrity_failure = 0.5
 	var/static/mutable_appearance/atvcover
 
+<<<<<<< HEAD
+=======
+/datum/armor/ridden_atv
+	melee = 50
+	bullet = 25
+	laser = 20
+	bomb = 50
+	fire = 60
+	acid = 60
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/vehicle/ridden/atv/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/atv)
@@ -99,10 +114,17 @@
 	START_PROCESSING(SSobj, src)
 	return ..()
 
+<<<<<<< HEAD
 /obj/vehicle/ridden/atv/process(delta_time)
 	if(atom_integrity >= integrity_failure * max_integrity)
 		return PROCESS_KILL
 	if(DT_PROB(10, delta_time))
+=======
+/obj/vehicle/ridden/atv/process(seconds_per_tick)
+	if(atom_integrity >= integrity_failure * max_integrity)
+		return PROCESS_KILL
+	if(SPT_PROB(10, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/datum/effect_system/fluid_spread/smoke/smoke = new
 	smoke.set_up(0, holder = src, location = src)

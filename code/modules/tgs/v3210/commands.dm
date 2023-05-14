@@ -10,9 +10,18 @@
 	var/warned_about_the_dangers_of_robutussin = !warnings_only
 	for(var/I in typesof(/datum/tgs_chat_command) - /datum/tgs_chat_command)
 		if(!warned_about_the_dangers_of_robutussin)
+<<<<<<< HEAD
 			TGS_ERROR_LOG("Custom chat commands in [ApiVersion()] lacks the /datum/tgs_chat_user/sender.channel field!")
 			warned_about_the_dangers_of_robutussin = TRUE
 		var/datum/tgs_chat_command/stc = I
+=======
+			TGS_WARNING_LOG("Custom chat commands in [ApiVersion()] lacks the /datum/tgs_chat_user/sender.channel field!")
+			warned_about_the_dangers_of_robutussin = TRUE
+		var/datum/tgs_chat_command/stc = I
+		if(stc.ignore_type == I)
+			continue
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/command_name = initial(stc.name)
 		if(!command_name || findtext(command_name, " ") || findtext(command_name, "'") || findtext(command_name, "\""))
 			if(warnings_only && !warned_command_names[command_name])
@@ -49,4 +58,11 @@
 		sender = "<@[sender]>"
 
 	user.mention = sender
+<<<<<<< HEAD
 	return stc.Run(user, params) || TRUE
+=======
+	var/datum/tgs_message_content/result = stc.Run(user, params)
+	result = UpgradeDeprecatedCommandResponse(result, command)
+
+	return result?.text || TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

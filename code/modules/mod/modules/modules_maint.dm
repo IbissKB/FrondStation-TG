@@ -124,7 +124,11 @@
 	for(var/mutable_appearance/appearance as anything in .)
 		appearance.color = active ? rainbow_order[rave_number] : null
 
+<<<<<<< HEAD
 /obj/item/mod/module/visor/rave/on_active_process(delta_time)
+=======
+/obj/item/mod/module/visor/rave/on_active_process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	rave_number++
 	if(rave_number > length(rainbow_order))
 		rave_number = 1
@@ -231,7 +235,11 @@
 	if(prob(min(num_sheets_dispensed * 2, 30)))
 		if(crisp_paper in mod.wearer.held_items)
 			mod.wearer.dropItemToGround(crisp_paper, force = TRUE)
+<<<<<<< HEAD
 		crisp_paper.balloon_alert(mod.wearer, "PC LOAD LETTER!")
+=======
+		crisp_paper.balloon_alert(mod.wearer, UNLINT("PC LOAD LETTER!"))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		crisp_paper.visible_message(span_warning("[crisp_paper] bursts into flames, it's too crisp!"))
 		crisp_paper.fire_act(1000, 100)
 
@@ -287,7 +295,10 @@
 	playsound(src, 'sound/effects/curseattack.ogg', 50)
 	mod.wearer.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 	RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, PROC_REF(check_upstairs))
+<<<<<<< HEAD
 	mod.wearer.update_gravity(mod.wearer.has_gravity())
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	ADD_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, MOD_TRAIT)
 	check_upstairs() //todo at some point flip your screen around
 
@@ -303,7 +314,10 @@
 	qdel(mod.wearer.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY))
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)
 	step_count = 0
+<<<<<<< HEAD
 	mod.wearer.update_gravity(mod.wearer.has_gravity())
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	REMOVE_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, MOD_TRAIT)
 	var/turf/open/openspace/current_turf = get_turf(mod.wearer)
 	if(istype(current_turf))
@@ -312,7 +326,11 @@
 /obj/item/mod/module/atrocinator/proc/check_upstairs()
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(you_fucked_up || mod.wearer.has_gravity() != NEGATIVE_GRAVITY)
+=======
+	if(you_fucked_up || mod.wearer.has_gravity() > NEGATIVE_GRAVITY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	var/turf/open/current_turf = get_turf(mod.wearer)
 	var/turf/open/openspace/turf_above = get_step_multiz(mod.wearer, UP)

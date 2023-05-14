@@ -23,8 +23,13 @@
 
 /obj/machinery/recharger/RefreshParts()
 	. = ..()
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		recharge_coeff = C.rating
+=======
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		recharge_coeff = capacitor.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/recharger/examine(mob/user)
 	. = ..()
@@ -141,7 +146,11 @@
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 
+<<<<<<< HEAD
 /obj/machinery/recharger/process(delta_time)
+=======
+/obj/machinery/recharger/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(machine_stat & (NOPOWER|BROKEN) || !anchored)
 		return PROCESS_KILL
 
@@ -150,8 +159,13 @@
 		var/obj/item/stock_parts/cell/C = charging.get_cell()
 		if(C)
 			if(C.charge < C.maxcharge)
+<<<<<<< HEAD
 				C.give(C.chargerate * recharge_coeff * delta_time / 2)
 				use_power(active_power_usage * recharge_coeff * delta_time)
+=======
+				C.give(C.chargerate * recharge_coeff * seconds_per_tick / 2)
+				use_power(active_power_usage * recharge_coeff * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				using_power = TRUE
 			update_appearance()
 
@@ -159,7 +173,11 @@
 			var/obj/item/ammo_box/magazine/recharge/R = charging
 			if(R.stored_ammo.len < R.max_ammo)
 				R.stored_ammo += new R.ammo_type(R)
+<<<<<<< HEAD
 				use_power(active_power_usage * recharge_coeff * delta_time)
+=======
+				use_power(active_power_usage * recharge_coeff * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				using_power = TRUE
 			update_appearance()
 			return

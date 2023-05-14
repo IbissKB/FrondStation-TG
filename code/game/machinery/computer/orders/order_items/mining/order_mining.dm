@@ -22,12 +22,15 @@
 	desc = "A mining-themed MODsuit that works best when in a mining environment."
 	cost_per_order = 3000
 
+<<<<<<< HEAD
 /datum/orderable_item/mining/mining_ltsrbt
 	item_path = /obj/item/circuitboard/machine/mining_ltsrbt
 	name = "Mining LTSRBT Board"
 	desc = "Tired of waiting on the Cargo shuttle? This item lets you bluespace mining orders directly to the station."
 	cost_per_order = 750
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/orderable_item/mining/mining_belt
 	item_path = /obj/item/storage/belt/mining
 	cost_per_order = 500
@@ -94,7 +97,11 @@
 
 /datum/orderable_item/mining/kheiralcuffs
 	item_path = /obj/item/kheiral_cuffs
+<<<<<<< HEAD
 	cost_per_order = 2000
+=======
+	cost_per_order = 750
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/orderable_item/mining/bhop
 	item_path = /obj/item/clothing/shoes/bhop
@@ -103,3 +110,10 @@
 /datum/orderable_item/mining/hiking_boots
 	item_path = /obj/item/clothing/shoes/winterboots/ice_boots
 	cost_per_order = 2500
+<<<<<<< HEAD
+=======
+
+/datum/orderable_item/mining/style_meter
+	item_path = /obj/item/style_meter
+	cost_per_order = 1500
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

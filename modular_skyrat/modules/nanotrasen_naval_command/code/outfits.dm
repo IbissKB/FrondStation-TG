@@ -23,7 +23,11 @@
 
 	id_trim = /datum/id_trim/centcom/naval
 
+<<<<<<< HEAD
 	head = /obj/item/clothing/head/hats/caphat/naval/beret
+=======
+	head = /obj/item/clothing/head/beret/centcom_formal
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval
 

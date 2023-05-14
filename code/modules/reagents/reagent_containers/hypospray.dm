@@ -134,7 +134,11 @@
 		update_appearance()
 
 /obj/item/reagent_containers/hypospray/medipen/attack_self(mob/user)
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE, need_hands = FALSE, floor_okay = TRUE))
+=======
+	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH|ALLOW_RESTING))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		inject(user, user)
 
 /obj/item/reagent_containers/hypospray/medipen/update_icon_state()
@@ -255,7 +259,11 @@
 		return
 
 	to_chat(user,span_notice("You start manually releasing the low-pressure gauge..."))
+<<<<<<< HEAD
 	if(!do_mob(user, affected_mob, 10 SECONDS, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
+=======
+	if(!do_after(user, 10 SECONDS, affected_mob, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	amount_per_transfer_from_this = initial(amount_per_transfer_from_this) * 0.5

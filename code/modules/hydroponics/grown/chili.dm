@@ -105,5 +105,9 @@
 	icon_state = "bell_pepper"
 	foodtypes = FRUIT
 
+<<<<<<< HEAD
 /obj/item/food/grown/bell_pepper/MakeBakeable()
+=======
+/obj/item/food/grown/bell_pepper/make_bakeable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/bakeable, /obj/item/food/roasted_bell_pepper, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)

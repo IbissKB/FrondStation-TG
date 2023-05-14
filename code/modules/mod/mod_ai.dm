@@ -9,7 +9,11 @@
 	switch(interaction)
 		if(AI_TRANS_TO_CARD)
 			if(!ai)
+<<<<<<< HEAD
 				balloon_alert(user, "no AI in suit!")
+=======
+				balloon_alert(user, "no ai in suit!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			balloon_alert(user, "transferring to card...")
 			if(!do_after(user, 5 SECONDS, target = src))
@@ -29,21 +33,36 @@
 			intAI.controlled_equipment = null
 			intAI.remote_control = null
 			balloon_alert(intAI, "transferred to a card")
+<<<<<<< HEAD
 			balloon_alert(user, "AI transferred to card")
+=======
+			balloon_alert(user, "ai transferred to card")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			ai = null
 
 		if(AI_TRANS_FROM_CARD) //Using an AI card to upload to the suit.
 			intAI = card.AI
 			if(!intAI)
+<<<<<<< HEAD
 				balloon_alert(user, "no AI in card!")
 				return
 			if(ai)
 				balloon_alert(user, "already has AI!")
+=======
+				balloon_alert(user, "no ai in card!")
+				return
+			if(ai)
+				balloon_alert(user, "already has ai!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			if(intAI.deployed_shell) //Recall AI if shelled so it can be checked for a client
 				intAI.disconnect_shell()
 			if(intAI.stat || !intAI.client)
+<<<<<<< HEAD
 				balloon_alert(user, "AI unresponsive!")
+=======
+				balloon_alert(user, "ai unresponsive!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			balloon_alert(user, "transferring to suit...")
 			if(!do_after(user, 5 SECONDS, target = src))
@@ -51,7 +70,11 @@
 				return
 			if(ai)
 				return
+<<<<<<< HEAD
 			balloon_alert(user, "AI transferred to suit")
+=======
+			balloon_alert(user, "ai transferred to suit")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			ai_enter_mod(intAI)
 			card.AI = null
 
@@ -77,7 +100,11 @@
 /obj/item/mod/control/relaymove(mob/user, direction)
 	if((!active && wearer) || get_charge() < CHARGE_PER_STEP  || user != ai || !COOLDOWN_FINISHED(src, cooldown_mod_move) || (wearer?.pulledby?.grab_state > GRAB_PASSIVE))
 		return FALSE
+<<<<<<< HEAD
 	var/timemodifier = MOVE_DELAY * (ISDIAGONALDIR(direction) ? SQRT_2 : 1) * (wearer ? WEARER_DELAY : LONE_DELAY)
+=======
+	var/timemodifier = MOVE_DELAY * (ISDIAGONALDIR(direction) ? sqrt(2) : 1) * (wearer ? WEARER_DELAY : LONE_DELAY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(wearer && !wearer.Process_Spacemove(direction))
 		return FALSE
 	else if(!wearer && (!has_gravity() || !isturf(loc)))
@@ -136,7 +163,11 @@
 		return
 	var/mob/living/silicon/ai/ai = stored_ai.resolve()
 	if(!ai)
+<<<<<<< HEAD
 		balloon_alert(user, "no AI!")
+=======
+		balloon_alert(user, "no ai!")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	balloon_alert(user, "transferring to card...")
 	if(!do_after(user, 5 SECONDS, target = src) || !ai)
@@ -146,6 +177,12 @@
 	ai.forceMove(card)
 	card.AI = ai
 	ai.notify_ghost_cloning("You have been recovered from the wreckage!", source = card)
+<<<<<<< HEAD
 	balloon_alert(user, "AI transferred to card")
 	stored_ai = null
+=======
+	balloon_alert(user, "ai transferred to card")
+	stored_ai = null
+	#undef AI_FALL_TIME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 */

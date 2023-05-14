@@ -156,7 +156,11 @@ GLOBAL_LIST_INIT(sm_gas_behavior, init_sm_gas())
 	gas_path = /datum/gas/pluoxium
 	heat_modifier = -1.5
 	power_transmission = -0.5
+<<<<<<< HEAD
 	heat_power_generation = 1
+=======
+	heat_power_generation = -1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sm_gas/miasma
 	gas_path = /datum/gas/miasma
@@ -180,7 +184,11 @@ GLOBAL_LIST_INIT(sm_gas_behavior, init_sm_gas())
 	gas_path = /datum/gas/freon
 	heat_modifier = -9
 	power_transmission = -3
+<<<<<<< HEAD
 	heat_power_generation = 1
+=======
+	heat_power_generation = -1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/sm_gas/hydrogen
 	gas_path = /datum/gas/hydrogen

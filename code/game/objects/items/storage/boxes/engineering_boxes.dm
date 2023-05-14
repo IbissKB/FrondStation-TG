@@ -73,9 +73,15 @@
 	name = "plastic box"
 	desc = "It's a solid, plastic shell box."
 	icon_state = "plasticbox"
+<<<<<<< HEAD
 	foldable = null
 	illustration = "writing"
 	custom_materials = list(/datum/material/plastic = 1000) //You lose most if recycled.
+=======
+	foldable_result = null
+	illustration = "writing"
+	custom_materials = list(/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT) //You lose most if recycled.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/storage/box/emergencytank
 	name = "emergency oxygen tank box"

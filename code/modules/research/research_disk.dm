@@ -3,13 +3,21 @@
 	name = "technology disk"
 	desc = "A disk for storing technology data for further research."
 	icon_state = "datadisk0"
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass=SMALL_MATERIAL_AMOUNT)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/datum/techweb/stored_research
 
 /obj/item/disk/tech_disk/Initialize(mapload)
 	. = ..()
 	if(!stored_research)
+<<<<<<< HEAD
 		stored_research = new /datum/techweb
+=======
+		stored_research = new /datum/techweb/disk
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pixel_x = base_pixel_x + rand(-5, 5)
 	pixel_y = base_pixel_y + rand(-5, 5)
 
@@ -21,6 +29,7 @@
 /obj/item/disk/tech_disk/debug/Initialize(mapload)
 	stored_research = SSresearch.admin_tech
 	return ..()
+<<<<<<< HEAD
 
 /obj/item/disk/tech_disk/major
 	name = "Reformatted technology disk"
@@ -41,3 +50,5 @@
 /obj/item/disk/tech_disk/spaceloot/Initialize(mapload)
 	stored_research = new /datum/techweb/bepis(remove_tech = FALSE)
 	return ..()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

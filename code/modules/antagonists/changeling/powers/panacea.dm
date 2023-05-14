@@ -11,12 +11,20 @@
 /datum/action/changeling/panacea/sting_action(mob/user)
 	to_chat(user, span_notice("We cleanse impurities from our form."))
 	..()
+<<<<<<< HEAD
 	// SKYRAT EDIT ADDITION: BORER EGG
 	var/list/bad_organs = list(
 		user.getorgan(/obj/item/organ/internal/body_egg),
 		user.getorgan(/obj/item/organ/internal/zombie_infection),
 		user.getorgan(/obj/item/organ/internal/empowered_borer_egg))
 	// SKYRAT EDIT END
+=======
+	var/list/bad_organs = list(
+		user.get_organ_by_type(/obj/item/organ/internal/empowered_borer_egg), // SKYRAT EDIT ADDITION
+		user.get_organ_by_type(/obj/item/organ/internal/body_egg),
+		user.get_organ_by_type(/obj/item/organ/internal/zombie_infection))
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	try_to_mutant_cure(user) //SKYRAT EDIT ADDITION
 

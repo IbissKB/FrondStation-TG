@@ -42,12 +42,21 @@
 /obj/machinery/quantumpad/RefreshParts()
 	. = ..()
 	var/E = 0
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		E += C.rating
 	power_efficiency = E
 	E = 0
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		E += M.rating
+=======
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		E += capacitor.tier
+	power_efficiency = E
+	E = 0
+	for(var/datum/stock_part/servo/servo in component_parts)
+		E += servo.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	teleport_speed = initial(teleport_speed)
 	teleport_speed -= (E*10)
 	teleport_cooldown = initial(teleport_cooldown)

@@ -58,9 +58,13 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Shuttle Airlock"
 	},
+<<<<<<< HEAD
 /obj/docking_port/mobile/pod{
 	port_direction = 2
 	},
+=======
+/obj/docking_port/mobile/monastery,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/pod_1)
 "W" = (

@@ -62,6 +62,7 @@
 	cold_protection = CHEST|GROIN|ARMS
 	heat_protection = CHEST|GROIN|ARMS
 
+<<<<<<< HEAD
 /obj/item/clothing/suit/hooded/wintercoat/hopformal
 	name = "head of personnel's formal winter coat"
 	desc = "A long cozy winter coat, covered in thick fur. The breast features a proud yellow chevron, reminding everyone that you're the second banana. Someone at CC most really like you, huh?"
@@ -75,6 +76,8 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "winterhood_hopformal"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // CAPTAIN
 /obj/item/clothing/suit/armor/vest/capcarapace/jacket
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'

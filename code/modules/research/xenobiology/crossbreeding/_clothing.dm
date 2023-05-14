@@ -13,10 +13,20 @@ Slimecrossing Armor
 	body_parts_covered = NONE
 	w_class = WEIGHT_CLASS_SMALL
 	clothing_traits = list(TRAIT_NOBREATH)
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 0, ACID = 0)
 	flags_cover = MASKCOVERSMOUTH
 	resistance_flags = NONE
 
+=======
+	armor_type = /datum/armor/mask_nobreath
+	flags_cover = MASKCOVERSMOUTH
+	resistance_flags = NONE
+
+/datum/armor/mask_nobreath
+	bio = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/mask/nobreath/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(slot & ITEM_SLOT_MASK)

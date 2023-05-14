@@ -120,7 +120,11 @@
 /area/shuttle/escape)
 "y" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/shuttle/escape)
 "z" = (
@@ -128,7 +132,11 @@
 /turf/open/floor/cult,
 /area/shuttle/escape)
 "A" = (
+<<<<<<< HEAD
 /obj/item/candle/infinite,
+=======
+/obj/item/flashlight/flare/candle/infinite,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/cult,
 /area/shuttle/escape)
 "B" = (
@@ -237,9 +245,13 @@
 /turf/open/floor/cult,
 /area/shuttle/escape)
 "U" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)

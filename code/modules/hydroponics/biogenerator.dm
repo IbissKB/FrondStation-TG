@@ -45,6 +45,7 @@
 	/// The sound loop that can be heard when the generator is processing.
 	var/datum/looping_sound/generator/soundloop
 
+<<<<<<< HEAD
 
 /obj/machinery/biogenerator/Initialize(mapload)
 	. = ..()
@@ -52,12 +53,24 @@
 	soundloop = new(src, processing)
 
 
+=======
+/obj/machinery/biogenerator/Initialize(mapload)
+	. = ..()
+	if(!GLOB.autounlock_techwebs[/datum/techweb/autounlocking/biogenerator])
+		GLOB.autounlock_techwebs[/datum/techweb/autounlocking/biogenerator] = new /datum/techweb/autounlocking/biogenerator
+	stored_research = GLOB.autounlock_techwebs[/datum/techweb/autounlocking/biogenerator]
+	soundloop = new(src, processing)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/biogenerator/Destroy()
 	QDEL_NULL(beaker)
 	QDEL_NULL(soundloop)
 	return ..()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/biogenerator/contents_explosion(severity, target)
 	. = ..()
 	if(!beaker)
@@ -71,7 +84,10 @@
 		if(EXPLODE_LIGHT)
 			SSexplosions.low_mov_atom += beaker
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/biogenerator/handle_atom_del(atom/deleting_atom)
 	. = ..()
 
@@ -88,6 +104,7 @@
 	var/new_max_items = 10
 	var/new_processed_items_per_cycle = 0
 
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/matter_bin/bin in component_parts)
 		new_max_items += MAX_ITEMS_PER_RATING * bin.rating
 
@@ -95,6 +112,15 @@
 		new_productivity += manipulator.rating
 		new_efficiency += manipulator.rating
 		new_processed_items_per_cycle += PROCESSED_ITEMS_PER_RATING * manipulator.rating
+=======
+	for(var/datum/stock_part/matter_bin/bin in component_parts)
+		new_max_items += MAX_ITEMS_PER_RATING * bin.tier
+
+	for(var/datum/stock_part/servo/servo in component_parts)
+		new_productivity += servo.tier
+		new_efficiency += servo.tier
+		new_processed_items_per_cycle += PROCESSED_ITEMS_PER_RATING * servo.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	max_items = new_max_items
 	efficiency = new_efficiency
@@ -218,6 +244,7 @@
 
 		return TRUE //no afterattack
 
+<<<<<<< HEAD
 	else if (istype(attacking_item, /obj/item/disk/design_disk))
 		user.visible_message(
 			span_notice("[user] begins to load \the [attacking_item] in \the [src]..."),
@@ -235,13 +262,19 @@
 		processing = FALSE
 		return TRUE
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		to_chat(user, span_warning("You cannot put \the [attacking_item] in \the [src]!"))
 
 
 /obj/machinery/biogenerator/AltClick(mob/living/user)
 	. = ..()
+<<<<<<< HEAD
 	if(user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE) && can_interact(user))
+=======
+	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH) && can_interact(user))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		eject_beaker(user)
 
 
@@ -264,7 +297,11 @@
 	update_appearance()
 
 
+<<<<<<< HEAD
 /obj/machinery/biogenerator/process(delta_time)
+=======
+/obj/machinery/biogenerator/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!processing)
 		return
 
@@ -284,7 +321,11 @@
 
 		convert_to_biomass(food_to_convert)
 
+<<<<<<< HEAD
 	use_power(active_power_usage * delta_time)
+=======
+	use_power(active_power_usage * seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!current_item_count)
 		stop_process(FALSE)
@@ -344,7 +385,11 @@
 
 
 /obj/machinery/biogenerator/proc/create_product(datum/design/design, amount)
+<<<<<<< HEAD
 	if(design.make_reagents.len > 0)
+=======
+	if(design.make_reagent)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(!beaker)
 			return FALSE
 
@@ -355,7 +400,11 @@
 		if(!use_biomass(design.materials, amount))
 			return FALSE
 
+<<<<<<< HEAD
 		beaker.reagents.add_reagent(design.make_reagents[1], amount)
+=======
+		beaker.reagents.add_reagent(design.make_reagent, amount)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(design.build_path)
 		if(!use_biomass(design.materials, amount))
@@ -485,7 +534,11 @@
 			cat["items"] += list(list(
 				"id" = design.id,
 				"name" = design.name,
+<<<<<<< HEAD
 				"is_reagent" = design.make_reagents.len > 0,
+=======
+				"is_reagent" = design.make_reagent != null,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				"cost" = design.materials[GET_MATERIAL_REF(/datum/material/biomass)] / efficiency,
 			))
 		data["categories"] += list(cat)
@@ -518,7 +571,11 @@
 				return
 
 			var/datum/design/design = SSresearch.techweb_design_by_id(id)
+<<<<<<< HEAD
 			amount = clamp(amount, 1, (design.make_reagents.len > 0 && beaker ? beaker.reagents.maximum_volume - beaker.reagents.total_volume : max_output))
+=======
+			amount = clamp(amount, 1, (design.make_reagent && beaker ? beaker.reagents.maximum_volume - beaker.reagents.total_volume : max_output))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 			if(design && !istype(design, /datum/design/error_design))
 				create_product(design, amount)

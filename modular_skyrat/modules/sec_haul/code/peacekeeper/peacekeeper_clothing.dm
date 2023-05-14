@@ -3,8 +3,13 @@
 /obj/item/clothing/head/helmet/sec/peacekeeper
 	name = "peacekeeper helmet"
 	desc = "A standard issue combat helmet for peacekeeper operators. Has decent tensile strength and armor. Keep your head down."
+<<<<<<< HEAD
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+=======
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "peacekeeper_helmet"
 	base_icon_state = "peacekeeper_helmet"
 	can_toggle = FALSE
@@ -37,7 +42,11 @@
 	icon_state = "peacekeeper_sergeant_cap"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
 /obj/item/clothing/head/hos/beret/peacekeeper
+=======
+/obj/item/clothing/head/hats/hos/beret/peacekeeper
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "head of security's peacekeeper beret"
 	desc = "A special beret with the Head of Security's insignia emblazoned on it. A symbol of excellence, a badge of courage, a mark of distinction."
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
@@ -138,6 +147,7 @@
 	icon_state = "peacekeeper_trench_warden"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+<<<<<<< HEAD
 /obj/item/clothing/suit/hooded/wintercoat/security/peacekeeper
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
@@ -152,6 +162,8 @@
 	icon_state = "winterhood_peacekeeper"
 	desc = "A greyish-blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/armor/vest/peacekeeper/spacecoat
 	name = "peacekeeper sleek coat"
 	desc = "An incredibly stylish and heavy black coat made of synthetic kangaroo leather, padded with durathread and lined with kevlar."
@@ -176,7 +188,11 @@
 	heat_protection = 0
 	max_heat_protection_temperature = null
 	resistance_flags = FLAMMABLE
+<<<<<<< HEAD
 	armor = null
+=======
+	armor_type = /datum/armor/none
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cut_type = null
 
 /obj/item/clothing/gloves/tackler/peacekeeper
@@ -277,9 +293,13 @@
 	desc = "High speed, low drag combat boots."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
+<<<<<<< HEAD
 	icon_state = "peacekeeper_boots"
 	inhand_icon_state = "jackboots"
 	worn_icon_state = "peacekeeper"
+=======
+	icon_state = "peacekeeper"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/armor/riot/peacekeeper
 	name = "peacekeeper riotsuit"

@@ -26,6 +26,10 @@
 	if(!proximity_flag)
 		return
 	do_igniter(target)
+<<<<<<< HEAD
+=======
+	return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/igniter/proc/hostile_attackingtarget(mob/living/simple_animal/hostile/attacker, atom/target, success)
 	SIGNAL_HANDLER

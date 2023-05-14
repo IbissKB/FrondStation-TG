@@ -12,7 +12,11 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	hoodtype = /obj/item/clothing/head/hooded/explorer
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 10, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 0, FIRE = 50, ACID = 50)
+=======
+	armor_type = /datum/armor/hooded_explorer
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	allowed = list(
 		/obj/item/flashlight,
 		/obj/item/gun/energy/recharge/kinetic_accelerator,
@@ -25,6 +29,18 @@
 		)
 	resistance_flags = FIRE_PROOF
 
+<<<<<<< HEAD
+=======
+/datum/armor/hooded_explorer
+	melee = 30
+	bullet = 10
+	laser = 10
+	energy = 20
+	bomb = 50
+	fire = 50
+	acid = 50
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hooded/explorer
 	name = "explorer hood"
 	desc = "An armoured hood for exploring harsh environments."
@@ -37,7 +53,11 @@
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
+<<<<<<< HEAD
 	armor = list(MELEE = 30, BULLET = 10, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
+=======
+	armor_type = /datum/armor/hooded_explorer
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/suit/hooded/explorer/Initialize(mapload)
@@ -58,10 +78,30 @@
 	visor_flags_inv = HIDEFACIALHAIR
 	visor_flags_cover = MASKCOVERSMOUTH
 	actions_types = list(/datum/action/item_action/adjust)
+<<<<<<< HEAD
 	armor = list(MELEE = 10, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 0, BIO = 50, FIRE = 20, ACID = 40, WOUND = 5)
 	resistance_flags = FIRE_PROOF
 	has_fov = FALSE
 
+=======
+	armor_type = /datum/armor/gas_explorer
+	resistance_flags = FIRE_PROOF
+	has_fov = FALSE
+
+/datum/armor/gas_explorer
+	melee = 10
+	bullet = 5
+	laser = 5
+	energy = 5
+	bio = 50
+	fire = 20
+	acid = 40
+	wound = 5
+
+/obj/item/clothing/mask/gas/explorer/plasmaman
+	starting_filter_type = /obj/item/gas_filter/plasmaman
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/mask/gas/explorer/attack_self(mob/user)
 	adjustmask(user)
 
@@ -104,12 +144,49 @@
 		/obj/item/spear,
 		/obj/item/tank/internals,
 		)
+<<<<<<< HEAD
 	armor = list(MELEE = 35, BULLET = 10, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, FIRE = 60, ACID = 60) //a fair alternative to bone armor, requiring alternative materials and gaining a suit slot
+=======
+	resistance_flags = FIRE_PROOF
+	armor_type = /datum/armor/cloak_goliath
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hoodtype = /obj/item/clothing/head/hooded/cloakhood/goliath
 	body_parts_covered = CHEST|GROIN|ARMS
 	//SKYRAT ADDITION START -GOLIATH CLOAK EDIT
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+<<<<<<< HEAD
+=======
+	//SKYRAT ADDITION END
+
+/obj/item/clothing/suit/hooded/cloak/goliath/AltClick(mob/user)
+	. = ..()
+	if(iscarbon(user))
+		var/mob/living/carbon/char = user
+		if((char.get_item_by_slot(ITEM_SLOT_NECK) == src) || (char.get_item_by_slot(ITEM_SLOT_OCLOTHING) == src))
+			to_chat(user, span_warning("You can't adjust [src] while wearing it!"))
+			return
+		if(!user.is_holding(src))
+			to_chat(user, span_warning("You must be holding [src] in order to adjust it!"))
+			return
+		if(slot_flags & ITEM_SLOT_OCLOTHING)
+			slot_flags = ITEM_SLOT_NECK
+			set_armor(/datum/armor/none)
+			user.visible_message(span_notice("[user] adjusts their [src] for ceremonial use."), span_notice("You adjust your [src] for ceremonial use."))
+		else
+			slot_flags = initial(slot_flags)			
+			set_armor(initial(armor_type))
+			user.visible_message(span_notice("[user] adjusts their [src] for defensive use."), span_notice("You adjust your [src] for defensive use."))
+			
+/datum/armor/cloak_goliath
+	melee = 35
+	bullet = 10
+	laser = 25
+	energy = 35
+	bomb = 25
+	fire = 60
+	acid = 60
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/head/hooded/cloakhood/goliath
 	name = "goliath cloak hood"
@@ -117,14 +194,35 @@
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	icon_state = "golhood"
 	desc = "A protective & concealing hood."
+<<<<<<< HEAD
 	armor = list(MELEE = 35, BULLET = 10, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, FIRE = 60, ACID = 60)
 	clothing_flags = SNUG_FIT
 	flags_inv = HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR
 	transparent_protection = HIDEMASK
+=======
+	armor_type = /datum/armor/cloakhood_goliath
+	clothing_flags = SNUG_FIT
+	flags_inv = HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR
+	transparent_protection = HIDEMASK
+	resistance_flags = FIRE_PROOF
+	//SKYRAT ADDITION START -GOLIATH CLOAK EDIT
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	//SKYRAT ADDITION END
 
+<<<<<<< HEAD
+=======
+/datum/armor/cloakhood_goliath
+	melee = 35
+	bullet = 10
+	laser = 25
+	energy = 35
+	bomb = 25
+	fire = 60
+	acid = 60
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cloak/drake
 	name = "drake armour"
 	icon_state = "dragon"
@@ -139,7 +237,11 @@
 		/obj/item/t_scanner/adv_mining_scanner,
 		/obj/item/tank/internals,
 		)
+<<<<<<< HEAD
 	armor = list(MELEE = 65, BULLET = 15, LASER = 40, ENERGY = 40, BOMB = 70, BIO = 60, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/cloak_drake
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	hoodtype = /obj/item/clothing/head/hooded/cloakhood/drake
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -149,13 +251,30 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	transparent_protection = HIDEGLOVES|HIDESUITSTORAGE|HIDEJUMPSUIT|HIDESHOES
 
+<<<<<<< HEAD
+=======
+/datum/armor/cloak_drake
+	melee = 65
+	bullet = 15
+	laser = 40
+	energy = 40
+	bomb = 70
+	bio = 60
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hooded/cloakhood/drake
 	name = "drake helm"
 	icon = 'icons/obj/clothing/head/helmet.dmi'
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	icon_state = "dragon"
 	desc = "The skull of a dragon."
+<<<<<<< HEAD
 	armor = list(MELEE = 65, BULLET = 15, LASER = 40, ENERGY = 40, BOMB = 70, BIO = 60, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/cloakhood_drake
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clothing_flags = SNUG_FIT
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
@@ -163,6 +282,19 @@
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
+<<<<<<< HEAD
+=======
+/datum/armor/cloakhood_drake
+	melee = 65
+	bullet = 15
+	laser = 40
+	energy = 40
+	bomb = 70
+	bio = 60
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cloak/godslayer
 	name = "godslayer armour"
 	icon_state = "godslayer"
@@ -177,7 +309,11 @@
 		/obj/item/t_scanner/adv_mining_scanner,
 		/obj/item/tank/internals,
 		)
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 25, LASER = 25, ENERGY = 25, BOMB = 50, BIO = 50, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/cloak_godslayer
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL
 	hoodtype = /obj/item/clothing/head/hooded/cloakhood/godslayer
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -195,13 +331,30 @@
 	COOLDOWN_DECLARE(effect_cooldown)
 	var/static/list/damage_heal_order = list(BRUTE, BURN, OXY)
 
+<<<<<<< HEAD
+=======
+/datum/armor/cloak_godslayer
+	melee = 50
+	bullet = 25
+	laser = 25
+	energy = 25
+	bomb = 50
+	bio = 50
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/head/hooded/cloakhood/godslayer
 	name = "godslayer helm"
 	icon = 'icons/obj/clothing/head/helmet.dmi'
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	icon_state = "godslayer"
 	desc = "The horns and skull of a wendigo, held together by the remaining icey energy of a demonic miner."
+<<<<<<< HEAD
 	armor = list(MELEE = 50, BULLET = 25, LASER = 25, ENERGY = 25, BOMB = 50, BIO = 50, FIRE = 100, ACID = 100)
+=======
+	armor_type = /datum/armor/cloakhood_godslayer
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
@@ -211,6 +364,19 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = FIRE_PROOF | ACID_PROOF | FREEZE_PROOF
 
+<<<<<<< HEAD
+=======
+/datum/armor/cloakhood_godslayer
+	melee = 50
+	bullet = 25
+	laser = 25
+	energy = 25
+	bomb = 50
+	bio = 50
+	fire = 100
+	acid = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/clothing/suit/hooded/cloak/godslayer/examine(mob/user)
 	. = ..()
 	if(loc == user && !COOLDOWN_FINISHED(src, effect_cooldown))

@@ -15,7 +15,11 @@
 		return COMPONENT_INCOMPATIBLE
 
 	var/mob/living/carbon/C = parent
+<<<<<<< HEAD
 	L = C.getorganslot(ORGAN_SLOT_LUNGS)
+=======
+	L = C.get_organ_slot(ORGAN_SLOT_LUNGS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(L)
 		START_PROCESSING(SSdcs, src)
@@ -61,7 +65,11 @@
 			to_chat(C, span_userdanger("You begin to suffocate, you need to [next_text]!"))
 			warn_dying = TRUE
 
+<<<<<<< HEAD
 		L.applyOrganDamage(damage_rate)
+=======
+		L.apply_organ_damage(damage_rate)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		C.losebreath += 0.8
 	else if(world.time > (last_breath + check_every))
 		if(!warn_grace)

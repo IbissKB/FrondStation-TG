@@ -24,3 +24,8 @@ SUBSYSTEM_DEF(init_profiler)
 		fdel(prof_file)
 	WRITE_FILE(prof_file, current_profile_data)
 	world.Profile(PROFILE_CLEAR) //Now that we're written this data out, dump it. We don't want it getting mixed up with our current round data
+<<<<<<< HEAD
+=======
+
+#undef INIT_PROFILE_NAME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

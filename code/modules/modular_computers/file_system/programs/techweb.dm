@@ -23,7 +23,11 @@
 
 /datum/computer_file/program/science/on_start(mob/living/user)
 	. = ..()
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !stored_research)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		stored_research = SSresearch.science_tech
 
 /datum/computer_file/program/science/application_attackby(obj/item/attacking_item, mob/living/user)
@@ -41,7 +45,11 @@
 
 // heavy data from this proc should be moved to static data when possible
 /datum/computer_file/program/science/ui_data(mob/user)
+<<<<<<< HEAD
 	var/list/data = get_header_data()
+=======
+	var/list/data = list()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	data["stored_research"] = !!stored_research
 	if(!stored_research) //lack of a research node is all we care about.
 		return data
@@ -89,10 +97,13 @@
 	return data
 
 /datum/computer_file/program/science/ui_act(action, list/params)
+<<<<<<< HEAD
 	. = ..()
 	if (.)
 		return
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// Check if the console is locked to block any actions occuring
 	if (locked && action != "toggleLock")
 		computer.say("Console is locked, cannot perform further actions.")
@@ -109,8 +120,11 @@
 				to_chat(usr, span_boldwarning("Unauthorized Access. Please insert research ID card."))
 			return TRUE
 		if ("researchNode")
+<<<<<<< HEAD
 			if(!SSresearch.science_tech.available_nodes[params["node_id"]])
 				return TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			research_node(params["node_id"], usr)
 			return TRUE
 

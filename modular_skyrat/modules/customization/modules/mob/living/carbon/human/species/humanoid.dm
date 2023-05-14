@@ -4,8 +4,11 @@
 	species_traits = list(MUTCOLORS,
 		EYECOLOR,
 		LIPS,
+<<<<<<< HEAD
 		HAS_FLESH,
 		HAS_BONE,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		HAIR,
 		FACEHAIR
 	)
@@ -42,8 +45,15 @@
 	human.dna.features["mcolor"] = main_color
 	human.dna.features["mcolor2"] = main_color
 	human.dna.features["mcolor3"] = main_color
+<<<<<<< HEAD
 	human.dna.species.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(secondary_color, secondary_color, secondary_color))
 	human.hairstyle = "Cornrows"
 	human.hair_color = "#2b2b2b"
 	human.update_mutant_bodyparts(TRUE)
+=======
+	human.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(secondary_color, secondary_color, secondary_color))
+	human.hairstyle = "Cornrows"
+	human.hair_color = "#2b2b2b"
+	regenerate_organs(human, src, visual_only = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	human.update_body(TRUE)

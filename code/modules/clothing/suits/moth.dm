@@ -16,8 +16,13 @@
 
 /obj/item/clothing/suit/mothcoat/original/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	
 	create_storage(type = /datum/storage/pockets)
+=======
+
+	create_storage(storage_type = /datum/storage/pockets)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/suit/mothcoat/winter
 	name = "mothic mantella"

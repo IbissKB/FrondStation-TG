@@ -6,7 +6,11 @@
 /datum/emote/living/scream/run_emote(mob/living/user, params)
 	if(!(. = ..()))
 		return
+<<<<<<< HEAD
 	if(!user.is_muzzled() && !(user.mind && user.mind.miming))
+=======
+	if(!user.is_muzzled() && !HAS_TRAIT(user, TRAIT_MIMING))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/sound = get_sound(user, TRUE)
 		playsound(user.loc, sound, sound_volume, vary, 4, 1.2)
 

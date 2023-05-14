@@ -67,12 +67,15 @@
 #define AIRLOCK_FRAME_OPEN "open"
 #define AIRLOCK_FRAME_OPENING "opening"
 
+<<<<<<< HEAD
 #define AIRLOCK_LIGHT_BOLTS "bolts"
 #define AIRLOCK_LIGHT_EMERGENCY "emergency"
 #define AIRLOCK_LIGHT_DENIED "denied"
 #define AIRLOCK_LIGHT_CLOSING "closing"
 #define AIRLOCK_LIGHT_OPENING "opening"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define AIRLOCK_SECURITY_NONE 0 //Normal airlock //Wires are not secured
 #define AIRLOCK_SECURITY_IRON 1 //Medium security airlock //There is a simple iron plate over wires (use welder)
 #define AIRLOCK_SECURITY_PLASTEEL_I_S 2 //Sliced inner plating (use crowbar), jumps to 0
@@ -105,10 +108,17 @@
 	autoclose = TRUE
 	explosion_block = 1
 	hud_possible = list(DIAG_AIRLOCK_HUD)
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_AIRLOCK)
 
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON | INTERACT_MACHINE_REQUIRES_SILICON | INTERACT_MACHINE_OPEN
 	blocks_emissive = NONE // Custom emissive blocker. We don't want the normal behavior.
+=======
+	smoothing_groups = SMOOTH_GROUP_AIRLOCK
+
+	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON | INTERACT_MACHINE_OPEN
+	blocks_emissive = EMISSIVE_BLOCK_NONE // Custom emissive blocker. We don't want the normal behavior.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///The type of door frame to drop during deconstruction
 	var/assemblytype = /obj/structure/door_assembly
@@ -167,7 +177,10 @@
 		SetBounds()
 	update_overlays()
 	//SKYRAT EDIT END
+<<<<<<< HEAD
 	init_network_id(NETWORK_DOOR_AIRLOCKS)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	wires = set_wires()
 	if(glass)
 		airlock_material = "glass"
@@ -187,6 +200,7 @@
 	diag_hud_set_electrified()
 
 	RegisterSignal(src, COMSIG_MACHINERY_BROKEN, PROC_REF(on_break))
+<<<<<<< HEAD
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_RECEIVE, PROC_REF(ntnet_receive))
 
 	// Click on the floor to close airlocks
@@ -194,6 +208,11 @@
 		COMSIG_ATOM_ATTACK_HAND = PROC_REF(on_attack_hand)
 	)
 	AddElement(/datum/element/connect_loc, connections)
+=======
+
+	// Click on the floor to close airlocks
+	AddComponent(/datum/component/redirect_attack_hand_from_turf)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -239,6 +258,7 @@
 		if (NAMEOF(src, secondsElectrified))
 			set_electrified(vval < MACHINE_NOT_ELECTRIFIED ? MACHINE_ELECTRIFIED_PERMANENT : vval) //negative values are bad mkay (unless they're the intended negative value!)
 
+<<<<<<< HEAD
 
 /obj/machinery/door/airlock/check_access_ntnet(datum/netdata/data)
 	return !requiresID() || ..()
@@ -289,6 +309,8 @@
 			emergency = !emergency
 			update_appearance()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock/lock()
 	bolt()
 
@@ -389,7 +411,11 @@
 	return ((aiControlDisabled != AI_WIRE_DISABLED) && !isAllPowerCut())
 
 /obj/machinery/door/airlock/proc/canAIHack()
+<<<<<<< HEAD
 	return ((aiControlDisabled==AI_WIRE_DISABLED) && (!hackProof) && (!isAllPowerCut()));
+=======
+	return ((aiControlDisabled == AI_WIRE_DISABLED) && (!hackProof) && (!isAllPowerCut()));
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/door/airlock/hasPower()
 	return ((!secondsMainPowerLost || !secondsBackupPowerLost) && !(machine_stat & NOPOWER))
@@ -679,7 +705,16 @@
 
 			context[SCREENTIP_CONTEXT_LMB] = "Repair"
 			return CONTEXTUAL_SCREENTIP_SET
+<<<<<<< HEAD
 
+=======
+	if(istype(held_item, /obj/item/wrench/bolter))
+		if(locked)
+			context[SCREENTIP_CONTEXT_LMB] = "Raise bolts"
+			return CONTEXTUAL_SCREENTIP_SET
+
+		return CONTEXTUAL_SCREENTIP_SET
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	return .
 
 /obj/machinery/door/airlock/attack_ai(mob/user)
@@ -698,12 +733,37 @@
 
 	ui_interact(user)
 
+<<<<<<< HEAD
+=======
+///Performs basic checks to make sure we are still able to hack an airlock. If control is restored early through outside means, opens the airlock's control interface.
+/obj/machinery/door/airlock/proc/check_hacking(mob/user, success_message)
+	if(QDELETED(src))
+		to_chat(user, span_warning("Connection lost! Unable to locate airlock on network."))
+		aiHacking = FALSE
+		return FALSE
+	if(canAIControl(user))
+		to_chat(user, span_notice("Alert cancelled. Airlock control has been restored without our assistance."))
+		aiHacking = FALSE
+		if(user)
+			attack_ai(user) //bring up airlock dialog
+		return
+	else if(!canAIHack())
+		to_chat(user, span_warning("Connection lost! Unable to hack airlock."))
+		aiHacking = FALSE
+		return
+	if(success_message)
+		to_chat(user, span_notice(success_message))
+	return TRUE
+
+///Attemps to override airlocks that have the AI control wire disabled.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock/proc/hack(mob/user)
 	set waitfor = 0
 	if(!aiHacking)
 		aiHacking = TRUE
 		to_chat(user, span_warning("Airlock AI control has been blocked. Beginning fault-detection."))
 		sleep(5 SECONDS)
+<<<<<<< HEAD
 		if(canAIControl(user))
 			to_chat(user, span_notice("Alert cancelled. Airlock control has been restored without our assistance."))
 			aiHacking = FALSE
@@ -744,6 +804,36 @@
 		aiHacking = FALSE
 		if(user)
 			attack_ai(user)
+=======
+
+		if(!check_hacking(user, "Fault confirmed: airlock control wire disabled or cut."))
+			return
+		sleep(2 SECONDS)
+
+		if(!check_hacking(user, "Attempting to hack into airlock. This may take some time."))
+			return
+		sleep(20 SECONDS)
+
+		if(!check_hacking(user, "Upload access confirmed. Loading control program into airlock software."))
+			return
+		sleep(17 SECONDS)
+
+		if(!check_hacking(user,"Transfer complete. Forcing airlock to execute program."))
+			return
+		sleep(5 SECONDS)
+
+		if(!check_hacking(user, "Receiving control information from airlock."))
+			return
+		aiControlDisabled = AI_WIRE_HACKED //disable blocked control
+		sleep(1 SECONDS)
+
+		aiHacking = FALSE
+		if(QDELETED(src))
+			to_chat(user, span_warning("Connection lost! Unable to locate airlock on network."))
+			return
+		if(user)
+			attack_ai(user) //bring up airlock dialog
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/door/airlock/attack_animal(mob/user, list/modifiers)
 	if(isElectrified() && shock(user, 100))
@@ -753,11 +843,14 @@
 /obj/machinery/door/airlock/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
 
+<<<<<<< HEAD
 /obj/machinery/door/airlock/proc/on_attack_hand(atom/source, mob/user, list/modifiers)
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attack_hand), user, modifiers)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)
@@ -804,7 +897,11 @@
 	if(panel_open && detonated)
 		to_chat(user, span_warning("[src] has no maintenance panel!"))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
+<<<<<<< HEAD
 	panel_open = !panel_open
+=======
+	toggle_panel_open()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	to_chat(user, span_notice("You [panel_open ? "open":"close"] the maintenance panel of the airlock."))
 	tool.play_tool_sound(src)
 	update_appearance()
@@ -871,6 +968,27 @@
 		update_appearance()
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
+<<<<<<< HEAD
+=======
+/obj/machinery/door/airlock/wrench_act(mob/living/user, obj/item/tool)
+	if(!locked)
+		return
+	if(!panel_open)
+		balloon_alert(user, "panel is closed!")
+		return
+	if(security_level != AIRLOCK_SECURITY_NONE)
+		balloon_alert(user, "airlock is reinforced!")
+		return
+
+	if(istype(tool, /obj/item/wrench/bolter))
+		balloon_alert(user, "raising bolts...")
+		if(!do_after(user, 5 SECONDS, src))
+			return
+		unbolt()
+
+	return TOOL_ACT_TOOLTYPE_SUCCESS
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock/welder_act(mob/living/user, obj/item/tool)
 
 	if(!panel_open || security_level == AIRLOCK_SECURITY_NONE)
@@ -1133,9 +1251,15 @@
 					if(check_electrified && shock(user,100))
 						prying_so_hard = FALSE
 						return
+<<<<<<< HEAD
 					open(2)
 					take_damage(25, BRUTE, 0, 0) // Enough to sometimes spark
 					if(density && !open(2))
+=======
+					open(BYPASS_DOOR_CHECKS)
+					take_damage(25, BRUTE, 0, 0) // Enough to sometimes spark
+					if(density && !open(BYPASS_DOOR_CHECKS))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 						to_chat(user, span_warning("Despite your attempts, [src] refuses to open."))
 				prying_so_hard = FALSE
 				return
@@ -1146,6 +1270,7 @@
 		if(istype(I, /obj/item/fireaxe) && !HAS_TRAIT(I, TRAIT_WIELDED)) //being fireaxe'd
 			to_chat(user, span_warning("You need to be wielding [I] to do that!"))
 			return
+<<<<<<< HEAD
 		INVOKE_ASYNC(src, density ? PROC_REF(open) : PROC_REF(close), 2)
 
 /obj/machinery/door/airlock/open(forced=0)
@@ -1165,12 +1290,31 @@
 
 	if(autoclose)
 		autoclose_in(normalspeed ? 8 SECONDS : 1.5 SECONDS)
+=======
+		INVOKE_ASYNC(src, density ? PROC_REF(open) : PROC_REF(close), BYPASS_DOOR_CHECKS)
+
+/obj/machinery/door/airlock/open(forced = DEFAULT_DOOR_CHECKS)
+	if( operating || welded || locked || seal )
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(!density)
 		return TRUE
 
+<<<<<<< HEAD
 	if(closeOther != null && istype(closeOther, /obj/machinery/door/airlock))
 		addtimer(CALLBACK(closeOther, PROC_REF(close)), 2)
+=======
+	// Since we aren't physically held shut, do extra checks to see if we should open.
+	if(!try_to_force_door_open(forced))
+		return FALSE
+
+	if(autoclose)
+		autoclose_in(normalspeed ? 8 SECONDS : 1.5 SECONDS)
+
+	if(closeOther != null && istype(closeOther, /obj/machinery/door/airlock))
+		addtimer(CALLBACK(closeOther, PROC_REF(close)), BYPASS_DOOR_CHECKS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(close_others)
 		for(var/obj/machinery/door/airlock/otherlock as anything in close_others)
@@ -1178,14 +1322,22 @@
 				if(otherlock.operating)
 					otherlock.delayed_close_requested = TRUE
 				else
+<<<<<<< HEAD
 					addtimer(CALLBACK(otherlock, PROC_REF(close)), 2)
+=======
+					addtimer(CALLBACK(otherlock, PROC_REF(close)), BYPASS_DOOR_CHECKS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(cyclelinkedairlock)
 		if(!shuttledocked && !emergency && !cyclelinkedairlock.shuttledocked && !cyclelinkedairlock.emergency)
 			if(cyclelinkedairlock.operating)
 				cyclelinkedairlock.delayed_close_requested = TRUE
 			else
+<<<<<<< HEAD
 				addtimer(CALLBACK(cyclelinkedairlock, PROC_REF(close)), 2)
+=======
+				addtimer(CALLBACK(cyclelinkedairlock, PROC_REF(close)), BYPASS_DOOR_CHECKS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN, forced)
 	operating = TRUE
@@ -1211,6 +1363,7 @@
 	operating = FALSE
 	if(delayed_close_requested)
 		delayed_close_requested = FALSE
+<<<<<<< HEAD
 		addtimer(CALLBACK(src, PROC_REF(close)), 1)
 	return TRUE
 
@@ -1223,12 +1376,54 @@
 	if(!forced)
 		if(!hasPower() || wires.is_cut(WIRE_BOLTS))
 			return
+=======
+		addtimer(CALLBACK(src, PROC_REF(close)), FORCING_DOOR_CHECKS)
+	return TRUE
+
+/// Additional checks depending on what we want to happen to door (should we try and open it normally, or do we want this open at all costs?)
+/obj/machinery/door/airlock/try_to_force_door_open(force_type = DEFAULT_DOOR_CHECKS)
+	switch(force_type)
+		if(DEFAULT_DOOR_CHECKS) // Regular behavior.
+			if(!hasPower() || wires.is_cut(WIRE_OPEN) || (obj_flags & EMAGGED))
+				return FALSE
+			use_power(50)
+			playsound(src, doorOpen, 30, TRUE)
+			return TRUE
+
+		if(FORCING_DOOR_CHECKS) // Only one check.
+			if(obj_flags & EMAGGED)
+				return FALSE
+			use_power(50)
+			playsound(src, doorOpen, 30, TRUE)
+			return TRUE
+
+		if(BYPASS_DOOR_CHECKS) // No power usage, special sound, get it open.
+			//playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) - ORIGINAL
+			playsound(src, forcedOpen, 30, TRUE) //SKYRAT EDIT CHANGE - AESTHETICS
+			return TRUE
+
+		else
+			stack_trace("Invalid forced argument '[force_type]' passed to open() on this airlock.")
+
+	// If we got here, shit's fucked, hope parent can help us out here
+	return ..()
+
+/obj/machinery/door/airlock/close(forced = DEFAULT_DOOR_CHECKS, force_crush = FALSE)
+	if(operating || welded || locked || seal)
+		return FALSE
+	if(density)
+		return TRUE
+	if(forced == DEFAULT_DOOR_CHECKS) // Do this up here and outside of try_to_force_door_shut because if we don't have power, we shouldn't be doing any dangerous_close stuff.
+		if(!hasPower() || wires.is_cut(WIRE_BOLTS))
+			return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/dangerous_close = !safe || force_crush
 	if(!dangerous_close)
 		for(var/atom/movable/M in get_turf(src))
 			if(M.density && M != src) //something is blocking the door
 				autoclose_in(DOOR_CLOSE_WAIT)
+<<<<<<< HEAD
 				return
 	if(forced < 2)
 		if(obj_flags & EMAGGED)
@@ -1239,6 +1434,12 @@
 	else
 		//playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) //ORIGINAL
 		playsound(src, forcedClosed, 30, TRUE) //SKYRAT EDIT ADDITION - AESTHETICS
+=======
+				return FALSE
+
+	if(!try_to_force_door_shut(forced))
+		return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/obj/structure/window/killthis = (locate(/obj/structure/window) in get_turf(src))
 	if(killthis)
@@ -1279,6 +1480,28 @@
 		CheckForMobs()
 	return TRUE
 
+<<<<<<< HEAD
+=======
+/obj/machinery/door/airlock/try_to_force_door_shut(force_type = DEFAULT_DOOR_CHECKS)
+	switch(force_type)
+		if(DEFAULT_DOOR_CHECKS to FORCING_DOOR_CHECKS)
+			if(obj_flags & EMAGGED)
+				return FALSE
+			use_power(50)
+			playsound(src, doorClose, 30, TRUE)
+			return TRUE
+
+		if(BYPASS_DOOR_CHECKS)
+			playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
+			return TRUE
+
+		else
+			stack_trace("Invalid forced argument '[force_type]' passed to close() on this airlock.")
+
+	// shit's fucked, let's hope parent has something to handle it.
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/door/airlock/proc/prison_open()
 	if(obj_flags & EMAGGED)
 		return
@@ -1356,7 +1579,11 @@
 
 
 	if(do_after(user, time_to_open, src))
+<<<<<<< HEAD
 		if(density && !open(2)) //The airlock is still closed, but something prevented it opening. (Another player noticed and bolted/welded the airlock in time!)
+=======
+		if(density && !open(BYPASS_DOOR_CHECKS)) //The airlock is still closed, but something prevented it opening. (Another player noticed and bolted/welded the airlock in time!)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_warning("Despite your efforts, [src] managed to resist your attempts to open it!"))
 
 /obj/machinery/door/airlock/hostile_lockdown(mob/origin)
@@ -1383,8 +1610,12 @@
 /obj/machinery/door/airlock/proc/on_break()
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(!panel_open)
 		panel_open = TRUE
+=======
+	set_panel_open(TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	wires.cut_all()
 
 /obj/machinery/door/airlock/emp_act(severity)
@@ -1453,7 +1684,10 @@
 			var/obj/item/electronics/airlock/ae
 			if(!electronics)
 				ae = new/obj/item/electronics/airlock(loc)
+<<<<<<< HEAD
 				gen_access()
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				if(length(req_one_access))
 					ae.one_access = 1
 					ae.accesses = req_one_access
@@ -1697,3 +1931,11 @@
 #undef DOOR_CLOSE_WAIT
 
 #undef DOOR_VISION_DISTANCE
+<<<<<<< HEAD
+=======
+
+#undef AIRLOCK_FRAME_CLOSED
+#undef AIRLOCK_FRAME_CLOSING
+#undef AIRLOCK_FRAME_OPEN
+#undef AIRLOCK_FRAME_OPENING
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

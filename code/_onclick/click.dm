@@ -470,6 +470,7 @@
 */
 
 /// Simple helper to face what you clicked on, in case it should be needed in more than one place
+<<<<<<< HEAD
 /mob/proc/face_atom(atom/A)
 	if( buckled || stat != CONSCIOUS || !A || !x || !y || !A.x || !A.y )
 		return
@@ -483,6 +484,21 @@
 		else if(A.pixel_x > 16)
 			setDir(EAST)
 		else if(A.pixel_x < -16)
+=======
+/mob/proc/face_atom(atom/atom_to_face)
+	if( buckled || stat != CONSCIOUS || !atom_to_face || !x || !y || !atom_to_face.x || !atom_to_face.y )
+		return
+	var/dx = atom_to_face.x - x
+	var/dy = atom_to_face.y - y
+	if(!dx && !dy) // Wall items are graphically shifted but on the floor
+		if(atom_to_face.pixel_y > 16)
+			setDir(NORTH)
+		else if(atom_to_face.pixel_y < -16)
+			setDir(SOUTH)
+		else if(atom_to_face.pixel_x > 16)
+			setDir(EAST)
+		else if(atom_to_face.pixel_x < -16)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			setDir(WEST)
 		return
 
@@ -578,3 +594,9 @@
 			return TRUE
 
 	return FALSE
+<<<<<<< HEAD
+=======
+
+#undef MAX_SAFE_BYOND_ICON_SCALE_TILES
+#undef MAX_SAFE_BYOND_ICON_SCALE_PX
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

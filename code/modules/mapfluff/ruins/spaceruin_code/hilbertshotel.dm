@@ -4,6 +4,10 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /obj/item/hilbertshotel
 	name = "Hilbert's Hotel"
 	desc = "A sphere of what appears to be an intricate network of bluespace. Observing it in detail seems to give you a headache as you try to comprehend the infinite amount of infinitesimally distinct points on its surface."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/objects.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "hilbertshotel"
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -249,9 +253,15 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	name = "hotel wall"
 	desc = "A wall designed to protect the security of the hotel's guests."
 	icon_state = "hotelwall"
+<<<<<<< HEAD
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_HOTEL_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_HOTEL_WALLS)
 	explosion_block = INFINITY
+=======
+	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_HOTEL_WALLS
+	canSmoothWith = SMOOTH_GROUP_HOTEL_WALLS
+	explosive_resistance = INFINITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /turf/open/indestructible/hotelwood
 	desc = "Stylish dark wood with extra reinforcement. Secured firmly to the floor to prevent tampering."
@@ -271,7 +281,11 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	base_icon_state = "bluespace"
 	baseturfs = /turf/open/space/bluespace
 	flags_1 = NOJAUNT
+<<<<<<< HEAD
 	explosion_block = INFINITY
+=======
+	explosive_resistance = INFINITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/hilbertshotel/parentSphere
 
 /turf/open/space/bluespace/Initialize(mapload)
@@ -290,7 +304,11 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /turf/closed/indestructible/hoteldoor
 	name = "Hotel Door"
 	icon_state = "hoteldoor"
+<<<<<<< HEAD
 	explosion_block = INFINITY
+=======
+	explosive_resistance = INFINITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/item/hilbertshotel/parentSphere
 
 /turf/closed/indestructible/hoteldoor/proc/promptExit(mob/living/user)
@@ -474,6 +492,12 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	var/obj/item/hilbertshotel/parentSphere
 
 /obj/item/abstracthotelstorage/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+<<<<<<< HEAD
+=======
+	if(istype(arrived, /obj/machinery/light))
+		var/obj/machinery/light/entered_light = arrived
+		entered_light.end_processing()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	if(ismob(arrived))
 		var/mob/M = arrived
@@ -484,6 +508,12 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	if(ismob(gone))
 		var/mob/M = gone
 		M.notransform = FALSE
+<<<<<<< HEAD
+=======
+	if(istype(gone, /obj/machinery/light))
+		var/obj/machinery/light/exited_light = gone
+		exited_light.begin_processing()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Space Ruin stuff
 /area/ruin/space/has_grav/powered/hilbertresearchfacility
@@ -501,9 +531,16 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /obj/item/analyzer/hilbertsanalyzer/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 	if(istype(target, /obj/item/hilbertshotel))
+<<<<<<< HEAD
 		if(!proximity)
 			to_chat(user, span_warning("It's to far away to scan!"))
 			return
+=======
+		. |= AFTERATTACK_PROCESSED_ITEM
+		if(!proximity)
+			to_chat(user, span_warning("It's to far away to scan!"))
+			return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/obj/item/hilbertshotel/sphere = target
 		if(sphere.activeRooms.len)
 			to_chat(user, "Currently Occupied Rooms:")
@@ -517,10 +554,15 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 				to_chat(user, roomnumber)
 		else
 			to_chat(user, "No vacated rooms.")
+<<<<<<< HEAD
+=======
+		return .
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/effect/landmark/lift_id/hilbert
 	specific_lift_id = HILBERT_TRAM
 
+<<<<<<< HEAD
 /obj/effect/landmark/tram/left_part/hilbert
 	specific_lift_id = HILBERT_TRAM
 	destination_id = "left_part_hilbert"
@@ -534,6 +576,24 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /obj/effect/landmark/tram/right_part/hilbert
 	specific_lift_id = HILBERT_TRAM
 	destination_id = "right_part_hilbert"
+=======
+/obj/effect/landmark/tram/hilbert/left
+	name = "Port"
+	specific_lift_id = HILBERT_TRAM
+	platform_code = HILBERT_PORT
+	tgui_icons = list("Reception" = "briefcase", "Botany" = "leaf", "Chemistry" = "flask")
+
+/obj/effect/landmark/tram/hilbert/middle
+	name = "Central"
+	specific_lift_id = HILBERT_TRAM
+	platform_code = HILBERT_CENTRAL
+	tgui_icons = list("Processing" = "cogs", "Xenobiology" = "paw")
+
+/obj/effect/landmark/tram/hilbert/right
+	name = "Starboard"
+	specific_lift_id = HILBERT_TRAM
+	platform_code = HILBERT_STARBOARD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	tgui_icons = list("Ordnance" = "bullseye", "Office" = "user", "Dormitories" = "bed")
 
 /obj/item/keycard/hilbert
@@ -676,4 +736,8 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	desc = "A ballistic machine gun auto-turret that fires bluespace bullets."
 	lethal_projectile = /obj/projectile/magic/teleport
 	stun_projectile = /obj/projectile/magic/teleport
+<<<<<<< HEAD
 	faction = list("turret")
+=======
+	faction = list(FACTION_TURRET)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

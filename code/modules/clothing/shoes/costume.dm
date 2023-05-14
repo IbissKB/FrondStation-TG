@@ -5,7 +5,11 @@
 	inhand_icon_state = "wizshoe"
 	strip_delay = 100
 	equip_delay_other = 100
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/shoes_roman
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	can_be_tied = FALSE
 
 /obj/item/clothing/shoes/griffin
@@ -15,10 +19,20 @@
 	inhand_icon_state = null
 	lace_time = 8 SECONDS
 
+<<<<<<< HEAD
 /obj/item/clothing/shoes/griffin/Initialize(mapload)
 	. = ..()
 
 	create_storage(type = /datum/storage/pockets/shoes)
+=======
+/datum/armor/shoes_roman
+	bio = 10
+
+/obj/item/clothing/shoes/griffin/Initialize(mapload)
+	. = ..()
+
+	create_storage(storage_type = /datum/storage/pockets/shoes)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/clothing/shoes/singery
 	name = "yellow performer's boots"

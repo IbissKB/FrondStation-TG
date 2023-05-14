@@ -4,8 +4,15 @@
 	name = "necropolis chest"
 	desc = "It's watching you closely."
 	icon_state = "necrocrate"
+<<<<<<< HEAD
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	can_install_electronics = FALSE
+=======
+	base_icon_state = "necrocrate"
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	can_install_electronics = FALSE
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/necropolis/tendril
 	desc = "It's watching you suspiciously. You need a skeleton key to open it."
@@ -76,10 +83,23 @@
 	qdel(item)
 	to_chat(user, span_notice("You disable the magic lock, revealing the loot."))
 
+<<<<<<< HEAD
 /obj/structure/closet/crate/necropolis/tendril/can_open(mob/living/user, force = FALSE)
 	if(!spawned_loot)
 		return FALSE
 	return ..()
+=======
+/obj/structure/closet/crate/necropolis/tendril/before_open(mob/living/user, force)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	if(!broken && !force && !spawned_loot)
+		balloon_alert(user, "its locked!")
+		return FALSE
+
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 //Megafauna chests
 
@@ -106,7 +126,17 @@
 	new /obj/item/crusher_trophy/tail_spike(src)
 
 /obj/structure/closet/crate/necropolis/bubblegum
+<<<<<<< HEAD
 	name = "bubblegum chest"
+=======
+	name = "\improper Ancient Sarcophagus"
+	desc = "Once guarded by the King of Demons, this sarcophagus contains the relics of an ancient soldier."
+	icon_state = "necro_bubblegum"
+	lid_icon_state = "necro_bubblegum_lid"
+	lid_x = -26
+	lid_y = 2
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/necropolis/bubblegum/PopulateContents()
 	new /obj/item/clothing/suit/hooded/hostile_environment(src)

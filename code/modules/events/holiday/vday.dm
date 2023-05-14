@@ -74,7 +74,11 @@
 			return
 		var/recipient = tgui_input_text(user, "Who is receiving this valentine?", "To:", max_length = MAX_NAME_LEN)
 		var/sender = tgui_input_text(user, "Who is sending this valentine?", "From:", max_length = MAX_NAME_LEN)
+<<<<<<< HEAD
 		if(!user.canUseTopic(src, be_close = TRUE))
+=======
+		if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			return
 		if(recipient && sender)
 			name = "valentine - To: [recipient] From: [sender]"
@@ -106,3 +110,8 @@
 	. = ..()
 	desc = pick(strings(VALENTINE_FILE, "candyhearts"))
 	icon_state = pick("candyheart", "candyheart2", "candyheart3", "candyheart4")
+<<<<<<< HEAD
+=======
+
+#undef VALENTINE_FILE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

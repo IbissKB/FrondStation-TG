@@ -9,7 +9,12 @@
 	obj_flags = CAN_BE_HIT
 	dir = NONE // dir will contain dominant direction for junction pipes
 	max_integrity = 200
+<<<<<<< HEAD
 	armor = list(MELEE = 25, BULLET = 10, LASER = 10, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 90, ACID = 30)
+=======
+	armor_type = /datum/armor/structure_disposalpipe
+	plane = FLOOR_PLANE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	layer = DISPOSAL_PIPE_LAYER // slightly lower than wires and other pipes
 	damage_deflection = 10
 	var/dpdir = NONE // bitmask of pipe directions
@@ -18,6 +23,17 @@
 	var/obj/structure/disposalconstruct/stored
 
 
+<<<<<<< HEAD
+=======
+/datum/armor/structure_disposalpipe
+	melee = 25
+	bullet = 10
+	laser = 10
+	energy = 100
+	fire = 90
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/disposalpipe/Initialize(mapload, obj/structure/disposalconstruct/make_from)
 	. = ..()
 

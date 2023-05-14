@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 #define RESONATOR_MODE_AUTO   1
+=======
+#define RESONATOR_MODE_AUTO 1
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 #define RESONATOR_MODE_MANUAL 2
 #define RESONATOR_MODE_MATRIX 3

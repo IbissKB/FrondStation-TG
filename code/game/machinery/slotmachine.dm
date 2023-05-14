@@ -62,12 +62,20 @@
 		give_payout(balance)
 	return ..()
 
+<<<<<<< HEAD
 /obj/machinery/computer/slot_machine/process(delta_time)
+=======
+/obj/machinery/computer/slot_machine/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..() //Sanity checks.
 	if(!.)
 		return .
 
+<<<<<<< HEAD
 	money += round(delta_time / 2) //SPESSH MAJICKS
+=======
+	money += round(seconds_per_tick / 2) //SPESSH MAJICKS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/computer/slot_machine/update_icon_state()
 	if(machine_stat & BROKEN)
@@ -353,6 +361,7 @@
 
 	return amount
 
+<<<<<<< HEAD
 #undef SEVEN
 #undef SPIN_TIME
 #undef JACKPOT
@@ -361,3 +370,14 @@
 #undef SPIN_PRICE
 #undef HOLOCHIP
 #undef COIN
+=======
+#undef BIG_PRIZE
+#undef COIN
+#undef HOLOCHIP
+#undef JACKPOT
+#undef REEL_DEACTIVATE_DELAY
+#undef SEVEN
+#undef SMALL_PRIZE
+#undef SPIN_PRICE
+#undef SPIN_TIME
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

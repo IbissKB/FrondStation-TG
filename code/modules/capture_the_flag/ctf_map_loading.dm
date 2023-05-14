@@ -2,6 +2,10 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 
 /obj/effect/landmark/ctf
 	name = "CTF Map Spawner"
+<<<<<<< HEAD
+=======
+	var/game_id = CTF_GHOST_CTF_GAME_ID
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/list/map_bounds
 
 /obj/effect/landmark/ctf/Initialize(mapload)
@@ -48,11 +52,21 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 		else
 			current_map = map_choices[chosen_map]
 
+<<<<<<< HEAD
 	if(!user || chosen_map=="Random")
+=======
+	if(!user || chosen_map == "Random")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		current_map = pick(map_options)
 
 	current_map = new current_map()
 
+<<<<<<< HEAD
+=======
+	var/datum/ctf_controller/ctf_controller = GLOB.ctf_games[CTF_GHOST_CTF_GAME_ID]
+	ctf_controller.setup_rules(current_map.points_to_win)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!spawn_area)
 		CRASH("No spawn area detected for CTF!")
 	else if(!current_map)
@@ -63,7 +77,14 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 	return TRUE
 
 /datum/map_template/ctf
+<<<<<<< HEAD
 	var/description = ""
+=======
+	should_place_on_top = FALSE
+	var/description = ""
+	///Score required to win CTF on this map.
+	var/points_to_win = 3
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/ctf/classic
 	name = "Classic"
@@ -84,8 +105,20 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 	name = "Limbo"
 	description = "A KOTH map that takes place in a wizard den with looping hallways"
 	mappath = "_maps/map_files/CTF/limbo.dmm"
+<<<<<<< HEAD
+=======
+	points_to_win = 180
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/map_template/ctf/cruiser
 	name = "Crusier"
 	description = "A CTF map that takes place across multiple space ships, one carrying a powerful device that can accelerate those who obtain it"
 	mappath = "_maps/map_files/CTF/cruiser.dmm"
+<<<<<<< HEAD
+=======
+
+/datum/map_template/ctf/turbine
+	name = "Turbine"
+	description = "A CTF map that takes place in a familiar facility. Don't try to hold out mid- Theres no sentries in this version."
+	mappath = "_maps/map_files/CTF/turbine.dmm"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

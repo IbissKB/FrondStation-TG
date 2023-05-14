@@ -5,7 +5,11 @@
 	icon_keyboard = "power_key"
 	req_access = list(ACCESS_CE)
 	circuit = /obj/item/circuitboard/computer/apc_control
+<<<<<<< HEAD
 	light_color = LIGHT_COLOR_YELLOW
+=======
+	light_color = LIGHT_COLOR_DIM_YELLOW
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/obj/machinery/power/apc/active_apc //The APC we're using right now
 	var/should_log = TRUE
 	var/restoring = FALSE

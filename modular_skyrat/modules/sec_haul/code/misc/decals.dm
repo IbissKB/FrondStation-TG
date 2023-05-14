@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 /obj/effect/turf_decal/tile/blue/darkblue
 	name = "dark blue corner"
 	color = "#486091"
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/blue
 	icon_state = "warningline_blue"
 	icon = 'modular_skyrat/modules/sec_haul/icons/misc/turf_decals.dmi'
@@ -49,6 +52,7 @@
 /obj/effect/turf_decal/caution/blue
 	icon = 'modular_skyrat/modules/sec_haul/icons/misc/turf_decals.dmi'
 	icon_state = "caution_blue"
+<<<<<<< HEAD
 
 /obj/effect/turf_decal/trimline/darkblue
 	color = "#486091"
@@ -98,3 +102,5 @@
 
 /obj/effect/turf_decal/trimline/darkblue/filled/shrink_ccw
 	icon_state = "trimline_shrink_ccw"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

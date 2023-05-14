@@ -102,13 +102,23 @@
 	for(var/atom/movable/screen/plane_master/seethrough in our_hud.get_true_plane_masters(SEETHROUGH_PLANE))
 		seethrough.unhide_plane(fool)
 
+<<<<<<< HEAD
 	var/image/user_overlay = new(parent)
 	user_overlay.loc = parent
+=======
+	var/atom/atom_parent = parent
+	var/image/user_overlay = new(atom_parent)
+	user_overlay.loc = atom_parent
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	user_overlay.override = TRUE
 
 	if(clickthrough)
 		//Special plane so we can click through the overlay
+<<<<<<< HEAD
 		SET_PLANE_EXPLICIT(user_overlay, SEETHROUGH_PLANE, parent)
+=======
+		SET_PLANE_EXPLICIT(user_overlay, SEETHROUGH_PLANE, atom_parent)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	//These are inherited, but we already use the atom's loc so we end up at double the pixel offset
 	user_overlay.pixel_x = 0

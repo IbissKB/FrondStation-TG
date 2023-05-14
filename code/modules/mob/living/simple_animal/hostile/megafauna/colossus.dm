@@ -67,7 +67,11 @@
 	/// Final attack ability
 	var/datum/action/cooldown/mob_cooldown/projectile_attack/colossus_final/colossus_final
 	/// Have we used DIE yet?
+<<<<<<< HEAD
 	var/final_availible = TRUE
+=======
+	var/final_available = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/megafauna/colossus/Initialize(mapload)
 	. = ..()
@@ -111,8 +115,13 @@
 	else
 		move_to_delay = initial(move_to_delay)
 
+<<<<<<< HEAD
 	if(health <= maxHealth / 10 && !final_availible)
 		final_availible = FALSE
+=======
+	if(health <= maxHealth / 10 && final_available)
+		final_available = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		colossus_final.Trigger(target = target)
 	else if(prob(20 + anger_modifier)) //Major attack
 		spiral_shots.Trigger(target = target)
@@ -151,6 +160,7 @@
 		icon_state = initial(icon_state)
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/enrage(mob/living/victim)
+<<<<<<< HEAD
 	if(ishuman(victim))
 		var/mob/living/carbon/human/human_victim = victim
 		if(human_victim.mind)
@@ -158,6 +168,14 @@
 				. = TRUE
 		if (is_species(human_victim, /datum/species/golem/sand))
 			. = TRUE
+=======
+	if(!ishuman(victim))
+		return FALSE
+	if(isgolem(victim) && victim.has_status_effect(/datum/status_effect/golem/gold))
+		return TRUE
+	var/mob/living/carbon/human/human_victim = victim
+	return human_victim.mind && istype(human_victim.mind.martial_art, /datum/martial_art/the_sleeping_carp)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/megafauna/colossus/devour(mob/living/victim)
 	visible_message(span_colossus("[src] disintegrates [victim]!"))
@@ -321,6 +339,10 @@
 
 /obj/machinery/anomalous_crystal/ex_act()
 	ActivationReaction(null, ACTIVATE_BOMB)
+<<<<<<< HEAD
+=======
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/anomalous_crystal/honk //Strips and equips you as a clown. I apologize for nothing
 	observer_desc = "This crystal strips and equips its targets as clowns."
@@ -336,11 +358,17 @@
 		new_clown.dress_up_as_job(SSjob.GetJobType(/datum/job/clown))
 		affected_targets.Add(new_clown)
 
+<<<<<<< HEAD
 /obj/machinery/anomalous_crystal/theme_warp //Warps the area you're in to look like a new one
+=======
+/// Transforms the area to look like a new one
+/obj/machinery/anomalous_crystal/theme_warp
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	observer_desc = "This crystal warps the area around it to a theme."
 	activation_method = ACTIVATE_TOUCH
 	cooldown_add = 20 SECONDS
 	use_time = 5 SECONDS
+<<<<<<< HEAD
 	var/terrain_theme = "winter"
 	var/NewTerrainFloors
 	var/NewTerrainWalls
@@ -406,6 +434,132 @@
 					new NewTerrainTables(Stuff.loc)
 					continue
 			affected_targets += A
+=======
+	var/datum/crystal_warp_theme/terrain_theme
+
+/obj/machinery/anomalous_crystal/theme_warp/Initialize(mapload)
+	. = ..()
+	var/terrain_type = pick(subtypesof(/datum/crystal_warp_theme))
+	terrain_theme = new terrain_type()
+	observer_desc = "This crystal changes the area around it to match the theme of \"[terrain_theme]\"."
+
+/obj/machinery/anomalous_crystal/theme_warp/ActivationReaction(mob/user, method)
+	. = ..()
+	if (!.)
+		return FALSE
+	var/area/current_area = get_area(src)
+	if (current_area in affected_targets)
+		return FALSE
+	if (terrain_theme.transform_area(current_area))
+		affected_targets += current_area
+	return TRUE
+
+/// Transforms an area's turfs and objects into a different theme
+/datum/crystal_warp_theme
+	/// Friendly name of theme
+	var/name = ""
+	/// Typepath of floor to replace open turfs with
+	var/floor
+	/// Typepath of wall to replace closed turfs with
+	var/wall
+	/// Typepath of object to replace chairs with
+	var/chair
+	/// Typepath of object to replace tables with
+	var/table
+	/// Typepath of things to potentially spawn on transformed open turfs
+	var/list/flora_and_fauna = list()
+	/// Chance per turf to create the things in the list above
+	var/flora_and_fauna_chance = 8
+
+/// Change appropriate objects in provided area to those matching our theme, and spawn some plants or animals
+/datum/crystal_warp_theme/proc/transform_area(area/target_area)
+	if (target_area.outdoors)
+		return FALSE
+	for(var/atom/thing in target_area)
+		if(isturf(thing))
+			replace_turf(thing)
+			continue
+		if(chair && istype(thing, /obj/structure/chair))
+			replace_object(thing, chair)
+			continue
+		if(table && istype(thing, /obj/structure/table))
+			replace_object(thing, table)
+			continue
+	return TRUE
+
+/// Replaces a turf with a different themed turf
+/datum/crystal_warp_theme/proc/replace_turf(turf/target_turf)
+	if(isindestructiblefloor(target_turf) || isindestructiblewall(target_turf) || isopenspaceturf(target_turf))
+		return
+
+	if(wall && iswallturf(target_turf))
+		target_turf.ChangeTurf(wall)
+		return
+
+	if(!isopenturf(target_turf))
+		return
+
+	if(length(flora_and_fauna) && !target_turf.is_blocked_turf(exclude_mobs = TRUE) && prob(flora_and_fauna_chance))
+		var/atom/new_flora_and_fauna = pick(flora_and_fauna)
+		new new_flora_and_fauna(target_turf)
+
+	if(floor)
+		var/turf/open/open_turf = target_turf
+		open_turf.replace_floor(floor, flags = CHANGETURF_IGNORE_AIR)
+
+/// Replaces an object with a different themed object
+/datum/crystal_warp_theme/proc/replace_object(atom/original, new_type)
+	var/atom/new_thing = new new_type(original.loc)
+	new_thing.setDir(original.dir)
+	qdel(original)
+
+// Depressurizes the place... and free cult metal, I guess.
+/datum/crystal_warp_theme/lavaland
+	name = "lavaland"
+	floor = /turf/open/floor/fakebasalt
+	wall = /turf/closed/wall/mineral/cult
+	flora_and_fauna = list(/mob/living/simple_animal/hostile/asteroid/goldgrub)
+	flora_and_fauna_chance = 1
+
+// Snow terrain is slow to move in and cold! Get the assistants to shovel your driveway.
+/datum/crystal_warp_theme/winter
+	name = "winter"
+	floor = /turf/open/misc/snow/actually_safe
+	wall = /turf/closed/wall/mineral/wood
+	chair = /obj/structure/chair/wood
+	table = /obj/structure/table/glass
+	flora_and_fauna = list(
+		/obj/structure/flora/grass/both/style_random,
+		/obj/structure/flora/grass/brown/style_random,
+		/obj/structure/flora/grass/green/style_random,
+	)
+
+// Beneficial due to actually having breathable air. Plus, monkeys and bows and arrows.
+/datum/crystal_warp_theme/jungle
+	name = "jungle"
+	floor = /turf/open/floor/grass
+	wall = /turf/closed/wall/mineral/wood
+	chair = /obj/structure/chair/wood
+	table = /obj/structure/table/wood
+	flora_and_fauna = list(
+		/mob/living/carbon/human/species/monkey,
+		/obj/structure/flora/bush/ferny/style_random,
+		/obj/structure/flora/bush/grassy/style_random,
+		/obj/structure/flora/bush/leavy/style_random,
+		/obj/structure/flora/tree/palm/style_random,
+		/obj/structure/flora/bush/sparsegrass/style_random,
+		/obj/structure/flora/bush/sunny/style_random,
+	)
+	flora_and_fauna_chance = 20
+
+// Beneficial, turns stuff into alien alloy which is useful to cargo and research. Also repairs atmos.
+/datum/crystal_warp_theme/ayylmao
+	name = "ayy lmao"
+	floor = /turf/open/floor/mineral/abductor
+	wall = /turf/closed/wall/mineral/abductor
+	chair = /obj/structure/bed/abductor //ayys apparently don't have chairs. An entire species of people who only recline.
+	table = /obj/structure/table/abductor
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/machinery/anomalous_crystal/emitter //Generates a projectile when interacted with
 	observer_desc = "This crystal generates a projectile when activated."
@@ -484,6 +638,7 @@
 	use_time = 1 SECONDS
 
 /obj/machinery/anomalous_crystal/possessor/ActivationReaction(mob/user, method)
+<<<<<<< HEAD
 	if(..())
 		if(ishuman(user))
 			var/mobcheck = FALSE
@@ -496,6 +651,35 @@
 				break
 			if(!mobcheck)
 				new /mob/living/basic/cockroach(get_step(src,dir)) //Just in case there aren't any animals on the station, this will leave you with a terrible option to possess if you feel like it //i found it funny that in the file for a giant angel beast theres a cockroach
+=======
+	. = ..()
+	if (!. || !ishuman(user))
+		return FALSE
+
+	var/list/valid_mobs = list()
+	var/list/nearby_things = range(1, src)
+	for(var/mob/living/basic/possible_mob in nearby_things)
+		if (!is_valid_animal(possible_mob))
+			continue
+		valid_mobs += possible_mob
+	for(var/mob/living/simple_animal/possible_mob in nearby_things)
+		if (!is_valid_animal(possible_mob))
+			continue
+		valid_mobs += possible_mob
+
+	if (!length(valid_mobs)) //Just in case there aren't any animals on the station, this will leave you with a terrible option to possess if you feel like it //i found it funny that in the file for a giant angel beast theres a cockroach
+		new /mob/living/basic/cockroach(get_step(src,dir))
+		return
+
+	var/mob/living/picked_mob = pick(valid_mobs)
+	var/obj/structure/closet/stasis/possessor_container = new /obj/structure/closet/stasis(picked_mob)
+	user.forceMove(possessor_container)
+
+/// Returns true if this is a mob you're allowed to possess
+/obj/machinery/anomalous_crystal/possessor/proc/is_valid_animal(mob/living/check_mob)
+	return check_mob.stat != DEAD && !check_mob.ckey && check_mob.mob_size < MOB_SIZE_LARGE && check_mob.melee_damage_upper <= 5
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/stasis
 	name = "quantum entanglement stasis warp field"
@@ -505,6 +689,10 @@
 	density = TRUE
 	anchored = TRUE
 	resistance_flags = FIRE_PROOF | ACID_PROOF | INDESTRUCTIBLE
+<<<<<<< HEAD
+=======
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mob/living/simple_animal/holder_animal
 
 /obj/structure/closet/stasis/process()
@@ -517,7 +705,11 @@
 
 /obj/structure/closet/stasis/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	if(isanimal(loc))
+=======
+	if(isanimal_or_basicmob(loc))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		holder_animal = loc
 	START_PROCESSING(SSobj, src)
 
@@ -534,6 +726,7 @@
 
 /obj/structure/closet/stasis/dump_contents(kill = TRUE)
 	STOP_PROCESSING(SSobj, src)
+<<<<<<< HEAD
 	for(var/mob/living/L in src)
 		REMOVE_TRAIT(L, TRAIT_MUTE, STASIS_MUTE)
 		L.status_flags &= ~GODMODE
@@ -545,12 +738,32 @@
 			L.investigate_log("has died from [src].", INVESTIGATE_DEATHS)
 			L.death(FALSE)
 	..()
+=======
+	for(var/mob/living/possessor in src)
+		REMOVE_TRAIT(possessor, TRAIT_MUTE, STASIS_MUTE)
+		possessor.status_flags &= ~GODMODE
+		possessor.notransform = FALSE
+		if(kill || !isanimal_or_basicmob(loc))
+			possessor.investigate_log("has died from [src].", INVESTIGATE_DEATHS)
+			possessor.death(FALSE)
+		if(holder_animal)
+			possessor.forceMove(get_turf(holder_animal))
+			holder_animal.mind.transfer_to(possessor)
+			possessor.mind.grab_ghost(force = TRUE)
+			holder_animal.gib()
+			return ..()
+	return ..()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/stasis/emp_act()
 	return
 
 /obj/structure/closet/stasis/ex_act()
+<<<<<<< HEAD
 	return
+=======
+	return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/action/exit_possession
 	name = "Exit Possession"
@@ -574,6 +787,7 @@
 	qdel(stasis)
 	qdel(src)
 
+<<<<<<< HEAD
 #undef ACTIVATE_TOUCH
 #undef ACTIVATE_SPEECH
 #undef ACTIVATE_HEAT
@@ -583,3 +797,15 @@
 #undef ACTIVATE_MOB_BUMP
 #undef ACTIVATE_WEAPON
 #undef ACTIVATE_MAGIC
+=======
+#undef ACTIVATE_BOMB
+#undef ACTIVATE_BULLET
+#undef ACTIVATE_ENERGY
+#undef ACTIVATE_HEAT
+#undef ACTIVATE_MAGIC
+#undef ACTIVATE_MOB_BUMP
+#undef ACTIVATE_SPEECH
+#undef ACTIVATE_TOUCH
+#undef ACTIVATE_WEAPON
+#undef COLOSSUS_ENRAGED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

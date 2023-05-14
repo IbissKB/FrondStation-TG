@@ -53,3 +53,11 @@
 	. = ..()
 	new /obj/item/documents/syndicate/mining(src)
 	update_appearance()
+<<<<<<< HEAD
+=======
+
+/obj/item/folder/ancient_paperwork/Initialize(mapload)
+	. = ..()
+	new /obj/item/paperwork/ancient(src)
+	update_appearance()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

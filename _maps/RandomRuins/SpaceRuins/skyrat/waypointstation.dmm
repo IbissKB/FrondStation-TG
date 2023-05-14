@@ -251,8 +251,13 @@
 /area/ruin/space/has_grav/waypoint)
 "oa" = (
 /obj/structure/table,
+<<<<<<< HEAD
 /obj/item/disk/tech_disk/spaceloot,
 /obj/item/disk/tech_disk/spaceloot,
+=======
+/obj/item/disk/design_disk/bepis,
+/obj/item/disk/design_disk/bepis,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "og" = (

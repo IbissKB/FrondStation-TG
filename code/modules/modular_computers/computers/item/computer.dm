@@ -11,7 +11,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	light_on = FALSE
 	integrity_failure = 0.5
 	max_integrity = 100
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+=======
+	armor_type = /datum/armor/item_modular_computer
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 
 	///The ID currently stored in the computer.
@@ -22,6 +26,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/obj/item/stock_parts/cell/internal_cell = /obj/item/stock_parts/cell
 	///A pAI currently loaded into the modular computer.
 	var/obj/item/pai_card/inserted_pai
+<<<<<<< HEAD
+=======
+	///Does the console update the crew manifest when the ID is removed?
+	var/crew_manifest_update = FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///The amount of storage space the computer starts with.
 	var/max_capacity = 128
@@ -34,7 +43,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/list/datum/computer_file/starting_programs = list()
 	///Static list of default programs that come with ALL computers, here so computers don't have to repeat this.
 	var/static/list/datum/computer_file/default_programs = list(
+<<<<<<< HEAD
 		/datum/computer_file/program/computerconfig,
+=======
+		/datum/computer_file/program/themeify,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/datum/computer_file/program/ntnetdownload,
 		/datum/computer_file/program/filemanager,
 	)
@@ -51,7 +64,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 //	Options: PROGRAM_ALL | PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET
 
 	///The theme, used for the main menu and file browser apps.
+<<<<<<< HEAD
 	var/device_theme = "ntos"
+=======
+	var/device_theme = PDA_THEME_NTOS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	///Bool on whether the computer is currently active or not.
 	var/enabled = FALSE
@@ -110,6 +127,14 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	///The max amount of paper that can be held at once.
 	var/max_paper = 30
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_modular_computer
+	bullet = 20
+	laser = 20
+	energy = 100
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/modular_computer/Initialize(mapload)
 	. = ..()
 
@@ -130,7 +155,10 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	update_appearance()
 	register_context()
+<<<<<<< HEAD
 	init_network_id(NETWORK_TABLETS)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	Add_Messenger()
 	install_default_programs()
 
@@ -142,9 +170,13 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 /obj/item/modular_computer/Destroy()
 	STOP_PROCESSING(SSobj, src)
+<<<<<<< HEAD
 	wipe_program(forced = TRUE)
 	for(var/datum/computer_file/program/idle as anything in idle_threads)
 		idle.kill_program(TRUE)
+=======
+	close_all_programs()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Some components will actually try and interact with this, so let's do it later
 	QDEL_NULL(soundloop)
 	QDEL_LIST(stored_files)
@@ -194,7 +226,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	. = ..()
 	if(issilicon(user))
 		return FALSE
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 
 	if(RemoveID(user))
@@ -274,6 +310,12 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(!computer_id_slot)
 		return ..()
 
+<<<<<<< HEAD
+=======
+	if(crew_manifest_update)
+		GLOB.manifest.modify(computer_id_slot.registered_name, computer_id_slot.assignment, computer_id_slot.get_trim_assignment())
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(user)
 		if(!issilicon(user) && in_range(src, user))
 			user.put_in_hands(computer_id_slot)
@@ -295,7 +337,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 /obj/item/modular_computer/MouseDrop(obj/over_object, src_location, over_location)
 	var/mob/M = usr
+<<<<<<< HEAD
 	if((!istype(over_object, /atom/movable/screen)) && usr.canUseTopic(src, be_close = TRUE))
+=======
+	if((!istype(over_object, /atom/movable/screen)) && usr.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return attack_self(M)
 	return ..()
 
@@ -313,6 +359,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		if(response == "Yes")
 			turn_on(user)
 
+<<<<<<< HEAD
 /obj/item/modular_computer/emag_act(mob/user)
 	if(!enabled)
 		to_chat(user, span_warning("You'd need to turn the [src] on first."))
@@ -329,6 +376,21 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return TRUE
 	to_chat(user, span_notice("You swipe \the [src]. A console window fills the screen, but it quickly closes itself after only a few lines are written to it."))
 	return FALSE
+=======
+/obj/item/modular_computer/emag_act(mob/user, forced)
+	if(!enabled && !forced)
+		to_chat(user, span_warning("You'd need to turn the [src] on first."))
+		return FALSE
+	if(obj_flags & EMAGGED)
+		to_chat(user, span_notice("You swipe \the [src]. A console window fills the screen, but it quickly closes itself after only a few lines are written to it."))
+		return FALSE
+
+	. = ..()
+	obj_flags |= EMAGGED
+	device_theme = PDA_THEME_SYNDICATE
+	to_chat(user, span_notice("You swipe \the [src]. A console window momentarily fills the screen, with white text rapidly scrolling past."))
+	return TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/modular_computer/examine(mob/user)
 	. = ..()
@@ -378,7 +440,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		. = CONTEXTUAL_SCREENTIP_SET
 
 	if(inserted_disk)
+<<<<<<< HEAD
 		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Remove SSD"
+=======
+		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Remove Disk"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		. = CONTEXTUAL_SCREENTIP_SET
 	return . || NONE
 
@@ -418,6 +484,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		update_appearance(UPDATE_ICON)
 	return ..()
 
+<<<<<<< HEAD
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/interact(mob/user)
 	if(enabled)
@@ -425,6 +492,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	else
 		turn_on(user)
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/modular_computer/CtrlShiftClick(mob/user)
 	. = ..()
 	if(.)
@@ -454,7 +523,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		enabled = TRUE
 		update_appearance()
 		if(open_ui)
+<<<<<<< HEAD
 			ui_interact(user)
+=======
+			update_tablet_open_uis(user)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	else // Unpowered
 		if(issynth)
@@ -464,7 +537,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return FALSE
 
 // Process currently calls handle_power(), may be expanded in future if more things are added.
+<<<<<<< HEAD
 /obj/item/modular_computer/process(delta_time)
+=======
+/obj/item/modular_computer/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
 		return
@@ -473,6 +550,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		shutdown_computer()
 		return
 
+<<<<<<< HEAD
 	if(active_program && active_program.requires_ntnet && !get_ntnet_status(active_program.requires_ntnet_feature))
 		active_program.event_networkfailure(FALSE) // Active program requires NTNet to run but we've just lost connection. Crash.
 
@@ -482,10 +560,19 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			continue
 		idle_programs.process_tick(delta_time)
 		idle_programs.ntnet_status = get_ntnet_status(idle_programs.requires_ntnet_feature)
+=======
+	if(active_program && active_program.requires_ntnet && !get_ntnet_status())
+		active_program.event_networkfailure(FALSE) // Active program requires NTNet to run but we've just lost connection. Crash.
+
+	for(var/datum/computer_file/program/idle_programs as anything in idle_threads)
+		idle_programs.process_tick(seconds_per_tick)
+		idle_programs.ntnet_status = get_ntnet_status()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(idle_programs.requires_ntnet && !idle_programs.ntnet_status)
 			idle_programs.event_networkfailure(TRUE)
 
 	if(active_program)
+<<<<<<< HEAD
 		if(active_program.program_state == PROGRAM_STATE_KILLED)
 			active_program = null
 		else
@@ -493,6 +580,12 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			active_program.ntnet_status = get_ntnet_status()
 
 	handle_power(delta_time) // Handles all computer power interaction
+=======
+		active_program.process_tick(seconds_per_tick)
+		active_program.ntnet_status = get_ntnet_status()
+
+	handle_power(seconds_per_tick) // Handles all computer power interaction
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /**
  * Displays notification text alongside a soundbeep when requested to by a program.
@@ -572,6 +665,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	data["PC_showexitprogram"] = !!active_program // Hides "Exit Program" button on mainscreen
 	return data
 
+<<<<<<< HEAD
 ///Wipes the computer's current program. Doesn't handle any of the niceties around doing this
 /obj/item/modular_computer/proc/wipe_program(forced)
 	if(!active_program)
@@ -589,6 +683,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	update_appearance()
 
 /obj/item/modular_computer/proc/open_program(mob/user, datum/computer_file/program/program)
+=======
+/obj/item/modular_computer/proc/open_program(mob/user, datum/computer_file/program/program, open_ui = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(program.computer != src)
 		CRASH("tried to open program that does not belong to this computer")
 
@@ -598,12 +695,21 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	// The program is already running. Resume it.
 	if(program in idle_threads)
+<<<<<<< HEAD
 		program.program_state = PROGRAM_STATE_ACTIVE
 		active_program = program
 		program.alert_pending = FALSE
 		idle_threads.Remove(program)
 		update_appearance()
 		updateUsrDialog()
+=======
+		active_program = program
+		program.alert_pending = FALSE
+		idle_threads.Remove(program)
+		if(open_ui)
+			update_tablet_open_uis(user)
+		update_appearance(UPDATE_ICON)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 
 	if(!program.is_supported_by_hardware(hardware_flag, 1, user))
@@ -613,7 +719,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		to_chat(user, span_danger("\The [src] displays a \"Maximal CPU load reached. Unable to run another program.\" error."))
 		return FALSE
 
+<<<<<<< HEAD
 	if(program.requires_ntnet && !get_ntnet_status(program.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
+=======
+	if(program.requires_ntnet && !get_ntnet_status()) // The program requires NTNet connection, but we are not connected to NTNet.
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		to_chat(user, span_danger("\The [src]'s screen shows \"Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\" warning."))
 		return FALSE
 
@@ -622,6 +732,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	active_program = program
 	program.alert_pending = FALSE
+<<<<<<< HEAD
 	update_appearance()
 	updateUsrDialog()
 	return TRUE
@@ -632,10 +743,26 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(!SSmodular_computers.check_function(specific_action))
 		return NTNET_NO_SIGNAL
 
+=======
+	if(open_ui)
+		update_tablet_open_uis(user)
+	update_appearance(UPDATE_ICON)
+	return TRUE
+
+// Returns 0 for No Signal, 1 for Low Signal and 2 for Good Signal. 3 is for wired connection (always-on)
+/obj/item/modular_computer/proc/get_ntnet_status()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	// computers are connected through ethernet
 	if(hardware_flag & PROGRAM_CONSOLE)
 		return NTNET_ETHERNET_SIGNAL
 
+<<<<<<< HEAD
+=======
+	// NTNet is down and we are not connected via wired connection. No signal.
+	if(!find_functional_ntnet_relay())
+		return NTNET_NO_SIGNAL
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/turf/current_turf = get_turf(src)
 	if(!current_turf || !istype(current_turf))
 		return NTNET_NO_SIGNAL
@@ -653,12 +780,24 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(!get_ntnet_status())
 		return FALSE
 
+<<<<<<< HEAD
 	return SSnetworks.add_log(text, network_id)
 
 /obj/item/modular_computer/proc/shutdown_computer(loud = 1)
 	kill_program(forced = TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(forced = TRUE)
+=======
+	return SSmodular_computers.add_log("[src]: [text]")
+
+/obj/item/modular_computer/proc/close_all_programs()
+	active_program = null
+	for(var/datum/computer_file/program/idle as anything in idle_threads)
+		idle_threads.Remove(idle)
+
+/obj/item/modular_computer/proc/shutdown_computer(loud = TRUE)
+	close_all_programs()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(looping_sound)
 		soundloop.stop()
 	if(physical && loud)
@@ -775,6 +914,12 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	// Insert a data disk
 	if(istype(attacking_item, /obj/item/computer_disk))
+<<<<<<< HEAD
+=======
+		if(inserted_disk)
+			user.put_in_hands(inserted_disk)
+			balloon_alert(user, "disks swapped")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(!user.transferItemToLoc(attacking_item, src))
 			return
 		inserted_disk = attacking_item

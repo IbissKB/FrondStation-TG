@@ -34,7 +34,11 @@
 	/// T-ray scan range.
 	var/range = 4
 
+<<<<<<< HEAD
 /obj/item/mod/module/t_ray/on_active_process(delta_time)
+=======
+/obj/item/mod/module/t_ray/on_active_process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	t_ray_scan(mod.wearer, 0.8 SECONDS, range)
 
 ///Magnetic Stability - Gives the user a slowdown but makes them negate gravity and be immune to slips.
@@ -52,25 +56,40 @@
 	cooldown_time = 0.5 SECONDS
 	/// Slowdown added onto the suit.
 	var/slowdown_active = 0.5
+<<<<<<< HEAD
+=======
+	/// A list of traits to add to the wearer when we're active (see: Magboots)
+	var/list/active_traits = list(TRAIT_NO_SLIP_WATER, TRAIT_NO_SLIP_ICE, TRAIT_NO_SLIP_SLIDE, TRAIT_NEGATES_GRAVITY)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/mod/module/magboot/on_activation()
 	. = ..()
 	if(!.)
 		return
+<<<<<<< HEAD
 	ADD_TRAIT(mod.wearer, TRAIT_NEGATES_GRAVITY, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_NOSLIPWATER, MOD_TRAIT)
 	mod.slowdown += slowdown_active
 	mod.wearer.update_gravity(mod.wearer.has_gravity())
+=======
+	mod.wearer.add_traits(active_traits, MOD_TRAIT)
+	mod.slowdown += slowdown_active
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mod.wearer.update_equipment_speed_mods()
 
 /obj/item/mod/module/magboot/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
 	if(!.)
 		return
+<<<<<<< HEAD
 	REMOVE_TRAIT(mod.wearer, TRAIT_NEGATES_GRAVITY, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_NOSLIPWATER, MOD_TRAIT)
 	mod.slowdown -= slowdown_active
 	mod.wearer.update_gravity(mod.wearer.has_gravity())
+=======
+	mod.wearer.remove_traits(active_traits, MOD_TRAIT)
+	mod.slowdown -= slowdown_active
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	mod.wearer.update_equipment_speed_mods()
 
 /obj/item/mod/module/magboot/advanced
@@ -115,7 +134,10 @@
 	icon_state = "tether_projectile"
 	icon = 'icons/obj/clothing/modsuit/mod_modules.dmi'
 	damage = 0
+<<<<<<< HEAD
 	nodamage = TRUE
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	range = 10
 	hitsound = 'sound/weapons/batonextend.ogg'
 	hitsound_wall = 'sound/weapons/batonextend.ogg'

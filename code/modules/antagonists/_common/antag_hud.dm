@@ -52,7 +52,11 @@ GLOBAL_LIST_EMPTY_TYPED(has_antagonist_huds, /datum/atom_hud/alternate_appearanc
 /datum/atom_hud/alternate_appearance/basic/antagonist_hud/mobShouldSee(mob/mob)
 	return Master.current_runlevel >= RUNLEVEL_POSTGAME || (mob.client?.combo_hud_enabled && !isnull(mob.client?.holder))
 
+<<<<<<< HEAD
 /datum/atom_hud/alternate_appearance/basic/antagonist_hud/process(delta_time)
+=======
+/datum/atom_hud/alternate_appearance/basic/antagonist_hud/process(seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	index += 1
 	update_icon()
 

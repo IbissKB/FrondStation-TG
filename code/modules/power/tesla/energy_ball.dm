@@ -164,7 +164,11 @@
 		return
 	var/mob/living/carbon/jedi = user
 	to_chat(jedi, span_userdanger("That was a shockingly dumb idea."))
+<<<<<<< HEAD
 	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.internal_organs
+=======
+	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.organs
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	jedi.ghostize(jedi)
 	if(rip_u)
 		qdel(rip_u)
@@ -374,3 +378,9 @@
 #undef MACHINERY
 #undef BLOB
 #undef STRUCTURE
+<<<<<<< HEAD
+=======
+
+#undef TESLA_DEFAULT_POWER
+#undef TESLA_MINI_POWER
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

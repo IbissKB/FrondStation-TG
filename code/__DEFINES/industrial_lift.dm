@@ -18,12 +18,21 @@
 #define MAIN_STATION_TRAM "main station tram"
 ///the specific_lift_id of the tram on the hilbert research station
 #define HILBERT_TRAM "tram_hilbert"
+<<<<<<< HEAD
+=======
+///the specific_lift_id of the trams on birdshot station
+#define PRISON_TRAM "prison_tram"
+#define MAINTENANCE_TRAM "maint_tram"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Defines for update_lift_doors
 #define OPEN_DOORS "open"
 #define CLOSE_DOORS "close"
+<<<<<<< HEAD
 #define LOCK_DOORS "lock"
 #define UNLOCK_DOORS "unlock"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Defines for the state of tram destination signs
 #define DESTINATION_WEST_ACTIVE "west_active"
@@ -34,3 +43,7 @@
 #define DESTINATION_EAST_ACTIVE "east_active"
 #define DESTINATION_EAST_IDLE "east_idle"
 #define DESTINATION_NOT_IN_SERVICE "NIS"
+<<<<<<< HEAD
+=======
+#define DESTINATION_OFF "off"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

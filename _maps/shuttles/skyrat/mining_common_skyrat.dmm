@@ -14,7 +14,11 @@
 /turf/open/floor/iron/smooth,
 /area/shuttle/mining/advanced/public)
 "h" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/north,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/machinery/power/shuttle_engine/heater,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1

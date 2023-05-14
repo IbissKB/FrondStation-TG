@@ -1,12 +1,23 @@
 #define TRANSFORMATION_DURATION 22
 
+<<<<<<< HEAD
 /mob/living/carbon/proc/monkeyize()
+=======
+/mob/living/carbon/proc/monkeyize(instant = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (notransform || transformation_timer)
 		return
 
 	if(ismonkey(src))
 		return
 
+<<<<<<< HEAD
+=======
+	if(instant)
+		finish_monkeyize()
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Make mob invisible and spawn animation
 	notransform = TRUE
 	Paralyze(TRANSFORMATION_DURATION, ignore_canstun = TRUE)
@@ -15,7 +26,10 @@
 	invisibility = INVISIBILITY_MAXIMUM
 
 	new /obj/effect/temp_visual/monkeyify(loc)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	transformation_timer = addtimer(CALLBACK(src, PROC_REF(finish_monkeyize)), TRANSFORMATION_DURATION, TIMER_UNIQUE)
 
 /mob/living/carbon/proc/finish_monkeyize()
@@ -33,13 +47,24 @@
 //////////////////////////           Humanize               //////////////////////////////
 //Could probably be merged with monkeyize but other transformations got their own procs, too
 
+<<<<<<< HEAD
 /mob/living/carbon/proc/humanize(species = /datum/species/human)
+=======
+/mob/living/carbon/proc/humanize(species = /datum/species/human, instant = FALSE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if (notransform || transformation_timer)
 		return
 
 	if(!ismonkey(src))
 		return
 
+<<<<<<< HEAD
+=======
+	if(instant)
+		finish_humanize(species)
+		return
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Make mob invisible and spawn animation
 	notransform = TRUE
 	Paralyze(TRANSFORMATION_DURATION, ignore_canstun = TRUE)
@@ -119,6 +144,7 @@
 	if(notransform)
 		return
 	notransform = TRUE
+<<<<<<< HEAD
 	var/mob/living/silicon/robot/R = new /mob/living/silicon/robot(loc)
 
 	R.gender = gender
@@ -126,10 +152,20 @@
 
 	if(client)
 		R.updatename(client)
+=======
+	var/mob/living/silicon/robot/new_borg = new /mob/living/silicon/robot(loc)
+
+	new_borg.gender = gender
+	new_borg.invisibility = 0
+
+	if(client)
+		new_borg.updatename(client)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(mind) //TODO //TODO WHAT
 		if(!transfer_after)
 			mind.active = FALSE
+<<<<<<< HEAD
 		mind.transfer_to(R)
 	else if(transfer_after)
 		R.key = key
@@ -148,6 +184,26 @@
 	. = R
 	if(R.ckey && is_banned_from(R.ckey, JOB_CYBORG))
 		INVOKE_ASYNC(R, TYPE_PROC_REF(/mob/living/silicon/robot, replace_banned_cyborg))
+=======
+		mind.transfer_to(new_borg)
+	else if(transfer_after)
+		new_borg.key = key
+
+	if(new_borg.mmi)
+		new_borg.mmi.name = "[initial(new_borg.mmi.name)]: [real_name]"
+		if(new_borg.mmi.brain)
+			new_borg.mmi.brain.name = "[real_name]'s brain"
+		if(new_borg.mmi.brainmob)
+			new_borg.mmi.brainmob.real_name = real_name //the name of the brain inside the cyborg is the robotized human's name.
+			new_borg.mmi.brainmob.name = real_name
+
+	new_borg.job = JOB_CYBORG
+	new_borg.notify_ai(AI_NOTIFICATION_NEW_BORG)
+
+	. = new_borg
+	if(new_borg.ckey && is_banned_from(new_borg.ckey, JOB_CYBORG))
+		INVOKE_ASYNC(new_borg, TYPE_PROC_REF(/mob/living/silicon/robot, replace_banned_cyborg))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	qdel(src)
 
 /mob/living/Robotize(delete_items = 0, transfer_after = TRUE)
@@ -183,8 +239,12 @@
 	if (notransform)
 		return
 	notransform = TRUE
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, TRAIT_GENERIC)
+=======
+	add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), TRAIT_GENERIC)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/item/W in src)
 		dropItemToGround(W)
 	regenerate_icons()
@@ -215,8 +275,12 @@
 	if (notransform)
 		return
 	notransform = TRUE
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, TRAIT_GENERIC)
+=======
+	add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), TRAIT_GENERIC)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	for(var/obj/item/W in src)
 		dropItemToGround(W)
 	regenerate_icons()
@@ -300,7 +364,11 @@
 
 /mob/living/carbon/human/Animalize()
 
+<<<<<<< HEAD
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
+=======
+	var/list/mobtypes = typesof(/mob/living/simple_animal) + typesof(/mob/living/basic)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 	if(isnull(mobpath))
 		return
@@ -334,7 +402,11 @@
 
 /mob/proc/Animalize()
 
+<<<<<<< HEAD
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
+=======
+	var/list/mobtypes = typesof(/mob/living/simple_animal) + typesof(/mob/living/basic)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 	if(isnull(mobpath))
 		return
@@ -372,7 +444,11 @@
 		return TRUE
 	if(ispath(MP, /mob/living/simple_animal/crab))
 		return TRUE
+<<<<<<< HEAD
 	if(ispath(MP, /mob/living/simple_animal/hostile/carp))
+=======
+	if(ispath(MP, /mob/living/basic/carp))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 	if(ispath(MP, /mob/living/simple_animal/hostile/mushroom))
 		return TRUE

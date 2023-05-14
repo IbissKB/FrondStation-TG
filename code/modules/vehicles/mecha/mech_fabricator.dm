@@ -53,7 +53,11 @@
 	var/list/datum/design/cached_designs
 
 /obj/machinery/mecha_part_fabricator/Initialize(mapload)
+<<<<<<< HEAD
 	if(!CONFIG_GET(flag/no_default_techweb_link))
+=======
+	if(!CONFIG_GET(flag/no_default_techweb_link) && !stored_research)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		connect_techweb(SSresearch.science_tech)
 	rmat = AddComponent(/datum/component/remote_materials, "mechfab", mapload && link_on_init, mat_container_flags=BREAKDOWN_FLAGS_LATHE)
 	cached_designs = list()
@@ -90,6 +94,7 @@
 	var/T = 0
 
 	//maximum stocking amount (default 300000, 600000 at T4)
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
 		T += M.rating
 	rmat.set_local_size((200000 + (T*50000)))
@@ -98,12 +103,27 @@
 	T = 1.15
 	for(var/obj/item/stock_parts/micro_laser/Ma in component_parts)
 		T -= Ma.rating*0.15
+=======
+	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
+		T += matter_bin.tier
+	rmat.set_local_size((200000 + (T * 50000)))
+
+	//resources adjustment coefficient (1 -> 0.85 -> 0.7 -> 0.55)
+	T = 1.15
+	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
+		T -= micro_laser.tier * 0.15
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	component_coeff = T
 
 	//building time adjustment coefficient (1 -> 0.8 -> 0.6)
 	T = -1
+<<<<<<< HEAD
 	for(var/obj/item/stock_parts/manipulator/Ml in component_parts)
 		T += Ml.rating
+=======
+	for(var/datum/stock_part/servo/servo in component_parts)
+		T += servo.tier
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	time_coeff = round(initial(time_coeff) - (initial(time_coeff)*(T))/5,0.01)
 
 	// Adjust the build time of any item currently being built.
@@ -125,7 +145,11 @@
 
 /obj/machinery/mecha_part_fabricator/AltClick(mob/user)
 	. = ..()
+<<<<<<< HEAD
 	if(!user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 	if(panel_open)
 		dir = turn(dir, -90)

@@ -10,7 +10,10 @@
 	name = "command card"
 	access = list(ACCESS_FACTION_PUBLIC, ACCESS_FACTION_CREW, ACCESS_FACTION_COMMAND)
 	icon_state = "card_silver"
+<<<<<<< HEAD
 	worn_icon_state = "card_silver"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inhand_icon_state = "silver_id"
 
 /obj/item/card/faction_access

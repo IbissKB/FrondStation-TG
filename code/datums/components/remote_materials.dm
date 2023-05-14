@@ -28,7 +28,10 @@ handles linking back and forth.
 
 	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(OnAttackBy))
 	RegisterSignal(parent, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL), PROC_REF(OnMultitool))
+<<<<<<< HEAD
 	RegisterSignal(parent, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(check_z_level))
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/turf/T = get_turf(parent)
 	if (force_connect || (mapload && is_station_level(T.z)))
@@ -76,6 +79,20 @@ handles linking back and forth.
 
 	mat_container = parent.AddComponent(/datum/component/material_container, allowed_mats, local_size, mat_container_flags, allowed_items=/obj/item/stack)
 
+<<<<<<< HEAD
+=======
+/datum/component/remote_materials/proc/toggle_holding(force_hold = FALSE)
+	if(isnull(silo))
+		return
+
+	if(force_hold)
+		silo.holds[src] = TRUE
+	else if(!silo.holds[src])
+		silo.holds[src] = TRUE
+	else
+		silo.holds -= src
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/component/remote_materials/proc/set_local_size(size)
 	local_size = size
 	if (!silo && mat_container)
@@ -85,6 +102,10 @@ handles linking back and forth.
 /datum/component/remote_materials/proc/disconnect_from(obj/machinery/ore_silo/old_silo)
 	if (!old_silo || silo != old_silo)
 		return
+<<<<<<< HEAD
+=======
+	silo.ore_connected_machines -= src
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	silo = null
 	mat_container = null
 	if (allow_standalone)
@@ -107,9 +128,13 @@ handles linking back and forth.
 		if (silo == M.buffer)
 			to_chat(user, span_warning("[parent] is already connected to [silo]!"))
 			return COMPONENT_BLOCK_TOOL_ATTACK
+<<<<<<< HEAD
 		var/turf/silo_turf = get_turf(M.buffer)
 		var/turf/user_loc = get_turf(user)
 		if(!is_valid_z_level(silo_turf, user_loc))
+=======
+		if(!check_z_level(M.buffer))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			to_chat(user, span_warning("[parent] is too far away to get a connection signal!"))
 			return COMPONENT_BLOCK_TOOL_ATTACK
 		if (silo)
@@ -125,6 +150,7 @@ handles linking back and forth.
 		to_chat(user, span_notice("You connect [parent] to [silo] from the multitool's buffer."))
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
+<<<<<<< HEAD
 /datum/component/remote_materials/proc/check_z_level(datum/source, turf/old_turf, turf/new_turf)
 	SIGNAL_HANDLER
 	if(!silo)
@@ -136,6 +162,25 @@ handles linking back and forth.
 
 /datum/component/remote_materials/proc/on_hold()
 	return silo?.holds["[get_area(parent)]/[category]"]
+=======
+/datum/component/remote_materials/proc/check_z_level(obj/silo_to_check)
+	SIGNAL_HANDLER
+	if(!silo_to_check)
+		if(isnull(silo))
+			return FALSE
+		silo_to_check = silo
+
+	var/turf/current_turf = get_turf(parent)
+	var/turf/silo_turf = get_turf(silo_to_check)
+	if(!is_valid_z_level(silo_turf, current_turf))
+		return FALSE
+	return TRUE
+
+/datum/component/remote_materials/proc/on_hold()
+	if(!check_z_level())
+		return FALSE
+	return silo.holds["[get_area(parent)]/[category]"]
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/component/remote_materials/proc/silo_log(obj/machinery/M, action, amount, noun, list/mats)
 	if (silo)

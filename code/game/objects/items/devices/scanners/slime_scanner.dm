@@ -11,7 +11,11 @@
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
+<<<<<<< HEAD
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=20)
+=======
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.30, /datum/material/glass=SMALL_MATERIAL_AMOUNT * 0.20)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/slime_scanner/attack(mob/living/M, mob/living/user)
 	if(user.stat || !user.can_read(src)) //SKYRAT EDIT: Blind People Can Analyze Again

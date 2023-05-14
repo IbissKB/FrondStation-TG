@@ -70,7 +70,11 @@ export const SOFTWARE_DESC = {
   'Universal Translator': `Translation module for non-common languages.`,
 } as const;
 
+<<<<<<< HEAD
 export enum TAB {
+=======
+export enum PAI_TAB {
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   System,
   Directive,
   Installed,

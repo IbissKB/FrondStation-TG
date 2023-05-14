@@ -19,7 +19,11 @@
 	attack_verb_simple = list("attack", "chop", "cleave", "tear", "lacerate", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
+<<<<<<< HEAD
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 30)
+=======
+	armor_type = /datum/armor/item_fireaxe
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	resistance_flags = FIRE_PROOF
 	wound_bonus = -15
 	bare_wound_bonus = 20
@@ -28,6 +32,13 @@
 	/// How much damage to do wielded
 	var/force_wielded = 24
 
+<<<<<<< HEAD
+=======
+/datum/armor/item_fireaxe
+	fire = 100
+	acid = 30
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/item/fireaxe/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
@@ -81,3 +92,7 @@
 	demolition_mod = 2
 	tool_behaviour = TOOL_CROWBAR
 	toolspeed = 1
+<<<<<<< HEAD
+=======
+	usesound = 'sound/items/crowbar.ogg'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

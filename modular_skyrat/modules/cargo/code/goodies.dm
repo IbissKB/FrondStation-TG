@@ -109,6 +109,7 @@
 /datum/supply_pack/goody/carpet/premium/blue
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
+<<<<<<< HEAD
 
 /*
 *	MEDICAL STUFF
@@ -120,3 +121,5 @@
 	desc = "Someone mildly hurt and it's too much of a bother to manually handle their burns or cuts? Look no further than the AFAD, a state-of-the-art pain-relief device!"
 	cost = PAYCHECK_CREW * 40
 	contains = list(/obj/item/gun/medbeam/afad)
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

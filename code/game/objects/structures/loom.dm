@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #define FABRIC_PER_SHEET 4
 
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///This is a loom. It's usually made out of wood and used to weave fabric like durathread or cotton into their respective cloth types.
 /obj/structure/loom
 	name = "loom"
@@ -21,15 +24,19 @@
 
 	AddElement(/datum/element/contextual_screentip_item_typechecks, hovering_item_typechecks)
 
+<<<<<<< HEAD
 /obj/structure/loom/attackby(obj/item/I, mob/user)
 	if(weave(I, user))
 		return
 	return ..()
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/loom/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	default_unfasten_wrench(user, tool, time = 0.5 SECONDS)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
+<<<<<<< HEAD
 
 ///Handles the weaving.
 /obj/structure/loom/proc/weave(obj/item/stack/sheet/cotton/W, mob/user)
@@ -48,3 +55,5 @@
 	return TRUE
 
 #undef FABRIC_PER_SHEET
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

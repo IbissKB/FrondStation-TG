@@ -1,6 +1,10 @@
 /datum/antagonist/ninja
 	name = "\improper Space Ninja"
+<<<<<<< HEAD
 	antagpanel_category = "Space Ninja"
+=======
+	antagpanel_category = ANTAG_GROUP_NINJAS
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	job_rank = ROLE_NINJA
 	antag_hud_name = "space_ninja"
 	hijack_speed = 1

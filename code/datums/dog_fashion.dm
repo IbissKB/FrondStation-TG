@@ -47,6 +47,16 @@
 /datum/dog_fashion/back
 	icon_file = 'icons/mob/simple/corgi_back.dmi'
 
+<<<<<<< HEAD
+=======
+/datum/dog_fashion/back/armorvest
+	obj_icon_state = "armor"
+
+/datum/dog_fashion/back/deathsquad
+	name = "Trooper REAL_NAME"
+	desc = "That's not red paint. That's real corgi blood."
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/dog_fashion/head/helmet
 	name = "Sergeant REAL_NAME"
 	desc = "The ever-loyal, the ever-vigilant."
@@ -178,10 +188,13 @@
 	speak = list("HONK!", "Honk!")
 	emote_see = list("plays tricks.", "slips.")
 
+<<<<<<< HEAD
 /datum/dog_fashion/back/deathsquad
 	name = "Trooper REAL_NAME"
 	desc = "That's not red paint. That's real corgi blood."
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /datum/dog_fashion/head/festive
 	name = "Festive REAL_NAME"
 	desc = "Ready to party!"

@@ -7,7 +7,11 @@
 	id = "milk"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.4)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/milk = 1)
+=======
+	make_reagent = /datum/reagent/consumable/milk
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/soymilk
@@ -15,7 +19,11 @@
 	id = "soymilk"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.4)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/soymilk = 1)
+=======
+	make_reagent = /datum/reagent/consumable/soymilk
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/ethanol
@@ -23,7 +31,11 @@
 	id = "ethanol"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/ethanol = 1)
+=======
+	make_reagent = /datum/reagent/consumable/ethanol
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/cream
@@ -31,7 +43,11 @@
 	id = "cream"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/cream = 1)
+=======
+	make_reagent = /datum/reagent/consumable/cream
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/black_pepper
@@ -39,7 +55,11 @@
 	id = "black_pepper"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/blackpepper = 1)
+=======
+	make_reagent = /datum/reagent/consumable/blackpepper
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/enzyme
@@ -47,7 +67,11 @@
 	id = "enzyme"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/enzyme = 1)
+=======
+	make_reagent = /datum/reagent/consumable/enzyme
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/flour
@@ -55,7 +79,11 @@
 	id = "flour_sack"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/flour = 1)
+=======
+	make_reagent = /datum/reagent/consumable/flour
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/sugar
@@ -63,14 +91,22 @@
 	id = "sugar"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/consumable/sugar = 1)
+=======
+	make_reagent = /datum/reagent/consumable/sugar
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/monkey_cube
 	name = "Monkey Cube"
 	id = "mcube"
 	build_type = BIOGENERATOR
+<<<<<<< HEAD
 	materials = list(/datum/material/biomass = 50)
+=======
+	materials = list(/datum/material/biomass =SMALL_MATERIAL_AMOUNT*0.5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	build_path = /obj/item/food/monkeycube
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
@@ -87,7 +123,11 @@
 	id = "ez_nut"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.1)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/plantnutriment/eznutriment = 1)
+=======
+	make_reagent = /datum/reagent/plantnutriment/eznutriment
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/l4z_nut
@@ -95,7 +135,11 @@
 	id = "l4z_nut"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.1)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/plantnutriment/left4zednutriment = 1)
+=======
+	make_reagent = /datum/reagent/plantnutriment/left4zednutriment
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/rh_nut
@@ -103,7 +147,11 @@
 	id = "rh_nut"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.2)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/plantnutriment/robustharvestnutriment = 1)
+=======
+	make_reagent = /datum/reagent/plantnutriment/robustharvestnutriment
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/end_gro
@@ -111,7 +159,11 @@
 	id = "end_gro"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.3)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/plantnutriment/endurogrow = 1)
+=======
+	make_reagent = /datum/reagent/plantnutriment/endurogrow
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/liq_earth
@@ -119,7 +171,11 @@
 	id = "liq_earth"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.3)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/plantnutriment/liquidearthquake = 1)
+=======
+	make_reagent = /datum/reagent/plantnutriment/liquidearthquake
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/weed_killer
@@ -127,7 +183,11 @@
 	id = "weed_killer"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.2)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/toxin/plantbgone/weedkiller = 1)
+=======
+	make_reagent = /datum/reagent/toxin/plantbgone/weedkiller
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/pest_spray
@@ -135,7 +195,11 @@
 	id = "pest_spray"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.4)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/toxin/pestkiller = 1)
+=======
+	make_reagent = /datum/reagent/toxin/pestkiller
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/org_pest_spray
@@ -143,7 +207,11 @@
 	id = "org_pest_spray"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
+<<<<<<< HEAD
 	make_reagents = list(/datum/reagent/toxin/pestkiller/organic = 1)
+=======
+	make_reagent = /datum/reagent/toxin/pestkiller/organic
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/leather

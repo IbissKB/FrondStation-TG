@@ -8,7 +8,11 @@
 	spawn_loot_count = 2
 	loot = list( // Space loot spawner. Couple of random bits of technology-adjacent stuff including anomaly cores and BEPIS techs.
 		/obj/item/raw_anomaly_core/random,
+<<<<<<< HEAD
 		/obj/item/disk/tech_disk/spaceloot,
+=======
+		/obj/item/disk/design_disk/bepis,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/obj/item/camera_bug,
 	)
 

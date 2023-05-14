@@ -97,7 +97,11 @@
 		return
 	if(listeningTo)
 		UnregisterSignal(listeningTo, signalCache)
+<<<<<<< HEAD
 	RegisterSignal(user, signalCache, PROC_REF(disrupt))
+=======
+	RegisterSignals(user, signalCache, PROC_REF(disrupt))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	listeningTo = user
 
 /obj/item/borg_chameleon/proc/deactivate(mob/living/silicon/robot/user)

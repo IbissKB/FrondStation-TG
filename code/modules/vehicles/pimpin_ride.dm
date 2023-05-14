@@ -70,7 +70,14 @@
 /obj/vehicle/ridden/janicart/update_overlays()
 	. = ..()
 	if(trash_bag)
+<<<<<<< HEAD
 		. += "cart_garbage"
+=======
+		if(istype(trash_bag, /obj/item/storage/bag/trash/bluespace))
+			. += "cart_bluespace_garbage"
+		else
+			. += "cart_garbage"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(installed_upgrade)
 		var/mutable_appearance/overlay = new(SSgreyscale.GetColoredIconByType(installed_upgrade.overlay_greyscale_config, installed_upgrade.greyscale_colors))
 		overlay.icon_state = "janicart_upgrade"

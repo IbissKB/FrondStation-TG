@@ -11,6 +11,10 @@
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs"
 	anchored = TRUE
+<<<<<<< HEAD
+=======
+	move_resist = INFINITY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	var/force_open_above = FALSE // replaces the turf above this stair obj with /turf/open/openspace
 	var/terminator_mode = STAIR_TERMINATOR_AUTOMATIC
@@ -241,7 +245,11 @@
 			return
 		var/list/material_list = list()
 		if(material.material_type)
+<<<<<<< HEAD
 			material_list[material.material_type] = MINERAL_MATERIAL_AMOUNT * 10
+=======
+			material_list[material.material_type] = SHEET_MATERIAL_AMOUNT * 10
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		make_new_stairs(/obj/structure/stairs/material, material_list)
 	return TRUE
 
@@ -251,3 +259,10 @@
 	if(custom_materials)
 		new_stairs.set_custom_materials(custom_materials)
 	qdel(src)
+<<<<<<< HEAD
+=======
+
+#undef STAIR_TERMINATOR_AUTOMATIC
+#undef STAIR_TERMINATOR_NO
+#undef STAIR_TERMINATOR_YES
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

@@ -34,7 +34,11 @@
 	create_reagents(max_volume, DRAINABLE)
 	reagents.add_reagent(reagent_id, max_volume)
 
+<<<<<<< HEAD
 	RegisterSignals(src, list(COMSIG_REAGENTS_REM_REAGENT, COMSIG_REAGENTS_DEL_REAGENT), PROC_REF(start_chemming))
+=======
+	RegisterSignals(reagents, list(COMSIG_REAGENTS_REM_REAGENT, COMSIG_REAGENTS_DEL_REAGENT), PROC_REF(start_chemming))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	if(erupting_state)
 		icon_state = erupting_state
@@ -43,7 +47,10 @@
 		I.color = mix_color_from_reagents(reagents.reagent_list)
 		add_overlay(I)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///start making those CHHHHHEEEEEEMS. Called whenever chems are removed, it's fine because START_PROCESSING checks if we arent already processing
 /obj/structure/geyser/proc/start_chemming()
 	START_PROCESSING(SSplumbing, src) //It's main function is to be plumbed, so use SSplumbing
@@ -68,6 +75,10 @@
 		return
 
 	to_chat(user, span_notice("You discovered the geyser and mark it on the GPS system!"))
+<<<<<<< HEAD
+=======
+	SEND_SIGNAL(user, COMSIG_LIVING_DISCOVERED_GEYSER, src)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(discovery_message)
 		to_chat(user, discovery_message)
 
@@ -83,7 +94,11 @@
 		var/obj/item/card/id/card = living.get_idcard()
 		if(card)
 			to_chat(user, span_notice("[point_value] mining points have been paid out!"))
+<<<<<<< HEAD
 			card.mining_points += point_value
+=======
+			card.registered_account.mining_points += point_value
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/geyser/wittel
 	reagent_id = /datum/reagent/wittel
@@ -109,9 +124,16 @@
 	discovery_message = "It's a strange geyser! How does any of this even work?" //it doesnt
 
 /obj/structure/geyser/random/Initialize(mapload)
+<<<<<<< HEAD
 	. = ..()
 	reagent_id = get_random_reagent_id()
 
+=======
+	reagent_id = get_random_reagent_id()
+
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 ///A wearable tool that lets you empty plumbing machinery and some other stuff
 /obj/item/plunger
 	name = "plunger"
@@ -167,7 +189,11 @@
 	playsound(src, 'sound/machines/click.ogg', 10, TRUE)
 
 /obj/item/plunger/AltClick(mob/user)
+<<<<<<< HEAD
 	if(!istype(user) || !user.canUseTopic(src, be_close = TRUE))
+=======
+	if(!istype(user) || !user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	var/new_layer = tgui_input_list(user, "Select a layer", "Layer", GLOB.plumbing_layers)

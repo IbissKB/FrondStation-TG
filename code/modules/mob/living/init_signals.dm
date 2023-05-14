@@ -44,6 +44,19 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_SKITTISH), PROC_REF(on_skittish_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_SKITTISH), PROC_REF(on_skittish_trait_loss))
 
+<<<<<<< HEAD
+=======
+	RegisterSignals(src, list(SIGNAL_ADDTRAIT(TRAIT_NEGATES_GRAVITY), SIGNAL_REMOVETRAIT(TRAIT_NEGATES_GRAVITY)), PROC_REF(on_negate_gravity))
+	RegisterSignals(src, list(SIGNAL_ADDTRAIT(TRAIT_IGNORING_GRAVITY), SIGNAL_REMOVETRAIT(TRAIT_IGNORING_GRAVITY)), PROC_REF(on_ignore_gravity))
+	RegisterSignals(src, list(SIGNAL_ADDTRAIT(TRAIT_FORCED_GRAVITY), SIGNAL_REMOVETRAIT(TRAIT_FORCED_GRAVITY)), PROC_REF(on_force_gravity))
+	// We hook for forced grav changes from our turf and ourselves
+	var/static/list/loc_connections = list(
+		SIGNAL_ADDTRAIT(TRAIT_FORCED_GRAVITY) = PROC_REF(on_loc_force_gravity),
+		SIGNAL_REMOVETRAIT(TRAIT_FORCED_GRAVITY) = PROC_REF(on_loc_force_gravity),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /// Called when [TRAIT_KNOCKEDOUT] is added to the mob.
 /mob/living/proc/on_knockedout_trait_gain(datum/source)
 	SIGNAL_HANDLER
@@ -158,15 +171,23 @@
 /// Called when [TRAIT_INCAPACITATED] is added to the mob.
 /mob/living/proc/on_incapacitated_trait_gain(datum/source)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	ADD_TRAIT(src, TRAIT_UI_BLOCKED, TRAIT_INCAPACITATED)
 	ADD_TRAIT(src, TRAIT_PULL_BLOCKED, TRAIT_INCAPACITATED)
+=======
+	add_traits(list(TRAIT_UI_BLOCKED, TRAIT_PULL_BLOCKED), TRAIT_INCAPACITATED)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 
 /// Called when [TRAIT_INCAPACITATED] is removed from the mob.
 /mob/living/proc/on_incapacitated_trait_loss(datum/source)
 	SIGNAL_HANDLER
+<<<<<<< HEAD
 	REMOVE_TRAIT(src, TRAIT_UI_BLOCKED, TRAIT_INCAPACITATED)
 	REMOVE_TRAIT(src, TRAIT_PULL_BLOCKED, TRAIT_INCAPACITATED)
+=======
+	remove_traits(list(TRAIT_UI_BLOCKED, TRAIT_PULL_BLOCKED), TRAIT_INCAPACITATED)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	update_appearance()
 
 
@@ -213,3 +234,30 @@
 /mob/living/proc/on_skittish_trait_loss(datum/source)
 	SIGNAL_HANDLER
 	RemoveElement(/datum/element/skittish)
+<<<<<<< HEAD
+=======
+
+/// Called when [TRAIT_NEGATES_GRAVITY] is gained or lost
+/mob/living/proc/on_negate_gravity(datum/source)
+	SIGNAL_HANDLER
+	if(!isgroundlessturf(loc))
+		if(HAS_TRAIT(src, TRAIT_NEGATES_GRAVITY))
+			ADD_TRAIT(src, TRAIT_IGNORING_GRAVITY, IGNORING_GRAVITY_NEGATION)
+		else
+			REMOVE_TRAIT(src, TRAIT_IGNORING_GRAVITY, IGNORING_GRAVITY_NEGATION)
+
+/// Called when [TRAIT_IGNORING_GRAVITY] is gained or lost
+/mob/living/proc/on_ignore_gravity(datum/source)
+	SIGNAL_HANDLER
+	refresh_gravity()
+
+/// Called when [TRAIT_FORCED_GRAVITY] is gained or lost
+/mob/living/proc/on_force_gravity(datum/source)
+	SIGNAL_HANDLER
+	refresh_gravity()
+
+/// Called when our loc's [TRAIT_FORCED_GRAVITY] is gained or lost
+/mob/living/proc/on_loc_force_gravity(datum/source)
+	SIGNAL_HANDLER
+	refresh_gravity()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

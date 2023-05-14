@@ -15,7 +15,11 @@
 	// go with the flow to positive direction
 	return dir
 
+<<<<<<< HEAD
 // Sorting check, to be overridden in subtypes
+=======
+/// Sorting check, to be overridden in subtypes
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/disposalpipe/sorting/proc/check_sorting(obj/structure/disposalholder/H)
 	return FALSE
 
@@ -76,7 +80,11 @@
 
 
 
+<<<<<<< HEAD
 // Wrap sorting junction, sorts objects destined for the mail office mail table (tomail = 1)
+=======
+// Wrap sorting junction, sorts objects destined for the mail office mail table (tomail = TRUE)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/disposalpipe/sorting/wrap
 	desc = "An underfloor disposal pipe which sorts wrapped and unwrapped objects."
 	flip_type = /obj/structure/disposalpipe/sorting/wrap/flip

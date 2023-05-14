@@ -101,7 +101,12 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 	if(start <= lo)
 		start = lo + 1
 
+<<<<<<< HEAD
 	for(,start < hi, ++start)
+=======
+	var/list/L = src.L
+	for(start in start to hi - 1)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		var/pivot = fetchElement(L,start)
 
 		//set left and right to the index where pivot belongs
@@ -140,6 +145,10 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 	if(runHi >= hi)
 		return 1
 
+<<<<<<< HEAD
+=======
+	var/list/L = src.L
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/last = fetchElement(L,lo)
 	var/current = fetchElement(L,runHi++)
 
@@ -221,7 +230,10 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 	runLens.Cut(i+1, i+2)
 	runBases.Cut(i+1, i+2)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	//Find where the first element of run2 goes in run1.
 	//Prior elements in run1 can be ignored (because they're already in place)
 	var/k = gallopRight(fetchElement(L,base2), base1, len1, 0)
@@ -259,6 +271,10 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 /datum/sort_instance/proc/gallopLeft(key, base, len, hint)
 	//ASSERT(len > 0 && hint >= 0 && hint < len)
 
+<<<<<<< HEAD
+=======
+	var/list/L = src.L
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/lastOffset = 0
 	var/offset = 1
 	if(call(cmp)(key, fetchElement(L,base+hint)) > 0)
@@ -318,6 +334,10 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 /datum/sort_instance/proc/gallopRight(key, base, len, hint)
 	//ASSERT(len > 0 && hint >= 0 && hint < len)
 
+<<<<<<< HEAD
+=======
+	var/list/L = src.L
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/offset = 1
 	var/lastOffset = 0
 	if(call(cmp)(key, fetchElement(L,base+hint)) < 0) //key <= L[base+hint]
@@ -366,6 +386,10 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 /datum/sort_instance/proc/mergeLo(base1, len1, base2, len2)
 	//ASSERT(len1 > 0 && len2 > 0 && base1 + len1 == base2)
 
+<<<<<<< HEAD
+=======
+	var/list/L = src.L
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/cursor1 = base1
 	var/cursor2 = base2
 
@@ -468,6 +492,10 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 /datum/sort_instance/proc/mergeHi(base1, len1, base2, len2)
 	//ASSERT(len1 > 0 && len2 > 0 && base1 + len1 == base2)
 
+<<<<<<< HEAD
+=======
+	var/list/L = src.L
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/cursor1 = base1 + len1 - 1 //start at end of sublists
 	var/cursor2 = base2 + len2 - 1
 
@@ -610,6 +638,10 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 	return L
 
 /datum/sort_instance/proc/mergeAt2(i)
+<<<<<<< HEAD
+=======
+	var/list/L = src.L
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/cursor1 = runBases[i]
 	var/cursor2 = runBases[i+1]
 

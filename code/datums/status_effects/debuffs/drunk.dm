@@ -62,8 +62,13 @@
 		qdel(src)
 
 /datum/status_effect/inebriated/tick()
+<<<<<<< HEAD
 	// Drunk value does not decrease while dead
 	if(owner.stat == DEAD)
+=======
+	// Drunk value does not decrease while dead or in stasis
+	if(owner.stat == DEAD || IS_IN_STASIS(owner))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	// Every tick, the drunk value decrases by
@@ -136,7 +141,12 @@
 	// Handle the Ballmer Peak.
 	// If our owner is a scientist (has the trait "TRAIT_BALLMER_SCIENTIST"), there's a 5% chance
 	// that they'll say one of the special "ballmer message" lines, depending their drunk-ness level.
+<<<<<<< HEAD
 	if(HAS_TRAIT(owner, TRAIT_BALLMER_SCIENTIST) && prob(5))
+=======
+	var/obj/item/organ/internal/liver/liver_organ = owner.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver_organ && HAS_TRAIT(liver_organ, TRAIT_BALLMER_SCIENTIST) && prob(5))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		if(drunk_value >= BALLMER_PEAK_LOW_END && drunk_value <= BALLMER_PEAK_HIGH_END)
 			owner.say(pick_list_replacements(VISTA_FILE, "ballmer_good_msg"), forced = "ballmer")
 
@@ -172,7 +182,11 @@
 
 	// Over 71, we will constantly have blurry eyes
 	if(drunk_value >= 71)
+<<<<<<< HEAD
 		owner.blur_eyes(drunk_value - 70)
+=======
+		owner.set_eye_blur_if_lower((drunk_value * 2 SECONDS) - 140 SECONDS)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	// Over 81, we will gain constant toxloss
 	if(drunk_value >= 81)

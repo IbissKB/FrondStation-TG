@@ -46,9 +46,12 @@
 	"minetype": "none",
 	"blacklist_file": "iceruinblacklist.txt",
 	"job_changes": {
+<<<<<<< HEAD
 		"Cook": {
 			"additional_cqc_areas": ["/area/station/service/kitchen/diner"]
 		},
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		"Captain": {
 			"special_charter": "moon"
 		}

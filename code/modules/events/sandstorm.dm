@@ -15,6 +15,7 @@
 	earliest_start = 35 MINUTES
 	category = EVENT_CATEGORY_SPACE
 	description = "A wave of space dust continually grinds down a side of the station."
+<<<<<<< HEAD
 	///Where will the sandstorm be coming from -- Established in admin_setup, passed down to round_event
 	var/start_side
 
@@ -33,6 +34,12 @@
 				start_side = EAST
 			if("Left")
 				start_side = WEST
+=======
+	min_wizard_trigger_potency = 6
+	max_wizard_trigger_potency = 7
+	admin_setup = list(/datum/event_admin_setup/listed_options/sandstorm)
+	map_flags = EVENT_SPACE_ONLY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/sandstorm
 	start_when = 60
@@ -46,10 +53,14 @@
 	end_when = rand(110, 140)
 
 /datum/round_event/sandstorm/announce(fake)
+<<<<<<< HEAD
 	var/datum/round_event_control/sandstorm/sandstorm_event = control
 	if(sandstorm_event.start_side)
 		start_side = sandstorm_event.start_side
 	else
+=======
+	if(!start_side)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		start_side = pick(GLOB.cardinals)
 
 	var/start_side_text = "unknown"
@@ -89,6 +100,10 @@
 	earliest_start = 0 MINUTES
 	category = EVENT_CATEGORY_SPACE
 	description = "The station is pelted by an extreme amount of dust, from all sides, for several minutes. Very destructive and likely to cause lag. Use at own risk."
+<<<<<<< HEAD
+=======
+	map_flags = EVENT_SPACE_ONLY
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/sandstorm_classic
 	start_when = 1
@@ -98,3 +113,24 @@
 
 /datum/round_event/sandstorm_classic/tick()
 	spawn_meteors(10, GLOB.meteors_dust)
+<<<<<<< HEAD
+=======
+
+/datum/event_admin_setup/listed_options/sandstorm
+	input_text = "Choose a side to powersand?"
+	normal_run_option = "Random Sandstorm Direction"
+
+/datum/event_admin_setup/listed_options/sandstorm/get_list()
+	return list("Up", "Down", "Right", "Left")
+
+/datum/event_admin_setup/listed_options/sandstorm/apply_to_event(datum/round_event/sandstorm/event)
+	switch(chosen)
+		if("Up")
+			event.start_side = NORTH
+		if("Down")
+			event.start_side = SOUTH
+		if("Right")
+			event.start_side = EAST
+		if("Left")
+			event.start_side = WEST
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

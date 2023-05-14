@@ -18,7 +18,14 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	obj_damage = 40
+<<<<<<< HEAD
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+=======
+	// Greenish, seems about right for it
+	lighting_cutoff_red = 10
+	lighting_cutoff_green = 25
+	lighting_cutoff_blue = 20
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	attack_sound = 'sound/weapons/punch3.ogg'
 	attack_verb_continuous = "slaps"
 	attack_verb_simple = "slap"
@@ -34,7 +41,11 @@
 /mob/living/simple_animal/hostile/vatbeast/proc/tamed(mob/living/tamer)
 	buckle_lying = 0
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/vatbeast)
+<<<<<<< HEAD
 	faction = list("neutral")
+=======
+	faction = list(FACTION_NEUTRAL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /mob/living/simple_animal/hostile/vatbeast/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_VATBEAST, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
@@ -48,7 +59,11 @@
 	overlay_icon_state = "bg_revenant_border"
 	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	button_icon_state = "tentacle_slap"
+<<<<<<< HEAD
 	check_flags = AB_CHECK_CONSCIOUS
+=======
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	cooldown_time = 12 SECONDS
 	melee_cooldown_time = 0 SECONDS
 	click_to_activate = TRUE

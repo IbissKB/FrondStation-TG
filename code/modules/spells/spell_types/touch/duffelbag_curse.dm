@@ -82,5 +82,9 @@
 /obj/item/melee/touch_attack/duffelbag
 	name = "\improper burdening touch"
 	desc = "Where is the bar from here?"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/weapons/hand.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	icon_state = "duffelcurse"
 	inhand_icon_state = "duffelcurse"

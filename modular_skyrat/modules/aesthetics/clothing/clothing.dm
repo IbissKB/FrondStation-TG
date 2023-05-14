@@ -1,13 +1,17 @@
+<<<<<<< HEAD
 /*
 *	SUITS
 */
 /obj/item/clothing/suit/bio_suit/security
 	desc = "A suit that protects against biological contamination. This is a slightly outdated model from Nanotrasen Securities, using their red color-scheme and even outdated labelling. Hopefully it's still up to spec..."
 	//To recolor this would be hellish and honestly non-sensical. So, Nanotrasen Securities' bio-suit. Plus, flavor!
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /*
 *	HEAD
 */
+<<<<<<< HEAD
 /obj/item/clothing/head/bio_hood/security
 	desc = "A hood that protects the head and face from biological contaminants. This is a slightly outdated model from Nanotrasen Securities - you can hardly see through the foggy visor's ageing red. Hopefully it's still up to spec..."
 	//To recolor this would be hellish and honestly non-sensical. So, Nanotrasen Securities' bio-suit. Plus, flavor!
@@ -66,6 +70,14 @@
 	icon_state = "tigerpelt_pink"
 	inhand_icon_state = "cowboy_hat_red"
 
+=======
+
+/obj/item/clothing/head/costume/weddingveil
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
+	worn_icon_state = "weddingveil_temp"
+	//TG's is ugly as sin, until it's updated we have our own
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /*
 *	SHOES
 */
@@ -74,6 +86,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
 	icon_state = "workbootsold"
+<<<<<<< HEAD
 
 
 /*
@@ -89,3 +102,5 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd.dmi'
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/rnd.dmi'
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

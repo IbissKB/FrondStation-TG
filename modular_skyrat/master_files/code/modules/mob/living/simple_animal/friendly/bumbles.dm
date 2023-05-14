@@ -143,14 +143,22 @@
 /datum/ai_planning_subtree/bumbles_rest
 	var/chance = 0.5
 
+<<<<<<< HEAD
 /datum/ai_planning_subtree/bumbles_rest/SelectBehaviors(datum/ai_controller/controller, delta_time)
+=======
+/datum/ai_planning_subtree/bumbles_rest/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	var/mob/living/living_pawn = controller.pawn
 	if(!istype(living_pawn))
 		return
 
+<<<<<<< HEAD
 	if(living_pawn.buckled || !DT_PROB(chance, delta_time))
+=======
+	if(living_pawn.buckled || !SPT_PROB(chance, seconds_per_tick))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return
 
 	controller.queue_behavior(/datum/ai_behavior/bumbles_rest)
@@ -158,7 +166,11 @@
 /// Bumbles rests or sits up.
 /datum/ai_behavior/bumbles_rest
 
+<<<<<<< HEAD
 /datum/ai_behavior/bumbles_rest/perform(delta_time, datum/ai_controller/controller)
+=======
+/datum/ai_behavior/bumbles_rest/perform(seconds_per_tick, datum/ai_controller/controller)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 
 	var/mob/living/living_pawn = controller.pawn

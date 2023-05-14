@@ -5,17 +5,35 @@
 	id = SPECIES_SHADOW
 	sexes = 0
 	meat = /obj/item/food/meat/slab/human/mutant/shadow
+<<<<<<< HEAD
 	species_traits = list(NOBLOOD,NOEYESPRITES)
+=======
+	species_traits = list(
+		NOEYESPRITES,
+	)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	inherent_traits = list(
 		TRAIT_NOBREATH,
 		TRAIT_RADIMMUNE,
 		TRAIT_VIRUSIMMUNE,
+<<<<<<< HEAD
 	)
 	inherent_factions = list("faithless")
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC
 
 	mutantbrain = /obj/item/organ/internal/brain/shadow
 	mutanteyes = /obj/item/organ/internal/eyes/night_vision/shadow
+=======
+		TRAIT_NOBLOOD,
+	)
+	inherent_factions = list(FACTION_FAITHLESS)
+	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC
+
+	mutantbrain = /obj/item/organ/internal/brain/shadow
+	mutanteyes = /obj/item/organ/internal/eyes/shadow
+	mutantheart = null
+	mutantlungs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 	species_language_holder = /datum/language_holder/shadowpeople
 	examine_limb_id = SPECIES_SHADOW // SKYRAT EDIT: Fixing Shadowpeople
@@ -88,7 +106,11 @@
 	desc = "Something that was once a brain, before being remolded by a shadowling. It has adapted to the dark, irreversibly."
 	icon = 'icons/obj/medical/organs/shadow_organs.dmi'
 
+<<<<<<< HEAD
 /obj/item/organ/internal/brain/shadow/on_life(delta_time, times_fired)
+=======
+/obj/item/organ/internal/brain/shadow/on_life(seconds_per_tick, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	. = ..()
 	var/turf/owner_turf = owner.loc
 	if(!isturf(owner_turf))
@@ -96,6 +118,7 @@
 	var/light_amount = owner_turf.get_lumcount()
 
 	if(light_amount > SHADOW_SPECIES_LIGHT_THRESHOLD) //if there's enough light, start dying
+<<<<<<< HEAD
 		owner.take_overall_damage(0.5 * delta_time, 0.5 * delta_time, 0, BODYTYPE_ORGANIC)
 	else if (light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD) //heal in the dark
 		owner.heal_overall_damage(0.5 * delta_time, 0.5 * delta_time, BODYTYPE_ORGANIC)
@@ -104,3 +127,15 @@
 	name = "burning red eyes"
 	desc = "Even without their shadowy owner, looking at these eyes gives you a sense of dread."
 	icon = 'icons/obj/medical/organs/shadow_organs.dmi'
+=======
+		owner.take_overall_damage(brute = 0.5 * seconds_per_tick, burn = 0.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+	else if (light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD) //heal in the dark
+		owner.heal_overall_damage(brute = 0.5 * seconds_per_tick, burn = 0.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+
+/obj/item/organ/internal/eyes/shadow
+	name = "burning red eyes"
+	desc = "Even without their shadowy owner, looking at these eyes gives you a sense of dread."
+	icon = 'icons/obj/medical/organs/shadow_organs.dmi'
+	color_cutoffs = list(20, 10, 40)
+	pepperspray_protect = TRUE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

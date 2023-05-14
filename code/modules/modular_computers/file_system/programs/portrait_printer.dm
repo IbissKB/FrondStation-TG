@@ -43,10 +43,14 @@
 		get_asset_datum(/datum/asset/simple/portraits)
 	)
 
+<<<<<<< HEAD
 /datum/computer_file/program/portrait_printer/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
+=======
+/datum/computer_file/program/portrait_printer/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	switch(action)
 		if("search")
 			if(search_string != params["to_search"])

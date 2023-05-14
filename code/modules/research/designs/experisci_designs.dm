@@ -3,7 +3,11 @@
 	desc = "Experimental scanning unit used for performing scanning experiments."
 	id = "experi_scanner"
 	build_type = PROTOLATHE | AWAY_LATHE
+<<<<<<< HEAD
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
+=======
+	materials = list(/datum/material/glass =SMALL_MATERIAL_AMOUNT*5, /datum/material/iron =SMALL_MATERIAL_AMOUNT*5)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	build_path = /obj/item/experi_scanner
 	category = list(
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE

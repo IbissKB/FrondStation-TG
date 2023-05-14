@@ -9,6 +9,11 @@
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns an angry, soul sucking ghost."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 4
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 
 /datum/round_event/ghost_role/revenant
@@ -46,9 +51,13 @@
 			if(T && is_station_level(T.z))
 				spawn_locs += T
 	if(!spawn_locs.len) //If we can't find any valid spawnpoints, try the carp spawns
+<<<<<<< HEAD
 		for(var/obj/effect/landmark/carpspawn/L in GLOB.landmarks_list)
 			if(isturf(L.loc))
 				spawn_locs += L.loc
+=======
+		spawn_locs += find_space_spawn()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!spawn_locs.len) //If we can't find either, just spawn the revenant at the player's location
 		spawn_locs += get_turf(selected)
 	if(!spawn_locs.len) //If we can't find THAT, then just give up and cry
@@ -60,3 +69,8 @@
 	revvie.log_message("was spawned as a revenant by an event.", LOG_GAME)
 	spawned_mobs += revvie
 	return SUCCESSFUL_SPAWN
+<<<<<<< HEAD
+=======
+
+#undef REVENANT_SPAWN_THRESHOLD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

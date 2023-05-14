@@ -14,7 +14,11 @@
 	max_integrity = 200
 
 
+<<<<<<< HEAD
 	var/faction = list("ashwalker")
+=======
+	var/faction = list(FACTION_ASHWALKER)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	var/meat_counter = 6
 	var/datum/team/ashwalkers/ashies
 	var/datum/linked_objective
@@ -110,3 +114,8 @@
 		new /obj/effect/mob_spawn/ghost_role/human/ash_walker(get_step(loc, pick(GLOB.alldirs)), ashies)
 		visible_message(span_danger("One of the eggs swells to an unnatural size and tumbles free. It's ready to hatch!"))
 		meat_counter -= ASH_WALKER_SPAWN_THRESHOLD
+<<<<<<< HEAD
+=======
+
+#undef ASH_WALKER_SPAWN_THRESHOLD
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

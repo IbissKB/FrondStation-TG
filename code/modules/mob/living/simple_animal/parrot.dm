@@ -134,6 +134,13 @@
 						/obj/item/radio/headset/headset_cargo)
 		ears = new headset(src)
 
+<<<<<<< HEAD
+=======
+/mob/living/simple_animal/parrot/Destroy()
+	QDEL_NULL(ears)
+	return ..()
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /mob/living/simple_animal/parrot/examine(mob/user)
 	. = ..()
 	if(stat)
@@ -379,7 +386,11 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 /*
  * AI - Not really intelligent, but I'm calling it AI anyway.
  */
+<<<<<<< HEAD
 /mob/living/simple_animal/parrot/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+/mob/living/simple_animal/parrot/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	..()
 
 	//Sprite update for when a parrot gets pulled
@@ -923,7 +934,14 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 
 	. = ..()
 
+<<<<<<< HEAD
 /mob/living/simple_animal/parrot/poly/Life(delta_time = SSMOBS_DT, times_fired)
+=======
+	// Ensure 1 Poly exists
+	REGISTER_REQUIRED_MAP_ITEM(1, 1)
+
+/mob/living/simple_animal/parrot/poly/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	if(!stat && SSticker.current_state == GAME_STATE_FINISHED && !memory_saved)
 		Write_Memory(FALSE)
 		memory_saved = TRUE
@@ -1022,3 +1040,14 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	H.ForceContractDisease(P, FALSE)
 	parrot_interest = null
 	H.visible_message(span_danger("[src] dive bombs into [H]'s chest and vanishes!"), span_userdanger("[src] dive bombs into your chest, vanishing! This can't be good!"))
+<<<<<<< HEAD
+=======
+
+#undef PARROT_PERCH
+#undef PARROT_SWOOP
+#undef PARROT_WANDER
+#undef PARROT_STEAL
+#undef PARROT_ATTACK
+#undef PARROT_RETURN
+#undef PARROT_FLEE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

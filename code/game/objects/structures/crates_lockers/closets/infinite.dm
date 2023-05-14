@@ -23,9 +23,15 @@
 	if(replicating_type && !opened && (length(contents) < stop_replicating_at))
 		new replicating_type(src)
 
+<<<<<<< HEAD
 /obj/structure/closet/infinite/open(mob/living/user, force = FALSE)
 	. = ..()
 	if(. && auto_close_time)
+=======
+/obj/structure/closet/infinite/after_close(mob/living/user, force)
+	. = ..()
+	if(auto_close_time)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		addtimer(CALLBACK(src, PROC_REF(close_on_my_own)), auto_close_time, TIMER_OVERRIDE | TIMER_UNIQUE)
 
 /obj/structure/closet/infinite/proc/close_on_my_own()

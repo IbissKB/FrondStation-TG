@@ -105,17 +105,31 @@ COLORED_SOFA(/obj/structure/chair/sofa, maroon, SOFA_MAROON)
 /obj/structure/chair/sofa/bench/left
 	icon_state = "bench_left"
 	greyscale_config = /datum/greyscale_config/bench_left
+<<<<<<< HEAD
 	greyscale_colors = "#af7d28"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/chair/sofa/bench/right
 	icon_state = "bench_right"
 	greyscale_config = /datum/greyscale_config/bench_right
+<<<<<<< HEAD
 	greyscale_colors = "#af7d28"
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/chair/sofa/bench/corner
 	icon_state = "bench_corner"
 	greyscale_config = /datum/greyscale_config/bench_corner
+<<<<<<< HEAD
 	greyscale_colors = "#af7d28"
+=======
+
+/obj/structure/chair/sofa/bench/solo
+	icon_state = "bench_solo"
+	greyscale_config = /datum/greyscale_config/bench_solo
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 // Bamboo benches
 /obj/structure/chair/sofa/bamboo

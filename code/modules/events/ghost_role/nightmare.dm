@@ -6,6 +6,11 @@
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a nightmare, aiming to darken the station."
+<<<<<<< HEAD
+=======
+	min_wizard_trigger_potency = 6
+	max_wizard_trigger_potency = 7
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /datum/round_event/ghost_role/nightmare
 	minimum_required = 1
@@ -22,6 +27,7 @@
 	var/datum/mind/player_mind = new /datum/mind(selected.key)
 	player_mind.active = TRUE
 
+<<<<<<< HEAD
 	var/list/spawn_locs = list()
 	for(var/X in GLOB.xeno_spawn)
 		var/turf/T = X
@@ -34,6 +40,13 @@
 		return MAP_ERROR
 
 	var/mob/living/carbon/human/S = new ((pick(spawn_locs)))
+=======
+	var/turf/spawn_loc = find_maintenance_spawn(atmos_sensitive = TRUE, require_darkness = TRUE)
+	if(isnull(spawn_loc))
+		return MAP_ERROR
+
+	var/mob/living/carbon/human/S = new (spawn_loc)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	player_mind.transfer_to(S)
 	player_mind.set_assigned_role(SSjob.GetJobType(/datum/job/nightmare))
 	player_mind.special_role = ROLE_NIGHTMARE

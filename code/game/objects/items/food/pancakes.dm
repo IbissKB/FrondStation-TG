@@ -11,6 +11,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	burns_on_grill = TRUE
 	venue_value = FOOD_PRICE_CHEAP
+<<<<<<< HEAD
+=======
+	///Used as a base name while generating the icon states when stacked
+	var/stack_name = "pancakes"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/food/pancakes/raw
 	name = "goopy pancake"
@@ -19,8 +24,14 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("milky batter" = 1)
 	burns_on_grill = FALSE
+<<<<<<< HEAD
 
 /obj/item/food/pancakes/raw/MakeGrillable()
+=======
+	stack_name = "rawpancakes"
+
+/obj/item/food/pancakes/raw/make_grillable()
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	AddComponent(/datum/component/grillable,\
 				cook_result = /obj/item/food/pancakes,\
 				required_cook_time = rand(30 SECONDS, 40 SECONDS),\
@@ -33,12 +44,20 @@
 		newresult = /obj/item/food/pancakes/blueberry
 		name = "raw blueberry pancake"
 		icon_state = "rawbbpancakes_1"
+<<<<<<< HEAD
 		inhand_icon_state = "rawbbpancakes"
+=======
+		stack_name = "rawbbpancakes"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(istype(garnish, /obj/item/food/chocolatebar))
 		newresult = /obj/item/food/pancakes/chocolatechip
 		name = "raw chocolate chip pancake"
 		icon_state = "rawccpancakes_1"
+<<<<<<< HEAD
 		inhand_icon_state = "rawccpancakes"
+=======
+		stack_name = "rawccpancakes"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else
 		return ..()
 	if(newresult)
@@ -55,15 +74,33 @@
 	name = "blueberry pancake"
 	desc = "A fluffy and delicious blueberry pancake."
 	icon_state = "bbpancakes_1"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("pancakes" = 1, "blueberries" = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+	tastes = list("pancakes" = 1, "blueberries" = 1)
+	stack_name = "bbpancakes"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/food/pancakes/chocolatechip
 	name = "chocolate chip pancake"
 	desc = "A fluffy and delicious chocolate chip pancake."
 	icon_state = "ccpancakes_1"
+<<<<<<< HEAD
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("pancakes" = 1, "chocolate" = 1)
+=======
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+	tastes = list("pancakes" = 1, "chocolate" = 1)
+	stack_name = "ccpancakes"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/item/food/pancakes/Initialize(mapload)
 	. = ..()
@@ -130,8 +167,13 @@
 		return O.attackby(item, user, params)
 	..()
 
+<<<<<<< HEAD
 /obj/item/food/pancakes/proc/update_snack_overlays(obj/item/pancake)
 	var/mutable_appearance/pancake_visual = mutable_appearance(icon, "[pancake.inhand_icon_state]_[rand(1, 3)]")
+=======
+/obj/item/food/pancakes/proc/update_snack_overlays(obj/item/food/pancakes/pancake)
+	var/mutable_appearance/pancake_visual = mutable_appearance(icon, "[pancake.stack_name]_[rand(1, 3)]")
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	pancake_visual.pixel_x = rand(-1, 1)
 	pancake_visual.pixel_y = 3 * contents.len - 1
 	add_overlay(pancake_visual)

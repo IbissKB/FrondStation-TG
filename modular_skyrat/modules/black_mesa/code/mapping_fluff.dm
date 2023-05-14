@@ -61,4 +61,10 @@
 	icon_state = "pod"
 	pixel_x = SUPPLYPOD_X_OFFSET
 	anchored = TRUE
+<<<<<<< HEAD
+=======
+	
+/obj/structure/closet/secure_closet/security/black_mesa
+	req_access = list(ACCESS_AWAY_SEC)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 

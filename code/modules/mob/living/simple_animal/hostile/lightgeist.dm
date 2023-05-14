@@ -34,7 +34,11 @@
 	initial_language_holder = /datum/language_holder/lightbringer
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 	light_range = 4
+<<<<<<< HEAD
 	faction = list("neutral")
+=======
+	faction = list(FACTION_NEUTRAL)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	del_on_death = TRUE
 	unsuitable_atmos_damage = 0
 	minbodytemp = 0
@@ -47,6 +51,19 @@
 /mob/living/simple_animal/hostile/lightgeist/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
+<<<<<<< HEAD
+=======
+	AddComponent(\
+		/datum/component/healing_touch,\
+		heal_brute = melee_damage_upper,\
+		heal_burn = melee_damage_upper,\
+		heal_time = 0,\
+		valid_targets_typecache = typecacheof(list(/mob/living)),\
+		action_text = "%SOURCE% begins mending the wounds of %TARGET%",\
+		complete_text = "%TARGET%'s wounds mend together.",\
+	)
+
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	remove_verb(src, /mob/living/verb/pulled)
 	remove_verb(src, /mob/verb/me_verb)
 	var/datum/atom_hud/medsensor = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
@@ -63,6 +80,7 @@
 	if(istype(target, /obj/structure/ladder)) //special case where lightgeists can use ladders properly.
 		var/obj/structure/ladder/laddy = target
 		laddy.use(src)
+<<<<<<< HEAD
 		return
 	if(!isliving(target) || target == src)
 		return
@@ -71,3 +89,5 @@
 		living_target.heal_overall_damage(melee_damage_upper, melee_damage_upper)
 		new /obj/effect/temp_visual/heal(get_turf(target), "#80F5FF")
 		visible_message(span_notice("[src] mends the wounds of [target]."),span_notice("You mend the wounds of [target]."))
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7

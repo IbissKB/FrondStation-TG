@@ -48,9 +48,13 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/plating,
 /area/ruin/powered/golem_ship)
 "i" = (
@@ -83,15 +87,25 @@
 /turf/open/floor/mineral/titanium/purple,
 /area/ruin/powered/golem_ship)
 "p" = (
+<<<<<<< HEAD
 /obj/item/circuitboard/machine/ore_redemption,
 /obj/structure/frame/machine,
 /obj/item/stack/cable_coil/five,
+=======
+/obj/structure/frame/machine,
+/obj/item/stack/cable_coil/five,
+/obj/item/circuitboard/machine/ore_redemption/offstation,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/mineral/titanium/purple,
 /area/ruin/powered/golem_ship)
 "q" = (
 /obj/structure/statue/gold/rd,
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "shrine of the liberator"
 	},
 /obj/machinery/light/directional/west,
@@ -117,8 +131,12 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	name = "shrine of the liberator"
 	},
 /turf/open/floor/mineral/titanium/purple,

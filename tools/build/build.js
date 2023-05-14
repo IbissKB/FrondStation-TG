@@ -65,7 +65,11 @@ export const DmMapsIncludeTarget = new Juke.Target({
 });
 
 export const DmTarget = new Juke.Target({
+<<<<<<< HEAD
   parameters: [DefineParameter, DmVersionParameter],
+=======
+  parameters: [DefineParameter, DmVersionParameter, WarningParameter],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
   ],
@@ -98,7 +102,11 @@ export const DmTarget = new Juke.Target({
 });
 
 export const DmTestTarget = new Juke.Target({
+<<<<<<< HEAD
   parameters: [DefineParameter, DmVersionParameter],
+=======
+  parameters: [DefineParameter, DmVersionParameter, WarningParameter],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
   ],
@@ -132,7 +140,11 @@ export const DmTestTarget = new Juke.Target({
 });
 
 export const AutowikiTarget = new Juke.Target({
+<<<<<<< HEAD
   parameters: [DefineParameter, DmVersionParameter],
+=======
+  parameters: [DefineParameter, DmVersionParameter, WarningParameter],
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
   ],

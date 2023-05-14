@@ -7,8 +7,13 @@
 	category = EVENT_CATEGORY_FRIENDLY
 	description = "A colourful display can be seen through select windows. And the kitchen."
 
+<<<<<<< HEAD
 /datum/round_event_control/aurora_caelus/can_spawn_event(players)
 	if(!CONFIG_GET(flag/starlight) && !(SSmapping.empty_space))
+=======
+/datum/round_event_control/aurora_caelus/can_spawn_event(players, allow_magic = FALSE)
+	if(!SSmapping.empty_space)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return FALSE
 	return ..()
 
@@ -45,6 +50,10 @@
 				ruined_roast.atmos_spawn_air("plasma=100;TEMP=1000")
 				message_admins("Aurora Caelus event caused an oven to ignite at [ADMIN_VERBOSEJMP(ruined_roast)].")
 				log_game("Aurora Caelus event caused an oven to ignite at [loc_name(ruined_roast)].")
+<<<<<<< HEAD
+=======
+				announce_to_ghosts(roast_ruiner)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 			for(var/mob/living/carbon/human/seymour as anything in GLOB.human_list)
 				if(seymour.mind && istype(seymour.mind.assigned_role, /datum/job/cook))
 					seymour.say("My roast is ruined!!!", forced = "ruined roast")

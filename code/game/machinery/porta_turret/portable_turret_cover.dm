@@ -88,7 +88,11 @@
 /obj/machinery/porta_turret_cover/emag_act(mob/user)
 	if(!(parent_turret.obj_flags & EMAGGED))
 		to_chat(user, span_notice("You short out [parent_turret]'s threat assessment circuits."))
+<<<<<<< HEAD
 		visible_message(span_hear("[parent_turret] hums oddly..."))
+=======
+		audible_message(span_hear("[parent_turret] hums oddly..."))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		parent_turret.obj_flags |= EMAGGED
 		parent_turret.on = FALSE
 		addtimer(VARSET_CALLBACK(parent_turret, on, TRUE), 4 SECONDS)

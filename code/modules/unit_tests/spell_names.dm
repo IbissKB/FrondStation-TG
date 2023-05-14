@@ -24,7 +24,11 @@
 			continue
 
 		if(spell_name in existing_names)
+<<<<<<< HEAD
 			Fail("Spell: [spell_name] ([spell_type]) had a name identical to another spell. \
+=======
+			TEST_FAIL("Spell: [spell_name] ([spell_type]) had a name identical to another spell. \
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				This can cause confusion for admins giving out spells, and while debugging. \
 				Consider giving the name an adjective if it's a subtype. (\"Greater\", \"Lesser\", \"Deadly\".)")
 			continue

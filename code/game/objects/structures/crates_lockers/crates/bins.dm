@@ -2,12 +2,20 @@
 	desc = "A trash bin, place your trash here for the janitor to collect."
 	name = "trash bin"
 	icon_state = "largebins"
+<<<<<<< HEAD
+=======
+	base_icon_state = "largebins"
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	open_sound = 'sound/effects/bin_open.ogg'
 	close_sound = 'sound/effects/bin_close.ogg'
 	anchored = TRUE
 	horizontal = FALSE
 	delivery_icon = null
 	can_install_electronics = FALSE
+<<<<<<< HEAD
+=======
+	paint_jobs = null
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 
 /obj/structure/closet/crate/bin/Initialize(mapload)
 	. = ..()

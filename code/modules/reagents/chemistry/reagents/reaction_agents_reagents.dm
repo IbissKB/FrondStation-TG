@@ -22,6 +22,10 @@
 	color = "#fbc314"
 	ph = 0
 	inverse_chem = null
+<<<<<<< HEAD
+=======
+	fallback_icon = 'icons/obj/drinks/drink_effects.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fallback_icon_state = "acid_buffer_fallback"
 	///The strength of the buffer where (volume/holder.total_volume)*strength. So for 1u added to 50u the ph will decrease by 0.4
 	var/strength = 30
@@ -48,6 +52,10 @@
 	color = "#3853a4"
 	ph = 14
 	inverse_chem = null
+<<<<<<< HEAD
+=======
+	fallback_icon = 'icons/obj/drinks/drink_effects.dmi'
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	fallback_icon_state = "base_buffer_fallback"
 	///The strength of the buffer where (volume/holder.total_volume)*strength. So for 1u added to 50u the ph will increase by 0.4
 	var/strength = 30

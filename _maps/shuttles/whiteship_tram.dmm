@@ -166,8 +166,12 @@
 /turf/closed/wall/mineral/titanium/survival/nodiagonal,
 /area/shuttle/abandoned/cargo)
 "ax" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -175,8 +179,12 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/cargo)
 "az" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -186,8 +194,12 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/cargo)
 "aA" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1;
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -401,8 +413,12 @@
 /turf/open/floor/pod,
 /area/shuttle/abandoned/cargo)
 "bo" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 4;
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -476,7 +492,11 @@
 /turf/closed/wall/mineral/titanium/survival/nodiagonal,
 /area/shuttle/abandoned/cargo)
 "bA" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -488,7 +508,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/cargo)
 "bB" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -622,7 +646,11 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced/plasma/spawner,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/west,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
@@ -712,8 +740,12 @@
 /turf/open/floor/mineral/titanium/airless,
 /area/shuttle/abandoned/cargo)
 "cr" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
 	dir = 8;
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -725,8 +757,13 @@
 /turf/open/floor/mineral/titanium/airless,
 /area/shuttle/abandoned/cargo)
 "cx" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 4
 	},
@@ -798,7 +835,11 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned/cargo)
 "cL" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/survival_pod{
+=======
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	opacity = 1
 	},
 /obj/effect/turf_decal/bot_red,
@@ -822,8 +863,13 @@
 /turf/template_noop,
 /area/shuttle/abandoned/cargo)
 "cO" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/west,
 /obj/structure/window/reinforced/plasma/spawner/east,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned/cargo)
@@ -852,12 +898,21 @@
 /turf/template_noop,
 /area/shuttle/abandoned/cargo)
 "cV" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/west,
 /obj/structure/window/reinforced/plasma/spawner/east,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned/cargo)
 "cY" = (
 /obj/structure/window/reinforced/spawner/east,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/plating/airless,
+/area/shuttle/abandoned/cargo)
+"cY" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/abandoned/cargo)
@@ -1079,7 +1134,11 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced/plasma/spawner,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/plasma/spawner/east,
+=======
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
@@ -1252,7 +1311,11 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 10
 	},
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/crew)
 "AC" = (
@@ -1281,7 +1344,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/bridge)
 "Fp" = (
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/west,
+=======
+/obj/structure/window/reinforced/spawner/directional/west,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/abandoned/cargo)
@@ -1394,7 +1461,11 @@
 "Qm" = (
 /obj/structure/closet/syndicate,
 /obj/effect/turf_decal/bot_white,
+<<<<<<< HEAD
 /obj/structure/window/reinforced/spawner/north,
+=======
+/obj/structure/window/reinforced/spawner/directional/north,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/crew)
 "Qy" = (

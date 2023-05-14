@@ -42,7 +42,10 @@
 		/mob/living/simple_animal/crab/evil/kreb,
 		/mob/living/simple_animal/crab/jon,
 		/mob/living/simple_animal/crab/kreb,
+<<<<<<< HEAD
 		/mob/living/simple_animal/deer,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/drone,
 		/mob/living/simple_animal/drone/classic,
 		/mob/living/simple_animal/drone/derelict,
@@ -78,7 +81,10 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnairehead,
 		/mob/living/simple_animal/hostile/asteroid/elite/pandora,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/asteroid/fugu,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/asteroid/goldgrub,
 		/mob/living/simple_animal/hostile/asteroid/goliath,
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast,
@@ -127,6 +133,7 @@
 		/mob/living/simple_animal/hostile/boss,
 		/mob/living/simple_animal/hostile/boss/paper_wizard,
 		/mob/living/simple_animal/hostile/boss/paper_wizard/copy,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/carp,
 		/mob/living/simple_animal/hostile/carp/cayenne,
 		/mob/living/simple_animal/hostile/carp/holocarp,
@@ -136,6 +143,8 @@
 		/mob/living/simple_animal/hostile/carp/ranged/chaos,
 		/mob/living/simple_animal/hostile/carp/ranged/chaos/xenobiology,
 		/mob/living/simple_animal/hostile/carp/ranged/xenobiology,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/cat_butcherer,
 		/mob/living/simple_animal/hostile/construct,
 		/mob/living/simple_animal/hostile/construct/artificer,
@@ -158,6 +167,7 @@
 		/mob/living/simple_animal/hostile/construct/wraith/noncult,
 		/mob/living/simple_animal/hostile/dark_wizard,
 		/mob/living/simple_animal/hostile/eyeball,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/faithless,
 		/mob/living/simple_animal/hostile/giant_spider,
 		/mob/living/simple_animal/hostile/giant_spider/hunter,
@@ -173,10 +183,13 @@
 		/mob/living/simple_animal/hostile/giant_spider/tarantula/scrawny,
 		/mob/living/simple_animal/hostile/giant_spider/viper,
 		/mob/living/simple_animal/hostile/giant_spider/viper/wizard,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/gorilla,
 		/mob/living/simple_animal/hostile/gorilla/cargo_domestic,
 		/mob/living/simple_animal/hostile/guardian,
 		/mob/living/simple_animal/hostile/guardian/assassin,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/guardian/beam,
 		/mob/living/simple_animal/hostile/guardian/bomb,
 		/mob/living/simple_animal/hostile/guardian/charger,
@@ -187,6 +200,18 @@
 		/mob/living/simple_animal/hostile/guardian/protector,
 		/mob/living/simple_animal/hostile/guardian/punch,
 		/mob/living/simple_animal/hostile/guardian/ranged,
+=======
+		/mob/living/simple_animal/hostile/guardian/charger,
+		/mob/living/simple_animal/hostile/guardian/dextrous,
+		/mob/living/simple_animal/hostile/guardian/explosive,
+		/mob/living/simple_animal/hostile/guardian/gaseous,
+		/mob/living/simple_animal/hostile/guardian/gravitokinetic,
+		/mob/living/simple_animal/hostile/guardian/lightning,
+		/mob/living/simple_animal/hostile/guardian/protector,
+		/mob/living/simple_animal/hostile/guardian/ranged,
+		/mob/living/simple_animal/hostile/guardian/standard,
+		/mob/living/simple_animal/hostile/guardian/support,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/headcrab,
 		/mob/living/simple_animal/hostile/heretic_summon,
 		/mob/living/simple_animal/hostile/heretic_summon/armsy,
@@ -254,10 +279,13 @@
 		/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,
 		/mob/living/simple_animal/hostile/nanotrasen/ranged/smg,
 		/mob/living/simple_animal/hostile/nanotrasen/screaming,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/netherworld,
 		/mob/living/simple_animal/hostile/netherworld/blankbody,
 		/mob/living/simple_animal/hostile/netherworld/migo,
 		/mob/living/simple_animal/hostile/netherworld/statue,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/ooze,
 		/mob/living/simple_animal/hostile/ooze/gelatinous,
 		/mob/living/simple_animal/hostile/ooze/grapes,
@@ -269,8 +297,11 @@
 		/mob/living/simple_animal/hostile/regalrat,
 		/mob/living/simple_animal/hostile/regalrat/controlled,
 		/mob/living/simple_animal/hostile/retaliate,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/retaliate/bat,
 		/mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/retaliate/clown,
 		/mob/living/simple_animal/hostile/retaliate/clown/banana,
 		/mob/living/simple_animal/hostile/retaliate/clown/clownhulk,
@@ -284,7 +315,10 @@
 		/mob/living/simple_animal/hostile/retaliate/clown/mutant,
 		/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton,
 		/mob/living/simple_animal/hostile/retaliate/clown/mutant/slow,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/retaliate/ghost,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/retaliate/goat,
 		/mob/living/simple_animal/hostile/retaliate/goose,
 		/mob/living/simple_animal/hostile/retaliate/goose/vomit,
@@ -294,11 +328,14 @@
 		/mob/living/simple_animal/hostile/retaliate/spaceman,
 		/mob/living/simple_animal/hostile/retaliate/trader,
 		/mob/living/simple_animal/hostile/retaliate/trader/mrbones,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/russian,
 		/mob/living/simple_animal/hostile/russian/ranged,
 		/mob/living/simple_animal/hostile/russian/ranged/mosin,
 		/mob/living/simple_animal/hostile/russian/ranged/officer,
 		/mob/living/simple_animal/hostile/russian/ranged/trooper,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/skeleton,
 		/mob/living/simple_animal/hostile/skeleton/eskimo,
 		/mob/living/simple_animal/hostile/skeleton/ice,
@@ -308,6 +345,7 @@
 		/mob/living/simple_animal/hostile/smspider,
 		/mob/living/simple_animal/hostile/smspider/overcharged,
 		/mob/living/simple_animal/hostile/space_dragon,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/syndicate,
 		/mob/living/simple_animal/hostile/syndicate/civilian,
 		/mob/living/simple_animal/hostile/syndicate/mecha_pilot,
@@ -339,6 +377,10 @@
 		/mob/living/simple_animal/hostile/vatbeast,
 		/mob/living/simple_animal/hostile/venus_human_trap,
 		/mob/living/simple_animal/hostile/viscerator,
+=======
+		/mob/living/simple_animal/hostile/vatbeast,
+		/mob/living/simple_animal/hostile/venus_human_trap,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/wizard,
 		/mob/living/simple_animal/hostile/zombie,
 		/mob/living/simple_animal/parrot,
@@ -384,7 +426,10 @@
 		/mob/living/simple_animal/hostile/abductor/melee,
 		/mob/living/simple_animal/hostile/abductor/ranged,
 		/mob/living/simple_animal/hostile/abductor/ranged/agent,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/alien/mine_mob,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/bear/wojtek,
 		/mob/living/simple_animal/hostile/bigcrab,
 		/mob/living/simple_animal/hostile/biohazard_blob,
@@ -414,7 +459,10 @@
 		/mob/living/simple_animal/hostile/blackmesa/xen/nihilanth,
 		/mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt,
 		/mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt/slave,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/carp/megacarp/shorki,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/cazador,
 		/mob/living/simple_animal/hostile/cult,
 		/mob/living/simple_animal/hostile/cult/assassin,
@@ -437,7 +485,10 @@
 		/mob/living/simple_animal/hostile/evilborg/protect,
 		/mob/living/simple_animal/hostile/evilborg/roomba,
 		/mob/living/simple_animal/hostile/evilborg/sec,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/giant_spider/badnana_spider,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/looter,
 		/mob/living/simple_animal/hostile/looter/big,
 		/mob/living/simple_animal/hostile/looter/crusher,
@@ -450,13 +501,17 @@
 		/mob/living/simple_animal/hostile/megafauna/hierophant/astrum,
 		/mob/living/simple_animal/hostile/mining_drone/interdyne,
 		/mob/living/simple_animal/hostile/mutantliz,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/netherworld/migo/mine_mob,
 		/mob/living/simple_animal/hostile/netherworld/mine_mob,
 		/mob/living/simple_animal/hostile/ooze/grapes/mine_mob,
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/plantmutant,
 		/mob/living/simple_animal/hostile/retaliate/tegu,
 		/mob/living/simple_animal/hostile/retaliate/tegu/gus,
 		/mob/living/simple_animal/hostile/scorpion,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/syndicate/civilian/scientist,
 		/mob/living/simple_animal/hostile/syndicate/melee/anthro,
 		/mob/living/simple_animal/hostile/syndicate/melee/space/anthro,
@@ -472,6 +527,11 @@
 		/mob/living/simple_animal/hostile/trog,
 		/mob/living/simple_animal/hostile/true_changeling,
 		/mob/living/simple_animal/hostile/viscerator/nri,
+=======
+		/mob/living/simple_animal/hostile/syndimouse,
+		/mob/living/simple_animal/hostile/trog,
+		/mob/living/simple_animal/hostile/true_changeling,
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		/mob/living/simple_animal/hostile/vox,
 		/mob/living/simple_animal/hostile/vox/melee,
 		/mob/living/simple_animal/hostile/vox/ranged,

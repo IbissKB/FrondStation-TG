@@ -13,6 +13,14 @@
 	if(issilicon(accessor))
 		if(ispAI(accessor))
 			return FALSE
+<<<<<<< HEAD
+=======
+		if(!(ROLE_SYNDICATE in accessor.faction))
+			if((ACCESS_SYNDICATE in req_access) || (ACCESS_SYNDICATE_LEADER in req_access) || (ACCESS_SYNDICATE in req_one_access) || (ACCESS_SYNDICATE_LEADER in req_one_access))
+				return FALSE
+			if(onSyndieBase() && loc != accessor)
+				return FALSE
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE //AI can do whatever it wants
 	if(isAdminGhostAI(accessor))
 		//Access can't stop the abuse
@@ -23,7 +31,10 @@
 	//If the mob is holding a valid ID, we let them in. get_active_held_item() is on the mob level, so no need to copypasta everywhere.
 	else if(check_access(accessor.get_active_held_item()))
 		return TRUE
+<<<<<<< HEAD
 	//if they are wearing a card that has access, that works
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	else if(ishuman(accessor))
 		var/mob/living/carbon/human/human_accessor = accessor
 		if(check_access(human_accessor.wear_id))
@@ -52,6 +63,7 @@
 /obj/item/proc/InsertID()
 	return FALSE
 
+<<<<<<< HEAD
 /obj/proc/text2access(access_text)
 	. = list()
 	if(!access_text)
@@ -74,17 +86,23 @@
 		for(var/b in text2access(req_one_access_txt))
 			req_one_access += b
 
+=======
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 // Check if an item has access to this object
 /obj/proc/check_access(obj/item/I)
 	return check_access_list(I ? I.GetAccess() : null)
 
 /obj/proc/check_access_list(list/access_list)
+<<<<<<< HEAD
 	gen_access()
 
 	if(!islist(req_access)) //something's very wrong
 		return TRUE
 
 	if(!req_access.len && !length(req_one_access))
+=======
+	if(!length(req_access) && !length(req_one_access))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		return TRUE
 
 	if(!length(access_list) || !islist(access_list))

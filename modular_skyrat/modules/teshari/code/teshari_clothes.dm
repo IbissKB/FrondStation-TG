@@ -83,7 +83,14 @@
 /obj/item/clothing/head/beret
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
 
+<<<<<<< HEAD
 /obj/item/clothing/head/hos/beret
+=======
+/obj/item/clothing/head/beret/badge
+	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
+
+/obj/item/clothing/head/hats/hos/beret
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/sec

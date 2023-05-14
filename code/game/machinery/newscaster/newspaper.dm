@@ -57,7 +57,11 @@
 					temp_page++
 					dat+="<B>[NP.channel_name]</B> <FONT SIZE=2>\[page [temp_page+1]\]</FONT><BR>"
 				dat+="</ul>"
+<<<<<<< HEAD
 			if(scribble_page==curr_page)
+=======
+			if(scribble_page == curr_page)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				dat+="<BR><I>There is a small scribble near the end of this page... It reads: \"[scribble]\"</I>"
 			dat+= "<HR><DIV STYLE='float:right;'><A href='?src=[REF(src)];next_page=1'>Next Page</A></DIV> <div style='float:left;'><A href='?src=[REF(user)];mach_close=newspaper_main'>Done reading</A></DIV>"
 		if(1) // X channel pages inbetween.
@@ -86,13 +90,21 @@
 							dat+="<img src='tmp_photo[i].png' width = '180'><BR>"
 						dat+="<FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.return_author(notContent(MESSAGE.author_censor_time))]</FONT>\]</FONT><BR><BR>"
 					dat+="</ul>"
+<<<<<<< HEAD
 			if(scribble_page==curr_page)
+=======
+			if(scribble_page == curr_page)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				dat+="<BR><I>There is a small scribble near the end of this page... It reads: \"[scribble]\"</I>"
 			dat+= "<BR><HR><DIV STYLE='float:left;'><A href='?src=[REF(src)];prev_page=1'>Previous Page</A></DIV> <DIV STYLE='float:right;'><A href='?src=[REF(src)];next_page=1'>Next Page</A></DIV>"
 		if(2) //Last page
 			for(var/datum/feed_channel/NP in news_content)
 				pages++
+<<<<<<< HEAD
 			if(wantedAuthor!=null)
+=======
+			if(wantedAuthor != null)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				dat+="<DIV STYLE='float:center;'><FONT SIZE=4><B>Wanted Issue:</B></FONT SIZE></DIV><BR><BR>"
 				dat+="<B>Criminal name</B>: <FONT COLOR='maroon'>[wantedCriminal]</FONT><BR>"
 				dat+="<B>Description</B>: [wantedBody]<BR>"
@@ -104,7 +116,11 @@
 					dat+="None"
 			else
 				dat+="<I>Apart from some uninteresting classified ads, there's nothing on this page...</I>"
+<<<<<<< HEAD
 			if(scribble_page==curr_page)
+=======
+			if(scribble_page == curr_page)
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				dat+="<BR><I>There is a small scribble near the end of this page... It reads: \"[scribble]\"</I>"
 			dat+= "<HR><DIV STYLE='float:left;'><A href='?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
 	dat+="<BR><HR><div align='center'>[curr_page+1]</div>"
@@ -166,7 +182,11 @@
 			var/s = tgui_input_text(user, "Write something", "Newspaper")
 			if (!s)
 				return
+<<<<<<< HEAD
 			if(!user.canUseTopic(src, be_close = TRUE))
+=======
+			if(!user.can_perform_action(src))
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 				return
 			scribble_page = curr_page
 			scribble = s

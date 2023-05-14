@@ -13,7 +13,11 @@ function replaceContent() {
 		}
 	}
 	var parent = document.getElementById(id);
+<<<<<<< HEAD
 	if(typeof(parent)!=='undefined' && parent!=null){
+=======
+	if(typeof(parent) !== 'undefined' && parent != null){
+>>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 		parent.innerHTML = content?content:'';
 	}
 	if(callback && window\[callback\]){
