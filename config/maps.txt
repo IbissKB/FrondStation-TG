@@ -13,18 +13,8 @@ Format:
 	votable (is this map votable)
 endmap
 
-<<<<<<< HEAD
 map metastation
 	#default
-=======
-map birdshot
-	#default
-	maxplayers 66
-	votable
-endmap
-
-map metastation
->>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 	minplayers 25
 	#voteweight 0.5
 	votable
@@ -35,13 +25,10 @@ map deltastation
 	votable
 endmap
 
-<<<<<<< HEAD
 map kilostation
 	votable
 endmap
 
-=======
->>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 map icebox
 	minplayers 25
 	votable
@@ -51,15 +38,6 @@ map tramstation
 	minplayers 35
 endmap
 
-<<<<<<< HEAD
-=======
-map northstar
-	minplayers 50
-	votable
-endmap
-
-
->>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 map runtimestation
 endmap
 
@@ -68,14 +46,11 @@ endmap
 
 ##SKYRAT MAPS##
 
-<<<<<<< HEAD
 map blueshift
 	minplayers 50
 	votable
 endmap
 
-=======
->>>>>>> 0211ff308517c3a4c9c8c135f9c218015cfecbb7
 map voidraptor
 	maxplayers 100
 	votable
