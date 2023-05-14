@@ -1,0 +1,7 @@
+###############################################################################################
+# Basically, a list of ckeys who make it past user connection                                 #
+# Case is not important for ckey.                                                             #
+###############################################################################################
+Ibiss
+PK_Sonikal
+Pitzaya
