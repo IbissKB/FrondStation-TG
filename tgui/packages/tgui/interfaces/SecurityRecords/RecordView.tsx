@@ -56,6 +56,7 @@ const RecordInfo = (props, context) => {
     rank,
     species,
     wanted_status,
+    voice,
     // SKYRAT EDIT START - RP Records
     past_general_records,
     past_security_records,
@@ -172,6 +173,9 @@ const RecordInfo = (props, context) => {
                 text={fingerprint}
               />
             </LabeledList.Item>
+            <LabeledList.Item label="Voice">
+              <EditableText field="voice" target_ref={crew_ref} text={voice} />
+            </LabeledList.Item>
             <LabeledList.Item label="Note">
               <EditableText
                 field="security_note"
@@ -181,12 +185,12 @@ const RecordInfo = (props, context) => {
             </LabeledList.Item>
             {/* SKYRAT EDIT START - RP Records (Not pretty but it's there) */}
             <LabeledList.Item label="General Records">
-              <Box wrap maxWidth="100%">
+              <Box wrap maxWidth="100%" preserveWhitespace>
                 {past_general_records || 'N/A'}
               </Box>
             </LabeledList.Item>
             <LabeledList.Item label="Past Security Records">
-              <Box wrap maxWidth="100%">
+              <Box wrap maxWidth="100%" preserveWhitespace>
                 {past_security_records || 'N/A'}
               </Box>
             </LabeledList.Item>

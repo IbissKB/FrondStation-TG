@@ -1,5 +1,5 @@
 // SUIT STORAGE UNIT /////////////////
-/obj/machinery/suit_storage_unit//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/machinery/suit_storage_unit
 	name = "suit storage unit"
 	desc = "An industrial unit made to hold and decontaminate irradiated equipment. It comes with a built-in UV cauterization mechanism. A small warning label advises that organic matter should not be placed into the unit."
 	icon = 'icons/obj/machines/suit_storage.dmi'
@@ -62,7 +62,7 @@
 	var/card_reader_installed = FALSE
 	/// physical reference of the players id card to check for PERSONAL access level
 	var/datum/weakref/id_card = null
-	/// should we prevent furthur access change
+	/// should we prevent further access change
 	var/access_locked = FALSE
 
 /obj/machinery/suit_storage_unit/standard_unit
@@ -138,6 +138,14 @@
 	storage_type = /obj/item/tank/jetpack/oxygen/harness
 	mod_type = /obj/item/mod/control/pre_equipped/nuclear
 
+/obj/machinery/suit_storage_unit/syndicate/lavaland
+	mod_type = /obj/item/mod/control/pre_equipped/nuclear/no_jetpack
+
+/obj/machinery/suit_storage_unit/interdyne
+	mask_type = /obj/item/clothing/mask/gas/syndicate
+	storage_type = /obj/item/tank/jetpack/oxygen/harness
+	mod_type = /obj/item/mod/control/pre_equipped/interdyne
+
 /obj/machinery/suit_storage_unit/void_old
 	suit_type = /obj/item/clothing/suit/space/nasavoid/old
 	helmet_type = /obj/item/clothing/head/helmet/space/nasavoid/old
@@ -151,6 +159,10 @@
 	suit_type = /obj/item/clothing/suit/utility/radiation
 	helmet_type = /obj/item/clothing/head/utility/radiation
 	storage_type = /obj/item/geiger_counter
+
+/obj/machinery/suit_storage_unit/nuke_med
+	suit_type = /obj/item/clothing/suit/space/syndicate/black/med
+	helmet_type = /obj/item/clothing/head/helmet/space/syndicate/black/med
 
 /obj/machinery/suit_storage_unit/open
 	state_open = TRUE
@@ -168,7 +180,7 @@
 	. = ..()
 
 	set_access()
-	wires = new /datum/wires/suit_storage_unit(src)
+	set_wires(new /datum/wires/suit_storage_unit(src))
 	if(suit_type)
 		suit = new suit_type(src)
 	if(helmet_type)

@@ -95,11 +95,11 @@
 	return ..()
 
 /datum/status_effect/golem/get_examine_text()
-	return span_notice("[owner.p_their(capitalized = TRUE)] body has been augmented with veins of [mineral_name].")
+	return span_notice("[owner.p_Their()] body has been augmented with veins of [mineral_name].")
 
 /// Body part overlays applied by golem status effects
 /datum/bodypart_overlay/simple/golem_overlay
-	icon = 'icons/mob/species/golems.dmi'
+	icon = 'icons/mob/human/species/golems.dmi'
 	layers = ALL_EXTERNAL_OVERLAYS
 	///The bodypart that the overlay is currently applied to
 	var/datum/weakref/attached_bodypart
@@ -176,21 +176,21 @@
 	. = ..()
 	if (!.)
 		return FALSE
-	owner.add_traits(list(TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT), TRAIT_STATUS_EFFECT(id))
+	owner.add_traits(list(TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT, TRAIT_ASHSTORM_IMMUNE), TRAIT_STATUS_EFFECT(id))
 	RegisterSignal(owner, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_burned))
 	var/mob/living/carbon/human/human_owner = owner
 	human_owner.physiology.burn_mod *= burn_multiplier
 	return TRUE
 
 /datum/status_effect/golem/plasma/on_remove()
-	owner.remove_traits(list(TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT), TRAIT_STATUS_EFFECT(id))
+	owner.remove_traits(list(TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT, TRAIT_ASHSTORM_IMMUNE), TRAIT_STATUS_EFFECT(id))
 	UnregisterSignal(owner, COMSIG_MOB_APPLY_DAMAGE)
 	var/mob/living/carbon/human/human_owner = owner
 	human_owner.physiology.burn_mod /= burn_multiplier
 	return ..()
 
 /// When we take fire damage (or... technically also cold damage, we don't differentiate), zap a nearby APC
-/datum/status_effect/golem/plasma/proc/on_burned(datum/source, damage, damagetype)
+/datum/status_effect/golem/plasma/proc/on_burned(datum/source, damage, damagetype, ...)
 	SIGNAL_HANDLER
 	if(damagetype != BURN)
 		return
@@ -260,9 +260,9 @@
 	alert_icon_state = "sheet-diamond"
 	alert_desc = "Light is bending around you, making you hard to see while still and faster while moving."
 	/// Alpha to remove per second while stood still
-	var/alpha_per_tick = 25
+	var/alpha_per_tick = 20
 	/// Alpha to apply while moving
-	var/moving_alpha = 150
+	var/moving_alpha = 200
 	/// List of arms we have updated
 	var/list/modified_arms
 
@@ -270,7 +270,7 @@
 	. = ..()
 	if (!.)
 		return FALSE
-	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
+	RegisterSignals(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_THROW, COMSIG_MOB_ATTACK_HAND, COMSIG_MOB_ITEM_ATTACK), PROC_REF(on_reveal))
 	owner.alpha = moving_alpha
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/light_speed)
 
@@ -285,7 +285,7 @@
 	owner.alpha = max(owner.alpha - alpha_per_tick, 0)
 
 /// Reset alpha to starting value
-/datum/status_effect/golem/diamond/proc/on_move()
+/datum/status_effect/golem/diamond/proc/on_reveal()
 	SIGNAL_HANDLER
 	owner.alpha = moving_alpha
 
@@ -295,13 +295,13 @@
 	arm.unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	arm.unarmed_attack_sound = 'sound/weapons/slash.ogg'
 	arm.unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
-	RegisterSignal(arm, COMSIG_PARENT_QDELETING, PROC_REF(on_arm_destroyed))
+	RegisterSignal(arm, COMSIG_QDELETING, PROC_REF(on_arm_destroyed))
 	LAZYADD(modified_arms, arm)
 
 /datum/status_effect/golem/diamond/on_remove()
 	owner.alpha = initial(owner.alpha)
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/light_speed)
-	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_THROW, COMSIG_MOB_ATTACK_HAND, COMSIG_MOB_ITEM_ATTACK))
 	for (var/obj/item/bodypart/arm/arm as anything in modified_arms)
 		reset_arm_fluff(arm)
 	LAZYCLEARLIST(modified_arms)
@@ -315,7 +315,7 @@
 	arm.unarmed_attack_effect = initial(arm.unarmed_attack_effect)
 	arm.unarmed_attack_sound = initial(arm.unarmed_attack_sound)
 	arm.unarmed_miss_sound = initial(arm.unarmed_miss_sound)
-	UnregisterSignal(arm, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(arm, COMSIG_QDELETING)
 
 /// Remove references to deleted arms
 /datum/status_effect/golem/diamond/proc/on_arm_destroyed(obj/item/bodypart/arm/arm)
@@ -343,7 +343,7 @@
 	if (!.)
 		return FALSE
 	var/mob/living/carbon/human/human_owner = owner
-	RegisterSignal(human_owner, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, PROC_REF(on_punched))
+	RegisterSignal(human_owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_punched))
 	human_owner.physiology.brute_mod *= brute_modifier
 	for (var/obj/item/bodypart/arm/arm in human_owner.bodyparts)
 		if (arm.limb_id != SPECIES_GOLEM)
@@ -354,10 +354,10 @@
 /datum/status_effect/golem/titanium/proc/on_punched(mob/living/puncher, atom/punchee, proximity)
 	SIGNAL_HANDLER
 	if (!proximity || !isliving(punchee))
-		return
+		return NONE
 	var/mob/living/victim = punchee
 	if (victim.body_position == LYING_DOWN || (!(FACTION_MINING in victim.faction) && !(FACTION_BOSS in victim.faction)))
-		return
+		return NONE
 	victim.apply_damage(mining_bonus, BRUTE)
 
 /// Make the targeted arm big and strong
@@ -365,12 +365,12 @@
 	arm.unarmed_damage_low += damage_increase
 	arm.unarmed_damage_high += damage_increase
 	arm.unarmed_stun_threshold += damage_increase // We don't want to make knockdown more likely
-	RegisterSignal(arm, COMSIG_PARENT_QDELETING, PROC_REF(on_arm_destroyed))
+	RegisterSignal(arm, COMSIG_QDELETING, PROC_REF(on_arm_destroyed))
 	LAZYADD(modified_arms, arm)
 
 /datum/status_effect/golem/titanium/on_remove()
 	var/mob/living/carbon/human/human_owner = owner
-	UnregisterSignal(human_owner, COMSIG_HUMAN_MELEE_UNARMED_ATTACK)
+	UnregisterSignal(human_owner, COMSIG_LIVING_UNARMED_ATTACK)
 	human_owner.physiology.brute_mod /= brute_modifier
 	for (var/obj/item/bodypart/arm/arm as anything in modified_arms)
 		debuff_arm(arm)
@@ -384,7 +384,7 @@
 	arm.unarmed_damage_low -= damage_increase
 	arm.unarmed_damage_high -= damage_increase
 	arm.unarmed_stun_threshold -= damage_increase
-	UnregisterSignal(arm, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(arm, COMSIG_QDELETING)
 
 /// Remove references to deleted arms
 /datum/status_effect/golem/titanium/proc/on_arm_destroyed(obj/item/bodypart/arm/arm)
@@ -407,7 +407,16 @@
 		return
 	owner.AddElement(/datum/element/waddling)
 	ADD_TRAIT(owner, TRAIT_NO_SLIP_WATER, TRAIT_STATUS_EFFECT(id))
-	slipperiness = owner.AddComponent(/datum/component/slippery, knockdown = 12 SECONDS, lube_flags = NO_SLIP_WHEN_WALKING)
+	slipperiness = owner.AddComponent(\
+		/datum/component/slippery,\
+		knockdown = 12 SECONDS,\
+		lube_flags = NO_SLIP_WHEN_WALKING,\
+		can_slip_callback = CALLBACK(src, PROC_REF(try_slip)),\
+	)
+
+/// Only slip people when we're down on the ground
+/datum/status_effect/golem/bananium/proc/try_slip(mob/living/slipper, mob/living/slippee)
+	return owner.body_position == LYING_DOWN
 
 /datum/status_effect/golem/bananium/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_NO_SLIP_WATER, TRAIT_STATUS_EFFECT(id))

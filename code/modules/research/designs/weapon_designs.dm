@@ -108,7 +108,9 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 	build_path = /obj/item/ammo_box/magazine/wt550m9
-	category = list("Ammo")
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/mag_autorifle/ap_mag
@@ -358,6 +360,20 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT * 2)
 	build_path = /obj/item/ammo_casing/shotgun/stunslug
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/datum/design/lasershell
+	name = "Scatter Laser Shotgun Shell (Lethal)"
+	desc = "A high-tech shotgun shell which houses an internal capacitor and laser focusing crystal inside of a shell casing. \
+		Able to be fired from conventional ballistic shotguns with minimal rifling degradation. Also leaves most targets covered \
+		in grotesque burns."
+	id = "lasershell"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
+	build_path = /obj/item/ammo_casing/shotgun/scatterlaser
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
 	)

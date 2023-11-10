@@ -37,15 +37,12 @@
 	wheels_overlay = image(icon, overlay_icon, ABOVE_MOB_LAYER)
 	ADD_TRAIT(src, TRAIT_NO_IMMOBILIZE, INNATE_TRAIT)
 	AddComponent(/datum/component/simple_rotation) //Since it's technically a chair I want it to have chair properties
+	AddElement(/datum/element/noisy_movement, volume = 75)
 
 /obj/vehicle/ridden/wheelchair/atom_destruction(damage_flag)
 	new /obj/item/stack/rods(drop_location(), 1)
 	new /obj/item/stack/sheet/iron(drop_location(), 1)
 	return ..()
-
-/obj/vehicle/ridden/wheelchair/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
-	. = ..()
-	playsound(src, 'sound/effects/roll.ogg', 75, TRUE)
 
 /obj/vehicle/ridden/wheelchair/post_buckle_mob(mob/living/user)
 	. = ..()
@@ -83,7 +80,7 @@
 ///A reward item for obtaining 5K hardcore random points. Do not use for anything else
 /obj/vehicle/ridden/wheelchair/gold
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_AFFECT_STATISTICS
-	desc = "Damn, he's been through a lot."
+	desc = "Damn, must've been through a lot."
 	icon_state = "gold_wheelchair"
 	overlay_icon = "gold_wheelchair_overlay"
 	max_integrity = 200

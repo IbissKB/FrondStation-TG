@@ -52,11 +52,12 @@
 
 			return .
 
-/obj/item/firing_pin/emag_act(mob/user)
+/obj/item/firing_pin/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
-		return
+		return FALSE
 	obj_flags |= EMAGGED
-	to_chat(user, span_notice("You override the authentication mechanism."))
+	balloon_alert(user, "authentication checks overridden")
+	return TRUE
 
 /obj/item/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
@@ -371,6 +372,17 @@
 	icon_state = "firing_pin_blue"
 	suit_requirement = /obj/item/clothing/suit/bluetag
 	tagcolor = "blue"
+
+/obj/item/firing_pin/monkey
+	name = "monkeylock firing pin"
+	desc = "This firing pin prevents non-monkeys from firing a gun."
+	fail_message = "not a monkey!"
+
+/obj/item/firing_pin/monkey/pin_auth(mob/living/user)
+	if(!is_simian(user))
+		playsound(get_turf(src), "sound/creatures/monkey/monkey_screech_[rand(1,7)].ogg", 75, TRUE)
+		return FALSE
+	return TRUE
 
 /obj/item/firing_pin/Destroy()
 	if(gun)

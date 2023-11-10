@@ -75,7 +75,7 @@
 	if(holder)
 		holder_movement() //sync the dir of the device as well if it's contained in a TTV or an assembly holder
 	else
-		refreshBeam()
+		INVOKE_ASYNC(src, PROC_REF(refreshBeam))
 
 /obj/item/assembly/infra/process()
 	if(!on || !secured)
@@ -113,7 +113,8 @@
 			beams += I
 			I.master = src
 			I.setDir(_dir)
-			I.invisibility = visible? 0 : INVISIBILITY_ABSTRACT
+			if(!visible)
+				I.SetInvisibility(INVISIBILITY_ABSTRACT)
 			T = _T
 			_T = get_step(_T, _dir)
 			CHECK_TICK

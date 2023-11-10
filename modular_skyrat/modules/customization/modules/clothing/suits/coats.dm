@@ -22,10 +22,10 @@
 	wound = 3
 
 /obj/item/clothing/suit/flakjack
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	name = "flak jacket"
 	desc = "A dilapidated jacket made of a supposedly bullet-proof material (Hint: It isn't.). Smells faintly of napalm."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "flakjack"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
@@ -40,8 +40,6 @@
 	acid = -15
 
 /obj/item/clothing/suit/hooded/cloak/david
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	name = "red cloak"
 	icon_state = "goliath_cloak"
 	desc = "Ever wanted to look like a badass without ANY effort? Try this nanotrasen brand red cloak, made of entirely synthetic material."
@@ -208,3 +206,15 @@
 	greyscale_config = /datum/greyscale_config/tailored_short_jacket
 	greyscale_config_worn = /datum/greyscale_config/tailored_short_jacket/worn
 	greyscale_colors = "#8c8c8c#8c8c8c#8c8c8c#bf9f78#8c8c8c#8c8c8c#bf9f78#8c8c8c"
+
+/obj/item/clothing/suit/warm_coat
+	name = "warm coat"
+	desc = "A long insulated coat with fur, it looks quite comfortable."
+	icon_state = "warm_coat"
+	greyscale_config = /datum/greyscale_config/warm_coat
+	greyscale_config_worn = /datum/greyscale_config/warm_coat/worn
+	greyscale_colors = "#7a5f4f#d9cec7"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	cold_protection = CHEST|GROIN|ARMS
+	body_parts_covered = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT

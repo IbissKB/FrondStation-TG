@@ -55,8 +55,8 @@
 
 /obj/structure/closet/secure_closet/psychology/PopulateContents()
 	..()
-	new /obj/item/clothing/under/suit/black(src)
-	new /obj/item/clothing/under/suit/black/skirt(src)
+	new /obj/item/clothing/under/costume/buttondown/slacks/service(src)
+	new /obj/item/clothing/under/costume/buttondown/skirt/service(src)
 	new /obj/item/clothing/neck/tie/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/storage/backpack/medic(src)
@@ -93,6 +93,7 @@
 	new /obj/item/circuitboard/machine/techfab/department/medical(src)
 	new /obj/item/storage/photo_album/cmo(src)
 	new /obj/item/storage/lockbox/medal/med(src)
+	new /obj/item/card/id/departmental_budget/med(src) //SKYRAT EDIT ADDITION
 
 /obj/structure/closet/secure_closet/chief_medical/populate_contents_immediate()
 	. = ..()

@@ -99,7 +99,7 @@
 
 /obj/machinery/syndicatebomb/Initialize(mapload)
 	. = ..()
-	wires = new /datum/wires/syndicatebomb(src)
+	set_wires(new /datum/wires/syndicatebomb(src))
 	if(payload)
 		payload = new payload(src)
 	update_appearance()
@@ -183,11 +183,11 @@
 	if(payload || !wires.is_all_cut() || !open_panel)
 		return FALSE
 
-	if(!tool.tool_start_check(user, amount=5))  //uses up 5 fuel
+	if(!tool.tool_start_check(user, amount=1))
 		return TRUE
 
 	to_chat(user, span_notice("You start to cut [src] apart..."))
-	if(tool.use_tool(src, user, 20, volume=50, amount=5)) // uses up 5 fuel
+	if(tool.use_tool(src, user, 20, volume=50))
 		to_chat(user, span_notice("You cut [src] apart."))
 		new /obj/item/stack/sheet/plasteel(loc, 5)
 		qdel(src)
@@ -251,7 +251,12 @@
 	if(isnull(payload) || istype(payload, /obj/machinery/syndicatebomb/training))
 		return
 
-	notify_ghosts("\A [src] has been activated at [get_area(src)]!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Bomb Planted")
+	notify_ghosts(
+		"\A [src] has been activated at [get_area(src)]!",
+		source = src,
+		action = NOTIFY_ORBIT,
+		header = "Bomb Planted",
+	)
 	user.add_mob_memory(/datum/memory/bomb_planted/syndicate, antagonist = src)
 	log_bomber(user, "has primed a", src, "for detonation (Payload: [payload.name])")
 	payload.adminlog = "The [name] that [key_name(user)] had primed detonated!"
@@ -409,12 +414,14 @@
 
 /obj/item/bombcore/badmin/summon/detonate()
 	var/obj/machinery/syndicatebomb/B = loc
-	spawn_and_random_walk(summon_path, src, amt_summon, walk_chance=50, admin_spawn=TRUE)
+	spawn_and_random_walk(summon_path, src, amt_summon, walk_chance=50, admin_spawn=TRUE, cardinals_only = FALSE)
 	qdel(B)
 	qdel(src)
 
 /obj/item/bombcore/badmin/summon/clown
-	summon_path = /mob/living/simple_animal/hostile/retaliate/clown
+	name = "bananium payload"
+	desc = "Clowns delivered fast and cheap!"
+	summon_path = /mob/living/basic/clown
 	amt_summon = 50
 
 /obj/item/bombcore/badmin/summon/clown/defuse()
@@ -595,7 +602,7 @@
 
 /obj/item/syndicatedetonator/attack_self(mob/user)
 	if(timer < world.time)
-		for(var/obj/machinery/syndicatebomb/B in GLOB.machines)
+		for(var/obj/machinery/syndicatebomb/B as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/syndicatebomb))
 			if(B.active)
 				B.detonation_timer = world.time + BUTTON_DELAY
 				detonated++

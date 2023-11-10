@@ -1,7 +1,7 @@
 // Add modular crafting recipes here, NOT IN BASE /tg/ CRAFTING LISTS
 
 /**
- * Add a list of receipes to an existing recipe sublist.
+ * Add a list of recipes to an existing recipe sublist.
  *
  * Arguments:
  * * stack_recipes - the existing list of stack recipes.
@@ -21,9 +21,9 @@
 // Iron
 
 GLOBAL_LIST_INIT(skyrat_metal_recipes, list(
-	new/datum/stack_recipe("pool floor tile", /obj/item/stack/tile/iron/pool, 1, 1, 4, check_density = FALSE, category = CAT_TILES),
-	new/datum/stack_recipe("lowered floor tile", /obj/item/stack/tile/iron/lowered, 1, 1, 4, check_density = FALSE, category = CAT_TILES),
-	new/datum/stack_recipe("elevated floor tile", /obj/item/stack/tile/iron/elevated, 1, 1, 4, check_density = FALSE, category = CAT_TILES),
+	new/datum/stack_recipe("pool floor tile", /obj/item/stack/tile/iron/pool, 1, 4, 20, check_density = FALSE, category = CAT_TILES),
+	new/datum/stack_recipe("lowered floor tile", /obj/item/stack/tile/iron/lowered, 1, 4, 20, check_density = FALSE, category = CAT_TILES),
+	new/datum/stack_recipe("elevated floor tile", /obj/item/stack/tile/iron/elevated, 1, 4, 20, check_density = FALSE, category = CAT_TILES),
 	new/datum/stack_recipe("wrestling turnbuckle", /obj/structure/wrestling_corner, 3, time = 2.5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("metal barricade", /obj/structure/deployable_barricade/metal, 2, time = 1 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("anvil", /obj/structure/reagent_anvil, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
@@ -57,6 +57,7 @@ GLOBAL_LIST_INIT(skyrat_rod_recipes, list(
 	new/datum/stack_recipe("towel bin", /obj/structure/towel_bin/empty, 2, time = 0.5 SECONDS, one_per_turf = FALSE, check_density = FALSE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("guard rail", /obj/structure/deployable_barricade/guardrail, 2, time = 1 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("wrestling ropes", /obj/structure/railing/wrestling, 3, time = 1.8 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, check_density = FALSE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("crutch", /obj/item/cane/crutch, 3, time = 10, one_per_turf = FALSE, category = CAT_TOOLS),
 ))
 
 /obj/item/stack/rods/get_main_recipes()
@@ -72,6 +73,9 @@ GLOBAL_LIST_INIT(skyrat_wood_recipes, list(
 	new/datum/stack_recipe("sauna oven", /obj/structure/sauna_oven, 30, time = 1.5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_ENTERTAINMENT),
 	new/datum/stack_recipe("large wooden mortar", /obj/structure/large_mortar, 10, time = 3 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 	new/datum/stack_recipe("wooden cutting board", /obj/item/cutting_board, 5, time = 2 SECONDS, check_density = FALSE, category = CAT_TOOLS),
+	new/datum/stack_recipe("wooden shelf", /obj/structure/rack/wooden, 2, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("storage barrel", /obj/structure/closet/crate/wooden/storage_barrel, 4, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("worm barrel", /obj/structure/wormfarm, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 ))
 
 /obj/item/stack/sheet/mineral/wood/get_main_recipes()
@@ -101,6 +105,7 @@ GLOBAL_LIST_INIT(skyrat_leather_belt_recipes, list(
 	new/datum/stack_recipe("xenoarch belt", /obj/item/storage/belt/utility/xenoarch, 4, check_density = FALSE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("medical bandolier", /obj/item/storage/belt/medbandolier, 5, check_density = FALSE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("gear harness", /obj/item/clothing/under/misc/skyrat/gear_harness, 6, check_density = FALSE, category = CAT_CLOTHING),
+	new/datum/stack_recipe("ammo pouch", /obj/item/storage/pouch/ammo, 4, check_density = FALSE, category = CAT_CONTAINERS),
 ))
 
 /obj/item/stack/sheet/leather/get_main_recipes()
@@ -127,3 +132,13 @@ GLOBAL_LIST_INIT(skyrat_snow_recipes, list(
 /obj/item/stack/sheet/mineral/snow/get_main_recipes()
 	. = ..()
 	. += GLOB.skyrat_snow_recipes
+
+// Sand
+
+GLOBAL_LIST_INIT(skyrat_sand_recipes, list(
+	new/datum/stack_recipe("ant farm", /obj/structure/antfarm, 20, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
+))
+
+/obj/item/stack/ore/glass/get_main_recipes()
+	. = ..()
+	. += GLOB.skyrat_sand_recipes
